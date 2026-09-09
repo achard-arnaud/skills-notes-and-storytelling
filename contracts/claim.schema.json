@@ -1,0 +1,20 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"Claim",
+  "type":"object",
+  "required":["id","statement","claim_type","fragment_ids","decision_relevance"],
+  "properties":{
+    "id":{"type":"string"},
+    "statement":{"type":"string","minLength":1},
+    "claim_type":{"enum":["fact","inference","hypothesis","recommendation","unknown"]},
+    "fragment_ids":{"type":"array","items":{"type":"string"},"minItems":1},
+    "decision_relevance":{"type":"number","minimum":0,"maximum":5},
+    "evidence_strength":{"type":"number","minimum":0,"maximum":5},
+    "explanatory_power":{"type":"number","minimum":0,"maximum":5},
+    "novelty":{"type":"number","minimum":0,"maximum":5},
+    "audience_fit":{"type":"number","minimum":0,"maximum":5},
+    "hard_gate":{"enum":["pass","open","fail","not_applicable"]},
+    "falsifier":{"type":["string","null"]}
+  },
+  "additionalProperties":false
+}

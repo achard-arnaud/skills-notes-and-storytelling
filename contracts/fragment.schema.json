@@ -1,0 +1,17 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"ResearchFragment",
+  "type":"object",
+  "required":["id","source_id","content","evidence_status"],
+  "properties":{
+    "id":{"type":"string"},
+    "source_id":{"type":"string"},
+    "source_locator":{"type":"string"},
+    "content":{"type":"string","minLength":1},
+    "evidence_status":{"enum":["verified","vendor_claim","inference","hypothesis","unknown"]},
+    "observed_at":{"type":["string","null"]},
+    "confidence":{"type":"number","minimum":0,"maximum":1},
+    "tags":{"type":"array","items":{"type":"string"}}
+  },
+  "additionalProperties":false
+}
