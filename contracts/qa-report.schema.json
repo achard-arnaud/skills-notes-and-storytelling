@@ -1,0 +1,17 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"DocumentQAReport",
+  "type":"object",
+  "required":["content_contract","source_contract","style_contract","diagram_contract","docx_visual_contract","passed"],
+  "properties":{
+    "content_contract":{"type":"boolean"},
+    "source_contract":{"type":"boolean"},
+    "style_contract":{"type":"boolean"},
+    "diagram_contract":{"type":"boolean"},
+    "docx_visual_contract":{"type":"boolean"},
+    "pages_inspected":{"type":"integer","minimum":1},
+    "defects":{"type":"array","items":{"type":"string"}},
+    "passed":{"type":"boolean"}
+  },
+  "additionalProperties":false
+}
