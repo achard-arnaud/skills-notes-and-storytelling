@@ -1,9 +1,10 @@
 # Governed writing workflow
 
-## State machine
+## Common state machine
 
 ```text
-RESEARCHED
+MODE_SELECTED
+→ RESEARCHED
 → FRAGMENTED
 → CLAIMS_GRAPHED
 → RERANKED
@@ -15,6 +16,7 @@ RESEARCHED
 → DOCX_QA_PASSED
 → DELIVERED
 → NUDGED
+→ FEEDBACK_CAPTURED (optional)
 → DREAMING_CANDIDATE (optional)
 ```
 
@@ -22,6 +24,7 @@ Each transition has an input contract, output contract and stop condition.
 
 | Stage | Required input | Output | Gate |
 |---|---|---|---|
+| Mode selection | request + existing artifacts | mode declaration | baseline/new-work status explicit |
 | Research | decision question + scope | source ledger | sources sufficient or limits stated |
 | Fragments | source ledger | atomic fragments | one idea/evidence unit per fragment |
 | Claims graph light | fragments | claims + typed edges | every claim has lineage |
@@ -30,14 +33,36 @@ Each transition has an input contract, output contract and stop condition.
 | Fill | scaffold + fragments | prose/bullets/tables | no unsupported material assertion |
 | Side stories | coherent trunk | routed side stories | detours bounded + return anchor |
 | Sourcing | complete draft | source-complete draft | material claims traceable |
-| Layout | content spec | DOCX-ready spec | template contract satisfied |
+| Layout | content spec | DOCX-ready spec | template/version contract satisfied |
 | DOCX QA | DOCX | QA report | every page visually clean |
 | Nudging | delivered decision | next-step set | bounded, decision-relevant follow-ups |
-| Dreaming | run + QA deltas | candidate template patch | human promotion required |
+| Feedback | output + human/QA delta | feedback ledger | reusable vs case-specific separated |
+| Dreaming | feedback ledger + fixtures | candidate patch | human promotion required |
+
+## Mode-specific preflight
+
+### From scratch
+Start with a blank decision spine. Every material statement must flow from sourced fragments into claims before it reaches the scaffold.
+
+### Iterative
+Resolve a canonical baseline before research. Record:
+- accepted content;
+- accepted evidence status;
+- accepted layout/template version;
+- requested delta;
+- **form-global changes** that make an entire section or document span review-eligible.
+
+An iterative run preserves accepted material outside the declared review scope and reruns regression QA on the full final document. A form-global style/storytelling change may legitimately reopen every paragraph in scope while preserving its factual approval.
+
+### Feedback / dreaming
+Runs after delivery or after repeated QA/manual corrections. It updates the **system**, not the business conclusion. Candidate improvements require a fixture and a versioned delta note.
+
+### Retro-engineering
+See [references/modes.md](modes.md). This mode is documented as TODO and excluded from production routing until its tests and contracts exist.
 
 ## Claims graph light
 
-Use a lightweight graph, not a full ontology.
+Use a lightweight graph.
 
 Node types:
 - `fragment`
@@ -56,7 +81,7 @@ Edge types:
 - `answers`
 - `motivates`
 
-The graph exists to improve retrieval, deduplication, bridge detection and reranking. It remains small enough to inspect manually.
+The graph improves retrieval, deduplication, bridge detection, reranking and side-story placement. It remains small enough for manual inspection.
 
 ## Reranking
 
@@ -67,11 +92,11 @@ Default score dimensions, each 0–5:
 - novelty / non-redundancy: 15%
 - audience fit: 10%
 
-Treat the score as a prioritization heuristic. Preserve explicit hard gates for contradictions, weak evidence and critical unknowns.
+The score is a prioritization heuristic. Hard gates for contradictions, weak evidence and critical unknowns remain outside the weighted score.
 
 ## Scaffold rule
 
-Draft headings and payload type before prose.
+Define headings and payload type before prose.
 
 For each section define:
 - question answered;
@@ -83,13 +108,15 @@ For each section define:
 
 ## Final QA sequence
 
-1. content-contract QA;
-2. source QA;
-3. stylistic lint;
-4. diagram-fit check;
-5. DOCX render;
-6. inspect every page at 100%;
-7. fix overlap/clipping/density/table widths;
-8. rerender;
-9. confirm contract compliance;
-10. deliver.
+1. mode/baseline QA;
+2. content-contract QA;
+3. source QA;
+4. stylistic lint;
+5. diagram-fit check;
+6. DOCX render;
+7. inspect every page at 100%;
+8. fix overlap/clipping/density/table widths;
+9. rerender;
+10. confirm template + fixture version compatibility;
+11. deliver;
+12. capture reusable feedback for dreaming.
