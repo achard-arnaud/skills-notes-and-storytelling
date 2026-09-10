@@ -120,6 +120,23 @@
       ],
       "qa_fixture": "examples/opportunity-note-icp-v1.md",
       "qa_fixture_version": "1.0.0"
+    },
+    {
+      "type": "debrief-360",
+      "version": "0.1.0",
+      "lifecycle": "candidate",
+      "orientation": "portrait",
+      "page_range": [
+        5,
+        8
+      ],
+      "supported_modes": [
+        "from-scratch",
+        "iterative",
+        "feedback-dreaming"
+      ],
+      "qa_fixture": "examples/debrief-360-v0.md",
+      "qa_fixture_version": "0.1.0"
     }
   ]
-}
+}\n
