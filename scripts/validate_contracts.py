@@ -34,6 +34,33 @@ def check_semver(v, label):
     if not SEMVER.match(v):
         raise SystemExit(f"invalid semver for {label}: {v}")
 
+def check_template_enums(enum_types):
+    """Require every schema that declares template_type to match the canonical enum."""
+    for path in sorted((ROOT / "contracts").glob("*.schema.json")):
+        schema = json.loads(path.read_text())
+        template_type = schema.get("properties", {}).get("template_type")
+        if template_type is None:
+            continue
+        schema_types = set(template_type.get("enum", []))
+        if schema_types != enum_types:
+            raise SystemExit(
+                f"template enum/schema mismatch in {path.relative_to(ROOT)} "
+                f"missing={sorted(enum_types - schema_types)} extra={sorted(schema_types - enum_types)}"
+            )
+
+def check_docx_runtime_interface():
+    path = ROOT / "contracts/docx-runtime-interface.schema.json"
+    if not path.exists():
+        raise SystemExit("missing DOCX runtime interface contract")
+    schema = json.loads(path.read_text())
+    properties = schema.get("properties", {})
+    if schema.get("required") != ["input", "output"]:
+        raise SystemExit("DOCX runtime interface must require input and output")
+    if properties.get("input", {}).get("$ref") != "output-spec.schema.json":
+        raise SystemExit("DOCX runtime input must reference output-spec.schema.json")
+    if properties.get("output", {}).get("$ref") != "qa-report.schema.json":
+        raise SystemExit("DOCX runtime output must reference qa-report.schema.json")
+
 def main():
     manifest = load_json("templates/manifest.json")
     workflow_version = manifest["workflow_version"]
@@ -45,6 +72,8 @@ def main():
     extra = manifest_types - enum_types
     if missing or extra:
         raise SystemExit(f"template enum/manifest mismatch missing={sorted(missing)} extra={sorted(extra)}")
+    check_template_enums(enum_types)
+    check_docx_runtime_interface()
 
     valid_template_lifecycle = {"candidate", "validated", "promoted", "retired"}
     mode_enum = {x.value for x in GenerationMode}
