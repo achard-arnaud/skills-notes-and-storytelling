@@ -104,3 +104,4 @@ For `BUY_SIDE_GAP_ANALYSIS`:
 - `callback`: returns to purchase or replacement decision.
 
 Side stories must never upgrade conjecture into fact.
+\n## Debrief 360 coaching kinds\n\nFor `DEBRIEF_360`, the following additional kinds are available:\n- `posture_tip` — one reusable behavioral cue tied to an observed pattern;\n- `strong_point` — a behavior to preserve and its business effect;\n- `priority_highlight` — the one issue with disproportionate outcome impact;\n- `missed_opportunity` — a bounded moment where a different question or close could have improved the result;\n- `latent_signal` — an intention hypothesis with alternative readings and a disconfirming test.\n\nAutomatic meeting notes can support themes and attributed topics, but not claims about tone, interruption, pace, body language or exact speaking-time balance. Coaching side stories interpret evidence; they never invent events or intentions.\n
