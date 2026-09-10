@@ -1,24 +1,73 @@
 {
-  "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "title":"DocumentScaffold",
-  "type":"object",
-  "required":["template_type","decision","sections"],
-  "properties":{
-    "template_type":{"enum":["architecture-note","one-pager","two-pager","benchmarking","buy-side-gap-analysis"]},
-    "decision":{"type":"string"},
-    "sections":{"type":"array","items":{
-      "type":"object",
-      "required":["id","question","claim_ids","payload"],
-      "properties":{
-        "id":{"type":"string"},
-        "question":{"type":"string"},
-        "claim_ids":{"type":"array","items":{"type":"string"}},
-        "payload":{"enum":["prose","bullets","table","diagram","mixed"]},
-        "source_coverage_target":{"type":"number","minimum":0,"maximum":1},
-        "max_density_words":{"type":"integer","minimum":20}
-      },
-      "additionalProperties":false
-    }}
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DocumentScaffold",
+  "type": "object",
+  "required": [
+    "template_type",
+    "decision",
+    "sections"
+  ],
+  "properties": {
+    "template_type": {
+      "enum": [
+        "architecture-note",
+        "one-pager",
+        "two-pager",
+        "benchmarking",
+        "buy-side-gap-analysis",
+        "diagnostic-reco-sellside",
+        "opportunity-note-icp",
+        "debrief-360"
+      ]
+    },
+    "decision": {
+      "type": "string"
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "question",
+          "claim_ids",
+          "payload"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "question": {
+            "type": "string"
+          },
+          "claim_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "payload": {
+            "enum": [
+              "prose",
+              "bullets",
+              "table",
+              "diagram",
+              "mixed"
+            ]
+          },
+          "source_coverage_target": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "max_density_words": {
+            "type": "integer",
+            "minimum": 20
+          }
+        },
+        "additionalProperties": false
+      }
+    }
   },
-  "additionalProperties":false
+  "additionalProperties": false
 }

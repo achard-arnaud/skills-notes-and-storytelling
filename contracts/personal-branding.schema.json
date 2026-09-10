@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PersonalBrandingRegistry",
+  "type": "object",
+  "required": ["schema_version", "default_profile", "profiles", "provenance"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "default_profile": {"type": "string", "minLength": 1},
+    "profiles": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "required": ["display_name", "headline", "themes", "profile_url"],
+        "properties": {
+          "display_name": {"type": "string"},
+          "headline": {"type": "string"},
+          "organization": {"type": "string"},
+          "capacity": {"type": "string"},
+          "themes": {"type": "array", "items": {"type": "string"}, "maxItems": 6},
+          "profile_label": {"type": "string"},
+          "profile_url": {"type": "string", "format": "uri"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["label", "url"],
+      "properties": {
+        "label": {"type": "string"},
+        "url": {"type": "string", "format": "uri"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

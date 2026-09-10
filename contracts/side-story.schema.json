@@ -1,18 +1,69 @@
 {
-  "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "title":"BusinessSideStory",
-  "type":"object",
-  "required":["id","kind","purpose","claim_ids","section_anchor","return_to","evidence_status"],
-  "properties":{
-    "id":{"type":"string"},
-    "kind":{"enum":["dezoom","method","false_lead","comparator","analytical_focus","callback"]},
-    "purpose":{"type":"string"},
-    "claim_ids":{"type":"array","items":{"type":"string"},"minItems":1},
-    "section_anchor":{"type":"string"},
-    "return_to":{"type":["string","null"]},
-    "evidence_status":{"enum":["verified","vendor_claim","inference","hypothesis","unknown"]},
-    "body":{"type":"string"},
-    "takeaway":{"type":"string"}
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BusinessSideStory",
+  "type": "object",
+  "required": [
+    "id",
+    "kind",
+    "purpose",
+    "claim_ids",
+    "section_anchor",
+    "return_to",
+    "evidence_status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "dezoom",
+        "method",
+        "false_lead",
+        "comparator",
+        "analytical_focus",
+        "callback",
+        "posture_tip",
+        "strong_point",
+        "priority_highlight",
+        "missed_opportunity",
+        "latent_signal"
+      ]
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "claim_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "section_anchor": {
+      "type": "string"
+    },
+    "return_to": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evidence_status": {
+      "enum": [
+        "verified",
+        "vendor_claim",
+        "inference",
+        "hypothesis",
+        "unknown"
+      ]
+    },
+    "body": {
+      "type": "string"
+    },
+    "takeaway": {
+      "type": "string"
+    }
   },
-  "additionalProperties":false
+  "additionalProperties": false
 }
