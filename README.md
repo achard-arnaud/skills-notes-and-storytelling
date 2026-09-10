@@ -21,17 +21,19 @@ Reusable skill for evidence-grounded decision notes, architecture notes, one-pag
 | `feedback-dreaming` | validated | Convert human feedback / QA deltas into candidate system upgrades |
 | `retro-engineering` | **TODO** | Reverse-infer a template from a supplied document; vision-first, OCR fallback |
 
-## Template catalog
+## Choose the note format
 
-| Template | Version | Status |
-|---|---:|---|
-| `architecture-note` | 1.1.0 | validated |
-| `one-pager` | 1.0.0 | validated |
-| `two-pager` | 1.1.0 | validated |
-| `benchmarking` | 0.2.0 | candidate |
-| `buy-side-gap-analysis` | 0.2.0 | candidate |
-| `diagnostic-reco-sellside` | 1.0.0 | validated |
-| `opportunity-note-icp` | 1.0.0 | validated |
+| Template | Reader / decision | Pages | Orientation | Status |
+|---|---|---:|---|---|
+| `architecture-note` | Technical or business sponsor: understand architecture, scale, risks and economics | 5–10 | portrait | validated |
+| `one-pager` | Executive reader: gain rapid orientation on one decision | 1 | adaptive | validated |
+| `two-pager` | Sponsor or prospect: assess a company, product, person or compact strategy | 2 | landscape | validated |
+| `benchmarking` | Decision group: compare options consistently | 2–6 | landscape | candidate |
+| `buy-side-gap-analysis` | Buyer: adopt, replace, complement or partner | 4–8 | adaptive | candidate |
+| `diagnostic-reco-sellside` | Founder / commercial leader: improve positioning and sales motion | 5–9 | portrait | validated |
+| `opportunity-note-icp` | Seller / partner lead: decide whether one target is credible | 4–8 | portrait | validated |
+
+Read [the detailed template catalog](references/template-catalog.md) only after choosing the format.
 
 ## Core pipeline
 
@@ -76,4 +78,4 @@ feature branch
 → fast-forward dev to main
 ```
 
-Every new `.doc` / `.docx` decision note uses this skill together with the runtime DOCX creation/editing skill and the final render-and-inspect gate.
+Every new `.doc` / `.docx` decision note uses this skill together with the runtime DOCX creation/editing skill and the final render-and-inspect gate. Their boundary is versioned in [the DOCX runtime interface contract](contracts/docx-runtime-interface.schema.json): a layout-ready output specification goes in; a visual QA report comes back.
