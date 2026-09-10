@@ -1,8 +1,9 @@
 ---
 template_type: diagnostic-reco-sellside
-template_version: 1.1.0
-fixture_version: 1.1.0
-workflow_version: 1.1.0
+template_version: 1.2.0
+fixture_version: 1.2.0
+workflow_version: 1.2.0
+output_language: en
 ---
 
 # Diagnostic/reco sell-side regression fixture
@@ -18,6 +19,8 @@ Checks:
 - business-model benchmark separates land unit, scale unit, consumption/capacity and services;
 - at least two bounded commercial model options are derived from the benchmark rather than copied wholesale;
 - packaging/pricing and land-expand path explicit;
-- recommendations include action, metric and falsifier;
+- recommendations include rationale, evidence, validation question and falsifier;
+- no 30/60/90 implementation roadmap appears inside the analysis template;
+- ICP uses problem, maturity, workflow, technical, organization, economics and timing dimensions;
 - comparator side story harvests a superior commercial mechanism without copying unrelated positioning;
 - analytical focus identifies category convergence when multiple incumbents can claim agentic orchestration.
