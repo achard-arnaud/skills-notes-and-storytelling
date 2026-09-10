@@ -1,17 +1,66 @@
 {
-  "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "title":"DocumentQAReport",
-  "type":"object",
-  "required":["content_contract","source_contract","style_contract","diagram_contract","docx_visual_contract","passed"],
-  "properties":{
-    "content_contract":{"type":"boolean"},
-    "source_contract":{"type":"boolean"},
-    "style_contract":{"type":"boolean"},
-    "diagram_contract":{"type":"boolean"},
-    "docx_visual_contract":{"type":"boolean"},
-    "pages_inspected":{"type":"integer","minimum":1},
-    "defects":{"type":"array","items":{"type":"string"}},
-    "passed":{"type":"boolean"}
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DocumentQAReport",
+  "type": "object",
+  "required": [
+    "output_language",
+    "content_contract",
+    "source_contract",
+    "language_contract",
+    "jargon_contract",
+    "style_contract",
+    "diagram_contract",
+    "docx_visual_contract",
+    "analysis_boundary_contract",
+    "passed"
+  ],
+  "properties": {
+    "output_language": {
+      "type": "string"
+    },
+    "content_contract": {
+      "type": "boolean"
+    },
+    "source_contract": {
+      "type": "boolean"
+    },
+    "language_contract": {
+      "type": "boolean"
+    },
+    "jargon_contract": {
+      "type": "boolean"
+    },
+    "style_contract": {
+      "type": "boolean"
+    },
+    "diagram_contract": {
+      "type": "boolean"
+    },
+    "docx_visual_contract": {
+      "type": "boolean"
+    },
+    "analysis_boundary_contract": {
+      "type": "boolean"
+    },
+    "pages_inspected": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "language_lint_findings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "defects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "passed": {
+      "type": "boolean"
+    }
   },
-  "additionalProperties":false
+  "additionalProperties": false
 }
