@@ -94,6 +94,10 @@ Default score dimensions, each 0–5:
 
 The score is a prioritization heuristic. Hard gates for contradictions, weak evidence and critical unknowns remain outside the weighted score.
 
+### Calibration example
+
+For a claim scored `4 / 5 / 3 / 5 / 4` in that order, the weighted score is `(4×0.30) + (5×0.25) + (3×0.20) + (5×0.15) + (4×0.10) = 4.20 / 5`. It may be prioritized only if it also clears the evidence and contradiction gates. The weights express a default ordering of attention, not measured predictive precision; tune them only from reviewed runs and record the resulting fixture delta.
+
 ## Scaffold rule
 
 Define headings and payload type before prose.
