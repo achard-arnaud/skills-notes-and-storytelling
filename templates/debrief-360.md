@@ -59,6 +59,8 @@ Use the smallest framework that changes the decision. Never name a framework mer
 9. Ghost deck action titles.
 10. Evidence boundaries and sources.
 
+Render enumerations of three or more items as bullets. Use numbers only when order or priority changes meaning.
+
 Each heading states the insight or action, not the topic.
 
 ## Side stories
