@@ -4,7 +4,7 @@
   "type":"object",
   "required":["template_type","title","sections","sources","diagrams"],
   "properties":{
-    "template_type":{"enum":["architecture-note","one-pager","two-pager","benchmarking","buy-side-gap-analysis"]},
+    "template_type":{"enum":["architecture-note","one-pager","two-pager","benchmarking","buy-side-gap-analysis","diagnostic-reco-sellside","opportunity-note-icp"]},
     "title":{"type":"string"},
     "sections":{"type":"array","items":{"type":"object"}},
     "sources":{"type":"array","items":{"type":"object","required":["id","title","url"],"properties":{"id":{"type":"string"},"title":{"type":"string"},"url":{"type":"string"},"date":{"type":["string","null"]}}}},
