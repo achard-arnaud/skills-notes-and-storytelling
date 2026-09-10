@@ -1,6 +1,6 @@
 ---
 name: decision-notes-and-storytelling
-description: Create, revise, or industrialize evidence-grounded .doc/.docx business notes, architecture notes, one-pagers, two-pagers, benchmarks, buy-side gap analyses, sell-side diagnostic/recommendation notes, and ICP opportunity notes. Own the research-to-claims-to-storytelling workflow, generation mode, template selection, side-story routing, sourcing gates, next-step nudging, and human-reviewed template learning. Always pair with the runtime DOCX creation/editing skill for rendering and visual QA.
+description: Create, revise, or industrialize evidence-grounded .doc/.docx business notes, architecture notes, one-pagers, two-pagers, benchmarks, buy-side gap analyses, sell-side diagnostic/recommendation notes, ICP opportunity notes, and post-call 360 business/coaching debriefs. Own the research-to-claims-to-storytelling workflow, generation mode, template selection, side-story routing, sourcing gates, next-step nudging, and human-reviewed template learning. Always pair with the runtime DOCX creation/editing skill for rendering and visual QA.
 ---
 
 # Decision Notes & Storytelling
@@ -30,7 +30,7 @@ Select exactly one value from `OutputTemplateType` in `src/template_types.py`:
 - `BENCHMARKING`
 - `BUY_SIDE_GAP_ANALYSIS`
 - `DIAGNOSTIC_RECO_SELL_SIDE`
-- `OPPORTUNITY_NOTE_ICP`
+- `OPPORTUNITY_NOTE_ICP`\n- `DEBRIEF_360`
 
 Every template is versioned in `templates/manifest.json` together with its QA fixture and compatible workflow version. Read [references/versioning-and-lifecycle.md](references/versioning-and-lifecycle.md).
 
@@ -101,7 +101,7 @@ Use when advising a vendor/founder on how to package, position, sell and expand 
 ### OPPORTUNITY_NOTE_ICP
 Use when deciding whether a concrete target account, partner or internal platform is a plausible opportunity for an offer. Keep target reality and product truth separate, apply hard gates, map capability gaps to product outcomes, identify sponsor/terrain/veto hypotheses and end with a reversible validation step.
 
-## Feedback / dreaming
+### DEBRIEF_360\nUse after a meaningful business call when preparation artifacts and meeting evidence must be reconciled into a sharp business debrief, posture coaching and a bounded next move. Read [references/debrief-360.md](references/debrief-360.md). Select one primary McKinsey framework only when it changes the decision. Build action-title ghost deck first. Treat counterparty intentions as hypotheses and keep automatic-note posture findings provisional until a transcript or recording supports them.\n\n## Feedback / dreaming
 
 Read [references/dreaming-self-healing.md](references/dreaming-self-healing.md). A reusable change requires:
 - at least one real output;
