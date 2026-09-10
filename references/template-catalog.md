@@ -8,7 +8,7 @@
 | BENCHMARKING | compare multiple options consistently | landscape | 2–6 pp | matrices, scoring, sensitivity |
 | BUY_SIDE_GAP_ANALYSIS | adopt / replace / complement / partner | portrait/landscape | 4–8 pp | baseline, gap matrix, migration, TCO, risks |
 | DIAGNOSTIC_RECO_SELL_SIDE | improve seller positioning and commercial motion | portrait | 5–9 pp | diagnosis, threats, ICP, packaging, proof, pricing, recommendations |
-| OPPORTUNITY_NOTE_ICP | decide whether one target is a credible opportunity | portrait | 4–8 pp | target truth, product truth, gaps, gates, fit, sponsor lanes, proof plan |
+| OPPORTUNITY_NOTE_ICP | decide whether one target is a credible opportunity | portrait | 4–8 pp | target truth, product truth, gaps, gates, fit, sponsor lanes, proof plan |\n| DEBRIEF_360 | convert a completed business call into business action and posture coaching | portrait | 5–8 pp | delta ledger, framework, signals, coaching, next move, ghost deck |
 
 ## Architecture note
 Use for technical architecture + operating model + scalability + business model. Put the strongest architecture diagram early. Use `analytical_focus` for conjectures and `method` for public/private evidence limits.
@@ -82,3 +82,4 @@ Preferred side stories:
 - `analytical_focus` for architecture/economic mechanism;
 - `dezoom` for strategic option value;
 - `method` for evidence boundaries.
+\n## Debrief 360\nUse after a business call when prior preparation exists. Resolve the baseline, compute the meeting delta, select one decision-relevant framework, and separate business findings from posture coaching. Preferred coaching side stories are `strong_point`, `missed_opportunity`, `latent_signal`, `priority_highlight` and `posture_tip`. Intentions remain hypotheses unless explicitly stated.\n
