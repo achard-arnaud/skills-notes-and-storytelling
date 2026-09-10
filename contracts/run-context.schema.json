@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DecisionNoteRunContext",
+  "type": "object",
+  "required": [
+    "mode",
+    "template_type",
+    "output_language",
+    "language_source",
+    "decision",
+    "audience"
+  ],
+  "properties": {
+    "mode": {
+      "enum": [
+        "from-scratch",
+        "iterative",
+        "feedback-dreaming",
+        "retro-engineering"
+      ]
+    },
+    "template_type": {
+      "enum": [
+        "architecture-note",
+        "one-pager",
+        "two-pager",
+        "benchmarking",
+        "buy-side-gap-analysis",
+        "diagnostic-reco-sellside",
+        "opportunity-note-icp",
+        "action-plan"
+      ]
+    },
+    "output_language": {
+      "type": "string",
+      "pattern": "^[a-z]{2,3}(-[A-Z]{2})?$"
+    },
+    "language_source": {
+      "enum": [
+        "user-explicit",
+        "conversation-majority",
+        "fixture"
+      ]
+    },
+    "decision": {
+      "type": "string"
+    },
+    "audience": {
+      "type": "string"
+    },
+    "scope": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_cutoff": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "terminology_exceptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "analysis_boundary": {
+      "enum": [
+        "analysis-only",
+        "action-plan"
+      ]
+    }
+  },
+  "additionalProperties": false
+}
