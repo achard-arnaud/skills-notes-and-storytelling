@@ -30,7 +30,8 @@ Select exactly one value from `OutputTemplateType` in `src/template_types.py`:
 - `BENCHMARKING`
 - `BUY_SIDE_GAP_ANALYSIS`
 - `DIAGNOSTIC_RECO_SELL_SIDE`
-- `OPPORTUNITY_NOTE_ICP`\n- `DEBRIEF_360`
+- `OPPORTUNITY_NOTE_ICP`
+- `DEBRIEF_360`
 
 Every template is versioned in `templates/manifest.json` together with its QA fixture and compatible workflow version. Read [references/versioning-and-lifecycle.md](references/versioning-and-lifecycle.md).
 
@@ -105,7 +106,10 @@ Use when advising a vendor/founder on how to package, position, sell and expand 
 ### OPPORTUNITY_NOTE_ICP
 Use when deciding whether a concrete target account, partner or internal platform is a plausible opportunity for an offer. Keep target reality and product truth separate, apply hard gates, map capability gaps to product outcomes, identify sponsor/terrain/veto hypotheses and end with a reversible validation step.
 
-### DEBRIEF_360\nUse after a meaningful business call when preparation artifacts and meeting evidence must be reconciled into a sharp business debrief, posture coaching and a bounded next move. Read [references/debrief-360.md](references/debrief-360.md). Select one primary McKinsey framework only when it changes the decision. Build action-title ghost deck first. Treat counterparty intentions as hypotheses and keep automatic-note posture findings provisional until a transcript or recording supports them.\n\n## Feedback / dreaming
+### DEBRIEF_360
+Use after a meaningful business call when preparation artifacts and meeting evidence must be reconciled into a sharp business debrief, posture coaching and a bounded next move. Read [references/debrief-360.md](references/debrief-360.md). Select one primary McKinsey framework only when it changes the decision. Build action-title ghost deck first. Treat counterparty intentions as hypotheses and keep automatic-note posture findings provisional until a transcript or recording supports them.
+
+## Feedback / dreaming
 
 Read [references/dreaming-self-healing.md](references/dreaming-self-healing.md). A reusable change requires:
 - at least one real output;
