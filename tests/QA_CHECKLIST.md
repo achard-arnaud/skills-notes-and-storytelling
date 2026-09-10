@@ -2,23 +2,43 @@
 
 A document passes only when all checks below are true.
 
-## Mode / lifecycle
+## Run context / lifecycle
 - [ ] generation mode declared;
-- [ ] iterative runs identify canonical baseline and review scope;
+- [ ] output_language resolved from explicit user choice or conversation-majority default;
+- [ ] the same output_language is present in run context, scaffold, output spec and final QA;
+- [ ] iterative runs identify canonical baseline, accepted language and review scope;
 - [ ] template version matches the manifest;
 - [ ] linked QA fixture supports the same template major version;
 - [ ] workflow compatibility is current;
 - [ ] feedback/dreaming changes remain candidate until explicit human promotion;
-- [ ] retro-engineering mode remains TODO unless its implementation gate is deliberately changed.
+- [ ] retro-engineering remains TODO;
+- [ ] action-plan remains TODO and cannot be invoked implicitly.
 
 ## Content
 - [ ] executive answer present;
 - [ ] every section answers a decision-relevant question;
 - [ ] unsupported material claims absent;
 - [ ] facts / inferences / hypotheses / recommendations distinguishable;
-- [ ] account/buyer reality remains separate from seller/product truth until fit;
+- [ ] account/target reality remains separate from product/seller truth until fit;
+- [ ] hard gates precede scoring when fit is evaluated;
 - [ ] side stories contain no new proof;
-- [ ] next-step nudges are bounded and useful.
+- [ ] analytical templates end with bounded validation/discussion options rather than implementation roadmaps.
+
+## ICP / fit when material
+- [ ] seven dimensions covered: problem, maturity, workflow, technical, organization, economics, timing;
+- [ ] anti-ICP explicit;
+- [ ] hard gates use PASS | OPEN | FAIL;
+- [ ] sponsor / terrain / technical / veto lanes are explicit or unknown;
+- [ ] at least one credible alternative considered;
+- [ ] positive fit includes a falsifier.
+
+## Language and terminology
+- [ ] final prose remains coherent with output_language;
+- [ ] avoidable foreign jargon replaced with natural equivalents;
+- [ ] retained foreign technical terms are product names, standards, acronyms or precision-critical terms;
+- [ ] first-use explanation added where a foreign term may confuse the reader;
+- [ ] language_lint.py executed on the final DOCX and findings reviewed;
+- [ ] harvest, catch-up, speed-up and hard gate are localized in French reader-facing prose unless explicitly justified.
 
 ## Style
 - [ ] direct affirmative language preferred;
@@ -48,19 +68,21 @@ A document passes only when all checks below are true.
 ## Template-specific
 ### Diagnostic/reco sell-side
 - [ ] diagnosis precedes recommendations;
-- [ ] ICP and anti-ICP explicit;
+- [ ] seven-dimensional ICP and anti-ICP explicit;
 - [ ] proof/acceptance mechanics explicit;
-- [ ] pricing/packaging and land-expand path explicit;
+- [ ] pricing/packaging and expansion logic explicit;
 - [ ] competitive threat separated from migration opportunity;
-- [ ] recommendations include owner, metric, falsifier or validation question.
+- [ ] recommendations include rationale, evidence and validation question/falsifier;
+- [ ] no 30/60/90 implementation plan.
 
 ### Opportunity note ICP
 - [ ] target reality researched independently from product truth;
 - [ ] hard gates evaluated before fit score;
-- [ ] capability gaps mapped to product outcomes;
+- [ ] partnership scenarios use a consistent scenario canvas when relevant;
+- [ ] capability gaps mapped to outcomes;
 - [ ] alternatives considered;
-- [ ] sponsor/terrain/veto lanes explicit or marked unknown;
-- [ ] representative proof is reversible and measurable.
+- [ ] sponsor/terrain/veto lanes explicit or unknown;
+- [ ] next step is a bounded demo/workshop/validation rather than an implementation roadmap.
 
 ## Publication
 - [ ] reusable changes include an updated regression fixture;
