@@ -34,6 +34,10 @@ Select exactly one value from `OutputTemplateType` in `src/template_types.py`:
 
 Every template is versioned in `templates/manifest.json` together with its QA fixture and compatible workflow version. Read [references/versioning-and-lifecycle.md](references/versioning-and-lifecycle.md).
 
+## Personal branding
+
+For user-facing notes, resolve the optional branding profile from `branding/profiles.json` and apply [references/personal-branding.md](references/personal-branding.md). Use `francois` by default unless the request or project context identifies another registered profile. Branding remains independent from template and evidence contracts.
+
 ## Canonical workflow
 
 Follow [references/workflow.md](references/workflow.md). Stage boundaries remain explicit.
