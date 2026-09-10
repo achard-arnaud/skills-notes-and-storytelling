@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0",
-  "workflow_version": "1.1.0",
+  "workflow_version": "1.2.0",
   "templates": [
     {
       "type": "architecture-note",
@@ -89,7 +89,7 @@
     },
     {
       "type": "diagnostic-reco-sellside",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "lifecycle": "validated",
       "orientation": "portrait",
       "page_range": [
@@ -102,11 +102,11 @@
         "feedback-dreaming"
       ],
       "qa_fixture": "examples/diagnostic-reco-sellside-v1.md",
-      "qa_fixture_version": "1.1.0"
+      "qa_fixture_version": "1.2.0"
     },
     {
       "type": "opportunity-note-icp",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "lifecycle": "validated",
       "orientation": "portrait",
       "page_range": [
@@ -119,7 +119,20 @@
         "feedback-dreaming"
       ],
       "qa_fixture": "examples/opportunity-note-icp-v1.md",
-      "qa_fixture_version": "1.0.0"
+      "qa_fixture_version": "1.1.0"
+    },
+    {
+      "type": "action-plan",
+      "version": "0.1.0",
+      "lifecycle": "todo",
+      "orientation": "adaptive",
+      "page_range": [
+        2,
+        8
+      ],
+      "supported_modes": [],
+      "qa_fixture": "examples/action-plan-todo-v0.md",
+      "qa_fixture_version": "0.1.0"
     }
   ]
 }
