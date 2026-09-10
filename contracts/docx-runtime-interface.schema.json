@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RuntimeDOCXInterface",
+  "description": "Boundary contract between decision-notes-and-storytelling and a runtime DOCX creation/editing skill.",
+  "type": "object",
+  "required": ["input", "output"],
+  "properties": {
+    "input": {
+      "description": "A layout-ready, template-versioned output specification.",
+      "$ref": "output-spec.schema.json"
+    },
+    "output": {
+      "description": "The visual QA report returned after render and page-by-page inspection.",
+      "$ref": "qa-report.schema.json"
+    }
+  },
+  "additionalProperties": false
+}
