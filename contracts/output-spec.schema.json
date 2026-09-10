@@ -1,29 +1,125 @@
 {
-  "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "title":"OutputSpecification",
-  "type":"object",
-  "required":["template_type","title","sections","sources","diagrams"],
-  "properties":{
-    "template_type":{"enum":["architecture-note","one-pager","two-pager","benchmarking","buy-side-gap-analysis"]},
-    "title":{"type":"string"},
-    "sections":{"type":"array","items":{"type":"object"}},
-    "sources":{"type":"array","items":{"type":"object","required":["id","title","url"],"properties":{"id":{"type":"string"},"title":{"type":"string"},"url":{"type":"string"},"date":{"type":["string","null"]}}}},
-    "diagrams":{"type":"array","items":{
-      "type":"object",
-      "required":["id","mermaid_source","orientation","native_width","native_height","target_width","target_height","scale_factor","qa_status"],
-      "properties":{
-        "id":{"type":"string"},
-        "mermaid_source":{"type":"string"},
-        "orientation":{"enum":["LR","RL","TB","BT"]},
-        "native_width":{"type":"number","exclusiveMinimum":0},
-        "native_height":{"type":"number","exclusiveMinimum":0},
-        "target_width":{"type":"number","exclusiveMinimum":0},
-        "target_height":{"type":"number","exclusiveMinimum":0},
-        "scale_factor":{"type":"number","exclusiveMinimum":0},
-        "qa_status":{"enum":["pending","passed","rerender_required"]}
-      },
-      "additionalProperties":false
-    }}
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OutputSpecification",
+  "type": "object",
+  "required": [
+    "template_type",
+    "title",
+    "sections",
+    "sources",
+    "diagrams"
+  ],
+  "properties": {
+    "template_type": {
+      "enum": [
+        "architecture-note",
+        "one-pager",
+        "two-pager",
+        "benchmarking",
+        "buy-side-gap-analysis",
+        "diagnostic-reco-sellside",
+        "opportunity-note-icp",
+        "debrief-360"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "url"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "date": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "diagrams": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "mermaid_source",
+          "orientation",
+          "native_width",
+          "native_height",
+          "target_width",
+          "target_height",
+          "scale_factor",
+          "qa_status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "mermaid_source": {
+            "type": "string"
+          },
+          "orientation": {
+            "enum": [
+              "LR",
+              "RL",
+              "TB",
+              "BT"
+            ]
+          },
+          "native_width": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "native_height": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "target_width": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "target_height": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "scale_factor": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "qa_status": {
+            "enum": [
+              "pending",
+              "passed",
+              "rerender_required"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
   },
-  "additionalProperties":false
-}
+  "additionalProperties": false
+}\n
