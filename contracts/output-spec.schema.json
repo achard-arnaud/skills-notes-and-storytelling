@@ -119,6 +119,23 @@
         },
         "additionalProperties": false
       }
+    },
+    "personal_branding": {
+      "type": "object",
+      "required": [
+        "enabled",
+        "profile_id"
+      ],
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "profile_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false
