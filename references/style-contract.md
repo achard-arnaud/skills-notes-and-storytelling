@@ -5,7 +5,7 @@
 Prefer:
 - direct affirmative statements;
 - short paragraphs of 2–5 sentences;
-- bullets for lists of 3+ items;
+- bullets for enumerations of 3+ items; use numbered lists only when order, sequence or priority matters;
 - tables for comparisons;
 - explicit labels for facts, hypotheses, unknowns and recommendations.
 
@@ -73,3 +73,7 @@ Hard gates:
 - Two-pager: A4 landscape by default; dense but readable.
 - Benchmarking: landscape preferred; comparison tables dominate.
 - Buy-side gap analysis: portrait or landscape according to matrix density; executive recommendation on page 1.
+
+## Header footer and personal branding
+
+Use [personal-branding.md](personal-branding.md) when branding is enabled. Keep the header to object, template, version and date. Keep the footer to two compact lines with identity, themes, profile link, skill provenance and page number. Branding never upgrades evidence or author credentials.
