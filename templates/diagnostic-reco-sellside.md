@@ -1,9 +1,11 @@
 # Template — Diagnostic / recommendation sell-side
 
-Version: 1.1.0
+Version: 1.2.0
 
 ## Purpose
 Advise a seller, founder or product team on positioning, ICP, proof, packaging, pricing, competitive response and commercial operating model.
+
+This is an **analysis template**. It recommends directions, validation questions and discussion options. It does not emit an implementation roadmap or 30/60/90-day plan.
 
 ## Decision spine
 1. Executive commercial thesis.
@@ -15,12 +17,31 @@ Advise a seller, founder or product team on positioning, ICP, proof, packaging, 
 7. Entry wedge and qualifying question.
 8. Proof / acceptance mechanics.
 9. Packaging and pricing architecture.
-10. Land-and-expand motion.
+10. Land-and-expand logic.
 11. Product/commercial gaps and objections.
 12. Prioritized recommendations.
+13. Questions to validate and next analytical step.
+
+## ICP contract
+Use `references/icp-and-fit-contract.md`.
+
+Describe the seller's ICP across:
+- problem;
+- maturity;
+- workflow;
+- technical prerequisites;
+- organization;
+- economics;
+- timing.
+
+Also define:
+- anti-ICP;
+- sponsor / terrain / technical / veto hypotheses where material;
+- `PASS | OPEN | FAIL` hard gates;
+- observable falsifiers.
 
 ## Adjacency trajectory benchmark
-When competitors descend toward the seller's category from different installed assets, compare the **trajectory**, not only the current feature set.
+When competitors descend toward the seller's category from different installed assets, compare the trajectory, not only the current feature set.
 
 For each relevant actor capture:
 - installed asset / historical control point;
@@ -29,54 +50,48 @@ For each relevant actor capture:
 - coexistence zone;
 - implication for the seller's category and differentiation.
 
-Typical patterns:
-- RPA / process estate → agentic orchestration;
-- event mesh / integration estate → agent mesh;
-- workload scheduling / batch estate → agentic workflow orchestration;
-- managed AI solution factory → outcome-led expansion.
-
-Use this benchmark when the category is converging and multiple incumbents can claim overlapping agentic features.
-
 ## Business-model benchmark
-Compare public monetization patterns separately from product capability.
+Compare monetization separately from product capability.
 
 Capture:
 - principal unit of value;
-- entitlement / capacity / consumption unit;
+- capacity/consumption unit;
 - land mechanism;
 - scale mechanism;
-- services / success subscription;
+- services/success subscription;
 - open-source or free-entry lever;
 - buyer risk-reversal mechanism;
-- pricing behavior to harvest or avoid.
+- pricing behavior to adapt or avoid.
 
-Prefer a compact comparison table. Convert the benchmark into **2–4 bounded commercial model options** for the seller, each with:
-- best stage of the customer lifecycle;
+Convert the benchmark into 2–4 bounded commercial options, each with:
+- best lifecycle stage;
 - buyer benefit;
 - seller benefit;
-- operational prerequisite;
+- prerequisite;
 - failure mode.
 
 ## Required recommendation fields
 For each major recommendation:
-- action;
+- recommendation;
 - rationale;
-- owner;
-- metric;
+- evidence / uncertainty;
 - validation question or falsifier;
-- 30/60/90-day horizon when relevant.
+- dependency on product, GTM or delivery.
+
+Do not assign detailed implementation dates, owners or project sequencing unless the user explicitly requests the future `ACTION_PLAN` artifact after accepting the analysis.
 
 ## Preferred visuals
 - current vs target commercial architecture;
-- funnel / proof ladder;
-- competitor adjacency-trajectory table;
-- business-model comparison table;
-- offer architecture table.
+- proof/acceptance ladder;
+- competitor adjacency table;
+- business-model comparison;
+- offer architecture;
+- ICP / anti-ICP table.
 
 ## Side stories
-- comparator — superior commercial or category pattern to harvest;
+- comparator — superior commercial/category pattern to adapt;
 - false_lead — attractive positioning that creates confusion or channel conflict;
-- analytical_focus — unit economics, proof economics, category convergence or compounding mechanism;
+- analytical_focus — economics, proof mechanics or category convergence;
 - dezoom — category/portfolio consequence;
 - method — weak evidence, vendor claims, unknown pricing.
 
