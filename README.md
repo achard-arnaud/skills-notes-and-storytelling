@@ -77,3 +77,7 @@ feature branch
 ```
 
 Every new `.doc` / `.docx` decision note uses this skill together with the runtime DOCX creation/editing skill and the final render-and-inspect gate.
+
+## Personal branding
+
+Branding is selected independently from the output template through `branding/profiles.json`. The default profile is `francois`; additional people are atomic registry entries. Header and footer behavior is defined in `references/personal-branding.md`.
