@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "default_profile": "francois",
+  "profiles": {
+    "francois": {
+      "display_name": "François Arnaud",
+      "headline": "Lead of AI Innovation & Transformation",
+      "organization": "AI Center of Excellence",
+      "capacity": "Volunteer advisor",
+      "themes": [
+        "Double Brain",
+        "AI workflow",
+        "Context engineering",
+        "Loop engineering"
+      ],
+      "profile_label": "LinkedIn",
+      "profile_url": "https://www.linkedin.com/in/francois-arnaud-1683a418/"
+    }
+  },
+  "provenance": {
+    "label": "Note produced with decision-notes-and-storytelling",
+    "url": "https://github.com/achard-arnaud/skills-notes-and-storytelling"
+  }
+}
