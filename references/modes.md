@@ -113,69 +113,8 @@ The system may propose, branch, test and open a PR. It never autonomously promot
 
 ## 4. Retro-engineering — TODO
 
-Status: **documented design only; production routing disabled**.
+Status: **documented design only; production routing disabled**. It must not be selected for a delivery run.
 
-Purpose: infer a reusable document template from a supplied document when no explicit template contract exists.
+Its future purpose is to infer a reusable, content-neutral template from a supplied document: visual inspection first, native extraction second, OCR only for image-only material. The output would be a candidate scaffold and holdout fixture, always subject to human review.
 
-### Planned reverse workflow
-```text
-supplied document
-→ visual pass page by page
-→ OCR only if visual/text extraction is insufficient
-→ page geometry + style inventory
-→ infer scaffold
-→ infer section fill criteria
-→ infer language/tone rules
-→ infer comparison/table/diagram grammar
-→ analyze content objectives
-→ meta-prompt each section
-→ infer logical transitions
-→ reconstruct template contract
-→ build neutral holdout exemplar
-→ compare against source
-→ human validation
-```
-
-### Planned analysis layers
-1. **Vision/layout**
-   - page size/orientation/margins;
-   - grid and whitespace;
-   - typography hierarchy;
-   - tables, figures, captions, callouts;
-   - recurring visual components.
-2. **Scaffold deduction**
-   - section order;
-   - mandatory vs optional blocks;
-   - density budget;
-   - page-break behavior.
-3. **Fill contract deduction**
-   - evidence type expected per block;
-   - prose vs bullets vs table;
-   - claim count and source coverage;
-   - side-story opportunities.
-4. **Content objective deduction**
-   - decision being served;
-   - intended reader;
-   - persuasion/information balance;
-   - implicit acceptance criteria.
-5. **Meta-prompting**
-   - derive a bounded prompt for each block;
-   - derive transitions and callbacks;
-   - identify what information is necessary before rendering.
-6. **Validation**
-   - create a content-neutral fixture;
-   - render against inferred geometry;
-   - compare visually;
-   - require human promotion.
-
-### OCR policy
-Vision and native text extraction are preferred. OCR is a last-resort fallback for unavailable or image-only text and must not silently override visible structure.
-
-### TODO gate
-Before this mode becomes production-ready:
-- schema for inferred template contract;
-- visual feature extraction contract;
-- holdout fixture;
-- regression scoring;
-- minimum two human-reviewed reverse-engineering cases;
-- explicit lifecycle transition from `todo` to `candidate`.
+Before lifecycle can move from `todo` to `candidate`, the repository needs an inferred-template schema, a visual-feature contract, regression scoring and at least two human-reviewed cases. The detailed implementation design belongs in an issue or ADR once work is funded.
