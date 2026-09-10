@@ -1,6 +1,6 @@
 # Decision Notes & Storytelling
 
-Reusable skill for evidence-grounded decision notes, architecture notes, one-pagers, two-pagers, benchmarks, buy-side analyses, sell-side diagnostics and ICP opportunity notes.
+Reusable skill for evidence-grounded decision notes, architecture notes, one-pagers, two-pagers, benchmarks, buy-side analyses, sell-side diagnostics ICP opportunity notes and post-call 360 debriefs.
 
 ## Canonical skill
 - **Skill:** `decision-notes-and-storytelling`
@@ -31,7 +31,7 @@ Reusable skill for evidence-grounded decision notes, architecture notes, one-pag
 | `benchmarking` | 0.2.0 | candidate |
 | `buy-side-gap-analysis` | 0.2.0 | candidate |
 | `diagnostic-reco-sellside` | 1.0.0 | validated |
-| `opportunity-note-icp` | 1.0.0 | validated |
+| `opportunity-note-icp` | 1.0.0 | validated |\n| `debrief-360` | 0.1.0 | candidate |
 
 ## Core pipeline
 
