@@ -4,7 +4,7 @@
   "type":"object",
   "required":["template_type","decision","sections"],
   "properties":{
-    "template_type":{"enum":["architecture-note","one-pager","two-pager","benchmarking","buy-side-gap-analysis"]},
+    "template_type":{"enum":["architecture-note","one-pager","two-pager","benchmarking","buy-side-gap-analysis","diagnostic-reco-sellside","opportunity-note-icp"]},
     "decision":{"type":"string"},
     "sections":{"type":"array","items":{
       "type":"object",
