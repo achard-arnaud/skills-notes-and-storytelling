@@ -1,9 +1,9 @@
 ---
-name: decision-notes-and-storytelling
+name: skills-notes-and-storytelling
 description: Create, revise, or industrialize evidence-grounded .doc/.docx business notes, architecture notes, one-pagers, two-pagers, benchmarks, buy-side gap analyses, sell-side diagnostic/recommendation notes, and ICP opportunity notes. Own the research-to-claims-to-storytelling workflow, generation mode, template selection, side-story routing, sourcing gates, next-step nudging, and human-reviewed template learning. Always pair with the runtime DOCX creation/editing skill for rendering and visual QA.
 ---
 
-# Decision Notes & Storytelling
+# Skills Notes & Storytelling
 
 ## Scope
 

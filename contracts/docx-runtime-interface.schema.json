@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "RuntimeDOCXInterface",
-  "description": "Boundary contract between decision-notes-and-storytelling and a runtime DOCX creation/editing skill.",
+  "description": "Boundary contract between skills-notes-and-storytelling and a runtime DOCX creation/editing skill.",
   "type": "object",
   "required": ["input", "output"],
   "properties": {

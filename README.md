@@ -1,9 +1,9 @@
-# Decision Notes & Storytelling
+# Skills Notes & Storytelling
 
-Reusable skill for evidence-grounded decision notes, architecture notes, one-pagers, two-pagers, benchmarks, buy-side analyses, sell-side diagnostics and ICP opportunity notes.
+Reusable skill for evidence-grounded decision notes, architecture notes, one-pagers, two-pagers, benchmarks, buy-side analyses, sell-side diagnostics and ICP opportunity notes. Runs natively in both `chat` and `cowork` execution modes (see [references/execution-modes.md](references/execution-modes.md)).
 
 ## Canonical skill
-- **Skill:** `decision-notes-and-storytelling`
+- **Skill:** `skills-notes-and-storytelling`
 - **Entry point:** [SKILL.md](SKILL.md)
 - **Template enum + generation modes:** [src/template_types.py](src/template_types.py)
 - **Workflow:** [references/workflow.md](references/workflow.md)
