@@ -11,12 +11,22 @@ This skill is the governed document OS for decision notes. It owns **content arc
 
 Use this skill whenever the requested output is a `.doc` or `.docx` note, brief, comparison, architecture memo, one-pager, two-pager, benchmark, buy-side analysis, sell-side diagnostic or ICP opportunity note.
 
+## Variables de run à déclarer avant toute exécution
+
+Trois axes indépendants, à déclarer explicitement en tête de run :
+
+1. `execution_mode` : `chat` | `cowork` — environnement d'hébergement, contraint la consommation de contexte. Lire [references/execution-modes.md](references/execution-modes.md).
+2. `runtime_mode` : `debug` | `run_lourd` | `run_léger` — intensité d'exécution du pipeline pour ce run. **Règle impérative : un intake documentaire fourni par l'utilisateur force `run_lourd`.** Lire [references/runtime-modes.md](references/runtime-modes.md).
+3. `generation_mode` (`GenerationMode`, ci-dessous) : quelle portion du pipeline s'exécute et ce qui doit être préservé.
+
+L'effort de raisonnement par étape du pipeline est calibré séparément, en config plutôt qu'en dur — voir [references/reasoning-effort.md](references/reasoning-effort.md) et `config/reasoning-effort.json`. Aucun nom de modèle n'apparaît jamais dans ces fichiers.
+
 ## Generation mode
 
 Select one mode from `GenerationMode` before selecting the output template. Read [references/modes.md](references/modes.md).
 
 - `FROM_SCRATCH` — no trusted canonical draft exists; execute the complete evidence → claims → scaffold → draft pipeline.
-- `ITERATIVE` — a canonical prior output exists; establish the accepted baseline, compute the delta, update only the required evidence/content/layout scope, then regression-check preserved material.
+- `ITERATIVE` — a canonical prior output exists; establish the accepted baseline, compute the delta, update only the required evidence/content/layout scope, then regression-check preserved material. Includes the **zoom** sub-mode: target specific claim/fragment/side-story IDs without rereading the full baseline (see [references/modes.md](references/modes.md) §2bis).
 - `FEEDBACK_DREAMING` — post-run improvement loop; convert repeated feedback and QA defects into candidate changes to contracts/templates with explicit human promotion.
 - `RETRO_ENGINEERING` — **TODO / non-production**. Reverse-engineer a supplied document into a candidate template using visual inspection first and OCR only as fallback. The planned workflow is documented but must not be treated as implemented.
 
@@ -33,6 +43,14 @@ Select exactly one value from `OutputTemplateType` in `src/template_types.py`:
 - `OPPORTUNITY_NOTE_ICP`
 
 Every template is versioned in `templates/manifest.json` together with its QA fixture and compatible workflow version. Read [references/versioning-and-lifecycle.md](references/versioning-and-lifecycle.md).
+
+## Les 4 couches découplées
+
+Chaque template se décline en 4 couches indépendantes : Template (objectif/longueur/détail/collecte/nodes), Storytelling (frameworks narratifs), Scaffold/claims/fragments (retrieval/reranking/typologie de nodes/side stories), Rédaction & format (ton/langue/vocabulaire/mise en page). Lire [references/layered-architecture.md](references/layered-architecture.md) pour la déclinaison par template, et [references/narrative-frameworks.md](references/narrative-frameworks.md) pour le registre des méthodes narratives (Pyramid Principle, Action Titles, MECE, Ghost Deck first, Signal-to-noise).
+
+## Retrieval, reranking et distinction claims / fragments
+
+Les claims (scaffold logique) et les fragments (remplissage business) sont deux registres distincts, chacun avec ses propres règles de retrieval, reranking et déduplication. Lire [references/retrieval-and-reranking.md](references/retrieval-and-reranking.md), qui couvre aussi la règle d'exclusion/relégation en annexe des side stories.
 
 ## Canonical workflow
 

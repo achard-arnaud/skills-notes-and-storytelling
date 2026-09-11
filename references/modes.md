@@ -80,6 +80,17 @@ Material outside the review scope is preserved. A form-global rule such as "pref
 - page geometry and table/diagram readability remain valid;
 - template/fixture versions remain compatible.
 
+### 2bis. Iterative — zoom ciblé par ID
+
+Sous-mode de `ITERATIVE` : au lieu de résoudre toute la baseline, le runtime **zoome** sur un sous-ensemble explicite de claim IDs et/ou fragment IDs déjà produits, sans relire l'intégralité du document ou du registre.
+
+Entry contract additionnel :
+- liste des `claim_id`/`fragment_id`/`side_story_id` ciblés;
+- profondeur de voisinage autorisée dans le claims graph (défaut : 1 — voisins directs uniquement, voir retrieval-and-reranking.md);
+- confirmation que le périmètre hors zoom reste inchangé.
+
+Le zoom reste éligible à `run_léger` (voir runtime-modes.md) tant que le périmètre est petit et local ; il repasse en `run_lourd` si l'approfondissement touche une part large du document ou déclenche un intake documentaire nouveau (règle impérative de runtime-modes.md).
+
 ---
 
 ## 3. Feedback / dreaming
