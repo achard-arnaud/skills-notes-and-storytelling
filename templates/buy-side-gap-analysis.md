@@ -53,3 +53,7 @@ State what evidence would reverse the recommendation.
 - `comparator`: adjacent alternative;
 - `dezoom`: operating-model consequence;
 - `method`: score/evidence caveat.
+
+## Couches (4-layer)
+
+Ce template est un cas concret des [4 couches découplées](../references/layered-architecture.md). Voir la ligne `BUY_SIDE_GAP_ANALYSIS` de la table de déclinaison pour l'objectif/longueur, les frameworks narratifs par défaut, la typologie de nodes dominante et les règles de vocabulaire propres à ce template. Le registre des méthodes narratives est détaillé dans [references/narrative-frameworks.md](../references/narrative-frameworks.md) ; les règles de retrieval/reranking claims vs fragments dans [references/retrieval-and-reranking.md](../references/retrieval-and-reranking.md).

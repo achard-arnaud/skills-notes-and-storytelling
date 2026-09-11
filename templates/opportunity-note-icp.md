@@ -39,3 +39,7 @@ Research target reality independently from product truth. Cross them only after 
 
 ## QA
 Use `examples/opportunity-note-icp-v1.md`.
+
+## Couches (4-layer)
+
+Ce template est un cas concret des [4 couches découplées](../references/layered-architecture.md). Voir la ligne `OPPORTUNITY_NOTE_ICP` de la table de déclinaison pour l'objectif/longueur, les frameworks narratifs par défaut, la typologie de nodes dominante et les règles de vocabulaire propres à ce template. Le registre des méthodes narratives est détaillé dans [references/narrative-frameworks.md](../references/narrative-frameworks.md) ; les règles de retrieval/reranking claims vs fragments dans [references/retrieval-and-reranking.md](../references/retrieval-and-reranking.md).
