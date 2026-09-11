@@ -1,0 +1,22 @@
+{
+  "measurement": "words and UTF-8 bytes, not billed tokens",
+  "baseline_entry": {
+    "words": 892,
+    "bytes": 6834
+  },
+  "v2_entry": {
+    "words": 519,
+    "bytes": 4242
+  },
+  "illustrative_core_read_set": {
+    "SKILL.md": 519,
+    "references/runtime.md": 245,
+    "references/evidence-retrieval.md": 401,
+    "references/narrative-methods.md": 194,
+    "references/writing.md": 170,
+    "templates/two-pager.md": 50
+  },
+  "total_run_tokens": null,
+  "billed_cost": null,
+  "note": "Illustrative core read set excludes selected JSON profile, external renderer, source material, conversation and retries; not an actual total cost."
+}

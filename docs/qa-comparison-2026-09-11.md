@@ -1,4 +1,4 @@
-# QA comparative — avant / après refonte 4 couches (2026-09-11)
+# Analyse prospective — non exécutée (2026-09-11)
 
 ## Cas de référence
 
@@ -36,7 +36,7 @@ Aucune trace de "François Rivard / Meridian" n'a été trouvée ni dans l'histo
 | Effort de raisonnement par étape | Implicite, non catégorisé | Explicite, configuré, dégradable en `chat` |
 | Règle de reranking fragments | Absente (seule la grille claims existait) | Grille dédiée à 4 critères (spécificité/fraîcheur/indépendance/coût de vérification) |
 | Registre narratif | Implicite | 5 frameworks nommés, mappés par template |
-| Règle intake ⇒ run lourd | Non écrite | Règle impérative écrite et testée sur le cas AstraForge |
+| Règle intake ⇒ run lourd | Non écrite | Règle écrite ; comportement non testé par ce rapport |
 | Mode itératif ciblé | Non disponible | Sous-mode "zoom" par ID, profondeur de voisinage bornée |
 
 ## Recommandations de fine-tuning / optimisation

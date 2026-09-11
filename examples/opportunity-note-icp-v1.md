@@ -2,7 +2,7 @@
 template_type: opportunity-note-icp
 template_version: 1.0.0
 fixture_version: 1.0.0
-workflow_version: 1.1.0
+workflow_version: 2.0.0
 ---
 
 # Opportunity note ICP regression fixture
