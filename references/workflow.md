@@ -1,5 +1,8 @@
 # Governed writing workflow
 
+Workflow v2 runtime/evidence profiles are authoritative in `runtime.md` and `evidence-retrieval.md`.
+Light runs preserve these boundaries inline; rendering/DOCX QA apply only to DOCX outputs.
+
 ## Common state machine
 
 ```text
@@ -27,11 +30,11 @@ Each transition has an input contract, output contract and stop condition.
 | Mode selection | request + existing artifacts | mode declaration | baseline/new-work status explicit |
 | Research | decision question + scope | source ledger | sources sufficient or limits stated |
 | Fragments | source ledger | atomic fragments | one idea/evidence unit per fragment |
-| Claims graph light | fragments | claims + typed edges | every claim has lineage |
+| Claims graph light | fragments | claims + typed edges | facts have lineage; hypotheses/unknowns may be explicitly unsupported |
 | Rerank | claims | ranked claim set | low-value duplicates pruned |
 | Scaffold | ranked claims | section skeleton | each section has purpose/payoff |
 | Fill | scaffold + fragments | prose/bullets/tables | no unsupported material assertion |
-| Side stories | coherent trunk | routed side stories | detours bounded + return anchor |
+| Side stories | coherent trunk | routed side stories | detours bounded + return anchor; method apparatus may be self-contained |
 | Sourcing | complete draft | source-complete draft | material claims traceable |
 | Layout | content spec | DOCX-ready spec | template/version contract satisfied |
 | DOCX QA | DOCX | QA report | every page visually clean |

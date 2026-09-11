@@ -2,7 +2,7 @@
 template_type: diagnostic-reco-sellside
 template_version: 1.1.0
 fixture_version: 1.1.0
-workflow_version: 1.1.0
+workflow_version: 2.0.0
 ---
 
 # Diagnostic/reco sell-side regression fixture

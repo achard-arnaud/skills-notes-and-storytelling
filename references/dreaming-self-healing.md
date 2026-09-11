@@ -66,7 +66,7 @@ A human decides:
 ## DOCX preference contract
 
 Every requested `.doc` / `.docx` decision note routes through:
-1. `decision-notes-and-storytelling`;
+1. `skills-notes-and-storytelling`;
 2. the runtime DOCX creation/editing skill;
 3. render-and-inspect QA.
 

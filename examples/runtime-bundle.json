@@ -1,0 +1,165 @@
+{
+  "intake": {
+    "environment": "chat",
+    "documents": [
+      "manual.pdf"
+    ],
+    "entities": [
+      "A",
+      "B"
+    ]
+  },
+  "profile": {
+    "environment": "chat",
+    "execution": "heavy",
+    "debug": false,
+    "generation": "from-scratch",
+    "baseline_id": null,
+    "reason": "documents_force_heavy",
+    "reasoning_recommendation": "high",
+    "reasoning_applied": false,
+    "stage_efforts": [
+      {
+        "stage": "research",
+        "effort": "medium"
+      },
+      {
+        "stage": "fragments_extraction",
+        "effort": "low"
+      },
+      {
+        "stage": "fragments_deduplication",
+        "effort": "low"
+      },
+      {
+        "stage": "claims_graph_light",
+        "effort": "medium"
+      },
+      {
+        "stage": "claims_arbitration",
+        "effort": "high"
+      },
+      {
+        "stage": "rerank",
+        "effort": "medium"
+      },
+      {
+        "stage": "scaffold",
+        "effort": "medium"
+      },
+      {
+        "stage": "fill",
+        "effort": "medium"
+      },
+      {
+        "stage": "side_stories_routing",
+        "effort": "medium"
+      },
+      {
+        "stage": "sourcing_factcheck",
+        "effort": "high"
+      },
+      {
+        "stage": "layout",
+        "effort": "low"
+      },
+      {
+        "stage": "docx_qa",
+        "effort": "medium"
+      },
+      {
+        "stage": "executive_synthesis",
+        "effort": "high"
+      },
+      {
+        "stage": "nudging",
+        "effort": "low"
+      },
+      {
+        "stage": "feedback_dreaming",
+        "effort": "high"
+      }
+    ],
+    "packet_words": 2000,
+    "initial_gap_queries": 3
+  },
+  "sources": [
+    {
+      "id": "S1",
+      "origin": "manual",
+      "family": "vendor",
+      "coverage_status": "read"
+    }
+  ],
+  "fragments": [
+    {
+      "id": "F1",
+      "source_id": "S1",
+      "source_locator": "physical page 2",
+      "content": "Vendor says value rises",
+      "evidence_status": "vendor_claim"
+    }
+  ],
+  "claims": [
+    {
+      "id": "C1",
+      "statement": "Vendor claims value rises",
+      "claim_type": "attributed_claim",
+      "fragment_ids": [
+        "F1"
+      ],
+      "decision_relevance": 5
+    },
+    {
+      "id": "C2",
+      "statement": "Value may not rise",
+      "claim_type": "hypothesis",
+      "fragment_ids": []
+    },
+    {
+      "id": "C3",
+      "statement": "Unrelated question",
+      "claim_type": "unknown",
+      "fragment_ids": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "C2",
+      "to": "C1",
+      "type": "contradicts"
+    }
+  ],
+  "sections": [
+    {
+      "id": "SEC1",
+      "action_title": "Value remains to be tested",
+      "claim_ids": [
+        "C1",
+        "C2"
+      ]
+    }
+  ],
+  "side_stories": [
+    {
+      "id": "SS1",
+      "kind": "method",
+      "claim_ids": [
+        "C1"
+      ],
+      "section_anchor": "SEC1",
+      "return_to": null
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G1",
+      "status": "open",
+      "reason": "independence",
+      "query": "independent value",
+      "target_claim_ids": [
+        "C1"
+      ]
+    }
+  ]
+}

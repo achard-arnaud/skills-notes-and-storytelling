@@ -1,0 +1,377 @@
+{
+  "version": "2.0.0",
+  "profiles": {
+    "architecture-note": {
+      "template": {
+        "objective": "Decide architecture and explain constraints",
+        "page_range": [
+          5,
+          10
+        ],
+        "detail": "technical",
+        "collection": "manual-first; gap-based verification; independent evidence for outcomes",
+        "node_organization": "entity and decision criteria"
+      },
+      "narrative": {
+        "primary": "mechanism",
+        "supporting": [
+          "action-titles",
+          "ghost-deck",
+          "signal-to-noise"
+        ]
+      },
+      "scaffold": {
+        "claim_types": [
+          "fact",
+          "attributed_claim",
+          "inference",
+          "hypothesis",
+          "recommendation",
+          "unknown"
+        ],
+        "relations": [
+          "supports",
+          "contradicts",
+          "qualifies",
+          "depends_on",
+          "compares_to",
+          "answers",
+          "motivates",
+          "causes"
+        ],
+        "versioning": "stable IDs, append revisions, baseline plus target closure",
+        "side_stories": [
+          "method",
+          "comparator",
+          "analytical_focus"
+        ],
+        "retrieval": "exact IDs then lexical candidates; gates then weighted reranking"
+      },
+      "writing": {
+        "language": "user language",
+        "tone": "neutral analytical",
+        "vocabulary": "technical-defined",
+        "length": "template page range; user override",
+        "notes": "claim-linked endnotes; physical PDF pages"
+      }
+    },
+    "one-pager": {
+      "template": {
+        "objective": "One decision with essential evidence",
+        "page_range": [
+          1,
+          1
+        ],
+        "detail": "executive",
+        "collection": "manual-first; gap-based verification; independent evidence for outcomes",
+        "node_organization": "entity and decision criteria"
+      },
+      "narrative": {
+        "primary": "pyramid",
+        "supporting": [
+          "action-titles",
+          "ghost-deck",
+          "signal-to-noise"
+        ]
+      },
+      "scaffold": {
+        "claim_types": [
+          "fact",
+          "attributed_claim",
+          "inference",
+          "hypothesis",
+          "recommendation",
+          "unknown"
+        ],
+        "relations": [
+          "supports",
+          "contradicts",
+          "qualifies",
+          "depends_on",
+          "compares_to",
+          "answers",
+          "motivates"
+        ],
+        "versioning": "stable IDs, append revisions, baseline plus target closure",
+        "side_stories": [
+          "method",
+          "comparator",
+          "analytical_focus"
+        ],
+        "retrieval": "exact IDs then lexical candidates; gates then weighted reranking"
+      },
+      "writing": {
+        "language": "user language",
+        "tone": "neutral analytical",
+        "vocabulary": "plain-business",
+        "length": "template page range; user override",
+        "notes": "claim-linked endnotes; physical PDF pages"
+      }
+    },
+    "two-pager": {
+      "template": {
+        "objective": "Assess an entity or strategic question with evidence and limits",
+        "page_range": [
+          2,
+          2
+        ],
+        "detail": "executive",
+        "collection": "manual-first; gap-based verification; independent evidence for outcomes",
+        "node_organization": "entity and decision criteria"
+      },
+      "narrative": {
+        "primary": "pyramid",
+        "supporting": [
+          "action-titles",
+          "ghost-deck",
+          "signal-to-noise"
+        ]
+      },
+      "scaffold": {
+        "claim_types": [
+          "fact",
+          "attributed_claim",
+          "inference",
+          "hypothesis",
+          "recommendation",
+          "unknown"
+        ],
+        "relations": [
+          "supports",
+          "contradicts",
+          "qualifies",
+          "depends_on",
+          "compares_to",
+          "answers",
+          "motivates"
+        ],
+        "versioning": "stable IDs, append revisions, baseline plus target closure",
+        "side_stories": [
+          "method",
+          "comparator",
+          "analytical_focus"
+        ],
+        "retrieval": "exact IDs then lexical candidates; gates then weighted reranking"
+      },
+      "writing": {
+        "language": "user language",
+        "tone": "neutral analytical",
+        "vocabulary": "plain-business",
+        "length": "template page range; user override",
+        "notes": "claim-linked endnotes; physical PDF pages"
+      }
+    },
+    "benchmarking": {
+      "template": {
+        "objective": "Compare alternatives on common criteria",
+        "page_range": [
+          2,
+          6
+        ],
+        "detail": "executive",
+        "collection": "manual-first; gap-based verification; independent evidence for outcomes",
+        "node_organization": "entity and decision criteria"
+      },
+      "narrative": {
+        "primary": "comparison",
+        "supporting": [
+          "action-titles",
+          "ghost-deck",
+          "signal-to-noise"
+        ]
+      },
+      "scaffold": {
+        "claim_types": [
+          "fact",
+          "attributed_claim",
+          "inference",
+          "hypothesis",
+          "recommendation",
+          "unknown"
+        ],
+        "relations": [
+          "supports",
+          "contradicts",
+          "qualifies",
+          "depends_on",
+          "compares_to",
+          "answers",
+          "motivates"
+        ],
+        "versioning": "stable IDs, append revisions, baseline plus target closure",
+        "side_stories": [
+          "method",
+          "comparator",
+          "analytical_focus"
+        ],
+        "retrieval": "exact IDs then lexical candidates; gates then weighted reranking"
+      },
+      "writing": {
+        "language": "user language",
+        "tone": "neutral analytical",
+        "vocabulary": "plain-business",
+        "length": "template page range; user override",
+        "notes": "claim-linked endnotes; physical PDF pages"
+      }
+    },
+    "buy-side-gap-analysis": {
+      "template": {
+        "objective": "Evaluate adoption against buyer baseline",
+        "page_range": [
+          4,
+          8
+        ],
+        "detail": "executive",
+        "collection": "manual-first; gap-based verification; independent evidence for outcomes",
+        "node_organization": "entity and decision criteria"
+      },
+      "narrative": {
+        "primary": "comparison",
+        "supporting": [
+          "action-titles",
+          "ghost-deck",
+          "signal-to-noise"
+        ]
+      },
+      "scaffold": {
+        "claim_types": [
+          "fact",
+          "attributed_claim",
+          "inference",
+          "hypothesis",
+          "recommendation",
+          "unknown"
+        ],
+        "relations": [
+          "supports",
+          "contradicts",
+          "qualifies",
+          "depends_on",
+          "compares_to",
+          "answers",
+          "motivates"
+        ],
+        "versioning": "stable IDs, append revisions, baseline plus target closure",
+        "side_stories": [
+          "method",
+          "comparator",
+          "analytical_focus"
+        ],
+        "retrieval": "exact IDs then lexical candidates; gates then weighted reranking"
+      },
+      "writing": {
+        "language": "user language",
+        "tone": "neutral analytical",
+        "vocabulary": "plain-business",
+        "length": "template page range; user override",
+        "notes": "claim-linked endnotes; physical PDF pages"
+      }
+    },
+    "diagnostic-reco-sellside": {
+      "template": {
+        "objective": "Advise a supplier on offer and market choices",
+        "page_range": [
+          5,
+          9
+        ],
+        "detail": "executive",
+        "collection": "manual-first; gap-based verification; independent evidence for outcomes",
+        "node_organization": "entity and decision criteria"
+      },
+      "narrative": {
+        "primary": "issue-tree",
+        "supporting": [
+          "action-titles",
+          "ghost-deck",
+          "signal-to-noise"
+        ]
+      },
+      "scaffold": {
+        "claim_types": [
+          "fact",
+          "attributed_claim",
+          "inference",
+          "hypothesis",
+          "recommendation",
+          "unknown"
+        ],
+        "relations": [
+          "supports",
+          "contradicts",
+          "qualifies",
+          "depends_on",
+          "compares_to",
+          "answers",
+          "motivates"
+        ],
+        "versioning": "stable IDs, append revisions, baseline plus target closure",
+        "side_stories": [
+          "method",
+          "comparator",
+          "analytical_focus"
+        ],
+        "retrieval": "exact IDs then lexical candidates; gates then weighted reranking"
+      },
+      "writing": {
+        "language": "user language",
+        "tone": "neutral analytical",
+        "vocabulary": "plain-business",
+        "length": "template page range; user override",
+        "notes": "claim-linked endnotes; physical PDF pages"
+      }
+    },
+    "opportunity-note-icp": {
+      "template": {
+        "objective": "Assess a specific account opportunity without mixing product and account truth",
+        "page_range": [
+          4,
+          8
+        ],
+        "detail": "executive",
+        "collection": "manual-first; gap-based verification; independent evidence for outcomes",
+        "node_organization": "entity and decision criteria"
+      },
+      "narrative": {
+        "primary": "issue-tree",
+        "supporting": [
+          "action-titles",
+          "ghost-deck",
+          "signal-to-noise"
+        ]
+      },
+      "scaffold": {
+        "claim_types": [
+          "fact",
+          "attributed_claim",
+          "inference",
+          "hypothesis",
+          "recommendation",
+          "unknown"
+        ],
+        "relations": [
+          "supports",
+          "contradicts",
+          "qualifies",
+          "depends_on",
+          "compares_to",
+          "answers",
+          "motivates"
+        ],
+        "versioning": "stable IDs, append revisions, baseline plus target closure",
+        "side_stories": [
+          "method",
+          "comparator",
+          "analytical_focus"
+        ],
+        "retrieval": "exact IDs then lexical candidates; gates then weighted reranking"
+      },
+      "writing": {
+        "language": "user language",
+        "tone": "neutral analytical",
+        "vocabulary": "plain-business",
+        "length": "template page range; user override",
+        "notes": "claim-linked endnotes; physical PDF pages"
+      }
+    }
+  }
+}

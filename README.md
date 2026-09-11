@@ -1,9 +1,9 @@
-# Decision Notes & Storytelling
+# Skills Notes & Storytelling
 
-Reusable skill for evidence-grounded decision notes, architecture notes, one-pagers, two-pagers, benchmarks, buy-side analyses, sell-side diagnostics and ICP opportunity notes.
+Reusable skill for evidence-grounded decision notes, architecture notes, one-pagers, two-pagers, benchmarks, buy-side analyses, sell-side diagnostics and ICP opportunity notes. Runs natively in both `chat` and `cowork` execution modes (see [references/execution-modes.md](references/execution-modes.md)).
 
 ## Canonical skill
-- **Skill:** `decision-notes-and-storytelling`
+- **Skill:** `skills-notes-and-storytelling`
 - **Entry point:** [SKILL.md](SKILL.md)
 - **Template enum + generation modes:** [src/template_types.py](src/template_types.py)
 - **Workflow:** [references/workflow.md](references/workflow.md)
@@ -79,3 +79,16 @@ feature branch
 ```
 
 Every new `.doc` / `.docx` decision note uses this skill together with the runtime DOCX creation/editing skill and the final render-and-inspect gate. Their boundary is versioned in [the DOCX runtime interface contract](contracts/docx-runtime-interface.schema.json): a layout-ready output specification goes in; a visual QA report comes back.
+
+## Adaptive runtime v2
+
+Resolve chat/work separately from light/heavy and debug. Documents always force heavy. Read only the
+selected template's four-layer profile using `python scripts/note_runtime.py profile two-pager`.
+Install helper requirements with `pip install -r requirements.txt`; then run
+`python scripts/note_runtime.py plan intake.json`, `packet run.json --targets C-ID`, or `validate run.json`.
+`search-plan` emits gap queries after manual coverage review; it does not execute searches.
+`src.runtime.revise` returns a new baseline and rejects edits outside the requested impact closure.
+
+The audit and harvest decisions are in [docs/ARCHITECTURE_V2.md](docs/ARCHITECTURE_V2.md).
+Run `python -m unittest discover -s tests -v` in addition to contract QA. No model-cost savings are
+claimed without measurements; reasoning settings are recommendations until applied by the host.
