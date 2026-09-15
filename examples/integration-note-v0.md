@@ -1,23 +1,25 @@
 ---
 template_type: integration-note
-template_version: 0.1.0
-fixture_version: 0.1.0
+template_version: 0.2.0
+fixture_version: 0.2.0
 workflow_version: 1.2.0
 ---
 
 # Integration note candidate fixture
 
-Representative case: a light internal product evaluates whether to build a capability, buy a component, partner with an adjacent product or keep both products in coexistence.
+Representative case: a light product evaluates build, buy, partner or coexistence with an adjacent platform.
 
 Checks:
-- technical, product and business lenses are all evaluated;
-- truths of each party remain independent before complementarity is inferred;
-- `BUILD | BUY | PARTNER | COEXIST | DEFER` alternatives are explicit;
-- lock-in is located by stack/value-chain layer rather than reduced to one score;
-- sovereignty implication and exit path are explicit for material lock-in;
-- commercial synergy does not override a technical/security hard gate;
-- combined use cases distinguish overlap from complementarity;
-- customer relationship, distribution and value-capture ownership are explicit or unknown;
-- recommendation includes a smallest reversible pilot and falsifier;
-- downstream bridge reuses source/claim IDs and lists evidence still required;
-- dreaming pass returns either a governed candidate delta or `NO_REUSABLE_DELTA`.
+- originating bridge and reused source/claim IDs are explicit;
+- truths of each party remain independent before complementarity;
+- relationship classified as overlap/complement/dependency/substitute/channel;
+- technical, product and business lenses all evaluated;
+- exact technical control handoff is identified rather than inferred from generic API availability;
+- combined user journey/use cases distinguish overlap from complementarity;
+- customer relationship, distribution, pricing/value capture and support ownership are explicit or unknown;
+- `BUILD | BUY | PARTNER | COEXIST | DEFER` plausible options compared after hard gates;
+- lock-in/sovereignty maps control layer, portability and exit path;
+- synergy never overrides technical/security/commercial hard gates;
+- recommendation includes bounded pilot: hypothesis, owners, interface, metric, threshold, stop condition and rollback;
+- downstream bridge lists new evidence required;
+- dreaming returns governed candidate delta or `NO_REUSABLE_DELTA`.
