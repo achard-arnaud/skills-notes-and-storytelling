@@ -24,7 +24,37 @@ Mixed benchmarks are allowed, but weights and hard gates must state which decisi
 10. **Lock-in / sovereignty map** — locate control points, switching assets, portability and exit path.
 11. **Ecosystem / complementarity pass** — separate competitor/substitute ranking from potential technical, product, distribution or ownership complementarity.
 12. **Recommendation** — best current path, fallback, migration/reevaluation trigger and falsifiers.
-13. **Bridge** — integration note for complementarity/coexistence; buy-side gap for winner vs incumbent; architecture note for unresolved feasibility.
+13. **Closure state** — decide `CLOSED | CLOSED_WITH_CHALLENGE_GATE | REOPEN_TARGETED`.
+14. **Bridge** — integration note for complementarity/coexistence; buy-side gap for winner vs incumbent; architecture note for unresolved feasibility.
+
+## Closure discipline
+
+A benchmark should stop when further peer discovery has lower information value than a bounded implementation or pilot.
+
+Use:
+- `CLOSED` when the decision is sufficiently established for the next action;
+- `CLOSED_WITH_CHALLENGE_GATE` when a preferred option exists but should be red-teamed against real implementation before execution;
+- `REOPEN_TARGETED` when one named hard gate or uncertainty invalidates the current conclusion.
+
+After closure:
+- preserve the native/no-tool or incumbent baseline as fallback;
+- convert unresolved implementation questions into pilot questions;
+- do not add more peers unless a named hard gate requires it;
+- carry falsifiers, exit path and challenge gates into the downstream Integration or Architecture Note.
+
+## Counter-perspective / adversarial pass
+
+The pass must attack the decision rather than merely list weaknesses.
+
+At minimum challenge:
+- the apparent winner;
+- the strongest credible alternative or native baseline;
+- one category/framing assumption;
+- one hidden hard gate, lock-in or operating burden that could reverse the recommendation.
+
+Return `SURVIVES_RED_TEAM | SURVIVES_WITH_NARROWING | PIVOT_REQUIRED | REOPEN_TARGETED`.
+
+Do not keep exploring once the remaining uncertainty can only be resolved by code, pilot, migration rehearsal, procurement, customer discovery or another bounded experiment.
 
 ## Default research preferences — overridable
 When the user has not supplied alternatives, prefer candidates that are credible for the stated context. For software/technical decisions, explicitly inspect:
@@ -49,6 +79,8 @@ Scores are heuristics unless an externally validated scale exists. Hard gates re
 - lock-in location + exit path where material;
 - complementarity/ecosystem findings kept separate from ranking;
 - recommendation + falsifiers + reevaluation trigger;
+- counter-perspective verdict;
+- closure state and exact reopen condition;
 - auto-critique: missing peers, weak claims, category bias, evidence that could reverse the result.
 
 Default comparison presentation is a table with density-aware widths.
