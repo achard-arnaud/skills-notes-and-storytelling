@@ -1,28 +1,30 @@
 ---
 name: decision-notes-and-storytelling
-description: Create, revise, or industrialize evidence-grounded .doc/.docx business notes, architecture notes, one-pagers, two-pagers, benchmarks, buy-side gap analyses, sell-side diagnostic/recommendation notes, and ICP opportunity notes. Own the research-to-claims-to-storytelling workflow, generation mode, template selection, side-story routing, sourcing gates, next-step nudging, and human-reviewed template learning. Always pair with the runtime DOCX creation/editing skill for rendering and visual QA.
+description: Create, revise, or industrialize evidence-grounded decision notes, architecture notes, one-pagers, two-pagers, benchmarks, buy-side gap analyses, sell-side diagnostic/recommendation notes, ICP opportunity notes and integration notes. Own research-to-claims-to-storytelling, evidence lineage, template bridges, lock-in mapping, next-step nudging and the governed dreaming loop. Pair with the runtime DOCX skill when a Word artifact is requested.
 ---
 
 # Decision Notes & Storytelling
 
 ## Scope
 
-This skill is the governed document OS for decision notes. It owns **content architecture, evidence lineage, narrative composition, template contracts and learning loops**. The runtime DOCX skill owns **Word generation, rendering and file-level QA**.
+This skill is a governed decision-note OS. It owns **context reconstruction, research, evidence lineage, claims, decision architecture, narrative composition, template routing, cross-template bridges and learning loops**. Rendering is a downstream concern.
 
-Use this skill whenever the requested output is a `.doc` or `.docx` note, brief, comparison, architecture memo, one-pager, two-pager, benchmark, buy-side analysis, sell-side diagnostic or ICP opportunity note.
+Use the lightest output that closes the decision. Do not create a larger report when a one-pager, two-pager or bounded integration decision is sufficient.
 
 ## Generation mode
 
-Select one mode from `GenerationMode` before selecting the output template. Read [references/modes.md](references/modes.md).
+Select one mode from `GenerationMode` before the output template. Read [references/modes.md](references/modes.md).
 
-- `FROM_SCRATCH` — no trusted canonical draft exists; execute the complete evidence → claims → scaffold → draft pipeline.
-- `ITERATIVE` — a canonical prior output exists; establish the accepted baseline, compute the delta, update only the required evidence/content/layout scope, then regression-check preserved material.
-- `FEEDBACK_DREAMING` — post-run improvement loop; convert repeated feedback and QA defects into candidate changes to contracts/templates with explicit human promotion.
-- `RETRO_ENGINEERING` — **TODO / non-production**. Reverse-engineer a supplied document into a candidate template using visual inspection first and OCR only as fallback. The planned workflow is documented but must not be treated as implemented.
+- `FROM_SCRATCH` — no trusted canonical draft exists.
+- `ITERATIVE` — preserve a canonical baseline and update only the declared factual/content scope before full regression QA.
+- `FEEDBACK_DREAMING` — explicit system-improvement run over prior outputs/feedback.
+- `RETRO_ENGINEERING` — **TODO / non-production**.
+
+`FEEDBACK_DREAMING` remains an explicit mode for deep improvement work, but a **lightweight dreaming check is also mandatory at the end of every normal run**. The user does not need to request it. `NO_REUSABLE_DELTA` is a valid result; canonical behavior never changes without human approval.
 
 ## Template enum
 
-Select exactly one value from `OutputTemplateType` in `src/template_types.py`:
+Select exactly one primary template:
 
 - `ARCHITECTURE_NOTE`
 - `ONE_PAGER`
@@ -31,84 +33,74 @@ Select exactly one value from `OutputTemplateType` in `src/template_types.py`:
 - `BUY_SIDE_GAP_ANALYSIS`
 - `DIAGNOSTIC_RECO_SELL_SIDE`
 - `OPPORTUNITY_NOTE_ICP`
+- `INTEGRATION_NOTE`
 
-Every template is versioned in `templates/manifest.json` together with its QA fixture and compatible workflow version. Read [references/versioning-and-lifecycle.md](references/versioning-and-lifecycle.md).
+Every template is versioned in `templates/manifest.json` with a QA fixture. Read [references/versioning-and-lifecycle.md](references/versioning-and-lifecycle.md).
 
 ## Canonical workflow
 
 Follow [references/workflow.md](references/workflow.md). Stage boundaries remain explicit.
 
-1. **Research** — collect source evidence; separate account/company reality, product truth and market alternatives.
-2. **Fragments** — convert evidence into atomic, source-addressable fragments.
-3. **Claims graph light** — create claim nodes and typed edges without building a heavy ontology.
-4. **Rerank** — prioritize decision relevance, evidence strength, explanatory value, novelty and audience fit.
-5. **Scaffold** — build a section skeleton from ranked claims before drafting.
-6. **Fill** — draft only from fragments attached to claims; preserve evidence status.
-7. **Side stories** — insert bounded detours after the core decision spine is coherent.
-8. **Layout** — map content to the selected template; prefer bullets and comparison tables.
+1. **Context & decision framing** — reconstruct the actual problem, audience, time horizon and constraints before accepting the supplied framing.
+2. **Research** — collect evidence; separate account/company reality, product truth, market alternatives and dependencies.
+3. **Fragments** — convert evidence into atomic source-addressable fragments.
+4. **Claims graph light** — create claims, contradictions, unknowns and typed edges.
+5. **Rerank** — prioritize decision relevance, evidence strength, explanatory value, novelty and audience fit.
+6. **Scaffold** — build the decision spine before drafting.
+7. **Fill** — draft only from attached fragments; preserve evidence status.
+8. **Side stories** — add bounded analytical detours only after the core spine is coherent.
 9. **Fact-check & source** — verify every material claim and source line.
-10. **DOCX QA** — invoke the runtime DOCX skill; render every page; inspect and iterate.
-11. **Next-step nudging** — expose bounded follow-ups, open questions and highest-value deeper dives.
-12. **Feedback/dreaming** — when the run reveals a reusable pattern, create a candidate change linked to a regression fixture; human review decides promotion.
+10. **Layout / render QA** — when an artifact is requested, map to the template and run the appropriate rendering QA.
+11. **Bridge / nudging** — evaluate the smallest evidence-backed next decision and route it to another template when useful. Zero bridge is valid.
+12. **Dreaming** — always inspect the run for reusable QA/workflow/template improvements; propose, never silently promote.
+
+## Evidence memory and bridges
+
+Read [references/bridges-integration-and-run-memory.md](references/bridges-integration-and-run-memory.md).
+
+Carry a compact run context across bridges: source ledger, source classes, fragments, claims, contradictions, unknowns, rejected alternatives, hard gates, scoring assumptions, decision, falsifiers, entities, lock-in map, template/workflow versions and open validation questions.
+
+A downstream template may reuse prior evidence but must not launder it into fresh truth. Revalidate time-sensitive claims. Preserve `fact | inference | hypothesis | recommendation | unknown` and source lineage.
+
+## Lock-in and sovereignty
+
+Treat lock-in as a **location and control-point question**, not merely a severity score. Map material dependencies across technical stack and value chain, then identify switching asset/cost, portability mechanism, contractual/licensing constraint, exit path and medium/long-term sovereignty implication.
 
 ## Evidence and prose rules
 
 - Lead with the decision, result or central thesis.
 - Prefer direct affirmative formulations.
-- Use contrast only when the contrast carries analytical value.
-- Prefer bullets for enumerations of 3+ items.
-- Prefer tables for structured comparisons.
+- Prefer bullets for enumerations of 3+ items and tables for structured comparisons.
 - Label `fact | inference | hypothesis | recommendation | unknown`.
 - Side stories never create new proof.
-- Preserve source lineage from fragment → claim → section → side story.
-- Apply hard evidence gates before any scoring or narrative ranking.
-- Keep seller recommendations separate from buyer reality until the explicit fit stage.
-
-## Visual rules
-
-Apply [references/style-contract.md](references/style-contract.md).
-
-Key gates:
-- body text target 10.5–11 pt; hard minimum 9 pt;
-- no clipping, overlap or out-of-bounds content;
-- tables use column widths proportional to semantic density;
-- comparisons default to tables;
-- Mermaid source remains canonical and rendered diagrams are embedded as images;
-- if fitting a Mermaid would reduce either dimension by more than **30%**, transpose the same semantic graph and rerender;
-- every final DOCX passes render → page-by-page inspection → correction → rerender.
+- Preserve lineage from source → fragment → claim → section → bridge.
+- Apply hard gates before scoring or narrative ranking.
+- Keep seller recommendations separate from buyer/account reality until the explicit fit stage.
+- Prefer the smallest reversible validation step over speculative implementation depth.
 
 ## Side stories
 
-Use [references/side-stories-retro.md](references/side-stories-retro.md). Preferred business-note kinds:
-
-- `dezoom` — broader operating-model, portfolio or market implication;
-- `method` — method, evidence or scoring caveat;
-- `false_lead` — tempting analogy rejected with an explicit break point;
-- `comparator` — bounded comparison on one decision criterion;
-- `analytical_focus` — deeper mechanism, economics or conjecture;
-- `callback` — return to a prior decision thread.
-
-Every side story has a stable ID, source claim IDs, purpose, insertion anchor and return-to anchor.
+Preferred kinds: `dezoom | method | false_lead | comparator | analytical_focus | callback`. Every side story has a stable ID, source claim IDs, purpose, insertion anchor and return-to anchor.
 
 ## Specialized templates
 
+### BENCHMARKING
+Compare 2+ options against identical criteria. Reconstruct the true problem before scoring, normalize unlike categories, apply hard gates, show uncertainty/sensitivity and end with falsifiers. Technical, product and business benchmarks share the evidence pipeline but use domain-specific criteria.
+
 ### BUY_SIDE_GAP_ANALYSIS
-Use when the reader evaluates whether to adopt, replace, complement or partner with a product/vendor. Start from the buyer baseline, hard gates and migration reality before feature richness.
+Evaluate adopt/replace/complement/partner from the buyer baseline, target state, hard gates, migration/coexistence and economics before feature richness.
 
 ### DIAGNOSTIC_RECO_SELL_SIDE
-Use when advising a vendor/founder on how to package, position, sell and expand an offer. Diagnose market narrative, ICP, entry wedge, proof mechanics, packaging, pricing, competitive threats and sales motion before issuing recommendations.
+Advise a vendor/founder on positioning, ICP, proof, packaging, pricing, competition and sales motion. Keep diagnosis separate from recommendations.
 
 ### OPPORTUNITY_NOTE_ICP
-Use when deciding whether a concrete target account, partner or internal platform is a plausible opportunity for an offer. Keep target reality and product truth separate, apply hard gates, map capability gaps to product outcomes, identify sponsor/terrain/veto hypotheses and end with a reversible validation step.
+Decide whether a concrete target/partner is credible. Keep target truth and product truth independent until fit; end with a reversible validation step.
+
+### INTEGRATION_NOTE
+Use when the next decision is how products, companies or internal capabilities should combine. Evaluate three lenses — **technical, product, business** — and decide `BUILD | BUY | PARTNER | COEXIST | DEFER`. Explicitly map complementarity, overlap, operating ownership, lock-in location, sovereignty, economics, GTM/customer ownership and exit path.
 
 ## Feedback / dreaming
 
-Read [references/dreaming-self-healing.md](references/dreaming-self-healing.md). A reusable change requires:
-- at least one real output;
-- QA findings or explicit user feedback;
-- separation of case-specific vs reusable deltas;
-- a candidate contract/template/mode patch;
-- a version-linked regression fixture;
-- human approval before promotion.
+Read [references/dreaming-self-healing.md](references/dreaming-self-healing.md). Every normal run performs the lightweight check. An explicit `FEEDBACK_DREAMING` run deepens it across outputs and feedback.
 
-Never silently mutate the canonical template after a single run.
+A reusable change requires evidence from a real run, separation of case-specific vs reusable deltas, a candidate patch, regression coverage and human approval. Never silently mutate the canonical template catalog.

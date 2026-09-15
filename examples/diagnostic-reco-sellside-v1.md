@@ -1,8 +1,8 @@
 ---
 template_type: diagnostic-reco-sellside
-template_version: 1.1.0
-fixture_version: 1.1.0
-workflow_version: 1.1.0
+template_version: 1.2.0
+fixture_version: 1.2.0
+workflow_version: 1.2.0
 ---
 
 # Diagnostic/reco sell-side regression fixture
@@ -13,11 +13,12 @@ Checks:
 - current seller reality before recommendations;
 - threat and opportunity treated separately;
 - ICP and anti-ICP explicit;
-- proof ladder converts product authority stages into commercial acceptance gates;
-- competitor benchmark distinguishes installed asset → agentic extension → implication for seller;
-- business-model benchmark separates land unit, scale unit, consumption/capacity and services;
-- at least two bounded commercial model options are derived from the benchmark rather than copied wholesale;
-- packaging/pricing and land-expand path explicit;
+- proof ladder converts authority stages into acceptance gates;
+- competitor benchmark distinguishes installed asset → extension → implication;
+- business-model benchmark separates land, scale, consumption/capacity and services;
 - recommendations include action, metric and falsifier;
-- comparator side story harvests a superior commercial mechanism without copying unrelated positioning;
-- analytical focus identifies category convergence when multiple incumbents can claim agentic orchestration.
+- lock-in/dependency is located where material rather than used as generic vendor-risk prose;
+- ecosystem findings distinguish competitor, peer, complement, channel and potential partner;
+- a partnership/co-distribution hypothesis bridges to `integration-note` with prior evidence preserved;
+- a named-account hypothesis may bridge to `opportunity-note-icp` without contaminating target research with seller claims;
+- mandatory dreaming check runs and remains human-governed.

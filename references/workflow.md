@@ -1,9 +1,12 @@
 # Governed writing workflow
 
+Workflow version: 1.2.0
+
 ## Common state machine
 
 ```text
 MODE_SELECTED
+→ CONTEXT_FRAMED
 → RESEARCHED
 → FRAGMENTED
 → CLAIMS_GRAPHED
@@ -12,115 +15,81 @@ MODE_SELECTED
 → DRAFTED
 → SIDE_STORIES_ROUTED
 → SOURCED
-→ LAID_OUT
-→ DOCX_QA_PASSED
+→ LAID_OUT / RENDER_QA (when artifact requested)
 → DELIVERED
-→ NUDGED
-→ FEEDBACK_CAPTURED (optional)
-→ DREAMING_CANDIDATE (optional)
+→ BRIDGE_EVALUATED
+→ DREAMING_CHECKED
+→ DREAMING_CANDIDATE (only when reusable delta exists)
 ```
 
-Each transition has an input contract, output contract and stop condition.
+Every normal run reaches `BRIDGE_EVALUATED` and `DREAMING_CHECKED`. Both may legitimately return `NONE` / `NO_REUSABLE_DELTA`.
 
 | Stage | Required input | Output | Gate |
 |---|---|---|---|
-| Mode selection | request + existing artifacts | mode declaration | baseline/new-work status explicit |
-| Research | decision question + scope | source ledger | sources sufficient or limits stated |
-| Fragments | source ledger | atomic fragments | one idea/evidence unit per fragment |
-| Claims graph light | fragments | claims + typed edges | every claim has lineage |
-| Rerank | claims | ranked claim set | low-value duplicates pruned |
+| Mode selection | request + existing artifacts | mode declaration | baseline/new-work explicit |
+| Context framing | request + trusted context | decision question, audience, horizon, constraints | supplied framing challenged where material |
+| Research | decision question + scope | classified source ledger | sufficient or limits stated |
+| Fragments | source ledger | atomic fragments | one evidence unit per fragment |
+| Claims graph | fragments | claims + typed edges | every claim has lineage |
+| Rerank | claims | ranked claim set | duplicates pruned; hard gates external to score |
 | Scaffold | ranked claims | section skeleton | each section has purpose/payoff |
 | Fill | scaffold + fragments | prose/bullets/tables | no unsupported material assertion |
-| Side stories | coherent trunk | routed side stories | detours bounded + return anchor |
-| Sourcing | complete draft | source-complete draft | material claims traceable |
-| Layout | content spec | DOCX-ready spec | template/version contract satisfied |
-| DOCX QA | DOCX | QA report | every page visually clean |
-| Nudging | delivered decision | next-step set | bounded, decision-relevant follow-ups |
-| Feedback | output + human/QA delta | feedback ledger | reusable vs case-specific separated |
-| Dreaming | feedback ledger + fixtures | candidate patch | human promotion required |
+| Side stories | coherent trunk | routed side stories | bounded + return anchor |
+| Sourcing | draft | source-complete draft | material claims traceable |
+| Layout/render | content spec | artifact + QA when requested | template/version + visual gates |
+| Bridge | delivered decision + RunContext | zero or more bounded bridge candidates | evidence-backed; smallest reversible next decision |
+| Dreaming check | complete run + QA/feedback | `NO_REUSABLE_DELTA` or candidate delta | no silent promotion |
+
+## RunContext
+
+Maintain the compact provenance object defined in [bridges-integration-and-run-memory.md](bridges-integration-and-run-memory.md). It is the handoff between templates and prevents research, rejected options, sourcing decisions and uncertainty from being lost between notes.
 
 ## Mode-specific preflight
 
 ### From scratch
-Start with a blank decision spine. Every material statement must flow from sourced fragments into claims before it reaches the scaffold.
+Start with a blank decision spine. Material statements flow from sourced fragments into claims before the scaffold.
 
 ### Iterative
-Resolve a canonical baseline before research. Record:
-- accepted content;
-- accepted evidence status;
-- accepted layout/template version;
-- requested delta;
-- **form-global changes** that make an entire section or document span review-eligible.
-
-An iterative run preserves accepted material outside the declared review scope and reruns regression QA on the full final document. A form-global style/storytelling change may legitimately reopen every paragraph in scope while preserving its factual approval.
+Resolve a canonical baseline before research. Record accepted content/evidence/layout, requested delta and any form-global review scope. Preserve accepted material outside scope and rerun regression QA on the final output.
 
 ### Feedback / dreaming
-Runs after delivery or after repeated QA/manual corrections. It updates the **system**, not the business conclusion. Candidate improvements require a fixture and a versioned delta note.
+This explicit mode deepens the mandatory end-of-run dreaming check across one or more outputs. It updates the system, not the business conclusion. Candidate improvements require regression coverage and human promotion.
 
 ### Retro-engineering
-See [references/modes.md](modes.md). This mode is documented as TODO and excluded from production routing until its tests and contracts exist.
+Documented TODO; excluded from production routing until contracts and tests exist.
 
 ## Claims graph light
 
-Use a lightweight graph.
+Node types: `fragment | claim | decision | recommendation | unknown`.
 
-Node types:
-- `fragment`
-- `claim`
-- `decision`
-- `recommendation`
-- `unknown`
+Edge types: `supports | contradicts | qualifies | causes | depends_on | compares_to | answers | motivates | integrates_with | substitutes | complements | enables`.
 
-Edge types:
-- `supports`
-- `contradicts`
-- `qualifies`
-- `causes`
-- `depends_on`
-- `compares_to`
-- `answers`
-- `motivates`
-
-The graph improves retrieval, deduplication, bridge detection, reranking and side-story placement. It remains small enough for manual inspection.
+The graph supports retrieval, deduplication, reranking, bridge detection, ecosystem/complementarity analysis and side-story placement without becoming a heavy ontology.
 
 ## Reranking
 
-Default score dimensions, each 0–5:
-- decision relevance: 30%
-- evidence strength: 25%
-- explanatory power: 20%
-- novelty / non-redundancy: 15%
-- audience fit: 10%
+Default 0–5 dimensions:
+- decision relevance 30%;
+- evidence strength 25%;
+- explanatory power 20%;
+- novelty/non-redundancy 15%;
+- audience fit 10%.
 
-The score is a prioritization heuristic. Hard gates for contradictions, weak evidence and critical unknowns remain outside the weighted score.
-
-### Calibration example
-
-For a claim scored `4 / 5 / 3 / 5 / 4` in that order, the weighted score is `(4×0.30) + (5×0.25) + (3×0.20) + (5×0.15) + (4×0.10) = 4.20 / 5`. It may be prioritized only if it also clears the evidence and contradiction gates. The weights express a default ordering of attention, not measured predictive precision; tune them only from reviewed runs and record the resulting fixture delta.
+Hard gates, contradictions and critical unknowns remain outside weighted scoring.
 
 ## Scaffold rule
 
-Define headings and payload type before prose.
-
-For each section define:
-- question answered;
-- top claim IDs;
-- preferred payload: prose | bullets | table | diagram | side story;
-- maximum density;
-- source coverage threshold;
-- return/transition sentence.
+For each section define question answered, top claim IDs, payload type, maximum density, source coverage threshold and transition/return sentence.
 
 ## Final QA sequence
 
 1. mode/baseline QA;
-2. content-contract QA;
-3. source QA;
-4. stylistic lint;
-5. diagram-fit check;
-6. DOCX render;
-7. inspect every page at 100%;
-8. fix overlap/clipping/density/table widths;
-9. rerender;
-10. confirm template + fixture version compatibility;
-11. deliver;
-12. capture reusable feedback for dreaming.
+2. context/problem-framing QA;
+3. content-contract QA;
+4. source and evidence-status QA;
+5. lock-in/sovereignty location check when material;
+6. stylistic/layout/render QA when applicable;
+7. decision + falsifier check;
+8. bridge evaluation using preserved RunContext;
+9. mandatory lightweight dreaming check;
+10. if reusable delta exists, create candidate patch/fixture proposal for human approval.

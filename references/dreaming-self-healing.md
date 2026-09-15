@@ -1,73 +1,44 @@
 # Feedback / dreaming / self-healing governance
 
-The loop harvests reusable improvements from completed runs while keeping promotion human-governed.
+## Two levels
 
-## Trigger
+Dreaming is fundamental and must not depend on the input prompt remembering to request it.
 
-Run this mode when:
-- a new document family was required;
-- a repeated manual layout repair appeared;
-- a side-story type repeatedly solved the same reading problem;
-- a contract gap caused unsupported prose, poor sourcing or visual defects;
-- explicit human feedback defines a reusable preference;
-- the same post-delivery correction appears across multiple outputs.
+### Level 1 — mandatory lightweight run check
+Every normal run ends with a short learning inspection after the decision and bridge evaluation. It asks whether the run exposed a reusable research, reasoning, sourcing, bridge, template, layout or QA improvement.
+
+Valid output: `NO_REUSABLE_DELTA`.
+
+### Level 2 — explicit `FEEDBACK_DREAMING` mode
+Use for deeper system improvement across one or more outputs, repeated feedback, QA defects or a newly discovered document family.
+
+Neither level may silently mutate canonical behavior.
 
 ## Procedure
 
-1. Capture QA defects, human feedback and successful adaptations.
-2. Separate:
-   - case-specific content;
-   - reusable research rule;
-   - reusable content rule;
-   - reusable layout rule;
-   - reusable contract/gate;
-   - reusable mode/routing rule.
-3. Identify the affected template and current version.
-4. Create a candidate patch with a proposed semantic version bump.
-5. Add or update the linked regression fixture.
-6. Run the validator and all compatible fixtures.
-7. Produce a delta note:
-   - why change;
-   - affected templates/modes;
-   - compatibility;
-   - evidence/QA impact;
-   - rollback.
-8. Request human validation.
-9. Promote only after explicit approval.
+1. Capture QA defects, surprises, human feedback and successful adaptations.
+2. Separate case-specific content from reusable research/content/layout/contract/routing rules.
+3. Include bridge quality: did the next-step recommendation reuse context correctly, preserve evidence status and avoid unnecessary research?
+4. Include lock-in reasoning quality when material: was dependency located at the right stack/value-chain control point with an exit path?
+5. Identify affected template/workflow and current versions.
+6. Create a candidate patch only when a reusable delta exists.
+7. Add/update regression fixture coverage.
+8. Produce a delta note: why, scope, compatibility, QA impact, rollback.
+9. Request human validation before promotion.
 
-## Cross-lifecycle rule
+## Promotion evidence
 
-Template, workflow and QA example versions evolve together. See [references/versioning-and-lifecycle.md](versioning-and-lifecycle.md).
-
-No template version may be promoted when:
-- its declared fixture is absent;
-- the fixture targets another major template version;
-- the workflow compatibility is stale;
-- a new hard visual/content gate lacks regression coverage.
+A reusable change normally requires at least one real output plus QA/user evidence. A single run may justify a **candidate fixture or patch** when the gap is concrete and falsifiable, but not autonomous promotion to canonical behavior.
 
 ## Hard rule
 
-No autonomous promotion to the canonical template catalog.
+The system may propose, branch, test, render, report and open a draft PR. A human decides promote, revise, reject or retire.
 
-The system may:
-- propose;
-- branch;
-- test;
-- render;
-- report;
-- open a draft PR.
+## Bridge learning
 
-A human decides:
-- promote;
-- revise;
-- reject;
-- retire.
+Dreaming should preferentially improve the reusable bridge contract rather than hard-code a one-off next step. Examples:
+- benchmark complementarity repeatedly leads to integration analysis;
+- sell-side diagnostics repeatedly expose named ICP targets suited to opportunity notes;
+- architecture decisions repeatedly need a compact executive approval artifact.
 
-## DOCX preference contract
-
-Every requested `.doc` / `.docx` decision note routes through:
-1. `decision-notes-and-storytelling`;
-2. the runtime DOCX creation/editing skill;
-3. render-and-inspect QA.
-
-This repository is the durable auditable source of truth for that behavior.
+Record the originating decision, reused claim/source IDs, new evidence required and whether the bridge produced useful information. This makes bridge quality testable over time.
