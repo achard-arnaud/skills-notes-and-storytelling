@@ -1,13 +1,13 @@
 ---
 name: decision-notes-and-storytelling
-description: Create, revise, or industrialize evidence-grounded decision notes, architecture notes, one-pagers, two-pagers, benchmarks, buy-side gap analyses, sell-side diagnostic/recommendation notes, ICP opportunity notes and integration notes. Own research-to-claims-to-storytelling, evidence lineage, template bridges, lock-in mapping, next-step nudging and the governed dreaming loop. Pair with the runtime DOCX skill when a Word artifact is requested.
+description: Create, revise, or industrialize evidence-grounded decision notes, architecture notes, one-pagers, two-pagers, benchmarks, buy-side gap analyses, sell-side diagnostic/recommendation notes, ICP opportunity notes and integration notes. Own research-to-claims-to-storytelling, evidence lineage, template bridges, counter-perspective QA, lock-in mapping, next-step nudging and the governed tiered dreaming loop. Pair with the runtime DOCX skill when a Word artifact is requested.
 ---
 
 # Decision Notes & Storytelling
 
 ## Scope
 
-This skill is a governed decision-note OS. It owns **context reconstruction, research, evidence lineage, claims, decision architecture, narrative composition, template routing, cross-template bridges and learning loops**. Rendering is a downstream concern.
+This skill is a governed decision-note OS. It owns **context reconstruction, research, evidence lineage, claims, decision architecture, narrative composition, template routing, cross-template bridges, counter-perspective QA and learning loops**. Rendering is a downstream concern.
 
 Use the lightest output that closes the decision. Do not create a larger report when a one-pager, two-pager or bounded integration decision is sufficient.
 
@@ -20,7 +20,7 @@ Select one mode from `GenerationMode` before the output template. Read [referenc
 - `FEEDBACK_DREAMING` — explicit system-improvement run over prior outputs/feedback.
 - `RETRO_ENGINEERING` — **TODO / non-production**.
 
-`FEEDBACK_DREAMING` remains an explicit mode for deep improvement work, but a **lightweight dreaming check is also mandatory at the end of every normal run**. The user does not need to request it. `NO_REUSABLE_DELTA` is a valid result; canonical behavior never changes without human approval.
+`FEEDBACK_DREAMING` remains an explicit mode for deep improvement work, but a lightweight dreaming check is mandatory at the end of every normal run. The user does not need to request it. `NO_REUSABLE_DELTA` is valid; canonical behavior never changes without human approval.
 
 ## Template enum
 
@@ -50,21 +50,34 @@ Follow [references/workflow.md](references/workflow.md). Stage boundaries remain
 7. **Fill** — draft only from attached fragments; preserve evidence status.
 8. **Side stories** — add bounded analytical detours only after the core spine is coherent.
 9. **Fact-check & source** — verify every material claim and source line.
-10. **Layout / render QA** — when an artifact is requested, map to the template and run the appropriate rendering QA.
-11. **Bridge / nudging** — evaluate the smallest evidence-backed next decision and route it to another template when useful. Zero bridge is valid.
-12. **Dreaming** — always inspect the run for reusable QA/workflow/template improvements; propose, never silently promote.
+10. **Counter-perspective QA** — attack the material conclusion with the strongest credible alternative explanation, hidden hard gate, lock-in/control shift or failure path. Do not manufacture artificial balance.
+11. **Layout / render QA** — when an artifact is requested, map to the template and run the appropriate rendering QA.
+12. **Reader/decision QA** — verify that the intended reader can see decision, uncertainty, falsifier and next step without reconstructing the analysis.
+13. **Bridge / nudging** — evaluate the smallest evidence-backed next decision and route it to another template when useful. Zero bridge is valid.
+14. **Dreaming tier selection** — select Tier 0–3 based on the strength and reusability of the run signal.
+15. **Dreaming** — inspect the run for reusable QA/workflow/template improvements; propose, never silently promote.
+
+## Review lenses
+
+Keep three review lenses distinct:
+
+- **Conformance review** — contracts, evidence rules, scope, sourcing, template and rendering constraints.
+- **Counter-perspective review** — strongest credible challenge to the reasoning or recommendation.
+- **Reader/decision review** — clarity, decision usefulness, trade-offs, uncertainty, falsifier and next action.
+
+Do not let stylistic preferences masquerade as factual or decision defects.
 
 ## Evidence memory and bridges
 
 Read [references/bridges-integration-and-run-memory.md](references/bridges-integration-and-run-memory.md).
 
-Carry a compact run context across bridges: source ledger, source classes, fragments, claims, contradictions, unknowns, rejected alternatives, hard gates, scoring assumptions, decision, falsifiers, entities, lock-in map, template/workflow versions and open validation questions.
+Carry a compact run context across bridges: source ledger, source classes, fragments, claims, contradictions, unknowns, rejected alternatives, hard gates, scoring assumptions, decision, falsifiers, entities, lock-in map, template/workflow versions, open validation questions, counter-perspective verdict and dreaming tier when material.
 
 A downstream template may reuse prior evidence but must not launder it into fresh truth. Revalidate time-sensitive claims. Preserve `fact | inference | hypothesis | recommendation | unknown` and source lineage.
 
 ## Lock-in and sovereignty
 
-Treat lock-in as a **location and control-point question**, not merely a severity score. Map material dependencies across technical stack and value chain, then identify switching asset/cost, portability mechanism, contractual/licensing constraint, exit path and medium/long-term sovereignty implication.
+Treat lock-in as a **location and control-point question**, not merely a severity score. Map material dependencies across technical stack, value chain and human/process control points, then identify switching asset/cost, portability mechanism, contractual/licensing constraint, exit path and medium/long-term sovereignty implication.
 
 ## Evidence and prose rules
 
@@ -77,6 +90,7 @@ Treat lock-in as a **location and control-point question**, not merely a severit
 - Apply hard gates before scoring or narrative ranking.
 - Keep seller recommendations separate from buyer/account reality until the explicit fit stage.
 - Prefer the smallest reversible validation step over speculative implementation depth.
+- Stop broad research when remaining uncertainty can only be resolved by a bounded experiment, implementation, procurement, migration rehearsal or customer discovery.
 
 ## Side stories
 
@@ -85,7 +99,7 @@ Preferred kinds: `dezoom | method | false_lead | comparator | analytical_focus |
 ## Specialized templates
 
 ### BENCHMARKING
-Compare 2+ options against identical criteria. Reconstruct the true problem before scoring, normalize unlike categories, apply hard gates, show uncertainty/sensitivity and end with falsifiers. Technical, product and business benchmarks share the evidence pipeline but use domain-specific criteria.
+Compare 2+ options against identical criteria. Reconstruct the true problem before scoring, normalize unlike categories, apply hard gates, show uncertainty/sensitivity and end with falsifiers. Technical, product and business benchmarks share the evidence pipeline but use domain-specific criteria. Close explicitly as `CLOSED | CLOSED_WITH_CHALLENGE_GATE | REOPEN_TARGETED`; do not keep adding peers after closure unless a named hard gate requires it.
 
 ### BUY_SIDE_GAP_ANALYSIS
 Evaluate adopt/replace/complement/partner from the buyer baseline, target state, hard gates, migration/coexistence and economics before feature richness.
@@ -97,10 +111,28 @@ Advise a vendor/founder on positioning, ICP, proof, packaging, pricing, competit
 Decide whether a concrete target/partner is credible. Keep target truth and product truth independent until fit; end with a reversible validation step.
 
 ### INTEGRATION_NOTE
-Use when the next decision is how products, companies or internal capabilities should combine. Evaluate three lenses — **technical, product, business** — and decide `BUILD | BUY | PARTNER | COEXIST | DEFER`. Explicitly map complementarity, overlap, operating ownership, lock-in location, sovereignty, economics, GTM/customer ownership and exit path.
+Use when the next decision is how products, companies or internal capabilities should combine. Evaluate three lenses — **technical, product, business** — and decide `BUILD | BUY | PARTNER | COEXIST | DEFER`. Distinguish strategic decision from integration posture when useful. Explicitly map complementarity, overlap, operating ownership, lock-in location, sovereignty, economics, GTM/customer ownership, process/habit lock-in and exit path. Every positive recommendation requires a bounded pilot and a counter-perspective verdict.
+
+## Counter-perspective / red-team
+
+Read [references/workflow.md](references/workflow.md) and [references/dreaming-self-healing.md](references/dreaming-self-healing.md).
+
+Use red-team as bounded falsification, not as theatrical opposition. Attack the proposition most capable of reversing the decision. Preferred lenses include wrong framing, category mismatch, missing baseline, evidence asymmetry, hidden hard gate, incentive/ownership conflict, staleness, lock-in/control migration, operating burden, reversibility and user/process adoption failure.
+
+Valid outcomes:
+- `SURVIVES_RED_TEAM`;
+- `SURVIVES_WITH_NARROWING`;
+- `PIVOT_REQUIRED`;
+- `REOPEN_TARGETED`.
 
 ## Feedback / dreaming
 
-Read [references/dreaming-self-healing.md](references/dreaming-self-healing.md). Every normal run performs the lightweight check. An explicit `FEEDBACK_DREAMING` run deepens it across outputs and feedback.
+Read [references/dreaming-self-healing.md](references/dreaming-self-healing.md). Every normal run performs the lightweight check; higher tiers deepen the loopback when the signal is structural.
+
+Tiering:
+- Tier 0 — `NO_REUSABLE_DELTA`;
+- Tier 1 — mandatory lightweight run check;
+- Tier 2 — targeted red-team loopback for material/structural uncertainty;
+- Tier 3 — explicit `FEEDBACK_DREAMING` multi-run system review.
 
 A reusable change requires evidence from a real run, separation of case-specific vs reusable deltas, a candidate patch, regression coverage and human approval. Never silently mutate the canonical template catalog.
