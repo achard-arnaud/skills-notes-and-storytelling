@@ -2,7 +2,7 @@
 template_type: two-pager
 template_version: 1.2.0
 fixture_version: 1.2.0
-workflow_version: 1.3.0
+workflow_version: 1.3.1
 ---
 
 # Two-pager regression fixture
