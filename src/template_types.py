@@ -8,6 +8,7 @@ class OutputTemplateType(str, Enum):
     BUY_SIDE_GAP_ANALYSIS = "buy-side-gap-analysis"
     DIAGNOSTIC_RECO_SELL_SIDE = "diagnostic-reco-sellside"
     OPPORTUNITY_NOTE_ICP = "opportunity-note-icp"
+    INTEGRATION_NOTE = "integration-note"
 
 class TemplateLifecycle(str, Enum):
     CANDIDATE = "candidate"
