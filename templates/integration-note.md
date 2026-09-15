@@ -9,7 +9,8 @@ Use after benchmark/opportunity/architecture/sell-side work when enough prior ev
 1. state the originating decision/bridge and reused claim/source IDs;
 2. establish independent truth for every party/capability;
 3. distinguish `overlap | complement | dependency | substitute | channel/partner`;
-4. list new evidence required before recommendation.
+4. declare the **integration posture** separately from the strategic decision when useful: `embedded capability | admin surface | projection | runtime dependency | channel/partner | coexistence layer | other`;
+5. list new evidence required before recommendation.
 
 ## Decision spine
 1. recommendation + confidence + condition;
@@ -19,12 +20,13 @@ Use after benchmark/opportunity/architecture/sell-side work when enough prior ev
 5. product/use-case integration path;
 6. business/GTM integration path;
 7. operating model and responsibility boundaries;
-8. lock-in/sovereignty map by stack and value-chain control point;
+8. lock-in/sovereignty map by stack, value-chain and process/control point;
 9. `BUILD | BUY | PARTNER | COEXIST | DEFER` option matrix;
 10. economics/value capture and dependency trade-off;
 11. risks, unknowns and falsifiers;
 12. smallest reversible pilot with acceptance/stop criteria;
-13. bridge to next decision only when material.
+13. counter-perspective verdict on the recommended path;
+14. bridge to next decision only when material.
 
 ## Technical lens
 Capture:
@@ -36,6 +38,18 @@ Capture:
 - lock-in location and credible exit path.
 
 Do not invent an integration because both products expose APIs. Identify the exact control handoff and untested interface.
+
+## Projection / admin-surface pattern
+
+When the integration exists only to expose or administer a governed core, treat `projection / admin surface` as a distinct posture:
+- the canonical system of record remains external to the integration surface;
+- canonical IDs remain authoritative;
+- schema mapping is explicit and versioned;
+- provider-specific row/object IDs do not become business identity;
+- writes are proposals or bounded mutations behind a merge/validation gate unless the architecture explicitly establishes otherwise;
+- the core must remain operable when the projection/admin surface is removed.
+
+Do not promote an admin surface into a new system of record by convenience.
 
 ## Product lens
 Capture:
@@ -57,6 +71,17 @@ Capture:
 - moat gained vs strategic dependency created;
 - evidenced distribution, ownership/investor or ecosystem links.
 
+## Lock-in lens
+
+Map technical and commercial lock-in, plus **operational habit/process lock-in** where humans may move canonical work into a more convenient external surface.
+
+For every material control point capture:
+- current owner/control point;
+- control after integration;
+- switching asset/cost;
+- portability/exit mechanism;
+- process or human habit that could make the dependency sticky even if data is exportable.
+
 ## Option matrix
 Compare at least the plausible subset of:
 `BUILD | BUY | PARTNER | COEXIST | DEFER`.
@@ -74,6 +99,20 @@ Every positive recommendation ends with a bounded pilot:
 - stop condition;
 - rollback/exit;
 - evidence needed for scale decision.
+
+The pilot is not optional prose: it is the mechanism that converts unresolved integration questions into testable evidence.
+
+## Counter-perspective gate
+
+Before delivery, challenge the recommended path against:
+- native/no-tool or incumbent baseline;
+- strongest rejected option;
+- hidden operating burden;
+- control migration / lock-in;
+- failure ownership;
+- one plausible reason the integration should not exist at all.
+
+Return `SURVIVES_RED_TEAM | SURVIVES_WITH_NARROWING | PIVOT_REQUIRED | REOPEN_TARGETED` and propagate any narrowing into the recommendation/pilot.
 
 ## Gates
 Reject or defer when a critical security/sovereignty constraint, unsupported dependency, incompatible incentive, unclear data/customer/control ownership or unowned operating responsibility remains unresolved.
