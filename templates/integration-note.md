@@ -26,7 +26,9 @@ Use after benchmark/opportunity/architecture/sell-side work when enough prior ev
 11. risks, unknowns and falsifiers;
 12. smallest reversible pilot with acceptance/stop criteria;
 13. counter-perspective verdict on the recommended path;
-14. bridge to next decision only when material.
+14. optional one-pass repair/narrowing + verification;
+15. bridge to next decision only when material;
+16. dreaming handoff: reusable integration/QA delta or `NO_REUSABLE_DELTA`.
 
 ## Technical lens
 Capture:
@@ -112,7 +114,17 @@ Before delivery, challenge the recommended path against:
 - failure ownership;
 - one plausible reason the integration should not exist at all.
 
-Return `SURVIVES_RED_TEAM | SURVIVES_WITH_NARROWING | PIVOT_REQUIRED | REOPEN_TARGETED` and propagate any narrowing into the recommendation/pilot.
+Return `SURVIVES_RED_TEAM | SURVIVES_WITH_NARROWING | PIVOT_REQUIRED | REOPEN_TARGETED`.
+
+Loopback rules:
+- `SURVIVES_RED_TEAM` → continue;
+- `SURVIVES_WITH_NARROWING` → narrow once, then verify once;
+- `PIVOT_REQUIRED` → change strategic decision or integration posture and return to the smallest affected option set;
+- `REOPEN_TARGETED` → reopen only the failed hard gate or unresolved interface, not the entire upstream benchmark by default.
+
+After a repair/narrowing pass, one verification pass is allowed. If it still fails materially, stop and escalate to targeted reopen or Tier 3 dreaming.
+
+Create a dreaming loopback event only when the red-team finding or repair appears reusable beyond the current integration.
 
 ## Gates
 Reject or defer when a critical security/sovereignty constraint, unsupported dependency, incompatible incentive, unclear data/customer/control ownership or unowned operating responsibility remains unresolved.
