@@ -12,6 +12,42 @@ It must answer three different questions:
 
 Dreaming is not a second drafting pass and is not permission to add architecture. Its purpose is to detect reusable deltas with the smallest sufficient intervention.
 
+## Red-team ↔ dreaming loopback
+
+Counter-perspective QA and dreaming are distinct but connected stages.
+
+- **Red-team asks:** is the current decision/output wrong, too broad, or insufficiently evidenced?
+- **Dreaming asks:** if a weakness or successful repair was observed, is it reusable enough to improve the system?
+
+A red-team finding therefore creates a `loopback_event` only when it changes one of:
+- decision or confidence;
+- scope/narrowing;
+- hard gate/falsifier;
+- bridge or next-step routing;
+- evidence/research pattern;
+- reusable template/workflow/QA behavior.
+
+Do not create learning noise from purely stylistic objections or one-off case details.
+
+### Loopback event contract
+
+When a material red-team finding exists, record:
+- `event_type`: `decision_correction | scope_narrowing | hard_gate_discovery | evidence_gap | bridge_correction | reusable_success_pattern | no_system_delta`;
+- proposition attacked;
+- red-team verdict;
+- repair applied to current run, if any;
+- reusable hypothesis, if any;
+- affected template/workflow/contract;
+- promotion tier;
+- regression fixture needed: yes/no;
+- stop condition.
+
+The same proposition must not cycle indefinitely between red-team and dreaming. Maximum normal loop:
+
+`decision → red-team → repair/narrow → one verification red-team → dreaming`
+
+A second failure routes to `REOPEN_TARGETED` or explicit Tier 3 review rather than another autonomous loop.
+
 ## Tiered loopback
 
 Every run receives one dreaming tier. Higher tiers include the checks of lower tiers.
@@ -55,8 +91,10 @@ Procedure:
 2. identify the strongest credible counter-perspective, not a straw man;
 3. search for disconfirming evidence, category errors, hidden hard gates, path dependence, lock-in and operating consequences;
 4. test whether the conclusion survives, narrows, pivots or reopens;
-5. separate a business-decision correction from a reusable system correction;
-6. create regression coverage only for the reusable part.
+5. apply at most one repair/narrowing pass to the current output;
+6. verify the repaired proposition once;
+7. separate a business-decision correction from a reusable system correction;
+8. create regression coverage only for the reusable part.
 
 Valid verdicts:
 - `SURVIVES_RED_TEAM`;
@@ -109,14 +147,15 @@ Do not create artificial balance. If the best counter-perspective is weak, recor
 
 1. Capture QA defects, surprises, user feedback, counter-perspective findings and successful adaptations.
 2. Separate case-specific content from reusable research/content/layout/contract/routing rules.
-3. Include bridge quality: did the next-step recommendation reuse context correctly, preserve evidence status and avoid unnecessary research?
-4. Include lock-in reasoning quality when material: was dependency located at the right stack/value-chain/process control point with an exit path?
-5. Include process/habit lock-in when an admin surface, workflow or partner changes where humans perform canonical work.
-6. Identify affected template/workflow and current versions.
-7. Create a candidate patch only when a reusable delta exists.
-8. Add/update regression fixture coverage.
-9. Produce a delta note: why, scope, compatibility, QA impact, rollback, evidence tier and counter-perspective result.
-10. Request human validation before promotion.
+3. Create a loopback event only for decision-relevant or reusable findings.
+4. Include bridge quality: did the next-step recommendation reuse context correctly, preserve evidence status and avoid unnecessary research?
+5. Include lock-in reasoning quality when material: was dependency located at the right stack/value-chain/process control point with an exit path?
+6. Include process/habit lock-in when an admin surface, workflow or partner changes where humans perform canonical work.
+7. Identify affected template/workflow and current versions.
+8. Create a candidate patch only when a reusable delta exists.
+9. Add/update regression fixture coverage.
+10. Produce a delta note: why, scope, compatibility, QA impact, rollback, evidence tier and counter-perspective result.
+11. Request human validation before promotion.
 
 ## Benchmark → integration closure learning
 
@@ -131,7 +170,8 @@ Rules:
 - preserve the native/no-tool baseline as fallback;
 - convert unresolved implementation questions into pilot questions rather than new benchmark axes;
 - prohibit adding peers after closure unless a named hard gate requires it;
-- carry falsifiers, exit path and challenge gates into the Integration Note or Architecture Note.
+- carry falsifiers, exit path and challenge gates into the Integration Note or Architecture Note;
+- if the implementation red-team produces `PIVOT_REQUIRED`, the benchmark conclusion is no longer considered closed: reopen only the decision dimension invalidated by the new evidence.
 
 ## Integration-note learning
 
@@ -163,4 +203,4 @@ Dreaming should preferentially improve the reusable bridge contract rather than 
 - sell-side diagnostics repeatedly expose named ICP targets suited to opportunity notes;
 - architecture decisions repeatedly need a compact executive approval artifact.
 
-Record the originating decision, reused claim/source IDs, new evidence required, counter-perspective result and whether the bridge produced useful information. This makes bridge quality testable over time.
+Record the originating decision, reused claim/source IDs, new evidence required, counter-perspective result, loopback event and whether the bridge produced useful information. This makes bridge quality testable over time.
