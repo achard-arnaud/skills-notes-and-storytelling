@@ -26,6 +26,7 @@ Mixed benchmarks are allowed, but weights and hard gates must state which decisi
 12. **Recommendation** — best current path, fallback, migration/reevaluation trigger and falsifiers.
 13. **Closure state** — decide `CLOSED | CLOSED_WITH_CHALLENGE_GATE | REOPEN_TARGETED`.
 14. **Bridge** — integration note for complementarity/coexistence; buy-side gap for winner vs incumbent; architecture note for unresolved feasibility.
+15. **Dreaming handoff** — record whether the red-team produced a reusable benchmark/closure improvement or only changed this decision.
 
 ## Closure discipline
 
@@ -42,6 +43,8 @@ After closure:
 - do not add more peers unless a named hard gate requires it;
 - carry falsifiers, exit path and challenge gates into the downstream Integration or Architecture Note.
 
+If the downstream implementation red-team returns `PIVOT_REQUIRED`, closure is revoked only for the invalidated decision dimension. Do not restart the full market scan by default.
+
 ## Counter-perspective / adversarial pass
 
 The pass must attack the decision rather than merely list weaknesses.
@@ -53,6 +56,16 @@ At minimum challenge:
 - one hidden hard gate, lock-in or operating burden that could reverse the recommendation.
 
 Return `SURVIVES_RED_TEAM | SURVIVES_WITH_NARROWING | PIVOT_REQUIRED | REOPEN_TARGETED`.
+
+When `SURVIVES_WITH_NARROWING`:
+- narrow once;
+- verify once;
+- then close or reopen.
+
+When `PIVOT_REQUIRED` or `REOPEN_TARGETED`:
+- name exactly which criterion, hard gate or category assumption failed;
+- update only the affected shortlist/decision space;
+- create a dreaming loopback event only if the failure suggests a reusable benchmark rule.
 
 Do not keep exploring once the remaining uncertainty can only be resolved by code, pilot, migration rehearsal, procurement, customer discovery or another bounded experiment.
 
@@ -81,6 +94,8 @@ Scores are heuristics unless an externally validated scale exists. Hard gates re
 - recommendation + falsifiers + reevaluation trigger;
 - counter-perspective verdict;
 - closure state and exact reopen condition;
+- red-team repair/verification result when applicable;
+- dreaming loopback event or `NO_REUSABLE_DELTA`;
 - auto-critique: missing peers, weak claims, category bias, evidence that could reverse the result.
 
 Default comparison presentation is a table with density-aware widths.

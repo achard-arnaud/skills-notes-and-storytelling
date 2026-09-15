@@ -1,8 +1,8 @@
 ---
 template_type: integration-note
-template_version: 0.3.0
-fixture_version: 0.3.0
-workflow_version: 1.3.0
+template_version: 0.3.1
+fixture_version: 0.3.1
+workflow_version: 1.3.1
 ---
 
 # Integration note candidate fixture
@@ -25,5 +25,8 @@ Checks:
 - recommendation includes bounded pilot: hypothesis, owners, interface, metric, threshold, stop condition and rollback;
 - counter-perspective challenges the recommended path against native/incumbent baseline, strongest rejected option, hidden operating burden and one reason the integration should not exist;
 - counter-perspective verdict is `SURVIVES_RED_TEAM | SURVIVES_WITH_NARROWING | PIVOT_REQUIRED | REOPEN_TARGETED`;
+- `SURVIVES_WITH_NARROWING` permits one repair and one verification pass only;
+- `PIVOT_REQUIRED`/`REOPEN_TARGETED` returns to the smallest affected option set or failed interface, not a full upstream restart by default;
+- material reusable red-team findings emit a typed dreaming loopback event; case-only corrections may return `NO_REUSABLE_DELTA`;
 - downstream bridge lists new evidence required;
 - dreaming tier selection returns governed candidate delta or `NO_REUSABLE_DELTA`.
