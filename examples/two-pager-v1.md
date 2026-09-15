@@ -2,7 +2,7 @@
 template_type: two-pager
 template_version: 1.2.0
 fixture_version: 1.2.0
-workflow_version: 1.2.0
+workflow_version: 1.3.0
 ---
 
 # Two-pager regression fixture
@@ -15,6 +15,8 @@ Checks:
 - page 2 contains fit mechanism, bounded use cases/value paths, constraints and reversible next step;
 - biography/catalog material without decision value is removed;
 - evidence and uncertainty survive compression;
+- counter-perspective challenges the main recommendation without creating a parallel essay;
+- reader/decision QA preserves one dominant thesis and CTA;
 - tables <=5 columns and diagrams readable at 100%;
 - meeting/next-decision bridge preserves source/claim lineage;
-- dreaming runs outside the two-page payload.
+- dreaming tier selection runs outside the two-page payload.
