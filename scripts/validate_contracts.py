@@ -12,10 +12,10 @@ from src.template_types import OutputTemplateType, GenerationMode
 SEMVER = re.compile(r"^\d+\.\d+\.\d+$")
 
 def load_json(path):
-    return json.loads((ROOT / path).read_text())
+    return json.loads((ROOT / path).read_text(encoding="utf-8"))
 
 def parse_frontmatter(path):
-    text = (ROOT / path).read_text()
+    text = (ROOT / path).read_text(encoding="utf-8")
     if not text.startswith("---\n"):
         raise SystemExit(f"missing front matter: {path}")
     _, block, _ = text.split("---", 2)
@@ -37,9 +37,9 @@ def check_semver(v, label):
 def check_template_enums(enum_types):
     """Require every schema that declares template_type to match the canonical enum."""
     for path in sorted((ROOT / "contracts").glob("*.schema.json")):
-        schema = json.loads(path.read_text())
+        schema = json.loads(path.read_text(encoding="utf-8"))
         template_type = schema.get("properties", {}).get("template_type")
-        if template_type is None:
+        if template_type is None or "enum" not in template_type:
             continue
         schema_types = set(template_type.get("enum", []))
         if schema_types != enum_types:
@@ -52,7 +52,7 @@ def check_docx_runtime_interface():
     path = ROOT / "contracts/docx-runtime-interface.schema.json"
     if not path.exists():
         raise SystemExit("missing DOCX runtime interface contract")
-    schema = json.loads(path.read_text())
+    schema = json.loads(path.read_text(encoding="utf-8"))
     properties = schema.get("properties", {})
     if schema.get("required") != ["input", "output"]:
         raise SystemExit("DOCX runtime interface must require input and output")
@@ -93,6 +93,12 @@ def main():
         template_file = ROOT / "templates" / f"{t}.md"
         if not template_file.exists():
             raise SystemExit(f"missing template file: {template_file.relative_to(ROOT)}")
+        contract_path = item.get("contract")
+        if contract_path:
+            resolved_contract = ROOT / contract_path
+            if not resolved_contract.exists():
+                raise SystemExit(f"missing template contract for {t}: {contract_path}")
+            json.loads(resolved_contract.read_text(encoding="utf-8"))
         fixture_path = item["qa_fixture"]
         if not (ROOT / fixture_path).exists():
             raise SystemExit(f"missing QA fixture: {fixture_path}")

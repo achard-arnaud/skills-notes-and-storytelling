@@ -62,6 +62,17 @@ A document passes only when all checks below are true.
 - [ ] sponsor/terrain/veto lanes explicit or marked unknown;
 - [ ] representative proof is reversible and measurable.
 
+### Closing
+- [ ] closing mode, conversation type, timebox and desired/minimum commitments declared;
+- [ ] counterparty reality, candidate/offer truth and conversation hypotheses stay separate until match;
+- [ ] decisive proof includes lineage, transfer mechanism, caveat and validation question;
+- [ ] conversation questions can change the close or positioning;
+- [ ] objections and reach obstacles are diagnosed before response;
+- [ ] reach recovery is truthful and respects explicit refusal/contact constraints;
+- [ ] fallback is smaller and reversible;
+- [ ] debrief harvest separates observation from interpretation and updates RunContext safely;
+- [ ] red-team tests premature close, hidden veto, proof transfer and mandate error.
+
 ## Publication
 - [ ] reusable changes include an updated regression fixture;
 - [ ] template/mode manifest passes version checks;

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "closing-run.schema.json",
+  "title": "Closing run contract",
+  "type": "object",
+  "required": [
+    "template_type",
+    "closing_mode",
+    "conversation_type",
+    "objective",
+    "desired_commitment",
+    "minimum_commitment",
+    "timebox_minutes",
+    "source_lanes",
+    "hard_gates"
+  ],
+  "properties": {
+    "template_type": {"const": "closing"},
+    "closing_mode": {"enum": ["BRIEF", "DEBRIEF", "BRIEF_AND_DEBRIEF"]},
+    "conversation_type": {"enum": ["INTERVIEW", "EXECUTIVE_MEETING", "SALE", "PARTNERSHIP", "REACH_RECOVERY", "OTHER"]},
+    "objective": {"type": "string", "minLength": 1},
+    "desired_commitment": {"type": "string", "minLength": 1},
+    "minimum_commitment": {"type": "string", "minLength": 1},
+    "stop_condition": {"type": ["string", "null"]},
+    "timebox_minutes": {"type": "integer", "minimum": 1},
+    "channel": {"type": ["string", "null"]},
+    "freshness_cutoff": {"type": ["string", "null"], "format": "date"},
+    "source_lanes": {
+      "type": "object",
+      "required": ["counterparty_reality", "offer_or_candidate_truth", "conversation_hypotheses"],
+      "properties": {
+        "counterparty_reality": {"type": "array", "items": {"type": "string"}},
+        "offer_or_candidate_truth": {"type": "array", "items": {"type": "string"}},
+        "conversation_hypotheses": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "hard_gates": {"type": "array", "items": {"type": "string"}},
+    "contact_constraints": {"type": "array", "items": {"type": "string"}},
+    "proof_claim_ids": {"type": "array", "items": {"type": "string"}},
+    "unknowns": {"type": "array", "items": {"type": "string"}},
+    "debrief": {
+      "type": ["object", "null"],
+      "properties": {
+        "observations": {"type": "array", "items": {"type": "string"}},
+        "interpretations": {"type": "array", "items": {"type": "string"}},
+        "commitments": {"type": "array", "items": {"type": "string"}},
+        "new_unknowns": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -65,6 +65,9 @@ Default rule: prefer the **smallest reversible next decision**. Do not generate 
 | Sell-side diagnostic | opportunity note for a named ICP/account; benchmarking for competitive validation; integration note for co-distribution/partner strategy |
 | Opportunity note ICP | integration note for pilot/partnership; buy-side analysis when buyer adoption becomes the question; two-pager for meeting preparation |
 | Integration note | architecture note for deep implementation; opportunity note for partner/account validation; one-pager for go/no-go approval |
+| Closing | opportunity/company research when mandate truth is weak; updated closing after debrief; opportunity note for a validated target; no bridge after explicit no-go |
+
+`CLOSING` is also a common destination from a company/architecture note, two-pager, opportunity note or sell-side diagnostic when a specific consequential conversation is scheduled. Carry evidence lineage and unknowns; do not turn the prior note's inference into a conversation fact.
 
 ## Integration note
 
