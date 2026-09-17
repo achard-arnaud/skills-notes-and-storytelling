@@ -9,6 +9,7 @@ class OutputTemplateType(str, Enum):
     DIAGNOSTIC_RECO_SELL_SIDE = "diagnostic-reco-sellside"
     OPPORTUNITY_NOTE_ICP = "opportunity-note-icp"
     INTEGRATION_NOTE = "integration-note"
+    CLOSING = "closing"
 
 class TemplateLifecycle(str, Enum):
     CANDIDATE = "candidate"

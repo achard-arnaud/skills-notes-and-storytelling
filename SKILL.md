@@ -46,6 +46,7 @@ Select exactly one primary template:
 - `DIAGNOSTIC_RECO_SELL_SIDE`
 - `OPPORTUNITY_NOTE_ICP`
 - `INTEGRATION_NOTE`
+- `CLOSING`
 
 Every template is versioned in `templates/manifest.json` with a QA fixture. Read [references/versioning-and-lifecycle.md](references/versioning-and-lifecycle.md).
 
@@ -127,6 +128,9 @@ Decide whether a concrete target/partner is credible. Keep target truth and prod
 
 ### INTEGRATION_NOTE
 Use when the next decision is how products, companies or internal capabilities should combine. Evaluate three lenses — **technical, product, business** — and decide `BUILD | BUY | PARTNER | COEXIST | DEFER`. Distinguish strategic decision from integration posture when useful. Explicitly map complementarity, overlap, operating ownership, lock-in location, sovereignty, economics, GTM/customer ownership, process/habit lock-in and exit path. Every positive recommendation requires a bounded pilot and a counter-perspective verdict.
+
+### CLOSING
+Use to prepare or debrief a consequential conversation whose outcome depends on converting evidence into a credible next commitment: interview, executive meeting, sale, partnership, objection recovery or access/reach obstacle. It is not a generic meeting summary or persuasion script. Keep `counterparty reality`, `offer/candidate proof` and `conversation hypotheses` separate until the explicit match stage. Read [templates/closing.md](templates/closing.md).
 
 ## Counter-perspective / red-team
 
