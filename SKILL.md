@@ -11,6 +11,12 @@ This skill is a governed decision-note OS. It owns **context reconstruction, res
 
 Use the lightest output that closes the decision. Do not create a larger report when a one-pager, two-pager or bounded integration decision is sufficient.
 
+## Runtime artifacts and repository hygiene
+
+Runs are execution outputs, not source assets. Never store a live run, generated note, generated PDF/DOCX/PPTX, temporary export, screenshot, customer-specific deliverable or other run artifact in this repository. Deliver them through the conversation artifact mechanism, CI artifacts, or another explicit artifact store outside the source tree.
+
+When a run reveals a reusable improvement, promote only the generalized rule, template, fixture, contract or documentation patch required to reproduce the improvement. Do not commit the run itself. Curated examples are allowed only when they are stable regression fixtures or intentionally maintained minimal samples; they must not be raw run dumps.
+
 ## Generation mode
 
 Select one mode from `GenerationMode` before the output template. Read [references/modes.md](references/modes.md).
