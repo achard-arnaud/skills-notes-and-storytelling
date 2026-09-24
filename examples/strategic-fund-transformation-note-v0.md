@@ -1,3 +1,12 @@
+---
+template_type: strategic-fund-transformation-note
+template_version: 0.2.0
+fixture_version: 0.2.0
+workflow_version: 1.3.1
+fixture_role: nrt
+analysis_dimension: business
+---
+
 # Fixture — note stratégique fonds actif
 
 ## Thèse
