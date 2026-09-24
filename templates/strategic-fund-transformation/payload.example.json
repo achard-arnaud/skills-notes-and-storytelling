@@ -1,0 +1,21 @@
+{
+  "template": "strategic-fund-transformation-note",
+  "template_version": "0.2.0",
+  "render_profile": "fund-note",
+  "program": "Note stratégique fonds actif",
+  "entity": "Fonds exemple",
+  "language": "fr",
+  "cutoff": "2026-09-24",
+  "lineage": {"repo": "exemple sans dépôt de preuve", "repo_commit": "fixture", "evidence_status": "fixture"},
+  "sources": {},
+  "figures": {},
+  "pages": [
+    {"id":"thesis","title":"Thèse et arbitrage","subtitle":"Capacité à instruire avant d'étendre un mandat","blocks":[{"heading":"Thèse à vérifier","body":"Le fonds peut choisir d'étudier une capacité transverse, sous réserve d'une validation par les associés.","claim_kind":"proposal","source_ids":[],"takeaway":"La décision porte sur un mandat d'investigation.","style":"dark"}],"source_ids":[],"takeaway":"Valider le périmètre avant de promettre la valeur."},
+    {"id":"drivers","title":"Pourquoi maintenant","subtitle":"Renseigner des signaux externes et internes documentés","blocks":[{"heading":"Preuves à collecter","body":"Insérer ici des observations datées ; aucune statistique de fixture ne doit être publiée.","claim_kind":"proposal","source_ids":[],"takeaway":"Aucun fait de marché n'est présumé."}],"source_ids":[],"takeaway":"Le contexte doit être relié à la vocation du fonds."},
+    {"id":"deployment","title":"Accompagner les participations","subtitle":"De l'idée à une valeur mesurée puis transférée","blocks":[{"heading":"Investigation","body":"Partir de la douleur métier, établir une baseline et comparer une option sans IA.","claim_kind":"proposal","source_ids":[],"takeaway":"Le manager local porte la décision.","process":"ideation_to_scale"},{"heading":"Post-deal","body":"Mesurer l'adoption et les coûts avant un déploiement plus large.","claim_kind":"proposal","source_ids":[],"takeaway":"L'échelle suit la preuve.","process":"post_deal"}],"source_ids":[],"takeaway":"Le transfert opérationnel clôt chaque expérimentation."},
+    {"id":"investment","title":"Processus d'investissement","subtitle":"Du premier signal à l'exit sous contrôle humain","blocks":[{"heading":"Dealflow","body":"Qualifier droits d'accès, version des pièces et responsabilité de chaque décision.","claim_kind":"proposal","source_ids":[],"takeaway":"Aucun score ne décide du deal.","process":"dealflow"}],"source_ids":[],"takeaway":"Une mémoire des preuves sert le comité et l'exit."},
+    {"id":"economics","title":"Économie et gouvernance","subtitle":"Distinguer entreprise, fonds et GP","blocks":[{"heading":"Trois comptes","body":"Mesurer séparément valeur de la participation, performance nette des LP et recette éventuelle du GP.","claim_kind":"proposal","source_ids":[],"takeaway":"Une facture du GP ne prouve aucun gain pour le fonds.","style":"caution"}],"source_ids":[],"takeaway":"Examiner accords et conflits avant de tarifer un service."},
+    {"id":"roadmap","title":"Trajectoire et mandat","subtitle":"Jalons 90 jours, 12 mois et 3–5 ans","blocks":[{"heading":"Gates","body":"Nommer le sponsor, le propriétaire des preuves, le comparateur et la condition d'arrêt.","claim_kind":"proposal","source_ids":[],"takeaway":"Une hypothèse rejetée est un résultat utile."}],"source_ids":[],"takeaway":"L'extension suit une décision explicite des associés."},
+    {"id":"sources_limits","title":"Sources et limites","subtitle":"Localiser les preuves qui changent la décision","blocks":[{"heading":"Statut de la fixture","body":"Cette fixture ne contient aucun fait sur un fonds ni aucune projection chiffrée.","claim_kind":"proposal","source_ids":[],"takeaway":"Remplacer les placeholders avant diffusion."}],"source_ids":[],"takeaway":"Ne publier que des claims rattachés à des sources vérifiables."}
+  ]
+}
