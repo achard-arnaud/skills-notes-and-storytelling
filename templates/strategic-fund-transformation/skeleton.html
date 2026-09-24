@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><title>{{title}}</title>
+<link rel="stylesheet" href="style.css"></head><body>
+<!-- Répéter cette section pour chaque page du payload, dans l'ordre du contrat. Le moteur
+     de rendu échappe le texte et résout les renvois figures avant de remplir les slots. -->
+<section class="page" data-page="{{page.id}}">
+  <header class="header"><div class="kicker">{{program}} · {{cutoff}}</div>
+    <h1 class="title">{{page.title}}</h1><div class="subtitle">{{page.subtitle}}</div></header>
+  <main class="content">
+    <!-- 1 à n cartes : class="card" ou "card dark" ; contenu, références et takeaway
+         proviennent des blocks de cette page. Tout nombre affiché vient de figures. -->
+    {{page.blocks}}
+  </main>
+  <div class="source-line">{{page.source_ids}}</div>
+  <footer class="footer-strip"><strong>À retenir</strong><span>{{page.takeaway}}</span></footer>
+</section>
+</body></html>
