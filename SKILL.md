@@ -16,11 +16,23 @@ Use the lightest output that closes the decision. Do not create a larger report 
 Select one mode from `GenerationMode` before the output template. Read [references/modes.md](references/modes.md).
 
 - `FROM_SCRATCH` — no trusted canonical draft exists.
-- `ITERATIVE` — preserve a canonical baseline and update only the declared factual/content scope before full regression QA.
+- `ITERATIVE` — preserve a canonical baseline and update only the declared factual/content scope before full regression QA. **Content-preservation gate:** an iterative run must ledger material claims/sections from the canonical baseline and may remove them only when they are stale, contradicted, explicitly out of scope or replaced by stronger evidence. Compression alone is not a valid reason to lose decision value.
 - `FEEDBACK_DREAMING` — explicit system-improvement run over prior outputs/feedback.
 - `RETRO_ENGINEERING` — **TODO / non-production**.
 
 `FEEDBACK_DREAMING` remains an explicit mode for deep improvement work, but a lightweight dreaming check is mandatory at the end of every normal run. The user does not need to request it. `NO_REUSABLE_DELTA` is valid; canonical behavior never changes without human approval.
+
+## Analysis dimension
+
+After generation mode and before template scaffolding, select one primary `analysis_dimension`:
+
+- `technical` — architecture, runtime, data flow, security, scalability, observability, infrastructure, technical economics;
+- `product` — users/jobs, capabilities, use cases, workflow/adoption, product differentiation, packaging and product operating model;
+- `business` — enterprise strategy, organizational design, transformation, governance, capability building, client model, operating model and economics.
+
+The three dimensions share the evidence pipeline but **do not share the same decision spine**. A note may use secondary lenses, but the primary dimension governs research reranking, scaffold, side stories, counter-perspective and visual architecture. Do not default a company AI-strategy request to a technical architecture merely because AI technology is present.
+
+For `ARCHITECTURE_NOTE`, read the dimension-specific contract in [templates/architecture-note.md](templates/architecture-note.md). For other templates, use the same dimension distinction when relevant until their contracts are explicitly generalized.
 
 ## Template enum
 
@@ -41,17 +53,17 @@ Every template is versioned in `templates/manifest.json` with a QA fixture. Read
 
 Follow [references/workflow.md](references/workflow.md). Stage boundaries remain explicit.
 
-1. **Context & decision framing** — reconstruct the actual problem, audience, time horizon and constraints before accepting the supplied framing.
-2. **Research** — collect evidence; separate account/company reality, product truth, market alternatives and dependencies.
+1. **Context & decision framing** — reconstruct the actual problem, audience, time horizon and constraints before accepting the supplied framing; select primary analysis dimension.
+2. **Research** — collect evidence; separate account/company reality, product truth, market alternatives and dependencies. Rerank source classes to the selected dimension.
 3. **Fragments** — convert evidence into atomic source-addressable fragments.
 4. **Claims graph light** — create claims, contradictions, unknowns and typed edges.
-5. **Rerank** — prioritize decision relevance, evidence strength, explanatory value, novelty and audience fit.
-6. **Scaffold** — build the decision spine before drafting.
-7. **Fill** — draft only from attached fragments; preserve evidence status.
+5. **Rerank** — prioritize decision relevance, evidence strength, explanatory value, novelty, audience fit and dimension fit.
+6. **Scaffold** — build the dimension-specific decision spine before drafting.
+7. **Fill** — draft only from attached fragments; preserve evidence status and, in `ITERATIVE`, the canonical content ledger.
 8. **Side stories** — add bounded analytical detours only after the core spine is coherent.
 9. **Fact-check & source** — verify every material claim and source line.
 10. **Counter-perspective QA** — attack the material conclusion with the strongest credible alternative explanation, hidden hard gate, lock-in/control shift or failure path. Do not manufacture artificial balance.
-11. **Layout / render QA** — when an artifact is requested, map to the template and run the appropriate rendering QA.
+11. **Layout / render QA** — when an artifact is requested, map to the template and run the appropriate rendering QA. Reader-facing DOCX diagrams must be rendered images, not source markup.
 12. **Reader/decision QA** — verify that the intended reader can see decision, uncertainty, falsifier and next step without reconstructing the analysis.
 13. **Bridge / nudging** — evaluate the smallest evidence-backed next decision and route it to another template when useful. Zero bridge is valid.
 14. **Dreaming tier selection** — select Tier 0–3 based on the strength and reusability of the run signal.
@@ -71,7 +83,7 @@ Do not let stylistic preferences masquerade as factual or decision defects.
 
 Read [references/bridges-integration-and-run-memory.md](references/bridges-integration-and-run-memory.md).
 
-Carry a compact run context across bridges: source ledger, source classes, fragments, claims, contradictions, unknowns, rejected alternatives, hard gates, scoring assumptions, decision, falsifiers, entities, lock-in map, template/workflow versions, open validation questions, counter-perspective verdict and dreaming tier when material.
+Carry a compact run context across bridges: source ledger, source classes, fragments, claims, contradictions, unknowns, rejected alternatives, hard gates, scoring assumptions, decision, falsifiers, entities, lock-in map, template/workflow versions, analysis dimension, open validation questions, counter-perspective verdict and dreaming tier when material.
 
 A downstream template may reuse prior evidence but must not launder it into fresh truth. Revalidate time-sensitive claims. Preserve `fact | inference | hypothesis | recommendation | unknown` and source lineage.
 
@@ -97,6 +109,9 @@ Treat lock-in as a **location and control-point question**, not merely a severit
 Preferred kinds: `dezoom | method | false_lead | comparator | analytical_focus | callback`. Every side story has a stable ID, source claim IDs, purpose, insertion anchor and return-to anchor.
 
 ## Specialized templates
+
+### ARCHITECTURE_NOTE
+Use for deep technical, product or business architecture when a system/capability model and its implications must be reconstructed. The selected `analysis_dimension` controls the sequence and diagram family. A business architecture note treats organization, governance, capability building, client model and transformation as architecture; it must not be forced into a software-component narrative. Read [templates/architecture-note.md](templates/architecture-note.md).
 
 ### BENCHMARKING
 Compare 2+ options against identical criteria. Reconstruct the true problem before scoring, normalize unlike categories, apply hard gates, show uncertainty/sensitivity and end with falsifiers. Technical, product and business benchmarks share the evidence pipeline but use domain-specific criteria. Close explicitly as `CLOSED | CLOSED_WITH_CHALLENGE_GATE | REOPEN_TARGETED`; do not keep adding peers after closure unless a named hard gate requires it.
