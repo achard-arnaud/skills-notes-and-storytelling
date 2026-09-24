@@ -1,0 +1,37 @@
+/* Adaptation du vocabulaire visuel Hivest THREE_PAGER_PORTFOLIO_AI v0.3 exec.
+   Nouvelle pagination A4 portrait et structure de note fonds (5–7 pages). */
+:root {
+  --navy:#13213A; --blue:#1F4E8C; --blue2:#6E93C4; --blue3:#B5C7E0;
+  --teal:#0C7185; --cyan:#2DC4D6; --cyan-dark:#0E5A79;
+  --text:#26364A; --muted:#5B6B82; --border:#CBD6E4; --rule:#E1E7EF;
+  --soft:#F3F6FA; --gold:#C98A00; --gold-bg:#FFF4DC;
+  --gap:2.8mm; --radius:2.6mm; --pad:12.5px;
+}
+* { box-sizing:border-box }
+html,body { margin:0; padding:0; background:#d9dee7 }
+body { font:10pt/1.35 Carlito,"Liberation Sans",Arial,sans-serif; color:var(--text) }
+@page { size:A4 portrait; margin:0 }
+.page { position:relative; width:210mm; min-height:297mm; padding:29mm 12mm 22mm; background:white; break-after:page }
+.page:last-child { break-after:auto }
+.header { position:absolute; inset:0 0 auto; min-height:25mm; padding:4mm 12mm; color:white; background:linear-gradient(100deg,var(--navy) 0%,var(--navy) 72%,var(--blue) 100%) }
+.kicker { color:#9fdde6; font-size:9pt; font-weight:700; letter-spacing:.08em; text-transform:uppercase }
+.title { margin:1mm 0 0; font-size:19pt; line-height:1.08 }
+.subtitle { color:#dbe4ee; font-size:10pt }
+.content { display:grid; gap:var(--gap) }
+.card { min-width:0; padding:var(--pad); border:.3mm solid var(--border); border-radius:var(--radius); break-inside:avoid }
+.card.dark { background:var(--navy); border-color:var(--navy); color:white }
+.card.soft { background:var(--soft) }
+.card h2 { margin:0 0 2mm; color:var(--cyan-dark); font-size:11pt; text-transform:uppercase }
+.card.dark h2 { color:#8ae0ea }
+.take { margin-top:2mm; padding-top:1.5mm; border-top:.35mm solid var(--teal) }
+.take strong { color:var(--teal); text-transform:uppercase }
+.card.dark .take { border-color:#8ae0ea }
+.card.dark .take strong { color:#8ae0ea }
+.note { border-left:1mm solid var(--gold); padding:2mm 3mm; background:var(--gold-bg) }
+.source-line { position:absolute; bottom:14mm; left:12mm; right:12mm; color:var(--muted); font-size:9pt; border-top:.25mm solid var(--rule); padding-top:1mm }
+.footer-strip { position:absolute; bottom:3mm; left:12mm; right:12mm; min-height:9mm; display:grid; grid-template-columns:27mm 1fr; gap:3mm; align-items:center; padding:1.5mm 3mm; border-radius:var(--radius); background:var(--teal); color:white }
+.footer-strip strong { text-transform:uppercase }
+table { width:100%; border-collapse:collapse; font-size:9pt }
+th,td { text-align:left; vertical-align:top; border-bottom:.25mm solid var(--rule); padding:1.5mm }
+th { color:var(--cyan-dark) }
+@media screen { .page { margin:6mm auto; box-shadow:0 3px 12px #9da9b8 } }
