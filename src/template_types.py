@@ -3,6 +3,7 @@ from enum import Enum
 class OutputTemplateType(str, Enum):
     ARCHITECTURE_NOTE = "architecture-note"
     STRATEGIC_MARKET_NOTE = "strategic-market-note"
+    STRATEGIC_FUND_TRANSFORMATION_NOTE = "strategic-fund-transformation-note"
     ONE_PAGER = "one-pager"
     TWO_PAGER = "two-pager"
     BENCHMARKING = "benchmarking"
