@@ -18,6 +18,14 @@ Statut : **PROPOSITION**, pas audit d'exécution end-to-end. Référence cible :
 | Coûts et NRT | CI valide contrats ; modes validés vs TODO | Candidatures tests par impact/loopback, Hivest negative fixtures | Pas de budgets tokens mesurés, tests intégration E2E, faux claims, rerank sans preuve, compatibilité de versions |
 | Sécurité | Politique de sourcing / privacy documentaire | Hivest frontière raw/Git, Candidatures permissions/publication | Aucun modèle de sécurité web/PC, GitHub App/webhook signing, secret isolation, export sanitisation |
 
+## Écart de documentation reproductible (constaté sur `main`)
+
+- Le registre de référence `templates/manifest.json` déclare **9** templates ; `src/template_types.py` contient effectivement neuf valeurs, dont `strategic-market-note`.
+- La section `SKILL.md > Template enum` n'énumère que **8** templates : `STRATEGIC_MARKET_NOTE` en est absent, bien que le système le connaisse et que le registre le déclare candidat.
+- Le tableau `README.md > Choose the note format` ne couvre que **7** entrées : `integration-note` et `strategic-market-note` absents; il qualifie `architecture-note` de **validated**, mais son état actuel dans le manifest est **candidate**.
+- Le script `scripts/validate_contracts.py` vérifie l'égalité enum/manifest et des fixtures, pas la fidélité de ces deux listes rédigées en prose. D'où CI verte possible malgré ce drift documentaire.
+- Correctif BN-00 : générer ou valider les tables du README/skill depuis le manifest, avec test négatif documentaire et ownership unique. **Ne pas** promouvoir l'architecture-note au statut validated par simple correction de README.
+
 ## Non-gaps : réutiliser, ne pas réécrire
 
 1. `SKILL.md` : dimensions `business/product/technical`, modes, 15 phases, trois revues et dreaming.
