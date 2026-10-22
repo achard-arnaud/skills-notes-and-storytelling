@@ -19,6 +19,13 @@ mode
 - `feedback-dreaming`: system improvement after delivery/QA.
 - `retro-engineering`: TODO only; documented reverse workflow, not production-ready.
 
+## Runtime / artifact policy
+- Runs are execution outputs, not source code.
+- Never commit run outputs, generated notes, generated PDFs/DOCX/PPTX, temporary artifacts, screenshots, exported reports or customer-specific deliverables into this repository.
+- Store deliverables outside the repository source tree through the conversation artifact mechanism, CI artifacts, or another explicit artifact store.
+- If a run reveals a reusable improvement, commit only the generalized rule, template, fixture or documentation patch required to reproduce that improvement; do not commit the run itself.
+- `examples/` may contain stable fixtures and minimal illustrative samples only when they are intentionally curated regression assets, not live run output.
+
 ## Change policy
 - Contract change: add or update a regression fixture.
 - Template change: update `templates/manifest.json`.
