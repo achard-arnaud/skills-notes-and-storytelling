@@ -39,6 +39,7 @@ For `ARCHITECTURE_NOTE`, read the dimension-specific contract in [templates/arch
 Select exactly one primary template:
 
 - `ARCHITECTURE_NOTE`
+- `STRATEGIC_MARKET_NOTE` — candidate; use `templates/strategic-market-note.md` and the manifest fixture
 - `ONE_PAGER`
 - `TWO_PAGER`
 - `BENCHMARKING`
