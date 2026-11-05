@@ -90,7 +90,8 @@
                     "table",
                     "diagram",
                     "matrix",
-                    "prompt"
+                    "prompt",
+                    "bullets"
                   ]
                 }
               },
