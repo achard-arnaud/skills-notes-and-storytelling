@@ -5,6 +5,7 @@ version: 0.1.0
 lifecycle: candidate
 pages: 6
 binding_contract: contracts/pedagogical-binding.schema.json
+backlog_catalog_contract: contracts/pedagogical-use-case-catalog.schema.json
 scaffold_contract: contracts/pedagogical-scaffold.schema.json
 skill: skills/pedagogical-ai-learning/SKILL.md
 ---

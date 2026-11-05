@@ -41,6 +41,10 @@ Ne pas mélanger le contrat métier, le DOM et la présentation.
 5. **Relier à la valeur** — couvrir Logistique, Opérations, Marketing/Vente et Services. Pour chaque fonction, nommer une tâche ou douleur, l'ICP métier (rôle qui porte le problème) et les enablers. Rattacher à Porter sans inventer de chaîne spécifique au secteur.
 6. **Agir** — backlog de 3 à 5 cas; positionner Automatisation × Intégration; appliquer BAC (Bénéfices, Avantages, Caractéristiques); noter Valeur, Coût, Risque, Complexité et Généricité de 1 à 3 étoiles. Définir explicitement le sens de chaque note. Donner un prompt concret qui n'invite ni données personnelles/confidentielles ni action réelle sans validation.
 
+## Catalogue massif des cas
+
+Le backlog complet reste dans un catalogue séparé, lié par référence depuis le binding. Utiliser `contracts/pedagogical-use-case-catalog.schema.json`. Garder les IDs stables, la provenance, les liens possibles aux 17 piliers et les doublons à résoudre; les fiches ne retiennent que 3 à 5 cas. Les champs inconnus restent absents ou null; ne pas inventer pour compléter.
+
 ## La synthèse multicapacité
 
 Choisir un parcours métier où au moins quatre capacités apportent une contribution distincte. Représenter chaîne d'entrée → perception → raisonnement → création/prédiction éventuelle → décision humaine → action contrôlée. Préciser les capacités absentes, les handoffs, les points d'arrêt et la mesure. « Agentique » décrit le degré d'action, non une qualité intrinsèque supérieure.
