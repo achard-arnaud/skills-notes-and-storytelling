@@ -41,6 +41,14 @@ def check_template_enums(enum_types):
         template_type = schema.get("properties", {}).get("template_type")
         if template_type is None:
             continue
+        if "const" in template_type:
+            # A template-specific contract may constrain the canonical enum to one registered type.
+            value = template_type["const"]
+            if value not in enum_types:
+                raise SystemExit(
+                    f"unknown template const in {path.relative_to(ROOT)}: {value}"
+                )
+            continue
         schema_types = set(template_type.get("enum", []))
         if schema_types != enum_types:
             raise SystemExit(
@@ -76,10 +84,13 @@ def main():
     check_docx_runtime_interface()
 
     valid_template_lifecycle = {"candidate", "validated", "promoted", "retired"}
+    valid_template_classes = {"product", "business", "tech", "pedagogique"}
     mode_enum = {x.value for x in GenerationMode}
 
     for item in manifest["templates"]:
         t = item["type"]
+        if item.get("template_class") not in valid_template_classes:
+            raise SystemExit(f"missing or invalid template_class for {t}: {item.get('template_class')}")
         check_semver(item["version"], f"{t}.version")
         check_semver(item["qa_fixture_version"], f"{t}.qa_fixture_version")
         lo, hi = item["page_range"]
