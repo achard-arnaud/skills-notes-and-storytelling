@@ -65,11 +65,11 @@ def page_understand(c):
 
 def page_transmit(c):
     flow='<ol class="flow">'+''.join('<li><b>'+h(x['title'])+'</b><span>'+h(x['text'])+'</span></li>' for x in c['flow'])+'</ol>'
-    top='<div class="transmit-top">'+card('Le pitch · 30 secondes',md('« '+c['pitch'].strip('« »')+' »')+small(c['postulate']),'pitch-card')+'<div>'+flow+'</div></div>'
-    levers='<div class="three-grid" data-overlap-check>'+''.join(card(x['title'],md(x['text'])) for x in c['levers'])+'</div>'
-    objections='<div class="three-grid objections">'+''.join(card(x['objection'],md(x['answer'])) for x in c['objections'])+'</div>'
-    e=c['exercise'];exercise='<div class="exercise"><h2>'+h(e['title'])+'</h2><div class="exercise-steps">'+''.join('<p>'+h(x)+'</p>' for x in e['steps'])+'</div>'+small('**Vérifier le transfert :** '+e['check'])+'</div>'
-    return top+levers+objections+exercise
+    e=c['exercise']
+    pitch=card('Le pitch · 30 secondes',md('« '+c['pitch'].strip('« »')+' »')+small(c['postulate'])+'<div class="exercise"><h2>'+h(e['title'])+'</h2>'+''.join('<p>'+h(x)+'</p>' for x in e['steps'])+small('**Vérifier :** '+e['check'])+'</div>','pitch-card')
+    levers=card('Trois leviers de conviction',''.join('<section><h3>'+h(x['title'])+'</h3>'+md(x['text'])+'</section>' for x in c['levers']))
+    objections=card('Répondre sans surpromettre',''.join('<section><h3>'+h(x['objection'])+'</h3>'+md(x['answer'])+'</section>' for x in c['objections']))
+    return flow+'<div class="transmit-columns three-grid">'+pitch+levers+objections+'</div>'
 
 def fishbone(c):
     positions=[(115,22,210,80),(310,142,390,80),(455,22,550,80),(625,142,700,80),(755,22,845,80)]
@@ -91,14 +91,14 @@ def page_diagnose(c):
     return fishbone(c)+table+chain+bottom
 
 def page_integrate(c):
-    taxonomy='<div class="three-grid taxonomy">'+''.join(card(x['name'],md(x['meaning'])+md(x['limit'])+small('**Repères du corpus :** '+x['cases'])) for x in c['taxonomy'])+'</div>'
-    levels='<table class="levels-table"><thead><tr><th>Configuration / intention</th><th>Deux axes distincts</th><th>Exemple de conception</th><th>Contrôle et condition de passage</th></tr></thead><tbody>'+''.join('<tr><th>'+h(x['name'])+'<span>'+h(x['horizon'])+'</span></th><td>Intégration : <b>'+h(x['integration'])+'</b><br>Automatisation : <b>'+h(x['automation'])+'</b></td><td>'+md(x['example'])+'</td><td>'+md(x['control'])+'</td></tr>' for x in c['levels'])+'</tbody></table>'
-    p=c['programme'];return taxonomy+levels+'<div class="integration-bottom">'+note(c['rule'])+card(p['title'],md(p['text'])+small('**Évaluation :** '+p['assessment']))+'</div>'
+    taxonomy=card('Trois aptitudes opérationnelles',''.join('<section><h3>'+h(x['name'])+'</h3>'+md(x['meaning'])+md(x['limit'])+small('**Corpus :** '+x['cases'])+'</section>' for x in c['taxonomy']))
+    levels='<table class="levels-table"><thead><tr><th>Configuration</th><th>Intégration / automatisation</th><th>Exemple de conception</th><th>Contrôle</th></tr></thead><tbody>'+''.join('<tr><th>'+h(x['name'])+'<span>'+h(x['horizon'])+'</span></th><td>'+h(x['integration'])+' / '+h(x['automation'])+'</td><td>'+md(x['example'])+'</td><td>'+md(x['control'])+'</td></tr>' for x in c['levels'])+'</tbody></table>'
+    p=c['programme'];return '<div class="integrate-upper">'+taxonomy+'<div>'+levels+note(c['rule'])+'</div></div>'+card(p['title'],md(p['text'])+small('**Évaluation :** '+p['assessment']),'programme-card card')
 
 def page_value(c):
     columns=[]
     for i,x in enumerate(c['functions'],1):
-        body='<p class="icp">'+h(x['icp'])+'</p><h3>La douleur à traiter</h3>'+md(x['pain'])+'<blockquote>'+h(x['talk'])+'</blockquote><h3>Situations à explorer</h3>'+md(x['cases'])+'<h3>Briques nécessaires</h3>'+md(x['enablers'])+'<h3>Mesure et vigilance</h3>'+md(x['measure'])
+        body='<p class="icp">'+h(x['icp'])+'</p>'+md('**Douleur :** '+x['pain'])+'<blockquote>'+h(x['talk'])+'</blockquote><h3>Situations à explorer</h3>'+md(x['cases'])+md('**Briques :** '+x['enablers'])+md('**Mesure :** '+x['measure'])
         columns.append(card(str(i)+' · '+x['name'],body,'function-column'))
     return small(c['porter_note'])+'<div class="four-grid functions" data-overlap-check>'+''.join(columns)+'</div><div class="two-grid value-bottom">'+note(c['support'])+note(c['discovery'])+'</div>'
 
@@ -123,9 +123,9 @@ def page_act(c):
         bac=''.join('<p><b>'+label+'</b> '+h(x[key])+'</p>' for label,key in [('B ·','benefit'),('A ·','advantage'),('C ·','characteristic')])
         rows.append('<tr><th>'+h(x['id'])+'<span>'+h(x['title'])+'</span><em>'+h(x['owner'])+'</em></th><td>'+bac+'</td><td>'+scores+'</td><td>'+md(x['measure'])+'</td></tr>')
     table='<table class="case-table"><thead><tr><th>Cas / interlocuteur</th><th>Bénéfice · Avantage · Caractéristique</th><th>Notes / 3</th><th>Mesure et contrôle</th></tr></thead><tbody>'+''.join(rows)+'</tbody></table>'
-    left='<div class="case-side">'+small(c['selection_note'])+table+small(c['score_legend'])+'</div>'
+    left='<div class="case-side">'+table+'</div>'
     right='<div class="pilot-side"><h2>Automatisation × intégration</h2>'+integration_matrix(c)+small(c['matrix_note'])+card('Prompt d’essai · UC-021',md('« '+c['prompt']+' »'),'prompt-card')+note(c['pilot'])+'</div>'
-    return '<div class="action-grid">'+left+right+'</div>'
+    return '<div class="selection-note small">'+md(c['selection_note'])+'</div><div class="action-grid">'+left+right+'</div>'+small(c['score_legend'])
 
 BUILDERS=[page_understand,page_transmit,page_diagnose,page_integrate,page_value,page_act]
 

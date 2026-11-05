@@ -150,13 +150,13 @@ Exceptions sans responsable
 
 Où la lecture bloque-t-elle le flux ?
 
-Si personne ne reçoit les cas ambigus, le stock d’exceptions remplace le stock de saisie.
+Sans responsable des cas ambigus, les exceptions s’accumulent.
 
-Définir entrée, sortie attendue, critères d’acceptation et file de reprise.
+Définir entrée, critères d’acceptation et file de reprise.
 
-Responsable de processus + opérateur référent.
+Métier + référent terrain.
 
-Délai complet et part des dossiers repris, pas seulement vitesse de lecture.
+Délai du dossier et part des reprises.
 
 ### Outils
 
@@ -164,13 +164,13 @@ Source invisible ou mal captée
 
 Peut-on vérifier sans changer d’écran ?
 
-Une caméra mal éclairée, un scan compressé ou une sortie sans lien à l’original font perdre le gain.
+Scan compressé, mauvais éclairage ou source invisible annulent le gain.
 
-Afficher source et résultat côte à côte; donner un bouton corriger et un retour à la pièce.
+Afficher source/résultat, permettre de corriger et de revenir à la pièce.
 
-Produit/IT + équipe terrain.
+Produit/IT + terrain.
 
-Temps de correction, échecs d’acquisition et disponibilité du service.
+Temps de correction, qualité de capture, disponibilité.
 
 ### Compétences
 
@@ -178,13 +178,13 @@ Confiance sans contre-vérification
 
 Sait-on repérer une erreur plausible ?
 
-Le champ prérempli peut créer une confiance excessive; les pratiques expertes restent implicites.
+Le préremplissage inspire trop confiance; les pratiques expertes restent implicites.
 
-Former sur les confusions réelles, partager une grille de vérification et faire tourner les exemples limites.
+Former sur les erreurs réelles, partager une grille et des cas limites.
 
-Manager de proximité + ambassadeur + formateur.
+Manager + ambassadeur.
 
-Justesse de la revue et autonomie de l’apprenant sur un cas nouveau.
+Revue juste et autonomie sur un cas nouveau.
 
 ### Données
 
@@ -192,13 +192,13 @@ Lot test trop facile
 
 Le test ressemble-t-il au travail réel ?
 
-Un lot propre masque langues, bruit, rotations, anciennes versions et documents incomplets.
+Un lot propre masque langues, bruit, rotations et pièces incomplètes.
 
-Conserver un lot de référence corrigé, séparé des exemples de préparation; couvrir les variantes rares.
+Garder un lot corrigé, distinct des exemples de préparation; couvrir les variantes.
 
-Référent données + métier qui connaît les pièces.
+Référent données + métier.
 
-Résultat par format/langue/qualité, champs omis et types d’erreurs.
+Erreurs et omissions par format, langue et qualité.
 
 ### Gouvernance
 
@@ -206,13 +206,13 @@ Usage ou action mal bornés
 
 Qui peut lire, accepter, arrêter ?
 
-L’usage dérive de la lecture vers une décision ou une surveillance jamais discutées.
+La lecture dérive vers une décision ou une surveillance jamais discutées.
 
-Fixer finalité, accès, conservation, journal de correction, seuil de revue et droit d’arrêt.
+Fixer finalité, accès, conservation, traces, revue et droit d’arrêt.
 
-Sponsor métier + IT/sécurité + fonctions de contrôle selon le contexte.
+Sponsor + IT + contrôle.
 
-Accès vérifiés, incidents, décisions contestées et exceptions résolues.
+Accès vérifiés, incidents et exceptions résolues.
 
 Capture dégradée
 
@@ -222,13 +222,13 @@ Erreur réutilisée
 
 Reprise ou décision erronée
 
-**Boucle de diffusion :** chaque correction est classée (capture, lecture, contexte, règle ou action). On corrige d’abord la cause : changer de modèle ne répare ni un objectif flou ni une pièce absente. Un ambassadeur documente les exemples et le manager arbitre le changement de travail.
+**Boucle de diffusion :** classer les corrections (capture, lecture, contexte, règle, action), puis corriger leur cause. Un autre modèle ne répare ni un objectif flou ni une pièce absente. L’ambassadeur partage les exemples; le manager arbitre le changement.
 
 ### Un pilote que les équipes peuvent reprendre
 
-Préparer un lot varié et sa réponse de référence; faire une première passe sans écrire dans les outils; comparer résultat et effort au traitement habituel; puis tester une nouvelle série inconnue. Définir ensemble les seuils acceptables, selon le coût de chaque erreur. Ce protocole est une proposition pédagogique, pas une norme chiffrée.
+Préparer un lot varié et sa référence; tester sans écriture dans les outils; comparer temps total et erreurs au traitement habituel. Vérifier ensuite sur un lot inédit. Les seuils dépendent du coût de chaque erreur.
 
-Trois questions de débrief : quelle erreur a failli passer ? Qui la détecte dans le flux cible ? Quelle donnée ou consigne éviterait qu’elle revienne ?
+Débrief : quelle erreur a failli passer ? Qui la détectera ? Quelle donnée ou consigne manque ?
 
 
 **Takeaway :** Quand les exceptions sont maîtrisées, on peut intégrer davantage. Le niveau de délégation reste un choix distinct.
@@ -293,13 +293,13 @@ Droits limités, actions réversibles, vérification du résultat et arrêt poss
 
 Pari majeur après maîtrise des dépendances
 
-**Leçon du livre :** augmenter l’intégration et l’automatisation en même temps cumule les difficultés. Assistant → Copilot sert ici de parcours d’apprentissage; Autopilot et Agent restent deux configurations différentes. La matrice en page 6 représente ces deux axes. [S1] Forte intégration + forte automatisation décrit un quadrant; une coordination adaptative et un objectif sont nécessaires pour parler d’agent au sens fonctionnel, au-delà d’un workflow fixe.
+**Deux axes indépendants :** ne pas cumuler d’emblée intégration et automatisation. Assistant → Copilot est un parcours proposé; Autopilot et Agent restent distincts. Une exécution automatique connectée peut être un workflow fixe : l’agentique suppose une coordination adaptée à l’objectif. [S1]
 
 ### Niveau 2 / 17 piliers : un ancrage proposé
 
-Le syllabus détaillé n’étant pas fourni, aucun numéro de pilier n’est inventé. Prérequis : formuler un besoin, reconnaître les données sensibles et vérifier une réponse. Approfondissement proposé : extraire avec preuve, évaluer un lot, organiser les exceptions. Transfert : relier ces informations au raisonnement, puis à une création ou à une action contrôlée.
+Syllabus détaillé absent : aucun numéro de pilier inventé. Prérequis proposés : besoin, données sensibles, vérification. Niveau 2 : extraction avec preuve, évaluation d’un lot, exceptions. Transfert : raisonnement, création, puis action contrôlée.
 
-En sortie, l’apprenant sait choisir une entrée, une sortie vérifiable et un contrôle; il explique pourquoi « plus autonome » n’est pas toujours « plus utile ».
+Choisir entrée, sortie et contrôle; expliquer pourquoi plus d’autonomie n’est pas toujours plus utile.
 
 
 **Takeaway :** La bonne architecture dépend de la tâche et du coût de l’erreur. Il faut maintenant choisir le métier et son indicateur.
@@ -308,15 +308,15 @@ En sortie, l’apprenant sait choisir une entrée, une sortie vérifiable et un 
 
 Une même brique peut servir plusieurs fonctions. L’interlocuteur métier, la preuve attendue et la conséquence d’une erreur déterminent le projet.
 
-Lecture simplifiée de Porter : flux logistiques → opérations → commercialisation → services. Les fonctions support (RH, achats, finance, IT) permettent l’exécution; ce tableau adapte la chaîne à un langage corporate et ne prétend pas reproduire toute la chaîne d’un secteur.
+Lecture simplifiée de Porter : flux logistiques → opérations → commercialisation → services. Les RH, achats, finance et IT soutiennent l’exécution. Cette adaptation corporate ne reproduit pas toute la chaîne d’un secteur.
 
 ### Logistique
 
-Responsable entrepôt / transport; utilisateur : réceptionnaire ou agent d’inventaire.
+Responsable entrepôt/transport. Utilisateurs : réception et inventaire.
 
 Bons illisibles, palettes mal comptées, recherche d’une livraison dans plusieurs pièces.
 
-« Sur quel flux perdez-vous du temps à rapprocher ce qui est arrivé et ce qui était attendu ? »
+« Quel temps perd-on à rapprocher réception et attendu ? »
 
 UC-045 inventaire; UC-049 plaques; documents de livraison liés à UC-021.
 
@@ -326,11 +326,11 @@ Temps d’inventaire + écarts confirmés; personne ne modifie un stock sur une 
 
 ### Opérations
 
-Responsable qualité / production; utilisateur : contrôleur ou technicien.
+Responsable qualité/production. Utilisateurs : contrôleur et technicien.
 
 Inspection répétitive, défaut intermittent, référence de pièce difficile à retrouver sur le terrain.
 
-« Quel défaut coûte le plus lorsqu’il nous échappe, et comment le confirme-t-on aujourd’hui ? »
+« Quel défaut coûte le plus lorsqu’il nous échappe ? »
 
 UC-041 inspection; UC-044 recherche visuelle; UC-048 acoustique; UC-060 emballage.
 
@@ -340,11 +340,11 @@ Défauts manqués + fausses alertes + délai de qualification; un diagnostic ou 
 
 ### Marketing / Vente
 
-Responsable catalogue / avant-vente; utilisateur : commercial, gestionnaire média ou centre d’appels.
+Responsable catalogue/avant-vente. Utilisateurs : commercial, médias, centre d’appels.
 
 Médias mal indexés, référence inconnue sur une photo, demande orale à retranscrire.
 
-« Quelle information visible ou entendue vous manque pour répondre correctement au client ? »
+« Quelle information manque pour répondre correctement au client ? »
 
 UC-029 photothèque; UC-044 référence; UC-050 voix. UC-022/030 ajoutent une classification.
 
@@ -354,11 +354,11 @@ Temps de réponse + référence confirmée + corrections; la pertinence d’une 
 
 ### Services
 
-Responsable opérations documentaires / service client; utilisateur : gestionnaire de dossier ou analyste.
+Responsable opérations documentaires/service client. Utilisateurs : gestionnaire et analyste.
 
 Pièces à recopier, compte rendu à préparer, données financières non comparables sans relecture.
 
-« Quels champs doivent être exacts pour que le dossier suivant avance sans revenir vers vous ? »
+« Quels champs doivent être exacts pour éviter le retour du dossier ? »
 
 UC-021 facture; UC-024 clauses; UC-028 bilans; UC-042 transcription; UC-052 signal de faux.
 
@@ -366,14 +366,14 @@ Gestion documentaire, champs cibles, page/horodatage source, règles de cohéren
 
 Temps complet du dossier + retours + exactitude des champs critiques; extraire ne vaut ni audit ni preuve d’authenticité.
 
-**Activer les fonctions support :** la finance connaît les contrôles des factures/justificatifs (021/025); les RH les données et usages des CV (023); l’IT organise les interfaces et accès; les achats cadrent fournisseur et coût. Chacun doit participer à une décision précise, pas à un comité sans livrable.
+**Fonctions support :** finance pour factures/justificatifs (021/025), RH pour les CV (023), IT pour les interfaces/accès, achats pour fournisseur/coût. Chaque participant doit porter une décision précise.
 
-**Entretien de qualification :** demander un exemple réel autorisé, le volume et les variantes, le destinataire, l’erreur la plus chère, le traitement actuel, la personne qui valide et la mesure avant/après. Si l’entrée est déjà structurée, tester d’abord une solution classique.
+**Qualification :** demander une pièce autorisée, volume et variantes, destinataire, erreur la plus chère, traitement actuel, personne qui valide et mesure avant/après. Si l’entrée est structurée, tester d’abord une solution classique.
 
 
 **Takeaway :** La priorité se décide sur un flux concret : propriétaire, source, résultat, contrôle et mesure. Le backlog suivant en retient quatre.
 
-## Page 6 — Choisir quatre essais représentatifs et mesurer le travail utile
+## Page 6 — Choisir quatre essais et mesurer le travail utile
 
 Le catalogue conserve les 70 situations. Cette fiche retient quatre portes d’entrée : document, voix, inspection et recherche visuelle.
 
@@ -450,7 +450,7 @@ Sur ces trois factures fictives, relève fournisseur, numéro, date, devise, tot
 | UC-041 Signaler un défaut visuel de production | B : Réduire le risque qu’un défaut échappe au contrôle.; A : Concentrer l’attention sur une zone de la pièce.; C : Image localisée et comparaison à une référence validée. | 3 | 3 | 3 | 3 | 2 |
 | UC-044 Retrouver une pièce à partir d’une photo | B : Accélérer l’identification sur le terrain.; A : Proposer des références à comparer plutôt qu’une recherche à l’aveugle.; C : Photo, liste courte de candidats et attributs visibles comparés. | 2 | 2 | 2 | 2 | 2 |
 
-**Takeaway :** Décision de lancement : un lot autorisé, un responsable de correction et un bénéfice mesuré après reprises. Étendre seulement si l’essai tient sur un lot nouveau.
+**Takeaway :** Un lot autorisé, un responsable de correction, un bénéfice mesuré après reprises. Étendre seulement si l’essai tient sur un lot nouveau.
 
 ## Sources et statuts
 
