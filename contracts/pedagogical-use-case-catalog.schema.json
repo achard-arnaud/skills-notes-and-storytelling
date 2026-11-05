@@ -1,0 +1,327 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pedagogical-use-case-catalog.schema.json",
+  "title": "PedagogicalUseCaseCatalog",
+  "description": "Catalogue extensible séparé des fiches; accepte les dossiers incomplets avant qualification.",
+  "type": "object",
+  "required": [
+    "template_class",
+    "catalog_id",
+    "version",
+    "updated_at",
+    "use_cases"
+  ],
+  "properties": {
+    "template_class": {
+      "const": "pedagogique"
+    },
+    "catalog_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "program_id": {
+      "type": "string"
+    },
+    "source_ledger": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source_id",
+          "locator"
+        ],
+        "properties": {
+          "source_id": {
+            "type": "string"
+          },
+          "locator": {
+            "type": "string"
+          },
+          "url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "use_cases": {
+      "type": "array",
+      "maxItems": 500,
+      "items": {
+        "type": "object",
+        "required": [
+          "use_case_id",
+          "title",
+          "status"
+        ],
+        "properties": {
+          "use_case_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "deduplication_key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "duplicate_of": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "summary": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "process": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "problem": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "user_role": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "function": {
+            "enum": [
+              "logistics",
+              "operations",
+              "marketing_sales",
+              "services",
+              "support",
+              "unknown"
+            ]
+          },
+          "capability_ids": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "prediction",
+                "perception",
+                "creation",
+                "reasoning",
+                "agentic"
+              ]
+            },
+            "uniqueItems": true
+          },
+          "pillar_refs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "pillar_id",
+                "relationship"
+              ],
+              "properties": {
+                "pillar_id": {
+                  "type": "string"
+                },
+                "relationship": {
+                  "enum": [
+                    "prerequisite",
+                    "reinforcement",
+                    "advanced",
+                    "unknown"
+                  ]
+                },
+                "syllabus_version": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "input": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "output": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "automation_level": {
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "unknown"
+            ]
+          },
+          "integration_level": {
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "unknown"
+            ]
+          },
+          "data_requirements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "bac": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "benefits",
+              "advantages",
+              "characteristics"
+            ],
+            "properties": {
+              "benefits": {
+                "type": "string"
+              },
+              "advantages": {
+                "type": "string"
+              },
+              "characteristics": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "ratings": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "value": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1,
+                "maximum": 3
+              },
+              "cost": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1,
+                "maximum": 3
+              },
+              "risk": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1,
+                "maximum": 3
+              },
+              "complexity": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1,
+                "maximum": 3
+              },
+              "generality": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1,
+                "maximum": 3
+              }
+            },
+            "additionalProperties": false
+          },
+          "human_control": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "measure": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "evidence_status": {
+            "enum": [
+              "unqualified",
+              "hypothesis",
+              "evidence_linked",
+              "reviewed"
+            ]
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "owner": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "status": {
+            "enum": [
+              "candidate",
+              "in_review",
+              "selected",
+              "deferred",
+              "rejected",
+              "pilot",
+              "validated"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,6 +1,6 @@
 ---
 name: decision-notes-and-storytelling
-description: Create, revise, or industrialize evidence-grounded decision notes, architecture notes, one-pagers, two-pagers, benchmarks, buy-side gap analyses, sell-side diagnostic/recommendation notes, ICP opportunity notes and integration notes. Own research-to-claims-to-storytelling, evidence lineage, template bridges, counter-perspective QA, lock-in mapping, next-step nudging and the governed tiered dreaming loop. Pair with the runtime DOCX skill when a Word artifact is requested.
+description: Create, revise, or industrialize evidence-grounded decision notes, architecture notes, one-pagers, two-pagers, benchmarks, buy-side gap analyses, sell-side diagnostic/recommendation notes, ICP opportunity notes and integration notes and pedagogical learning sheets. Own research-to-claims-to-storytelling, evidence lineage, template bridges, counter-perspective QA, lock-in mapping, next-step nudging and the governed tiered dreaming loop. Route six-page enterprise AI learning sheets to the pedagogical skill and keep their content binding, semantic HTML scaffold and renderer separate. Pair with the runtime DOCX skill when a Word artifact is requested.
 ---
 
 # Decision Notes & Storytelling
@@ -46,8 +46,13 @@ Select exactly one primary template:
 - `DIAGNOSTIC_RECO_SELL_SIDE`
 - `OPPORTUNITY_NOTE_ICP`
 - `INTEGRATION_NOTE`
+- `AI_ENTERPRISE_LEARNING_SIX_PAGE` (class `pedagogique`; follow `skills/pedagogical-ai-learning/SKILL.md` and its separate content/scaffold contracts)
 
 Every template is versioned in `templates/manifest.json` with a QA fixture. Read [references/versioning-and-lifecycle.md](references/versioning-and-lifecycle.md).
+
+## Pedagogical template route
+
+For `AI_ENTERPRISE_LEARNING_SIX_PAGE`, use `template_class=pedagogique`. The specialized skill owns the six-page learning sequence; general research, evidence lineage, sourcing, counter-perspective QA and feedback-dreaming invariants still apply. Do not fold HTML structure or CSS rendering into the content-binding step.
 
 ## Canonical workflow
 
