@@ -60,9 +60,13 @@ Choisir un parcours métier où au moins quatre capacités apportent une contrib
 - Le prompt d'exemple sert au prototypage avec données fictives ou anonymisées.
 - Vérifier que le binding contient exactement six pages, que le scaffold est sémantique et que les deux objets se réfèrent aux mêmes blocs.
 
+## Composition Hivest adaptée
+
+Pour appliquer le rendu aux Markdown existants, lire [hivest-rendering.md](references/hivest-rendering.md). Utiliser le renderer `renderers/pedagogical/render.py` : il importe réellement la conversion Markdown, le thème et les contrôles navigateur Hivest, puis projette six pages. Le binding garde le contenu, la surcouche CSS reste dans le renderer. Produire les six PNG et le vrai PDF, contrôler overflow/polices et lire les pages avant de livrer.
+
 ## Exemple de QA avant handoff
 
 Conformité : les six pages sont présentes, chaque bloc a une cible, BAC et scoring sont expliqués, source locator est précis.
 Contre-épreuve : tester le risque de surautomatisation, biais, qualité des données, erreurs plausibles ou transfert de responsabilité.
 Lecture apprenant : vérifier qu'une personne débutante peut résumer le pitch, expliquer un exemple et nommer le prochain essai sans le formateur.
-Visuel : à effectuer dans le renderer du programme après le contenu et le scaffold; aucun CSS n'est généré ici.
+Visuel : exécuter le renderer adapté sur le module courant, contrôler son PDF de six pages et ses six PNG; corriger la surcouche CSS sans réécrire le contenu.

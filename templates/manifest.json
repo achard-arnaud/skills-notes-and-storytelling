@@ -222,7 +222,15 @@
       "qa_fixture": "examples/pedagogical-ai-learning-v0.md",
       "qa_fixture_version": "0.1.0",
       "backlog_catalog_contract": "contracts/pedagogical-use-case-catalog.schema.json",
-      "scaffold_template": "templates/pedagogical-six-page-scaffold.json"
+      "scaffold_template": "templates/pedagogical-six-page-scaffold.json",
+      "renderer": "renderers/pedagogical/render.py",
+      "render_binding_contract": "contracts/pedagogical-render-binding.schema.json",
+      "rendering_status": "preview",
+      "formats": [
+        "html",
+        "pdf",
+        "png"
+      ]
     }
   ]
 }

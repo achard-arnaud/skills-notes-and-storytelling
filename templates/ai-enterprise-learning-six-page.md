@@ -48,3 +48,7 @@ Chaque page doit répondre à une question métier ou d'apprentissage, et chaque
 ## Sources et limites
 
 Partir d'un corpus fourni; tracer les assertions au registre source/locator. Pour ce programme, le livre de Tobias Zwingmann est une source de cadrage, pas une preuve qu'un use case produit déjà un ROI. Écrire les synthèses avec ses propres mots et citer des localisateurs brefs (chapitre/page ou section). Toute connaissance opérationnelle au-delà du livre doit être identifiée comme apport de conception ou enrichie par une source autorisée.
+
+## Rendu appliqué
+
+Le mécanisme de composition Hivest est importé sous renderers/pedagogical/upstream avec commit et empreintes. La projection six pages est exécutable par `python renderers/pedagogical/render.py <module.md> --out <dir>`. Les tableaux TOWS et Porter deviennent des cartes; les grands tableaux BAC deviennent des cartes de use case et cinq notes. Le renderer conserve les textes et les scores du Markdown. La QA navigateur est recoupée avec les six pages physiques du PDF et leurs PNG.
