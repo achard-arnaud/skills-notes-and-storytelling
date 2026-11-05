@@ -7,6 +7,7 @@ pages: 6
 binding_contract: contracts/pedagogical-binding.schema.json
 backlog_catalog_contract: contracts/pedagogical-use-case-catalog.schema.json
 scaffold_contract: contracts/pedagogical-scaffold.schema.json
+scaffold_template: templates/pedagogical-six-page-scaffold.json
 skill: skills/pedagogical-ai-learning/SKILL.md
 ---
 

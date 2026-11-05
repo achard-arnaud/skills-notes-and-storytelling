@@ -221,7 +221,8 @@
       "skill": "skills/pedagogical-ai-learning/SKILL.md",
       "qa_fixture": "examples/pedagogical-ai-learning-v0.md",
       "qa_fixture_version": "0.1.0",
-      "backlog_catalog_contract": "contracts/pedagogical-use-case-catalog.schema.json"
+      "backlog_catalog_contract": "contracts/pedagogical-use-case-catalog.schema.json",
+      "scaffold_template": "templates/pedagogical-six-page-scaffold.json"
     }
   ]
 }
