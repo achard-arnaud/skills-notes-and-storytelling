@@ -1,5 +1,11 @@
 from enum import Enum
 
+class TemplateClass(str, Enum):
+    PRODUCT = "product"
+    BUSINESS = "business"
+    TECH = "tech"
+    PEDAGOGIQUE = "pedagogique"
+
 class OutputTemplateType(str, Enum):
     ARCHITECTURE_NOTE = "architecture-note"
     STRATEGIC_MARKET_NOTE = "strategic-market-note"
@@ -10,6 +16,7 @@ class OutputTemplateType(str, Enum):
     DIAGNOSTIC_RECO_SELL_SIDE = "diagnostic-reco-sellside"
     OPPORTUNITY_NOTE_ICP = "opportunity-note-icp"
     INTEGRATION_NOTE = "integration-note"
+    AI_ENTERPRISE_LEARNING_SIX_PAGE = "ai-enterprise-learning-six-page"
 
 class TemplateLifecycle(str, Enum):
     CANDIDATE = "candidate"

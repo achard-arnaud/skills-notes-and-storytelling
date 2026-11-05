@@ -41,6 +41,7 @@ The status here mirrors the manifest; the manifest remains authoritative on futu
 | `opportunity-note-icp` | Credibility of an account / opportunity | 4–8 | validated |
 | `integration-note` | Build / buy / partner / coexist / defer | 3–7 | candidate |
 | `strategic-market-note` | Business strategic market view and options | 5–7 | candidate |
+| `ai-enterprise-learning-six-page` | Fiches IA et kit ambassadeur | 6 | candidate |
 
 ### Three primary lenses (not interchangeable tags)
 
@@ -122,3 +123,12 @@ Changes to template/mode schema require version/fixture updates, runtime and evi
 La cible utilise **une étoile binaire**, « partie d'importance stratégique », remplaçant la proposition 0–3. Le prototype et le schéma v0 préexistants ne sont pas modifiés par cette revue. Coach devient **Analyste**. Open Canvas est une intégration à instruire (#37) avec adaptateur remplaçable ; upstream archivé.
 
 Revue workload 22h Europe/Paris et fenêtres proposées 03h/04h/05h : exécution future seulement après GO_DEV explicite, versionné et borné. Aucun runner ni webhook de développement activé. Aucun merge ou export Workbench réel revendiqué. La revue planifiée à 22h, si créée, prépare seulement une proposition.
+
+
+## Fiches pédagogiques IA en entreprise
+
+La classe `pedagogique` dispose maintenant d’un renderer HTML/PDF/PNG exécutable, adapté du mécanisme Hivest. [Skill](skills/pedagogical-ai-learning/SKILL.md), [six Markdown et registre de sources](learning/enterprise-ai/README.md), [template et contrat](templates/ai-enterprise-learning-six-page.md). Les anciens constats sur l’absence de runtime générique restent valables pour les autres formats; ce renderer spécialisé ne constitue pas le Workbench annoncé.
+
+Commande pilote : `python renderers/pedagogical/render.py learning/enterprise-ai/perception.md --out build/learning`, puis `python renderers/pedagogical/verify.py learning/enterprise-ai/perception.md build/learning/perception`.
+
+La classe de template (`product`, `business`, `tech`, `pedagogique`) reste distincte de la dimension d’analyse. Voir [la taxonomie](references/template-taxonomy.md).
