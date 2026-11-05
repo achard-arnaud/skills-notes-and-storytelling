@@ -70,3 +70,7 @@ Conformité : les six pages sont présentes, chaque bloc a une cible, BAC et sco
 Contre-épreuve : tester le risque de surautomatisation, biais, qualité des données, erreurs plausibles ou transfert de responsabilité.
 Lecture apprenant : vérifier qu'une personne débutante peut résumer le pitch, expliquer un exemple et nommer le prochain essai sans le formateur.
 Visuel : exécuter le renderer adapté sur le module courant, contrôler son PDF de six pages et ses six PNG; corriger la surcouche CSS sans réécrire le contenu.
+
+## Cycle Hivest importé
+
+L'original de la skill est conservé dans [upstream-hivest-skill.md](references/upstream-hivest-skill.md). Appliquer le cycle Markdown revu → binding hashé → scaffold → HTML/PDF/PNG → QA navigateur → inspection visuelle → retour ciblé. Une correction de forme revient à la composition; un changement de fond renouvelle le binding et sa revue. Le profil reste candidat.
