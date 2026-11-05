@@ -12,7 +12,8 @@
     "capacity_id",
     "audience",
     "source_ledger",
-    "pages"
+    "pages",
+    "selected_use_cases"
   ],
   "properties": {
     "template_class": {
@@ -126,11 +127,6 @@
       "type": "integer",
       "minimum": 0
     },
-    "selected_use_case_count": {
-      "type": "integer",
-      "minimum": 3,
-      "maximum": 5
-    },
     "pages": {
       "type": "array",
       "minItems": 6,
@@ -166,15 +162,170 @@
               "type": "object",
               "required": [
                 "block_id",
-                "content"
+                "content",
+                "content_kind",
+                "claim_refs"
               ],
               "properties": {
                 "block_id": {
                   "type": "string"
                 },
-                "content": {}
+                "content": {},
+                "content_kind": {
+                  "enum": [
+                    "fact",
+                    "inference",
+                    "hypothesis",
+                    "example",
+                    "recommendation",
+                    "unknown"
+                  ]
+                },
+                "claim_refs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "uniqueItems": true
+                }
               },
               "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "selected_use_cases": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "required": [
+          "use_case_id",
+          "title",
+          "process",
+          "pain_point",
+          "icp",
+          "automation",
+          "integration",
+          "bac",
+          "stars",
+          "human_control",
+          "measure"
+        ],
+        "properties": {
+          "use_case_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "process": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pain_point": {
+            "type": "string",
+            "minLength": 1
+          },
+          "icp": {
+            "type": "string",
+            "minLength": 1
+          },
+          "input": {
+            "type": "string"
+          },
+          "output": {
+            "type": "string"
+          },
+          "automation": {
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          "integration": {
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          "bac": {
+            "type": "object",
+            "required": [
+              "benefit",
+              "advantage",
+              "characteristic"
+            ],
+            "properties": {
+              "benefit": {
+                "type": "string"
+              },
+              "advantage": {
+                "type": "string"
+              },
+              "characteristic": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "stars": {
+            "type": "object",
+            "required": [
+              "value",
+              "cost",
+              "risk",
+              "complexity",
+              "generality"
+            ],
+            "properties": {
+              "value": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 3
+              },
+              "cost": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 3
+              },
+              "risk": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 3
+              },
+              "complexity": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 3
+              },
+              "generality": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 3
+              }
+            },
+            "additionalProperties": false
+          },
+          "human_control": {
+            "type": "string",
+            "minLength": 1
+          },
+          "measure": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
             }
           }
         },
