@@ -32,6 +32,9 @@ Reusable skill for evidence-grounded decision notes, architecture notes, one-pag
 | `buy-side-gap-analysis` | Buyer: adopt, replace, complement or partner | 4–8 | adaptive | candidate |
 | `diagnostic-reco-sellside` | Founder / commercial leader: improve positioning and sales motion | 5–9 | portrait | validated |
 | `opportunity-note-icp` | Seller / partner lead: decide whether one target is credible | 4–8 | portrait | validated |
+| `ai-enterprise-learning-six-page` | Beginner learning sheet and Train-the-Trainer kit | 6 | portrait | candidate |
+
+**Template class** is a separate axis from analysis lens: `product`, `business`, `tech` or `pedagogique`. The new six-page learning template is class `pedagogique`; it routes to [its specialized skill](skills/pedagogical-ai-learning/SKILL.md), [content contract](contracts/pedagogical-binding.schema.json) and [semantic HTML scaffold](contracts/pedagogical-scaffold.schema.json). CSS and rendering remain downstream. See [the taxonomy](references/template-taxonomy.md).
 
 Read [the detailed template catalog](references/template-catalog.md) only after choosing the format.
 

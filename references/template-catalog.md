@@ -82,3 +82,7 @@ Preferred side stories:
 - `analytical_focus` for architecture/economic mechanism;
 - `dezoom` for strategic option value;
 - `method` for evidence boundaries.
+
+## AI-enterprise-learning-six-page
+
+A pedagogical class, separate from the business/product/technical analysis lens. Follow the six fixed page questions and the Train-the-Trainer requirements in the template contract. The content binding holds variables and prose; the scaffold holds semantic HTML anchors; CSS and pagination belong to the downstream renderer. Use the [taxonomy](template-taxonomy.md) and [pedagogical skill](../skills/pedagogical-ai-learning/SKILL.md).
