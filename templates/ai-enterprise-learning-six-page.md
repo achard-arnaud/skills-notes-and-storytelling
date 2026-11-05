@@ -1,7 +1,7 @@
 ---
 template_type: ai-enterprise-learning-six-page
 template_class: pedagogique
-version: 0.1.0
+version: 0.2.0
 lifecycle: candidate
 pages: 6
 binding_contract: contracts/pedagogical-binding.schema.json
@@ -33,7 +33,7 @@ Fiche autonome de six pages, conçue pour un débutant en IA en entreprise et r�
 - Les pages 1 à 6 suivent une seule histoire : comprendre → expliquer → diagnostiquer → se projeter → relier à la valeur → essayer.
 - Chaque page finit avec une phrase de passage qui prépare la suivante. La page 6 ferme la boucle et propose un retour d'expérience mesurable.
 - Pour la synthèse multicapacité, identifier au moins quatre capacités parmi Prédiction, Perception, Création, Raisonnement et Agentique. Nommer les entrées, les transformations, les décisions humaines et les sorties.
-- Les notes étoilées sont ordinales, liées à une règle explicite; elles ne remplacent ni une étude de faisabilité ni les hard gates. Plus d'étoiles signifie « plus favorable » pour Valeur, Risque maîtrisable et Généricité; « plus favorable » pour Coût et Complexité signifie ici moins de coût/d'effort. Toujours écrire la règle.
+- Les notes étoilées sont ordinales, liées à une règle explicite; elles ne remplacent ni une étude de faisabilité ni les hard gates. 1 étoile = faible, 2 = moyen, 3 = élevé. Valeur et Généricité élevées sont favorables; Coût, Risque et Complexité élevés demandent davantage de prudence. Ne pas inverser les notes lors du rendu. Toujours écrire cette règle.
 - BAC signifie ici Bénéfices, Avantages, Caractéristiques, selon le brief du programme. Ne pas substituer silencieusement une autre définition.
 - Une promesse d'économie ou de performance reste une hypothèse tant qu'elle n'est pas mesurée dans un pilote.
 - Une capacité IA seule n'est jamais un cas d'usage : préciser le processus, l'utilisateur, l'entrée, la sortie et le contrôle.

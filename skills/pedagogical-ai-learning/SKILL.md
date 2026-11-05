@@ -1,8 +1,6 @@
 ---
 name: pedagogical-ai-learning
 description: Build beginner-friendly, evidence-grounded six-page “Pour aller plus loin” learning sheets for enterprise AI, with a separate content binding, semantic HTML scaffold and downstream visual renderer. Use for the 17-pillar AI-in-business learning programme, Train-the-Trainer kits, capability explainers and multicapability case studies.
-template_class: pedagogique
-template_type: ai-enterprise-learning-six-page
 ---
 
 # Skill — fiches pédagogiques IA en entreprise
@@ -74,3 +72,11 @@ Visuel : exécuter le renderer adapté sur le module courant, contrôler son PDF
 ## Cycle Hivest importé
 
 L'original de la skill est conservé dans [upstream-hivest-skill.md](references/upstream-hivest-skill.md). Appliquer le cycle Markdown revu → binding hashé → scaffold → HTML/PDF/PNG → QA navigateur → inspection visuelle → retour ciblé. Une correction de forme revient à la composition; un changement de fond renouvelle le binding et sa revue. Le profil reste candidat.
+
+## Second tour : produire et prouver
+
+Partir de la racine du dépôt contenant la skill et les Markdown. Pour un module existant, suivre le parcours de projection décrit dans la référence de composition : conserver les sources, les scores et les inconnues; ne pas prétendre reconstruire le binding éditorial ni sa chaîne de claims. Produire séparément `binding.json` (projection), `scaffold.html` (sans CSS), puis `fiche.html` (CSS appliqué), PDF et six PNG.
+
+Exécuter le vérificateur sur la source et le dossier de sortie. Il doit rejeter un fichier modifié après rendu, une source périmée, un import altéré ou une QA en échec. Inspecter ensuite les six pages; conserver `reader_review=PENDING` dans le rapport automatisé et consigner la lecture humaine séparément. Une réussite technique ne transforme ni les liens provisoires au syllabus ni le contenu candidat en contenu approuvé.
+
+Utiliser une seule convention de score : 1 faible, 2 moyen, 3 élevé; valeur/généricité élevées favorables, coût/risque/complexité élevés défavorables. Refuser notes hors 1–3, page vide et backlog hors 3–5 cas. Corriger le Markdown pour un défaut de fond, le scaffold/CSS pour un défaut visuel; ne pas réduire la typographie pour masquer un débordement.

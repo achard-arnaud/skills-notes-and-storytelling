@@ -1,7 +1,7 @@
 ---
 template_type: ai-enterprise-learning-six-page
-template_version: 0.1.0
-fixture_version: 0.1.0
+template_version: 0.2.0
+fixture_version: 0.2.0
 workflow_version: 1.3.1
 ---
 # Fixture éditoriale — fiche pédagogique IA (candidate 0.1.0)
@@ -47,3 +47,5 @@ Logistique : anticiper volumes et stocks (responsable supply, données de comman
 Top cas : prévision de charge (intégration et automatisation moyennes), détection d'anomalies (automatisation basse, intégration moyenne), scoring de leads (intégration moyenne, contrôle renforcé). BAC : Bénéfice = anticiper; Avantage = hiérarchiser les cas; Caractéristique = score ou plage avec date et incertitude. Score exemple à valider : valeur ★★★, coût ★★, risque ★★, complexité ★★, généricité ★★★.  
 **Prompt d'essai :** « À partir de ce tableau fictif de volumes hebdomadaires et d'événements connus, propose une estimation pour les quatre prochaines semaines, signale les hypothèses et les anomalies, distingue ce que les données montrent de ce qu'elles ne permettent pas de conclure, puis liste les vérifications qu'un responsable doit effectuer avant toute décision. N'invente aucune donnée. »  
 **Boucle :** mesurer la qualité du signal et son effet sur la décision avant d'élargir.
+
+Convention de score : 1 faible, 2 moyen, 3 élevé. Valeur et généricité élevées sont favorables; coût, risque et complexité élevés demandent plus de prudence. Le rendu conserve ces valeurs.
