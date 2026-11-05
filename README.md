@@ -132,3 +132,7 @@ La classe `pedagogique` dispose maintenant d’un renderer HTML/PDF/PNG exécuta
 Commande pilote : `python renderers/pedagogical/render.py learning/enterprise-ai/perception.md --out build/learning`, puis `python renderers/pedagogical/verify.py learning/enterprise-ai/perception.md build/learning/perception`.
 
 La classe de template (`product`, `business`, `tech`, `pedagogique`) reste distincte de la dimension d’analyse. Voir [la taxonomie](references/template-taxonomy.md).
+
+## Pilote Perception approfondi — paysage
+
+Le profil pédagogique v0.3 utilise un seul [contrat de contenu](contracts/pedagogical-sheet.schema.json). [Perception](learning/enterprise-ai/perception.sheet.json) est repris en six pages paysage, avec quatre histoires sourcées, un schéma systémique, les quatre configurations du livre et un backlog BAC. [Le catalogue](learning/enterprise-ai/USE_CASE_CATALOG.md) conserve les 70 situations et leurs conditions. Les cinq autres fiches restent candidates dans leur version précédente.
