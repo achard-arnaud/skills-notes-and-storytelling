@@ -1,0 +1,2163 @@
+{
+  "version": 1,
+  "id": "diagnostic-complet-20261107",
+  "repository": "achard-arnaud/skills-notes-and-storytelling",
+  "base_sha": "74a6354a4aeb128ade6db951073eeb825efca0a6",
+  "source_sha": "fb83e0e759d1fef78bbb2cca766fecbb23eda8d5",
+  "program_issue": 48,
+  "run_issue": 177,
+  "epics": [
+    {
+      "id": "E1",
+      "title": "Explorer et délimiter le mandat",
+      "phase": 1,
+      "issue": 178,
+      "owner_issue": 48
+    },
+    {
+      "id": "E2",
+      "title": "Bootstrap narratif Sri Lanka",
+      "phase": 1,
+      "issue": 179,
+      "owner_issue": 51
+    },
+    {
+      "id": "E3",
+      "title": "Adapter les piliers et le raisonnement business",
+      "phase": 2,
+      "issue": 180,
+      "owner_issue": 49
+    },
+    {
+      "id": "E4",
+      "title": "Assurer contexte et reprise",
+      "phase": 2,
+      "issue": 181,
+      "owner_issue": 55
+    },
+    {
+      "id": "E5",
+      "title": "Orchestrer issues epics et sprints",
+      "phase": 2,
+      "issue": 182,
+      "owner_issue": 55
+    },
+    {
+      "id": "E6",
+      "title": "Implémenter ingestion et graphe",
+      "phase": 3,
+      "issue": 183,
+      "owner_issue": 50
+    },
+    {
+      "id": "E7",
+      "title": "Implémenter narration et vues HTML",
+      "phase": 3,
+      "issue": 184,
+      "owner_issue": 51
+    },
+    {
+      "id": "E8",
+      "title": "Revoir livrer et préparer GreenYellow",
+      "phase": 4,
+      "issue": 185,
+      "owner_issue": 55
+    }
+  ],
+  "tasks": [
+    {
+      "id": "DC-001",
+      "epic": "E1",
+      "phase": 1,
+      "sprint": 1,
+      "title": "Épingler les deux dépôts et branches",
+      "objective": "Relever HEAD source, main et dev cible avec les fichiers effectivement consultés.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/BASELINE.md"
+      ],
+      "acceptance": [
+        "Les SHA et la couverture des lectures sont explicites."
+      ],
+      "depends_on": [],
+      "status": "verified",
+      "issue": 193,
+      "receipt": "runs/bootstrap/receipts/DC-001.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/BASELINE.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-002",
+      "epic": "E1",
+      "phase": 1,
+      "sprint": 1,
+      "title": "Lire les instructions et frontières",
+      "objective": "Résoudre les instructions racine et isoler le périmètre autorisé du sous-projet.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "AGENTS.md"
+      ],
+      "acceptance": [
+        "Mandat courant, absence de CI et absence de promotion main sont écrits."
+      ],
+      "depends_on": [
+        "DC-001"
+      ],
+      "status": "verified",
+      "issue": 189,
+      "receipt": "runs/bootstrap/receipts/DC-002.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "AGENTS.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-003",
+      "epic": "E1",
+      "phase": 1,
+      "sprint": 1,
+      "title": "Inventorier les capacités réellement présentes",
+      "objective": "Distinguer méthode, schéma, script exécutable et projet non implémenté.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/BUSINESS-TRANSFER.md"
+      ],
+      "acceptance": [
+        "Aucune capacité planifiée n’est présentée comme livrée."
+      ],
+      "depends_on": [
+        "DC-002"
+      ],
+      "status": "verified",
+      "issue": 188,
+      "receipt": "runs/bootstrap/receipts/DC-003.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/BUSINESS-TRANSFER.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-004",
+      "epic": "E1",
+      "phase": 1,
+      "sprint": 1,
+      "title": "Rattacher le programme existant",
+      "objective": "Relier le chantier aux owners #48–55 sans remplacer les anciennes US.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/OWNERSHIP.md"
+      ],
+      "acceptance": [
+        "Chaque epic local référence un owner existant et son delta."
+      ],
+      "depends_on": [
+        "DC-003"
+      ],
+      "status": "verified",
+      "issue": 186,
+      "receipt": "runs/bootstrap/receipts/DC-004.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/OWNERSHIP.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-005",
+      "epic": "E1",
+      "phase": 1,
+      "sprint": 1,
+      "title": "Identifier les huit HIL source",
+      "objective": "Retrouver les identifiants exacts dans le code et leurs sous-thèmes.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/SOURCE-TRANSFER.md"
+      ],
+      "acceptance": [
+        "Huit HIL vérifiés ; climat et vents restent sous-thèmes."
+      ],
+      "depends_on": [
+        "DC-004"
+      ],
+      "status": "verified",
+      "issue": 229,
+      "receipt": "runs/bootstrap/receipts/DC-005.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/SOURCE-TRANSFER.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-006",
+      "epic": "E1",
+      "phase": 1,
+      "sprint": 1,
+      "title": "Inventorier les matériaux GreenYellow",
+      "objective": "Consigner rapport disponible, apports et conversation inaccessible.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/INTAKE-POLICY.md"
+      ],
+      "acceptance": [
+        "Couverture réellement lue et manquants séparés ; pas de source privée en Git."
+      ],
+      "depends_on": [
+        "DC-005"
+      ],
+      "status": "verified",
+      "issue": 200,
+      "receipt": "runs/bootstrap/receipts/DC-006.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/INTAKE-POLICY.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-007",
+      "epic": "E1",
+      "phase": 1,
+      "sprint": 1,
+      "title": "Séparer méthodes publiques et corpus privé",
+      "objective": "Définir les destinations autorisées pour captures, fixtures et vues.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/INTAKE-POLICY.md"
+      ],
+      "acceptance": [
+        "La fixture publique est synthétique ; aucun R1 ni contact privé publié."
+      ],
+      "depends_on": [
+        "DC-006"
+      ],
+      "status": "verified",
+      "issue": 190,
+      "receipt": "runs/bootstrap/receipts/DC-007.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/INTAKE-POLICY.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-008",
+      "epic": "E1",
+      "phase": 1,
+      "sprint": 1,
+      "title": "Borner les décisions techniques",
+      "objective": "Écarter base de données, serveur et automatisation non nécessaires au premier cycle.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/DECISIONS.md"
+      ],
+      "acceptance": [
+        "Le prototype est local et indépendant des templates canoniques."
+      ],
+      "depends_on": [
+        "DC-007"
+      ],
+      "status": "verified",
+      "issue": 191,
+      "receipt": "runs/bootstrap/receipts/DC-008.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/DECISIONS.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-009",
+      "epic": "E1",
+      "phase": 1,
+      "sprint": 1,
+      "title": "Valider le jalon exploration",
+      "objective": "Consolider gaps, hypothèses et critères de passage à la conception.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "runs/bootstrap/exploration.json"
+      ],
+      "acceptance": [
+        "Les limites de couverture sont consignées, sans faux verdict exhaustif."
+      ],
+      "depends_on": [
+        "DC-008"
+      ],
+      "status": "verified",
+      "issue": 209,
+      "receipt": "runs/bootstrap/receipts/DC-009.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "runs/bootstrap/exploration.json"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-010",
+      "epic": "E2",
+      "phase": 1,
+      "sprint": 1,
+      "title": "Cartographier arc et brief",
+      "objective": "Extraire leurs fonctions et définir l’équivalence mandat/business case.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/SOURCE-TRANSFER.md"
+      ],
+      "acceptance": [
+        "Chronologie historique non imposée au récit business."
+      ],
+      "depends_on": [
+        "DC-009"
+      ],
+      "status": "verified",
+      "issue": 194,
+      "receipt": "runs/bootstrap/receipts/DC-010.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/SOURCE-TRANSFER.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-011",
+      "epic": "E2",
+      "phase": 1,
+      "sprint": 1,
+      "title": "Transférer HIL vers vues analytiques",
+      "objective": "Documenter le multi-rattachement pertinent par section et paragraphe.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/PILLARS.md"
+      ],
+      "acceptance": [
+        "Aucun quota ni obligation de huit chapitres cible."
+      ],
+      "depends_on": [
+        "DC-010"
+      ],
+      "status": "verified",
+      "issue": 201,
+      "receipt": "runs/bootstrap/receipts/DC-011.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/PILLARS.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-012",
+      "epic": "E2",
+      "phase": 1,
+      "sprint": 1,
+      "title": "Distinguer graphe et scaffold lecteur",
+      "objective": "Séparer topologie probatoire et ordre éditorial.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/NARRATIVE.md"
+      ],
+      "acceptance": [
+        "Une relation de graphe ne dicte pas une transition narrative."
+      ],
+      "depends_on": [
+        "DC-011"
+      ],
+      "status": "verified",
+      "issue": 187,
+      "receipt": "runs/bootstrap/receipts/DC-012.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/NARRATIVE.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-013",
+      "epic": "E2",
+      "phase": 1,
+      "sprint": 1,
+      "title": "Transférer le lineage des side stories",
+      "objective": "Conserver provenance, placement, payoff et retour au tronc.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/NARRATIVE.md"
+      ],
+      "acceptance": [
+        "Les retours requis sont résolvables ; les encarts ne créent pas de preuves."
+      ],
+      "depends_on": [
+        "DC-012"
+      ],
+      "status": "verified",
+      "issue": 192,
+      "receipt": "runs/bootstrap/receipts/DC-013.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/NARRATIVE.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-014",
+      "epic": "E2",
+      "phase": 1,
+      "sprint": 1,
+      "title": "Adapter zoom et dézoom",
+      "objective": "Passer de site/actif à portefeuille, entreprise, marché et système.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/NARRATIVE.md"
+      ],
+      "acceptance": [
+        "Tout dézoom indique mécanisme et utilité du retour."
+      ],
+      "depends_on": [
+        "DC-013"
+      ],
+      "status": "verified",
+      "issue": 198,
+      "receipt": "runs/bootstrap/receipts/DC-014.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/NARRATIVE.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-015",
+      "epic": "E2",
+      "phase": 1,
+      "sprint": 1,
+      "title": "Adapter comparateurs et contrechamps",
+      "objective": "Borner périmètre, temporalité, baseline et facteurs de confusion.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/RESEARCH.md"
+      ],
+      "acceptance": [
+        "Un benchmark fournisseur ne prouve pas un ROI local."
+      ],
+      "depends_on": [
+        "DC-014"
+      ],
+      "status": "verified",
+      "issue": 215,
+      "receipt": "runs/bootstrap/receipts/DC-015.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/RESEARCH.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-016",
+      "epic": "E2",
+      "phase": 1,
+      "sprint": 1,
+      "title": "Transférer revue paragraphe et réécriture",
+      "objective": "Séparer revue structurelle, probatoire, éditoriale et humaine.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/NARRATIVE.md"
+      ],
+      "acceptance": [
+        "Un texte modifié perd sa revue antérieure ; aucune approbation humaine simulée."
+      ],
+      "depends_on": [
+        "DC-015"
+      ],
+      "status": "verified",
+      "issue": 196,
+      "receipt": "runs/bootstrap/receipts/DC-016.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/NARRATIVE.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-017",
+      "epic": "E2",
+      "phase": 1,
+      "sprint": 1,
+      "title": "Adapter disposition et couverture",
+      "objective": "Suivre inclus, side story, recherche requise et écart motivé.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/NARRATIVE.md"
+      ],
+      "acceptance": [
+        "Aucun élément écarté n’est supprimé de la provenance."
+      ],
+      "depends_on": [
+        "DC-016"
+      ],
+      "status": "verified",
+      "issue": 202,
+      "receipt": "runs/bootstrap/receipts/DC-017.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/NARRATIVE.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-018",
+      "epic": "E2",
+      "phase": 1,
+      "sprint": 1,
+      "title": "Valider la matrice reuse adapt exclude",
+      "objective": "Faire relire le transfert par la perspective cible.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/SOURCE-TRANSFER.md"
+      ],
+      "acceptance": [
+        "Voix historique et plafonds de longueur exclus explicitement."
+      ],
+      "depends_on": [
+        "DC-017"
+      ],
+      "status": "verified",
+      "issue": 195,
+      "receipt": "runs/bootstrap/receipts/DC-018.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/SOURCE-TRANSFER.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-019",
+      "epic": "E3",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Définir le contrat de mandat",
+      "objective": "Question, audience, scope et exclusions gouvernent le rapport.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/INTERFACES.md"
+      ],
+      "acceptance": [
+        "Une instance sans question de mandat est refusée."
+      ],
+      "depends_on": [
+        "DC-009"
+      ],
+      "status": "verified",
+      "issue": 199,
+      "receipt": "runs/bootstrap/receipts/DC-019.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/INTERFACES.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-020",
+      "epic": "E3",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Séparer industrie et corporate",
+      "objective": "Délimiter opérations sectorielles et fonctions commerciales/support transverses.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/PILLARS.md"
+      ],
+      "acceptance": [
+        "Un même cas peut être relié aux deux avec justification, sans fusion."
+      ],
+      "depends_on": [
+        "DC-019"
+      ],
+      "status": "verified",
+      "issue": 206,
+      "receipt": "runs/bootstrap/receipts/DC-020.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/PILLARS.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-021",
+      "epic": "E3",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Séparer data et IA",
+      "objective": "Distinguer instrumentation/qualité/BI de modèles, agents et décisions.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/PILLARS.md"
+      ],
+      "acceptance": [
+        "Un problème de données n’est pas qualifié automatiquement de problème IA."
+      ],
+      "depends_on": [
+        "DC-020"
+      ],
+      "status": "verified",
+      "issue": 197,
+      "receipt": "runs/bootstrap/receipts/DC-021.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/PILLARS.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-022",
+      "epic": "E3",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Ajouter économie et gouvernance candidates",
+      "objective": "Définir finance du modèle, valeur, organisation, risques et adoption.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/PILLARS.md"
+      ],
+      "acceptance": [
+        "Les axes sont candidats et révisables selon mandat."
+      ],
+      "depends_on": [
+        "DC-021"
+      ],
+      "status": "verified",
+      "issue": 205,
+      "receipt": "runs/bootstrap/receipts/DC-022.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/PILLARS.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-023",
+      "epic": "E3",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Définir la recherche macro micro Porter",
+      "objective": "Traiter ces méthodes comme questions d’enquête déclenchées par un besoin.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/RESEARCH.md"
+      ],
+      "acceptance": [
+        "Pas de grille remplie mécaniquement ni de score sans preuve."
+      ],
+      "depends_on": [
+        "DC-022"
+      ],
+      "status": "verified",
+      "issue": 211,
+      "receipt": "runs/bootstrap/receipts/DC-023.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/RESEARCH.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-024",
+      "epic": "E3",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Définir collecte et benchmark des use cases",
+      "objective": "Relier problème, utilisateur, décision, données, workflow et preuve.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/RESEARCH.md"
+      ],
+      "acceptance": [
+        "Déploiement cible et cas vendeur restent distincts."
+      ],
+      "depends_on": [
+        "DC-023"
+      ],
+      "status": "verified",
+      "issue": 204,
+      "receipt": "runs/bootstrap/receipts/DC-024.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/RESEARCH.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-025",
+      "epic": "E3",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Définir économie et ROI",
+      "objective": "Exiger baseline, coût complet, horizon, attribution et sensibilité.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/RESEARCH.md"
+      ],
+      "acceptance": [
+        "Les gains sans baseline restent hypothèses et non business case prouvé."
+      ],
+      "depends_on": [
+        "DC-024"
+      ],
+      "status": "verified",
+      "issue": 208,
+      "receipt": "runs/bootstrap/receipts/DC-025.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/RESEARCH.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-026",
+      "epic": "E3",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Rattacher les compétences existantes",
+      "objective": "Mapper capacités de recherche/architecture/rendu sans créer de skills installées.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/CAPABILITIES.md"
+      ],
+      "acceptance": [
+        "Frontières fonctionnelles et absence d’installation sont explicites."
+      ],
+      "depends_on": [
+        "DC-025"
+      ],
+      "status": "verified",
+      "issue": 207,
+      "receipt": "runs/bootstrap/receipts/DC-026.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/CAPABILITIES.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-027",
+      "epic": "E3",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Stabiliser les interfaces expérimentales",
+      "objective": "Valider les contrats locaux sans modifier manifests racine.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/INTERFACES.md"
+      ],
+      "acceptance": [
+        "Fixtures négatives requises ; aucun template_type global ajouté."
+      ],
+      "depends_on": [
+        "DC-026"
+      ],
+      "status": "verified",
+      "issue": 210,
+      "receipt": "runs/bootstrap/receipts/DC-027.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/INTERFACES.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-028",
+      "epic": "E4",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Définir la capsule de reprise",
+      "objective": "Fixer mandat, état, décisions et trois prochaines actions.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "runs/bootstrap/RESUME.md"
+      ],
+      "acceptance": [
+        "Reprise possible sans relire le chat."
+      ],
+      "depends_on": [
+        "DC-009"
+      ],
+      "status": "verified",
+      "issue": 212,
+      "receipt": "runs/bootstrap/receipts/DC-028.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "runs/bootstrap/RESUME.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-029",
+      "epic": "E4",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Implémenter les paquets ciblés",
+      "objective": "Charger seulement les entrées déclarées avec empreintes.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "context.py"
+      ],
+      "acceptance": [
+        "Chemin extérieur ou fichier absent refusé."
+      ],
+      "depends_on": [
+        "DC-028"
+      ],
+      "status": "verified",
+      "issue": 203,
+      "receipt": "runs/bootstrap/receipts/DC-029.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "context.py"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-030",
+      "epic": "E4",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Mesurer le budget réellement chargé",
+      "objective": "Compter octets et mots des fichiers, tokenizer exact inconnu si absent.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "context.py"
+      ],
+      "acceptance": [
+        "Le dépassement refuse le paquet ; aucune économie fictive."
+      ],
+      "depends_on": [
+        "DC-029"
+      ],
+      "status": "verified",
+      "issue": 234,
+      "receipt": "runs/bootstrap/receipts/DC-030.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "context.py"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-031",
+      "epic": "E4",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Valider DAG et tâche prête",
+      "objective": "Détecter cycles et prérequis absents avant sélection.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "context.py"
+      ],
+      "acceptance": [
+        "Les fixtures cycle et dépendance inconnue échouent."
+      ],
+      "depends_on": [
+        "DC-030"
+      ],
+      "status": "verified",
+      "issue": 217,
+      "receipt": "runs/bootstrap/receipts/DC-031.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "context.py"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-032",
+      "epic": "E4",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Définir writer et handoff agent",
+      "objective": "Réserver chemins distincts, résultats courts et coordinateur intégrateur.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/CONTEXT-PROTOCOL.md"
+      ],
+      "acceptance": [
+        "Les mutations Git et clôtures restent coordonnées."
+      ],
+      "depends_on": [
+        "DC-031"
+      ],
+      "status": "verified",
+      "issue": 218,
+      "receipt": "runs/bootstrap/receipts/DC-032.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/CONTEXT-PROTOCOL.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-033",
+      "epic": "E4",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Implémenter checkpoint et contrôle de fraîcheur",
+      "objective": "Sauvegarder empreintes et détecter entrée modifiée.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "context.py"
+      ],
+      "acceptance": [
+        "Une entrée modifiée invalide la reprise au lieu de passer silencieusement."
+      ],
+      "depends_on": [
+        "DC-032"
+      ],
+      "status": "verified",
+      "issue": 228,
+      "receipt": "runs/bootstrap/receipts/DC-033.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "context.py"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-034",
+      "epic": "E4",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Définir drop logique et compaction",
+      "objective": "Retirer les documents des futurs paquets sans prétendre purger le runtime.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/CONTEXT-PROTOCOL.md"
+      ],
+      "acceptance": [
+        "Aucune commande ne promet de vider la fenêtre réelle."
+      ],
+      "depends_on": [
+        "DC-033"
+      ],
+      "status": "verified",
+      "issue": 214,
+      "receipt": "runs/bootstrap/receipts/DC-034.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/CONTEXT-PROTOCOL.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-035",
+      "epic": "E4",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Borner réparations et blocages",
+      "objective": "Deux corrections puis réserve explicite et poursuite des branches indépendantes.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/CONTEXT-PROTOCOL.md"
+      ],
+      "acceptance": [
+        "L’écoulement du temps ne vaut ni réponse ni approbation."
+      ],
+      "depends_on": [
+        "DC-034"
+      ],
+      "status": "verified",
+      "issue": 213,
+      "receipt": "runs/bootstrap/receipts/DC-035.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/CONTEXT-PROTOCOL.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-036",
+      "epic": "E4",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Éprouver une reprise indépendante",
+      "objective": "Faire lire capsule et paquet à un agent sans historique.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "runs/bootstrap/recovery-review.md"
+      ],
+      "acceptance": [
+        "Prochaine action, limites et interdits retrouvés depuis les artefacts."
+      ],
+      "depends_on": [
+        "DC-035"
+      ],
+      "status": "verified",
+      "issue": 220,
+      "receipt": "runs/bootstrap/receipts/DC-036.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "runs/bootstrap/recovery-review.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-037",
+      "epic": "E5",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Créer l’index du chantier",
+      "objective": "Créer une issue de run reliée au programme historique.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "board.json"
+      ],
+      "acceptance": [
+        "Issue distante relue et correspondance locale persistée."
+      ],
+      "depends_on": [
+        "DC-009"
+      ],
+      "status": "verified",
+      "issue": 219,
+      "receipt": "runs/bootstrap/receipts/DC-037.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "board.json"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-038",
+      "epic": "E5",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Créer les huit epics thématiques",
+      "objective": "Créer les index de travail sans nouvelles autorités métier globales.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "board.json"
+      ],
+      "acceptance": [
+        "Huit liens parents disponibles et pas de doublons de run."
+      ],
+      "depends_on": [
+        "DC-037"
+      ],
+      "status": "verified",
+      "issue": 216,
+      "receipt": "runs/bootstrap/receipts/DC-038.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "board.json"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-039",
+      "epic": "E5",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Déposer 72 microtickets",
+      "objective": "Chaque unité a objectif, entrées, sorties, dépendances et acceptation.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "board.json"
+      ],
+      "acceptance": [
+        "Tous les IDs locaux correspondent à une issue distante."
+      ],
+      "depends_on": [
+        "DC-038"
+      ],
+      "status": "verified",
+      "issue": 223,
+      "receipt": "runs/bootstrap/receipts/DC-039.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "board.json"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-040",
+      "epic": "E5",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Intégrer les sous-plans agents",
+      "objective": "Faire remonter les propositions source, cible et contexte au plan consolidé.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/PLAN.md"
+      ],
+      "acceptance": [
+        "Contributions intégrées ; les agents ont des scopes disjoints."
+      ],
+      "depends_on": [
+        "DC-039"
+      ],
+      "status": "verified",
+      "issue": 221,
+      "receipt": "runs/bootstrap/receipts/DC-040.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/PLAN.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-041",
+      "epic": "E5",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Relier les dépendances de tickets",
+      "objective": "Ajouter liens cliquables vers prérequis, epic et propriétaire historique.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "board.json"
+      ],
+      "acceptance": [
+        "DAG local valide et liens GitHub réels."
+      ],
+      "depends_on": [
+        "DC-040"
+      ],
+      "status": "verified",
+      "issue": 225,
+      "receipt": "runs/bootstrap/receipts/DC-041.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "board.json"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-042",
+      "epic": "E5",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Renforcer les critères négatifs",
+      "objective": "Inscrire les échecs attendus avant code des contrats.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/PLAN.md"
+      ],
+      "acceptance": [
+        "Hypothèse non promue, retour invalide et reprise périmée sont couverts."
+      ],
+      "depends_on": [
+        "DC-041"
+      ],
+      "status": "verified",
+      "issue": 222,
+      "receipt": "runs/bootstrap/receipts/DC-042.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/PLAN.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-043",
+      "epic": "E5",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Ordonnancer les sprints",
+      "objective": "Séparer exploration, conception, infrastructure, narration et revue.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/PLAN.md"
+      ],
+      "acceptance": [
+        "Les tâches dépendantes ne sont pas parallélisées aveuglément."
+      ],
+      "depends_on": [
+        "DC-042"
+      ],
+      "status": "verified",
+      "issue": 224,
+      "receipt": "runs/bootstrap/receipts/DC-043.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/PLAN.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-044",
+      "epic": "E5",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Générer le board lisible",
+      "objective": "Produire vue Markdown par état, epic et sprint.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "BOARD.md"
+      ],
+      "acceptance": [
+        "Statuts et liens dérivés du même board JSON."
+      ],
+      "depends_on": [
+        "DC-043"
+      ],
+      "status": "verified",
+      "issue": 226,
+      "receipt": "runs/bootstrap/receipts/DC-044.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "BOARD.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-045",
+      "epic": "E5",
+      "phase": 2,
+      "sprint": 2,
+      "title": "Valider le jalon de lancement",
+      "objective": "Relecture du plan renforcé avant délégation de code.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "runs/bootstrap/planning.json"
+      ],
+      "acceptance": [
+        "Périmètre, entrées, contrôles et garde main/CI explicites."
+      ],
+      "depends_on": [
+        "DC-044"
+      ],
+      "status": "verified",
+      "issue": 227,
+      "receipt": "runs/bootstrap/receipts/DC-045.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "runs/bootstrap/planning.json"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-046",
+      "epic": "E6",
+      "phase": 3,
+      "sprint": 3,
+      "title": "Importer Markdown avec localisateurs",
+      "objective": "Découper par blocs et conserver provenance et lignes exactes.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "runtime.py"
+      ],
+      "acceptance": [
+        "Relire chaque fragment dans le fichier source original."
+      ],
+      "depends_on": [
+        "DC-027",
+        "DC-036",
+        "DC-045"
+      ],
+      "status": "verified",
+      "issue": 231,
+      "receipt": "runs/bootstrap/receipts/DC-046.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "runtime.py"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-047",
+      "epic": "E6",
+      "phase": 3,
+      "sprint": 3,
+      "title": "Stabiliser les identités de fragments",
+      "objective": "Rendre un même import déterministe et détectable.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "runtime.py"
+      ],
+      "acceptance": [
+        "Deux imports identiques donnent les mêmes IDs et empreintes."
+      ],
+      "depends_on": [
+        "DC-046"
+      ],
+      "status": "verified",
+      "issue": 230,
+      "receipt": "runs/bootstrap/receipts/DC-047.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "runtime.py"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-048",
+      "epic": "E6",
+      "phase": 3,
+      "sprint": 3,
+      "title": "Qualifier les claims sans promotion automatique",
+      "objective": "Conserver le statut supplied_claim des matériaux fournis.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "runtime.py"
+      ],
+      "acceptance": [
+        "Aucun claim importé n’est verified_fact."
+      ],
+      "depends_on": [
+        "DC-047"
+      ],
+      "status": "verified",
+      "issue": 232,
+      "receipt": "runs/bootstrap/receipts/DC-048.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "runtime.py"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-049",
+      "epic": "E6",
+      "phase": 3,
+      "sprint": 3,
+      "title": "Valider les références et IDs",
+      "objective": "Contrôler unicité et résolution des sources/fragments/claims/piliers.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "runtime.py"
+      ],
+      "acceptance": [
+        "Références pendantes et IDs dupliqués refusés."
+      ],
+      "depends_on": [
+        "DC-048"
+      ],
+      "status": "verified",
+      "issue": 237,
+      "receipt": "runs/bootstrap/receipts/DC-049.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "runtime.py"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-050",
+      "epic": "E6",
+      "phase": 3,
+      "sprint": 3,
+      "title": "Valider les faits qualifiés",
+      "objective": "Exiger revue de vérification et sources réellement lues pour verified_fact.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "runtime.py"
+      ],
+      "acceptance": [
+        "Une synthèse seule ne suffit pas à qualifier un fait."
+      ],
+      "depends_on": [
+        "DC-049"
+      ],
+      "status": "verified",
+      "issue": 235,
+      "receipt": "runs/bootstrap/receipts/DC-050.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "runtime.py"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-051",
+      "epic": "E6",
+      "phase": 3,
+      "sprint": 3,
+      "title": "Construire le graphe probatoire",
+      "objective": "Exporter nœuds et relations typées sans confondre navigation et causalité.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "runtime.py"
+      ],
+      "acceptance": [
+        "Relations inconnues ou endpoints pendants refusés."
+      ],
+      "depends_on": [
+        "DC-050"
+      ],
+      "status": "verified",
+      "issue": 243,
+      "receipt": "runs/bootstrap/receipts/DC-051.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "runtime.py"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-052",
+      "epic": "E6",
+      "phase": 3,
+      "sprint": 3,
+      "title": "Préparer la carte de recherche",
+      "objective": "Documenter questions, rebonds, inconnues et stop conditions.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/RESEARCH.md"
+      ],
+      "acceptance": [
+        "Les pistes exploratoires restent hors causalité probatoire."
+      ],
+      "depends_on": [
+        "DC-051"
+      ],
+      "status": "verified",
+      "issue": 233,
+      "receipt": "runs/bootstrap/receipts/DC-052.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/RESEARCH.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-053",
+      "epic": "E6",
+      "phase": 3,
+      "sprint": 3,
+      "title": "Ajouter fixtures positives et adversariales",
+      "objective": "Couvrir import, preuve, scaffold et retours.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "tests/test_runtime.py"
+      ],
+      "acceptance": [
+        "Les cas négatifs échouent pour la raison attendue."
+      ],
+      "depends_on": [
+        "DC-052"
+      ],
+      "status": "verified",
+      "issue": 236,
+      "receipt": "runs/bootstrap/receipts/DC-053.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "tests/test_runtime.py"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-054",
+      "epic": "E6",
+      "phase": 3,
+      "sprint": 3,
+      "title": "Valider le sprint de données",
+      "objective": "Exécuter tests locaux et enregistrer les limites.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "runs/bootstrap/data.json"
+      ],
+      "acceptance": [
+        "Commande, code retour, couverture et résultat conservés."
+      ],
+      "depends_on": [
+        "DC-053"
+      ],
+      "status": "verified",
+      "issue": 238,
+      "receipt": "runs/bootstrap/receipts/DC-054.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "runs/bootstrap/data.json"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-055",
+      "epic": "E7",
+      "phase": 3,
+      "sprint": 4,
+      "title": "Créer une étude synthétique multi-piliers",
+      "objective": "Montrer des axes distants et un récit de taille libre.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "fixtures/synthetic.json"
+      ],
+      "acceptance": [
+        "Aucune donnée réelle confidentielle dans la fixture."
+      ],
+      "depends_on": [
+        "DC-027",
+        "DC-045"
+      ],
+      "status": "verified",
+      "issue": 239,
+      "receipt": "runs/bootstrap/receipts/DC-055.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "fixtures/synthetic.json"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-056",
+      "epic": "E7",
+      "phase": 3,
+      "sprint": 4,
+      "title": "Matérialiser le reader scaffold",
+      "objective": "Ordonner sections et paragraphes indépendamment des piliers.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "render.py"
+      ],
+      "acceptance": [
+        "Un nombre de sections différent des piliers est accepté."
+      ],
+      "depends_on": [
+        "DC-055"
+      ],
+      "status": "verified",
+      "issue": 241,
+      "receipt": "runs/bootstrap/receipts/DC-056.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "render.py"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-057",
+      "epic": "E7",
+      "phase": 3,
+      "sprint": 4,
+      "title": "Valider les side stories",
+      "objective": "Contrôler parent, claims, raison hors tronc et return_to.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "runtime.py"
+      ],
+      "acceptance": [
+        "Une side story sans retour résolvable échoue."
+      ],
+      "depends_on": [
+        "DC-056"
+      ],
+      "status": "verified",
+      "issue": 240,
+      "receipt": "runs/bootstrap/receipts/DC-057.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "runtime.py"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-058",
+      "epic": "E7",
+      "phase": 3,
+      "sprint": 4,
+      "title": "Rendre récit et paragraphes",
+      "objective": "Afficher statuts et limites sans marqueurs techniques parasites dans la prose.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "render.py"
+      ],
+      "acceptance": [
+        "Les textes sont échappés et les ancres sont uniques."
+      ],
+      "depends_on": [
+        "DC-057"
+      ],
+      "status": "verified",
+      "issue": 244,
+      "receipt": "runs/bootstrap/receipts/DC-058.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "render.py"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-059",
+      "epic": "E7",
+      "phase": 3,
+      "sprint": 4,
+      "title": "Rendre les onglets piliers",
+      "objective": "Permettre navigation croisée data IA industrie corporate.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "render.py"
+      ],
+      "acceptance": [
+        "Clavier et liens internes fonctionnent sans CDN."
+      ],
+      "depends_on": [
+        "DC-058"
+      ],
+      "status": "verified",
+      "issue": 246,
+      "receipt": "runs/bootstrap/receipts/DC-059.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "render.py"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-060",
+      "epic": "E7",
+      "phase": 3,
+      "sprint": 4,
+      "title": "Rendre preuves et side stories",
+      "objective": "Permettre retour au tronc et consultation de provenance.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "render.py"
+      ],
+      "acceptance": [
+        "Aucun encart ne transforme son contenu en preuve."
+      ],
+      "depends_on": [
+        "DC-059"
+      ],
+      "status": "verified",
+      "issue": 242,
+      "receipt": "runs/bootstrap/receipts/DC-060.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "render.py"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-061",
+      "epic": "E7",
+      "phase": 3,
+      "sprint": 4,
+      "title": "Préparer les diagrammes exacts",
+      "objective": "Émettre un Mermaid source explicite depuis les relations typées.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "render.py"
+      ],
+      "acceptance": [
+        "Pas de faux rendu Mermaid annoncé si moteur absent."
+      ],
+      "depends_on": [
+        "DC-060"
+      ],
+      "status": "verified",
+      "issue": 251,
+      "receipt": "runs/bootstrap/receipts/DC-061.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "render.py"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-062",
+      "epic": "E7",
+      "phase": 3,
+      "sprint": 4,
+      "title": "Éprouver HTML et injection",
+      "objective": "Contrôler échappement, ancrages, visibilité et navigation.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "tests/test_render.py"
+      ],
+      "acceptance": [
+        "Un payload HTML injecté reste texte, les retours résolvent."
+      ],
+      "depends_on": [
+        "DC-061"
+      ],
+      "status": "verified",
+      "issue": 245,
+      "receipt": "runs/bootstrap/receipts/DC-062.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "tests/test_render.py"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-063",
+      "epic": "E7",
+      "phase": 3,
+      "sprint": 4,
+      "title": "Valider le sprint narratif",
+      "objective": "Produire une démonstration HTML et une revue de structure.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "runs/bootstrap/narrative.json"
+      ],
+      "acceptance": [
+        "Prototype candidat distinct d’un rapport éditorial approuvé."
+      ],
+      "depends_on": [
+        "DC-062"
+      ],
+      "status": "verified",
+      "issue": 247,
+      "receipt": "runs/bootstrap/receipts/DC-063.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "runs/bootstrap/narrative.json"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-064",
+      "epic": "E8",
+      "phase": 4,
+      "sprint": 5,
+      "title": "Exécuter la non-régression canonique",
+      "objective": "Vérifier le validateur racine sans modification des contrats.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "runs/bootstrap/qa.json"
+      ],
+      "acceptance": [
+        "Commande locale racine passe et manifests inchangés."
+      ],
+      "depends_on": [
+        "DC-054",
+        "DC-063"
+      ],
+      "status": "verified",
+      "issue": 248,
+      "receipt": "runs/bootstrap/receipts/DC-064.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "runs/bootstrap/qa.json"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-065",
+      "epic": "E8",
+      "phase": 4,
+      "sprint": 5,
+      "title": "Auditer couverture et clôtures",
+      "objective": "Vérifier chaque tâche contre artefact et critère.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "runs/bootstrap/coverage.json"
+      ],
+      "acceptance": [
+        "Une tâche sans preuve reste ouverte."
+      ],
+      "depends_on": [
+        "DC-064"
+      ],
+      "status": "verified",
+      "issue": 249,
+      "receipt": "runs/bootstrap/receipts/DC-065.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "runs/bootstrap/coverage.json"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-066",
+      "epic": "E8",
+      "phase": 4,
+      "sprint": 5,
+      "title": "Intégrer fast-forward sans CI",
+      "objective": "Committer avec skip CI et avancer dev sans force.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "runs/bootstrap/DELIVERY.md"
+      ],
+      "acceptance": [
+        "Ref distante au SHA attendu ; main inchangé."
+      ],
+      "depends_on": [
+        "DC-065"
+      ],
+      "status": "planned",
+      "issue": 253,
+      "receipt": "runs/bootstrap/receipts/DC-066.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "runs/bootstrap/DELIVERY.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-067",
+      "epic": "E8",
+      "phase": 4,
+      "sprint": 5,
+      "title": "Vérifier état distant et workflows",
+      "objective": "Lire ref et runs du SHA exact après intégration.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "runs/bootstrap/DELIVERY.md"
+      ],
+      "acceptance": [
+        "Distinguer absence de run et succès de tests locaux."
+      ],
+      "depends_on": [
+        "DC-066"
+      ],
+      "status": "planned",
+      "issue": 250,
+      "receipt": "runs/bootstrap/receipts/DC-067.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "runs/bootstrap/DELIVERY.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-068",
+      "epic": "E8",
+      "phase": 4,
+      "sprint": 5,
+      "title": "Revoir la structure du projet",
+      "objective": "Présenter points d’entrée, commandes et limites réelles.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "README.md"
+      ],
+      "acceptance": [
+        "Aucun serveur permanent ou compaction technique revendiqué."
+      ],
+      "depends_on": [
+        "DC-064"
+      ],
+      "status": "verified",
+      "issue": 252,
+      "receipt": "runs/bootstrap/receipts/DC-068.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "README.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-069",
+      "epic": "E8",
+      "phase": 4,
+      "sprint": 5,
+      "title": "Préparer import privé GreenYellow",
+      "objective": "Lister matériaux disponibles, manquants et destination privée.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/INTAKE-POLICY.md"
+      ],
+      "acceptance": [
+        "Pas d’import brut dans dépôt public ; conversation inaccessible signalée."
+      ],
+      "depends_on": [
+        "DC-068"
+      ],
+      "status": "verified",
+      "issue": 254,
+      "receipt": "runs/bootstrap/receipts/DC-069.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/INTAKE-POLICY.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-070",
+      "epic": "E8",
+      "phase": 4,
+      "sprint": 5,
+      "title": "Proposer piliers et fil narratif",
+      "objective": "Préparer des choix éditoriaux candidats depuis le corpus disponible.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/PILLARS.md"
+      ],
+      "acceptance": [
+        "Aucun choix candidat n’est déclaré approuvé par François."
+      ],
+      "depends_on": [
+        "DC-069"
+      ],
+      "status": "verified",
+      "issue": 255,
+      "receipt": "runs/bootstrap/receipts/DC-070.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/PILLARS.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-071",
+      "epic": "E8",
+      "phase": 4,
+      "sprint": 5,
+      "title": "Inventorier les side stories candidates",
+      "objective": "Lister zooms/contrechamps/vision/ROI avec questions et retours envisagés.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "docs/NARRATIVE.md"
+      ],
+      "acceptance": [
+        "VisioSense reste à vérifier ; aucune recommandation fournisseur implicite."
+      ],
+      "depends_on": [
+        "DC-070"
+      ],
+      "status": "verified",
+      "issue": 256,
+      "receipt": "runs/bootstrap/receipts/DC-071.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "docs/NARRATIVE.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    },
+    {
+      "id": "DC-072",
+      "epic": "E8",
+      "phase": 4,
+      "sprint": 5,
+      "title": "Livrer capsule et décision suivante",
+      "objective": "Consolider reçus et éléments à valider pour le dry run étendu.",
+      "inputs": [
+        "AGENTS.md",
+        "docs/INTERFACES.md"
+      ],
+      "outputs": [
+        "runs/bootstrap/RESUME.md"
+      ],
+      "acceptance": [
+        "Reprise autonome possible ; validation éditoriale reste explicitement en attente."
+      ],
+      "depends_on": [
+        "DC-067",
+        "DC-071"
+      ],
+      "status": "planned",
+      "issue": 257,
+      "receipt": "runs/bootstrap/receipts/DC-072.json",
+      "owner": "coordinator",
+      "write_scope": [
+        "runs/bootstrap/RESUME.md"
+      ],
+      "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+    }
+  ],
+  "editorial_state": "awaiting_human",
+  "execution_phase": "local_validation_before_delivery",
+  "context_test_count": 18
+}
