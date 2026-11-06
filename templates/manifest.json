@@ -196,10 +196,10 @@
     },
     {
       "type": "ai-enterprise-learning-six-page",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "template_class": "pedagogique",
       "lifecycle": "candidate",
-      "orientation": "portrait",
+      "orientation": "landscape",
       "page_range": [
         6,
         6
@@ -216,24 +216,22 @@
       ],
       "default_dimension": "business",
       "dimension_contract": "templates/ai-enterprise-learning-six-page.md",
-      "binding_contract": "contracts/pedagogical-binding.schema.json",
-      "scaffold_contract": "contracts/pedagogical-scaffold.schema.json",
       "skill": "skills/pedagogical-ai-learning/SKILL.md",
       "qa_fixture": "examples/pedagogical-ai-learning-v0.md",
-      "qa_fixture_version": "0.2.0",
-      "backlog_catalog_contract": "contracts/pedagogical-use-case-catalog.schema.json",
-      "scaffold_template": "templates/pedagogical-six-page-scaffold.json",
-      "renderer": "renderers/pedagogical/render.py",
-      "render_binding_contract": "contracts/pedagogical-render-binding.schema.json",
+      "qa_fixture_version": "0.3.0",
+      "renderer": "renderers/pedagogical/landscape.py",
       "rendering_status": "preview",
       "formats": [
         "html",
         "pdf",
         "png"
       ],
-      "renderer_version": "0.3.0",
+      "renderer_version": "1.0.0",
       "content_directory": "learning/enterprise-ai",
-      "verification_command": "python renderers/pedagogical/verify.py learning/enterprise-ai/perception.md build/learning/perception"
+      "content_contract": "contracts/pedagogical-sheet.schema.json",
+      "content_model": "learning/enterprise-ai/perception.sheet.json",
+      "qa_command": "python renderers/pedagogical/landscape.py learning/enterprise-ai/perception.sheet.json --out build/perception --verify",
+      "legacy_renderer": "renderers/pedagogical/render.py"
     }
   ]
 }

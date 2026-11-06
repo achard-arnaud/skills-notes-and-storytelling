@@ -1,7 +1,7 @@
 ---
 template_type: ai-enterprise-learning-six-page
-template_version: 0.2.0
-fixture_version: 0.2.0
+template_version: 0.3.0
+fixture_version: 0.3.0
 workflow_version: 1.3.1
 ---
 # Fixture éditoriale — fiche pédagogique IA (candidate 0.1.0)
@@ -49,3 +49,5 @@ Top cas : prévision de charge (intégration et automatisation moyennes), détec
 **Boucle :** mesurer la qualité du signal et son effet sur la décision avant d'élargir.
 
 Convention de score : 1 faible, 2 moyen, 3 élevé. Valeur et généricité élevées sont favorables; coût, risque et complexité élevés demandent plus de prudence. Le rendu conserve ces valeurs.
+
+La fixture de rendu réelle du profil paysage est `learning/enterprise-ai/perception.sheet.json`. Elle possède six pages, quatre histoires TOWS sourcées, cinq branches systémiques, quatre fonctions et quatre cas liés au catalogue de 70 situations.

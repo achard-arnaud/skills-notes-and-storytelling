@@ -1,82 +1,41 @@
 ---
 name: pedagogical-ai-learning
-description: Build beginner-friendly, evidence-grounded six-page “Pour aller plus loin” learning sheets for enterprise AI, with a separate content binding, semantic HTML scaffold and downstream visual renderer. Use for the 17-pillar AI-in-business learning programme, Train-the-Trainer kits, capability explainers and multicapability case studies.
+description: Concevoir des fiches pédagogiques approfondies « Pour aller plus loin » sur les cinq capacités IA en entreprise et leur combinaison, puis les rendre en six pages paysage. Utiliser pour les kits ambassadeurs Train the Trainer, l’exploitation d’un catalogue de cas et les approfondissements du programme de 17 piliers; travailler avec un seul contrat de contenu, un scaffold sémantique et un CSS séparé.
 ---
 
-# Skill — fiches pédagogiques IA en entreprise
+# Fiches IA — comprendre, transmettre, intégrer
 
-## Mission
+## Lire juste ce qu’il faut
 
-Transformer un corpus de référence et une question de formation en une fiche modulaire de six pages. Le lecteur doit pouvoir comprendre l'idée sans bagage technique, l'expliquer à une équipe, repérer les conditions d'adoption et choisir un petit essai responsable. Le livrable éditorial n'est pas le rendu visuel.
+Lire le brief courant, le registre de sources et le catalogue fourni. Pour une fiche existante, lire son `<capacité>.sheet.json`; pour Perception, partir de `learning/enterprise-ai/perception.sheet.json`. Lire uniquement le [contrat actif](../../contracts/pedagogical-sheet.schema.json), le [template de six pages](../../templates/ai-enterprise-learning-six-page.md) et, au moment du rendu, la [recette de composition](references/hivest-rendering.md).
 
-## Entrées et frontières
+Le JSON est le seul contenu canonique. Le Markdown est sa projection de lecture. Ne pas refaire trois bindings, un manifeste de scaffold et plusieurs reçus. Les anciens contrats des versions portrait restent des archives de compatibilité. Garder HTML dans le scaffold et CSS dans le design; ne pas enfouir un choix de mise en page dans les données.
 
-Lire le brief, les modules concernés des 17 piliers, les sources réellement accessibles et le contrat [pedagogical-binding.schema.json](../../contracts/pedagogical-binding.schema.json). Créer trois objets séparés :
+## Boucle 1 — lire et répartir le corpus
 
-1. **Binding contenu** — audience, capacité, source ledger, contenu rédigé, use cases et notes.
-2. **Scaffold HTML sémantique** — six pages et blocs HTML ordonnés, selon [pedagogical-scaffold.schema.json](../../contracts/pedagogical-scaffold.schema.json); aucun CSS.
-3. **Rendu** — transmettre le scaffold et le binding au renderer choisi par le projet. Le renderer gère CSS, accessibilité visuelle, pagination et export; il ne change pas les faits.
+Dédupliquer les pièces jointes par empreinte; conserver tous les numéros, situations et nuances. Attribuer une dominante selon le résultat attendu, puis garder les capacités complémentaires avec leurs conditions. Distinguer la lecture d’une entrée, son interprétation, la rédaction d’une sortie et l’action. Ne pas forcer une solution classique dans l’IA; une règle fixe ou un connecteur ne prouve pas l’agentique.
 
-Ne pas mélanger le contrat métier, le DOM et la présentation.
+Lire les passages utiles du livre et noter chapitre/pages réellement lus. Ne pas republier le livre ni son extraction dans le dépôt. Pour les histoires d’entreprise, vérifier les sources primaires, dater les faits et signaler les résultats déclarés par un fournisseur ou le client. Ne pas inventer de gain pour remplir un quadrant.
 
-## Choix du module et du corpus
+## Boucle 2 — écrire une capacité, une page à la fois
 
-- Traiter l'ordre demandé une capacité à la fois : Prédiction, Perception, Création, Raisonnement, Agentique, puis Synthèse multicapacité.
-- Le livre de Tobias Zwingmann nomme « Thinking » la capacité ici appelée « Raisonnement ». Préserver les deux libellés dans les métadonnées de source pour faciliter le rapprochement.
-- Lire le passage complet pertinent, noter le locator (chapitre/page ou section), relever les idées sans recopier de longues formulations. Les exemples et le cadre pédagogique doivent être reformulés.
-- Distinguer ce que la source affirme, ce que l'équipe en déduit et les exemples proposés pour l'apprentissage. Une description d'une capacité n'est pas une promesse de résultat financier.
-- S'il manque une source, écrire l'inconnue et proposer une question de recherche; ne pas combler en prétendant citer le livre.
-- Rechercher les modules liés des 17 piliers pour expliciter les prérequis, le transfert et les dépendances. S'il manque le syllabus, signaler les liens proposés comme provisoires.
+Écrire et relire les six pages avant d’en commencer une autre. Garder les titres et transitions comme un récit :
 
-## Parcours en six pages
+1. **Comprendre** : définir sans jargon, aller de l’exemple simple au flux réel. Construire chaque posture TOWS à partir d’un facteur interne et d’un facteur externe. Séparer fait de l’histoire, lecture stratégique proposée et limite de preuve.
+2. **Transmettre** : écrire un pitch oral de 30 secondes, un postulat, le parcours visuel, trois leviers honnêtes et des réponses aux objections. Donner une courte animation et un critère de compréhension.
+3. **Diagnostiquer** : faire apparaître les cinq branches, leurs effets et dépendances. Associer obstacle, levier d’adoption, responsable et mesure; ne pas remplacer le schéma par cinq mots isolés.
+4. **Intégrer** : préciser les sous-tâches, les entrées/sorties et frontières de capacité. Préserver Assistant/Copilot/Autopilot/Agent et les deux axes du livre. L’autonomie n’est ni une obligation ni une preuve de valeur. Si le syllabus manque, écrire un ancrage proposé sans numéro inventé.
+5. **Relier à la valeur** : pour Logistique, Opérations, Marketing/Vente et Services, nommer l’interlocuteur qui porte le problème, la douleur, la question à poser, les cas, les briques et le résultat à mesurer. Expliciter la simplification de Porter et le rôle des fonctions support.
+6. **Agir** : retenir 3–5 IDs stables du catalogue; relier Bénéfice, Avantage et Caractéristique. Donner une mesure, un contrôle, un positionnement intégration/automatisation et un prompt testable. Préserver le sens des scores : 1 faible, 2 moyen, 3 élevé; V/G favorables, C/R/X défavorables. Ne pas les additionner.
 
-Écrire chaque module page par page, puis boucler la page entière avant de commencer la capacité suivante. Conserver le chaînage des takeaways.
+Pour la synthèse future, choisir au moins quatre contributions distinctes dans une chaîne réellement décrite. UC-069 est un candidat du corpus fourni. Ne pas inventer un mode manquant pour satisfaire le compte.
 
-1. **Comprendre** — définition courte, pourquoi l'entreprise s'y intéresse, trois exemples progressifs, matrice TOWS. Décrire une posture offensive, défensive, opportuniste et de préservation sans présenter les quatre choix comme universels.
-2. **Transmettre** — pitch oral d'environ 30 secondes, postulat, framework visuel lisible, arguments sur l'urgence, la douleur et la facilité de prise en main; objections et réponses honnêtes.
-3. **Diagnostiquer** — carte Ishikawa/mindmap couvrant Processus, Outils, Compétences, Données et Gouvernance. Décrire les dépendances et signaux d'adoption, pas seulement une liste de facteurs.
-4. **Se projeter** — progression Assistant → Copilot → Autopilot/Agent. Séparer low-hanging fruit, quick win et big bet; préciser contrôle humain et niveau d'intégration. Rattacher au niveau 2 et aux 17 piliers lorsque le syllabus le permet.
-5. **Relier à la valeur** — couvrir Logistique, Opérations, Marketing/Vente et Services. Pour chaque fonction, nommer une tâche ou douleur, l'ICP métier (rôle qui porte le problème) et les enablers. Rattacher à Porter sans inventer de chaîne spécifique au secteur.
-6. **Agir** — backlog de 3 à 5 cas; positionner Automatisation × Intégration; appliquer BAC (Bénéfices, Avantages, Caractéristiques); noter Valeur, Coût, Risque, Complexité et Généricité de 1 à 3 étoiles. Définir explicitement le sens de chaque note. Donner un prompt concret qui n'invite ni données personnelles/confidentielles ni action réelle sans validation.
+## Boucle 3 — composer, rendre, relire
 
-## Catalogue massif des cas
+Exécuter le renderer sur le fichier canonique et vérifier le vrai PDF paysage de six pages. Inspecter chaque page; corriger la structure ou le CSS pour un défaut visuel et revenir au JSON pour un défaut de fond. Garder une typographie lisible, remplir utilement la page et donner la priorité aux schémas qui expliquent. Ne pas étirer six paragraphes en six pages vides.
 
-Le backlog complet reste dans un catalogue séparé, lié par référence depuis le binding. Utiliser `contracts/pedagogical-use-case-catalog.schema.json`. Garder les IDs stables, la provenance, les liens possibles aux 17 piliers et les doublons à résoudre; les fiches ne retiennent que 3 à 5 cas. Les champs inconnus restent absents ou null; ne pas inventer pour compléter.
+Ne pas inventer de visuel factuel ni de preuve. Un diagramme opérationnel est une construction pédagogique fondée sur les données de la fiche; les scores restent des hypothèses d’atelier. Distinguer contrôle automatique, revue visuelle et validation éditoriale. Livrer le PDF, un aperçu et le Markdown utile; conserver le catalogue complet hors du backlog resserré.
 
-## La synthèse multicapacité
+## Fermer la boucle
 
-Choisir un parcours métier où au moins quatre capacités apportent une contribution distincte. Représenter chaîne d'entrée → perception → raisonnement → création/prédiction éventuelle → décision humaine → action contrôlée. Préciser les capacités absentes, les handoffs, les points d'arrêt et la mesure. « Agentique » décrit le degré d'action, non une qualité intrinsèque supérieure.
-
-## Critères de qualité
-
-- Zéro jargon non expliqué; exemple professionnel concret sur chaque page.
-- Takeaway explicite et phrase de transition sur chaque page.
-- Chaque use case relie douleur, personne, processus, entrée/sortie, valeur potentielle, données, contrôle et prochaine mesure.
-- La matrice TOWS est construite à partir de forces/faiblesses et opportunités/menaces; les options doivent croiser des facteurs, pas répéter un SWOT.
-- Garder les scores et hypothèses visibles. Les étoiles ne signifient pas de valeur absolue; hard gates de droits, sécurité, contrôle humain et faisabilité viennent avant le classement.
-- Traçabilité claim → fragment → source; séparer faits, inférences, hypothèses et recommandations.
-- Le prompt d'exemple sert au prototypage avec données fictives ou anonymisées.
-- Vérifier que le binding contient exactement six pages, que le scaffold est sémantique et que les deux objets se réfèrent aux mêmes blocs.
-
-## Composition Hivest adaptée
-
-Pour appliquer le rendu aux Markdown existants, lire [hivest-rendering.md](references/hivest-rendering.md). Utiliser le renderer `renderers/pedagogical/render.py` : il importe réellement la conversion Markdown, le thème et les contrôles navigateur Hivest, puis projette six pages. Le binding garde le contenu, la surcouche CSS reste dans le renderer. Produire les six PNG et le vrai PDF, contrôler overflow/polices et lire les pages avant de livrer.
-
-## Exemple de QA avant handoff
-
-Conformité : les six pages sont présentes, chaque bloc a une cible, BAC et scoring sont expliqués, source locator est précis.
-Contre-épreuve : tester le risque de surautomatisation, biais, qualité des données, erreurs plausibles ou transfert de responsabilité.
-Lecture apprenant : vérifier qu'une personne débutante peut résumer le pitch, expliquer un exemple et nommer le prochain essai sans le formateur.
-Visuel : exécuter le renderer adapté sur le module courant, contrôler son PDF de six pages et ses six PNG; corriger la surcouche CSS sans réécrire le contenu.
-
-## Cycle Hivest importé
-
-L'original de la skill est conservé dans [upstream-hivest-skill.md](references/upstream-hivest-skill.md). Appliquer le cycle Markdown revu → binding hashé → scaffold → HTML/PDF/PNG → QA navigateur → inspection visuelle → retour ciblé. Une correction de forme revient à la composition; un changement de fond renouvelle le binding et sa revue. Le profil reste candidat.
-
-## Second tour : produire et prouver
-
-Partir de la racine du dépôt contenant la skill et les Markdown. Pour un module existant, suivre le parcours de projection décrit dans la référence de composition : conserver les sources, les scores et les inconnues; ne pas prétendre reconstruire le binding éditorial ni sa chaîne de claims. Produire séparément `binding.json` (projection), `scaffold.html` (sans CSS), puis `fiche.html` (CSS appliqué), PDF et six PNG.
-
-Exécuter le vérificateur sur la source et le dossier de sortie. Il doit rejeter un fichier modifié après rendu, une source périmée, un import altéré ou une QA en échec. Inspecter ensuite les six pages; conserver `reader_review=PENDING` dans le rapport automatisé et consigner la lecture humaine séparément. Une réussite technique ne transforme ni les liens provisoires au syllabus ni le contenu candidat en contenu approuvé.
-
-Utiliser une seule convention de score : 1 faible, 2 moyen, 3 élevé; valeur/généricité élevées favorables, coût/risque/complexité élevés défavorables. Refuser notes hors 1–3, page vide et backlog hors 3–5 cas. Corriger le Markdown pour un défaut de fond, le scaffold/CSS pour un défaut visuel; ne pas réduire la typographie pour masquer un débordement.
+Vérifier : un débutant explique-t-il l’idée, une erreur plausible, un exemple métier et le prochain essai ? Le formateur peut-il reprendre l’animation ? Les quatre histoires ont-elles leurs sources et les cas leurs IDs ? Le rendu est-il paysage et dense sans réduire les polices ? Consigner seulement les améliorations réutilisables avant le tour suivant.
