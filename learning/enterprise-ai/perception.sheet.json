@@ -82,7 +82,7 @@
       ],
       "content": {
         "definition": "La perception transforme un document, une image ou un son en **texte, champs, objets repérés ou événements**. Une facture devient une liste de montants; une photo révèle un défaut possible; un appel devient une transcription. Le livre regroupe ces aptitudes en **lire, voir, entendre**. [S1]",
-        "value": "**Pourquoi l’entreprise s’y intéresse :** moins de ressaisie, moins de temps passé à chercher et un contrôle plus rapide des volumes. Le bénéfice se mesure **après les corrections**, sur les dossiers vraiment utilisables; extraire davantage de données inutiles ne crée pas de valeur.",
+        "value": "**La valeur :** moins de ressaisie, de recherche et de contrôle répétitif. Mesurer le temps total **après corrections** et la part des dossiers utilisables : des champs extraits mais inutiles ne créent pas de valeur.",
         "examples": [
           {
             "title": "Lire — du ticket au dossier",
@@ -182,15 +182,15 @@
         ],
         "objections": [
           {
-            "objection": "« Elle se trompe, donc elle ne sert à rien. »",
+            "objection": "« Elle se trompe. »",
             "answer": "Comparer au travail actuel. Mesurer les erreurs restantes et le temps de correction; exclure un champ dont l’erreur serait trop coûteuse. « Je ne sais pas lire » doit être une sortie possible."
           },
           {
-            "objection": "« Si c’est rempli, c’est que c’était dans la pièce. »",
+            "objection": "« Rempli veut dire lu ? »",
             "answer": "Exiger une preuve visible. La documentation Workday indique que certains champs absents peuvent être complétés via un graphe de connaissances : extraction et enrichissement doivent rester distingués. [S7]"
           },
           {
-            "objection": "« Les données sont sensibles / cela surveille les équipes. »",
+            "objection": "« Données sensibles ? »",
             "answer": "Définir la finalité et l’environnement autorisés, réduire les données collectées et expliquer qui voit quoi. Un signalement doit pouvoir être revu; aucune personne ne doit être jugée sur une observation ambiguë."
           }
         ],
@@ -417,10 +417,10 @@
         "use_cases": [
           {
             "id": "UC-021",
-            "title": "Préremplir les champs d’une facture",
-            "benefit": "Rendre un dossier comptable exploitable plus vite.",
-            "advantage": "Réduire la ressaisie tout en conservant une preuve.",
-            "characteristic": "Fournisseur, date, montants et devise reliés à la zone source.",
+            "title": "Préremplir une facture",
+            "benefit": "Accélérer le traitement comptable.",
+            "advantage": "Préremplir avant contrôle, sans perdre la preuve.",
+            "characteristic": "Champs, devise et montants reliés à la zone source.",
             "owner": "Comptabilité fournisseurs",
             "integration": 2,
             "automation": 1,
@@ -431,15 +431,15 @@
               2,
               3
             ],
-            "measure": "Temps total par facture + erreurs sur montants; validation avant écriture."
+            "measure": "Temps complet et erreurs de montants; validation avant écriture."
           },
           {
             "id": "UC-042",
-            "title": "Transcrire un entretien ou une réunion",
-            "benefit": "Retrouver ce qui a été dit sans réécouter tout l’audio.",
-            "advantage": "Relecture ciblée des passages, avec correction possible.",
-            "characteristic": "Texte horodaté et locuteurs A/B; « inaudible » si besoin.",
-            "owner": "Équipe de service / formation",
+            "title": "Transcrire un échange",
+            "benefit": "Retrouver un échange sans tout réécouter.",
+            "advantage": "Relire un passage et le corriger.",
+            "characteristic": "Transcription horodatée; locuteurs A/B; « inaudible » si besoin.",
+            "owner": "Service / formation",
             "integration": 1,
             "automation": 1,
             "scores": [
@@ -449,14 +449,14 @@
               1,
               3
             ],
-            "measure": "Temps de reprise + mots/noms mal lus; synthèse et attribution d’actions sont d’autres tâches."
+            "measure": "Temps de correction et erreurs sur noms. Synthèse et actions : tâches distinctes."
           },
           {
             "id": "UC-041",
-            "title": "Signaler un défaut visuel de production",
-            "benefit": "Réduire le risque qu’un défaut échappe au contrôle.",
-            "advantage": "Concentrer l’attention sur une zone de la pièce.",
-            "characteristic": "Image localisée et comparaison à une référence validée.",
+            "title": "Signaler un défaut visuel",
+            "benefit": "Limiter les défauts qui échappent au contrôle.",
+            "advantage": "Concentrer l’inspection sur une zone.",
+            "characteristic": "Image localisée, référence validée et alerte à qualifier.",
             "owner": "Qualité / production",
             "integration": 3,
             "automation": 2,
@@ -467,14 +467,14 @@
               3,
               2
             ],
-            "measure": "Défauts manqués + fausses alertes; qualification humaine dans le pilote."
+            "measure": "Défauts manqués, fausses alertes; qualification humaine dans le pilote."
           },
           {
             "id": "UC-044",
-            "title": "Retrouver une pièce à partir d’une photo",
-            "benefit": "Accélérer l’identification sur le terrain.",
-            "advantage": "Proposer des références à comparer plutôt qu’une recherche à l’aveugle.",
-            "characteristic": "Photo, liste courte de candidats et attributs visibles comparés.",
+            "title": "Retrouver une pièce par photo",
+            "benefit": "Identifier plus vite sur le terrain.",
+            "advantage": "Comparer quelques références plutôt que chercher à l’aveugle.",
+            "characteristic": "Photo, candidats et attributs visibles comparés.",
             "owner": "Maintenance / avant-vente",
             "integration": 2,
             "automation": 1,
@@ -485,7 +485,7 @@
               2,
               2
             ],
-            "measure": "Référence confirmée + délai; ne pas conclure à la compatibilité sans contrôle technique."
+            "measure": "Délai et référence confirmée; compatibilité vérifiée par un technicien."
           }
         ],
         "matrix_note": "Positions proposées pour le **flux métier du pilote**, pas pour le seul moteur de lecture. UC-021/044 partagent une zone intermédiaire. Le périmètre choisi déplace un cas; la position ne mesure ni valeur ni qualité.",

@@ -44,7 +44,7 @@ def validate(data,folder):
     cases=data['pages'][5]['content']['use_cases']
     if not 3<=len(cases)<=5 or len({x['id'] for x in cases})!=len(cases):raise ValueError('Select 3 to 5 distinct use cases')
     catalog=json.loads((folder/data['catalog_ref']).read_text())
-    if len(catalog['items'])!=70 or len({x['id'] for x in catalog['items']})!=70:raise ValueError('Keep all 70 source situations')
+    if len(catalog['items'])!=len({x['id'] for x in catalog['items']}) or not {f'UC-{n:03d}' for n in range(1,71)}<={x['id'] for x in catalog['items']}:raise ValueError('Keep all 70 source situations; additions may extend the catalog')
     ids={x['id'] for x in catalog['items']}
     for case in cases:
         if case['id'] not in ids:raise ValueError('Unknown catalog case')
@@ -92,7 +92,7 @@ def page_diagnose(c):
 def page_integrate(c):
     taxonomy=card('Trois aptitudes opérationnelles',''.join('<section><h3>'+h(x['name'])+'</h3>'+md(x['meaning'])+md(x['limit'])+small('**Corpus :** '+x['cases'])+'</section>' for x in c['taxonomy']))
     levels='<table class="levels-table"><thead><tr><th>Configuration</th><th>Intégration / automatisation</th><th>Exemple de conception</th><th>Contrôle</th></tr></thead><tbody>'+''.join('<tr><th>'+h(x['name'])+'<span>'+h(x['horizon'])+'</span></th><td>'+h(x['integration'])+' / '+h(x['automation'])+'</td><td>'+md(x['example'])+'</td><td>'+md(x['control'])+'</td></tr>' for x in c['levels'])+'</tbody></table>'
-    p=c['programme'];return '<div class="integrate-upper">'+taxonomy+'<div>'+levels+note(c['rule'])+'</div></div>'+card(p['title'],md(p['text'])+small('**Évaluation :** '+p['assessment']),'programme-card card')
+    p=c['programme'];return '<div class="integrate-upper">'+taxonomy+'<div>'+levels+note(c['rule'])+'</div></div>'+note('**'+p['title']+' :** '+p['text']+' **Évaluation :** '+p['assessment'],'programme-note note')
 
 def page_value(c):
     columns=[]
@@ -102,16 +102,15 @@ def page_value(c):
     return small(c['porter_note'])+'<div class="four-grid functions" data-overlap-check>'+''.join(columns)+'</div><div class="two-grid value-bottom">'+note(c['support'])+note(c['discovery'])+'</div>'
 
 def integration_matrix(c):
-    parts=['<svg class="matrix" viewBox="0 0 420 150" role="img" aria-label="Automatisation en abscisse, intégration en ordonnée"><text x="32" y="12" class="axis">Intégration forte ↑</text>']
-    for y,a,b in [(18,'Copilot','Agent'),(73,'Assistant','Autopilot')]:
-        for x,label in [(32,a),(218,b)]:parts.append(f'<rect x="{x}" y="{y}" width="186" height="55" class="quadrant"/><text x="{x+7}" y="{y+17}" class="quadrant-name">{h(label)}</text>')
-    occupied={}
-    for case in c['use_cases']:
-        key=(case['automation'],case['integration']);n=occupied.get(key,0);occupied[key]=n+1
-        x=80+(case['automation']-1)*132+(13 if n%2 else 0)
-        y=113-(case['integration']-1)*34+(13 if n else 0)
-        parts.append(f'<circle cx="{x}" cy="{y}" r="4" class="point"/><text x="{x+7}" y="{y+5}" class="point-label">{h(case["id"].replace("UC-",""))}</text>')
-    parts.append('<text x="32" y="147" class="axis">Automatisation faible → forte</text></svg>');return ''.join(parts)
+    parts=['<svg class="matrix" viewBox="0 0 420 165" role="img" aria-label="Automatisation en abscisse, intégration en ordonnée"><text x="32" y="12" class="axis">Intégration forte ↑</text>']
+    for y,a,b in [(20,'Copilot','Agent'),(80,'Assistant','Autopilot')]:
+        for x,label in [(32,a),(218,b)]:parts.append(f'<rect x="{x}" y="{y}" width="186" height="60" class="quadrant"/><text x="{x+7}" y="{y+17}" class="quadrant-name">{h(label)}</text>')
+    grouped={}
+    for case in c['use_cases']:grouped.setdefault((case['automation'],case['integration']),[]).append(case['id'].replace('UC-',''))
+    for (automation,integration),ids in grouped.items():
+        x={1:80,2:218,3:355}[automation];y={1:122,2:80,3:55}[integration];label_y=y-5 if integration==2 else y+5
+        parts.append(f'<circle cx="{x}" cy="{y}" r="4" class="point"/><text x="{x+7}" y="{label_y}" class="point-label">{h("/".join(ids))}</text>')
+    parts.append('<text x="32" y="162" class="axis">Automatisation faible → forte</text></svg>');return ''.join(parts)
 
 def page_act(c):
     rows=[]
@@ -130,7 +129,7 @@ def scaffold(data):
     sources={x['id']:x for x in data['sources']};pages=[]
     for i,(page,builder) in enumerate(zip(data['pages'],BUILDERS),1):
         src=' · '.join('<a href="'+h(sources[k]['url'])+'">'+h(k+' '+sources[k]['title'].split(' — ')[0])+'</a>' if sources[k]['url'] else h(k+' Corpus fourni') for k in page['source_ids'])
-        pages.append('<section class="page p'+str(i)+'" data-no-overflow aria-label="'+h(f'Page {i} : {page["title"]}')+'"><header><div class="eyebrow">POUR ALLER PLUS LOIN <span>IA EN ENTREPRISE · '+h(data['title'].upper())+' · '+str(i)+' / 6</span></div><h1>'+h(page['title'])+'</h1><p class="page-lead">'+h(page['lead'])+'</p></header><main data-no-overflow>'+builder(page['content'])+'</main><aside class="takeaway">'+md('**À retenir →** '+page['takeaway'])+'</aside><footer><div>'+src+'</div><b>PERCEPTION · '+str(i)+' / 6</b></footer></section>')
+        pages.append('<section class="page p'+str(i)+'" data-no-overflow aria-label="'+h(f'Page {i} : {page["title"]}')+'"><header><div class="eyebrow">POUR ALLER PLUS LOIN <span>IA EN ENTREPRISE · '+h(data['title'].upper())+' · '+str(i)+' / 6</span></div><h1>'+h(page['title'])+'</h1><p class="page-lead">'+h(page['lead'])+'</p></header><main data-no-overflow>'+builder(page['content'])+'</main><aside class="takeaway">'+md('**À retenir →** '+page['takeaway'])+'</aside><footer><div>'+src+'</div><b>'+h(data['title'].upper())+' · '+str(i)+' / 6</b></footer></section>')
     template=(HERE/'landscape.html').read_text();return template.replace('{{TITLE}}',h(data['title'])).replace('{{PAGES}}',''.join(pages))
 
 def as_markdown(data):

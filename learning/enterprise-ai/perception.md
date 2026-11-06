@@ -10,7 +10,7 @@ La perception lit, voit et entend. Sa valeur apparaît quand une observation dev
 
 La perception transforme un document, une image ou un son en **texte, champs, objets repérés ou événements**. Une facture devient une liste de montants; une photo révèle un défaut possible; un appel devient une transcription. Le livre regroupe ces aptitudes en **lire, voir, entendre**. [S1]
 
-**Pourquoi l’entreprise s’y intéresse :** moins de ressaisie, moins de temps passé à chercher et un contrôle plus rapide des volumes. Le bénéfice se mesure **après les corrections**, sur les dossiers vraiment utilisables; extraire davantage de données inutiles ne crée pas de valeur.
+**La valeur :** moins de ressaisie, de recherche et de contrôle répétitif. Mesurer le temps total **après corrections** et la part des dossiers utilisables : des champs extraits mais inutiles ne créent pas de valeur.
 
 ### Lire — du ticket au dossier
 
@@ -111,15 +111,15 @@ Choisir une tâche fréquente dont la sortie est simple à contrôler. Parler de
 
 Un type de pièce, quelques champs, des exemples fictifs ou autorisés, une personne qui vérifie. L’essai peut rester hors du système métier; commencer par une intégration lourde n’est pas nécessaire.
 
-« Elle se trompe, donc elle ne sert à rien. »
+« Elle se trompe. »
 
 Comparer au travail actuel. Mesurer les erreurs restantes et le temps de correction; exclure un champ dont l’erreur serait trop coûteuse. « Je ne sais pas lire » doit être une sortie possible.
 
-« Si c’est rempli, c’est que c’était dans la pièce. »
+« Rempli veut dire lu ? »
 
 Exiger une preuve visible. La documentation Workday indique que certains champs absents peuvent être complétés via un graphe de connaissances : extraction et enrichissement doivent rester distingués. [S7]
 
-« Les données sont sensibles / cela surveille les équipes. »
+« Données sensibles ? »
 
 Définir la finalité et l’environnement autorisés, réduire les données collectées et expliquer qui voit quoi. Un signalement doit pouvoir être revu; aucune personne ne doit être jugée sur une observation ambiguë.
 
@@ -381,59 +381,59 @@ Le catalogue conserve les 70 situations. Cette fiche retient quatre portes d’e
 
 UC-021
 
-### Préremplir les champs d’une facture
+### Préremplir une facture
 
-Rendre un dossier comptable exploitable plus vite.
+Accélérer le traitement comptable.
 
-Réduire la ressaisie tout en conservant une preuve.
+Préremplir avant contrôle, sans perdre la preuve.
 
-Fournisseur, date, montants et devise reliés à la zone source.
+Champs, devise et montants reliés à la zone source.
 
 Comptabilité fournisseurs
 
-Temps total par facture + erreurs sur montants; validation avant écriture.
+Temps complet et erreurs de montants; validation avant écriture.
 
 UC-042
 
-### Transcrire un entretien ou une réunion
+### Transcrire un échange
 
-Retrouver ce qui a été dit sans réécouter tout l’audio.
+Retrouver un échange sans tout réécouter.
 
-Relecture ciblée des passages, avec correction possible.
+Relire un passage et le corriger.
 
-Texte horodaté et locuteurs A/B; « inaudible » si besoin.
+Transcription horodatée; locuteurs A/B; « inaudible » si besoin.
 
-Équipe de service / formation
+Service / formation
 
-Temps de reprise + mots/noms mal lus; synthèse et attribution d’actions sont d’autres tâches.
+Temps de correction et erreurs sur noms. Synthèse et actions : tâches distinctes.
 
 UC-041
 
-### Signaler un défaut visuel de production
+### Signaler un défaut visuel
 
-Réduire le risque qu’un défaut échappe au contrôle.
+Limiter les défauts qui échappent au contrôle.
 
-Concentrer l’attention sur une zone de la pièce.
+Concentrer l’inspection sur une zone.
 
-Image localisée et comparaison à une référence validée.
+Image localisée, référence validée et alerte à qualifier.
 
 Qualité / production
 
-Défauts manqués + fausses alertes; qualification humaine dans le pilote.
+Défauts manqués, fausses alertes; qualification humaine dans le pilote.
 
 UC-044
 
-### Retrouver une pièce à partir d’une photo
+### Retrouver une pièce par photo
 
-Accélérer l’identification sur le terrain.
+Identifier plus vite sur le terrain.
 
-Proposer des références à comparer plutôt qu’une recherche à l’aveugle.
+Comparer quelques références plutôt que chercher à l’aveugle.
 
-Photo, liste courte de candidats et attributs visibles comparés.
+Photo, candidats et attributs visibles comparés.
 
 Maintenance / avant-vente
 
-Référence confirmée + délai; ne pas conclure à la compatibilité sans contrôle technique.
+Délai et référence confirmée; compatibilité vérifiée par un technicien.
 
 Positions proposées pour le **flux métier du pilote**, pas pour le seul moteur de lecture. UC-021/044 partagent une zone intermédiaire. Le périmètre choisi déplace un cas; la position ne mesure ni valeur ni qualité.
 
@@ -445,10 +445,10 @@ Sur ces trois factures fictives, relève fournisseur, numéro, date, devise, tot
 
 | Cas | BAC | Valeur | Coût | Risque | Complexité | Généricité |
 |---|---|---:|---:|---:|---:|---:|
-| UC-021 Préremplir les champs d’une facture | B : Rendre un dossier comptable exploitable plus vite.; A : Réduire la ressaisie tout en conservant une preuve.; C : Fournisseur, date, montants et devise reliés à la zone source. | 3 | 2 | 2 | 2 | 3 |
-| UC-042 Transcrire un entretien ou une réunion | B : Retrouver ce qui a été dit sans réécouter tout l’audio.; A : Relecture ciblée des passages, avec correction possible.; C : Texte horodaté et locuteurs A/B; « inaudible » si besoin. | 2 | 1 | 2 | 1 | 3 |
-| UC-041 Signaler un défaut visuel de production | B : Réduire le risque qu’un défaut échappe au contrôle.; A : Concentrer l’attention sur une zone de la pièce.; C : Image localisée et comparaison à une référence validée. | 3 | 3 | 3 | 3 | 2 |
-| UC-044 Retrouver une pièce à partir d’une photo | B : Accélérer l’identification sur le terrain.; A : Proposer des références à comparer plutôt qu’une recherche à l’aveugle.; C : Photo, liste courte de candidats et attributs visibles comparés. | 2 | 2 | 2 | 2 | 2 |
+| UC-021 Préremplir une facture | B : Accélérer le traitement comptable.; A : Préremplir avant contrôle, sans perdre la preuve.; C : Champs, devise et montants reliés à la zone source. | 3 | 2 | 2 | 2 | 3 |
+| UC-042 Transcrire un échange | B : Retrouver un échange sans tout réécouter.; A : Relire un passage et le corriger.; C : Transcription horodatée; locuteurs A/B; « inaudible » si besoin. | 2 | 1 | 2 | 1 | 3 |
+| UC-041 Signaler un défaut visuel | B : Limiter les défauts qui échappent au contrôle.; A : Concentrer l’inspection sur une zone.; C : Image localisée, référence validée et alerte à qualifier. | 3 | 3 | 3 | 3 | 2 |
+| UC-044 Retrouver une pièce par photo | B : Identifier plus vite sur le terrain.; A : Comparer quelques références plutôt que chercher à l’aveugle.; C : Photo, candidats et attributs visibles comparés. | 2 | 2 | 2 | 2 | 2 |
 
 **Takeaway :** Un lot autorisé, un responsable de correction, un bénéfice mesuré après reprises. Étendre seulement si l’essai tient sur un lot nouveau.
 
