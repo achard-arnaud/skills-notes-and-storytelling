@@ -1,0 +1,45 @@
+{
+  "id": "synthetic-energy-study",
+  "title": "Cas synthétique — de la mesure à la décision",
+  "mandate": {
+    "question": "Comment instruire une amélioration de la qualification des alertes ?",
+    "scope": "Entreprise fictive ; démonstration de méthode uniquement",
+    "audience": "Revue du dispositif, sans destinataire externe"
+  },
+  "pillars": [
+    {"id": "data", "title": "Data", "scope": "Accès, qualité et traçabilité des mesures"},
+    {"id": "ai", "title": "IA", "scope": "Hypothèses de détection et conditions d'évaluation"},
+    {"id": "industry", "title": "Industrie et opérations", "scope": "Équipements, sites et interventions physiques"},
+    {"id": "corporate", "title": "Fonctions corporate", "scope": "Commercial, comptabilité, finance, budget et marketing transverses"},
+    {"id": "economics", "title": "Économie", "scope": "Baseline, coût complet et scénarios de valeur"}
+  ],
+  "sources": [
+    {"id": "SRC-1", "kind": "synthetic_fixture", "access": "synthetic", "title": "Brief fictif de démonstration", "locator": "fixture:brief:1"}
+  ],
+  "fragments": [
+    {"id": "F-1", "source_id": "SRC-1", "locator": "lignes 1–2 du brief fictif", "text": "L'entreprise fictive reçoit des alertes. Leur qualification est un sujet à instruire."}
+  ],
+  "claims": [
+    {"id": "C-1", "text": "Le brief fictif propose d'examiner la qualification des alertes.", "status": "supplied_claim", "fragment_ids": ["F-1"], "pillar_ids": ["data", "industry"]},
+    {"id": "C-2", "text": "Une meilleure qualité de données pourrait réduire les fausses alertes ; cette relation reste à tester.", "status": "hypothesis", "fragment_ids": [], "pillar_ids": ["data", "ai", "industry"]},
+    {"id": "C-3", "text": "Un gain économique dépendrait du coût complet et d'une baseline locale ; aucun ROI n'est établi.", "status": "hypothesis", "fragment_ids": [], "pillar_ids": ["economics", "corporate"]}
+  ],
+  "relations": [
+    {"id": "R-1", "from": "C-2", "to": "C-1", "kind": "contextualizes", "rationale": "L'hypothèse définit une piste d'enquête, sans preuve causale."},
+    {"id": "R-2", "from": "C-3", "to": "C-2", "kind": "depends_on", "rationale": "L'évaluation économique nécessite une hypothèse technique testée."}
+  ],
+  "sections": [
+    {"id": "S-1", "title": "Le problème à préciser", "claim_ids": ["C-1"], "pillar_ids": ["data", "industry"], "paragraphs": [
+      {"id": "P-1", "text": "Le brief fictif ouvre une enquête sur la qualification des alertes. Il ne mesure pas encore la fréquence des erreurs ni leur coût.", "claim_ids": ["C-1"], "pillar_ids": ["data", "industry"], "review": {"evidence": false, "editorial": false}}
+    ]},
+    {"id": "S-2", "title": "Une hypothèse à éprouver", "claim_ids": ["C-2"], "pillar_ids": ["data", "ai", "industry"], "paragraphs": [
+      {"id": "P-2", "text": "La qualité des mesures pourrait influencer le tri des alertes. La piste exige une baseline, un protocole d'évaluation et une revue avec les équipes d'exploitation.", "claim_ids": ["C-2"], "pillar_ids": ["data", "ai", "industry"], "review": {"evidence": false, "editorial": false}}
+    ]},
+    {"id": "S-3", "title": "La valeur reste une question", "claim_ids": ["C-3"], "pillar_ids": ["economics", "corporate"], "paragraphs": [
+      {"id": "P-3", "text": "Le gain éventuel doit intégrer données, intégration, contrôle humain et exploitation. Les fonctions corporate apportent leur propre analyse ; elles ne sont pas assimilées aux opérations industrielles.", "claim_ids": ["C-3"], "pillar_ids": ["economics", "corporate"], "review": {"evidence": false, "editorial": false}}
+    ], "mermaid": "flowchart TD\n  A[\"Baseline à établir\"] --> B[\"Hypothèse à tester\"]\n  B --> C[\"Scénarios économiques\"]"}
+  ],
+  "side_stories": [
+    {"id": "SS-1", "kind": "comparator", "title": "Comparer sans transférer un ROI", "claim_ids": ["C-3"], "pillar_ids": ["economics", "corporate"], "parent_section_id": "S-3", "return_to": "P-3", "state": "candidate", "reason_outside": "La comparabilité mérite un aparté sans interrompre la question centrale.", "payoff": "Rappeler qu'un résultat extérieur ne remplace pas la baseline locale.", "text": "Un cas comparable pourrait aider à définir le protocole. Aucune performance extérieure n'est attribuée à ce cas fictif."}
+  ]
+}
