@@ -202,7 +202,7 @@
             "2 min : comparer la proposition à l’original; faire nommer ce qui manque.",
             "2 min : choisir le prochain lot, le responsable de correction et les deux mesures utiles."
           ],
-          "check": "Le participant sait distinguer « information lue », « information déduite » et « action autorisée ». Sinon, refaire la démonstration avant de diffuser. Kit séparé fourni : trois factures fictives et leur correction; une date est rendue illisible et un total est contradictoire."
+          "check": "L’apprenant distingue lu, déduit et action autorisée. Kit séparé fourni : trois factures et leur correction."
         }
       }
     },
@@ -221,7 +221,7 @@
           {
             "name": "Processus",
             "risk_short": "Exceptions sans responsable",
-            "question": "Où la lecture bloque-t-elle le flux ?",
+            "question": "Où bloque le flux ?",
             "obstacle": "Sans responsable des cas ambigus, les exceptions s’accumulent.",
             "lever": "Définir entrée, critères d’acceptation et file de reprise.",
             "owner": "Métier + référent terrain.",
@@ -230,7 +230,7 @@
           {
             "name": "Outils",
             "risk_short": "Source invisible ou mal captée",
-            "question": "Peut-on vérifier sans changer d’écran ?",
+            "question": "Vérifier dans le même écran ?",
             "obstacle": "Scan compressé, mauvais éclairage ou source invisible annulent le gain.",
             "lever": "Afficher source/résultat, permettre de corriger et de revenir à la pièce.",
             "owner": "Produit/IT + terrain.",
@@ -239,7 +239,7 @@
           {
             "name": "Compétences",
             "risk_short": "Confiance sans contre-vérification",
-            "question": "Sait-on repérer une erreur plausible ?",
+            "question": "Repérer une erreur plausible ?",
             "obstacle": "Le préremplissage inspire trop confiance; les pratiques expertes restent implicites.",
             "lever": "Former sur les erreurs réelles, partager une grille et des cas limites.",
             "owner": "Manager + ambassadeur.",
@@ -248,7 +248,7 @@
           {
             "name": "Données",
             "risk_short": "Lot test trop facile",
-            "question": "Le test ressemble-t-il au travail réel ?",
+            "question": "Le lot est-il représentatif ?",
             "obstacle": "Un lot propre masque langues, bruit, rotations et pièces incomplètes.",
             "lever": "Garder un lot corrigé, distinct des exemples de préparation; couvrir les variantes.",
             "owner": "Référent données + métier.",
@@ -257,7 +257,7 @@
           {
             "name": "Gouvernance",
             "risk_short": "Usage ou action mal bornés",
-            "question": "Qui peut lire, accepter, arrêter ?",
+            "question": "Qui lit, valide, arrête ?",
             "obstacle": "La lecture dérive vers une décision ou une surveillance jamais discutées.",
             "lever": "Fixer finalité, accès, conservation, traces, revue et droit d’arrêt.",
             "owner": "Sponsor + IT + contrôle.",
@@ -323,7 +323,7 @@
             "automation": "Faible",
             "example": "Les champs et la pièce apparaissent dans l’écran comptable. La personne corrige et valide.",
             "control": "Traçabilité de la preuve, validation explicite et reprise simple.",
-            "horizon": "Gain rapide si l’écran est disponible"
+            "horizon": "Gain rapide"
           },
           {
             "name": "Autopilot",
@@ -331,7 +331,7 @@
             "automation": "Forte",
             "example": "Un service lit régulièrement un flux d’images et produit des alertes, sans agir dans les systèmes aval.",
             "control": "Surveiller la couverture et la file d’alertes; automatiser l’observation ne prouve pas l’action.",
-            "horizon": "Périmètre étroit, sans le confondre avec un agent"
+            "horizon": "Périmètre étroit"
           },
           {
             "name": "Agent",
@@ -339,7 +339,7 @@
             "automation": "Forte",
             "example": "Un système coordonne la lecture, consulte d’autres outils et traite les dossiers autorisés; les exceptions sortent du flux.",
             "control": "Droits limités, actions réversibles, vérification du résultat et arrêt possible. Un workflow fixe peut suffire.",
-            "horizon": "Pari majeur après maîtrise des dépendances"
+            "horizon": "Pari majeur"
           }
         ],
         "rule": "**Deux axes indépendants :** ne pas cumuler d’emblée intégration et automatisation. Assistant → Copilot est un parcours proposé; Autopilot et Agent restent distincts. Une exécution automatique connectée peut être un workflow fixe : l’agentique suppose une coordination adaptée à l’objectif. [S1]",
@@ -413,7 +413,7 @@
         "S2"
       ],
       "content": {
-        "selection_note": "Sur 70 situations, 17 ont une dominante Perception et 33 la mobilisent au total. Les quatre variantes ci-dessous sont des **pilotes volontairement bornés** : la facture attend une validation, la transcription n’impose pas le temps réel et la référence photo reste à confirmer. Le catalogue garde la situation initiale et ses conditions. Les étoiles sont des hypothèses d’atelier, pas des résultats du livre.",
+        "selection_note": "17 des 70 cas ont une dominante Perception; 33 la mobilisent au total. Ces quatre **variantes de pilote** bornent volontairement l’automatisation : facture validée, transcription sans contrainte de temps réel, référence photo à confirmer. Les situations initiales restent dans le catalogue.",
         "use_cases": [
           {
             "id": "UC-021",
@@ -488,10 +488,10 @@
             "measure": "Référence confirmée + délai; ne pas conclure à la compatibilité sans contrôle technique."
           }
         ],
-        "matrix_note": "Positions proposées pour le **flux métier du pilote**, pas pour la seule lecture automatique : horizontal = automatisation; vertical = intégration. UC-021 et UC-044 partagent une zone intermédiaire. Un même cas se déplace selon son périmètre; la position ne mesure ni valeur ni qualité.",
-        "score_legend": "V = valeur, C = coût, R = risque, X = complexité, G = généricité. 1 faible, 2 moyen, 3 élevé. V/G élevés sont favorables; C/R/X élevés demandent plus de prudence. Les droits, la faisabilité et le contrôle priment sur le total : ne pas additionner ces notes.",
+        "matrix_note": "Positions proposées pour le **flux métier du pilote**, pas pour le seul moteur de lecture. UC-021/044 partagent une zone intermédiaire. Le périmètre choisi déplace un cas; la position ne mesure ni valeur ni qualité.",
+        "score_legend": "V valeur · C coût · R risque · X complexité · G généricité. 1 faible, 2 moyen, 3 élevé : V/G favorables; C/R/X défavorables. Hypothèses d’atelier, pas résultats du livre. Droits, faisabilité et contrôle priment; ne pas additionner.",
         "prompt": "Sur ces trois factures fictives, relève fournisseur, numéro, date, devise, total HT, taxe et total TTC. Pour chaque champ, donne valeur lue, page et zone de preuve; distingue absent, illisible et contradictoire. N’invente pas une valeur manquante. Vérifie séparément la cohérence HT + taxe = TTC; montre l’écart sans corriger l’original. Restitue un tableau et la liste des points à contrôler. Ne crée aucune écriture et ne déclenche aucun paiement.",
-        "pilot": "**Recette :** mesurer temps total, corrections et champs critiques justes, puis tester un lot inédit. Le contrôle HT + taxe = TTC est un calcul/règle; interpréter un écart peut ajouter du raisonnement. Le prompt montre cette chaîne autour de la perception. Accepter, restreindre ou arrêter selon les seuils métier."
+        "pilot": "**Recette :** mesurer temps total, corrections et champs critiques justes; tester un lot inédit. HT + taxe = TTC est un calcul/règle; expliquer l’écart peut ajouter du raisonnement. Accepter, restreindre ou arrêter selon les seuils métier."
       }
     }
   ]

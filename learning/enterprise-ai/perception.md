@@ -133,7 +133,7 @@ Définir la finalité et l’environnement autorisés, réduire les données col
 
 2 min : choisir le prochain lot, le responsable de correction et les deux mesures utiles.
 
-Le participant sait distinguer « information lue », « information déduite » et « action autorisée ». Sinon, refaire la démonstration avant de diffuser. Kit séparé fourni : trois factures fictives et leur correction; une date est rendue illisible et un total est contradictoire.
+L’apprenant distingue lu, déduit et action autorisée. Kit séparé fourni : trois factures et leur correction.
 
 
 **Takeaway :** Une équipe adopte plus facilement une lecture qu’elle peut corriger. Organisons maintenant cette correction.
@@ -148,7 +148,7 @@ Des informations utilisables, avec moins de reprises
 
 Exceptions sans responsable
 
-Où la lecture bloque-t-elle le flux ?
+Où bloque le flux ?
 
 Sans responsable des cas ambigus, les exceptions s’accumulent.
 
@@ -162,7 +162,7 @@ Délai du dossier et part des reprises.
 
 Source invisible ou mal captée
 
-Peut-on vérifier sans changer d’écran ?
+Vérifier dans le même écran ?
 
 Scan compressé, mauvais éclairage ou source invisible annulent le gain.
 
@@ -176,7 +176,7 @@ Temps de correction, qualité de capture, disponibilité.
 
 Confiance sans contre-vérification
 
-Sait-on repérer une erreur plausible ?
+Repérer une erreur plausible ?
 
 Le préremplissage inspire trop confiance; les pratiques expertes restent implicites.
 
@@ -190,7 +190,7 @@ Revue juste et autonomie sur un cas nouveau.
 
 Lot test trop facile
 
-Le test ressemble-t-il au travail réel ?
+Le lot est-il représentatif ?
 
 Un lot propre masque langues, bruit, rotations et pièces incomplètes.
 
@@ -204,7 +204,7 @@ Erreurs et omissions par format, langue et qualité.
 
 Usage ou action mal bornés
 
-Qui peut lire, accepter, arrêter ?
+Qui lit, valide, arrête ?
 
 La lecture dérive vers une décision ou une surveillance jamais discutées.
 
@@ -275,7 +275,7 @@ Les champs et la pièce apparaissent dans l’écran comptable. La personne corr
 
 Traçabilité de la preuve, validation explicite et reprise simple.
 
-Gain rapide si l’écran est disponible
+Gain rapide
 
 ### Autopilot
 
@@ -283,7 +283,7 @@ Un service lit régulièrement un flux d’images et produit des alertes, sans a
 
 Surveiller la couverture et la file d’alertes; automatiser l’observation ne prouve pas l’action.
 
-Périmètre étroit, sans le confondre avec un agent
+Périmètre étroit
 
 ### Agent
 
@@ -291,7 +291,7 @@ Un système coordonne la lecture, consulte d’autres outils et traite les dossi
 
 Droits limités, actions réversibles, vérification du résultat et arrêt possible. Un workflow fixe peut suffire.
 
-Pari majeur après maîtrise des dépendances
+Pari majeur
 
 **Deux axes indépendants :** ne pas cumuler d’emblée intégration et automatisation. Assistant → Copilot est un parcours proposé; Autopilot et Agent restent distincts. Une exécution automatique connectée peut être un workflow fixe : l’agentique suppose une coordination adaptée à l’objectif. [S1]
 
@@ -377,7 +377,7 @@ Temps complet du dossier + retours + exactitude des champs critiques; extraire n
 
 Le catalogue conserve les 70 situations. Cette fiche retient quatre portes d’entrée : document, voix, inspection et recherche visuelle.
 
-Sur 70 situations, 17 ont une dominante Perception et 33 la mobilisent au total. Les quatre variantes ci-dessous sont des **pilotes volontairement bornés** : la facture attend une validation, la transcription n’impose pas le temps réel et la référence photo reste à confirmer. Le catalogue garde la situation initiale et ses conditions. Les étoiles sont des hypothèses d’atelier, pas des résultats du livre.
+17 des 70 cas ont une dominante Perception; 33 la mobilisent au total. Ces quatre **variantes de pilote** bornent volontairement l’automatisation : facture validée, transcription sans contrainte de temps réel, référence photo à confirmer. Les situations initiales restent dans le catalogue.
 
 UC-021
 
@@ -435,13 +435,13 @@ Maintenance / avant-vente
 
 Référence confirmée + délai; ne pas conclure à la compatibilité sans contrôle technique.
 
-Positions proposées pour le **flux métier du pilote**, pas pour la seule lecture automatique : horizontal = automatisation; vertical = intégration. UC-021 et UC-044 partagent une zone intermédiaire. Un même cas se déplace selon son périmètre; la position ne mesure ni valeur ni qualité.
+Positions proposées pour le **flux métier du pilote**, pas pour le seul moteur de lecture. UC-021/044 partagent une zone intermédiaire. Le périmètre choisi déplace un cas; la position ne mesure ni valeur ni qualité.
 
-V = valeur, C = coût, R = risque, X = complexité, G = généricité. 1 faible, 2 moyen, 3 élevé. V/G élevés sont favorables; C/R/X élevés demandent plus de prudence. Les droits, la faisabilité et le contrôle priment sur le total : ne pas additionner ces notes.
+V valeur · C coût · R risque · X complexité · G généricité. 1 faible, 2 moyen, 3 élevé : V/G favorables; C/R/X défavorables. Hypothèses d’atelier, pas résultats du livre. Droits, faisabilité et contrôle priment; ne pas additionner.
 
 Sur ces trois factures fictives, relève fournisseur, numéro, date, devise, total HT, taxe et total TTC. Pour chaque champ, donne valeur lue, page et zone de preuve; distingue absent, illisible et contradictoire. N’invente pas une valeur manquante. Vérifie séparément la cohérence HT + taxe = TTC; montre l’écart sans corriger l’original. Restitue un tableau et la liste des points à contrôler. Ne crée aucune écriture et ne déclenche aucun paiement.
 
-**Recette :** mesurer temps total, corrections et champs critiques justes, puis tester un lot inédit. Le contrôle HT + taxe = TTC est un calcul/règle; interpréter un écart peut ajouter du raisonnement. Le prompt montre cette chaîne autour de la perception. Accepter, restreindre ou arrêter selon les seuils métier.
+**Recette :** mesurer temps total, corrections et champs critiques justes; tester un lot inédit. HT + taxe = TTC est un calcul/règle; expliquer l’écart peut ajouter du raisonnement. Accepter, restreindre ou arrêter selon les seuils métier.
 
 | Cas | BAC | Valeur | Coût | Risque | Complexité | Généricité |
 |---|---|---:|---:|---:|---:|---:|

@@ -66,25 +66,24 @@ def page_understand(c):
 def page_transmit(c):
     flow='<ol class="flow">'+''.join('<li><b>'+h(x['title'])+'</b><span>'+h(x['text'])+'</span></li>' for x in c['flow'])+'</ol>'
     e=c['exercise']
-    pitch=card('Le pitch · 30 secondes',md('« '+c['pitch'].strip('« »')+' »')+small(c['postulate'])+'<div class="exercise"><h2>'+h(e['title'])+'</h2>'+''.join('<p>'+h(x)+'</p>' for x in e['steps'])+small('**Vérifier :** '+e['check'])+'</div>','pitch-card')
+    pitch=card('Le pitch · 30 secondes',md('« '+c['pitch'].strip('« »')+' »')+small(c['postulate']),'pitch-card')
     levers=card('Trois leviers de conviction',''.join('<section><h3>'+h(x['title'])+'</h3>'+md(x['text'])+'</section>' for x in c['levers']))
     objections=card('Répondre sans surpromettre',''.join('<section><h3>'+h(x['objection'])+'</h3>'+md(x['answer'])+'</section>' for x in c['objections']))
-    return flow+'<div class="transmit-columns three-grid">'+pitch+levers+objections+'</div>'
+    exercise='<div class="exercise"><h2>'+h(e['title'])+'</h2><div class="exercise-steps">'+''.join('<p>'+h(x)+'</p>' for x in e['steps'])+'</div>'+small('**Vérifier :** '+e['check'])+'</div>'
+    return flow+'<div class="transmit-columns three-grid">'+pitch+levers+objections+'</div>'+exercise
 
 def fishbone(c):
-    positions=[(115,22,210,80),(310,142,390,80),(455,22,550,80),(625,142,700,80),(755,22,845,80)]
-    # Reorder only for spatial reading: the five source names and causes are unchanged.
+    positions=[(115,13,210,49),(310,82,390,49),(455,13,550,49),(625,82,700,49),(755,13,845,49)]
     byname={x['name']:x for x in c['branches']}
-    order=['Processus','Outils','Compétences','Données','Gouvernance']
-    parts=['<svg class="fishbone" viewBox="0 0 1060 165" role="img" aria-label="Cinq causes systémiques de la qualité de perception"><path d="M15 80 H935" class="spine"/>']
-    for name,(x,y,ex,ey) in zip(order,positions):
-        item=byname[name];anchor='middle';liney=y+14 if y<80 else y-16
-        parts.append(f'<path d="M{x} {liney} L{ex} {ey}" class="rib"/><text x="{x}" y="{y}" text-anchor="{anchor}" class="branch-name">{h(name)}</text><text x="{x}" y="{y+18 if y<80 else y+18}" text-anchor="{anchor}" class="branch-risk">{h(item["risk_short"])}</text>')
-    parts.append('<rect x="935" y="52" width="120" height="57" rx="7" class="effect-box"/><text x="995" y="76" text-anchor="middle" class="effect-text">Valeur fiable</text><text x="995" y="94" text-anchor="middle" class="effect-text">moins de reprises</text></svg>')
+    parts=['<svg class="fishbone" viewBox="0 0 1060 102" role="img" aria-label="Cinq causes systémiques de la qualité de perception"><path d="M15 49 H935" class="spine"/>']
+    for name,(x,y,ex,ey) in zip(['Processus','Outils','Compétences','Données','Gouvernance'],positions):
+        item=byname[name];liney=y+19 if y<49 else y-16
+        parts.append(f'<path d="M{x} {liney} L{ex} {ey}" class="rib"/><text x="{x}" y="{y}" text-anchor="middle" class="branch-name">{h(name)}</text><text x="{x}" y="{y+16}" text-anchor="middle" class="branch-risk">{h(item["risk_short"])}</text>')
+    parts.append('<rect x="935" y="28" width="120" height="43" rx="7" class="effect-box"/><text x="995" y="47" text-anchor="middle" class="effect-text">Valeur fiable</text><text x="995" y="64" text-anchor="middle" class="effect-text">moins de reprises</text></svg>')
     return ''.join(parts)
 
 def page_diagnose(c):
-    rows=''.join('<tr><th scope="row">'+h(x['name'])+'<span>'+h(x['question'])+'</span></th><td>'+md(x['obstacle'])+'</td><td>'+md(x['lever'])+'</td><td>'+md('**'+x['owner']+'**')+md(x['signal'])+'</td></tr>' for x in c['branches'])
+    rows=''.join('<tr><th scope="row">'+h(x['name'])+'<span>'+h(x['question'])+'</span></th><td>'+md(x['obstacle'])+'</td><td>'+md(x['lever'])+'</td><td>'+md('**'+x['owner']+'** '+x['signal'])+'</td></tr>' for x in c['branches'])
     table='<table class="system-table"><thead><tr><th>Branche / question</th><th>Ce qui bloque l’adoption</th><th>Levier de diffusion</th><th>Responsable / preuve de progrès</th></tr></thead><tbody>'+rows+'</tbody></table>'
     chain='<div class="causal-chain">'+'<span class="arrow">→</span>'.join('<b>'+h(x)+'</b>' for x in c['causal_chain'])+'</div>'
     p=c['pilot'];bottom='<div class="two-grid">'+note(c['loop'])+card(p['title'],md(p['text'])+small(p['questions']))+'</div>'
@@ -98,23 +97,21 @@ def page_integrate(c):
 def page_value(c):
     columns=[]
     for i,x in enumerate(c['functions'],1):
-        body='<p class="icp">'+h(x['icp'])+'</p>'+md('**Douleur :** '+x['pain'])+'<blockquote>'+h(x['talk'])+'</blockquote><h3>Situations à explorer</h3>'+md(x['cases'])+md('**Briques :** '+x['enablers'])+md('**Mesure :** '+x['measure'])
+        body='<p class="icp">'+h(x['icp'])+'</p>'+md('**Douleur :** '+x['pain'])+'<blockquote>'+h(x['talk'])+'</blockquote>'+md('**Cas :** '+x['cases'])+md('**Briques :** '+x['enablers'])+md('**Mesure :** '+x['measure'])
         columns.append(card(str(i)+' · '+x['name'],body,'function-column'))
     return small(c['porter_note'])+'<div class="four-grid functions" data-overlap-check>'+''.join(columns)+'</div><div class="two-grid value-bottom">'+note(c['support'])+note(c['discovery'])+'</div>'
 
 def integration_matrix(c):
-    boxes=[(40,20,'Copilot','Agent'),(40,108,'Assistant','Autopilot')]
-    s=['<svg class="matrix" viewBox="0 0 350 220" role="img" aria-label="Automatisation en abscisse, intégration en ordonnée"><text x="40" y="15" class="axis">Intégration forte ↑</text>']
-    for x,y,a,b in boxes:
-        for dx,label in [(0,a),(145,b)]:s.append(f'<rect x="{x+dx}" y="{y}" width="145" height="88" class="quadrant"/><text x="{x+dx+8}" y="{y+20}" class="quadrant-name">{h(label)}</text>')
-    s.append('<text x="40" y="214" class="axis">Automatisation faible → forte</text>')
+    parts=['<svg class="matrix" viewBox="0 0 420 150" role="img" aria-label="Automatisation en abscisse, intégration en ordonnée"><text x="32" y="12" class="axis">Intégration forte ↑</text>']
+    for y,a,b in [(18,'Copilot','Agent'),(73,'Assistant','Autopilot')]:
+        for x,label in [(32,a),(218,b)]:parts.append(f'<rect x="{x}" y="{y}" width="186" height="55" class="quadrant"/><text x="{x+7}" y="{y+17}" class="quadrant-name">{h(label)}</text>')
     occupied={}
     for case in c['use_cases']:
         key=(case['automation'],case['integration']);n=occupied.get(key,0);occupied[key]=n+1
-        x=68+(case['automation']-1)*110+(12 if n%2 else 0)
-        y=174-(case['integration']-1)*60+(22 if n else 0)
-        s.append(f'<circle cx="{x}" cy="{y}" r="5" class="point"/><text x="{x+9}" y="{y+5}" class="point-label">{h(case["id"].replace("UC-",""))}</text>')
-    s.append('</svg>');return ''.join(s)
+        x=80+(case['automation']-1)*132+(13 if n%2 else 0)
+        y=113-(case['integration']-1)*34+(13 if n else 0)
+        parts.append(f'<circle cx="{x}" cy="{y}" r="4" class="point"/><text x="{x+7}" y="{y+5}" class="point-label">{h(case["id"].replace("UC-",""))}</text>')
+    parts.append('<text x="32" y="147" class="axis">Automatisation faible → forte</text></svg>');return ''.join(parts)
 
 def page_act(c):
     rows=[]
