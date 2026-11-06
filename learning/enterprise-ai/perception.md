@@ -8,9 +8,9 @@ Lire, voir, entendre — transformer le réel en informations vérifiables
 
 La perception lit, voit et entend. Sa valeur apparaît quand une observation devient une information vérifiable dans le travail quotidien.
 
-La perception transforme un document, une image ou un son en **texte, champs, objets repérés ou événements**. Une facture devient une liste de montants; une photo révèle un défaut possible; un appel devient une transcription. Le livre regroupe ces aptitudes en **lire, voir, entendre**. [S1]
+La perception transforme documents, images et sons en **texte, champs, objets repérés ou événements**. Le livre regroupe ces aptitudes en **lire, voir, entendre**. Les sorties deviennent contrôlables : valeur extraite, zone visible ou passage transcrit. [S1]
 
-**La valeur :** moins de ressaisie, de recherche et de contrôle répétitif. Mesurer le temps total **après corrections** et la part des dossiers utilisables : des champs extraits mais inutiles ne créent pas de valeur.
+**La valeur :** réduire ressaisie, recherche et contrôle répétitif. Mesurer le temps total **après corrections** et la part des dossiers utilisables; les données inutiles n’apportent aucun gain.
 
 ### Lire — du ticket au dossier
 
@@ -435,11 +435,11 @@ Maintenance / avant-vente
 
 Délai et référence confirmée; compatibilité vérifiée par un technicien.
 
-Positions proposées pour le **flux métier du pilote**, pas pour le seul moteur de lecture. UC-021/044 partagent une zone intermédiaire. Le périmètre choisi déplace un cas; la position ne mesure ni valeur ni qualité.
+Positions du **flux métier pilote**, pas du seul moteur de lecture. UC-021/044 partagent une zone intermédiaire. L’architecture déplace les cas; ces axes ne mesurent ni valeur ni qualité.
 
 V valeur · C coût · R risque · X complexité · G généricité. 1 faible, 2 moyen, 3 élevé : V/G favorables; C/R/X défavorables. Hypothèses d’atelier, pas résultats du livre. Droits, faisabilité et contrôle priment; ne pas additionner.
 
-Sur ces trois factures fictives, relève fournisseur, numéro, date, devise, total HT, taxe et total TTC. Pour chaque champ, donne valeur lue, page et zone de preuve; distingue absent, illisible et contradictoire. N’invente pas une valeur manquante. Vérifie séparément la cohérence HT + taxe = TTC; montre l’écart sans corriger l’original. Restitue un tableau et la liste des points à contrôler. Ne crée aucune écriture et ne déclenche aucun paiement.
+Sur ces trois factures fictives, relève fournisseur, numéro, date, devise, HT, taxe et TTC. Donne pour chaque champ la valeur lue, la page et la zone de preuve; distingue absent, illisible et contradictoire. N’invente rien. Contrôle séparément HT + taxe = TTC et signale l’écart sans modifier l’original. Restitue un tableau et les points à vérifier. N’écris dans aucun système et ne déclenche aucun paiement.
 
 **Recette :** mesurer temps total, corrections et champs critiques justes; tester un lot inédit. HT + taxe = TTC est un calcul/règle; expliquer l’écart peut ajouter du raisonnement. Accepter, restreindre ou arrêter selon les seuils métier.
 
