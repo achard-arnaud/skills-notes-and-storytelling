@@ -1,0 +1,20 @@
+{
+  "task_id": "DC-024",
+  "issue": 204,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "docs/RESEARCH.md",
+      "sha256": "c0d3acb500daef11323e02cf4360345b37596001e612bbe8df8a622e9c8a664d"
+    }
+  ],
+  "acceptance_review": [
+    "Déploiement cible et cas vendeur restent distincts."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run"
+}

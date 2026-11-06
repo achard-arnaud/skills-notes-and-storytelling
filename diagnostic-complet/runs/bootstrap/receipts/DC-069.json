@@ -1,0 +1,26 @@
+{
+  "task_id": "DC-069",
+  "issue": 254,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "docs/INTAKE-POLICY.md",
+      "sha256": "a29ea1a67006392c2593422025b8e3b6827b7b2ba82921e14223af385bf47992"
+    }
+  ],
+  "acceptance_review": [
+    "Pas d’import brut dans dépôt public ; conversation inaccessible signalée."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run",
+  "test_evidence": [
+    "runs/bootstrap/qa.json",
+    "runs/bootstrap/data.json",
+    "runs/bootstrap/narrative.json",
+    "runs/bootstrap/recovery-review.md"
+  ]
+}

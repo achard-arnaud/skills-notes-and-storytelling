@@ -1,0 +1,26 @@
+{
+  "task_id": "DC-064",
+  "issue": 248,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "runs/bootstrap/qa.json",
+      "sha256": "62c7adce859f853820564f55c8a2df73a4ad07ab53fbf13b0b80b68bac32f438"
+    }
+  ],
+  "acceptance_review": [
+    "Commande locale racine passe et manifests inchangés."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run",
+  "test_evidence": [
+    "runs/bootstrap/qa.json",
+    "runs/bootstrap/data.json",
+    "runs/bootstrap/narrative.json",
+    "runs/bootstrap/recovery-review.md"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "task_id": "DC-056",
+  "issue": 241,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "render.py",
+      "sha256": "96b198f3eab199723da1965023a2cd09f924e750c4449a9ef1b11beba3247f0e"
+    }
+  ],
+  "acceptance_review": [
+    "Un nombre de sections différent des piliers est accepté."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run",
+  "test_evidence": [
+    "runs/bootstrap/qa.json",
+    "runs/bootstrap/data.json",
+    "runs/bootstrap/narrative.json",
+    "runs/bootstrap/recovery-review.md"
+  ]
+}

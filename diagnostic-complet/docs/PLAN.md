@@ -25,7 +25,7 @@ Les recherches source/cible/contexte sont parallèles ; les unités dépendantes
 
 Owner historique : #48. Phase 1.
 
-### DC-001 — Épingler les deux dépôts et branches
+### DC-001 — Épingler les deux dépôts et branches · [#193](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/193)
 
 Relever HEAD source, main et dev cible avec les fichiers effectivement consultés.
 
@@ -35,7 +35,7 @@ Relever HEAD source, main et dev cible avec les fichiers effectivement consulté
 - Acceptation : Les SHA et la couverture des lectures sont explicites.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-002 — Lire les instructions et frontières
+### DC-002 — Lire les instructions et frontières · [#189](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/189)
 
 Résoudre les instructions racine et isoler le périmètre autorisé du sous-projet.
 
@@ -45,7 +45,7 @@ Résoudre les instructions racine et isoler le périmètre autorisé du sous-pro
 - Acceptation : Mandat courant, absence de CI et absence de promotion main sont écrits.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-003 — Inventorier les capacités réellement présentes
+### DC-003 — Inventorier les capacités réellement présentes · [#188](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/188)
 
 Distinguer méthode, schéma, script exécutable et projet non implémenté.
 
@@ -55,7 +55,7 @@ Distinguer méthode, schéma, script exécutable et projet non implémenté.
 - Acceptation : Aucune capacité planifiée n’est présentée comme livrée.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-004 — Rattacher le programme existant
+### DC-004 — Rattacher le programme existant · [#186](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/186)
 
 Relier le chantier aux owners #48–55 sans remplacer les anciennes US.
 
@@ -65,7 +65,7 @@ Relier le chantier aux owners #48–55 sans remplacer les anciennes US.
 - Acceptation : Chaque epic local référence un owner existant et son delta.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-005 — Identifier les huit HIL source
+### DC-005 — Identifier les huit HIL source · [#229](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/229)
 
 Retrouver les identifiants exacts dans le code et leurs sous-thèmes.
 
@@ -75,7 +75,7 @@ Retrouver les identifiants exacts dans le code et leurs sous-thèmes.
 - Acceptation : Huit HIL vérifiés ; climat et vents restent sous-thèmes.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-006 — Inventorier les matériaux GreenYellow
+### DC-006 — Inventorier les matériaux GreenYellow · [#200](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/200)
 
 Consigner rapport disponible, apports et conversation inaccessible.
 
@@ -85,7 +85,7 @@ Consigner rapport disponible, apports et conversation inaccessible.
 - Acceptation : Couverture réellement lue et manquants séparés ; pas de source privée en Git.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-007 — Séparer méthodes publiques et corpus privé
+### DC-007 — Séparer méthodes publiques et corpus privé · [#190](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/190)
 
 Définir les destinations autorisées pour captures, fixtures et vues.
 
@@ -95,7 +95,7 @@ Définir les destinations autorisées pour captures, fixtures et vues.
 - Acceptation : La fixture publique est synthétique ; aucun R1 ni contact privé publié.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-008 — Borner les décisions techniques
+### DC-008 — Borner les décisions techniques · [#191](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/191)
 
 Écarter base de données, serveur et automatisation non nécessaires au premier cycle.
 
@@ -105,7 +105,7 @@ Définir les destinations autorisées pour captures, fixtures et vues.
 - Acceptation : Le prototype est local et indépendant des templates canoniques.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-009 — Valider le jalon exploration
+### DC-009 — Valider le jalon exploration · [#209](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/209)
 
 Consolider gaps, hypothèses et critères de passage à la conception.
 
@@ -119,7 +119,7 @@ Consolider gaps, hypothèses et critères de passage à la conception.
 
 Owner historique : #51. Phase 1.
 
-### DC-010 — Cartographier arc et brief
+### DC-010 — Cartographier arc et brief · [#194](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/194)
 
 Extraire leurs fonctions et définir l’équivalence mandat/business case.
 
@@ -129,7 +129,7 @@ Extraire leurs fonctions et définir l’équivalence mandat/business case.
 - Acceptation : Chronologie historique non imposée au récit business.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-011 — Transférer HIL vers vues analytiques
+### DC-011 — Transférer HIL vers vues analytiques · [#201](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/201)
 
 Documenter le multi-rattachement pertinent par section et paragraphe.
 
@@ -139,7 +139,7 @@ Documenter le multi-rattachement pertinent par section et paragraphe.
 - Acceptation : Aucun quota ni obligation de huit chapitres cible.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-012 — Distinguer graphe et scaffold lecteur
+### DC-012 — Distinguer graphe et scaffold lecteur · [#187](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/187)
 
 Séparer topologie probatoire et ordre éditorial.
 
@@ -149,7 +149,7 @@ Séparer topologie probatoire et ordre éditorial.
 - Acceptation : Une relation de graphe ne dicte pas une transition narrative.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-013 — Transférer le lineage des side stories
+### DC-013 — Transférer le lineage des side stories · [#192](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/192)
 
 Conserver provenance, placement, payoff et retour au tronc.
 
@@ -159,7 +159,7 @@ Conserver provenance, placement, payoff et retour au tronc.
 - Acceptation : Les retours requis sont résolvables ; les encarts ne créent pas de preuves.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-014 — Adapter zoom et dézoom
+### DC-014 — Adapter zoom et dézoom · [#198](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/198)
 
 Passer de site/actif à portefeuille, entreprise, marché et système.
 
@@ -169,7 +169,7 @@ Passer de site/actif à portefeuille, entreprise, marché et système.
 - Acceptation : Tout dézoom indique mécanisme et utilité du retour.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-015 — Adapter comparateurs et contrechamps
+### DC-015 — Adapter comparateurs et contrechamps · [#215](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/215)
 
 Borner périmètre, temporalité, baseline et facteurs de confusion.
 
@@ -179,7 +179,7 @@ Borner périmètre, temporalité, baseline et facteurs de confusion.
 - Acceptation : Un benchmark fournisseur ne prouve pas un ROI local.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-016 — Transférer revue paragraphe et réécriture
+### DC-016 — Transférer revue paragraphe et réécriture · [#196](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/196)
 
 Séparer revue structurelle, probatoire, éditoriale et humaine.
 
@@ -189,7 +189,7 @@ Séparer revue structurelle, probatoire, éditoriale et humaine.
 - Acceptation : Un texte modifié perd sa revue antérieure ; aucune approbation humaine simulée.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-017 — Adapter disposition et couverture
+### DC-017 — Adapter disposition et couverture · [#202](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/202)
 
 Suivre inclus, side story, recherche requise et écart motivé.
 
@@ -199,7 +199,7 @@ Suivre inclus, side story, recherche requise et écart motivé.
 - Acceptation : Aucun élément écarté n’est supprimé de la provenance.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-018 — Valider la matrice reuse adapt exclude
+### DC-018 — Valider la matrice reuse adapt exclude · [#195](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/195)
 
 Faire relire le transfert par la perspective cible.
 
@@ -213,7 +213,7 @@ Faire relire le transfert par la perspective cible.
 
 Owner historique : #49. Phase 2.
 
-### DC-019 — Définir le contrat de mandat
+### DC-019 — Définir le contrat de mandat · [#199](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/199)
 
 Question, audience, scope et exclusions gouvernent le rapport.
 
@@ -223,7 +223,7 @@ Question, audience, scope et exclusions gouvernent le rapport.
 - Acceptation : Une instance sans question de mandat est refusée.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-020 — Séparer industrie et corporate
+### DC-020 — Séparer industrie et corporate · [#206](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/206)
 
 Délimiter opérations sectorielles et fonctions commerciales/support transverses.
 
@@ -233,7 +233,7 @@ Délimiter opérations sectorielles et fonctions commerciales/support transverse
 - Acceptation : Un même cas peut être relié aux deux avec justification, sans fusion.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-021 — Séparer data et IA
+### DC-021 — Séparer data et IA · [#197](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/197)
 
 Distinguer instrumentation/qualité/BI de modèles, agents et décisions.
 
@@ -243,7 +243,7 @@ Distinguer instrumentation/qualité/BI de modèles, agents et décisions.
 - Acceptation : Un problème de données n’est pas qualifié automatiquement de problème IA.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-022 — Ajouter économie et gouvernance candidates
+### DC-022 — Ajouter économie et gouvernance candidates · [#205](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/205)
 
 Définir finance du modèle, valeur, organisation, risques et adoption.
 
@@ -253,7 +253,7 @@ Définir finance du modèle, valeur, organisation, risques et adoption.
 - Acceptation : Les axes sont candidats et révisables selon mandat.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-023 — Définir la recherche macro micro Porter
+### DC-023 — Définir la recherche macro micro Porter · [#211](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/211)
 
 Traiter ces méthodes comme questions d’enquête déclenchées par un besoin.
 
@@ -263,7 +263,7 @@ Traiter ces méthodes comme questions d’enquête déclenchées par un besoin.
 - Acceptation : Pas de grille remplie mécaniquement ni de score sans preuve.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-024 — Définir collecte et benchmark des use cases
+### DC-024 — Définir collecte et benchmark des use cases · [#204](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/204)
 
 Relier problème, utilisateur, décision, données, workflow et preuve.
 
@@ -273,7 +273,7 @@ Relier problème, utilisateur, décision, données, workflow et preuve.
 - Acceptation : Déploiement cible et cas vendeur restent distincts.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-025 — Définir économie et ROI
+### DC-025 — Définir économie et ROI · [#208](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/208)
 
 Exiger baseline, coût complet, horizon, attribution et sensibilité.
 
@@ -283,7 +283,7 @@ Exiger baseline, coût complet, horizon, attribution et sensibilité.
 - Acceptation : Les gains sans baseline restent hypothèses et non business case prouvé.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-026 — Rattacher les compétences existantes
+### DC-026 — Rattacher les compétences existantes · [#207](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/207)
 
 Mapper capacités de recherche/architecture/rendu sans créer de skills installées.
 
@@ -293,7 +293,7 @@ Mapper capacités de recherche/architecture/rendu sans créer de skills install�
 - Acceptation : Frontières fonctionnelles et absence d’installation sont explicites.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-027 — Stabiliser les interfaces expérimentales
+### DC-027 — Stabiliser les interfaces expérimentales · [#210](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/210)
 
 Valider les contrats locaux sans modifier manifests racine.
 
@@ -307,7 +307,7 @@ Valider les contrats locaux sans modifier manifests racine.
 
 Owner historique : #55. Phase 2.
 
-### DC-028 — Définir la capsule de reprise
+### DC-028 — Définir la capsule de reprise · [#212](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/212)
 
 Fixer mandat, état, décisions et trois prochaines actions.
 
@@ -317,7 +317,7 @@ Fixer mandat, état, décisions et trois prochaines actions.
 - Acceptation : Reprise possible sans relire le chat.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-029 — Implémenter les paquets ciblés
+### DC-029 — Implémenter les paquets ciblés · [#203](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/203)
 
 Charger seulement les entrées déclarées avec empreintes.
 
@@ -327,7 +327,7 @@ Charger seulement les entrées déclarées avec empreintes.
 - Acceptation : Chemin extérieur ou fichier absent refusé.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-030 — Mesurer le budget réellement chargé
+### DC-030 — Mesurer le budget réellement chargé · [#234](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/234)
 
 Compter octets et mots des fichiers, tokenizer exact inconnu si absent.
 
@@ -337,7 +337,7 @@ Compter octets et mots des fichiers, tokenizer exact inconnu si absent.
 - Acceptation : Le dépassement refuse le paquet ; aucune économie fictive.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-031 — Valider DAG et tâche prête
+### DC-031 — Valider DAG et tâche prête · [#217](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/217)
 
 Détecter cycles et prérequis absents avant sélection.
 
@@ -347,7 +347,7 @@ Détecter cycles et prérequis absents avant sélection.
 - Acceptation : Les fixtures cycle et dépendance inconnue échouent.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-032 — Définir writer et handoff agent
+### DC-032 — Définir writer et handoff agent · [#218](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/218)
 
 Réserver chemins distincts, résultats courts et coordinateur intégrateur.
 
@@ -357,7 +357,7 @@ Réserver chemins distincts, résultats courts et coordinateur intégrateur.
 - Acceptation : Les mutations Git et clôtures restent coordonnées.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-033 — Implémenter checkpoint et contrôle de fraîcheur
+### DC-033 — Implémenter checkpoint et contrôle de fraîcheur · [#228](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/228)
 
 Sauvegarder empreintes et détecter entrée modifiée.
 
@@ -367,7 +367,7 @@ Sauvegarder empreintes et détecter entrée modifiée.
 - Acceptation : Une entrée modifiée invalide la reprise au lieu de passer silencieusement.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-034 — Définir drop logique et compaction
+### DC-034 — Définir drop logique et compaction · [#214](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/214)
 
 Retirer les documents des futurs paquets sans prétendre purger le runtime.
 
@@ -377,7 +377,7 @@ Retirer les documents des futurs paquets sans prétendre purger le runtime.
 - Acceptation : Aucune commande ne promet de vider la fenêtre réelle.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-035 — Borner réparations et blocages
+### DC-035 — Borner réparations et blocages · [#213](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/213)
 
 Deux corrections puis réserve explicite et poursuite des branches indépendantes.
 
@@ -387,7 +387,7 @@ Deux corrections puis réserve explicite et poursuite des branches indépendante
 - Acceptation : L’écoulement du temps ne vaut ni réponse ni approbation.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-036 — Éprouver une reprise indépendante
+### DC-036 — Éprouver une reprise indépendante · [#220](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/220)
 
 Faire lire capsule et paquet à un agent sans historique.
 
@@ -401,7 +401,7 @@ Faire lire capsule et paquet à un agent sans historique.
 
 Owner historique : #55. Phase 2.
 
-### DC-037 — Créer l’index du chantier
+### DC-037 — Créer l’index du chantier · [#219](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/219)
 
 Créer une issue de run reliée au programme historique.
 
@@ -411,7 +411,7 @@ Créer une issue de run reliée au programme historique.
 - Acceptation : Issue distante relue et correspondance locale persistée.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-038 — Créer les huit epics thématiques
+### DC-038 — Créer les huit epics thématiques · [#216](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/216)
 
 Créer les index de travail sans nouvelles autorités métier globales.
 
@@ -421,7 +421,7 @@ Créer les index de travail sans nouvelles autorités métier globales.
 - Acceptation : Huit liens parents disponibles et pas de doublons de run.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-039 — Déposer 72 microtickets
+### DC-039 — Déposer 72 microtickets · [#223](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/223)
 
 Chaque unité a objectif, entrées, sorties, dépendances et acceptation.
 
@@ -431,7 +431,7 @@ Chaque unité a objectif, entrées, sorties, dépendances et acceptation.
 - Acceptation : Tous les IDs locaux correspondent à une issue distante.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-040 — Intégrer les sous-plans agents
+### DC-040 — Intégrer les sous-plans agents · [#221](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/221)
 
 Faire remonter les propositions source, cible et contexte au plan consolidé.
 
@@ -441,7 +441,7 @@ Faire remonter les propositions source, cible et contexte au plan consolidé.
 - Acceptation : Contributions intégrées ; les agents ont des scopes disjoints.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-041 — Relier les dépendances de tickets
+### DC-041 — Relier les dépendances de tickets · [#225](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/225)
 
 Ajouter liens cliquables vers prérequis, epic et propriétaire historique.
 
@@ -451,7 +451,7 @@ Ajouter liens cliquables vers prérequis, epic et propriétaire historique.
 - Acceptation : DAG local valide et liens GitHub réels.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-042 — Renforcer les critères négatifs
+### DC-042 — Renforcer les critères négatifs · [#222](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/222)
 
 Inscrire les échecs attendus avant code des contrats.
 
@@ -461,7 +461,7 @@ Inscrire les échecs attendus avant code des contrats.
 - Acceptation : Hypothèse non promue, retour invalide et reprise périmée sont couverts.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-043 — Ordonnancer les sprints
+### DC-043 — Ordonnancer les sprints · [#224](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/224)
 
 Séparer exploration, conception, infrastructure, narration et revue.
 
@@ -471,7 +471,7 @@ Séparer exploration, conception, infrastructure, narration et revue.
 - Acceptation : Les tâches dépendantes ne sont pas parallélisées aveuglément.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-044 — Générer le board lisible
+### DC-044 — Générer le board lisible · [#226](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/226)
 
 Produire vue Markdown par état, epic et sprint.
 
@@ -481,7 +481,7 @@ Produire vue Markdown par état, epic et sprint.
 - Acceptation : Statuts et liens dérivés du même board JSON.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-045 — Valider le jalon de lancement
+### DC-045 — Valider le jalon de lancement · [#227](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/227)
 
 Relecture du plan renforcé avant délégation de code.
 
@@ -495,7 +495,7 @@ Relecture du plan renforcé avant délégation de code.
 
 Owner historique : #50. Phase 3.
 
-### DC-046 — Importer Markdown avec localisateurs
+### DC-046 — Importer Markdown avec localisateurs · [#231](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/231)
 
 Découper par blocs et conserver provenance et lignes exactes.
 
@@ -505,7 +505,7 @@ Découper par blocs et conserver provenance et lignes exactes.
 - Acceptation : Relire chaque fragment dans le fichier source original.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-047 — Stabiliser les identités de fragments
+### DC-047 — Stabiliser les identités de fragments · [#230](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/230)
 
 Rendre un même import déterministe et détectable.
 
@@ -515,7 +515,7 @@ Rendre un même import déterministe et détectable.
 - Acceptation : Deux imports identiques donnent les mêmes IDs et empreintes.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-048 — Qualifier les claims sans promotion automatique
+### DC-048 — Qualifier les claims sans promotion automatique · [#232](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/232)
 
 Conserver le statut supplied_claim des matériaux fournis.
 
@@ -525,7 +525,7 @@ Conserver le statut supplied_claim des matériaux fournis.
 - Acceptation : Aucun claim importé n’est verified_fact.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-049 — Valider les références et IDs
+### DC-049 — Valider les références et IDs · [#237](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/237)
 
 Contrôler unicité et résolution des sources/fragments/claims/piliers.
 
@@ -535,7 +535,7 @@ Contrôler unicité et résolution des sources/fragments/claims/piliers.
 - Acceptation : Références pendantes et IDs dupliqués refusés.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-050 — Valider les faits qualifiés
+### DC-050 — Valider les faits qualifiés · [#235](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/235)
 
 Exiger revue de vérification et sources réellement lues pour verified_fact.
 
@@ -545,7 +545,7 @@ Exiger revue de vérification et sources réellement lues pour verified_fact.
 - Acceptation : Une synthèse seule ne suffit pas à qualifier un fait.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-051 — Construire le graphe probatoire
+### DC-051 — Construire le graphe probatoire · [#243](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/243)
 
 Exporter nœuds et relations typées sans confondre navigation et causalité.
 
@@ -555,7 +555,7 @@ Exporter nœuds et relations typées sans confondre navigation et causalité.
 - Acceptation : Relations inconnues ou endpoints pendants refusés.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-052 — Préparer la carte de recherche
+### DC-052 — Préparer la carte de recherche · [#233](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/233)
 
 Documenter questions, rebonds, inconnues et stop conditions.
 
@@ -565,7 +565,7 @@ Documenter questions, rebonds, inconnues et stop conditions.
 - Acceptation : Les pistes exploratoires restent hors causalité probatoire.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-053 — Ajouter fixtures positives et adversariales
+### DC-053 — Ajouter fixtures positives et adversariales · [#236](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/236)
 
 Couvrir import, preuve, scaffold et retours.
 
@@ -575,7 +575,7 @@ Couvrir import, preuve, scaffold et retours.
 - Acceptation : Les cas négatifs échouent pour la raison attendue.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-054 — Valider le sprint de données
+### DC-054 — Valider le sprint de données · [#238](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/238)
 
 Exécuter tests locaux et enregistrer les limites.
 
@@ -589,7 +589,7 @@ Exécuter tests locaux et enregistrer les limites.
 
 Owner historique : #51. Phase 3.
 
-### DC-055 — Créer une étude synthétique multi-piliers
+### DC-055 — Créer une étude synthétique multi-piliers · [#239](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/239)
 
 Montrer des axes distants et un récit de taille libre.
 
@@ -599,7 +599,7 @@ Montrer des axes distants et un récit de taille libre.
 - Acceptation : Aucune donnée réelle confidentielle dans la fixture.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-056 — Matérialiser le reader scaffold
+### DC-056 — Matérialiser le reader scaffold · [#241](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/241)
 
 Ordonner sections et paragraphes indépendamment des piliers.
 
@@ -609,7 +609,7 @@ Ordonner sections et paragraphes indépendamment des piliers.
 - Acceptation : Un nombre de sections différent des piliers est accepté.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-057 — Valider les side stories
+### DC-057 — Valider les side stories · [#240](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/240)
 
 Contrôler parent, claims, raison hors tronc et return_to.
 
@@ -619,7 +619,7 @@ Contrôler parent, claims, raison hors tronc et return_to.
 - Acceptation : Une side story sans retour résolvable échoue.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-058 — Rendre récit et paragraphes
+### DC-058 — Rendre récit et paragraphes · [#244](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/244)
 
 Afficher statuts et limites sans marqueurs techniques parasites dans la prose.
 
@@ -629,7 +629,7 @@ Afficher statuts et limites sans marqueurs techniques parasites dans la prose.
 - Acceptation : Les textes sont échappés et les ancres sont uniques.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-059 — Rendre les onglets piliers
+### DC-059 — Rendre les onglets piliers · [#246](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/246)
 
 Permettre navigation croisée data IA industrie corporate.
 
@@ -639,7 +639,7 @@ Permettre navigation croisée data IA industrie corporate.
 - Acceptation : Clavier et liens internes fonctionnent sans CDN.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-060 — Rendre preuves et side stories
+### DC-060 — Rendre preuves et side stories · [#242](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/242)
 
 Permettre retour au tronc et consultation de provenance.
 
@@ -649,7 +649,7 @@ Permettre retour au tronc et consultation de provenance.
 - Acceptation : Aucun encart ne transforme son contenu en preuve.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-061 — Préparer les diagrammes exacts
+### DC-061 — Préparer les diagrammes exacts · [#251](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/251)
 
 Émettre un Mermaid source explicite depuis les relations typées.
 
@@ -659,7 +659,7 @@ Permettre retour au tronc et consultation de provenance.
 - Acceptation : Pas de faux rendu Mermaid annoncé si moteur absent.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-062 — Éprouver HTML et injection
+### DC-062 — Éprouver HTML et injection · [#245](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/245)
 
 Contrôler échappement, ancrages, visibilité et navigation.
 
@@ -669,7 +669,7 @@ Contrôler échappement, ancrages, visibilité et navigation.
 - Acceptation : Un payload HTML injecté reste texte, les retours résolvent.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-063 — Valider le sprint narratif
+### DC-063 — Valider le sprint narratif · [#247](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/247)
 
 Produire une démonstration HTML et une revue de structure.
 
@@ -683,7 +683,7 @@ Produire une démonstration HTML et une revue de structure.
 
 Owner historique : #55. Phase 4.
 
-### DC-064 — Exécuter la non-régression canonique
+### DC-064 — Exécuter la non-régression canonique · [#248](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/248)
 
 Vérifier le validateur racine sans modification des contrats.
 
@@ -693,7 +693,7 @@ Vérifier le validateur racine sans modification des contrats.
 - Acceptation : Commande locale racine passe et manifests inchangés.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-065 — Auditer couverture et clôtures
+### DC-065 — Auditer couverture et clôtures · [#249](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/249)
 
 Vérifier chaque tâche contre artefact et critère.
 
@@ -703,7 +703,7 @@ Vérifier chaque tâche contre artefact et critère.
 - Acceptation : Une tâche sans preuve reste ouverte.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-066 — Intégrer fast-forward sans CI
+### DC-066 — Intégrer fast-forward sans CI · [#253](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/253)
 
 Committer avec skip CI et avancer dev sans force.
 
@@ -713,7 +713,7 @@ Committer avec skip CI et avancer dev sans force.
 - Acceptation : Ref distante au SHA attendu ; main inchangé.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-067 — Vérifier état distant et workflows
+### DC-067 — Vérifier état distant et workflows · [#250](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/250)
 
 Lire ref et runs du SHA exact après intégration.
 
@@ -723,17 +723,17 @@ Lire ref et runs du SHA exact après intégration.
 - Acceptation : Distinguer absence de run et succès de tests locaux.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-068 — Revoir la structure du projet
+### DC-068 — Revoir la structure du projet · [#252](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/252)
 
 Présenter points d’entrée, commandes et limites réelles.
 
 - Entrées ciblées : AGENTS.md, docs/INTERFACES.md et reçus des prérequis.
-- Dépendances : DC-067.
+- Dépendances : DC-064.
 - Sortie : `README.md`.
 - Acceptation : Aucun serveur permanent ou compaction technique revendiqué.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-069 — Préparer import privé GreenYellow
+### DC-069 — Préparer import privé GreenYellow · [#254](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/254)
 
 Lister matériaux disponibles, manquants et destination privée.
 
@@ -743,7 +743,7 @@ Lister matériaux disponibles, manquants et destination privée.
 - Acceptation : Pas d’import brut dans dépôt public ; conversation inaccessible signalée.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-070 — Proposer piliers et fil narratif
+### DC-070 — Proposer piliers et fil narratif · [#255](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/255)
 
 Préparer des choix éditoriaux candidats depuis le corpus disponible.
 
@@ -753,7 +753,7 @@ Préparer des choix éditoriaux candidats depuis le corpus disponible.
 - Acceptation : Aucun choix candidat n’est déclaré approuvé par François.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-071 — Inventorier les side stories candidates
+### DC-071 — Inventorier les side stories candidates · [#256](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/256)
 
 Lister zooms/contrechamps/vision/ROI avec questions et retours envisagés.
 
@@ -763,12 +763,12 @@ Lister zooms/contrechamps/vision/ROI avec questions et retours envisagés.
 - Acceptation : VisioSense reste à vérifier ; aucune recommandation fournisseur implicite.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 
-### DC-072 — Livrer capsule et décision suivante
+### DC-072 — Livrer capsule et décision suivante · [#257](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/257)
 
 Consolider reçus et éléments à valider pour le dry run étendu.
 
 - Entrées ciblées : AGENTS.md, docs/INTERFACES.md et reçus des prérequis.
-- Dépendances : DC-071.
+- Dépendances : DC-067, DC-071.
 - Sortie : `runs/bootstrap/RESUME.md`.
 - Acceptation : Reprise autonome possible ; validation éditoriale reste explicitement en attente.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.

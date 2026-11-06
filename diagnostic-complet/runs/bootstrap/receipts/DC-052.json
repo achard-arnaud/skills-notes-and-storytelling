@@ -1,0 +1,26 @@
+{
+  "task_id": "DC-052",
+  "issue": 233,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "docs/RESEARCH.md",
+      "sha256": "c0d3acb500daef11323e02cf4360345b37596001e612bbe8df8a622e9c8a664d"
+    }
+  ],
+  "acceptance_review": [
+    "Les pistes exploratoires restent hors causalité probatoire."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run",
+  "test_evidence": [
+    "runs/bootstrap/qa.json",
+    "runs/bootstrap/data.json",
+    "runs/bootstrap/narrative.json",
+    "runs/bootstrap/recovery-review.md"
+  ]
+}

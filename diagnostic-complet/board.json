@@ -1972,7 +1972,7 @@
       "depends_on": [
         "DC-065"
       ],
-      "status": "planned",
+      "status": "verified",
       "issue": 253,
       "receipt": "runs/bootstrap/receipts/DC-066.json",
       "owner": "coordinator",
@@ -2001,7 +2001,7 @@
       "depends_on": [
         "DC-066"
       ],
-      "status": "planned",
+      "status": "verified",
       "issue": 250,
       "receipt": "runs/bootstrap/receipts/DC-067.json",
       "owner": "coordinator",
@@ -2147,7 +2147,7 @@
         "DC-067",
         "DC-071"
       ],
-      "status": "planned",
+      "status": "verified",
       "issue": 257,
       "receipt": "runs/bootstrap/receipts/DC-072.json",
       "owner": "coordinator",
@@ -2158,6 +2158,8 @@
     }
   ],
   "editorial_state": "awaiting_human",
-  "execution_phase": "local_validation_before_delivery",
-  "context_test_count": 18
+  "execution_phase": "bootstrap_complete",
+  "context_test_count": 18,
+  "editorial_issue": 258,
+  "code_delivery_sha": "a45a631016800ca09b3390e8d3ad2c69ef075db7"
 }

@@ -1,0 +1,26 @@
+{
+  "task_id": "DC-070",
+  "issue": 255,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "docs/PILLARS.md",
+      "sha256": "9852935cdc5d1b5ac171e2f9e70d742a0911ddc4a4fb5dff3f4bf03a15762bf9"
+    }
+  ],
+  "acceptance_review": [
+    "Aucun choix candidat n’est déclaré approuvé par François."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run",
+  "test_evidence": [
+    "runs/bootstrap/qa.json",
+    "runs/bootstrap/data.json",
+    "runs/bootstrap/narrative.json",
+    "runs/bootstrap/recovery-review.md"
+  ]
+}

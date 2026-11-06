@@ -1,0 +1,26 @@
+{
+  "task_id": "DC-068",
+  "issue": 252,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "README.md",
+      "sha256": "9f53e7661ac7a2ca649863d5040e7417353b1347f6e35fe7cc0e7942ad913519"
+    }
+  ],
+  "acceptance_review": [
+    "Aucun serveur permanent ou compaction technique revendiqué."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run",
+  "test_evidence": [
+    "runs/bootstrap/qa.json",
+    "runs/bootstrap/data.json",
+    "runs/bootstrap/narrative.json",
+    "runs/bootstrap/recovery-review.md"
+  ]
+}

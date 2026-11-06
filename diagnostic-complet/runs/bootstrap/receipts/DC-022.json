@@ -1,0 +1,20 @@
+{
+  "task_id": "DC-022",
+  "issue": 205,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "docs/PILLARS.md",
+      "sha256": "9852935cdc5d1b5ac171e2f9e70d742a0911ddc4a4fb5dff3f4bf03a15762bf9"
+    }
+  ],
+  "acceptance_review": [
+    "Les axes sont candidats et révisables selon mandat."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run"
+}

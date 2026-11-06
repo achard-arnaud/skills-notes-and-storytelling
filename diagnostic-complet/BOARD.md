@@ -1,6 +1,6 @@
 # Board — diagnostic complet
 
-Run [#177](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/177) ; huit epics. État éditorial : candidat, validation François attendue.
+72 microtâches du bootstrap vérifiées ; revue éditoriale distincte [#258](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/258) ouverte. Run [#177](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/177).
 
 | ID | Epic | Sprint | Issue | État | Sortie |
 |---|---|---|---|---|---|
@@ -69,10 +69,10 @@ Run [#177](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues
 | DC-063 | E7 | S4 | [#247](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/247) | verified | `runs/bootstrap/narrative.json` |
 | DC-064 | E8 | S5 | [#248](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/248) | verified | `runs/bootstrap/qa.json` |
 | DC-065 | E8 | S5 | [#249](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/249) | verified | `runs/bootstrap/coverage.json` |
-| DC-066 | E8 | S5 | [#253](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/253) | planned | `runs/bootstrap/DELIVERY.md` |
-| DC-067 | E8 | S5 | [#250](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/250) | planned | `runs/bootstrap/DELIVERY.md` |
+| DC-066 | E8 | S5 | [#253](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/253) | verified | `runs/bootstrap/DELIVERY.md` |
+| DC-067 | E8 | S5 | [#250](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/250) | verified | `runs/bootstrap/DELIVERY.md` |
 | DC-068 | E8 | S5 | [#252](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/252) | verified | `README.md` |
 | DC-069 | E8 | S5 | [#254](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/254) | verified | `docs/INTAKE-POLICY.md` |
 | DC-070 | E8 | S5 | [#255](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/255) | verified | `docs/PILLARS.md` |
 | DC-071 | E8 | S5 | [#256](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/256) | verified | `docs/NARRATIVE.md` |
-| DC-072 | E8 | S5 | [#257](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/257) | planned | `runs/bootstrap/RESUME.md` |
+| DC-072 | E8 | S5 | [#257](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/257) | verified | `runs/bootstrap/RESUME.md` |

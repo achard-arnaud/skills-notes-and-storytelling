@@ -1,0 +1,26 @@
+{
+  "task_id": "DC-063",
+  "issue": 247,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "runs/bootstrap/narrative.json",
+      "sha256": "5b9a6eb5d2ecdc9671e41c7b6179064ce6011f222e918df94222a8de5813e09e"
+    }
+  ],
+  "acceptance_review": [
+    "Prototype candidat distinct d’un rapport éditorial approuvé."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run",
+  "test_evidence": [
+    "runs/bootstrap/qa.json",
+    "runs/bootstrap/data.json",
+    "runs/bootstrap/narrative.json",
+    "runs/bootstrap/recovery-review.md"
+  ]
+}

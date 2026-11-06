@@ -1,0 +1,20 @@
+{
+  "task_id": "DC-010",
+  "issue": 194,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "docs/SOURCE-TRANSFER.md",
+      "sha256": "7c8ea1473369eadc0651d968ab049b8134c2b660d9e2303db2e06a10a6f4b3a6"
+    }
+  ],
+  "acceptance_review": [
+    "Chronologie historique non imposée au récit business."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run"
+}

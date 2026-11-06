@@ -1,0 +1,20 @@
+{
+  "task_id": "DC-001",
+  "issue": 193,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "docs/BASELINE.md",
+      "sha256": "82640f80d98597ccbb81fb02e710f1feff5ad5867ef07c8e64027f6a9fa222a6"
+    }
+  ],
+  "acceptance_review": [
+    "Les SHA et la couverture des lectures sont explicites."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run"
+}

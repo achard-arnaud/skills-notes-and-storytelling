@@ -1,0 +1,20 @@
+{
+  "task_id": "DC-044",
+  "issue": 226,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "BOARD.md",
+      "sha256": "9aa40cfce99f02348ce6beef0a5f280cccf46cd7a83f16d436a09716cc74c7d4"
+    }
+  ],
+  "acceptance_review": [
+    "Statuts et liens dérivés du même board JSON."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run"
+}

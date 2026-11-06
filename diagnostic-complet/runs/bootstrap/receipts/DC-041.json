@@ -1,0 +1,20 @@
+{
+  "task_id": "DC-041",
+  "issue": 225,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "board.json",
+      "sha256": "e182cc72ef48292184ea4b591acc36326e502eb70d0db7eb80fc4f4f538cbbf1"
+    }
+  ],
+  "acceptance_review": [
+    "DAG local valide et liens GitHub réels."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run"
+}
