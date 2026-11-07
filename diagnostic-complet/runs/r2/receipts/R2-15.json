@@ -1,0 +1,20 @@
+{
+  "task_id": "R2-15",
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "diagnostic-complet/runs/r2/QA.json",
+      "sha256": "c0f88ea5366fb315696fee93923b8ea48743bb70486b1f832ec9ff7099556ef7"
+    }
+  ],
+  "acceptance_review": [
+    "Gate local complet : 223 + 13 tests, validateur racine, lint."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "local_gate_and_artifact_review",
+  "ci": "intentionally_not_run",
+  "limits": [
+    "PASS local, pas PASS CI.",
+    "Contrôles mécaniques et du coordinateur : pas une approbation humaine."
+  ]
+}

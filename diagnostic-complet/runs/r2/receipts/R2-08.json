@@ -1,0 +1,21 @@
+{
+  "task_id": "R2-08",
+  "result": "awaiting_human",
+  "artifact_checks": [
+    {
+      "path": "diagnostic-complet/skills_catalog.py",
+      "sha256": "dd6181a6cc8f2b848a6f0ecef85c6eb1786c1036ecb8ee60f40a2d1224be779d"
+    }
+  ],
+  "acceptance_review": [
+    "Brouillons privés générés et lintés (0 erreur)."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "local_gate_and_artifact_review",
+  "ci": "intentionally_not_run",
+  "limits": [
+    "Travail mécanique fait ; le reste dépend d'un apport ou d'une installation que seul l'utilisateur peut faire.",
+    "Installation en circuit personnel et évals avec/sans skill impossibles depuis cet environnement.",
+    "Contrôles mécaniques et du coordinateur : pas une approbation humaine."
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "task_id": "R2-01",
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "diagnostic-complet/docs/R2-SCOPE.md",
+      "sha256": "8cc4e61fc7e0a0ca626c3c22569a1c6b6ed0a58d857dfbce837a516598f7cf66"
+    }
+  ],
+  "acceptance_review": [
+    "Sources épinglées : dépôt public à sa tête, Graph1 à ad4bf02 ; lecture seule vérifiée (runs/onto/graph1-precheck.json)."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "local_gate_and_artifact_review",
+  "ci": "intentionally_not_run",
+  "limits": [
+    "Contrôles mécaniques et du coordinateur : pas une approbation humaine."
+  ]
+}

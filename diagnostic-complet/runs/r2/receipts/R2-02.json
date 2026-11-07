@@ -1,0 +1,21 @@
+{
+  "task_id": "R2-02",
+  "result": "awaiting_human",
+  "artifact_checks": [
+    {
+      "path": "diagnostic-complet/docs/R2-INTAKE.md",
+      "sha256": "7cb30b9e70afc83260e9c166761c17b2f6ffb9f00599c38425fab7da451422e3"
+    }
+  ],
+  "acceptance_review": [
+    "Analyse R1 ingérée (empreinte conforme). Transcript, conversation de travail, annonce, ZIP : non accessibles, listés."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "local_gate_and_artifact_review",
+  "ci": "intentionally_not_run",
+  "limits": [
+    "Travail mécanique fait ; le reste dépend d'un apport ou d'une installation que seul l'utilisateur peut faire.",
+    "Apports annoncés non importés ; aucun résumé de substitution.",
+    "Contrôles mécaniques et du coordinateur : pas une approbation humaine."
+  ]
+}

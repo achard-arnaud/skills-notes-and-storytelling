@@ -1,0 +1,20 @@
+{
+  "task_id": "R2-04",
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "diagnostic-complet/writing.py",
+      "sha256": "5f5fc1d55a9a8a676877b2feda6aa132cd1628ff76405fbd014d2e5dc94be319"
+    }
+  ],
+  "acceptance_review": [
+    "Delta, baseline, invalidation ciblée testés."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "local_gate_and_artifact_review",
+  "ci": "intentionally_not_run",
+  "limits": [
+    "Contrôle mécanique.",
+    "Contrôles mécaniques et du coordinateur : pas une approbation humaine."
+  ]
+}

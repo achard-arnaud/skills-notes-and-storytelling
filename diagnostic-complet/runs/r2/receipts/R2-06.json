@@ -1,0 +1,24 @@
+{
+  "task_id": "R2-06",
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "contracts/relation-types.json",
+      "sha256": "4e9f54496983222645bc774ca146a7f1c6d54f0afd621176b0b811f4f38011f3"
+    },
+    {
+      "path": "diagnostic-complet/docs/RELATIONS.md",
+      "sha256": "efab7e4e8e029b41f4b79f414d71d31abc8483437eeb798b70075bd8a55ee0f7"
+    }
+  ],
+  "acceptance_review": [
+    "Catalogue de 12 relations aligné par test sur le référentiel et le loopback (D17)."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "local_gate_and_artifact_review",
+  "ci": "intentionally_not_run",
+  "limits": [
+    "Revue sémantique humaine du delta 8 vers 12 toujours à faire avant main.",
+    "Contrôles mécaniques et du coordinateur : pas une approbation humaine."
+  ]
+}

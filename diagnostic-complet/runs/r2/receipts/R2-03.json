@@ -1,0 +1,20 @@
+{
+  "task_id": "R2-03",
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "diagnostic-complet/writing.py",
+      "sha256": "5f5fc1d55a9a8a676877b2feda6aa132cd1628ff76405fbd014d2e5dc94be319"
+    }
+  ],
+  "acceptance_review": [
+    "16 tests test_writing OK (rédaction from-scratch, refus de prose antérieure)."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "local_gate_and_artifact_review",
+  "ci": "intentionally_not_run",
+  "limits": [
+    "Contrôle mécanique, pas une revue éditoriale.",
+    "Contrôles mécaniques et du coordinateur : pas une approbation humaine."
+  ]
+}

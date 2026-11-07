@@ -1,0 +1,23 @@
+{
+  "task_id": "R2-13",
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "diagnostic-complet/docs/GRAPH1-BRIDGE.md",
+      "sha256": "b225ee252d45966ed9b0d0baaaf3e659566f967a7442b492cf1910d780a68383"
+    },
+    {
+      "path": "diagnostic-complet/project.py",
+      "sha256": "4c9da7d8bbe7c51e10e9c4fa04d62e9b53293bf48efa49222e9ed5b125cf2715"
+    }
+  ],
+  "acceptance_review": [
+    "Outil de projection avec garde du graphe gelé ; dry-run puis publication."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "local_gate_and_artifact_review",
+  "ci": "intentionally_not_run",
+  "limits": [
+    "Contrôles mécaniques et du coordinateur : pas une approbation humaine."
+  ]
+}

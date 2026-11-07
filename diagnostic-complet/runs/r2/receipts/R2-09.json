@@ -1,0 +1,24 @@
+{
+  "task_id": "R2-09",
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "diagnostic-complet/convert.py",
+      "sha256": "4eb02fc6f2c5b99ec47857d09989e02abfe686dae248b09e27014fa1859c388a"
+    },
+    {
+      "path": "diagnostic-complet/docs/KB.md",
+      "sha256": "2c442e1e0387f1ff1ec1017be284ba1590ffe36ba51d0a9a94dd3147ffbfc0ee"
+    }
+  ],
+  "acceptance_review": [
+    "Convertisseur stdlib testé (docx, html, zip gardé, pdf conditionnel)."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "local_gate_and_artifact_review",
+  "ci": "intentionally_not_run",
+  "limits": [
+    "Aucun PDF réel converti : les deux rapports RSE répondent HTTP 500.",
+    "Contrôles mécaniques et du coordinateur : pas une approbation humaine."
+  ]
+}

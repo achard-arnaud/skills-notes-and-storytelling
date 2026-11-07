@@ -104,9 +104,21 @@ class OnlyPrefixTests(ProjectTests):
         (self.src / "atoms" / "ATOM-ab12.md").write_text("# x\n", encoding="utf-8")
         report = project.project(self.root, sha(self.frozen), {"kb": self.src}, shard_atoms=2, only={"kb/atoms/ab"})
         base = self.root / "knowledge/business/greenyellow/kb"
-        self.assertEqual(report["files"], 1)
+        self.assertEqual(report["in_batch"], 1)
+        self.assertGreater(report["files"], 1)  # inventory stays complete
         self.assertTrue((base / "atoms/ab/ATOM-ab12.md").exists())
         self.assertFalse((base / "kb.json").exists())
+
+    def test_manifest_lists_every_file_even_when_only_a_batch_is_written(self):
+        (self.src / "atoms" / "ATOM-ab12.md").write_text("# x\n", encoding="utf-8")
+        project.project(self.root, sha(self.frozen), {"kb": self.src}, shard_atoms=2, only={"kb/atoms/ab"})
+        base = self.root / "knowledge/business/greenyellow"
+        paths = {e["path"] for e in json.loads((base / "MANIFEST.json").read_text(encoding="utf-8"))["entries"]}
+        self.assertIn("kb/kb.json", paths)
+
+    def test_no_manifest_for_intermediate_batches(self):
+        project.project(self.root, sha(self.frozen), {"kb": self.src}, only={"kb/kb"}, manifest=False)
+        self.assertFalse((self.root / "knowledge/business/greenyellow/MANIFEST.json").exists())
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,0 +1,20 @@
+{
+  "task_id": "R2-14",
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "diagnostic-complet/runs/r2/DELIVERY.md",
+      "sha256": "bdaf22b7f9aff7ba41d3d071b17227b3c786bbd271ebd2a7d937b58ed102ea04"
+    }
+  ],
+  "acceptance_review": [
+    "Graph1 dev à c4cb6720 ; 23 337 fichiers sous le namespace ; graphe gelé identique ; manifeste relu."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "local_gate_and_artifact_review",
+  "ci": "intentionally_not_run",
+  "limits": [
+    "Aucune CI exécutée.",
+    "Contrôles mécaniques et du coordinateur : pas une approbation humaine."
+  ]
+}

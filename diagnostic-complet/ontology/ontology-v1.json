@@ -1,6 +1,6 @@
 {
   "ontology_id": "business-kb-ontology",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "status": "proposed",
   "date": "2026-11-07",
   "ticket": "skills-notes-and-storytelling#284",
@@ -179,7 +179,8 @@
       "domain": [
         "assertion.fact",
         "assertion.question",
-        "structure.heading"
+        "structure.heading",
+        "structure.table"
       ],
       "range": [
         "analysis.pillar"
@@ -187,7 +188,7 @@
       "evidence_required": false,
       "semantic": false,
       "status_required_prefix": "candidate",
-      "note": "Un titre est un ancrage thématique : il peut porter une classification candidate ou une mention explicite. Un bloc de code ou un tableau ne le peut pas. Aucune relation probatoire n'est permise à un titre."
+      "note": "Un titre et un tableau sont des ancrages thématiques : ils peuvent porter une classification candidate ou une mention explicite. Un bloc de code non. Aucune relation probatoire n'est permise à une structure."
     },
     {
       "id": "explicit_mention",
@@ -195,14 +196,15 @@
       "domain": [
         "assertion.fact",
         "assertion.question",
-        "structure.heading"
+        "structure.heading",
+        "structure.table"
       ],
       "range": [
         "analysis.entity"
       ],
       "evidence_required": false,
       "semantic": false,
-      "note": "Un titre est un ancrage thématique : il peut porter une classification candidate ou une mention explicite. Un bloc de code ou un tableau ne le peut pas. Aucune relation probatoire n'est permise à un titre."
+      "note": "Un titre et un tableau sont des ancrages thématiques : ils peuvent porter une classification candidate ou une mention explicite. Un bloc de code non. Aucune relation probatoire n'est permise à une structure."
     },
     {
       "id": "addresses_pillar",

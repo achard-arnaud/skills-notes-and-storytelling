@@ -96,9 +96,16 @@ class HeadingAnchorTests(unittest.TestCase):
                                     "structure.heading", "analysis.pillar", RULES)[0], "ok")
         self.assertEqual(check_edge({"kind": "explicit_mention"}, "structure.heading", "analysis.entity", RULES)[0], "ok")
 
-    def test_code_block_and_table_cannot_carry_them(self):
-        for cls in ("structure.code", "structure.table"):
-            self.assertEqual(check_edge({"kind": "explicit_mention"}, cls, "analysis.entity", RULES)[0], "domain_range")
+    def test_table_is_a_topical_anchor_too(self):
+        self.assertEqual(check_edge({"kind": "explicit_mention"}, "structure.table", "analysis.entity", RULES)[0], "ok")
+        self.assertEqual(check_edge({"kind": "candidate_classification", "status": "candidate_keyword"},
+                                    "structure.table", "analysis.pillar", RULES)[0], "ok")
+
+    def test_code_block_cannot_carry_them(self):
+        self.assertEqual(check_edge({"kind": "explicit_mention"}, "structure.code", "analysis.entity", RULES)[0], "domain_range")
+
+    def test_table_still_cannot_carry_probatory_relations(self):
+        self.assertEqual(check_edge({"kind": "supports"}, "structure.table", "assertion.fact", RULES)[0], "domain_range")
 
     def test_heading_still_cannot_carry_probatory_relations(self):
         for kind in ("supports", "causes", "answers", "enables"):
