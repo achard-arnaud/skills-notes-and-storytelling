@@ -1,6 +1,6 @@
 {
   "ontology_id": "business-kb-ontology",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "status": "proposed",
   "date": "2026-11-07",
   "ticket": "skills-notes-and-storytelling#284",
@@ -178,27 +178,31 @@
       "class_relation": "classification",
       "domain": [
         "assertion.fact",
-        "assertion.question"
+        "assertion.question",
+        "structure.heading"
       ],
       "range": [
         "analysis.pillar"
       ],
       "evidence_required": false,
       "semantic": false,
-      "status_required_prefix": "candidate"
+      "status_required_prefix": "candidate",
+      "note": "Un titre est un ancrage thématique : il peut porter une classification candidate ou une mention explicite. Un bloc de code ou un tableau ne le peut pas. Aucune relation probatoire n'est permise à un titre."
     },
     {
       "id": "explicit_mention",
       "class_relation": "mention",
       "domain": [
         "assertion.fact",
-        "assertion.question"
+        "assertion.question",
+        "structure.heading"
       ],
       "range": [
         "analysis.entity"
       ],
       "evidence_required": false,
-      "semantic": false
+      "semantic": false,
+      "note": "Un titre est un ancrage thématique : il peut porter une classification candidate ou une mention explicite. Un bloc de code ou un tableau ne le peut pas. Aucune relation probatoire n'est permise à un titre."
     },
     {
       "id": "addresses_pillar",

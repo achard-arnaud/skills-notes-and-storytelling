@@ -72,5 +72,41 @@ class ProjectTests(unittest.TestCase):
             self.assertEqual(sha((base / entry["path"]).read_bytes()), entry["sha256"])
 
 
+
+class ShardAndCompressTests(ProjectTests):
+    def test_atoms_are_sharded_by_hex_prefix(self):
+        (self.src / "atoms" / "ATOM-ab12.md").write_text("# x\n", encoding="utf-8")
+        project.project(self.root, sha(self.frozen), {"kb": self.src}, shard_atoms=2)
+        base = self.root / "knowledge/business/greenyellow/kb/atoms"
+        self.assertTrue((base / "ab" / "ATOM-ab12.md").exists())
+
+    def test_large_json_is_gzipped_with_original_hash_in_manifest(self):
+        big = b'{"k": "' + b"x" * 3000 + b'"}'
+        (self.src / "big.json").write_bytes(big)
+        project.project(self.root, sha(self.frozen), {"kb": self.src}, compress_over=1000)
+        base = self.root / "knowledge/business/greenyellow"
+        self.assertEqual(gzip.decompress((base / "kb/big.json.gz").read_bytes()), big)
+        manifest = json.loads((base / "MANIFEST.json").read_text(encoding="utf-8"))
+        entry = next(e for e in manifest["entries"] if e["path"] == "kb/big.json.gz")
+        self.assertEqual(entry["original_sha256"], sha(big))
+        self.assertTrue((base / "kb/kb.json").exists())  # small JSON untouched
+
+    def test_gzip_output_is_deterministic(self):
+        (self.src / "big.json").write_bytes(b'{"k": "' + b"y" * 3000 + b'"}')
+        a = project.project(self.root, sha(self.frozen), {"kb": self.src}, compress_over=1000)
+        b = project.project(self.root, sha(self.frozen), {"kb": self.src}, compress_over=1000)
+        self.assertEqual(b["written"], 0)
+        self.assertEqual(a["files"], b["files"])
+
+
+class OnlyPrefixTests(ProjectTests):
+    def test_only_restricts_the_batch_by_path_prefix(self):
+        (self.src / "atoms" / "ATOM-ab12.md").write_text("# x\n", encoding="utf-8")
+        report = project.project(self.root, sha(self.frozen), {"kb": self.src}, shard_atoms=2, only={"kb/atoms/ab"})
+        base = self.root / "knowledge/business/greenyellow/kb"
+        self.assertEqual(report["files"], 1)
+        self.assertTrue((base / "atoms/ab/ATOM-ab12.md").exists())
+        self.assertFalse((base / "kb.json").exists())
+
 if __name__ == "__main__":
     unittest.main()

@@ -145,5 +145,27 @@ class CrawlTests(unittest.TestCase):
         self.assertIn("# A", md)
 
 
+
+class BlockSeparationTests(unittest.TestCase):
+    def test_blocks_are_separated_by_blank_lines_and_list_items_stay_adjacent(self):
+        md, _, _ = crawl.html_to_markdown(page("T", "Corps").decode(), "https://x/y")
+        self.assertIn("# T\n\nSource: https://x/y", md)
+        self.assertIn("- un\n- deux", md)
+        self.assertIn("\n\nCorps\n\n", md)
+
+    def test_reextract_rebuilds_markdown_without_any_request(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            site = FakeSite({f"https://{HOST}/a/": page("A", "y")})
+            c = crawl.Crawler(Path(tmp), HOST, fetch=site, delay=0, sleep=lambda s: None)
+            c.load_robots()
+            c.add(f"https://{HOST}/a/", "seed")
+            c.run()
+            md_path = next((Path(tmp) / "pages").glob("*.md"))
+            md_path.write_text("junk", encoding="utf-8")
+            calls = len(site.calls)
+            self.assertEqual(c.reextract(), 1)
+            self.assertEqual(len(site.calls), calls)
+            self.assertIn("# A", md_path.read_text(encoding="utf-8"))
+
 if __name__ == "__main__":
     unittest.main()

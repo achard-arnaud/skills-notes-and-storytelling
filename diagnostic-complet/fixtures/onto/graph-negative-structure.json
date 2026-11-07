@@ -66,6 +66,12 @@
       "type": "entity",
       "kind": "entity",
       "label": "entité"
+    },
+    {
+      "id": "C2",
+      "type": "atom",
+      "kind": "code",
+      "label": "x = 1"
     }
   ],
   "edges": [
@@ -89,7 +95,7 @@
     },
     {
       "id": "Z3",
-      "from": "H2",
+      "from": "C2",
       "to": "E2",
       "kind": "explicit_mention"
     },

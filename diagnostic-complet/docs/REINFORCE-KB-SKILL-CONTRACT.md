@@ -59,7 +59,7 @@ Chaque cas de `fixtures/onto/expected.json` est une éval. Le contrat doit les n
 |---|---|---|
 | `positive` | `graph-positive.json` | 0 violation, 0 non classé, 0 candidat d'alias, `hil_touched` déclenché |
 | `negative` | `graph-negative.json` | 3 violations (titre en `supports`, instruction classée, `causes` sans preuve), 1 non classé, 1 candidat d'alias, `directive_in_material` déclenché |
-| `negative-structure` | `graph-negative-structure.json` | 4 violations (titre sur HIL, titre sur entité, instruction en fait, classification sans statut), 1 hors ontologie (`reinforces`), 3 non classés (`poem`), déclencheur `directive_in_material` |
+| `negative-structure` | `graph-negative-structure.json` | 4 violations (titre sur HIL, bloc de code sur entité, instruction en fait, classification sans statut), 1 hors ontologie (`reinforces`), 3 non classés (`poem`), déclencheur `directive_in_material` |
 | `relations-all` | `graph-relations-all.json` | 0 violation, 0 non classé, les 16 règles exercées sans violation |
 
 Le test de cohérence `test_ontology.py::FixtureContractTests` vérifie que ces cas existent et que leurs résultats sont ceux écrits ici.

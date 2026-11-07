@@ -91,10 +91,16 @@ def html_to_markdown(html: str, url: str) -> tuple[str, str, list[str]]:
     parser.close()
     title = re.sub(r"\s+", " ", parser.title).strip()
     body = [line for i, line in enumerate(parser.lines) if i == 0 or line != parser.lines[i - 1]]
-    head = [f"# {title or url}", "", f"Source: {url}", ""]
+    head = [f"# {title or url}", f"Source: {url}"]
     if parser.description.strip():
-        head += [f"Description: {parser.description.strip()}", ""]
-    return "\n".join(head + body) + "\n", title, parser.links
+        head.append(f"Description: {parser.description.strip()}")
+    blocks, previous = [], None
+    for line in head + body:
+        if previous is not None:
+            blocks.append("\n" if line.startswith("- ") and previous.startswith("- ") else "\n\n")
+        blocks.append(line)
+        previous = line
+    return "".join(blocks) + "\n", title, parser.links
 
 
 def normalize(url: str, base: str | None = None) -> str:
@@ -227,6 +233,22 @@ class Crawler:
         for link in links:
             self.add(urllib.parse.urljoin(final, link), "link:" + url)
 
+    def reextract(self) -> int:
+        """Regenerate every page's Markdown from the stored raw HTML, without any request."""
+        count = 0
+        for url, info in self.state["visited"].items():
+            if "md" not in info:
+                continue
+            raw = self.out / "raw" / f"{info['sha256']}.html"
+            if not raw.exists():
+                continue
+            markdown, _, _ = html_to_markdown(raw.read_bytes().decode("utf-8", "replace"), info["final_url"])
+            (self.out / info["md"]).write_text(markdown, encoding="utf-8")
+            info["words"] = len(markdown.split())
+            count += 1
+        self.checkpoint()
+        return count
+
     def run(self):
         done = 0
         while self.state["queue"] and done < self.max_pages:
@@ -267,8 +289,12 @@ def main(argv=None) -> int:
     parser.add_argument("--sitemap", help="sitemap index URL")
     parser.add_argument("--delay", type=float, default=1.0)
     parser.add_argument("--max-pages", type=int, default=2000)
+    parser.add_argument("--reextract", action="store_true", help="rebuild Markdown from stored raw HTML; no requests")
     args = parser.parse_args(argv)
     crawler = Crawler(args.out, args.host, delay=args.delay, max_pages=args.max_pages)
+    if args.reextract:
+        print(json.dumps({"reextracted": crawler.reextract(), "coverage": crawler.coverage()}, ensure_ascii=False, indent=2))
+        return 0
     print("robots:", crawler.load_robots())
     if args.sitemap and not crawler.state["queue"] and not crawler.state["visited"]:
         crawler.seed_from_sitemaps(args.sitemap)

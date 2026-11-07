@@ -48,7 +48,8 @@ def _write(target: Path, data: bytes, written: list):
 
 
 def project(graph1_root: Path, frozen_sha: str, sources: dict[str, Path], namespace: str = DEFAULT_NAMESPACE,
-            include_raw: Path | None = None, dry_run: bool = False) -> dict:
+            include_raw: Path | None = None, dry_run: bool = False, shard_atoms: int = 0,
+            compress_over: int = 0, only: set[str] | None = None) -> dict:
     root = Path(graph1_root)
     frozen = root / FROZEN_GRAPH
     if not frozen.exists() or sha256_file(frozen) != frozen_sha:
@@ -62,7 +63,16 @@ def project(graph1_root: Path, frozen_sha: str, sources: dict[str, Path], namesp
         for path in files:
             rel = Path(subdir) / (path.name if src.is_file() else path.relative_to(src))
             data = path.read_bytes()
-            entries.append({"path": str(rel), "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)})
+            extra = {}
+            if shard_atoms and rel.parent.name == "atoms":
+                rel = rel.parent / path.stem.split("-", 1)[-1][:shard_atoms] / rel.name
+            if compress_over and path.suffix == ".json" and len(data) > compress_over:
+                extra = {"lossless": "gzip", "original_sha256": hashlib.sha256(data).hexdigest(), "original_bytes": len(data)}
+                data = gzip.compress(data, mtime=0)
+                rel = rel.with_name(rel.name + ".gz")
+            if only is not None and not any(str(rel).startswith(prefix) for prefix in only):
+                continue
+            entries.append({"path": str(rel), "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data), **extra})
             if not dry_run:
                 _write(target / rel, data, written)
     if include_raw:
@@ -96,12 +106,16 @@ def main(argv=None) -> int:
     parser.add_argument("--source", action="append", default=[], metavar="SUBDIR=PATH")
     parser.add_argument("--raw-html", type=Path)
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--shard-atoms", type=int, default=0, help="put atoms in subdirectories of N hex characters")
+    parser.add_argument("--compress-over", type=int, default=0, help="gzip JSON files larger than N bytes, losslessly")
+    parser.add_argument("--only", action="append", help="only entries whose relative path starts with this prefix (batch publication)")
     args = parser.parse_args(argv)
     sources = {}
     for item in args.source:
         key, _, value = item.partition("=")
         sources[key] = Path(value)
-    print(json.dumps(project(args.graph1, args.frozen_sha, sources, args.namespace, args.raw_html, args.dry_run),
+    print(json.dumps(project(args.graph1, args.frozen_sha, sources, args.namespace, args.raw_html, args.dry_run,
+                     args.shard_atoms, args.compress_over, set(args.only) if args.only else None),
                      ensure_ascii=False, indent=2))
     return 0
 
