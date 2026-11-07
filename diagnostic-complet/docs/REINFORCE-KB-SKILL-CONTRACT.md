@@ -20,7 +20,7 @@ Sans déclencheur : `no_change`.
 ## Étapes
 
 1. **Valider le référentiel** : `python3 ontology.py check`. Échec : arrêt.
-2. **Mesurer** : `python3 loopback.py graph.json --recent-id … [--previous …]`. Lire la section `ontology`.
+2. **Mesurer** : `python3 reinforce.py graph.json --recent-id … [--previous …] --output reçu.json`. Un seul reçu : loopback, ontologie, actions limitées à trois. Le journal de cadence s'alimente avec `ontology.py log-cadence` (voir `docs/CADENCE-CALIBRATION-PROTOCOL.md`).
 3. **Qualifier** chaque constat : structurel (classe, violation de domaine/codomaine, preuve manquante), sémantique (à relire), hypothèse. Densité : jamais présentée comme qualité.
 4. **Périmètre HIL** : piliers et HIL touchés par le matériau récent. Lister les questions à poser ; ne pas y répondre.
 5. **Proposer** au plus trois actions, dont au plus une modification de type :
@@ -53,8 +53,14 @@ Chaque cas de `fixtures/onto/expected.json` est une éval. Le contrat doit les n
 |---|---|---|
 | `positive` | `graph-positive.json` | 0 violation, 0 non classé, 0 candidat d'alias, `hil_touched` déclenché |
 | `negative` | `graph-negative.json` | 3 violations (titre en `supports`, instruction classée, `causes` sans preuve), 1 non classé, 1 candidat d'alias, `directive_in_material` déclenché |
+| `negative-structure` | `graph-negative-structure.json` | 4 violations (titre sur HIL, titre sur entité, instruction en fait, classification sans statut), 1 hors ontologie (`reinforces`), 3 non classés (`poem`), déclencheur `directive_in_material` |
+| `relations-all` | `graph-relations-all.json` | 0 violation, 0 non classé, les 16 règles exercées sans violation |
 
 Le test de cohérence `test_ontology.py::FixtureContractTests` vérifie que ces cas existent et que leurs résultats sont ceux écrits ici.
+
+## Couverture
+
+`python3 ontology.py coverage fixtures/onto/graph-*.json` : les 16 règles doivent être exercées par au moins une arête valide. Testé par `RuleCoverageTests`.
 
 ## Ce qui reste à faire avant tout GO
 

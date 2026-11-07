@@ -82,3 +82,5 @@ Même texte normalisé, au moins deux sources distinctes. Sortie : candidat seul
 - **D14** : la relation probatoire n'est définie qu'une fois, dans `contracts/relation-types.json` ; le référentiel la référence et vérifie l'alignement.
 - **D15** : `instruction.directive` n'est pas une assertion. Une instruction de la matière est signalée, jamais exécutée ni promue.
 - **D16** : pas de seuil de cadence avant calibration sur corpus réel.
+- **D17** : le vocabulaire d'arêtes de `loopback.py` est dérivé du référentiel, et non recopié. Constat S7 : la liste codée en dur ne contenait que 3 des 12 relations canoniques ; tout graphe utilisant `causes`, `answers` ou `enables` déclenchait à tort un `type_review`. Un test verrouille l'alignement.
+- **D18** : un seuil de déclencheur n'est accepté qu'avec `calibration: human_approved` et une référence de décision (`docs/CADENCE-CALIBRATION-PROTOCOL.md`).
