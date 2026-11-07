@@ -36,6 +36,12 @@ Sans déclencheur : `no_change`.
 - Rapport JSON (loopback + section ontology).
 - Reçu : entrées avec empreintes, constats, actions proposées (≤ 3), `automatic_mutations: false`, `automatic_promotion: false`.
 
+## Frontière avec les skills voisines
+
+- `run-loopback` (dépôt Candidatures-nice, privé) diagnostique un **run CV** après signal ou retour. Cette skill diagnostique le **graphe documentaire** après apport. Un même signal ne doit pas ouvrir les deux.
+- `challenge-a1-template` (même dépôt) revoit un A1 **sans incident**, sans mutation de KB. Une revue de graphe sans matériau récent reste `no_change` ici ; elle n'est jamais traitée comme une revue de CV.
+- Le graphe de preuves (`evidence_for`, `source_of`) relève de `runtime.py`, pas de cette skill : ses arêtes sont `out_of_ontology` et comptées à part.
+
 ## Interdits
 
 - Modifier le graphe, la KB, le référentiel ou les contrats.

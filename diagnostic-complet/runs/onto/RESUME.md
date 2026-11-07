@@ -28,15 +28,19 @@ Date : 7 novembre 2026. Board : `runs/onto/board.json` (20 tickets, tous `verifi
 - Coordination avec Codex sur l'écriture de `dev` (R2-11 notamment).
 - HITL-258 : piliers, trame et side stories.
 
-## Proposition S8 — réalisable sans intervention
+## S8 réalisé (sans intervention humaine)
 
-1. Appliquer `reinforce.py` à un graphe **synthétique plus grand** (génération déterministe), pour mesurer le temps et la stabilité du reçu, sans conclusion sur la KB réelle.
-2. Ajouter un contrôle d'idempotence : deux exécutions identiques donnent un reçu identique (hors horodatage absent).
-3. Documenter la frontière reinforce / challenge-a1 (diagnostic sans mutation) dans le contrat.
-4. Préparer le schéma de reçu en JSON Schema, validé par un test.
+- Générateur synthétique déterministe (`synth.py`), idempotence du reçu, schéma minimal du reçu (`schemas/reinforce-receipt.schema.json`), mesure d'échelle indicative (`runs/onto/scale.json`, jusqu'à 3 105 nœuds), frontière documentée avec run-loopback et challenge-a1.
+- Suite : 152 tests locaux. Board : 25 tickets, tous `verified`.
 
-Ne pas faire sans décision : calibrer un seuil, approuver un candidat, fusionner un alias, toucher au catalogue racine pour `main`.
+## Proposition S9 — réalisable sans intervention
+
+1. Brancher `reinforce.py` sur un ensemble de fixtures à plusieurs graphes et produire un rapport agrégé (sans seuil).
+2. Vérifier la stabilité du reçu entre deux versions du référentiel (diff de règles, pas de changement silencieux).
+3. Documenter le cycle complet (mesure, journal, revue humaine) dans un runbook, sans automatisation d'approbation.
+
+Ne pas faire sans décision : calibrer un seuil, approuver un candidat, fusionner un alias, toucher au catalogue racine pour `main`, installer une skill.
 
 ## Prochaine action immédiate
 
-Pousser le board et cette capsule (S7 clôturé), puis lancer S8 sur les points 1 à 4.
+Pousser S8, puis S9 sur les points 1 à 3.

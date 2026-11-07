@@ -260,6 +260,68 @@
       ],
       "status": "verified",
       "note": "Gate racine, pédagogique navigateur et 145 tests locaux ; push FF [skip ci]."
+    },
+    {
+      "id": "O-21",
+      "title": "Générateur synthétique déterministe (synth.py)",
+      "outputs": [
+        "synth.py",
+        "tests/test_reinforce_scale.py"
+      ],
+      "depends_on": [
+        "O-20"
+      ],
+      "status": "verified",
+      "note": "Même graine, même graphe ; graphe généré conforme au référentiel (0 violation)."
+    },
+    {
+      "id": "O-22",
+      "title": "Idempotence du reçu reinforce",
+      "outputs": [
+        "tests/test_reinforce_scale.py"
+      ],
+      "depends_on": [
+        "O-21"
+      ],
+      "status": "verified",
+      "note": "Deux exécutions identiques : reçus identiques."
+    },
+    {
+      "id": "O-23",
+      "title": "Schéma minimal du reçu (sous-ensemble stdlib)",
+      "outputs": [
+        "schemas/reinforce-receipt.schema.json",
+        "tests/test_reinforce_scale.py"
+      ],
+      "depends_on": [
+        "O-22"
+      ],
+      "status": "verified",
+      "note": "Clés requises, const, enum, maxItems testés ; reçu falsifié refusé. Pas un validateur JSON Schema complet."
+    },
+    {
+      "id": "O-24",
+      "title": "Mesure d'échelle indicative",
+      "outputs": [
+        "runs/onto/scale.json"
+      ],
+      "depends_on": [
+        "O-21"
+      ],
+      "status": "verified",
+      "note": "Jusqu'à 3 105 nœuds ; mesure de session, sans seuil ni conclusion sur la KB réelle."
+    },
+    {
+      "id": "O-25",
+      "title": "Frontière documentée avec run-loopback et challenge-a1",
+      "outputs": [
+        "docs/REINFORCE-KB-SKILL-CONTRACT.md"
+      ],
+      "depends_on": [
+        "O-10"
+      ],
+      "status": "verified",
+      "note": "Section ajoutée au contrat ; aucune modification du dépôt privé."
     }
   ]
 }
