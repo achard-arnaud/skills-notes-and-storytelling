@@ -135,8 +135,8 @@
       "depends_on": [
         "H-08"
       ],
-      "status": "planned",
-      "ci": "to_verify_after_push",
+      "status": "verified",
+      "ci": "no_run_for_head_sha",
       "acceptance": "origin/dev au SHA attendu ; aucun run Actions pour ce head_sha."
     }
   ]
