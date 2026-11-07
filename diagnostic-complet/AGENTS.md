@@ -10,3 +10,7 @@ Le mandat utilisateur du 7 novembre 2026 autorise ce sous-projet, son code et se
 - Ce dépôt est public : méthodes et fixtures synthétiques uniquement. Les conversations, R1 et apports privés restent hors Git et hors issues publiques.
 - Un agent écrit uniquement ses chemins délégués ; le coordinateur est seul writer des refs Git et du board consolidé.
 - Pour reprendre : README.md, runs/bootstrap/RESUME.md, puis le seul paquet de tâche requis.
+
+## Mandat courant R2 — 7 novembre 2026
+
+Le mandat R2 supersède l'interdiction initiale de création de skills : douze opérations personnelles atomiques sont autorisées via skill-creator, sans copier leurs SKILL.md dans le dépôt public. Workflows initiaux/itératifs, loopback, atomisation, collecte corporate et projection privée Graph1 sont autorisés. Voir docs/R2-SCOPE.md et runs/r2/board.json. Les corpus restent privés. Une correction du catalogue de relations canonique est autorisée avec fixture de non-régression ; aucun template/mode/rendu global n'est changé.

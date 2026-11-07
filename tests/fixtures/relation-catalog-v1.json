@@ -1,0 +1,23 @@
+{
+  "catalog_version": "1.0.0",
+  "valid_types": [
+    "supports",
+    "contradicts",
+    "qualifies",
+    "causes",
+    "depends_on",
+    "compares_to",
+    "answers",
+    "motivates",
+    "integrates_with",
+    "substitutes",
+    "complements",
+    "enables"
+  ],
+  "invalid_types": [
+    "invented_relation",
+    "CAUSES",
+    "related_unreviewed"
+  ],
+  "require_known_endpoints": true
+}

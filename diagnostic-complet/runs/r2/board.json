@@ -1,0 +1,535 @@
+{
+  "id": "DC-R2-20261107",
+  "version": 1,
+  "run_issue": 259,
+  "base_sha": "40d7e5f7c1697bd3e891658eb525ce76f1dd2e87",
+  "graph_base_sha": "ad4bf02d7b70c30649bfd29d0e518cc8fad2c739",
+  "microsteps": 64,
+  "epics": [
+    {
+      "id": "R2-E1",
+      "title": "Périmètre et provenance",
+      "issue": 260
+    },
+    {
+      "id": "R2-E2",
+      "title": "Workflows narratifs",
+      "issue": 261
+    },
+    {
+      "id": "R2-E3",
+      "title": "Loopback et ontologie",
+      "issue": 262
+    },
+    {
+      "id": "R2-E4",
+      "title": "Skills et contexte",
+      "issue": 263
+    },
+    {
+      "id": "R2-E5",
+      "title": "KB atomique",
+      "issue": 264
+    },
+    {
+      "id": "R2-E6",
+      "title": "Collecte corporate",
+      "issue": 265
+    },
+    {
+      "id": "R2-E7",
+      "title": "Publication Graph1",
+      "issue": 266
+    },
+    {
+      "id": "R2-E8",
+      "title": "Revue et livraison",
+      "issue": 267
+    }
+  ],
+  "tasks": [
+    {
+      "id": "R2-01",
+      "epic": "R2-E1",
+      "title": "Cadrer sources et destinations",
+      "steps": [
+        "Épingler dev des deux dépôts",
+        "Identifier namespaces autorisés",
+        "Lire instructions applicables",
+        "Consigner couverture et manquants"
+      ],
+      "depends_on": [],
+      "outputs": [
+        "docs/R2-SCOPE.md"
+      ],
+      "status": "planned",
+      "issue": 269,
+      "inputs": [
+        "AGENTS.md",
+        "docs/R2-SCOPE.md"
+      ],
+      "acceptance": [
+        "Chaque microétape dispose d’un artefact ou contrôle et d’une limite explicite."
+      ],
+      "write_scope": [
+        "docs/R2-SCOPE.md"
+      ],
+      "stop_condition": "Sortie utile et contrôle, ou blocage après deux corrections."
+    },
+    {
+      "id": "R2-02",
+      "epic": "R2-E1",
+      "title": "Rapatrier les matériaux accessibles",
+      "steps": [
+        "Inventorier les 15 textes joints",
+        "Récupérer dossier et titres GreenYellow",
+        "Récupérer transcript R1 original",
+        "Tracer conversation inaccessible et exports"
+      ],
+      "depends_on": [
+        "R2-01"
+      ],
+      "outputs": [
+        "docs/R2-INTAKE.md"
+      ],
+      "status": "planned",
+      "issue": 268,
+      "inputs": [
+        "AGENTS.md",
+        "docs/R2-SCOPE.md"
+      ],
+      "acceptance": [
+        "Chaque microétape dispose d’un artefact ou contrôle et d’une limite explicite."
+      ],
+      "write_scope": [
+        "docs/R2-INTAKE.md"
+      ],
+      "stop_condition": "Sortie utile et contrôle, ou blocage après deux corrections."
+    },
+    {
+      "id": "R2-03",
+      "epic": "R2-E2",
+      "title": "Transférer rédaction from-scratch",
+      "steps": [
+        "Lire source et pin",
+        "Refuser prose antérieure",
+        "Préparer scaffold depuis preuves",
+        "Tester frontière core et encarts"
+      ],
+      "depends_on": [
+        "R2-01"
+      ],
+      "outputs": [
+        "writing.py"
+      ],
+      "status": "planned",
+      "issue": 270,
+      "inputs": [
+        "AGENTS.md",
+        "docs/R2-SCOPE.md"
+      ],
+      "acceptance": [
+        "Chaque microétape dispose d’un artefact ou contrôle et d’une limite explicite."
+      ],
+      "write_scope": [
+        "writing.py"
+      ],
+      "stop_condition": "Sortie utile et contrôle, ou blocage après deux corrections."
+    },
+    {
+      "id": "R2-04",
+      "epic": "R2-E2",
+      "title": "Transférer révision itérative",
+      "steps": [
+        "Résoudre baseline et empreinte",
+        "Calculer fermeture de dépendances",
+        "Préserver hors delta",
+        "Invalider les seules revues affectées"
+      ],
+      "depends_on": [
+        "R2-03"
+      ],
+      "outputs": [
+        "writing.py"
+      ],
+      "status": "planned",
+      "issue": 271,
+      "inputs": [
+        "AGENTS.md",
+        "docs/R2-SCOPE.md"
+      ],
+      "acceptance": [
+        "Chaque microétape dispose d’un artefact ou contrôle et d’une limite explicite."
+      ],
+      "write_scope": [
+        "writing.py"
+      ],
+      "stop_condition": "Sortie utile et contrôle, ou blocage après deux corrections."
+    },
+    {
+      "id": "R2-05",
+      "epic": "R2-E3",
+      "title": "Transférer loopback graphe et piliers",
+      "steps": [
+        "Lire loopback Candidatures",
+        "Mesurer types densité et isolés",
+        "Qualifier nouveaux matériaux par pilier",
+        "Proposer au plus trois actions sans mutation"
+      ],
+      "depends_on": [
+        "R2-01"
+      ],
+      "outputs": [
+        "loopback.py"
+      ],
+      "status": "planned",
+      "issue": 274,
+      "inputs": [
+        "AGENTS.md",
+        "docs/R2-SCOPE.md"
+      ],
+      "acceptance": [
+        "Chaque microétape dispose d’un artefact ou contrôle et d’une limite explicite."
+      ],
+      "write_scope": [
+        "loopback.py"
+      ],
+      "stop_condition": "Sortie utile et contrôle, ou blocage après deux corrections."
+    },
+    {
+      "id": "R2-06",
+      "epic": "R2-E3",
+      "title": "Réconcilier catalogue des relations",
+      "steps": [
+        "Comparer prose et schéma 12 versus 8",
+        "Ajouter catalogue versionné",
+        "Étendre contrat compatible",
+        "Tester divergence et types inconnus"
+      ],
+      "depends_on": [
+        "R2-05"
+      ],
+      "outputs": [
+        "docs/RELATIONS.md"
+      ],
+      "status": "planned",
+      "issue": 272,
+      "inputs": [
+        "AGENTS.md",
+        "docs/R2-SCOPE.md"
+      ],
+      "acceptance": [
+        "Chaque microétape dispose d’un artefact ou contrôle et d’une limite explicite."
+      ],
+      "write_scope": [
+        "docs/RELATIONS.md"
+      ],
+      "stop_condition": "Sortie utile et contrôle, ou blocage après deux corrections."
+    },
+    {
+      "id": "R2-07",
+      "epic": "R2-E4",
+      "title": "Décomposer douze opérations atomiques",
+      "steps": [
+        "Définir déclencheurs et exclusions",
+        "Initialiser dans répertoire personnel",
+        "Approfondir invariants et contre-exemples",
+        "Valider syntaxe et frontières"
+      ],
+      "depends_on": [
+        "R2-03",
+        "R2-04",
+        "R2-05"
+      ],
+      "outputs": [
+        "docs/SKILLS-CATALOG.md"
+      ],
+      "status": "planned",
+      "issue": 278,
+      "inputs": [
+        "AGENTS.md",
+        "docs/R2-SCOPE.md"
+      ],
+      "acceptance": [
+        "Chaque microétape dispose d’un artefact ou contrôle et d’une limite explicite."
+      ],
+      "write_scope": [
+        "docs/SKILLS-CATALOG.md"
+      ],
+      "stop_condition": "Sortie utile et contrôle, ou blocage après deux corrections."
+    },
+    {
+      "id": "R2-08",
+      "epic": "R2-E4",
+      "title": "Éprouver et installer les skills",
+      "steps": [
+        "Évaluer sur tâches sans historique",
+        "Corriger les écarts observés",
+        "Sauvegarder chaque skill séparément",
+        "Vérifier état réconcilié et catalogue"
+      ],
+      "depends_on": [
+        "R2-07"
+      ],
+      "outputs": [
+        "docs/SKILLS-CATALOG.md"
+      ],
+      "status": "planned",
+      "issue": 279,
+      "inputs": [
+        "AGENTS.md",
+        "docs/R2-SCOPE.md"
+      ],
+      "acceptance": [
+        "Chaque microétape dispose d’un artefact ou contrôle et d’une limite explicite."
+      ],
+      "write_scope": [
+        "docs/SKILLS-CATALOG.md"
+      ],
+      "stop_condition": "Sortie utile et contrôle, ou blocage après deux corrections."
+    },
+    {
+      "id": "R2-09",
+      "epic": "R2-E5",
+      "title": "Préparer tous les formats sources",
+      "steps": [
+        "Préserver bytes et hashes",
+        "Extraire ZIP sans traversée",
+        "Convertir PDF DOCX HTML en texte",
+        "Tenir compte des doublons et conversions"
+      ],
+      "depends_on": [
+        "R2-02"
+      ],
+      "outputs": [
+        "docs/KB.md"
+      ],
+      "status": "planned",
+      "issue": 277,
+      "inputs": [
+        "AGENTS.md",
+        "docs/R2-SCOPE.md"
+      ],
+      "acceptance": [
+        "Chaque microétape dispose d’un artefact ou contrôle et d’une limite explicite."
+      ],
+      "write_scope": [
+        "docs/KB.md"
+      ],
+      "stop_condition": "Sortie utile et contrôle, ou blocage après deux corrections."
+    },
+    {
+      "id": "R2-10",
+      "epic": "R2-E5",
+      "title": "Atomiser et construire KB incrémentale",
+      "steps": [
+        "Découper phrases et items",
+        "Conserver tables et code signalés",
+        "Maintenir occurrences et versions",
+        "Tester idempotence et liens de preuve"
+      ],
+      "depends_on": [
+        "R2-09"
+      ],
+      "outputs": [
+        "kb.py"
+      ],
+      "status": "planned",
+      "issue": 273,
+      "inputs": [
+        "AGENTS.md",
+        "docs/R2-SCOPE.md"
+      ],
+      "acceptance": [
+        "Chaque microétape dispose d’un artefact ou contrôle et d’une limite explicite."
+      ],
+      "write_scope": [
+        "kb.py"
+      ],
+      "stop_condition": "Sortie utile et contrôle, ou blocage après deux corrections."
+    },
+    {
+      "id": "R2-11",
+      "epic": "R2-E6",
+      "title": "Collecter site corporate au périmètre explicite",
+      "steps": [
+        "Lire robots et sitemaps",
+        "Parcourir liens internes",
+        "Checkpoint frontier et erreurs",
+        "Relire couverture et fichiers non extraits"
+      ],
+      "depends_on": [
+        "R2-01"
+      ],
+      "outputs": [
+        "crawl.py"
+      ],
+      "status": "planned",
+      "issue": 275,
+      "inputs": [
+        "AGENTS.md",
+        "docs/R2-SCOPE.md"
+      ],
+      "acceptance": [
+        "Chaque microétape dispose d’un artefact ou contrôle et d’une limite explicite."
+      ],
+      "write_scope": [
+        "crawl.py"
+      ],
+      "stop_condition": "Sortie utile et contrôle, ou blocage après deux corrections."
+    },
+    {
+      "id": "R2-12",
+      "epic": "R2-E6",
+      "title": "Enrichir graphe depuis corpus complet disponible",
+      "steps": [
+        "Intégrer textes corporate sourcés",
+        "Créer nœuds et liens structurels",
+        "Rattacher piliers comme candidats",
+        "Exécuter loopback récent et relever dettes"
+      ],
+      "depends_on": [
+        "R2-10",
+        "R2-11"
+      ],
+      "outputs": [
+        "docs/R2-RESULTS.md"
+      ],
+      "status": "planned",
+      "issue": 276,
+      "inputs": [
+        "AGENTS.md",
+        "docs/R2-SCOPE.md"
+      ],
+      "acceptance": [
+        "Chaque microétape dispose d’un artefact ou contrôle et d’une limite explicite."
+      ],
+      "write_scope": [
+        "docs/R2-RESULTS.md"
+      ],
+      "stop_condition": "Sortie utile et contrôle, ou blocage après deux corrections."
+    },
+    {
+      "id": "R2-13",
+      "epic": "R2-E7",
+      "title": "Préparer projection KB privée Graph1",
+      "steps": [
+        "Préserver graphe formation gelé",
+        "Créer namespace business indépendant",
+        "Préparer MD sources occurrences et shards",
+        "Vérifier hashes endpoints et identité privée"
+      ],
+      "depends_on": [
+        "R2-12"
+      ],
+      "outputs": [
+        "docs/GRAPH1-BRIDGE.md"
+      ],
+      "status": "planned",
+      "issue": 283,
+      "inputs": [
+        "AGENTS.md",
+        "docs/R2-SCOPE.md"
+      ],
+      "acceptance": [
+        "Chaque microétape dispose d’un artefact ou contrôle et d’une limite explicite."
+      ],
+      "write_scope": [
+        "docs/GRAPH1-BRIDGE.md"
+      ],
+      "stop_condition": "Sortie utile et contrôle, ou blocage après deux corrections."
+    },
+    {
+      "id": "R2-14",
+      "epic": "R2-E7",
+      "title": "Publier KB et graphe sur dev Graph1",
+      "steps": [
+        "Créer commit skip CI sans force",
+        "Relire namespace au SHA livré",
+        "Vérifier baseline canonique inchangée",
+        "Tracer couverture et liens de reprise"
+      ],
+      "depends_on": [
+        "R2-13"
+      ],
+      "outputs": [
+        "runs/r2/DELIVERY.md"
+      ],
+      "status": "planned",
+      "issue": 281,
+      "inputs": [
+        "AGENTS.md",
+        "docs/R2-SCOPE.md"
+      ],
+      "acceptance": [
+        "Chaque microétape dispose d’un artefact ou contrôle et d’une limite explicite."
+      ],
+      "write_scope": [
+        "runs/r2/DELIVERY.md"
+      ],
+      "stop_condition": "Sortie utile et contrôle, ou blocage après deux corrections."
+    },
+    {
+      "id": "R2-15",
+      "epic": "R2-E8",
+      "title": "Revoir et intégrer seconde passe business",
+      "steps": [
+        "Relire différences source/cible",
+        "Exécuter tests et régression",
+        "Enrichir tickets existants avec limites",
+        "Intégrer dev skip CI et vérifier refs"
+      ],
+      "depends_on": [
+        "R2-06",
+        "R2-08",
+        "R2-14"
+      ],
+      "outputs": [
+        "runs/r2/QA.json"
+      ],
+      "status": "planned",
+      "issue": 282,
+      "inputs": [
+        "AGENTS.md",
+        "docs/R2-SCOPE.md"
+      ],
+      "acceptance": [
+        "Chaque microétape dispose d’un artefact ou contrôle et d’une limite explicite."
+      ],
+      "write_scope": [
+        "runs/r2/QA.json"
+      ],
+      "stop_condition": "Sortie utile et contrôle, ou blocage après deux corrections."
+    },
+    {
+      "id": "R2-16",
+      "epic": "R2-E8",
+      "title": "Livrer capsule et décisions suivantes",
+      "steps": [
+        "Stabiliser reçus et board",
+        "Persister outputs privés utiles",
+        "Maintenir gate éditoriale distincte",
+        "Restituer acquis limites et prochaine unité"
+      ],
+      "depends_on": [
+        "R2-15"
+      ],
+      "outputs": [
+        "runs/r2/RESUME.md"
+      ],
+      "status": "planned",
+      "issue": 280,
+      "inputs": [
+        "AGENTS.md",
+        "docs/R2-SCOPE.md"
+      ],
+      "acceptance": [
+        "Chaque microétape dispose d’un artefact ou contrôle et d’une limite explicite."
+      ],
+      "write_scope": [
+        "runs/r2/RESUME.md"
+      ],
+      "stop_condition": "Sortie utile et contrôle, ou blocage après deux corrections."
+    }
+  ]
+}
