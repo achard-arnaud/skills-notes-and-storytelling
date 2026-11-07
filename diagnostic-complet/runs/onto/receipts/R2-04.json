@@ -1,0 +1,19 @@
+{
+  "task_id": "R2-04",
+  "issue": null,
+  "result": "mechanically_verified",
+  "evidence": "test_writing : 16 OK (delta, baseline, invalidation des seules revues affectées)",
+  "artifact_checks": [
+    {
+      "path": "diagnostic-complet/writing.py",
+      "sha256": "5f5fc1d55a9a8a676877b2feda6aa132cd1628ff76405fbd014d2e5dc94be319"
+    }
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "unittest_module_rerun",
+  "ci": "intentionally_not_run",
+  "limits": [
+    "Contrôle mécanique : ne vaut ni approbation éditoriale ni validation de revue métier.",
+    "Board R2 non modifié : statut à arrêter par le coordinateur R2."
+  ]
+}

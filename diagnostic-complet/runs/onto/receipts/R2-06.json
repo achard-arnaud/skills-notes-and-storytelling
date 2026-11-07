@@ -1,0 +1,19 @@
+{
+  "task_id": "R2-06",
+  "issue": null,
+  "result": "mechanically_verified",
+  "evidence": "test_relation_catalog 4 OK ; alignement ontologie 12/12 ; revue sémantique humaine du delta à faire",
+  "artifact_checks": [
+    {
+      "path": "contracts/relation-types.json",
+      "sha256": "4e9f54496983222645bc774ca146a7f1c6d54f0afd621176b0b811f4f38011f3"
+    }
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "unittest_module_rerun",
+  "ci": "intentionally_not_run",
+  "limits": [
+    "Contrôle mécanique : ne vaut ni approbation éditoriale ni validation de revue métier.",
+    "Board R2 non modifié : statut à arrêter par le coordinateur R2."
+  ]
+}

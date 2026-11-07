@@ -1,0 +1,104 @@
+{
+  "alias_candidates": {
+    "count": 1,
+    "sample": [
+      {
+        "action": "none",
+        "candidate_approval": false,
+        "members": [
+          "F1",
+          "F2"
+        ],
+        "requires": [
+          "source_review",
+          "counter_example_check"
+        ],
+        "source_count": 2,
+        "text_key": "le budget est validé."
+      }
+    ]
+  },
+  "class_counts": {
+    "analysis.pillar": 1,
+    "assertion.fact": 2,
+    "evidence.source": 2,
+    "instruction.directive": 1,
+    "structure.heading": 1,
+    "unclassified": 1
+  },
+  "limits": [
+    "Le référentiel nomme le vocabulaire ; il ne prouve ni la véracité d'une assertion ni la pertinence d'un lien.",
+    "La densité sémantique n'est pas un score de qualité.",
+    "Les déclencheurs de revue sont des signaux. Un seuil sans calibration n'est pas une cible.",
+    "Les candidats d'alias ne sont jamais appliqués ; la décision est humaine.",
+    "Le libellé des nœuds est tronqué à 180 caractères par kb.py ; deux textes différents peuvent partager un préfixe."
+  ],
+  "ontology_id": "business-kb-ontology",
+  "out_of_ontology": {
+    "count": 0,
+    "sample": []
+  },
+  "review_triggers": [
+    {
+      "calibration": "not_required",
+      "count": 0,
+      "fired": false,
+      "id": "hil_touched",
+      "sample": [],
+      "threshold": 1
+    },
+    {
+      "calibration": "not_required",
+      "count": 1,
+      "fired": true,
+      "id": "directive_in_material",
+      "sample": [
+        "D1"
+      ],
+      "threshold": 1
+    },
+    {
+      "calibration": "pending_real_corpus",
+      "fired": null,
+      "id": "cadence_semantic",
+      "measured_delta": null,
+      "status": "measured_only",
+      "threshold": null
+    }
+  ],
+  "semantic_density": {
+    "denominator": 2,
+    "is_quality_score": false,
+    "numerator": 1,
+    "value": 0.5
+  },
+  "semantic_nodes": 2,
+  "status": "proposed",
+  "unclassified": {
+    "count": 1,
+    "sample": [
+      "X1"
+    ]
+  },
+  "version": "0.1.0",
+  "violations": {
+    "count": 3,
+    "sample": [
+      {
+        "id": "E5",
+        "reason": "supports: structure.heading -> assertion.fact",
+        "status": "domain_range"
+      },
+      {
+        "id": "E6",
+        "reason": "candidate_classification: instruction.directive -> analysis.pillar",
+        "status": "domain_range"
+      },
+      {
+        "id": "E7",
+        "reason": "causes",
+        "status": "evidence_missing"
+      }
+    ]
+  }
+}
