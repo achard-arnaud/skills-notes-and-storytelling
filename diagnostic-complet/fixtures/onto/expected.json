@@ -1,0 +1,30 @@
+{
+  "cases": [
+    {
+      "id": "positive",
+      "graph": "graph-positive.json",
+      "recent_ids": [
+        "F1"
+      ],
+      "violations": 0,
+      "unclassified": 0,
+      "alias_candidates": 0,
+      "fired": [
+        "hil_touched"
+      ]
+    },
+    {
+      "id": "negative",
+      "graph": "graph-negative.json",
+      "recent_ids": [
+        "D1"
+      ],
+      "violations": 3,
+      "unclassified": 1,
+      "alias_candidates": 1,
+      "fired": [
+        "directive_in_material"
+      ]
+    }
+  ]
+}

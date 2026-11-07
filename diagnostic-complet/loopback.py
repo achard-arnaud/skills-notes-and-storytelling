@@ -8,6 +8,8 @@ import hashlib
 import json
 from pathlib import Path
 
+import ontology
+
 
 SOURCE_COMMIT = "1a33eeb3d7bee058a914a1d405c420c5d16d57cd"
 NODE_TYPES = {"source", "fragment", "claim", "atom", "pillar", "hil", "entity"}
@@ -217,6 +219,24 @@ def analyze_graph(graph, recent_ids=None, previous=None):
     if not alerts and findings["isolated_nodes"]["count"]:
         alerts.append({"kind": "isolates", "severity": "info",
                        "observation": "Isolated records can be legitimate open notes; do not invent edges to increase density."})
+    onto_report = ontology.analyze(graph, recent_ids=recent_ids,
+                                   previous=previous if isinstance(previous, dict) else None)
+    if onto_report["violations"]["count"]:
+        alerts.append({"kind": "ontology_violation", "severity": "attention",
+                       "observation": "Edges violate the referential domain, range or evidence rules; cause and intent remain unverified."})
+        candidates.append(_candidate("ontology_violation", {"count": onto_report["violations"]["count"],
+            "sample": onto_report["violations"]["sample"][:5]},
+            "The edge may be mistyped or the rule may be incomplete; the graph is not repaired automatically.",
+            "Propose one typing or rule correction with a fixture; never relabel silently.",
+            "Test the violating edge against the referential, then a compatible positive case and an evidence-missing negative case."))
+    fired = [trigger["id"] for trigger in onto_report["review_triggers"] if trigger["fired"]]
+    if fired:
+        alerts.append({"kind": "ontology_trigger", "severity": "review",
+                       "observation": "Ontology review triggers fired: " + ", ".join(fired) + "."})
+        candidates.append(_candidate("ontology_trigger", {"fired": fired},
+            "Recent material touches a pillar with an open HIL or contains an instruction-like sentence; relevance needs human review.",
+            "Request a targeted HIL review of the listed nodes; do not promote, merge or rewrite them.",
+            "Check the listed nodes against source excerpts and record the human retain, change or defer decision."))
     delta = None
     if previous is not None:
         if not isinstance(previous, dict):
@@ -231,6 +251,7 @@ def analyze_graph(graph, recent_ids=None, previous=None):
             "source_pattern": {"repository": "achard-arnaud/Candidatures-nice", "commit": SOURCE_COMMIT,
                                "path": "workflow/LOOPBACK.md"},
             "metrics": metrics, "findings": findings, "pillar_coverage": coverage, "delta": delta,
+            "ontology": onto_report,
             "alerts": alerts, "review_candidates": candidates[:3], "deferred_candidates": max(0, len(candidates) - 3),
             "budgets": {"actions_max": 3, "corrective_candidates_max": 1, "repairs_per_blocker_max": 2,
                         "detail_items_max": DETAIL_LIMIT, "token_usage": None, "cost": None},

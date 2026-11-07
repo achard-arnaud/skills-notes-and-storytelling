@@ -1,0 +1,180 @@
+{
+  "ontology_id": "business-kb-ontology",
+  "version": "0.1.0",
+  "status": "proposed",
+  "date": "2026-11-07",
+  "ticket": "skills-notes-and-storytelling#284",
+  "authority": {
+    "rule": "Référentiel lu en lecture seule. Il nomme le vocabulaire déjà produit par kb.py et loopback.py ; il ne réécrit jamais un graphe, ne fusionne aucun nœud et ne promeut aucun fait.",
+    "decision_record": "diagnostic-complet/docs/ONTOLOGY.md",
+    "canonical_relation_catalogue": "contracts/relation-types.json",
+    "method_inspiration": "Référentiel kb-ontology du dépôt Candidatures-nice (méthode seulement : classes, types, classes de relations, facettes, champs non contrôlés)."
+  },
+  "id_format": "<class>.<type>",
+  "facets": {
+    "validation": {
+      "definition": "État épistémique d'une assertion. Facette distincte du type.",
+      "values": ["supplied_unverified", "candidate_unconfirmed", "candidate_confirmed", "unknown"],
+      "default": "supplied_unverified"
+    },
+    "evidence_basis": {
+      "definition": "Nature de la source. Un fichier fourni n'est jamais une preuve primaire vérifiée.",
+      "values": ["supplied_material", "public_primary", "unknown"],
+      "default": "supplied_material"
+    }
+  },
+  "classes": {
+    "assertion": {
+      "label_fr": "Affirmation",
+      "definition": "Proposition pouvant être confrontée à une source. Le statut de validation est une facette.",
+      "density_scope": "semantic",
+      "types": {
+        "fact": {"definition": "Affirmation ou assertion de contenu issue d'une source fournie.", "kb_kinds": ["assertion"]},
+        "question": {"definition": "Question ouverte posée par la matière source.", "kb_kinds": ["question"]}
+      }
+    },
+    "instruction": {
+      "label_fr": "Instruction issue de la matière",
+      "definition": "Phrase impérative contenue dans une source. Ce n'est ni un fait, ni une consigne du système. Jamais promouvable en assertion.",
+      "density_scope": "excluded",
+      "types": {
+        "directive": {"definition": "Phrase impérative détectée par le découpage ; à isoler et signaler.", "kb_kinds": ["directive"]}
+      }
+    },
+    "structure": {
+      "label_fr": "Structure",
+      "definition": "Élément de mise en forme. Ne porte aucune assertion. Ne participe qu'à la provenance.",
+      "density_scope": "excluded",
+      "types": {
+        "heading": {"definition": "Titre Markdown.", "kb_kinds": ["heading"]},
+        "code": {"definition": "Bloc de code.", "kb_kinds": ["code"]},
+        "table": {"definition": "Tableau.", "kb_kinds": ["table"]}
+      }
+    },
+    "evidence": {
+      "label_fr": "Preuve de provenance",
+      "definition": "Document source. Il est une provenance, pas une preuve vérifiée.",
+      "density_scope": "excluded",
+      "types": {
+        "source": {"definition": "Document fourni, avec empreinte et localisateurs.", "projection_type": "source"}
+      }
+    },
+    "analysis": {
+      "label_fr": "Analyse",
+      "definition": "Nœud d'organisation : piliers candidats, questions HIL, entités explicites. Une classification n'est pas une preuve.",
+      "density_scope": "semantic_for_hil_only",
+      "types": {
+        "pillar": {"definition": "Pilier candidat.", "projection_type": "pillar"},
+        "hil": {"definition": "Question de décision humaine ouverte.", "projection_type": "hil"},
+        "entity": {"definition": "Entité nommée par un lexique explicite.", "projection_type": "entity"}
+      }
+    }
+  },
+  "node_map": {
+    "atom:assertion": "assertion.fact",
+    "atom:question": "assertion.question",
+    "atom:directive": "instruction.directive",
+    "atom:heading": "structure.heading",
+    "atom:code": "structure.code",
+    "atom:table": "structure.table",
+    "source": "evidence.source",
+    "pillar": "analysis.pillar",
+    "hil": "analysis.hil",
+    "entity": "analysis.entity"
+  },
+  "edge_rules": [
+    {
+      "id": "derived_from",
+      "class_relation": "provenance",
+      "direction": "source → atome (projection actuelle de kb.py)",
+      "domain": ["evidence.source"],
+      "range": ["assertion.fact", "assertion.question", "instruction.directive", "structure.heading", "structure.code", "structure.table"],
+      "evidence_required": false,
+      "semantic": false
+    },
+    {
+      "id": "candidate_classification",
+      "class_relation": "classification",
+      "domain": ["assertion.fact", "assertion.question"],
+      "range": ["analysis.pillar"],
+      "evidence_required": false,
+      "semantic": false,
+      "status_required_prefix": "candidate"
+    },
+    {
+      "id": "explicit_mention",
+      "class_relation": "mention",
+      "domain": ["assertion.fact", "assertion.question"],
+      "range": ["analysis.entity"],
+      "evidence_required": false,
+      "semantic": false
+    },
+    {
+      "id": "addresses_pillar",
+      "class_relation": "classification",
+      "domain": ["analysis.hil"],
+      "range": ["analysis.pillar"],
+      "evidence_required": false,
+      "semantic": false
+    },
+    {
+      "id": "supports", "class_relation": "probatory", "domain": ["assertion.fact"], "range": ["assertion.fact", "assertion.question"], "evidence_required": false, "semantic": true
+    },
+    {
+      "id": "contradicts", "class_relation": "probatory", "domain": ["assertion.fact"], "range": ["assertion.fact", "assertion.question"], "evidence_required": false, "semantic": true
+    },
+    {
+      "id": "qualifies", "class_relation": "probatory", "domain": ["assertion.fact"], "range": ["assertion.fact", "assertion.question"], "evidence_required": false, "semantic": true
+    },
+    {
+      "id": "causes", "class_relation": "causality", "domain": ["assertion.fact"], "range": ["assertion.fact"], "evidence_required": true, "semantic": true,
+      "note": "Causalité explicitement étayée ; jamais déduite de la navigation ou d'une proximité lexicale."
+    },
+    {
+      "id": "depends_on", "class_relation": "probatory", "domain": ["assertion.fact"], "range": ["assertion.fact", "assertion.question"], "evidence_required": false, "semantic": true
+    },
+    {
+      "id": "compares_to", "class_relation": "probatory", "domain": ["assertion.fact"], "range": ["assertion.fact"], "evidence_required": false, "semantic": true
+    },
+    {
+      "id": "answers", "class_relation": "probatory", "domain": ["assertion.fact"], "range": ["analysis.hil"], "evidence_required": false, "semantic": true
+    },
+    {
+      "id": "motivates", "class_relation": "probatory", "domain": ["assertion.fact"], "range": ["assertion.fact", "assertion.question"], "evidence_required": false, "semantic": true
+    },
+    {
+      "id": "integrates_with", "class_relation": "probatory", "domain": ["assertion.fact"], "range": ["assertion.fact"], "evidence_required": false, "semantic": true
+    },
+    {
+      "id": "substitutes", "class_relation": "probatory", "domain": ["assertion.fact"], "range": ["assertion.fact"], "evidence_required": false, "semantic": true
+    },
+    {
+      "id": "complements", "class_relation": "probatory", "domain": ["assertion.fact"], "range": ["assertion.fact"], "evidence_required": false, "semantic": true
+    },
+    {
+      "id": "enables", "class_relation": "probatory", "domain": ["assertion.fact"], "range": ["assertion.fact"], "evidence_required": false, "semantic": true,
+      "note": "Condition facilitatrice, pas causalité automatique."
+    }
+  ],
+  "density_scope": {
+    "classes": ["assertion.fact", "assertion.question", "analysis.hil"],
+    "note": "Densité sémantique calculée en plus de la densité historique, jamais en remplacement. Aucune cible."
+  },
+  "review_triggers": [
+    {"id": "hil_touched", "rule": "un nœud sémantique récent est classé vers un pilier auquel un HIL est rattaché", "threshold": 1, "calibration": "not_required"},
+    {"id": "directive_in_material", "rule": "un nœud instruction.directive figure dans le matériau récent", "threshold": 1, "calibration": "not_required"},
+    {"id": "cadence_semantic", "rule": "nombre de nœuds sémantiques ajoutés depuis le rapport précédent", "threshold": null, "calibration": "pending_real_corpus", "note": "Mesure seulement ; aucun seuil fixé tant que le corpus réel n'est pas calibré."}
+  ],
+  "alias_policy": {
+    "candidate_rule": "même texte normalisé dans au moins deux sources distinctes",
+    "requires": ["source_review", "counter_example_check"],
+    "action": "none",
+    "candidate_approval": false,
+    "tombstone_policy": "un doublon déprécié garde son ID, sa redirection et ses localisateurs ; aucune suppression"
+  },
+  "uncontrolled_fields": [
+    "atom.kind : valeurs observées limitées à six ; toute autre valeur est non classée",
+    "pillar.matched_terms : lexique non normatif",
+    "entity.matches : alias explicites, non exhaustifs"
+  ]
+}
