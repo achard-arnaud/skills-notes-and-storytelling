@@ -34,6 +34,12 @@ Date : 7 novembre 2026. Board : `runs/onto/board.json` (20 tickets, tous `verifi
 - S9 : diff entre versions du référentiel (`ontology.py diff`), reçu agrégé sur lot (`reinforce.py --batch`), runbook du cycle humain (`docs/RUNBOOK-KB-REINFORCEMENT.md`).
 - Suite : 157 tests locaux. Board : 29 tickets, tous `verified`.
 
+## S10 réalisé (sans intervention humaine)
+
+- Graph1 ajouté en lecture seule (clone, SHA `ad4bf02`). Graphe gelé conforme : empreinte `dd784af7…`, 877 nœuds, 1 282 arêtes. Namespace `knowledge/business/greenyellow` absent de `dev`, `main` et de la branche de transport `bootstrap/transport-graph1-v1` : le transfert de Codex n'est pas publié. Aucune écriture dans Graph1 (`runs/onto/graph1-precheck.json`).
+- Facette `knowledge_status` alignée sur le vocabulaire de Graph1 (référentiel v0.2.0). Règle : `HUMAN_ADJUDICATED` exige `decision_ref`. Décision D19.
+- Suite : 163 tests locaux. Board : 33 tickets, tous `verified`.
+
 ## Ce qui reste hors portée sans décision humaine
 
 - Calibrer un seuil de cadence (corpus réel, décision D18).
@@ -45,4 +51,4 @@ Date : 7 novembre 2026. Board : `runs/onto/board.json` (20 tickets, tous `verifi
 
 ## Prochaine action
 
-Aucune action sans décision ci-dessus. Le prochain sprint dépend d'une décision humaine ou de l'accès au corpus réel.
+Aucune action sans décision ci-dessus, ou sans publication du namespace business par Codex. Si Codex publie `knowledge/business/greenyellow` sur un dépôt Graph1 `dev` : relire le namespace au SHA livré (R2-14), vérifier que le graphe gelé n'a pas bougé, et seulement ensuite appliquer `reinforce.py` en lecture seule.

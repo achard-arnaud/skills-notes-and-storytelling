@@ -63,6 +63,9 @@ def validate_referential(onto: dict) -> None:
     if probatory != canonical:
         raise OntologyError(f"probatory rules differ from canonical catalogue: "
                             f"missing={sorted(canonical - probatory)} extra={sorted(probatory - canonical)}")
+    for status, fields in onto["facets"]["knowledge_status"]["requires"].items():
+        if status not in onto["facets"]["knowledge_status"]["values"]:
+            raise OntologyError(f"knowledge_status requirement names unknown value {status!r}")
     for name in onto["density_scope"]["classes"]:
         if name not in known:
             raise OntologyError(f"density_scope names unknown type {name!r}")
@@ -151,6 +154,7 @@ def analyze(graph: dict, recent_ids=None, previous=None, onto: dict | None = Non
             pairs.add((source, target))
 
     unclassified = sorted(nid for nid, cls in node_class.items() if cls == "unclassified")
+    facet_problems = [{"id": nid, "reasons": facet_violations(node, onto)} for nid, node in nodes.items() if facet_violations(node, onto)]
     n = len(semantic_ids)
     denominator = n * (n - 1)
     recent_known = sorted(set(recent_ids) & nodes.keys())
@@ -192,6 +196,7 @@ def analyze(graph: dict, recent_ids=None, previous=None, onto: dict | None = Non
         "semantic_density": {"value": (len(pairs) / denominator) if denominator else 0.0,
                              "numerator": len(pairs), "denominator": denominator, "is_quality_score": False},
         "unclassified": {"count": len(unclassified), "sample": unclassified[:DETAIL_LIMIT]},
+        "facet_violations": {"count": len(facet_problems), "sample": facet_problems[:DETAIL_LIMIT]},
         "violations": {"count": len(violations), "sample": violations[:DETAIL_LIMIT]},
         "out_of_ontology": {"count": len(out_of), "sample": out_of[:DETAIL_LIMIT]},
         "review_triggers": triggers,
@@ -241,6 +246,17 @@ def diff_referentials(old: dict, new: dict) -> dict:
     }
     result["unchanged"] = not any(result[k] for k in result if k not in ("breaking", "human_review_required", "unchanged"))
     return result
+
+
+def facet_violations(node: dict, onto: dict) -> list[str]:
+    """Facet rules that a record must satisfy. Read-only; a machine can never set HUMAN_ADJUDICATED."""
+    facet = onto["facets"]["knowledge_status"]
+    status = node.get("knowledge_status")
+    if status is None:
+        return []
+    if status not in facet["values"]:
+        return [f"unknown knowledge_status {status!r}"]
+    return [f"{status} requires {field}" for field in facet["requires"].get(status, []) if not node.get(field)]
 
 
 def rule_coverage(graphs, onto: dict | None = None) -> dict:

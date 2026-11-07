@@ -84,3 +84,5 @@ Même texte normalisé, au moins deux sources distinctes. Sortie : candidat seul
 - **D16** : pas de seuil de cadence avant calibration sur corpus réel.
 - **D17** : le vocabulaire d'arêtes de `loopback.py` est dérivé du référentiel, et non recopié. Constat S7 : la liste codée en dur ne contenait que 3 des 12 relations canoniques ; tout graphe utilisant `causes`, `answers` ou `enables` déclenchait à tort un `type_review`. Un test verrouille l'alignement.
 - **D18** : un seuil de déclencheur n'est accepté qu'avec `calibration: human_approved` et une référence de décision (`docs/CADENCE-CALIBRATION-PROTOCOL.md`).
+- **D19** : la facette `knowledge_status` (v0.2.0) reprend le vocabulaire de statut de Graph1 : `SOURCE`, `DERIVED`, `CANDIDATE`, `HUMAN_ADJUDICATED`, `UNKNOWN`, `NOT_EVALUABLE`. Une machine ne peut poser `HUMAN_ADJUDICATED` ; la règle exige une `decision_ref`. Aucun import de contenu depuis Graph1 n'est fait : le graphe de formation reste gelé et séparé.
+

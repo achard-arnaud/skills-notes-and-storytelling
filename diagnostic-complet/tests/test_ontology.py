@@ -266,6 +266,32 @@ class ReferentialDiffTests(unittest.TestCase):
         self.assertIn("enables", ontology.diff_referentials(ONTO, new)["rules_removed"])
 
 
+class KnowledgeStatusFacetTests(unittest.TestCase):
+    def test_facet_mirrors_graph1_status_vocabulary(self):
+        values = ONTO["facets"]["knowledge_status"]["values"]
+        self.assertEqual(values, ["SOURCE", "DERIVED", "CANDIDATE", "HUMAN_ADJUDICATED", "UNKNOWN", "NOT_EVALUABLE"])
+
+    def test_machine_cannot_mark_human_adjudicated(self):
+        node = {"id": "F", "type": "atom", "kind": "assertion", "knowledge_status": "HUMAN_ADJUDICATED"}
+        self.assertEqual(ontology.facet_violations(node, ONTO), ["HUMAN_ADJUDICATED requires decision_ref"])
+
+    def test_human_adjudicated_with_decision_reference_is_accepted(self):
+        node = {"id": "F", "knowledge_status": "HUMAN_ADJUDICATED", "decision_ref": "docs/DECISIONS.md#D20"}
+        self.assertEqual(ontology.facet_violations(node, ONTO), [])
+
+    def test_unknown_status_is_reported(self):
+        self.assertEqual(ontology.facet_violations({"knowledge_status": "TRUE"}, ONTO), ["unknown knowledge_status 'TRUE'"])
+
+    def test_kb_status_maps_to_graph1_source(self):
+        self.assertEqual(ONTO["facets"]["knowledge_status"]["mapping_from_kb"]["supplied_unverified"], "SOURCE")
+
+    def test_analysis_counts_facet_violations_without_changing_violations(self):
+        g = graph([{"id": "F", "type": "atom", "kind": "assertion", "label": "x", "knowledge_status": "HUMAN_ADJUDICATED"}])
+        report = analyze(g)
+        self.assertEqual(report["facet_violations"]["count"], 1)
+        self.assertEqual(report["violations"]["count"], 0)
+
+
 class ContractConsistencyTests(unittest.TestCase):
     ROOT = Path(__file__).resolve().parents[1]
 

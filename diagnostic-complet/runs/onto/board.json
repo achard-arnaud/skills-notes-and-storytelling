@@ -372,6 +372,56 @@
       ],
       "status": "verified",
       "note": "Suite locale et gate racine rejoués avant push."
+    },
+    {
+      "id": "O-30",
+      "title": "Vérification lecture seule du graphe Graph1 gelé et du namespace business",
+      "outputs": [
+        "runs/onto/graph1-precheck.json"
+      ],
+      "depends_on": [
+        "O-29"
+      ],
+      "status": "verified",
+      "note": "Empreinte dd784af7… et 877/1282 conformes ; namespace business absent de dev et de la branche de transport ; aucune écriture."
+    },
+    {
+      "id": "O-31",
+      "title": "Facette knowledge_status alignée sur Graph1 (référentiel v0.2.0)",
+      "outputs": [
+        "ontology/ontology-v1.json",
+        "ontology.py",
+        "tests/test_ontology.py"
+      ],
+      "depends_on": [
+        "O-30"
+      ],
+      "status": "verified",
+      "note": "Six statuts ; HUMAN_ADJUDICATED exige decision_ref ; compteur facet_violations séparé."
+    },
+    {
+      "id": "O-32",
+      "title": "Décision D19 : alignement sans import",
+      "outputs": [
+        "docs/ONTOLOGY.md"
+      ],
+      "depends_on": [
+        "O-31"
+      ],
+      "status": "verified",
+      "note": "Pas d'import de contenu ; graphe de formation séparé."
+    },
+    {
+      "id": "O-33",
+      "title": "Gate S10 et capsule",
+      "outputs": [
+        "runs/onto/RESUME.md"
+      ],
+      "depends_on": [
+        "O-32"
+      ],
+      "status": "verified",
+      "note": "Suite locale et gate racine rejoués avant push."
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ontology_id": "business-kb-ontology",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "proposed",
   "date": "2026-11-07",
   "ticket": "skills-notes-and-storytelling#284",
@@ -14,13 +14,43 @@
   "facets": {
     "validation": {
       "definition": "État épistémique d'une assertion. Facette distincte du type.",
-      "values": ["supplied_unverified", "candidate_unconfirmed", "candidate_confirmed", "unknown"],
+      "values": [
+        "supplied_unverified",
+        "candidate_unconfirmed",
+        "candidate_confirmed",
+        "unknown"
+      ],
       "default": "supplied_unverified"
     },
     "evidence_basis": {
       "definition": "Nature de la source. Un fichier fourni n'est jamais une preuve primaire vérifiée.",
-      "values": ["supplied_material", "public_primary", "unknown"],
+      "values": [
+        "supplied_material",
+        "public_primary",
+        "unknown"
+      ],
       "default": "supplied_material"
+    },
+    "knowledge_status": {
+      "definition": "Statut de connaissance, aligné sur le vocabulaire de Graph1 (README, section 4). Facette, jamais type.",
+      "values": [
+        "SOURCE",
+        "DERIVED",
+        "CANDIDATE",
+        "HUMAN_ADJUDICATED",
+        "UNKNOWN",
+        "NOT_EVALUABLE"
+      ],
+      "default": "SOURCE",
+      "mapping_from_kb": {
+        "supplied_unverified": "SOURCE"
+      },
+      "requires": {
+        "HUMAN_ADJUDICATED": [
+          "decision_ref"
+        ]
+      },
+      "note": "CANDIDATE n'est jamais une relation. HUMAN_ADJUDICATED ne peut être posé par une machine."
     }
   },
   "classes": {
@@ -29,8 +59,18 @@
       "definition": "Proposition pouvant être confrontée à une source. Le statut de validation est une facette.",
       "density_scope": "semantic",
       "types": {
-        "fact": {"definition": "Affirmation ou assertion de contenu issue d'une source fournie.", "kb_kinds": ["assertion"]},
-        "question": {"definition": "Question ouverte posée par la matière source.", "kb_kinds": ["question"]}
+        "fact": {
+          "definition": "Affirmation ou assertion de contenu issue d'une source fournie.",
+          "kb_kinds": [
+            "assertion"
+          ]
+        },
+        "question": {
+          "definition": "Question ouverte posée par la matière source.",
+          "kb_kinds": [
+            "question"
+          ]
+        }
       }
     },
     "instruction": {
@@ -38,7 +78,12 @@
       "definition": "Phrase impérative contenue dans une source. Ce n'est ni un fait, ni une consigne du système. Jamais promouvable en assertion.",
       "density_scope": "excluded",
       "types": {
-        "directive": {"definition": "Phrase impérative détectée par le découpage ; à isoler et signaler.", "kb_kinds": ["directive"]}
+        "directive": {
+          "definition": "Phrase impérative détectée par le découpage ; à isoler et signaler.",
+          "kb_kinds": [
+            "directive"
+          ]
+        }
       }
     },
     "structure": {
@@ -46,9 +91,24 @@
       "definition": "Élément de mise en forme. Ne porte aucune assertion. Ne participe qu'à la provenance.",
       "density_scope": "excluded",
       "types": {
-        "heading": {"definition": "Titre Markdown.", "kb_kinds": ["heading"]},
-        "code": {"definition": "Bloc de code.", "kb_kinds": ["code"]},
-        "table": {"definition": "Tableau.", "kb_kinds": ["table"]}
+        "heading": {
+          "definition": "Titre Markdown.",
+          "kb_kinds": [
+            "heading"
+          ]
+        },
+        "code": {
+          "definition": "Bloc de code.",
+          "kb_kinds": [
+            "code"
+          ]
+        },
+        "table": {
+          "definition": "Tableau.",
+          "kb_kinds": [
+            "table"
+          ]
+        }
       }
     },
     "evidence": {
@@ -56,7 +116,10 @@
       "definition": "Document source. Il est une provenance, pas une preuve vérifiée.",
       "density_scope": "excluded",
       "types": {
-        "source": {"definition": "Document fourni, avec empreinte et localisateurs.", "projection_type": "source"}
+        "source": {
+          "definition": "Document fourni, avec empreinte et localisateurs.",
+          "projection_type": "source"
+        }
       }
     },
     "analysis": {
@@ -64,9 +127,18 @@
       "definition": "Nœud d'organisation : piliers candidats, questions HIL, entités explicites. Une classification n'est pas une preuve.",
       "density_scope": "semantic_for_hil_only",
       "types": {
-        "pillar": {"definition": "Pilier candidat.", "projection_type": "pillar"},
-        "hil": {"definition": "Question de décision humaine ouverte.", "projection_type": "hil"},
-        "entity": {"definition": "Entité nommée par un lexique explicite.", "projection_type": "entity"}
+        "pillar": {
+          "definition": "Pilier candidat.",
+          "projection_type": "pillar"
+        },
+        "hil": {
+          "definition": "Question de décision humaine ouverte.",
+          "projection_type": "hil"
+        },
+        "entity": {
+          "definition": "Entité nommée par un lexique explicite.",
+          "projection_type": "entity"
+        }
       }
     }
   },
@@ -87,16 +159,30 @@
       "id": "derived_from",
       "class_relation": "provenance",
       "direction": "source → atome (projection actuelle de kb.py)",
-      "domain": ["evidence.source"],
-      "range": ["assertion.fact", "assertion.question", "instruction.directive", "structure.heading", "structure.code", "structure.table"],
+      "domain": [
+        "evidence.source"
+      ],
+      "range": [
+        "assertion.fact",
+        "assertion.question",
+        "instruction.directive",
+        "structure.heading",
+        "structure.code",
+        "structure.table"
+      ],
       "evidence_required": false,
       "semantic": false
     },
     {
       "id": "candidate_classification",
       "class_relation": "classification",
-      "domain": ["assertion.fact", "assertion.question"],
-      "range": ["analysis.pillar"],
+      "domain": [
+        "assertion.fact",
+        "assertion.question"
+      ],
+      "range": [
+        "analysis.pillar"
+      ],
       "evidence_required": false,
       "semantic": false,
       "status_required_prefix": "candidate"
@@ -104,70 +190,215 @@
     {
       "id": "explicit_mention",
       "class_relation": "mention",
-      "domain": ["assertion.fact", "assertion.question"],
-      "range": ["analysis.entity"],
+      "domain": [
+        "assertion.fact",
+        "assertion.question"
+      ],
+      "range": [
+        "analysis.entity"
+      ],
       "evidence_required": false,
       "semantic": false
     },
     {
       "id": "addresses_pillar",
       "class_relation": "classification",
-      "domain": ["analysis.hil"],
-      "range": ["analysis.pillar"],
+      "domain": [
+        "analysis.hil"
+      ],
+      "range": [
+        "analysis.pillar"
+      ],
       "evidence_required": false,
       "semantic": false
     },
     {
-      "id": "supports", "class_relation": "probatory", "domain": ["assertion.fact"], "range": ["assertion.fact", "assertion.question"], "evidence_required": false, "semantic": true
+      "id": "supports",
+      "class_relation": "probatory",
+      "domain": [
+        "assertion.fact"
+      ],
+      "range": [
+        "assertion.fact",
+        "assertion.question"
+      ],
+      "evidence_required": false,
+      "semantic": true
     },
     {
-      "id": "contradicts", "class_relation": "probatory", "domain": ["assertion.fact"], "range": ["assertion.fact", "assertion.question"], "evidence_required": false, "semantic": true
+      "id": "contradicts",
+      "class_relation": "probatory",
+      "domain": [
+        "assertion.fact"
+      ],
+      "range": [
+        "assertion.fact",
+        "assertion.question"
+      ],
+      "evidence_required": false,
+      "semantic": true
     },
     {
-      "id": "qualifies", "class_relation": "probatory", "domain": ["assertion.fact"], "range": ["assertion.fact", "assertion.question"], "evidence_required": false, "semantic": true
+      "id": "qualifies",
+      "class_relation": "probatory",
+      "domain": [
+        "assertion.fact"
+      ],
+      "range": [
+        "assertion.fact",
+        "assertion.question"
+      ],
+      "evidence_required": false,
+      "semantic": true
     },
     {
-      "id": "causes", "class_relation": "causality", "domain": ["assertion.fact"], "range": ["assertion.fact"], "evidence_required": true, "semantic": true,
+      "id": "causes",
+      "class_relation": "causality",
+      "domain": [
+        "assertion.fact"
+      ],
+      "range": [
+        "assertion.fact"
+      ],
+      "evidence_required": true,
+      "semantic": true,
       "note": "Causalité explicitement étayée ; jamais déduite de la navigation ou d'une proximité lexicale."
     },
     {
-      "id": "depends_on", "class_relation": "probatory", "domain": ["assertion.fact"], "range": ["assertion.fact", "assertion.question"], "evidence_required": false, "semantic": true
+      "id": "depends_on",
+      "class_relation": "probatory",
+      "domain": [
+        "assertion.fact"
+      ],
+      "range": [
+        "assertion.fact",
+        "assertion.question"
+      ],
+      "evidence_required": false,
+      "semantic": true
     },
     {
-      "id": "compares_to", "class_relation": "probatory", "domain": ["assertion.fact"], "range": ["assertion.fact"], "evidence_required": false, "semantic": true
+      "id": "compares_to",
+      "class_relation": "probatory",
+      "domain": [
+        "assertion.fact"
+      ],
+      "range": [
+        "assertion.fact"
+      ],
+      "evidence_required": false,
+      "semantic": true
     },
     {
-      "id": "answers", "class_relation": "probatory", "domain": ["assertion.fact"], "range": ["analysis.hil"], "evidence_required": false, "semantic": true
+      "id": "answers",
+      "class_relation": "probatory",
+      "domain": [
+        "assertion.fact"
+      ],
+      "range": [
+        "analysis.hil"
+      ],
+      "evidence_required": false,
+      "semantic": true
     },
     {
-      "id": "motivates", "class_relation": "probatory", "domain": ["assertion.fact"], "range": ["assertion.fact", "assertion.question"], "evidence_required": false, "semantic": true
+      "id": "motivates",
+      "class_relation": "probatory",
+      "domain": [
+        "assertion.fact"
+      ],
+      "range": [
+        "assertion.fact",
+        "assertion.question"
+      ],
+      "evidence_required": false,
+      "semantic": true
     },
     {
-      "id": "integrates_with", "class_relation": "probatory", "domain": ["assertion.fact"], "range": ["assertion.fact"], "evidence_required": false, "semantic": true
+      "id": "integrates_with",
+      "class_relation": "probatory",
+      "domain": [
+        "assertion.fact"
+      ],
+      "range": [
+        "assertion.fact"
+      ],
+      "evidence_required": false,
+      "semantic": true
     },
     {
-      "id": "substitutes", "class_relation": "probatory", "domain": ["assertion.fact"], "range": ["assertion.fact"], "evidence_required": false, "semantic": true
+      "id": "substitutes",
+      "class_relation": "probatory",
+      "domain": [
+        "assertion.fact"
+      ],
+      "range": [
+        "assertion.fact"
+      ],
+      "evidence_required": false,
+      "semantic": true
     },
     {
-      "id": "complements", "class_relation": "probatory", "domain": ["assertion.fact"], "range": ["assertion.fact"], "evidence_required": false, "semantic": true
+      "id": "complements",
+      "class_relation": "probatory",
+      "domain": [
+        "assertion.fact"
+      ],
+      "range": [
+        "assertion.fact"
+      ],
+      "evidence_required": false,
+      "semantic": true
     },
     {
-      "id": "enables", "class_relation": "probatory", "domain": ["assertion.fact"], "range": ["assertion.fact"], "evidence_required": false, "semantic": true,
+      "id": "enables",
+      "class_relation": "probatory",
+      "domain": [
+        "assertion.fact"
+      ],
+      "range": [
+        "assertion.fact"
+      ],
+      "evidence_required": false,
+      "semantic": true,
       "note": "Condition facilitatrice, pas causalité automatique."
     }
   ],
   "density_scope": {
-    "classes": ["assertion.fact", "assertion.question", "analysis.hil"],
+    "classes": [
+      "assertion.fact",
+      "assertion.question",
+      "analysis.hil"
+    ],
     "note": "Densité sémantique calculée en plus de la densité historique, jamais en remplacement. Aucune cible."
   },
   "review_triggers": [
-    {"id": "hil_touched", "rule": "un nœud sémantique récent est classé vers un pilier auquel un HIL est rattaché", "threshold": 1, "calibration": "not_required"},
-    {"id": "directive_in_material", "rule": "un nœud instruction.directive figure dans le matériau récent", "threshold": 1, "calibration": "not_required"},
-    {"id": "cadence_semantic", "rule": "nombre de nœuds sémantiques ajoutés depuis le rapport précédent", "threshold": null, "calibration": "pending_real_corpus", "note": "Mesure seulement ; aucun seuil fixé tant que le corpus réel n'est pas calibré."}
+    {
+      "id": "hil_touched",
+      "rule": "un nœud sémantique récent est classé vers un pilier auquel un HIL est rattaché",
+      "threshold": 1,
+      "calibration": "not_required"
+    },
+    {
+      "id": "directive_in_material",
+      "rule": "un nœud instruction.directive figure dans le matériau récent",
+      "threshold": 1,
+      "calibration": "not_required"
+    },
+    {
+      "id": "cadence_semantic",
+      "rule": "nombre de nœuds sémantiques ajoutés depuis le rapport précédent",
+      "threshold": null,
+      "calibration": "pending_real_corpus",
+      "note": "Mesure seulement ; aucun seuil fixé tant que le corpus réel n'est pas calibré."
+    }
   ],
   "alias_policy": {
     "candidate_rule": "même texte normalisé dans au moins deux sources distinctes",
-    "requires": ["source_review", "counter_example_check"],
+    "requires": [
+      "source_review",
+      "counter_example_check"
+    ],
     "action": "none",
     "candidate_approval": false,
     "tombstone_policy": "un doublon déprécié garde son ID, sa redirection et ses localisateurs ; aucune suppression"
