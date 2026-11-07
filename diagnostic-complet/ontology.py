@@ -67,8 +67,10 @@ def validate_referential(onto: dict) -> None:
         if name not in known:
             raise OntologyError(f"density_scope names unknown type {name!r}")
     for trigger in onto["review_triggers"]:
-        if trigger["threshold"] is not None and trigger["calibration"] != "not_required":
-            raise OntologyError(f"trigger {trigger['id']!r} has a threshold without calibration: no target allowed")
+        if trigger["threshold"] is not None:
+            human = trigger["calibration"] == "human_approved" and bool(trigger.get("decision_ref"))
+            if trigger["calibration"] != "not_required" and not human:
+                raise OntologyError(f"trigger {trigger['id']!r} has a threshold without calibration: no target allowed")
     if onto["alias_policy"]["action"] != "none" or onto["alias_policy"]["candidate_approval"] is not False:
         raise OntologyError("alias policy must never apply a change nor approve a candidate")
 
@@ -198,10 +200,52 @@ def analyze(graph: dict, recent_ids=None, previous=None, onto: dict | None = Non
     }
 
 
+def log_cadence(report: dict, log_path: Path) -> dict:
+    """Append one semantic-count measurement to a JSON-lines log. Writes no threshold."""
+    onto_part = report.get("ontology", report)
+    if not isinstance(onto_part.get("semantic_nodes"), int):
+        raise ValueError("report has no semantic_nodes measurement")
+    log_path = Path(log_path)
+    sequence = 1 + (sum(1 for line in log_path.read_text(encoding="utf-8").splitlines() if line.strip())
+                    if log_path.exists() else 0)
+    record = {"sequence": sequence, "semantic_nodes": onto_part["semantic_nodes"],
+              "class_counts": onto_part.get("class_counts", {}), "graph_sha256": report.get("graph_sha256")}
+    with log_path.open("a", encoding="utf-8") as handle:
+        handle.write(json.dumps(record, ensure_ascii=False, sort_keys=True) + "\n")
+    return record
+
+
+def rule_coverage(graphs, onto: dict | None = None) -> dict:
+    """Valid edges per rule across graphs, read-only. A rule with zero is not exercised."""
+    onto = onto or load()
+    rules = {rule["id"]: rule for rule in onto["edge_rules"]}
+    counts = {rid: 0 for rid in rules}
+    for graph_obj in graphs:
+        nodes = {node["id"]: node for node in graph_obj.get("nodes", [])
+                 if isinstance(node, dict) and isinstance(node.get("id"), str)}
+        for edge in graph_obj.get("edges", []):
+            if not isinstance(edge, dict):
+                continue
+            source = edge.get("from", edge.get("source"))
+            target = edge.get("to", edge.get("target"))
+            kind = _edge_kind(edge)
+            if source in nodes and target in nodes and kind in rules:
+                status, _ = check_edge(edge, classify_node(nodes[source], onto),
+                                       classify_node(nodes[target], onto), rules)
+                if status == "ok":
+                    counts[kind] += 1
+    return counts
+
+
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("check", help="validate the referential")
+    lg = sub.add_parser("log-cadence", help="append a semantic-count measurement to a JSONL log")
+    lg.add_argument("report", type=Path)
+    lg.add_argument("--log", required=True, type=Path)
+    cov = sub.add_parser("coverage", help="count valid edges per rule across graphs")
+    cov.add_argument("graphs", nargs="+", type=Path)
     run = sub.add_parser("analyze", help="read-only ontology report for a graph.json")
     run.add_argument("graph", type=Path)
     run.add_argument("--recent-id", action="append", default=[])
@@ -212,6 +256,14 @@ def main(argv=None) -> int:
     if args.command == "check":
         print(json.dumps({"ok": True, "ontology_id": onto["ontology_id"], "version": onto["version"],
                           "types": len(_all_types(onto)), "edge_rules": len(onto["edge_rules"])}, ensure_ascii=False))
+        return 0
+    if args.command == "log-cadence":
+        report = json.loads(args.report.read_text(encoding="utf-8"))
+        print(json.dumps(log_cadence(report, args.log), ensure_ascii=False, sort_keys=True))
+        return 0
+    if args.command == "coverage":
+        graphs = [json.loads(path.read_text(encoding="utf-8")) for path in args.graphs]
+        print(json.dumps({"rules": len(onto["edge_rules"]), "counts": rule_coverage(graphs, onto)}, ensure_ascii=False, indent=2, sort_keys=True))
         return 0
     graph = json.loads(args.graph.read_text(encoding="utf-8"))
     previous = json.loads(args.previous.read_text(encoding="utf-8")) if args.previous else None

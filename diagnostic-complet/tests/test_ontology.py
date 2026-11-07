@@ -55,6 +55,39 @@ class ReferentialTests(unittest.TestCase):
             validate_referential(broken)
 
 
+class CalibrationPathTests(unittest.TestCase):
+    def _with_trigger(self, **fields):
+        broken = copy.deepcopy(ONTO)
+        broken["review_triggers"][2].update(fields)
+        return broken
+
+    def test_threshold_with_human_decision_reference_is_accepted(self):
+        validate_referential(self._with_trigger(threshold=50, calibration="human_approved",
+                                                decision_ref="docs/DECISIONS.md#D99"))
+
+    def test_human_approved_without_decision_reference_is_rejected(self):
+        with self.assertRaises(OntologyError):
+            validate_referential(self._with_trigger(threshold=50, calibration="human_approved"))
+
+    def test_cadence_log_appends_measurements_without_threshold(self):
+        import tempfile
+        report = analyze(graph([atom("F1", "assertion"), atom("F2", "assertion")]))
+        with tempfile.TemporaryDirectory() as tmp:
+            log = Path(tmp) / "cadence.jsonl"
+            first = ontology.log_cadence(report, log)
+            second = ontology.log_cadence(report, log)
+            lines = [json.loads(x) for x in log.read_text(encoding="utf-8").splitlines()]
+        self.assertEqual([r["sequence"] for r in lines], [1, 2])
+        self.assertEqual(first["semantic_nodes"], second["semantic_nodes"])
+        self.assertFalse(any("threshold" in r for r in lines))
+
+    def test_cadence_log_refuses_report_without_measurement(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            with self.assertRaises(ValueError):
+                ontology.log_cadence({"ontology": {}}, Path(tmp) / "x.jsonl")
+
+
 class ClassificationTests(unittest.TestCase):
     def test_every_observed_kb_kind_has_a_class(self):
         expected = {"assertion": "assertion.fact", "question": "assertion.question",
@@ -179,8 +212,32 @@ class FixtureContractTests(unittest.TestCase):
                 self.assertEqual(report["violations"]["count"], case["violations"])
                 self.assertEqual(report["unclassified"]["count"], case["unclassified"])
                 self.assertEqual(report["alias_candidates"]["count"], case["alias_candidates"])
+                if "out_of" in case:
+                    self.assertEqual(report["out_of_ontology"]["count"], case["out_of"])
                 fired = sorted(t["id"] for t in report["review_triggers"] if t["fired"])
                 self.assertEqual(fired, sorted(case["fired"]))
+
+
+class RuleCoverageTests(unittest.TestCase):
+    FIX = Path(__file__).resolve().parents[1] / "fixtures" / "onto"
+
+    def test_every_edge_rule_is_exercised_by_a_valid_fixture_edge(self):
+        graphs = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(self.FIX.glob("graph-*.json"))]
+        counts = ontology.rule_coverage(graphs, ONTO)
+        unexercised = sorted(rule for rule, n in counts.items() if n == 0)
+        self.assertEqual(unexercised, [], f"rules without valid fixture edge: {unexercised}")
+
+    def test_coverage_counts_only_valid_edges(self):
+        bad = {"nodes": [{"id": "H", "type": "atom", "kind": "heading"}, {"id": "F", "type": "atom", "kind": "assertion"}],
+               "edges": [{"id": "E", "from": "H", "to": "F", "kind": "supports"}]}
+        self.assertEqual(ontology.rule_coverage([bad], ONTO)["supports"], 0)
+
+
+class VocabularyAlignmentTests(unittest.TestCase):
+    def test_loopback_edge_vocabulary_includes_every_canonical_relation(self):
+        import loopback
+        canonical = {item["id"] for item in json.loads(ontology.CANONICAL_RELATIONS.read_text(encoding="utf-8"))["relations"]}
+        self.assertTrue(canonical <= loopback.EDGE_TYPES, f"missing: {sorted(canonical - loopback.EDGE_TYPES)}")
 
 
 class ContractConsistencyTests(unittest.TestCase):

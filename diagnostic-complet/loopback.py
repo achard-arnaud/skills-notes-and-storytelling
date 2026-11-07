@@ -18,7 +18,7 @@ EDGE_TYPES = {"source_of", "evidence_for", "supports", "contradicts", "depends_o
               "illustrates", "compares", "contextualizes", "causal_hypothesis",
               "in_pillar", "belongs_to", "has_pillar", "classified_as", "addresses_pillar",
               "about", "grounded_in", "derived_from", "references", "related_to",
-              "alias_of", "supersedes", "candidate_classification", "explicit_mention"}
+              "alias_of", "supersedes", "candidate_classification", "explicit_mention"} | {rule["id"] for rule in ontology.load()["edge_rules"]}
 PILLAR_EDGES = {"in_pillar", "belongs_to", "has_pillar", "classified_as", "addresses_pillar", "about", "candidate_classification"}
 DETAIL_LIMIT = 20
 

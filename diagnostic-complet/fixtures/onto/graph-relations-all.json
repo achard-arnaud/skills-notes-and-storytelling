@@ -1,0 +1,149 @@
+{
+  "id": "onto-relations-all",
+  "projection": "documentary_kb",
+  "nodes": [
+    {
+      "id": "S1",
+      "type": "source",
+      "kind": "source"
+    },
+    {
+      "id": "F5",
+      "type": "atom",
+      "kind": "assertion",
+      "label": "La donnée est fiable."
+    },
+    {
+      "id": "F6",
+      "type": "atom",
+      "kind": "assertion",
+      "label": "Le contrôle est outillé."
+    },
+    {
+      "id": "Q3",
+      "type": "atom",
+      "kind": "question",
+      "label": "Quel périmètre retenir ?"
+    },
+    {
+      "id": "Q4",
+      "type": "hil",
+      "kind": "hil",
+      "label": "Arbitrer le périmètre"
+    },
+    {
+      "id": "P3",
+      "type": "pillar",
+      "kind": "candidate_pillar",
+      "label": "données"
+    },
+    {
+      "id": "E3",
+      "type": "entity",
+      "kind": "entity",
+      "label": "entité"
+    }
+  ],
+  "edges": [
+    {
+      "id": "Y0",
+      "from": "S1",
+      "to": "F5",
+      "kind": "derived_from"
+    },
+    {
+      "id": "Y1",
+      "from": "F5",
+      "to": "P3",
+      "kind": "candidate_classification",
+      "status": "candidate_keyword"
+    },
+    {
+      "id": "Y2",
+      "from": "F5",
+      "to": "E3",
+      "kind": "explicit_mention"
+    },
+    {
+      "id": "Y3",
+      "from": "Q4",
+      "to": "P3",
+      "kind": "addresses_pillar"
+    },
+    {
+      "id": "Y4",
+      "from": "F5",
+      "to": "F6",
+      "kind": "supports"
+    },
+    {
+      "id": "Y5",
+      "from": "F5",
+      "to": "F6",
+      "kind": "contradicts"
+    },
+    {
+      "id": "Y6",
+      "from": "F5",
+      "to": "F6",
+      "kind": "qualifies"
+    },
+    {
+      "id": "Y7",
+      "from": "F5",
+      "to": "F6",
+      "kind": "causes",
+      "evidence": [
+        "EV-2"
+      ]
+    },
+    {
+      "id": "Y8",
+      "from": "F5",
+      "to": "Q3",
+      "kind": "depends_on"
+    },
+    {
+      "id": "Y9",
+      "from": "F5",
+      "to": "F6",
+      "kind": "compares_to"
+    },
+    {
+      "id": "Y10",
+      "from": "F5",
+      "to": "Q4",
+      "kind": "answers"
+    },
+    {
+      "id": "Y11",
+      "from": "F5",
+      "to": "Q3",
+      "kind": "motivates"
+    },
+    {
+      "id": "Y12",
+      "from": "F5",
+      "to": "F6",
+      "kind": "integrates_with"
+    },
+    {
+      "id": "Y13",
+      "from": "F5",
+      "to": "F6",
+      "kind": "substitutes"
+    },
+    {
+      "id": "Y14",
+      "from": "F5",
+      "to": "F6",
+      "kind": "complements"
+    },
+    {
+      "id": "Y15",
+      "from": "F5",
+      "to": "F6",
+      "kind": "enables"
+    }
+  ]
+}
