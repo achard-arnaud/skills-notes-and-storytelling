@@ -1,0 +1,18 @@
+{
+  "checked_at_head": "d29882b",
+  "receipts_scanned": 72,
+  "artifact_entries": 72,
+  "matching": 71,
+  "stale": [
+    {
+      "task": "DC-002",
+      "path": "AGENTS.md",
+      "receipt_sha256": "68f3f6aefcb725ec9f3397026028e412e98dc8d36f194715ccf7be92bda53dc5",
+      "current_sha256": "2d0a2c0d9863ea44b4d9a25c6a600833e7feef93a34ba0cea974ae42307f5faa"
+    }
+  ],
+  "missing": [],
+  "explanation": {
+    "DC-002/AGENTS.md": "Modifié par le mandat R2 (d29882b, +4 lignes). Reçu historique conservé ; un delta sera tracé par un nouveau reçu, sans réécriture."
+  }
+}
