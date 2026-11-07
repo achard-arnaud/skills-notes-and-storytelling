@@ -52,16 +52,43 @@ def reinforce(graph: dict, recent_ids=None, previous=None) -> dict:
     }
 
 
+def reinforce_batch(graphs: dict) -> dict:
+    """Aggregate receipts over named graphs. Counts only; no threshold, no ranking, no approval."""
+    per_graph = {name: reinforce(graph) for name, graph in sorted(graphs.items())}
+    decisions = {}
+    for receipt in per_graph.values():
+        decisions[receipt["decision"]] = decisions.get(receipt["decision"], 0) + 1
+    return {
+        "tool": "reinforce.py", "mode": "batch", "graphs": len(per_graph),
+        "decisions": dict(sorted(decisions.items())),
+        "violations_total": sum(r["findings"]["violations"] for r in per_graph.values()),
+        "unclassified_total": sum(r["findings"]["unclassified"] for r in per_graph.values()),
+        "alias_candidates_total": sum(r["findings"]["alias_candidates"] for r in per_graph.values()),
+        "per_graph": {name: {"decision": r["decision"], "violations": r["findings"]["violations"],
+                             "triggers_fired": r["triggers_fired"], "graph_sha256": r["graph_sha256"]}
+                      for name, r in per_graph.items()},
+        "automatic_mutations": False, "automatic_promotion": False, "candidate_approval": False,
+        "limits": ontology.LIMITS,
+    }
+
+
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("graph", type=Path)
+    parser.add_argument("graph", type=Path, nargs="?")
+    parser.add_argument("--batch", type=Path, help="directory of graph-*.json to aggregate")
     parser.add_argument("--recent-id", action="append", default=[])
     parser.add_argument("--previous", type=Path)
     parser.add_argument("--output", type=Path)
     args = parser.parse_args(argv)
-    graph = json.loads(args.graph.read_text(encoding="utf-8"))
-    previous = json.loads(args.previous.read_text(encoding="utf-8")) if args.previous else None
-    receipt = reinforce(graph, recent_ids=args.recent_id, previous=previous)
+    if args.batch:
+        graphs = {path.name: json.loads(path.read_text(encoding="utf-8")) for path in sorted(args.batch.glob("graph-*.json"))}
+        receipt = reinforce_batch(graphs)
+    else:
+        if args.graph is None:
+            parser.error("graph or --batch required")
+        graph = json.loads(args.graph.read_text(encoding="utf-8"))
+        previous = json.loads(args.previous.read_text(encoding="utf-8")) if args.previous else None
+        receipt = reinforce(graph, recent_ids=args.recent_id, previous=previous)
     text = json.dumps(receipt, ensure_ascii=False, indent=2, sort_keys=True)
     if args.output:
         args.output.write_text(text + "\n", encoding="utf-8")

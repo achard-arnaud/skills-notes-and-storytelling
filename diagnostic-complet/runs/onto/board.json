@@ -322,6 +322,56 @@
       ],
       "status": "verified",
       "note": "Section ajoutée au contrat ; aucune modification du dépôt privé."
+    },
+    {
+      "id": "O-26",
+      "title": "Diff entre versions du référentiel (ontology.py diff)",
+      "outputs": [
+        "ontology.py",
+        "tests/test_ontology.py"
+      ],
+      "depends_on": [
+        "O-25"
+      ],
+      "status": "verified",
+      "note": "Changement de règle probatoire : breaking et revue humaine ; identité : unchanged."
+    },
+    {
+      "id": "O-27",
+      "title": "Reçu agrégé sur un lot de graphes (reinforce.py --batch)",
+      "outputs": [
+        "reinforce.py",
+        "tests/test_reinforce.py"
+      ],
+      "depends_on": [
+        "O-26"
+      ],
+      "status": "verified",
+      "note": "Quatre fixtures : 7 violations, 4 non classés, décisions comptées ; aucun classement."
+    },
+    {
+      "id": "O-28",
+      "title": "Runbook du cycle humain",
+      "outputs": [
+        "docs/RUNBOOK-KB-REINFORCEMENT.md"
+      ],
+      "depends_on": [
+        "O-27"
+      ],
+      "status": "verified",
+      "note": "Étapes, préconditions, interdits ; aucune étape n'approuve ni ne promeut."
+    },
+    {
+      "id": "O-29",
+      "title": "Gate S9 et capsule",
+      "outputs": [
+        "runs/onto/RESUME.md"
+      ],
+      "depends_on": [
+        "O-28"
+      ],
+      "status": "verified",
+      "note": "Suite locale et gate racine rejoués avant push."
     }
   ]
 }

@@ -215,6 +215,34 @@ def log_cadence(report: dict, log_path: Path) -> dict:
     return record
 
 
+def diff_referentials(old: dict, new: dict) -> dict:
+    """What changed between two referential versions. Any change to a probatory rule needs human review."""
+    old_types, new_types = _all_types(old), _all_types(new)
+    old_rules = {r["id"]: r for r in old["edge_rules"]}
+    new_rules = {r["id"]: r for r in new["edge_rules"]}
+    changed = sorted(rid for rid in old_rules.keys() & new_rules.keys() if old_rules[rid] != new_rules[rid])
+    old_triggers = {t["id"]: t for t in old["review_triggers"]}
+    new_triggers = {t["id"]: t for t in new["review_triggers"]}
+    triggers_changed = sorted(tid for tid in old_triggers.keys() & new_triggers.keys()
+                              if old_triggers[tid] != new_triggers[tid])
+    probatory_changed = sorted(rid for rid in changed if rid not in STRUCTURAL_RULES)
+    removed = sorted(old_types - new_types) + sorted(old_rules.keys() - new_rules.keys())
+    result = {
+        "types_added": sorted(new_types - old_types),
+        "types_removed": sorted(old_types - new_types),
+        "rules_added": sorted(new_rules.keys() - old_rules.keys()),
+        "rules_removed": sorted(old_rules.keys() - new_rules.keys()),
+        "rules_changed": changed,
+        "triggers_added": sorted(new_triggers.keys() - old_triggers.keys()),
+        "triggers_removed": sorted(old_triggers.keys() - new_triggers.keys()),
+        "triggers_changed": triggers_changed,
+        "breaking": bool(removed or probatory_changed),
+        "human_review_required": bool(probatory_changed or changed or triggers_changed),
+    }
+    result["unchanged"] = not any(result[k] for k in result if k not in ("breaking", "human_review_required", "unchanged"))
+    return result
+
+
 def rule_coverage(graphs, onto: dict | None = None) -> dict:
     """Valid edges per rule across graphs, read-only. A rule with zero is not exercised."""
     onto = onto or load()
@@ -241,6 +269,9 @@ def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("check", help="validate the referential")
+    dif = sub.add_parser("diff", help="compare two referential versions")
+    dif.add_argument("old", type=Path)
+    dif.add_argument("new", type=Path)
     lg = sub.add_parser("log-cadence", help="append a semantic-count measurement to a JSONL log")
     lg.add_argument("report", type=Path)
     lg.add_argument("--log", required=True, type=Path)
@@ -256,6 +287,13 @@ def main(argv=None) -> int:
     if args.command == "check":
         print(json.dumps({"ok": True, "ontology_id": onto["ontology_id"], "version": onto["version"],
                           "types": len(_all_types(onto)), "edge_rules": len(onto["edge_rules"])}, ensure_ascii=False))
+        return 0
+    if args.command == "diff":
+        old = json.loads(args.old.read_text(encoding="utf-8"))
+        new = json.loads(args.new.read_text(encoding="utf-8"))
+        for ref in (old, new):
+            validate_referential(ref)
+        print(json.dumps(diff_referentials(old, new), ensure_ascii=False, indent=2, sort_keys=True))
         return 0
     if args.command == "log-cadence":
         report = json.loads(args.report.read_text(encoding="utf-8"))

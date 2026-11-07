@@ -28,19 +28,21 @@ Date : 7 novembre 2026. Board : `runs/onto/board.json` (20 tickets, tous `verifi
 - Coordination avec Codex sur l'écriture de `dev` (R2-11 notamment).
 - HITL-258 : piliers, trame et side stories.
 
-## S8 réalisé (sans intervention humaine)
+## S8 et S9 réalisés (sans intervention humaine)
 
-- Générateur synthétique déterministe (`synth.py`), idempotence du reçu, schéma minimal du reçu (`schemas/reinforce-receipt.schema.json`), mesure d'échelle indicative (`runs/onto/scale.json`, jusqu'à 3 105 nœuds), frontière documentée avec run-loopback et challenge-a1.
-- Suite : 152 tests locaux. Board : 25 tickets, tous `verified`.
+- S8 : générateur synthétique déterministe (`synth.py`), idempotence du reçu, schéma minimal du reçu, mesure d'échelle indicative (jusqu'à 3 105 nœuds), frontière avec run-loopback et challenge-a1.
+- S9 : diff entre versions du référentiel (`ontology.py diff`), reçu agrégé sur lot (`reinforce.py --batch`), runbook du cycle humain (`docs/RUNBOOK-KB-REINFORCEMENT.md`).
+- Suite : 157 tests locaux. Board : 29 tickets, tous `verified`.
 
-## Proposition S9 — réalisable sans intervention
+## Ce qui reste hors portée sans décision humaine
 
-1. Brancher `reinforce.py` sur un ensemble de fixtures à plusieurs graphes et produire un rapport agrégé (sans seuil).
-2. Vérifier la stabilité du reçu entre deux versions du référentiel (diff de règles, pas de changement silencieux).
-3. Documenter le cycle complet (mesure, journal, revue humaine) dans un runbook, sans automatisation d'approbation.
+- Calibrer un seuil de cadence (corpus réel, décision D18).
+- Valider métier `answers` et `causes`.
+- Revue du delta racine (8 vers 12 relations) avant `main`.
+- Accès au corpus Graph1 pour appliquer l'ontologie à la KB réelle.
+- Coordination avec Codex sur l'écriture de `dev` (R2-11).
+- HITL-258 : piliers, trame et side stories.
 
-Ne pas faire sans décision : calibrer un seuil, approuver un candidat, fusionner un alias, toucher au catalogue racine pour `main`, installer une skill.
+## Prochaine action
 
-## Prochaine action immédiate
-
-Pousser S8, puis S9 sur les points 1 à 3.
+Aucune action sans décision ci-dessus. Le prochain sprint dépend d'une décision humaine ou de l'accès au corpus réel.

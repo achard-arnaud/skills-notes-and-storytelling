@@ -58,5 +58,17 @@ class ReinforceReceiptTests(unittest.TestCase):
             self.assertNotIn("approved", json.dumps(written).lower().replace("candidate_approval", ""))
 
 
+class BatchTests(unittest.TestCase):
+    def test_batch_counts_without_ranking_or_approval(self):
+        graphs = {p.name: load(p.name) for p in sorted(FIX.glob("graph-*.json"))}
+        agg = reinforce.reinforce_batch(graphs)
+        self.assertEqual(agg["graphs"], len(graphs))
+        # positive 0 + negative 3 + negative-structure 4 + relations-all 0
+        self.assertEqual(agg["violations_total"], 7)
+        self.assertIs(agg["candidate_approval"], False)
+        self.assertNotIn("best", json.dumps(agg).lower())
+        self.assertEqual(sum(agg["decisions"].values()), len(graphs))
+
+
 if __name__ == "__main__":
     unittest.main()

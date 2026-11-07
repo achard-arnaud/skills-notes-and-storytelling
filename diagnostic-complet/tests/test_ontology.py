@@ -240,6 +240,32 @@ class VocabularyAlignmentTests(unittest.TestCase):
         self.assertTrue(canonical <= loopback.EDGE_TYPES, f"missing: {sorted(canonical - loopback.EDGE_TYPES)}")
 
 
+class ReferentialDiffTests(unittest.TestCase):
+    def test_identical_versions_show_no_change(self):
+        self.assertTrue(ontology.diff_referentials(ONTO, copy.deepcopy(ONTO))["unchanged"])
+
+    def test_added_type_is_reported_without_breaking(self):
+        new = copy.deepcopy(ONTO)
+        new["classes"]["analysis"]["types"]["claim_candidate"] = {"definition": "x", "projection_type": "claim"}
+        d = ontology.diff_referentials(ONTO, new)
+        self.assertEqual(d["types_added"], ["analysis.claim_candidate"])
+        self.assertFalse(d["breaking"])
+
+    def test_probatory_rule_change_requires_human_review(self):
+        new = copy.deepcopy(ONTO)
+        rule = next(r for r in new["edge_rules"] if r["id"] == "supports")
+        rule["range"] = ["assertion.fact"]
+        d = ontology.diff_referentials(ONTO, new)
+        self.assertEqual(d["rules_changed"], ["supports"])
+        self.assertTrue(d["breaking"])
+        self.assertTrue(d["human_review_required"])
+
+    def test_removed_rule_is_breaking(self):
+        new = copy.deepcopy(ONTO)
+        new["edge_rules"] = [r for r in new["edge_rules"] if r["id"] != "enables"]
+        self.assertIn("enables", ontology.diff_referentials(ONTO, new)["rules_removed"])
+
+
 class ContractConsistencyTests(unittest.TestCase):
     ROOT = Path(__file__).resolve().parents[1]
 
