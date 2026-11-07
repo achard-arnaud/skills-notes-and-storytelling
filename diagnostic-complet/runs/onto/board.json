@@ -1,5 +1,5 @@
 {
-  "id": "onto-s6-20261107",
+  "id": "onto-s6-s7-20261107",
   "version": 1,
   "base_sha": "74a6354a4aeb128ade6db951073eeb825efca0a6",
   "rules": [
@@ -181,8 +181,85 @@
         "O-12",
         "O-13"
       ],
-      "status": "planned",
-      "note": "En attente du gate final et du push."
+      "status": "verified",
+      "note": "Capsule et gate S6/S7 ; voir RESUME.md."
+    },
+    {
+      "id": "O-15",
+      "title": "Négatifs structuraux : titre sur HIL, titre sur entité, instruction en fait, classification sans statut, kind inconnu, relation hors catalogue",
+      "outputs": [
+        "fixtures/onto/graph-negative-structure.json"
+      ],
+      "depends_on": [
+        "O-09"
+      ],
+      "status": "verified",
+      "note": "4 violations, 1 hors ontologie, 3 non classés ; attendu écrit dans expected.json."
+    },
+    {
+      "id": "O-16",
+      "title": "Couverture des 16 règles par arêtes valides",
+      "outputs": [
+        "fixtures/onto/graph-relations-all.json",
+        "runs/onto/rule-coverage.json"
+      ],
+      "depends_on": [
+        "O-15"
+      ],
+      "status": "verified",
+      "note": "16/16 exercées ; test RuleCoverageTests."
+    },
+    {
+      "id": "O-17",
+      "title": "Correction : vocabulaire loopback dérivé de l'ontologie (D17)",
+      "outputs": [
+        "loopback.py",
+        "tests/test_ontology.py"
+      ],
+      "depends_on": [
+        "O-16"
+      ],
+      "status": "verified",
+      "note": "Défaut trouvé : 9 relations canoniques absentes de la liste codée ; faux type_review corrigé ; test d'alignement."
+    },
+    {
+      "id": "O-18",
+      "title": "Reçu unique reinforce.py (loopback + ontologie, sans mutation)",
+      "outputs": [
+        "reinforce.py",
+        "tests/test_reinforce.py",
+        "runs/onto/reinforce"
+      ],
+      "depends_on": [
+        "O-17"
+      ],
+      "status": "verified",
+      "note": "7 tests ; quatre reçus de fixtures ; ≤3 actions ; approbation toujours false."
+    },
+    {
+      "id": "O-19",
+      "title": "Protocole de calibration et journal de cadence (D18)",
+      "outputs": [
+        "docs/CADENCE-CALIBRATION-PROTOCOL.md",
+        "tests/test_ontology.py"
+      ],
+      "depends_on": [
+        "O-18"
+      ],
+      "status": "verified",
+      "note": "Seuil accepté seulement avec human_approved et decision_ref ; journal sans seuil ; aucun corpus réel mesuré."
+    },
+    {
+      "id": "O-20",
+      "title": "Gate S7 et artefacts",
+      "outputs": [
+        "runs/onto/receipts"
+      ],
+      "depends_on": [
+        "O-19"
+      ],
+      "status": "verified",
+      "note": "Gate racine, pédagogique navigateur et 145 tests locaux ; push FF [skip ci]."
     }
   ]
 }

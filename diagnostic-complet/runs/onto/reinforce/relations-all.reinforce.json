@@ -1,0 +1,51 @@
+{
+  "actions": [],
+  "automatic_mutations": false,
+  "automatic_promotion": false,
+  "candidate_approval": false,
+  "contract": "diagnostic-complet/docs/REINFORCE-KB-SKILL-CONTRACT.md",
+  "decision": "no_change",
+  "deferred_actions": 0,
+  "findings": {
+    "alias_candidates": 0,
+    "out_of_ontology": 0,
+    "unclassified": 0,
+    "violations": 0
+  },
+  "graph_sha256": "5f3f4d0dee54d64b6c82911195ef9407ae89c6651a6ecd45f3dc2587a263cfb7",
+  "limits": [
+    "Le référentiel nomme le vocabulaire ; il ne prouve ni la véracité d'une assertion ni la pertinence d'un lien.",
+    "La densité sémantique n'est pas un score de qualité.",
+    "Les déclencheurs de revue sont des signaux. Un seuil sans calibration n'est pas une cible.",
+    "Les candidats d'alias ne sont jamais appliqués ; la décision est humaine.",
+    "Le libellé des nœuds est tronqué à 180 caractères par kb.py ; deux textes différents peuvent partager un préfixe."
+  ],
+  "measurements": {
+    "class_counts": {
+      "analysis.entity": 1,
+      "analysis.hil": 1,
+      "analysis.pillar": 1,
+      "assertion.fact": 2,
+      "assertion.question": 1,
+      "evidence.source": 1
+    },
+    "directed_density": 0.16666666666666666,
+    "semantic_density": {
+      "denominator": 12,
+      "is_quality_score": false,
+      "numerator": 3,
+      "value": 0.25
+    },
+    "semantic_nodes": 4
+  },
+  "ontology": {
+    "id": "business-kb-ontology",
+    "status": "proposed",
+    "version": "0.1.0"
+  },
+  "tool": "reinforce.py",
+  "triggers_fired": [],
+  "triggers_measured_only": [
+    "cadence_semantic"
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "actions": [
+    {
+      "hypothesis": {
+        "status": "unverified",
+        "text": "New material may change an analytical axis or expose an unrepresented angle; no threshold establishes this."
+      },
+      "kind": "pillar_review",
+      "observation": {
+        "recent_nodes": {
+          "count": 1,
+          "items": [
+            "D2"
+          ],
+          "truncated": false
+        },
+        "touched_pillars": [],
+        "uncategorized": {
+          "count": 1,
+          "items": [
+            "D2"
+          ],
+          "truncated": false
+        }
+      },
+      "proposal": "Review relevance against the mandate and source excerpts; retain, reassign or propose a candidate pillar/alias with reason. Industry/corporate and data/AI distinctions remain explicit.",
+      "status": "candidate_not_applied",
+      "test": "Compare the new source with current pillar scope and a counterexample; record human retain/change/defer decision without auto-promotion."
+    },
+    {
+      "hypothesis": {
+        "status": "unverified",
+        "text": "The projection may need a domain type or may contain a typing error; frequency does not decide."
+      },
+      "kind": "type_review",
+      "observation": "See type counts, unknown types and endpoint mismatches.",
+      "proposal": "Compare the affected records and new material with node/edge semantics; propose one versioned type change only if useful to a concrete query.",
+      "status": "candidate_not_applied",
+      "test": "Test compatible endpoints, an incompatible relation and source/fragment/claim versus atom/source/pillar projections."
+    },
+    {
+      "hypothesis": {
+        "status": "unverified",
+        "text": "The edge may be mistyped or the rule may be incomplete; the graph is not repaired automatically."
+      },
+      "kind": "ontology_violation",
+      "observation": {
+        "count": 4,
+        "sample": [
+          {
+            "id": "Z2",
+            "reason": "addresses_pillar: structure.heading -> analysis.hil",
+            "status": "domain_range"
+          },
+          {
+            "id": "Z3",
+            "reason": "explicit_mention: structure.heading -> analysis.entity",
+            "status": "domain_range"
+          },
+          {
+            "id": "Z4",
+            "reason": "supports: instruction.directive -> assertion.fact",
+            "status": "domain_range"
+          },
+          {
+            "id": "Z6",
+            "reason": "candidate_classification",
+            "status": "status_missing"
+          }
+        ]
+      },
+      "proposal": "Propose one typing or rule correction with a fixture; never relabel silently.",
+      "status": "candidate_not_applied",
+      "test": "Test the violating edge against the referential, then a compatible positive case and an evidence-missing negative case."
+    }
+  ],
+  "automatic_mutations": false,
+  "automatic_promotion": false,
+  "candidate_approval": false,
+  "contract": "diagnostic-complet/docs/REINFORCE-KB-SKILL-CONTRACT.md",
+  "decision": "review_required",
+  "deferred_actions": 1,
+  "findings": {
+    "alias_candidates": 0,
+    "out_of_ontology": 1,
+    "unclassified": 3,
+    "violations": 4
+  },
+  "graph_sha256": "93cd7ecc3cd0b83a17c0e59e051b0305d652f624e2f3ad96638fb8de9ed52478",
+  "limits": [
+    "Le référentiel nomme le vocabulaire ; il ne prouve ni la véracité d'une assertion ni la pertinence d'un lien.",
+    "La densité sémantique n'est pas un score de qualité.",
+    "Les déclencheurs de revue sont des signaux. Un seuil sans calibration n'est pas une cible.",
+    "Les candidats d'alias ne sont jamais appliqués ; la décision est humaine.",
+    "Le libellé des nœuds est tronqué à 180 caractères par kb.py ; deux textes différents peuvent partager un préfixe."
+  ],
+  "measurements": {
+    "class_counts": {
+      "analysis.entity": 1,
+      "analysis.hil": 1,
+      "analysis.pillar": 1,
+      "assertion.fact": 2,
+      "evidence.source": 1,
+      "instruction.directive": 1,
+      "structure.heading": 1,
+      "unclassified": 3
+    },
+    "directed_density": 0.06363636363636363,
+    "semantic_density": {
+      "denominator": 6,
+      "is_quality_score": false,
+      "numerator": 1,
+      "value": 0.16666666666666666
+    },
+    "semantic_nodes": 3
+  },
+  "ontology": {
+    "id": "business-kb-ontology",
+    "status": "proposed",
+    "version": "0.1.0"
+  },
+  "tool": "reinforce.py",
+  "triggers_fired": [
+    "directive_in_material"
+  ],
+  "triggers_measured_only": [
+    "cadence_semantic"
+  ]
+}

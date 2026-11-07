@@ -1,57 +1,42 @@
-# Reprise — sprint ONTO-S6 (renforcement KB par ontologie)
+# Reprise — sprints ONTO-S6 et ONTO-S7 (renforcement KB par ontologie)
 
-Date : 7 novembre 2026. Base de passation : `dev` `b86fd10`. Board : `runs/onto/board.json`. Mode : fast-forward sur `dev`, `[skip ci]`, sans PR, sans dispatch, sans modification de `runs/r2/board.json` ni de `runs/bootstrap/`.
+Date : 7 novembre 2026. Board : `runs/onto/board.json` (20 tickets, tous `verified`). Mode : fast-forward sur `dev`, `[skip ci]`, sans PR, sans dispatch, sans modification de `runs/r2/board.json` ni de `runs/bootstrap/`, aucune promotion `main`.
 
-## Ce qui est livré et vérifié mécaniquement
+## Livré et vérifié mécaniquement
 
-- Référentiel `ontology/ontology-v1.json` (v0.1.0, statut proposé) : 5 classes, 10 types, 16 règles d'arêtes, densité sémantique, déclencheurs sans cible, politique d'alias en lecture seule.
-- Validateur `ontology.py check` : refuse un référentiel incohérent (type inconnu, relations canoniques décalées, seuil sans calibration, alias applicable).
-- Classification et contrôle des arêtes, non-mutation, candidats d'alias sans approbation.
-- Intégration additive dans `loopback.py` : section `ontology`, métriques et décision historiques inchangées.
-- Fixtures synthétiques positive et négative, avec `expected.json`.
-- Contrat de skill `docs/REINFORCE-KB-SKILL-CONTRACT.md` (sans SKILL.md versionné).
-- Décision d'architecture `docs/ONTOLOGY.md` (D13 à D16).
-- Suite : 131 tests passent. Gate racine et renderer pédagogique rejoués localement.
+- Référentiel `ontology/ontology-v1.json` v0.1.0 (proposé) : 5 classes, 10 types, 16 règles d'arêtes, densité sémantique, déclencheurs sans cible, politique d'alias en lecture seule, chemin de calibration humain.
+- `ontology.py` : validateur, classification, contrôle domaine/codomaine et preuve, couverture des règles, journal de cadence sans seuil.
+- `loopback.py` : section `ontology` additive ; **vocabulaire d'arêtes dérivé du référentiel** (correction d'un défaut trouvé en S7 : 9 relations canoniques absentes de la liste codée, faux `type_review`).
+- `reinforce.py` : reçu unique, loopback + ontologie, au plus trois actions, `automatic_mutations`, `automatic_promotion` et `candidate_approval` toujours à false.
+- Fixtures : positive, négative, négative-structure, relations-all ; `expected.json` ; couverture 16/16.
+- Décisions D13 à D18 (`docs/ONTOLOGY.md`) ; contrat de skill (`docs/REINFORCE-KB-SKILL-CONTRACT.md`) ; protocole de calibration (`docs/CADENCE-CALIBRATION-PROTOCOL.md`).
+- Suite : 145 tests locaux ; gate racine et renderer pédagogique rejoués.
 
-## Chiffres mesurés (fixture synthétique, pas la KB réelle)
+## Chiffres (fixtures synthétiques, aucune mesure de la KB réelle)
 
-- 18 nœuds, 18 arêtes ; densité historique 0,059 (inchangée).
-- Sémantique : 11 nœuds ; 4 titres sortis de la densité sémantique (classe `structure.heading`).
-- Violations sur le graphe propre : 0. Déclencheurs : aucun.
-- Négatif : 3 violations, 1 non classé, 1 candidat d'alias, déclencheur `directive_in_material`.
+- Baseline synthétique : densité historique inchangée (0,059) ; densité sémantique 0 (aucune arête entre nœuds sémantiques).
+- Titres : 4 classés `structure.heading`, hors densité sémantique.
+- Négatif-structure : 4 violations, 1 hors ontologie, 3 non classés, déclencheur `directive_in_material`.
+- Relations-all : 0 violation ; décision `no_change` (après correction D17).
 
-## Ce qui n'est pas fait, et pourquoi
+## Ce qui reste bloqué, décision humaine requise
 
-- Aucune calibration de cadence : elle exige le corpus réel (D16). Décision humaine.
-- Relecture métier des règles `answers` et `causes` : décision humaine.
-- Application de l'ontologie à la KB réelle (Graph1) : dépôt privé hors scope GitHub de cette session.
-- Revue sémantique du delta du catalogue racine (`contracts/relation-types.json`, 8 vers 12) avant toute promotion `main` : décision humaine.
-- HITL-258 (piliers, trame, side stories) : toujours ouvert.
+- Calibration de la cadence HIL : aucun seuil. Corpus réel requis, puis décision consignée (D18).
+- Validation métier des règles `answers` et `causes` (preuve explicite obligatoire).
+- Revue sémantique du delta du catalogue racine (8 vers 12 relations) avant toute promotion `main`.
+- Accès au corpus privé Graph1 pour appliquer l'ontologie à la KB réelle.
+- Coordination avec Codex sur l'écriture de `dev` (R2-11 notamment).
+- HITL-258 : piliers, trame et side stories.
 
-## Interdits maintenus
+## Proposition S8 — réalisable sans intervention
 
-- Pas de promotion vers `main`. Pas de PR. Pas de `workflow_dispatch`.
-- Pas de seuil fixé comme cible. Pas d'approbation de candidat. Pas de fusion d'identifiant.
-- Pas de contenu privé dans le dépôt public.
+1. Appliquer `reinforce.py` à un graphe **synthétique plus grand** (génération déterministe), pour mesurer le temps et la stabilité du reçu, sans conclusion sur la KB réelle.
+2. Ajouter un contrôle d'idempotence : deux exécutions identiques donnent un reçu identique (hors horodatage absent).
+3. Documenter la frontière reinforce / challenge-a1 (diagnostic sans mutation) dans le contrat.
+4. Préparer le schéma de reçu en JSON Schema, validé par un test.
 
-## Proposition S7 — ce qu'une passe sans humain peut faire
-
-Faisable sans intervention, en local et en fast-forward :
-
-1. Étendre les négatifs : titre classé en HIL, entité dans une structure, relation hors catalogue, kind inconnu en masse.
-2. Ajouter une commande `reinforce` qui assemble loopback + ontologie en un seul reçu, sans mutation.
-3. Dresser le tableau de couverture des règles (quelles règles sont exercées par une fixture) et l'exposer en test.
-4. Préparer le protocole de calibration de la cadence (script de mesure, sans seuil), à lancer sur le corpus réel quand il sera accessible.
-5. Mettre à jour le board R2 par des reçus, sans toucher au fichier de l'autre passe.
-
-Bloqué, décision humaine requise :
-
-- Calibration de la cadence HIL (corpus réel).
-- Validation métier de `answers` et `causes`.
-- Accès au dépôt Graph1 et au namespace business.
-- Coordination avec Codex sur l'écriture de `dev` pendant R2-11.
-- Revue du delta racine avant `main`.
+Ne pas faire sans décision : calibrer un seuil, approuver un candidat, fusionner un alias, toucher au catalogue racine pour `main`.
 
 ## Prochaine action immédiate
 
-Pousser le gate final et cette capsule, puis lancer S7 sur les points 1 à 3 (les seuls qui n'exigent aucune décision).
+Pousser le board et cette capsule (S7 clôturé), puis lancer S8 sur les points 1 à 4.
