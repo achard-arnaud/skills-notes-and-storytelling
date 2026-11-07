@@ -1,0 +1,19 @@
+{
+  "task_id": "H-07",
+  "issue": null,
+  "result": "verified",
+  "artifact_checks": [],
+  "acceptance_review": [
+    "Règles datées dans le diagnostic ; aucune PR, aucun dispatch, aucun workflow modifié."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review + local_gate",
+  "limits": [
+    "Contrôles mécaniques et coordinateur ne valent pas approbation éditoriale humaine.",
+    "Un PASS local n'est pas un PASS CI."
+  ],
+  "ci": "intentionally_not_run",
+  "test_evidence": [
+    "diagnostic-complet/docs/LOCAL-GATE.md"
+  ]
+}

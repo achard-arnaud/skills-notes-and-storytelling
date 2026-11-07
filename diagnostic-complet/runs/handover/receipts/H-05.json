@@ -1,0 +1,24 @@
+{
+  "task_id": "H-05",
+  "issue": null,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "diagnostic-complet/runs/handover/CONTRACT-AUDIT.md",
+      "sha256": "c5e5749cc1691c90e6fb83eb907828de3b5bb4087728a9a2644c0485d013790a"
+    }
+  ],
+  "acceptance_review": [
+    "Delta additif confirmé, consommateurs listés, revue sémantique humaine laissée ouverte."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review + local_gate",
+  "limits": [
+    "Contrôles mécaniques et coordinateur ne valent pas approbation éditoriale humaine.",
+    "Un PASS local n'est pas un PASS CI."
+  ],
+  "ci": "intentionally_not_run",
+  "test_evidence": [
+    "diagnostic-complet/docs/LOCAL-GATE.md"
+  ]
+}

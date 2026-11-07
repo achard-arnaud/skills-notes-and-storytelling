@@ -1,0 +1,143 @@
+{
+  "id": "handover-h-20261107",
+  "version": 1,
+  "base_sha": "74a6354a4aeb128ade6db951073eeb825efca0a6",
+  "dev_head_before": "d29882bcb39ae43b76da41eb10012a21c5c6d061",
+  "rules": [
+    "micro-ticket = artefact + contrôle + reçu + commit",
+    "[skip ci] sur chaque commit",
+    "fast-forward uniquement sur dev, sans force, sans PR ni dispatch",
+    "aucune modification de runs/r2/board.json ni de runs/bootstrap/ (passe Codex / historique)"
+  ],
+  "tickets": [
+    {
+      "id": "H-01",
+      "sprint": "H1",
+      "title": "Diagnostiquer la stratégie bootstrap",
+      "outputs": [
+        "docs/HANDOVER-DIAGNOSTIC.md"
+      ],
+      "depends_on": [],
+      "status": "verified",
+      "ci": "intentionally_not_run",
+      "acceptance": "Forces, écarts et stratégie adaptée sourcés par fichier, commit ou test."
+    },
+    {
+      "id": "H-02",
+      "sprint": "H1",
+      "title": "Réconcilier le board R2 avec le code livré",
+      "outputs": [
+        "runs/handover/R2-RECONCILIATION.md"
+      ],
+      "depends_on": [
+        "H-01"
+      ],
+      "status": "verified",
+      "ci": "intentionally_not_run",
+      "acceptance": "Chaque ticket R2 a un statut proposé et une preuve ; runs/r2/board.json non modifié (passe Codex)."
+    },
+    {
+      "id": "H-03",
+      "sprint": "H1",
+      "title": "Reproduire localement le gate CI désactivé",
+      "outputs": [
+        "docs/LOCAL-GATE.md"
+      ],
+      "depends_on": [
+        "H-01"
+      ],
+      "status": "verified",
+      "ci": "intentionally_not_run",
+      "acceptance": "Validateur racine, tests pédagogiques navigateur et rendu landscape exécutés avec code retour 0."
+    },
+    {
+      "id": "H-04",
+      "sprint": "H2",
+      "title": "Contrôler la fraîcheur des reçus bootstrap",
+      "outputs": [
+        "runs/handover/freshness.json"
+      ],
+      "depends_on": [
+        "H-01"
+      ],
+      "status": "verified",
+      "ci": "intentionally_not_run",
+      "acceptance": "71 empreintes concordent ; l'écart DC-002 est expliqué et non réécrit."
+    },
+    {
+      "id": "H-05",
+      "sprint": "H2",
+      "title": "Auditer le changement de contrat racine",
+      "outputs": [
+        "runs/handover/CONTRACT-AUDIT.md"
+      ],
+      "depends_on": [
+        "H-03"
+      ],
+      "status": "verified",
+      "ci": "intentionally_not_run",
+      "acceptance": "Delta additif confirmé, consommateurs listés, revue sémantique humaine laissée ouverte."
+    },
+    {
+      "id": "H-06",
+      "sprint": "H2",
+      "title": "QA visuelle du HTML synthétique",
+      "outputs": [
+        "runs/handover/qa/study-desktop.png"
+      ],
+      "depends_on": [
+        "H-03"
+      ],
+      "status": "verified",
+      "ci": "intentionally_not_run",
+      "acceptance": "0 erreur JS, 0 débordement à 390 et 1280 px, 0 ressource externe ; fixture synthétique seulement."
+    },
+    {
+      "id": "H-07",
+      "sprint": "H3",
+      "title": "Publier le protocole fast-forward sans CI",
+      "outputs": [
+        "docs/HANDOVER-DIAGNOSTIC.md#3"
+      ],
+      "depends_on": [
+        "H-01",
+        "H-03"
+      ],
+      "status": "verified",
+      "ci": "intentionally_not_run",
+      "acceptance": "Règles datées dans le diagnostic ; aucune PR, aucun dispatch, aucun workflow modifié."
+    },
+    {
+      "id": "H-08",
+      "sprint": "H3",
+      "title": "Capsule de reprise de la passe H",
+      "outputs": [
+        "runs/handover/RESUME.md"
+      ],
+      "depends_on": [
+        "H-02",
+        "H-04",
+        "H-05",
+        "H-06",
+        "H-07"
+      ],
+      "status": "verified",
+      "ci": "intentionally_not_run",
+      "acceptance": "Reprise possible depuis la capsule seule ; interdits et gates humains explicites."
+    },
+    {
+      "id": "H-09",
+      "sprint": "H3",
+      "title": "Vérifier l'intégration distante et l'absence de run",
+      "outputs": [
+        "runs/handover/receipts/H-09.json"
+      ],
+      "depends_on": [
+        "H-08"
+      ],
+      "status": "planned",
+      "ci": "to_verify_after_push",
+      "acceptance": "origin/dev au SHA attendu ; aucun run Actions pour ce head_sha."
+    }
+  ]
+}

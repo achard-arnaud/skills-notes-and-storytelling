@@ -1,0 +1,24 @@
+{
+  "task_id": "H-08",
+  "issue": null,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "diagnostic-complet/runs/handover/RESUME.md",
+      "sha256": "ede764b63ef3cb5ccb282706f76a1afe8ab3a6c35db61e1f49a15e3a41495761"
+    }
+  ],
+  "acceptance_review": [
+    "Reprise possible depuis la capsule seule ; interdits et gates humains explicites."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review + local_gate",
+  "limits": [
+    "Contrôles mécaniques et coordinateur ne valent pas approbation éditoriale humaine.",
+    "Un PASS local n'est pas un PASS CI."
+  ],
+  "ci": "intentionally_not_run",
+  "test_evidence": [
+    "diagnostic-complet/docs/LOCAL-GATE.md"
+  ]
+}

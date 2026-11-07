@@ -1,0 +1,24 @@
+{
+  "task_id": "H-02",
+  "issue": null,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "diagnostic-complet/runs/handover/R2-RECONCILIATION.md",
+      "sha256": "ca7a8b7d5b40613bd862f6d632ce435fc4fc42938c88dbf94d89210ddaed419c"
+    }
+  ],
+  "acceptance_review": [
+    "Chaque ticket R2 a un statut proposé et une preuve ; runs/r2/board.json non modifié (passe Codex)."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review + local_gate",
+  "limits": [
+    "Contrôles mécaniques et coordinateur ne valent pas approbation éditoriale humaine.",
+    "Un PASS local n'est pas un PASS CI."
+  ],
+  "ci": "intentionally_not_run",
+  "test_evidence": [
+    "diagnostic-complet/docs/LOCAL-GATE.md"
+  ]
+}

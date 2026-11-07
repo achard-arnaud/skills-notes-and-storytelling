@@ -1,0 +1,24 @@
+{
+  "task_id": "H-06",
+  "issue": null,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "diagnostic-complet/runs/handover/qa/study-desktop.png",
+      "sha256": "a7808b00480981f9583b8b7a5b7d547ea9c3a63d88cd975fee81456bdbc1cd42"
+    }
+  ],
+  "acceptance_review": [
+    "0 erreur JS, 0 débordement à 390 et 1280 px, 0 ressource externe ; fixture synthétique seulement."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review + local_gate",
+  "limits": [
+    "Contrôles mécaniques et coordinateur ne valent pas approbation éditoriale humaine.",
+    "Un PASS local n'est pas un PASS CI."
+  ],
+  "ci": "intentionally_not_run",
+  "test_evidence": [
+    "diagnostic-complet/docs/LOCAL-GATE.md"
+  ]
+}
