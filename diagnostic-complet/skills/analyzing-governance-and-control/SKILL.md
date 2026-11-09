@@ -27,11 +27,11 @@ Un avantage d'indépendance ou d'orchestration est `hypothesis` à valider. Un r
 
 Lire `../side-stories-business/SKILL.md`, puis le fichier du type retenu. Types recommandés pour ce pilier :
 
-| Type | Quand | Référence |
+| Type affiché | Quand | Référence |
 |---|---|---|
-| `[DZ]` `dezoom` | Passer de la dépendance technique (interface, droits sur les données) à la dépendance contractuelle et stratégique. | `../side-stories-business/references/types/dezoom.md` |
-| `[VAC]` `veille_academique` | Définir contrôle humain, réversibilité, supervision et conformité avec source et contre-point. | `../side-stories-business/references/types/veille_academique.md` |
-| `[ILL]` `illustration` | Montrer un cas de décision partagée entre groupe, pays et site, ou une citation de dirigeant sur la responsabilité. | `../side-stories-business/references/types/illustration.md` |
+| Changement d'échelle (`dezoom`) | Passer de la dépendance technique (interface, droits sur les données) à la dépendance contractuelle et stratégique. | `../side-stories-business/references/types/dezoom.md` |
+| Veille académique (`veille_academique`) | Définir contrôle humain, réversibilité, supervision et conformité avec source et contre-point. | `../side-stories-business/references/types/veille_academique.md` |
+| Exemple concret (`illustration`) | Montrer un cas de décision partagée entre groupe, pays et site, ou une citation de dirigeant sur la responsabilité. | `../side-stories-business/references/types/illustration.md` |
 
 ### Problématiques types à fournir au rédacteur
 

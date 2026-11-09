@@ -1,6 +1,6 @@
-# `[ILL]` Illustration
+# Exemple concret
 
-Tag `ILL`, couleur violette. Source de vérité : `workflows/side-stories.workflow.json`, type `illustration`. Regroupe `portrait`, `detour`, `also` et `object_focus`, dont les rôles se recouvraient.
+Libellé affiché : **Exemple concret** (code interne `ILL`, jamais montré au lecteur) ; couleur violette. Source de vérité : `workflows/side-stories.workflow.json`, type `illustration`. Regroupe `portrait`, `detour`, `also` et `object_focus`, dont les rôles se recouvraient.
 
 ## Rôle
 

@@ -27,11 +27,11 @@ Un dispositif d'accompagnement décrit est `attributed_claim` ; son efficacité 
 
 Lire `../side-stories-business/SKILL.md`, puis le fichier du type retenu. Types recommandés pour ce pilier :
 
-| Type | Quand | Référence |
+| Type affiché | Quand | Référence |
 |---|---|---|
-| `[ILL]` `illustration` | Montrer un cas où un irritant terrain devient une capacité réutilisable, ou un dispositif d'accompagnement. | `../side-stories-business/references/types/illustration.md` |
-| `[VAC]` `veille_academique` | Définir les notions de conduite du changement et de pratique durable (cadre d'augmentation des processus, par exemple) avec source. | `../side-stories-business/references/types/veille_academique.md` |
-| `[CMP]` `comparator` | Comparer deux dispositifs d'adoption (communauté, centre d'expertise, produit) sur un critère commun. | `../side-stories-business/references/types/comparator.md` |
+| Exemple concret (`illustration`) | Montrer un cas où un irritant terrain devient une capacité réutilisable, ou un dispositif d'accompagnement. | `../side-stories-business/references/types/illustration.md` |
+| Veille académique (`veille_academique`) | Définir les notions de conduite du changement et de pratique durable (cadre d'augmentation des processus, par exemple) avec source. | `../side-stories-business/references/types/veille_academique.md` |
+| Comparatif (`comparator`) | Comparer deux dispositifs d'adoption (communauté, centre d'expertise, produit) sur un critère commun. | `../side-stories-business/references/types/comparator.md` |
 
 ### Problématiques types à fournir au rédacteur
 

@@ -27,10 +27,10 @@ Les définitions d'un référentiel fourni sont `supplied_claim`. Un volume de d
 
 Lire `../side-stories-business/SKILL.md`, puis le fichier du type retenu. Types recommandés pour ce pilier :
 
-| Type | Quand | Référence |
+| Type affiché | Quand | Référence |
 |---|---|---|
-| `[VAC]` `veille_academique` | Définir 5 à 7 notions (qualité de données, référentiel, baseline, interopérabilité, ownership) avec sources. | `../side-stories-business/references/types/veille_academique.md` |
-| `[FOC]` `analytical_focus` | Expliquer pourquoi une mesure n'est pas décisionnelle (baseline, temporalité, accès) et ce qui la rendrait fiable. | `../side-stories-business/references/types/analytical_focus.md` |
+| Veille académique (`veille_academique`) | Définir 5 à 7 notions (qualité de données, référentiel, baseline, interopérabilité, ownership) avec sources. | `../side-stories-business/references/types/veille_academique.md` |
+| Analyse approfondie (`analytical_focus`) | Expliquer pourquoi une mesure n'est pas décisionnelle (baseline, temporalité, accès) et ce qui la rendrait fiable. | `../side-stories-business/references/types/analytical_focus.md` |
 
 ### Problématiques types à fournir au rédacteur
 

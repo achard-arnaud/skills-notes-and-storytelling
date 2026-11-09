@@ -1,0 +1,203 @@
+{
+  "id": "SYN-EX-veille_academique",
+  "title": "Lexique des postures d'adoption (fictif)",
+  "synthetic": true,
+  "mandate": {
+    "question": "Faut-il financer un pilote de supervision pour AcmeÉnergie, opérateur fictif ?",
+    "scope": "Cas entièrement fictif, sans lien avec un corpus réel",
+    "audience": "Direction des opérations (fictive)"
+  },
+  "pillars": [
+    {
+      "id": "P-INDUSTRY",
+      "title": "Chaîne de valeur industrielle",
+      "scope": "Exploitation et maintenance"
+    },
+    {
+      "id": "P-AI",
+      "title": "Capacités d'intelligence artificielle",
+      "scope": "Capacités utiles à la décision"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "kind": "supplied_context",
+      "access": "read",
+      "title": "Dossier fictif AcmeÉnergie",
+      "locator": "synthetic:fixture"
+    }
+  ],
+  "fragments": [
+    {
+      "id": "F1",
+      "source_id": "S1",
+      "locator": "synthetic:fixture#1",
+      "text": "Un écart de production est observé sur un site fictif."
+    }
+  ],
+  "claims": [
+    {
+      "id": "C1",
+      "text": "Un écart de production exige une qualification avant intervention.",
+      "status": "supplied_claim",
+      "fragment_ids": [
+        "F1"
+      ],
+      "pillar_ids": [
+        "P-INDUSTRY"
+      ]
+    }
+  ],
+  "relations": [],
+  "sections": [
+    {
+      "id": "SEC1",
+      "title": "De l'alerte à la décision",
+      "claim_ids": [
+        "C1"
+      ],
+      "pillar_ids": [
+        "P-INDUSTRY"
+      ],
+      "paragraphs": [
+        {
+          "id": "PAR1",
+          "text": "Une alerte n'est exploitable qu'une fois qualifiée.",
+          "claim_ids": [
+            "C1"
+          ],
+          "pillar_ids": [
+            "P-INDUSTRY"
+          ],
+          "review": {
+            "evidence": false,
+            "editorial": false
+          }
+        }
+      ]
+    }
+  ],
+  "side_stories": [
+    {
+      "id": "SS1",
+      "kind": "veille_academique",
+      "title": "Lexique des postures d'adoption (fictif)",
+      "claim_ids": [
+        "C1"
+      ],
+      "pillar_ids": [
+        "P-INDUSTRY"
+      ],
+      "parent_section_id": "SEC1",
+      "return_to": "PAR1",
+      "state": "candidate",
+      "problematique": "Quelle posture convient à quel stade, et laquelle ne tient pas seule ?",
+      "bridge": {
+        "in": "Le tronc propose un portefeuille d'usages.",
+        "out": "On revient à la trajectoire : l'ordre des postures n'est pas obligatoire."
+      },
+      "reason_outside": "Les notions sont à installer avant le raisonnement du tronc.",
+      "payoff": "Disposer d'un vocabulaire commun pour arbitrer.",
+      "payload": {
+        "items": [
+          {
+            "term": "Posture opportuniste",
+            "definition": {
+              "text": "Utiliser les outils disponibles sur des tâches à gain vérifiable.",
+              "source": {
+                "author": "Exemple fictif",
+                "year": "2026",
+                "venue_or_url": "synthetic:fixture"
+              },
+              "evidence_level": "supplied"
+            },
+            "example": "Un assistant de rédaction pour les comptes rendus.",
+            "in_practice": "Dans SEC1, elle sert à ouvrir des preuves courtes sur l'alerte.",
+            "contrast": "Elle produit des applications isolées, peu réutilisables.",
+            "perspective": {
+              "mode": "synthesis",
+              "content": "Rapide et peu risquée ; insuffisante seule."
+            }
+          },
+          {
+            "term": "Centre d'expertise",
+            "definition": {
+              "text": "Équipe centrale qui fournit règles et plateformes communes.",
+              "source": {
+                "author": "Exemple fictif",
+                "year": "2026",
+                "venue_or_url": "synthetic:fixture"
+              },
+              "evidence_level": "supplied"
+            },
+            "example": "Une équipe qui publie des modèles de données partagés.",
+            "in_practice": "Dans SEC1, elle définit la qualification commune des alertes.",
+            "contrast": "Elle peut créer des files d'attente et des prototypes sans adoption locale.",
+            "perspective": {
+              "mode": "synthesis",
+              "content": "Utile pour réutiliser ; à équilibrer avec la propriété métier."
+            }
+          },
+          {
+            "term": "Posture produit",
+            "definition": {
+              "text": "Intégrer l'intelligence dans l'offre ou le service rendu au client.",
+              "source": {
+                "author": "Exemple fictif",
+                "year": "2026",
+                "venue_or_url": "synthetic:fixture"
+              },
+              "evidence_level": "supplied"
+            },
+            "example": "Une alerte qualifiée incluse dans l'abonnement.",
+            "in_practice": "Dans SEC1, elle relie la qualification à l'offre.",
+            "contrast": "Elle ajoute une fonction sans prouver la valeur contractuelle.",
+            "perspective": {
+              "mode": "table",
+              "content": "| Atout | Risque |\n|---|---|\n| Différenciation | Valeur non démontrée |"
+            }
+          },
+          {
+            "term": "Pari de rupture",
+            "definition": {
+              "text": "Investissement fortement transformant, porté par une thèse explicite.",
+              "source": {
+                "author": "Exemple fictif",
+                "year": "2026",
+                "venue_or_url": "synthetic:fixture"
+              },
+              "evidence_level": "supplied"
+            },
+            "example": "Un service nouveau d'optimisation de portefeuille.",
+            "in_practice": "Dans SEC1, il reste hors périmètre tant que la thèse n'est pas établie.",
+            "contrast": "Capital et délai élevés, dépendance aux données.",
+            "perspective": {
+              "mode": "schema",
+              "content": "schema:synthetic-risk-ladder"
+            }
+          },
+          {
+            "term": "Portefeuille hybride",
+            "definition": {
+              "text": "Combinaison non exclusive des postures selon le stade.",
+              "source": {
+                "author": "Exemple fictif",
+                "year": "2026",
+                "venue_or_url": "synthetic:fixture"
+              },
+              "evidence_level": "supplied"
+            },
+            "example": "Des preuves courtes, puis des briques communes.",
+            "in_practice": "Dans SEC1, il ordonne les premiers essais sans figer la suite.",
+            "contrast": "Un portefeuille sans arbitrage dilue l'effort.",
+            "perspective": {
+              "mode": "synthesis",
+              "content": "Souple, à condition de décider à chaque étape de continuer ou d'arrêter."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

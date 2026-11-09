@@ -34,7 +34,8 @@
         "ATOM-c8e4c1df7ef3c49c4569b1ccdaff18ca58130e98ce317b3871a761c7a8a151c8"
       ],
       "status": "supplied_unverified",
-      "note": "Archétypes à instruire sur preuves publiques ; pas de classement de performances."
+      "note": "Archétypes à instruire sur preuves publiques ; pas de classement de performances.",
+      "fixture": "fixtures/examples/comparator.study.json"
     }
   ]
 }

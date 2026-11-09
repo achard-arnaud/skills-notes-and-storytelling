@@ -11,14 +11,14 @@ La source de vérité est `diagnostic-complet/workflows/side-stories.workflow.js
 
 ## Les six types
 
-| Tag | Type | Format en une ligne | Référence |
+| Libellé affiché | Type | Format en une ligne | Référence |
 |---|---|---|---|
-| `[VCP]` | `veille_corporate_perso` | Pitch d'entreprise, 10 à 15 lignes, faits datés puis lecture signée | `references/types/veille_corporate_perso.md` |
-| `[VAC]` | `veille_academique` | Lexique de 5 à 7 entrées en cinq blocs, sources explicites | `references/types/veille_academique.md` |
-| `[DZ]` | `dezoom` | Local, canal de transmission, retour local ; 220 mots | `references/types/dezoom.md` |
-| `[CMP]` | `comparator` | Table de 3 à 5 lignes et 5 colonnes au plus, critère commun | `references/types/comparator.md` |
-| `[ILL]` | `illustration` | Cas d'usage, citation, objet ou personne ; 150 mots | `references/types/illustration.md` |
-| `[FOC]` | `analytical_focus` | Question, thèse, deux positions, mécanismes avec statut de preuve | `references/types/analytical_focus.md` |
+| Veille entreprise | `veille_corporate_perso` | Pitch d'entreprise, 10 à 15 lignes, faits datés puis lecture signée | `references/types/veille_corporate_perso.md` |
+| Veille académique | `veille_academique` | Lexique de 5 à 7 entrées en cinq blocs, sources explicites | `references/types/veille_academique.md` |
+| Changement d'échelle | `dezoom` | Local, canal de transmission, retour local ; 220 mots | `references/types/dezoom.md` |
+| Comparatif | `comparator` | Table de 3 à 5 lignes et 5 colonnes au plus, critère commun | `references/types/comparator.md` |
+| Exemple concret | `illustration` | Cas d'usage, citation, objet ou personne ; 150 mots | `references/types/illustration.md` |
+| Analyse approfondie | `analytical_focus` | Question, thèse, deux positions, mécanismes avec statut de preuve | `references/types/analytical_focus.md` |
 
 Anciens types : `detour`, `also`, `portrait`, `object_focus`, `callback` deviennent `illustration` ; `method` devient `veille_academique` ; `false_lead` devient `analytical_focus`. Ils restent acceptés pour les études existantes mais ne se créent plus. Un rappel (callback) est un champ `bridge.callback_to`, utilisable sur tout type.
 

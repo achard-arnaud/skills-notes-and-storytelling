@@ -1,6 +1,6 @@
-# `[CMP]` Comparatif
+# Comparatif
 
-Tag `CMP`, couleur ardoise. Source de vérité : `workflows/side-stories.workflow.json`, type `comparator`. Intègre l'anti-thèse de l'ancien `false_lead` quand elle prend la forme d'une comparaison.
+Libellé affiché : **Comparatif** (code interne `CMP`, jamais montré au lecteur) ; couleur ardoise. Source de vérité : `workflows/side-stories.workflow.json`, type `comparator`. Intègre l'anti-thèse de l'ancien `false_lead` quand elle prend la forme d'une comparaison.
 
 ## Rôle
 

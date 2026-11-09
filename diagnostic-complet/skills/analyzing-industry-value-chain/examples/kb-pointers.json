@@ -18,7 +18,8 @@
         "ATOM-3d476bec1eb7279837ebb14d1edce9b96a8a8276d13b634667d7d8fff0ddeb57"
       ],
       "status": "supplied_unverified",
-      "note": "Grille de diagnostic générique, non un incident de la cible."
+      "note": "Grille de diagnostic générique, non un incident de la cible.",
+      "fixture": "fixtures/examples/analytical_focus.study.json"
     },
     {
       "id": "EX-VCP-01",
@@ -34,7 +35,8 @@
         "ATOM-b174d1f73b8ab9d18e446d955224243a47bc2a4d4c5260998f8a8700e8c92bee"
       ],
       "status": "supplied_unverified",
-      "note": "Page fournisseur : affirmation de l'offre, pas preuve de déploiement, d'intégration ou de ROI chez la cible (PILLARS.md)."
+      "note": "Page fournisseur : affirmation de l'offre, pas preuve de déploiement, d'intégration ou de ROI chez la cible (PILLARS.md).",
+      "fixture": "fixtures/examples/veille_corporate_perso.study.json"
     }
   ]
 }

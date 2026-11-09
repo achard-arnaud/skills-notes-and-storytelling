@@ -62,12 +62,99 @@ def _locator(value: object) -> str:
     return f'<code>{esc(text)}</code>'
 
 
+LEVEL_LABELS = {
+    "observed": "Observé", "interpreted": "Lecture", "peer_reviewed": "Revue à comité de lecture", "preprint": "Prépublication",
+    "grey_literature": "Littérature grise", "opinion": "Opinion", "supplied": "Matériau fourni, non vérifié",
+    "verified": "Vérifié", "vendor_claim": "Affirmation du fournisseur", "inference": "Inférence", "hypothesis": "Hypothèse", "unknown": "Inconnu",
+}
+ROLE_LABELS = {
+    "headline": "En une phrase", "offer": "Offre", "model": "Modèle économique", "client_problem": "Enjeu du client", "fact": "Fait public",
+    "differentiation": "Positionnement", "limit": "Limite", "personal_reading": "Lecture personnelle", "implication": "Ce que cela change pour le récit", "sources": "Sources",
+}
+
+
+STATE_LABELS = {"candidate": "Proposition", "validated": "Validé par un humain", "promoted": "Intégré au récit", "retired": "Retiré"}
+
+
+def _state_label(value) -> str:
+    return STATE_LABELS.get(value, str(value or ""))
+
+
+SOURCE_KIND_LABELS = {
+    "supplied_context": "Document fourni", "supplied_analysis": "Analyse fournie", "corporate_site": "Site de l'entreprise",
+    "primary": "Source primaire", "primary_vendor": "Source primaire : fournisseur", "primary_regulatory": "Source primaire : réglementaire",
+    "primary_repo": "Source primaire : dépôt de code", "primary_corporate": "Source primaire : entreprise",
+    "primary_research": "Source primaire : recherche", "primary_official": "Source primaire : source officielle",
+}
+ACCESS_LABELS = {"read": "Lu", "consulted": "Consulté", "full": "Lu en entier", "full_text": "Texte intégral lu", "unknown": "Inconnu"}
+
+
+def _lvl(value) -> str:
+    return LEVEL_LABELS.get(value, str(value or ""))
+
+
+def _text_para(s: dict) -> str:
+    return f'<p>{esc(s["text"])}</p>' if s.get("text") else ""
+
+
+def _payload_view(s: dict) -> str:
+    """Show the structured content of a side story with plain-language labels; every value is escaped."""
+    payload = s.get("payload")
+    if not isinstance(payload, dict):
+        return ""
+    out = []
+    lines = payload.get("lines")
+    if isinstance(lines, list):
+        out.append("<ol class=\"pitch\">" + "".join(
+            f'<li><strong>{esc(ROLE_LABELS.get(l.get("role"), l.get("role", "")))}</strong> : {esc(l.get("text", ""))}'
+            + (f' <span class="meta">({esc(l.get("date", ""))}, {_locator(l.get("source", ""))})</span>' if l.get("role") == "fact" else "") + "</li>"
+            for l in lines if isinstance(l, dict)) + "</ol>")
+    items = payload.get("items")
+    if isinstance(items, list):
+        for it in items:
+            if not isinstance(it, dict):
+                continue
+            d = it.get("definition") if isinstance(it.get("definition"), dict) else {}
+            src = d.get("source") if isinstance(d.get("source"), dict) else {}
+            persp = it.get("perspective") if isinstance(it.get("perspective"), dict) else {}
+            out.append(f'<section class="entry"><h3>{esc(it.get("term", ""))}</h3><dl>'
+                       f'<dt>Définition</dt><dd>{esc(d.get("text", ""))} <span class="meta">({esc(src.get("author", ""))}, {esc(src.get("year", ""))}, {_locator(src.get("venue_or_url", ""))} · {esc(_lvl(d.get("evidence_level")))})</span></dd>'
+                       f'<dt>Exemple</dt><dd>{esc(it.get("example", ""))}</dd>'
+                       f'<dt>En pratique ici</dt><dd>{esc(it.get("in_practice", ""))}</dd>'
+                       f'<dt>Contre-point</dt><dd>{esc(it.get("contrast", ""))}</dd>'
+                       f'<dt>Mise en perspective</dt><dd><pre>{esc(persp.get("content", ""))}</pre></dd></dl></section>')
+    steps = payload.get("steps")
+    if isinstance(steps, list):
+        out.append("<ol class=\"steps\">" + "".join(
+            f'<li><strong>{esc(x.get("scale", ""))}</strong> : {esc(x.get("statement", ""))}</li>' for x in steps if isinstance(x, dict)) + "</ol>")
+        out.append(f'<p class="meta">De {esc(s.get("scale_from", ""))} vers {esc(s.get("scale_to", ""))} : {esc(s.get("mechanism", ""))}</p>')
+    table = payload.get("table")
+    if isinstance(table, dict) and isinstance(table.get("columns"), list):
+        head = "".join(f"<th>{esc(c)}</th>" for c in table["columns"])
+        body = "".join("<tr>" + "".join(f"<td>{esc(c)}</td>" for c in row) + "</tr>" for row in table.get("rows", []) if isinstance(row, list))
+        out.append(f'<p><strong>Critère commun :</strong> {esc(s.get("criterion", ""))}</p><table><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table>')
+        confounders = s.get("confounders") if isinstance(s.get("confounders"), list) else []
+        out.append("<p><strong>Limites de la comparaison :</strong> " + esc(" ; ".join(str(c) for c in confounders)) + f'</p><p><strong>À retenir :</strong> {esc(s.get("takeaway", ""))}</p>')
+    if payload.get("form"):
+        extra = ""
+        if payload.get("form") == "quote":
+            extra = f'<p class="meta">{esc(payload.get("attributed_to", ""))}, {esc(payload.get("date", ""))}, {_locator(payload.get("source", ""))}</p>'
+        out.append(f'<p>{esc(payload.get("text", ""))}</p>{extra}')
+    a = payload.get("analysis")
+    if isinstance(a, dict):
+        pos = "".join(f'<li>{esc(p.get("position", ""))} <span class="meta">Réserve : {esc(p.get("caveat", ""))}</span></li>' for p in a.get("positions", []) if isinstance(p, dict))
+        mech = "".join(f'<li>{esc(m.get("mechanism", ""))} <span class="meta">({esc(_lvl(m.get("evidence_status")))})</span></li>' for m in a.get("mechanisms", []) if isinstance(m, dict))
+        out.append(f'<p><strong>Question :</strong> {esc(a.get("core_question", ""))}</p><p><strong>Thèse :</strong> {esc(a.get("thesis", ""))}</p>'
+                   f'<h3>Positions en présence</h3><ul>{pos}</ul><h3>Mécanismes</h3><ul>{mech}</ul><p><strong>À retenir :</strong> {esc(a.get("takeaway", ""))}</p>')
+    return "".join(out)
+
+
 def _tag_chip(kind) -> str:
-    """Visible text tag first; color only reinforces it."""
+    """Readable label first (never the internal code); color only reinforces it."""
     info = sidestories.tag_for(kind) if isinstance(kind, str) else None
     if not info:
         return ""
-    return f'<span class="tag tag-{esc(info["tag"])}" title="{esc(info["label"])}">[{esc(info["tag"])}]</span> '
+    return f'<span class="tag tag-{esc(info["tag"])}">{esc(info["label"])}</span> '
 
 
 def render_study(study: dict) -> str:
@@ -138,15 +225,15 @@ def render_study(study: dict) -> str:
     evidence.append('<h2>Sources</h2>')
     for source in sources:
         evidence.append(f'<article id="{anchor(source["id"])}" class="card"><h3>{esc(source.get("title", source["id"]))}</h3>'
-                        f'<p>Nature : {esc(source.get("kind", ""))} · Accès déclaré : {esc(source.get("access", "inconnu"))}</p>'
+                        f'<p>Nature : {esc(SOURCE_KIND_LABELS.get(source.get("kind"), source.get("kind", "")))} · Accès déclaré : {esc(ACCESS_LABELS.get(source.get("access"), source.get("access", "inconnu")))}</p>'
                         f'<p>{_locator(source.get("locator", ""))}</p></article>')
     side_view = ['<p>Encarts candidats ou stabilisés selon leur état déclaré. Le rendu ne les promeut pas.</p>']
     for s in stories:
         refs = " · ".join(_link(c, known) for c in s.get("claim_ids", []))
         return_link = _link(s["return_to"], known, "Retour au récit") if s.get("return_to") else '<span>Sans retour déclaré</span>'
         side_view.append(f'<article id="{anchor(s["id"])}" class="card filterable" data-pillars="{_pillars_attr(s)}">'
-                         f'<h2>{esc(s.get("title", s["id"]))}</h2><p class="status">{_tag_chip(s.get("kind"))}{esc(s.get("state", "candidate"))} · {esc(s.get("kind", ""))}</p>'
-                         f'<p>{esc(s.get("text", ""))}</p><dl><dt>Raison hors tronc</dt><dd>{esc(s.get("reason_outside", ""))}</dd>'
+                         f'<h2>{esc(s.get("title", s["id"]))}</h2><p class="status">{_tag_chip(s.get("kind"))}{esc(_state_label(s.get("state", "candidate")))}</p>'
+                         f'{_text_para(s)}{_payload_view(s)}<dl><dt>Raison hors tronc</dt><dd>{esc(s.get("reason_outside", ""))}</dd>'
                          f'<dt>Apport au raisonnement</dt><dd>{esc(s.get("payoff", ""))}</dd></dl><p>{refs}</p><p>{return_link}</p></article>')
     panels = ["".join(narrative), "".join(pillar_view), "".join(evidence), "".join(side_view)]
     panel_html = "".join(f'<main role="tabpanel" id="panel-{key}" aria-labelledby="tab-{key}" tabindex="0"{(" hidden" if i else "")}>{panels[i]}</main>' for i, (key, _) in enumerate(tabs))
@@ -173,7 +260,7 @@ h1{font-size:2rem;line-height:1.2}h2{font-size:1.35rem}.eyebrow{color:#136c78;fo
 [role=tablist]{display:flex;flex-wrap:wrap;gap:6px;margin:22px 0}button,select{font:inherit;padding:10px;border:1px solid #627b85;border-radius:5px;background:white;color:#17313d}
 button[aria-selected=true]{background:#173f4c;color:white}button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid #bd6800;outline-offset:3px}
 .filter{margin-bottom:20px}.card{background:white;padding:20px;margin:18px 0;border:1px solid #d1dfe3;border-radius:8px}
-.status{font-weight:700;color:#795211}.tag{display:inline-block;padding:0 8px;border-radius:4px;font-weight:700;margin-right:6px}.gap{color:#8b3323}.paragraph p{white-space:pre-wrap}a{color:#075f80;text-underline-offset:3px}
+.status{font-weight:700;color:#795211}.tag{display:inline-block;padding:0 8px;border-radius:4px;font-weight:700;margin-right:6px}.gap{color:#8b3323}table{border-collapse:collapse;width:100%;margin:10px 0}th,td{border:1px solid #d1dfe3;padding:6px 8px;text-align:left;vertical-align:top}.entry{border-top:1px solid #d1dfe3;margin-top:12px}.paragraph p{white-space:pre-wrap}a{color:#075f80;text-underline-offset:3px}
 pre{overflow:auto;padding:14px;background:#eaf0f2;white-space:pre-wrap}code{overflow-wrap:anywhere}dt{font-weight:700}dd{margin-left:0;margin-bottom:10px}[hidden]{display:none!important}
 @media print{[role=tablist],.filter,noscript{display:none}[role=tabpanel][hidden],.filterable[hidden]{display:block!important}.card{break-inside:avoid}body{padding:0}}
 """

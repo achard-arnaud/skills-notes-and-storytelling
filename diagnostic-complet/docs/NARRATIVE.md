@@ -22,16 +22,16 @@ La génération, la vérification mécanique, la revue par un autre agent et l'a
 
 Une side story explique pourquoi elle est hors du tronc, ce qu'elle apporte, où elle se place et où elle ramène. Cycle de vie : candidate, validated, promoted, retired, sans passage automatique par le rendu. Une illustration n'est pas une nouvelle preuve.
 
-Six types, tag visible, format et ligne éditoriale propres à chacun (détail dans le workflow) :
+Six types, libellé lisible affiché au lecteur, format et ligne éditoriale propres à chacun (détail dans le workflow) :
 
-| Tag | Type | Format |
+| Libellé affiché | Type | Format |
 |---|---|---|
-| `[VCP]` | `veille_corporate_perso` | Pitch d'entreprise, 10 à 15 lignes |
-| `[VAC]` | `veille_academique` | Lexique de 5 à 7 entrées, cinq blocs par entrée |
-| `[DZ]` | `dezoom` | Trois temps, 220 mots |
-| `[CMP]` | `comparator` | Table de 3 à 5 lignes, 5 colonnes au plus |
-| `[ILL]` | `illustration` | Cas d'usage, citation, objet ou personne, 150 mots |
-| `[FOC]` | `analytical_focus` | Question, thèse, deux positions, mécanismes, enseignement |
+| Veille entreprise | `veille_corporate_perso` | Pitch d'entreprise, 10 à 15 lignes |
+| Veille académique | `veille_academique` | Lexique de 5 à 7 entrées, cinq blocs par entrée |
+| Changement d'échelle | `dezoom` | Trois temps, 220 mots |
+| Comparatif | `comparator` | Table de 3 à 5 lignes, 5 colonnes au plus |
+| Exemple concret | `illustration` | Cas d'usage, citation, objet ou personne, 150 mots |
+| Analyse approfondie | `analytical_focus` | Question, thèse, deux positions, mécanismes, enseignement |
 
 Les anciens types (`detour`, `also`, `portrait`, `object_focus`, `callback`, `method`, `false_lead`) sont regroupés ; ils restent acceptés pour les études existantes (D22). Le contrat local reste plus strict sur les retours que le dépôt donneur, par décision d'expérimentation.
 
@@ -45,4 +45,4 @@ Une disposition explicite rend les absents visibles : inclus dans le tronc, incl
 
 ## Visuels
 
-Le diagramme doit rendre une relation exacte plus claire. Mermaid conserve les relations typées et les limites ; le prototype peut fournir la source lisible sans prétendre exécuter un moteur Mermaid. Ne pas transformer une flèche de navigation ou une hypothèse en causalité certaine. Le tag d'un type de side story est toujours affiché en texte ; la couleur le renforce sans le remplacer, et le vert, l'orange et le rouge restent réservés aux statuts de preuve.
+Le diagramme doit rendre une relation exacte plus claire. Mermaid conserve les relations typées et les limites ; le prototype peut fournir la source lisible sans prétendre exécuter un moteur Mermaid. Ne pas transformer une flèche de navigation ou une hypothèse en causalité certaine. Le libellé lisible d'un type de side story est toujours affiché ; la couleur le renforce sans le remplacer, et les codes internes ne sont jamais montrés au lecteur, et le vert, l'orange et le rouge restent réservés aux statuts de preuve.

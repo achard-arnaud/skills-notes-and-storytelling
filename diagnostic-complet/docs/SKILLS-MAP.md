@@ -23,7 +23,7 @@ Aucun dossier `.skills/` n'existe dans ce dépôt. Les skills éditoriaux sont d
 
 ## Piliers, skills et side stories
 
-| Pilier | Skill | Types de side stories recommandés |
+| Pilier | Skill | Types de side stories recommandés (identifiants internes) |
 |---|---|---|
 | P-MARKET | `analyzing-market-and-competition` | `comparator`, `dezoom`, `veille_corporate_perso`, `veille_academique` |
 | P-INDUSTRY | `analyzing-industry-value-chain` | `analytical_focus`, `illustration`, `dezoom`, `veille_corporate_perso` |

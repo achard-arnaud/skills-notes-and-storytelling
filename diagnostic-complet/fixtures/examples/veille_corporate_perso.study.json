@@ -1,0 +1,162 @@
+{
+  "id": "SYN-EX-veille_corporate_perso",
+  "title": "Pitch d'une offre de supervision fictive",
+  "synthetic": true,
+  "mandate": {
+    "question": "Faut-il financer un pilote de supervision pour AcmeÉnergie, opérateur fictif ?",
+    "scope": "Cas entièrement fictif, sans lien avec un corpus réel",
+    "audience": "Direction des opérations (fictive)"
+  },
+  "pillars": [
+    {
+      "id": "P-INDUSTRY",
+      "title": "Chaîne de valeur industrielle",
+      "scope": "Exploitation et maintenance"
+    },
+    {
+      "id": "P-AI",
+      "title": "Capacités d'intelligence artificielle",
+      "scope": "Capacités utiles à la décision"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "kind": "supplied_context",
+      "access": "read",
+      "title": "Dossier fictif AcmeÉnergie",
+      "locator": "synthetic:fixture"
+    }
+  ],
+  "fragments": [
+    {
+      "id": "F1",
+      "source_id": "S1",
+      "locator": "synthetic:fixture#1",
+      "text": "Un écart de production est observé sur un site fictif."
+    }
+  ],
+  "claims": [
+    {
+      "id": "C1",
+      "text": "Un écart de production exige une qualification avant intervention.",
+      "status": "supplied_claim",
+      "fragment_ids": [
+        "F1"
+      ],
+      "pillar_ids": [
+        "P-INDUSTRY"
+      ]
+    }
+  ],
+  "relations": [],
+  "sections": [
+    {
+      "id": "SEC1",
+      "title": "De l'alerte à la décision",
+      "claim_ids": [
+        "C1"
+      ],
+      "pillar_ids": [
+        "P-INDUSTRY"
+      ],
+      "paragraphs": [
+        {
+          "id": "PAR1",
+          "text": "Une alerte n'est exploitable qu'une fois qualifiée.",
+          "claim_ids": [
+            "C1"
+          ],
+          "pillar_ids": [
+            "P-INDUSTRY"
+          ],
+          "review": {
+            "evidence": false,
+            "editorial": false
+          }
+        }
+      ]
+    }
+  ],
+  "side_stories": [
+    {
+      "id": "SS1",
+      "kind": "veille_corporate_perso",
+      "title": "Pitch d'une offre de supervision fictive",
+      "claim_ids": [
+        "C1"
+      ],
+      "pillar_ids": [
+        "P-INDUSTRY"
+      ],
+      "parent_section_id": "SEC1",
+      "return_to": "PAR1",
+      "state": "candidate",
+      "problematique": "Que prouve réellement une offre de supervision publiée, et que laisse-t-elle ouvert ?",
+      "bridge": {
+        "in": "Le tronc évoque la supervision comme levier.",
+        "out": "On revient à la chaîne d'exploitation : une offre n'est pas un déploiement."
+      },
+      "reason_outside": "Le pitch d'un acteur n'est pas une étape du raisonnement.",
+      "payoff": "Savoir ce qu'une offre publiée prouve et ne prouve pas.",
+      "payload": {
+        "lines": [
+          {
+            "role": "headline",
+            "text": "AcmeVision, offre fictive d'AcmeÉnergie, aide les industriels à suivre leur consommation."
+          },
+          {
+            "role": "offer",
+            "text": "Elle collecte des mesures de compteurs et les présente en tableaux de bord."
+          },
+          {
+            "role": "model",
+            "text": "Le modèle économique déclaré est un abonnement annuel par site."
+          },
+          {
+            "role": "client_problem",
+            "text": "Elle vise les directions techniques qui ne voient pas leurs écarts de consommation à temps."
+          },
+          {
+            "role": "fact",
+            "text": "Une page publique décrit la collecte de mesures par compteur.",
+            "date": "2026-01-15",
+            "source": "synthetic:acme-page-offre"
+          },
+          {
+            "role": "fact",
+            "text": "Un communiqué annonce le suivi de deux sites pilotes.",
+            "date": "2026-02-10",
+            "source": "synthetic:acme-communique"
+          },
+          {
+            "role": "fact",
+            "text": "Une présentation indique une alerte par seuil de consommation.",
+            "date": "2026-03-05",
+            "source": "synthetic:acme-presentation"
+          },
+          {
+            "role": "differentiation",
+            "text": "L'offre s'adosse à un financement par le fournisseur, ce qui la distingue d'un simple logiciel."
+          },
+          {
+            "role": "limit",
+            "text": "Aucune source publique ne prouve un déploiement hors des deux sites pilotes."
+          },
+          {
+            "role": "personal_reading",
+            "text": "Lecture de l'auteur : l'offre paraît utile pour mesurer, moins pour décider d'une intervention."
+          },
+          {
+            "role": "implication",
+            "text": "Pour le passage SEC1, une offre de mesure ne remplace pas la qualification d'une alerte."
+          },
+          {
+            "role": "sources",
+            "text": "Page offre, communiqué et présentation fictifs, datés ci-dessus."
+          }
+        ]
+      }
+    }
+  ]
+}

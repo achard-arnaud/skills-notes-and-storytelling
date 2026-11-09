@@ -27,12 +27,12 @@ Les communications de l'entreprise sont `supplied_claim` ou `attributed_claim` ;
 
 Lire `../side-stories-business/SKILL.md`, puis le fichier du type retenu. Types recommandés pour ce pilier :
 
-| Type | Quand | Référence |
+| Type affiché | Quand | Référence |
 |---|---|---|
-| `[CMP]` `comparator` | Situer la cible face à 3 à 5 acteurs sur un même critère de création de valeur. | `../side-stories-business/references/types/comparator.md` |
-| `[DZ]` `dezoom` | Passer du site au portefeuille puis au marché quand un indicateur local ne s'explique que par la structure sectorielle. | `../side-stories-business/references/types/dezoom.md` |
-| `[VCP]` `veille_corporate_perso` | Présenter un acteur clé du marché (concurrent, partenaire, fournisseur) à partir de ses signaux publics. | `../side-stories-business/references/types/veille_corporate_perso.md` |
-| `[VAC]` `veille_academique` | Installer une notion de stratégie ou d'économie industrielle avec sa source et sa limite. | `../side-stories-business/references/types/veille_academique.md` |
+| Comparatif (`comparator`) | Situer la cible face à 3 à 5 acteurs sur un même critère de création de valeur. | `../side-stories-business/references/types/comparator.md` |
+| Changement d'échelle (`dezoom`) | Passer du site au portefeuille puis au marché quand un indicateur local ne s'explique que par la structure sectorielle. | `../side-stories-business/references/types/dezoom.md` |
+| Veille entreprise (`veille_corporate_perso`) | Présenter un acteur clé du marché (concurrent, partenaire, fournisseur) à partir de ses signaux publics. | `../side-stories-business/references/types/veille_corporate_perso.md` |
+| Veille académique (`veille_academique`) | Installer une notion de stratégie ou d'économie industrielle avec sa source et sa limite. | `../side-stories-business/references/types/veille_academique.md` |
 
 ### Problématiques types à fournir au rédacteur
 

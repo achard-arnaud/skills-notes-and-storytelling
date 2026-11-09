@@ -1,0 +1,108 @@
+{
+  "id": "SYN-EX-illustration",
+  "title": "Assistant multimodal pour les intervenants (fictif)",
+  "synthetic": true,
+  "mandate": {
+    "question": "Faut-il financer un pilote de supervision pour AcmeÉnergie, opérateur fictif ?",
+    "scope": "Cas entièrement fictif, sans lien avec un corpus réel",
+    "audience": "Direction des opérations (fictive)"
+  },
+  "pillars": [
+    {
+      "id": "P-INDUSTRY",
+      "title": "Chaîne de valeur industrielle",
+      "scope": "Exploitation et maintenance"
+    },
+    {
+      "id": "P-AI",
+      "title": "Capacités d'intelligence artificielle",
+      "scope": "Capacités utiles à la décision"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "kind": "supplied_context",
+      "access": "read",
+      "title": "Dossier fictif AcmeÉnergie",
+      "locator": "synthetic:fixture"
+    }
+  ],
+  "fragments": [
+    {
+      "id": "F1",
+      "source_id": "S1",
+      "locator": "synthetic:fixture#1",
+      "text": "Un écart de production est observé sur un site fictif."
+    }
+  ],
+  "claims": [
+    {
+      "id": "C1",
+      "text": "Un écart de production exige une qualification avant intervention.",
+      "status": "supplied_claim",
+      "fragment_ids": [
+        "F1"
+      ],
+      "pillar_ids": [
+        "P-INDUSTRY"
+      ]
+    }
+  ],
+  "relations": [],
+  "sections": [
+    {
+      "id": "SEC1",
+      "title": "De l'alerte à la décision",
+      "claim_ids": [
+        "C1"
+      ],
+      "pillar_ids": [
+        "P-INDUSTRY"
+      ],
+      "paragraphs": [
+        {
+          "id": "PAR1",
+          "text": "Une alerte n'est exploitable qu'une fois qualifiée.",
+          "claim_ids": [
+            "C1"
+          ],
+          "pillar_ids": [
+            "P-INDUSTRY"
+          ],
+          "review": {
+            "evidence": false,
+            "editorial": false
+          }
+        }
+      ]
+    }
+  ],
+  "side_stories": [
+    {
+      "id": "SS1",
+      "kind": "illustration",
+      "title": "Assistant multimodal pour les intervenants (fictif)",
+      "claim_ids": [
+        "C1"
+      ],
+      "pillar_ids": [
+        "P-INDUSTRY"
+      ],
+      "parent_section_id": "SEC1",
+      "return_to": "PAR1",
+      "state": "candidate",
+      "problematique": "Où l'intelligence artificielle multimodale économise-t-elle du temps administratif sans prendre la décision ?",
+      "bridge": {
+        "in": "Le tronc décrit la préparation et la clôture d'une intervention.",
+        "out": "On revient à la supervision : l'assistant prépare, le technicien décide."
+      },
+      "reason_outside": "Un cas concret rend le passage lisible sans ajouter de thèse.",
+      "payoff": "Voir un usage borné, sous validation humaine.",
+      "payload": {
+        "form": "use_case",
+        "text": "Besoin : un technicien perd du temps à retrouver la fiche d'un équipement. Action : il photographie la plaque et l'assistant propose la documentation correspondante. Résultat attendu : une préparation plus rapide, validée par le technicien. Cas candidat, existence chez la cible à confirmer."
+      }
+    }
+  ]
+}

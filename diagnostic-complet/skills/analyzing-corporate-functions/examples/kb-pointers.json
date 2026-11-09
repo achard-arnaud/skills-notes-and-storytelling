@@ -32,7 +32,8 @@
         "ATOM-6a096af9c124ed560b071a2120d555c7b6a69487d9aca374c8aa6cac0f78e1a4"
       ],
       "status": "supplied_unverified",
-      "note": "Cas candidat, non confirmé comme cas de la cible. Le sigle B-A-C n'est défini dans aucune source : cadre laissé libre jusqu'à confirmation."
+      "note": "Cas candidat, non confirmé comme cas de la cible. Le sigle B-A-C n'est défini dans aucune source : cadre laissé libre jusqu'à confirmation.",
+      "fixture": "fixtures/examples/illustration.study.json"
     }
   ]
 }

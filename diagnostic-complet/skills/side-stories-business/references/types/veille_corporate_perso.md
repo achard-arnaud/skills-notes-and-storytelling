@@ -1,6 +1,6 @@
-# `[VCP]` Veille corporate personnelle — pitch d'entreprise
+# Veille entreprise : pitch d'entreprise
 
-Tag `VCP`, couleur cyan. Source de vérité : `workflows/side-stories.workflow.json`, type `veille_corporate_perso`.
+Libellé affiché : **Veille entreprise** (code interne `VCP`, jamais montré au lecteur) ; couleur cyan. Source de vérité : `workflows/side-stories.workflow.json`, type `veille_corporate_perso`.
 
 ## Rôle
 
@@ -64,7 +64,7 @@ Registre d'analyste : phrases courtes, verbes d'état, pas de superlatif. Les mo
 ## Métaprompt (brouillon, à creuser)
 
 ```text
-Tu rédiges une side story [VCP], pitch de <ENTREPRISE> en 10 à 15 lignes.
+Tu rédiges une side story de type veille entreprise, pitch de <ENTREPRISE> en 10 à 15 lignes.
 Entrées : signaux publics datés et sourcés <SIGNAUX>, problématique <PROBLEMATIQUE>,
 passage d'accueil <PASSAGE>, pont d'entrée <BRIDGE_IN>, pont de sortie <BRIDGE_OUT>.
 Contraintes : une idée par ligne, 32 mots au plus ; ordre headline, offer, model,

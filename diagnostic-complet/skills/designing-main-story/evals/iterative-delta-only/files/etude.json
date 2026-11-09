@@ -1,0 +1,123 @@
+{
+  "id": "SYN-EX-dezoom",
+  "title": "De l'installation à l'ensemble des sites (fictif)",
+  "synthetic": true,
+  "mandate": {
+    "question": "Faut-il financer un pilote de supervision pour AcmeÉnergie, opérateur fictif ?",
+    "scope": "Cas entièrement fictif, sans lien avec un corpus réel",
+    "audience": "Direction des opérations (fictive)"
+  },
+  "pillars": [
+    {
+      "id": "P-INDUSTRY",
+      "title": "Chaîne de valeur industrielle",
+      "scope": "Exploitation et maintenance"
+    },
+    {
+      "id": "P-AI",
+      "title": "Capacités d'intelligence artificielle",
+      "scope": "Capacités utiles à la décision"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "kind": "supplied_context",
+      "access": "read",
+      "title": "Dossier fictif AcmeÉnergie",
+      "locator": "synthetic:fixture"
+    }
+  ],
+  "fragments": [
+    {
+      "id": "F1",
+      "source_id": "S1",
+      "locator": "synthetic:fixture#1",
+      "text": "Un écart de production est observé sur un site fictif."
+    }
+  ],
+  "claims": [
+    {
+      "id": "C1",
+      "text": "Un écart de production exige une qualification avant intervention.",
+      "status": "supplied_claim",
+      "fragment_ids": [
+        "F1"
+      ],
+      "pillar_ids": [
+        "P-INDUSTRY"
+      ]
+    }
+  ],
+  "relations": [],
+  "sections": [
+    {
+      "id": "SEC1",
+      "title": "De l'alerte à la décision",
+      "claim_ids": [
+        "C1"
+      ],
+      "pillar_ids": [
+        "P-INDUSTRY"
+      ],
+      "paragraphs": [
+        {
+          "id": "PAR1",
+          "text": "Une alerte n'est exploitable qu'une fois qualifiée.",
+          "claim_ids": [
+            "C1"
+          ],
+          "pillar_ids": [
+            "P-INDUSTRY"
+          ],
+          "review": {
+            "evidence": false,
+            "editorial": false
+          }
+        }
+      ]
+    }
+  ],
+  "side_stories": [
+    {
+      "id": "SS1",
+      "kind": "dezoom",
+      "title": "De l'installation à l'ensemble des sites (fictif)",
+      "claim_ids": [
+        "C1"
+      ],
+      "pillar_ids": [
+        "P-INDUSTRY"
+      ],
+      "parent_section_id": "SEC1",
+      "return_to": "PAR1",
+      "state": "candidate",
+      "problematique": "Pourquoi qui contrôle la donnée change-t-il la valeur d'un signal local ?",
+      "bridge": {
+        "in": "Ce qui vaut pour un site se joue autrement à l'échelle de l'ensemble des sites.",
+        "out": "On revient au signal : sa lecture dépend de qui contrôle la donnée."
+      },
+      "reason_outside": "Le mécanisme est contractuel, pas opérationnel.",
+      "payoff": "Comprendre pourquoi un même signal vaut différemment selon les droits sur la donnée.",
+      "scale_from": "site",
+      "scale_to": "portefeuille",
+      "mechanism": "Les droits d'accès à la donnée déterminent ce qu'un opérateur peut comparer entre sites.",
+      "payload": {
+        "steps": [
+          {
+            "scale": "site",
+            "statement": "Sur un site, l'écart est visible dans l'interface du fabricant de l'équipement."
+          },
+          {
+            "scale": "portefeuille",
+            "statement": "À l'échelle de l'ensemble des sites, chaque fabricant garde sa vue ; sans accès commun, aucune comparaison n'est possible. Une couche indépendante serait une hypothèse à valider."
+          },
+          {
+            "scale": "site",
+            "statement": "De retour sur le site, le même écart se lit avec son contexte de contrat, à condition d'avoir accès à la donnée."
+          }
+        ]
+      }
+    }
+  ]
+}

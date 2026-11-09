@@ -27,10 +27,10 @@ Les cas candidats sont `hypothesis` ; les gains annoncés non confirmés pour la
 
 Lire `../side-stories-business/SKILL.md`, puis le fichier du type retenu. Types recommandés pour ce pilier :
 
-| Type | Quand | Référence |
+| Type affiché | Quand | Référence |
 |---|---|---|
-| `[ILL]` `illustration` | Montrer un usage transverse (commercial, finance, support interne) avec sa propre économie, séparé des usages industriels. | `../side-stories-business/references/types/illustration.md` |
-| `[CMP]` `comparator` | Comparer deux manières de traiter un même processus corporate sur un critère commun (délai, contrôle, coût). | `../side-stories-business/references/types/comparator.md` |
+| Exemple concret (`illustration`) | Montrer un usage transverse (commercial, finance, support interne) avec sa propre économie, séparé des usages industriels. | `../side-stories-business/references/types/illustration.md` |
+| Comparatif (`comparator`) | Comparer deux manières de traiter un même processus corporate sur un critère commun (délai, contrôle, coût). | `../side-stories-business/references/types/comparator.md` |
 
 ### Problématiques types à fournir au rédacteur
 

@@ -1,6 +1,6 @@
-# `[DZ]` Dézoom
+# Changement d'échelle (dézoom)
 
-Tag `DZ`, couleur fuchsia. Source de vérité : `workflows/side-stories.workflow.json`, type `dezoom`. Harvesté de `zooming-geographic-scales` (échelles Z0 à Z4), transposé aux échelles business.
+Libellé affiché : **Changement d'échelle** (code interne `DZ`, jamais montré au lecteur) ; couleur fuchsia. Source de vérité : `workflows/side-stories.workflow.json`, type `dezoom`. Harvesté de `zooming-geographic-scales` (échelles Z0 à Z4), transposé aux échelles business.
 
 ## Rôle
 

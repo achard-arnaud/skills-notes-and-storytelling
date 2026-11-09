@@ -27,12 +27,12 @@ Un montant publié par l'entreprise est `attributed_claim`. Un gain estimé est 
 
 Lire `../side-stories-business/SKILL.md`, puis le fichier du type retenu. Types recommandés pour ce pilier :
 
-| Type | Quand | Référence |
+| Type affiché | Quand | Référence |
 |---|---|---|
-| `[FOC]` `analytical_focus` | Démonter une promesse de gain : baseline, attribution, seuil de valeur, conditions de réinvestissement. | `../side-stories-business/references/types/analytical_focus.md` |
-| `[CMP]` `comparator` | Comparer des modèles économiques ou des niveaux d'investissement sur un critère commun (CAPEX, risque porté, délai de première valeur). | `../side-stories-business/references/types/comparator.md` |
-| `[DZ]` `dezoom` | Passer de l'économie d'un cas à celle du portefeuille (coût marginal par nouveau cas, réutilisation). | `../side-stories-business/references/types/dezoom.md` |
-| `[VAC]` `veille_academique` | Définir TCO, ROI, délai de retour et seuil de valeur avec leur source et leur limite. | `../side-stories-business/references/types/veille_academique.md` |
+| Analyse approfondie (`analytical_focus`) | Démonter une promesse de gain : baseline, attribution, seuil de valeur, conditions de réinvestissement. | `../side-stories-business/references/types/analytical_focus.md` |
+| Comparatif (`comparator`) | Comparer des modèles économiques ou des niveaux d'investissement sur un critère commun (CAPEX, risque porté, délai de première valeur). | `../side-stories-business/references/types/comparator.md` |
+| Changement d'échelle (`dezoom`) | Passer de l'économie d'un cas à celle du portefeuille (coût marginal par nouveau cas, réutilisation). | `../side-stories-business/references/types/dezoom.md` |
+| Veille académique (`veille_academique`) | Définir TCO, ROI, délai de retour et seuil de valeur avec leur source et leur limite. | `../side-stories-business/references/types/veille_academique.md` |
 
 ### Problématiques types à fournir au rédacteur
 

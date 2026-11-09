@@ -27,12 +27,12 @@ Une capacité décrite par un fournisseur est `supplied_claim`. Un gain d'IA non
 
 Lire `../side-stories-business/SKILL.md`, puis le fichier du type retenu. Types recommandés pour ce pilier :
 
-| Type | Quand | Référence |
+| Type affiché | Quand | Référence |
 |---|---|---|
-| `[VAC]` `veille_academique` | Installer les capacités de l'IA ou les postures d'adoption avec source et contre-point. | `../side-stories-business/references/types/veille_academique.md` |
-| `[FOC]` `analytical_focus` | Instruire une architecture ou un mécanisme (RAG agentique multimodal, base de connaissances à ontologie, double cerveau) par la décision qu'il sert. | `../side-stories-business/references/types/analytical_focus.md` |
-| `[CMP]` `comparator` | Comparer des postures ou des solutions sur un critère unique (contrôle, réversibilité, valeur attendue). | `../side-stories-business/references/types/comparator.md` |
-| `[VCP]` `veille_corporate_perso` | Présenter un éditeur, un cabinet ou un retour d'expérience d'IA en 10 à 15 lignes, offre et preuves séparées. | `../side-stories-business/references/types/veille_corporate_perso.md` |
+| Veille académique (`veille_academique`) | Installer les capacités de l'IA ou les postures d'adoption avec source et contre-point. | `../side-stories-business/references/types/veille_academique.md` |
+| Analyse approfondie (`analytical_focus`) | Instruire une architecture ou un mécanisme (RAG agentique multimodal, base de connaissances à ontologie, double cerveau) par la décision qu'il sert. | `../side-stories-business/references/types/analytical_focus.md` |
+| Comparatif (`comparator`) | Comparer des postures ou des solutions sur un critère unique (contrôle, réversibilité, valeur attendue). | `../side-stories-business/references/types/comparator.md` |
+| Veille entreprise (`veille_corporate_perso`) | Présenter un éditeur, un cabinet ou un retour d'expérience d'IA en 10 à 15 lignes, offre et preuves séparées. | `../side-stories-business/references/types/veille_corporate_perso.md` |
 
 ### Problématiques types à fournir au rédacteur
 

@@ -1,0 +1,140 @@
+{
+  "id": "SYN-EX-comparator",
+  "title": "Trois façons de piloter des sites dispersés (fictif)",
+  "synthetic": true,
+  "mandate": {
+    "question": "Faut-il financer un pilote de supervision pour AcmeÉnergie, opérateur fictif ?",
+    "scope": "Cas entièrement fictif, sans lien avec un corpus réel",
+    "audience": "Direction des opérations (fictive)"
+  },
+  "pillars": [
+    {
+      "id": "P-INDUSTRY",
+      "title": "Chaîne de valeur industrielle",
+      "scope": "Exploitation et maintenance"
+    },
+    {
+      "id": "P-AI",
+      "title": "Capacités d'intelligence artificielle",
+      "scope": "Capacités utiles à la décision"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "kind": "supplied_context",
+      "access": "read",
+      "title": "Dossier fictif AcmeÉnergie",
+      "locator": "synthetic:fixture"
+    }
+  ],
+  "fragments": [
+    {
+      "id": "F1",
+      "source_id": "S1",
+      "locator": "synthetic:fixture#1",
+      "text": "Un écart de production est observé sur un site fictif."
+    }
+  ],
+  "claims": [
+    {
+      "id": "C1",
+      "text": "Un écart de production exige une qualification avant intervention.",
+      "status": "supplied_claim",
+      "fragment_ids": [
+        "F1"
+      ],
+      "pillar_ids": [
+        "P-INDUSTRY"
+      ]
+    }
+  ],
+  "relations": [],
+  "sections": [
+    {
+      "id": "SEC1",
+      "title": "De l'alerte à la décision",
+      "claim_ids": [
+        "C1"
+      ],
+      "pillar_ids": [
+        "P-INDUSTRY"
+      ],
+      "paragraphs": [
+        {
+          "id": "PAR1",
+          "text": "Une alerte n'est exploitable qu'une fois qualifiée.",
+          "claim_ids": [
+            "C1"
+          ],
+          "pillar_ids": [
+            "P-INDUSTRY"
+          ],
+          "review": {
+            "evidence": false,
+            "editorial": false
+          }
+        }
+      ]
+    }
+  ],
+  "side_stories": [
+    {
+      "id": "SS1",
+      "kind": "comparator",
+      "title": "Trois façons de piloter des sites dispersés (fictif)",
+      "claim_ids": [
+        "C1"
+      ],
+      "pillar_ids": [
+        "P-INDUSTRY"
+      ],
+      "parent_section_id": "SEC1",
+      "return_to": "PAR1",
+      "state": "candidate",
+      "problematique": "Sur quel critère commun les acteurs diffèrent-ils vraiment ?",
+      "bridge": {
+        "in": "Le tronc situe l'entreprise dans un marché.",
+        "out": "On revient au critère de décision : la comparaison le précise."
+      },
+      "reason_outside": "La comparaison met des acteurs côte à côte, ce qui n'est pas une étape du raisonnement.",
+      "payoff": "Situer l'entreprise sur le contrôle de la donnée.",
+      "criterion": "Contrôle de la donnée de l'exploitation",
+      "confounders": [
+        "Taille des parcs différente",
+        "Sources de nature différente selon l'acteur"
+      ],
+      "takeaway": "Les trois modèles se distinguent par qui détient la donnée, pas par la technologie.",
+      "payload": {
+        "table": {
+          "columns": [
+            "Acteur fictif",
+            "Centre de gravité",
+            "Avantage",
+            "Risque"
+          ],
+          "rows": [
+            [
+              "Opérateur intégré",
+              "Contrat client et financement",
+              "Vue complète du site",
+              "Complexité multi-sites"
+            ],
+            [
+              "Développeur d'actifs",
+              "Production d'électricité",
+              "Échelle des actifs",
+              "Exposition au prix"
+            ],
+            [
+              "Fabricant d'équipements",
+              "Matériel et logiciel propriétaire",
+              "Connaissance fine de l'équipement",
+              "Enfermement fournisseur"
+            ]
+          ]
+        }
+      }
+    }
+  ]
+}

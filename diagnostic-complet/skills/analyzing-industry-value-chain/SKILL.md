@@ -27,12 +27,12 @@ Les cas décrits par l'entreprise sont `attributed_claim` ; les causes de sous-p
 
 Lire `../side-stories-business/SKILL.md`, puis le fichier du type retenu. Types recommandés pour ce pilier :
 
-| Type | Quand | Référence |
+| Type affiché | Quand | Référence |
 |---|---|---|
-| `[FOC]` `analytical_focus` | Traiter un mécanisme d'exploitation trop étroit pour une section : diagnostic de sous-performance, arbitrage entre alerte et déplacement. | `../side-stories-business/references/types/analytical_focus.md` |
-| `[ILL]` `illustration` | Faire voir un équipement, une mesure, un document de maintenance ou un cas d'usage terrain. | `../side-stories-business/references/types/illustration.md` |
-| `[DZ]` `dezoom` | Relier une anomalie locale à la logique de portefeuille ou à la dépendance à un fournisseur d'équipement. | `../side-stories-business/references/types/dezoom.md` |
-| `[VCP]` `veille_corporate_perso` | Présenter une offre de supervision ou un éditeur d'outil d'exploitation, sans prétendre à un déploiement chez la cible. | `../side-stories-business/references/types/veille_corporate_perso.md` |
+| Analyse approfondie (`analytical_focus`) | Traiter un mécanisme d'exploitation trop étroit pour une section : diagnostic de sous-performance, arbitrage entre alerte et déplacement. | `../side-stories-business/references/types/analytical_focus.md` |
+| Exemple concret (`illustration`) | Faire voir un équipement, une mesure, un document de maintenance ou un cas d'usage terrain. | `../side-stories-business/references/types/illustration.md` |
+| Changement d'échelle (`dezoom`) | Relier une anomalie locale à la logique de portefeuille ou à la dépendance à un fournisseur d'équipement. | `../side-stories-business/references/types/dezoom.md` |
+| Veille entreprise (`veille_corporate_perso`) | Présenter une offre de supervision ou un éditeur d'outil d'exploitation, sans prétendre à un déploiement chez la cible. | `../side-stories-business/references/types/veille_corporate_perso.md` |
 
 ### Problématiques types à fournir au rédacteur
 

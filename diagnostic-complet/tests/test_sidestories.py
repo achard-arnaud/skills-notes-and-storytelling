@@ -1,4 +1,5 @@
 import copy
+from html import escape as html_escape
 import importlib.util
 import json
 from pathlib import Path
@@ -113,6 +114,19 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual(8, len(pillars))
         self.assertEqual(set(pillars), set(WORKFLOW["pillar_routing"]))
 
+    def test_labels_are_plain_words_not_codes(self):
+        labels = [t["label"] for t in WORKFLOW["types"]] + [r["label"] for r in WORKFLOW["pillar_routing"].values()]
+        self.assertEqual(len(labels), len(set(labels)))
+        for label in labels:
+            self.assertNotRegex(label, r"\b[A-Z]{2,5}\b", f"{label!r} contains an abbreviation")
+            self.assertNotRegex(label, r"^[A-Z]-|CAND-", label)
+            self.assertGreaterEqual(len(label), 8)
+
+    def test_candidates_are_named_by_readable_titles(self):
+        for c in CANDIDATES["candidates"]:
+            self.assertNotRegex(c["title"], r"CAND-\d|\b(?:VCP|VAC|FOC|CMP|ILL)\b", c["id"])
+        self.assertIn("jamais par son identifiant", CANDIDATES["readability"])
+
     def test_runtime_vocabulary_is_derived_from_workflow(self):
         self.assertEqual(set(WORKFLOW["legacy_kind_map"]) | {t["id"] for t in WORKFLOW["types"]}, runtime.SIDE_KINDS)
 
@@ -226,8 +240,9 @@ class LegacyAndRenderTests(unittest.TestCase):
 
     def test_render_shows_the_visible_tag_and_its_css(self):
         html = render.render_study(study_for("veille_academique", "candidate"))
-        self.assertIn('class="tag tag-VAC"', html)
-        self.assertIn("[VAC]", html)
+        self.assertIn('class="tag tag-VAC">Veille académique</span>', html)
+        for code in ("[VAC]", "[VCP]", "[FOC]", "VCP<", ">VAC<", ">FOC<"):
+            self.assertNotIn(code, html, "internal codes must never reach the reader")
         self.assertIn(".tag-VCP{", html)
         self.assertNotIn("http://", html.replace("http://www.w3.org", ""))
 
@@ -291,7 +306,7 @@ class SkillFamilyTests(unittest.TestCase):
     def test_pillar_skill_routes_exactly_the_workflow_types_with_existing_references(self):
         for pillar, name in PILLAR_SKILLS.items():
             _, body = frontmatter(SKILLS / name / "SKILL.md")
-            routed = set(re.findall(r"`\[(?:[A-Z]{2,3})\]` `([a-z_]+)`", body))
+            routed = set(re.findall(r"\(`([a-z_]+)`\) \|", body))
             self.assertEqual(set(WORKFLOW["pillar_routing"][pillar]["types"]), routed, name)
             for t in routed:
                 self.assertTrue((SKILLS / "side-stories-business/references/types" / f"{t}.md").exists(), f"{name}:{t}")
@@ -317,7 +332,7 @@ class SkillFamilyTests(unittest.TestCase):
         for spec in WORKFLOW["types"]:
             path = SKILLS / "side-stories-business/references/types" / f"{spec['id']}.md"
             text = path.read_text(encoding="utf-8")
-            self.assertIn(f"Tag `{spec['tag']}`", text)
+            self.assertIn(f"**{spec['label']}**", text)
             for ex in spec["examples"]:
                 self.assertIn(ex, text, f"{spec['id']} reference must discuss {ex}")
             blocks = [json.loads(b) for b in re.findall(r"```json\n(.*?)\n```", text, re.S)]
@@ -408,6 +423,55 @@ class CandidateInventoryTests(unittest.TestCase):
         by_id = {c["id"]: c for c in self.items}
         for ident in first["ids"]:
             self.assertIn(by_id[ident]["readiness"], ("supported", "partial"), ident)
+
+
+class SyntheticTwinTests(unittest.TestCase):
+    """Build side (public) stays testable without the run side (private corpus): D25."""
+
+    def test_every_type_example_has_a_synthetic_twin_that_validates_as_candidate_and_promoted(self):
+        for e in REGISTRY["examples"]:
+            if e["type"] not in WORKFLOW["legacy_kind_map"].values() and e["type"] not in {t["id"] for t in WORKFLOW["types"]}:
+                continue
+            with self.subTest(example=e["id"]):
+                path = ROOT / e["fixture"]
+                study = json.loads(path.read_text(encoding="utf-8"))
+                self.assertTrue(study["synthetic"] and study["id"].startswith("SYN-"))
+                self.assertEqual(e["type"], study["side_stories"][0]["kind"])
+                result = runtime.validate_study(study)
+                self.assertEqual([], result["errors"])
+                self.assertEqual([], [g for g in result["gaps"] if g.startswith("SS1")])
+                study["side_stories"][0]["state"] = "promoted"
+                self.assertEqual([], runtime.validate_study(study)["errors"])
+                html = render.render_study(study)
+                label = next(t["label"] for t in WORKFLOW["types"] if t["id"] == e["type"])
+                self.assertIn(html_escape(label), html)
+
+    def test_rendered_reader_shows_content_in_plain_words_and_escapes_everything(self):
+        for path in sorted((ROOT / "fixtures/examples").glob("*.json")):
+            with self.subTest(fixture=path.name):
+                study = json.loads(path.read_text(encoding="utf-8"))
+                html = render.render_study(study)
+                visible = re.sub(r"<style>.*?</style>|<script>.*?</script>|<[^>]+>", " ", html, flags=re.S)
+                kind = study["side_stories"][0]["kind"]
+                for hidden in (kind, "candidate", "supplied", "evidence_level", "hypothesis_", "VCP", "VAC", "FOC", "CMP", "ILL"):
+                    self.assertNotIn(hidden, visible, f"{path.name}: internal term {hidden!r} reached the reader")
+                self.assertIn("Proposition", visible)
+                payload = study["side_stories"][0]["payload"]
+                first_text = json.dumps(payload, ensure_ascii=False)
+                self.assertTrue(any(word in visible for word in re.findall(r"[A-Za-zÀ-ÿ']{6,}", first_text)[:3]), "payload text must be shown")
+                injected = json.loads(json.dumps(study))
+                side = injected["side_stories"][0]
+                side["payload"] = json.loads(json.dumps(payload).replace("Un", "<script>alert(1)</script>Un"))
+                self.assertNotIn("<script>alert(1)", render.render_study(injected))
+
+    def test_twins_contain_no_corpus_marker_and_no_invented_citation(self):
+        for path in (ROOT / "fixtures/examples").glob("*.json"):
+            blob = path.read_text(encoding="utf-8")
+            for forbidden in ("ATOM-", "greenyellow", "GreenYellow", "EasyVision", "Framatome", "/home/user/private"):
+                self.assertNotIn(forbidden, blob, f"{path.name}: {forbidden}")
+            study = json.loads(blob)
+            for item in study["side_stories"][0].get("payload", {}).get("items", []):
+                self.assertEqual("Exemple fictif", item["definition"]["source"]["author"])
 
 
 if __name__ == "__main__":

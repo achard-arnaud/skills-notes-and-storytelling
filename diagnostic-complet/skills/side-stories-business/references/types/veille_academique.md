@@ -1,6 +1,6 @@
-# `[VAC]` Veille académique — mini-wiki sourcé
+# Veille académique : mini-wiki sourcé
 
-Tag `VAC`, couleur indigo. Source de vérité : `workflows/side-stories.workflow.json`, type `veille_academique`.
+Libellé affiché : **Veille académique** (code interne `VAC`, jamais montré au lecteur) ; couleur indigo. Source de vérité : `workflows/side-stories.workflow.json`, type `veille_academique`.
 
 ## Rôle
 
@@ -61,7 +61,7 @@ Registre encyclopédique : définitions en une phrase, termes stables d'une entr
 ## Métaprompt (brouillon)
 
 ```text
-Tu rédiges une side story [VAC] : lexique de <N> entrées (5 à 7) pour le passage <PASSAGE>.
+Tu rédiges une side story de type veille académique : lexique de <N> entrées (5 à 7) pour le passage <PASSAGE>.
 Entrées : notions <NOTIONS>, sources citables <SOURCES>, problématique <PROBLEMATIQUE>.
 Pour chaque notion : definition (text, source auteur/année/lieu, evidence_level), example hors cas,
 in_practice qui cite le passage, contrast (anti-thèse rapide), perspective (table, schéma ou
