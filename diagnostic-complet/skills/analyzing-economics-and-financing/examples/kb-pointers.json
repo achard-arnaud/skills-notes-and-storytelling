@@ -1,0 +1,38 @@
+{
+  "skill": "analyzing-economics-and-financing",
+  "registry": "diagnostic-complet/workflows/kb-examples.json",
+  "rule": "Identifiants opaques uniquement. Résoudre dans Graph1 privé ; ne pas recopier le texte (D23).",
+  "examples": [
+    {
+      "id": "EX-ECO-01",
+      "type": "pillar:P-ECONOMICS",
+      "pillars": [
+        "P-ECONOMICS"
+      ],
+      "topic": "Pipeline de sélection et de financement des cas, métriques propres à chaque cas",
+      "role": "Arbitrage ROI et délai de première valeur",
+      "atoms": [
+        "ATOM-03ff47e9b4d4ea8eb3d39e994498b59c272c580f65f8b3bec334cc5141852abc",
+        "ATOM-2aa4a77893751e0868d958ea871d00eea3b2ddf128d5c907f42d99f792fbe193"
+      ],
+      "status": "supplied_unverified",
+      "note": "Une promesse de gain n'est pas une économie attribuable."
+    },
+    {
+      "id": "EX-DZ-02",
+      "type": "dezoom",
+      "pillars": [
+        "P-ECONOMICS",
+        "P-MARKET",
+        "P-AI"
+      ],
+      "topic": "Investissements des concurrents dans l'IA et leurs cas d'usage",
+      "role": "Dézoom vers le secteur : ce que les concurrents investissent, et ce que cela change pour la cible",
+      "atoms": [
+        "ATOM-c8e4c1df7ef3c49c4569b1ccdaff18ca58130e98ce317b3871a761c7a8a151c8"
+      ],
+      "status": "research_required",
+      "note": "La source existante ne cite que les noms des concurrents et déclare ne pas sourcer les chiffres. Aucun montant ne peut être repris."
+    }
+  ]
+}

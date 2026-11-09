@@ -8,6 +8,10 @@ import html
 import json
 from pathlib import Path
 from urllib.parse import urlsplit
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import sidestories  # noqa: E402
 
 
 LABELS = {
@@ -56,6 +60,14 @@ def _locator(value: object) -> str:
     if parsed.scheme in {"http", "https"} and parsed.netloc:
         return f'<a href="{esc(text)}" rel="noopener noreferrer">{esc(text)}</a>'
     return f'<code>{esc(text)}</code>'
+
+
+def _tag_chip(kind) -> str:
+    """Visible text tag first; color only reinforces it."""
+    info = sidestories.tag_for(kind) if isinstance(kind, str) else None
+    if not info:
+        return ""
+    return f'<span class="tag tag-{esc(info["tag"])}" title="{esc(info["label"])}">[{esc(info["tag"])}]</span> '
 
 
 def render_study(study: dict) -> str:
@@ -133,14 +145,14 @@ def render_study(study: dict) -> str:
         refs = " · ".join(_link(c, known) for c in s.get("claim_ids", []))
         return_link = _link(s["return_to"], known, "Retour au récit") if s.get("return_to") else '<span>Sans retour déclaré</span>'
         side_view.append(f'<article id="{anchor(s["id"])}" class="card filterable" data-pillars="{_pillars_attr(s)}">'
-                         f'<h2>{esc(s.get("title", s["id"]))}</h2><p class="status">{esc(s.get("state", "candidate"))} · {esc(s.get("kind", ""))}</p>'
+                         f'<h2>{esc(s.get("title", s["id"]))}</h2><p class="status">{_tag_chip(s.get("kind"))}{esc(s.get("state", "candidate"))} · {esc(s.get("kind", ""))}</p>'
                          f'<p>{esc(s.get("text", ""))}</p><dl><dt>Raison hors tronc</dt><dd>{esc(s.get("reason_outside", ""))}</dd>'
                          f'<dt>Apport au raisonnement</dt><dd>{esc(s.get("payoff", ""))}</dd></dl><p>{refs}</p><p>{return_link}</p></article>')
     panels = ["".join(narrative), "".join(pillar_view), "".join(evidence), "".join(side_view)]
     panel_html = "".join(f'<main role="tabpanel" id="panel-{key}" aria-labelledby="tab-{key}" tabindex="0"{(" hidden" if i else "")}>{panels[i]}</main>' for i, (key, _) in enumerate(tabs))
     return ('<!doctype html><html lang="fr"><head><meta charset="utf-8">'
             '<meta name="viewport" content="width=device-width,initial-scale=1">'
-            f'<title>{esc(title)}</title><style>{CSS}</style></head><body><header>'
+            f'<title>{esc(title)}</title><style>{CSS}{sidestories.tag_css()}</style></head><body><header>'
             '<p class="eyebrow">Diagnostic complet · espace expérimental</p>'
             f'<h1>{esc(title)}</h1><p>{esc(mandate.get("question", "Question à préciser"))}</p>'
             f'<p class="meta">Périmètre : {esc(mandate.get("scope", "À préciser"))} · Audience : {esc(mandate.get("audience", "À préciser"))}</p>'
@@ -161,7 +173,7 @@ h1{font-size:2rem;line-height:1.2}h2{font-size:1.35rem}.eyebrow{color:#136c78;fo
 [role=tablist]{display:flex;flex-wrap:wrap;gap:6px;margin:22px 0}button,select{font:inherit;padding:10px;border:1px solid #627b85;border-radius:5px;background:white;color:#17313d}
 button[aria-selected=true]{background:#173f4c;color:white}button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid #bd6800;outline-offset:3px}
 .filter{margin-bottom:20px}.card{background:white;padding:20px;margin:18px 0;border:1px solid #d1dfe3;border-radius:8px}
-.status{font-weight:700;color:#795211}.gap{color:#8b3323}.paragraph p{white-space:pre-wrap}a{color:#075f80;text-underline-offset:3px}
+.status{font-weight:700;color:#795211}.tag{display:inline-block;padding:0 8px;border-radius:4px;font-weight:700;margin-right:6px}.gap{color:#8b3323}.paragraph p{white-space:pre-wrap}a{color:#075f80;text-underline-offset:3px}
 pre{overflow:auto;padding:14px;background:#eaf0f2;white-space:pre-wrap}code{overflow-wrap:anywhere}dt{font-weight:700}dd{margin-left:0;margin-bottom:10px}[hidden]{display:none!important}
 @media print{[role=tablist],.filter,noscript{display:none}[role=tabpanel][hidden],.filterable[hidden]{display:block!important}.card{break-inside:avoid}body{padding:0}}
 """

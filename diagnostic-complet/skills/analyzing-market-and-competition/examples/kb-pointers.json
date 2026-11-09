@@ -1,0 +1,40 @@
+{
+  "skill": "analyzing-market-and-competition",
+  "registry": "diagnostic-complet/workflows/kb-examples.json",
+  "rule": "Identifiants opaques uniquement. Résoudre dans Graph1 privé ; ne pas recopier le texte (D23).",
+  "examples": [
+    {
+      "id": "EX-MKT-01",
+      "type": "pillar:P-MARKET",
+      "pillars": [
+        "P-MARKET"
+      ],
+      "topic": "Basculement macro de l'énergie achetée à l'énergie pilotée, positionnement et marchés d'ancrage",
+      "role": "Ancrage macro d'une analyse de marché",
+      "atoms": [
+        "ATOM-ab246fdb174149f5145baeebb835e41b52e3e6455c0b25ba95353317fac12e15",
+        "ATOM-c7f301ec87e9c54e328d80139f6d2c89f7ea308cc04ccecc5f1ca17d8bfc467c",
+        "ATOM-fd437ae4aeb5e595bfb9b764c7c76e0d362035d13400f2809f409c605fd9c591"
+      ],
+      "status": "supplied_unverified",
+      "note": "Indicateurs nationaux : contexte, pas mesure de maturité de la cible."
+    },
+    {
+      "id": "EX-CMP-01",
+      "type": "comparator",
+      "pillars": [
+        "P-MARKET",
+        "P-ECONOMICS"
+      ],
+      "topic": "Trois archétypes d'acteurs et cinq concurrents nommés, comparés sur quatre modèles de valeur",
+      "role": "Tableau croisé à critère commun, avec conditions de départ et facteurs de confusion",
+      "atoms": [
+        "ATOM-e8ca82aa2aeadc92b47a1c36e80af00b4581db2943d2a52395af16eb3042241f",
+        "ATOM-320611f91652d0469ce13d9266f1c178f7d38277c2359ab49a0eb09bed2e7c5a",
+        "ATOM-c8e4c1df7ef3c49c4569b1ccdaff18ca58130e98ce317b3871a761c7a8a151c8"
+      ],
+      "status": "supplied_unverified",
+      "note": "Archétypes à instruire sur preuves publiques ; pas de classement de performances."
+    }
+  ]
+}

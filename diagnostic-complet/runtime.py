@@ -9,9 +9,14 @@ from pathlib import Path
 import re
 import sys
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import sidestories  # noqa: E402
+
 STATUSES = {"supplied_claim", "attributed_claim", "inference", "hypothesis", "verified_fact", "unknown"}
 RELATIONS = {"supports", "contradicts", "depends_on", "illustrates", "compares", "contextualizes", "causal_hypothesis"}
-SIDE_KINDS = {"detour", "dezoom", "also", "method", "false_lead", "portrait", "object_focus", "comparator", "callback", "analytical_focus"}
+# Derived from workflows/side-stories.workflow.json (single source of truth, D22). Legacy kinds stay
+# accepted for existing studies and only produce a gap naming their canonical replacement.
+SIDE_KINDS = set(sidestories.CANONICAL_KINDS) | set(sidestories.LEGACY_MAP)
 STATES = {"candidate", "validated", "promoted", "retired"}
 PRIMARY_KINDS = {"primary", "primary_vendor", "primary_regulatory", "primary_repo", "primary_corporate", "primary_research", "primary_official"}
 CONSULTED = {"read", "consulted", "full", "full_text"}
@@ -269,6 +274,9 @@ def validate_study(study):
         for key in ("reason_outside", "payoff"):
             if not isinstance(side.get(key), str) or not side[key].strip():
                 (errors if active else gaps).append(f"{side['id']}: {key} required")
+        blocking, pending = sidestories.side_story_findings(side)
+        errors.extend(f"{side['id']}: {item}" for item in blocking)
+        gaps.extend(f"{side['id']}: {item}" for item in pending)
         if side.get("kind") == "dezoom":
             for key in ("scale_from", "scale_to", "mechanism"):
                 if not isinstance(side.get(key), str) or not side[key].strip():

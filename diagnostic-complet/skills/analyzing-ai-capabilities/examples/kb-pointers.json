@@ -1,0 +1,39 @@
+{
+  "skill": "analyzing-ai-capabilities",
+  "registry": "diagnostic-complet/workflows/kb-examples.json",
+  "rule": "Identifiants opaques uniquement. Résoudre dans Graph1 privé ; ne pas recopier le texte (D23).",
+  "examples": [
+    {
+      "id": "EX-VAC-01",
+      "type": "veille_academique",
+      "pillars": [
+        "P-AI",
+        "P-ADOPTION",
+        "P-ECONOMICS"
+      ],
+      "topic": "Les quatre postures stratégiques d'adoption de l'IA et leur arbitrage",
+      "role": "Modèle de lexique de 5 à 7 entrées : définition sourcée, exemple, en pratique, anti-thèse, mise en perspective",
+      "atoms": [
+        "ATOM-59788990e6b7a2aeca560cc6c7d3ce4a058777beca10014e4b1c8477682b51ce",
+        "ATOM-0fa57900fc69f27f3a2a195bac682415ef95def5078cab0f74810ea5bf3ea3cd",
+        "ATOM-7d17235c18b5043e222a1d1eb5a4eec0ffe167b24606f6763bb8388a6b0c1965"
+      ],
+      "status": "supplied_unverified",
+      "note": "Hypothèse d'arbitrage dans une synthèse fournie, non vérifiée page à page dans l'ouvrage."
+    },
+    {
+      "id": "EX-VAC-02",
+      "type": "veille_academique",
+      "pillars": [
+        "P-AI",
+        "P-ECONOMICS",
+        "P-ADOPTION"
+      ],
+      "topic": "Cinq capacités de l'IA, principes TRICUS, seuil de valeur de 10 K$",
+      "role": "Lexique de capacités (perception, création, prédiction, raisonnement, agentique) et filtre de valeur",
+      "atoms": [],
+      "status": "to_ingest",
+      "note": "Rapport fourni dans la conversation du 2026-11-09, absent de la KB. L'ingérer (source-convert puis kb-ingest) et vérifier chaque définition dans l'ouvrage avant usage."
+    }
+  ]
+}

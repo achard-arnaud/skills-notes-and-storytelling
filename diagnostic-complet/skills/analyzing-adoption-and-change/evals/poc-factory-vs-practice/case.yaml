@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: poc-factory-vs-practice
+expected_outcome: |
+  La réponse sépare flux ascendant et descendant, classe les demandes terrain, définit une mesure par rôle, n'invente aucun taux, et propose des side stories typées (par exemple une illustration ILL et un lexique VAC) avec problématique et ponts.

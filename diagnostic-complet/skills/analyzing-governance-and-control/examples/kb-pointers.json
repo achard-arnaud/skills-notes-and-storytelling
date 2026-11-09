@@ -1,0 +1,41 @@
+{
+  "skill": "analyzing-governance-and-control",
+  "registry": "diagnostic-complet/workflows/kb-examples.json",
+  "rule": "Identifiants opaques uniquement. Résoudre dans Graph1 privé ; ne pas recopier le texte (D23).",
+  "examples": [
+    {
+      "id": "EX-DZ-01",
+      "type": "dezoom",
+      "pillars": [
+        "P-GOVERNANCE",
+        "P-INDUSTRY",
+        "P-ECONOMICS"
+      ],
+      "topic": "De l'installation à l'agrégateur : verrouillage fournisseur et couche d'orchestration indépendante",
+      "role": "Dézoom de l'échelle équipement vers l'échelle portefeuille, mécanisme de transmission explicite",
+      "atoms": [
+        "ATOM-5f6d7dbd2f0262f8a837e1c876a99f18b6bcb4b60d0d17f3687cd2c6cc2c1abf",
+        "ATOM-a27f423c89aa27a26c02977f31d07aa8355aa55e4262125af210e34df36f7801",
+        "ATOM-971404f009669f3876b99a6a9b103f1ba17155563fb3e5081614fce37d4ed88f",
+        "ATOM-a2115d264b7392d891ee7aea3a6977c79ab5b1a7e02abc09f4d2cdc57fe4cbdc"
+      ],
+      "status": "supplied_unverified",
+      "note": "L'avantage d'une couche d'orchestration est une hypothèse stratégique à valider, pas un fait."
+    },
+    {
+      "id": "EX-GOV-01",
+      "type": "pillar:P-GOVERNANCE",
+      "pillars": [
+        "P-GOVERNANCE",
+        "P-ADOPTION"
+      ],
+      "topic": "Rôles par communauté et niveau, avec mesure de valeur par rôle",
+      "role": "Répartir mandat, contrôle et mesure entre métiers, power users, développeurs citoyens et IT",
+      "atoms": [
+        "ATOM-96157df2925f8ba23ed8df12db613cee84e4782b3387123b24210075f8963ab7"
+      ],
+      "status": "supplied_unverified",
+      "note": "Rôle de la DSI et de la plateforme data à confirmer avec l'organisation cible."
+    }
+  ]
+}
