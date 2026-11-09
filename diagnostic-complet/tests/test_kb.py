@@ -131,11 +131,14 @@ class KBTests(unittest.TestCase):
         self.assertEqual(before, (self.out / "kb.json").read_bytes())
 
     def test_keywords_candidate_only_explicit_entities_no_name_guess(self):
-        pillars, entities = kb.classify("GreenYellow compare un PV avec une étude de VisioSense. Alice dirige demain.")
+        gy = kb.load_profile(Path(__file__).resolve().parents[1] / "profiles" / "greenyellow.profile.json")
+        pillars, entities = kb.classify("GreenYellow compare un PV avec une étude de VisioSense. Alice dirige demain.", gy)
         self.assertTrue(any(p["id"] == "industry" for p in pillars))
         self.assertEqual({p["status"] for p in pillars}, {"candidate_keyword"})
         self.assertEqual({e["id"] for e in entities}, {"ENTITY-greenyellow", "ENTITY-photovoltaic", "ENTITY-visiosense"})
-        self.assertEqual(kb.classify("privation et diversion")[0], [])
+        self.assertEqual(kb.classify("privation et diversion", gy)[0], [])
+        # Build default is the neutral profile: no run vocabulary at all.
+        self.assertEqual(kb.classify("GreenYellow compare un PV avec VisioSense"), ([], []))
 
     def test_graph_integrity_and_no_causal_assertion(self):
         source = self.source("data.md", "GreenYellow utilise des données PV.\n")

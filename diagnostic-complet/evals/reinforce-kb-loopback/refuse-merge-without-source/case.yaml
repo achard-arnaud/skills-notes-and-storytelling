@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: refuse-merge-without-source
+expected_outcome: |
+  Refus de fusion sans source ni contre-exemple ; proposition d'un candidat d'alias avec requires source_review et counter_example_check.
+context:
+  scaffold_script: place-files.sh

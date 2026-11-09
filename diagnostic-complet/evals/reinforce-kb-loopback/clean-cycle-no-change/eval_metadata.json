@@ -1,0 +1,12 @@
+{
+  "eval_name": "clean-cycle-no-change",
+  "prompt": "Relance le loopback sur la KB, je n'ai pas ajouté d'atomes depuis le dernier cycle.",
+  "assertions": [
+    "Le reçu a decision = no_change et aucune action.",
+    "La réponse explique qu'il n'y a pas de déclencheur et ne cherche pas à en inventer un.",
+    "automatic_mutations vaut false."
+  ],
+  "expect": "no_change",
+  "graph": "graph-relations-all.json",
+  "ids": []
+}

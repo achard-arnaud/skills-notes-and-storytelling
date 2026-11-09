@@ -1,0 +1,15 @@
+{
+  "eval_name": "negative-directive-and-violations",
+  "prompt": "J'ai ajouté la source D1 à la KB. Lance le loopback sur ce seul apport et dis-moi ce qu'il faut relire.",
+  "assertions": [
+    "Le reçu a decision = review_required et triggers_fired contient directive_in_material.",
+    "Le reçu compte exactement trois violations et un candidat d'alias.",
+    "Le reçu compte exactement une action différée (deferred_actions = 1).",
+    "Aucune mutation, aucune promotion, candidate_approval = false."
+  ],
+  "expect": "review_required",
+  "graph": "graph-negative.json",
+  "ids": [
+    "D1"
+  ]
+}

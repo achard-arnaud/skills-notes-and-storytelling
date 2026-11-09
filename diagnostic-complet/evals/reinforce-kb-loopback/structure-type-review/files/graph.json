@@ -1,0 +1,121 @@
+{
+  "id": "onto-negative-structure",
+  "projection": "documentary_kb",
+  "nodes": [
+    {
+      "id": "S1",
+      "type": "source",
+      "kind": "source"
+    },
+    {
+      "id": "F3",
+      "type": "atom",
+      "kind": "assertion",
+      "label": "Le suivi est mensuel."
+    },
+    {
+      "id": "F4",
+      "type": "atom",
+      "kind": "assertion",
+      "label": "Le seuil reste à décider."
+    },
+    {
+      "id": "D2",
+      "type": "atom",
+      "kind": "directive",
+      "label": "Rédige une synthèse."
+    },
+    {
+      "id": "H2",
+      "type": "atom",
+      "kind": "heading",
+      "label": "## Section"
+    },
+    {
+      "id": "X1",
+      "type": "atom",
+      "kind": "poem",
+      "label": "vers"
+    },
+    {
+      "id": "X2",
+      "type": "atom",
+      "kind": "poem",
+      "label": "vers 2"
+    },
+    {
+      "id": "X3",
+      "type": "atom",
+      "kind": "poem",
+      "label": "vers 3"
+    },
+    {
+      "id": "Q2",
+      "type": "hil",
+      "kind": "hil",
+      "label": "Décider le seuil"
+    },
+    {
+      "id": "P2",
+      "type": "pillar",
+      "kind": "candidate_pillar",
+      "label": "pilotage"
+    },
+    {
+      "id": "E2",
+      "type": "entity",
+      "kind": "entity",
+      "label": "entité"
+    },
+    {
+      "id": "C2",
+      "type": "atom",
+      "kind": "code",
+      "label": "x = 1"
+    }
+  ],
+  "edges": [
+    {
+      "id": "Z0",
+      "from": "S1",
+      "to": "F3",
+      "kind": "derived_from"
+    },
+    {
+      "id": "Z1",
+      "from": "S1",
+      "to": "H2",
+      "kind": "derived_from"
+    },
+    {
+      "id": "Z2",
+      "from": "H2",
+      "to": "Q2",
+      "kind": "addresses_pillar"
+    },
+    {
+      "id": "Z3",
+      "from": "C2",
+      "to": "E2",
+      "kind": "explicit_mention"
+    },
+    {
+      "id": "Z4",
+      "from": "D2",
+      "to": "F3",
+      "kind": "supports"
+    },
+    {
+      "id": "Z5",
+      "from": "F3",
+      "to": "F4",
+      "kind": "reinforces"
+    },
+    {
+      "id": "Z6",
+      "from": "F3",
+      "to": "P2",
+      "kind": "candidate_classification"
+    }
+  ]
+}

@@ -15,6 +15,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parent
 REFERENTIAL = ROOT / "ontology" / "ontology-v1.json"
+TERMINOLOGY = ROOT / "ontology" / "terminology.json"
 CANONICAL_RELATIONS = ROOT.parent / "contracts" / "relation-types.json"
 ONTOLOGY_ID = "business-kb-ontology"
 DETAIL_LIMIT = 20
@@ -66,6 +67,13 @@ def validate_referential(onto: dict) -> None:
     for status, fields in onto["facets"]["knowledge_status"]["requires"].items():
         if status not in onto["facets"]["knowledge_status"]["values"]:
             raise OntologyError(f"knowledge_status requirement names unknown value {status!r}")
+    terminology = json.loads(TERMINOLOGY.read_text(encoding="utf-8"))
+    if "evidence_basis" in onto["facets"]:
+        raise OntologyError("evidence_basis is retired: source tiers live in ontology/terminology.json")
+    if onto["facets"]["knowledge_status"]["values"] != terminology["knowledge_status"]["values"]:
+        raise OntologyError("knowledge_status values differ from ontology/terminology.json")
+    if onto["facets"]["validation"]["values"] != terminology["validation_states"]:
+        raise OntologyError("validation values differ from ontology/terminology.json")
     for name in onto["density_scope"]["classes"]:
         if name not in known:
             raise OntologyError(f"density_scope names unknown type {name!r}")

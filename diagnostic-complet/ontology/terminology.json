@@ -1,0 +1,102 @@
+{
+  "terminology_id": "business-kb-terminology",
+  "version": "1.0.0",
+  "status": "proposed",
+  "single_source_of_truth": "Every status, source tier and crosswalk used by runtime.py, kb.py, ontology.py, render.py and docs/TERMINOLOGY.md is read from this file. No module redefines these strings.",
+  "claim_statuses": {
+    "supplied_claim": "Assertion issue de la matière fournie, non vérifiée. Statut par défaut.",
+    "attributed_claim": "Assertion attribuée à un auteur ou à un acteur (« X déclare… »). Ne porte pas le fait lui-même.",
+    "inference": "Conclusion produite par raisonnement à partir d'autres claims. Jamais une source.",
+    "hypothesis": "Piste à éprouver. Une contre-hypothèse doit être explicite.",
+    "verified_fact": "Fait revu par un humain, adossé à une source consultée d'un tier éligible et qualifiée.",
+    "unknown": "Statut non déterminé."
+  },
+  "source_tiers": {
+    "T0": {
+      "label": "Matière fournie ou interne non vérifiée",
+      "examples": ["document fourni", "transcript interne", "note de travail"],
+      "may_back": ["supplied_claim"],
+      "verified_fact_eligible": false
+    },
+    "T1": {
+      "label": "Auto-déclaration de l'acteur",
+      "examples": ["site corporate", "communiqué", "rapport annuel", "prise de parole publique"],
+      "may_back": ["attributed_claim"],
+      "verified_fact_eligible": false,
+      "rule": "Prouve ce que l'acteur déclare, jamais la réalité de sa performance."
+    },
+    "T2": {
+      "label": "Tiers secondaire ou allégation vendeur",
+      "examples": ["presse", "analystes", "fournisseur", "benchmark commercial"],
+      "may_back": ["attributed_claim"],
+      "verified_fact_eligible": false,
+      "rule": "Une répétition de la même origine reste une seule origine."
+    },
+    "T3": {
+      "label": "Primaire indépendant",
+      "examples": ["régulateur", "dépôt légal", "statistique officielle", "standard (ex. IEC, NREL, Eurostat)", "étude académique publiée"],
+      "may_back": ["attributed_claim", "verified_fact"],
+      "verified_fact_eligible": true
+    },
+    "T4": {
+      "label": "Mesure interne documentée",
+      "examples": ["compteur ou relevé avec méthode", "donnée client avec périmètre et période"],
+      "may_back": ["verified_fact"],
+      "verified_fact_eligible": true,
+      "rule": "Reste privée : jamais diffusée hors du namespace du run."
+    },
+    "unassessed": {
+      "label": "Tier non évalué",
+      "examples": [],
+      "may_back": ["supplied_claim"],
+      "verified_fact_eligible": false,
+      "rule": "Défaut sûr : toute source sans tier explicite ou mappée est non éligible."
+    }
+  },
+  "legacy_source_kind_to_tier": {
+    "primary_regulatory": "T3",
+    "primary_official": "T3",
+    "primary_research": "T3",
+    "primary_repo": "T3",
+    "primary_corporate": "T1",
+    "primary_vendor": "T2",
+    "primary": "unassessed"
+  },
+  "validation_states": ["supplied_unverified", "candidate_unconfirmed", "candidate_confirmed", "unknown"],
+  "documentary_status": "supplied_unverified",
+  "knowledge_status": {
+    "values": ["SOURCE", "DERIVED", "CANDIDATE", "HUMAN_ADJUDICATED", "UNKNOWN", "NOT_EVALUABLE"],
+    "requires": {"HUMAN_ADJUDICATED": ["decision_ref"]},
+    "machine_may_set": ["SOURCE", "DERIVED", "CANDIDATE", "UNKNOWN", "NOT_EVALUABLE"]
+  },
+  "crosswalk": {
+    "supplied": {
+      "claim_status": "supplied_claim",
+      "documentary_status": "supplied_unverified",
+      "validation_state": "supplied_unverified",
+      "knowledge_status": "SOURCE",
+      "source_tier": "T0"
+    },
+    "candidate": {
+      "claim_status": null,
+      "documentary_status": null,
+      "validation_state": "candidate_unconfirmed",
+      "knowledge_status": "CANDIDATE",
+      "source_tier": null
+    },
+    "verified": {
+      "claim_status": "verified_fact",
+      "documentary_status": null,
+      "validation_state": "candidate_confirmed",
+      "knowledge_status": "HUMAN_ADJUDICATED",
+      "source_tier": "T3 or T4"
+    }
+  },
+  "retired_terms": {
+    "evidence_basis": "Remplacé par le tier de source (source_tiers). La facette n'était produite par aucun code.",
+    "supplied_material": "Devient T0 (matière fournie).",
+    "public_primary": "Devient T3 si la source est consultée et qualifiée ; sinon unassessed.",
+    "qualified_primary": "Remplacé par tier éligible (T3 ou T4) + qualified:true. Un tier vendeur ou corporate n'est jamais éligible."
+  },
+  "promotion": "A status or tier does not establish truth. Only a human review with a decision_ref may set verified_fact or HUMAN_ADJUDICATED."
+}

@@ -16,3 +16,10 @@
 - **D23 — 2026-11-09** : dix `SKILL.md` éditoriaux (huit piliers, `designing-main-story`, `side-stories-business`) sont versionnés dans `skills/`. Cela supersède pour cette famille seule la réserve de D07 et du mandat R2, car ils ne portent aucun texte privé : les exemples de la KB y sont des identifiants opaques d'atomes, à résoudre dans Graph1. Les opérations atomiques gardent leurs `SKILL.md` hors dépôt. Les cas d'évaluation sont écrits et non exécutés.
 - **D24 — 2026-11-09** : décision humaine sur HITL-258 : piliers et fil narratif validés ; side stories à rechallenger. Les types de veille corporate personnelle et de veille académique sont ajoutés avec leurs formats. L'inventaire est réécrit sans validation ; la première vague proposée est une suggestion de l'agent.
 
+
+## Décisions du 9 novembre 2026 (séparation build/run et terminologie)
+
+- **D25** : le code de build est run-agnostique. Le vocabulaire de run (entités, piliers, namespace) vit dans `profiles/`. Le défaut est le profil `neutral`. Tests de garde-fou : `tests/test_profiles_terminology.py`.
+- **D26** : une KB = un profil (`profile_id` dans l'index). Mélange refusé ; migration explicite.
+- **D27** : une seule terminologie, `ontology/terminology.json`. La facette `evidence_basis` est retirée (ontologie 0.5.0) et remplacée par les tiers de source.
+- **D28** : un tier vendeur (T2) ou corporate (T1) ne soutient jamais un `verified_fact`, même qualifié. Seuls T3 et T4 le peuvent, après revue humaine référencée.

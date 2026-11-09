@@ -1,0 +1,228 @@
+[
+ {
+  "text": "GreenYellow mesure les données. Le PV reste une hypothèse.",
+  "pillars": [
+   {
+    "id": "data",
+    "matched_terms": [
+     "données"
+    ],
+    "status": "candidate_keyword",
+    "lexicon_version": "1.0.0"
+   },
+   {
+    "id": "industry",
+    "matched_terms": [
+     "PV"
+    ],
+    "status": "candidate_keyword",
+    "lexicon_version": "1.0.0"
+   }
+  ],
+  "entities": [
+   {
+    "id": "ENTITY-greenyellow",
+    "title": "GreenYellow",
+    "matches": [
+     {
+      "text": "GreenYellow",
+      "start": 0,
+      "end": 11
+     }
+    ],
+    "status": "explicit_lexicon_match",
+    "lexicon_version": "1.0.0"
+   },
+   {
+    "id": "ENTITY-photovoltaic",
+    "title": "Photovoltaïque",
+    "matches": [
+     {
+      "text": "PV",
+      "start": 35,
+      "end": 37
+     }
+    ],
+    "status": "explicit_lexicon_match",
+    "lexicon_version": "1.0.0"
+   }
+  ]
+ },
+ {
+  "text": "GreenYellow compare un PV avec une étude de VisioSense. Alice dirige demain.",
+  "pillars": [
+   {
+    "id": "industry",
+    "matched_terms": [
+     "PV"
+    ],
+    "status": "candidate_keyword",
+    "lexicon_version": "1.0.0"
+   }
+  ],
+  "entities": [
+   {
+    "id": "ENTITY-greenyellow",
+    "title": "GreenYellow",
+    "matches": [
+     {
+      "text": "GreenYellow",
+      "start": 0,
+      "end": 11
+     }
+    ],
+    "status": "explicit_lexicon_match",
+    "lexicon_version": "1.0.0"
+   },
+   {
+    "id": "ENTITY-photovoltaic",
+    "title": "Photovoltaïque",
+    "matches": [
+     {
+      "text": "PV",
+      "start": 23,
+      "end": 25
+     }
+    ],
+    "status": "explicit_lexicon_match",
+    "lexicon_version": "1.0.0"
+   },
+   {
+    "id": "ENTITY-visiosense",
+    "title": "VisioSense",
+    "matches": [
+     {
+      "text": "VisioSense",
+      "start": 44,
+      "end": 54
+     }
+    ],
+    "status": "explicit_lexicon_match",
+    "lexicon_version": "1.0.0"
+   }
+  ]
+ },
+ {
+  "text": "Stockage d'énergie BESS et ombrières solaires chez Microsoft, efficacité énergétique et ROI.",
+  "pillars": [
+   {
+    "id": "industry",
+    "matched_terms": [
+     "Stockage",
+     "ombrières",
+     "énergie",
+     "énergétique"
+    ],
+    "status": "candidate_keyword",
+    "lexicon_version": "1.0.0"
+   },
+   {
+    "id": "economics",
+    "matched_terms": [
+     "ROI"
+    ],
+    "status": "candidate_keyword",
+    "lexicon_version": "1.0.0"
+   }
+  ],
+  "entities": [
+   {
+    "id": "ENTITY-energy-efficiency",
+    "title": "Efficacité énergétique",
+    "matches": [
+     {
+      "text": "efficacité énergétique",
+      "start": 62,
+      "end": 84
+     }
+    ],
+    "status": "explicit_lexicon_match",
+    "lexicon_version": "1.0.0"
+   },
+   {
+    "id": "ENTITY-energy-storage",
+    "title": "Stockage d'énergie",
+    "matches": [
+     {
+      "text": "Stockage d'énergie",
+      "start": 0,
+      "end": 18
+     },
+     {
+      "text": "BESS",
+      "start": 19,
+      "end": 23
+     }
+    ],
+    "status": "explicit_lexicon_match",
+    "lexicon_version": "1.0.0"
+   },
+   {
+    "id": "ENTITY-solar-canopy",
+    "title": "Ombrière solaire",
+    "matches": [
+     {
+      "text": "ombrières",
+      "start": 27,
+      "end": 36
+     }
+    ],
+    "status": "explicit_lexicon_match",
+    "lexicon_version": "1.0.0"
+   },
+   {
+    "id": "ENTITY-microsoft",
+    "title": "Microsoft",
+    "matches": [
+     {
+      "text": "Microsoft",
+      "start": 51,
+      "end": 60
+     }
+    ],
+    "status": "explicit_lexicon_match",
+    "lexicon_version": "1.0.0"
+   }
+  ]
+ },
+ {
+  "text": "Les capteurs et la télémétrie alimentent la gouvernance des données, la conformité RGPD et l'adoption par les utilisateurs.",
+  "pillars": [
+   {
+    "id": "data",
+    "matched_terms": [
+     "capteurs",
+     "données",
+     "télémétrie"
+    ],
+    "status": "candidate_keyword",
+    "lexicon_version": "1.0.0"
+   },
+   {
+    "id": "governance",
+    "matched_terms": [
+     "RGPD",
+     "conformité",
+     "gouvernance"
+    ],
+    "status": "candidate_keyword",
+    "lexicon_version": "1.0.0"
+   },
+   {
+    "id": "adoption",
+    "matched_terms": [
+     "adoption",
+     "utilisateurs"
+    ],
+    "status": "candidate_keyword",
+    "lexicon_version": "1.0.0"
+   }
+  ],
+  "entities": []
+ },
+ {
+  "text": "Rien de pertinent ici.",
+  "pillars": [],
+  "entities": []
+ }
+]

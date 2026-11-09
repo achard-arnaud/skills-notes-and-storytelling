@@ -1,0 +1,127 @@
+{
+  "id": "onto-positive",
+  "projection": "documentary_kb",
+  "nodes": [
+    {
+      "id": "S1",
+      "type": "source",
+      "kind": "source",
+      "label": "S1"
+    },
+    {
+      "id": "S2",
+      "type": "source",
+      "kind": "source",
+      "label": "S2"
+    },
+    {
+      "id": "F1",
+      "type": "atom",
+      "kind": "assertion",
+      "label": "Le contrôle humain reste requis pour la décision."
+    },
+    {
+      "id": "F2",
+      "type": "atom",
+      "kind": "assertion",
+      "label": "La qualité des données conditionne la détection."
+    },
+    {
+      "id": "Q1",
+      "type": "atom",
+      "kind": "question",
+      "label": "Quel niveau de contrôle humain est acceptable ?"
+    },
+    {
+      "id": "H1",
+      "type": "atom",
+      "kind": "heading",
+      "label": "## Gouvernance"
+    },
+    {
+      "id": "P1",
+      "type": "pillar",
+      "kind": "candidate_pillar",
+      "label": "gouvernance"
+    },
+    {
+      "id": "HIL1",
+      "type": "hil",
+      "kind": "hil",
+      "label": "Arbitrer le contrôle humain"
+    },
+    {
+      "id": "E1",
+      "type": "entity",
+      "kind": "entity",
+      "label": "entité explicite"
+    }
+  ],
+  "edges": [
+    {
+      "id": "D1",
+      "from": "S1",
+      "to": "F1",
+      "kind": "derived_from"
+    },
+    {
+      "id": "D2",
+      "from": "S2",
+      "to": "F2",
+      "kind": "derived_from"
+    },
+    {
+      "id": "D3",
+      "from": "S1",
+      "to": "Q1",
+      "kind": "derived_from"
+    },
+    {
+      "id": "D4",
+      "from": "S1",
+      "to": "H1",
+      "kind": "derived_from"
+    },
+    {
+      "id": "C1",
+      "from": "F1",
+      "to": "P1",
+      "kind": "candidate_classification",
+      "status": "candidate_keyword"
+    },
+    {
+      "id": "C2",
+      "from": "F2",
+      "to": "P1",
+      "kind": "candidate_classification",
+      "status": "candidate_keyword"
+    },
+    {
+      "id": "M1",
+      "from": "F1",
+      "to": "E1",
+      "kind": "explicit_mention"
+    },
+    {
+      "id": "A1",
+      "from": "HIL1",
+      "to": "P1",
+      "kind": "addresses_pillar"
+    },
+    {
+      "id": "R1",
+      "from": "F2",
+      "to": "F1",
+      "kind": "supports"
+    },
+    {
+      "id": "R2",
+      "from": "F2",
+      "to": "F1",
+      "kind": "causes",
+      "evidence": [
+        "EV-1"
+      ]
+    }
+  ]
+}
