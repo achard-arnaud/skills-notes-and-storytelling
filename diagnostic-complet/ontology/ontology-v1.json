@@ -1,6 +1,6 @@
 {
   "ontology_id": "business-kb-ontology",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "status": "proposed",
   "date": "2026-11-07",
   "ticket": "skills-notes-and-storytelling#284",
@@ -8,7 +8,8 @@
     "rule": "Référentiel lu en lecture seule. Il nomme le vocabulaire déjà produit par kb.py et loopback.py ; il ne réécrit jamais un graphe, ne fusionne aucun nœud et ne promeut aucun fait.",
     "decision_record": "diagnostic-complet/docs/ONTOLOGY.md",
     "canonical_relation_catalogue": "contracts/relation-types.json",
-    "method_inspiration": "Référentiel kb-ontology du dépôt Candidatures-nice (méthode seulement : classes, types, classes de relations, facettes, champs non contrôlés)."
+    "method_inspiration": "Référentiel kb-ontology du dépôt Candidatures-nice (méthode seulement : classes, types, classes de relations, facettes, champs non contrôlés).",
+    "terminology": "ontology/terminology.json"
   },
   "id_format": "<class>.<type>",
   "facets": {
@@ -21,15 +22,6 @@
         "unknown"
       ],
       "default": "supplied_unverified"
-    },
-    "evidence_basis": {
-      "definition": "Nature de la source. Un fichier fourni n'est jamais une preuve primaire vérifiée.",
-      "values": [
-        "supplied_material",
-        "public_primary",
-        "unknown"
-      ],
-      "default": "supplied_material"
     },
     "knowledge_status": {
       "definition": "Statut de connaissance, aligné sur le vocabulaire de Graph1 (README, section 4). Facette, jamais type.",

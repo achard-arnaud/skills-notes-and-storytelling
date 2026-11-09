@@ -15,7 +15,9 @@ from pathlib import Path
 import sys
 
 FROZEN_GRAPH = "build/graph.json"
-DEFAULT_NAMESPACE = "knowledge/business/greenyellow"
+# No default namespace: each run declares projection.namespace in its profile (profiles/<run>.profile.json).
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from kb import load_profile  # noqa: E402
 FORBIDDEN_TOP = {"canonical", "build", "tmp_extract", "scripts", "tests", "docs", ".github", ".git"}
 
 
@@ -47,9 +49,11 @@ def _write(target: Path, data: bytes, written: list):
     written.append(target)
 
 
-def project(graph1_root: Path, frozen_sha: str, sources: dict[str, Path], namespace: str = DEFAULT_NAMESPACE,
+def project(graph1_root: Path, frozen_sha: str, sources: dict[str, Path], namespace: str | None = None,
             include_raw: Path | None = None, dry_run: bool = False, shard_atoms: int = 0,
             compress_over: int = 0, only: set[str] | None = None, manifest: bool = True) -> dict:
+    if namespace is None:
+        raise ProjectionError("namespace required: declare projection.namespace in the run profile")
     root = Path(graph1_root)
     frozen = root / FROZEN_GRAPH
     if not frozen.exists() or sha256_file(frozen) != frozen_sha:
@@ -107,7 +111,8 @@ def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--graph1", required=True, type=Path)
     parser.add_argument("--frozen-sha", required=True)
-    parser.add_argument("--namespace", default=DEFAULT_NAMESPACE)
+    parser.add_argument("--namespace")
+    parser.add_argument("--profile", type=Path, help="run profile; its projection.namespace is used when --namespace is absent")
     parser.add_argument("--source", action="append", default=[], metavar="SUBDIR=PATH")
     parser.add_argument("--raw-html", type=Path)
     parser.add_argument("--dry-run", action="store_true")
@@ -116,11 +121,14 @@ def main(argv=None) -> int:
     parser.add_argument("--no-manifest", action="store_true", help="skip MANIFEST.json (intermediate batch)")
     parser.add_argument("--only", action="append", help="only entries whose relative path starts with this prefix (batch publication)")
     args = parser.parse_args(argv)
+    namespace = args.namespace
+    if namespace is None and args.profile:
+        namespace = (load_profile(args.profile).get("projection") or {}).get("namespace")
     sources = {}
     for item in args.source:
         key, _, value = item.partition("=")
         sources[key] = Path(value)
-    print(json.dumps(project(args.graph1, args.frozen_sha, sources, args.namespace, args.raw_html, args.dry_run,
+    print(json.dumps(project(args.graph1, args.frozen_sha, sources, namespace, args.raw_html, args.dry_run,
                      args.shard_atoms, args.compress_over, set(args.only) if args.only else None, not args.no_manifest),
                      ensure_ascii=False, indent=2))
     return 0

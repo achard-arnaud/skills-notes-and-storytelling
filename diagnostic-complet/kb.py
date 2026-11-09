@@ -14,27 +14,40 @@ import sys
 import unicodedata
 
 VERSION = "1.0.0"
-LEXICON_VERSION = "1.0.0"
-# Classification is a reproducible suggestion, never evidence or editorial approval.
-PILLAR_LEXICON = {
-    "data": ("data", "donnée", "données", "télémétrie", "capteur", "capteurs", "qualité des données", "sql", "fabric"),
-    "ai": ("ia", "ai", "intelligence artificielle", "machine learning", "llm", "rag", "vision", "modèle", "modèles", "algorithme"),
-    "industry": ("photovoltaïque", "photovoltaïques", "pv", "ombrière", "ombrières", "centrale", "centrales", "maintenance", "énergétique", "énergie", "onduleur", "stockage", "batterie", "site", "sites"),
-    "corporate": ("comptabilité", "comptable", "commercial", "commerciales", "marketing", "budget", "budgétaire", "ressources humaines", "rh", "finance", "finances", "facturation"),
-    "economics": ("roi", "rentabilité", "coût", "coûts", "tco", "capex", "opex", "ebitda", "marge", "financement", "baseline"),
-    "governance": ("gouvernance", "responsabilité", "raci", "sécurité", "conformité", "cybersécurité", "rgpd", "risque", "risques"),
-    "strategy": ("stratégie", "porter", "concurrence", "marché", "différenciation", "positionnement", "moat"),
-    "adoption": ("adoption", "formation", "compétence", "compétences", "conduite du changement", "champions", "utilisateur", "utilisateurs"),
-}
-ENTITY_LEXICON = {
-    "greenyellow": {"title": "GreenYellow", "aliases": ("greenyellow", "green yellow", "gy")},
-    "photovoltaic": {"title": "Photovoltaïque", "aliases": ("photovoltaïque", "photovoltaïques", "photovoltaic", "pv")},
-    "energy-efficiency": {"title": "Efficacité énergétique", "aliases": ("efficacité énergétique", "energy efficiency")},
-    "energy-storage": {"title": "Stockage d'énergie", "aliases": ("stockage d'énergie", "stockage énergétique", "bess")},
-    "solar-canopy": {"title": "Ombrière solaire", "aliases": ("ombrière", "ombrières", "solar canopy")},
-    "visiosense": {"title": "VisioSense", "aliases": ("visiosense", "visio sense")},
-    "microsoft": {"title": "Microsoft", "aliases": ("microsoft",)},
-}
+ROOT = Path(__file__).resolve().parent
+PROFILES_DIR = ROOT / "profiles"
+DEFAULT_PROFILE = PROFILES_DIR / "neutral.profile.json"
+TERMINOLOGY = json.loads((ROOT / "ontology" / "terminology.json").read_text(encoding="utf-8"))
+DOCUMENTARY_STATUS = TERMINOLOGY["documentary_status"]
+PROFILE_ID_PATTERN = re.compile(r"^[a-z0-9][a-z0-9-]{1,63}$")
+
+
+class ProfileError(ValueError):
+    pass
+
+
+def load_profile(path=None):
+    """Load a run profile. Run vocabulary (entities, pillars, namespace) lives ONLY in profiles/.
+    The build code ships with the neutral profile; anything else is named explicitly by the caller."""
+    path = Path(path) if path else DEFAULT_PROFILE
+    profile = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(profile.get("profile_id"), str) or not PROFILE_ID_PATTERN.match(profile["profile_id"]):
+        raise ProfileError("profile_id must be lowercase, 2 to 64 characters")
+    if not isinstance(profile.get("lexicon_version"), str) or not profile["lexicon_version"]:
+        raise ProfileError("lexicon_version is required")
+    pillars = profile.get("pillar_lexicon")
+    if not isinstance(pillars, dict) or any(not isinstance(v, list) or not all(isinstance(w, str) and w for w in v) for v in pillars.values()):
+        raise ProfileError("pillar_lexicon must map pillar ids to lists of terms")
+    entities = profile.get("entity_lexicon")
+    if not isinstance(entities, dict) or any(not isinstance(r, dict) or not isinstance(r.get("title"), str)
+                                             or not isinstance(r.get("aliases"), list) or not r["aliases"] for r in entities.values()):
+        raise ProfileError("entity_lexicon must map entity ids to {title, aliases}")
+    projection = profile.get("projection")
+    if projection is not None:
+        namespace = projection.get("namespace", "") if isinstance(projection, dict) else ""
+        if not namespace.startswith("knowledge/business/") or ".." in Path(namespace).parts or Path(namespace).is_absolute():
+            raise ProfileError("projection namespace must live under knowledge/business/")
+    return profile
 
 
 def digest(value):
@@ -56,21 +69,23 @@ def _match(text, phrase):
     return re.search(r"(?<!\w)" + re.escape(phrase) + r"(?!\w)", text, re.IGNORECASE)
 
 
-def classify(text):
-    """Return candidate pillars and explicit lexicon matches with exact evidence."""
+def classify(text, profile=None):
+    """Candidate pillars and explicit lexicon matches with exact evidence, under one run profile."""
+    profile = profile if isinstance(profile, dict) else load_profile(profile)
+    version = profile["lexicon_version"]
     pillars = []
-    for pid, words in PILLAR_LEXICON.items():
+    for pid, words in profile["pillar_lexicon"].items():
         hits = sorted({m.group(0) for w in words if (m := _match(text, w))})
         if hits:
-            pillars.append({"id": pid, "matched_terms": hits, "status": "candidate_keyword", "lexicon_version": LEXICON_VERSION})
+            pillars.append({"id": pid, "matched_terms": hits, "status": "candidate_keyword", "lexicon_version": version})
     entities = []
-    for eid, record in ENTITY_LEXICON.items():
+    for eid, record in profile["entity_lexicon"].items():
         hits = []
         for alias in record["aliases"]:
             for match in re.finditer(r"(?<!\w)" + re.escape(alias) + r"(?!\w)", text, re.IGNORECASE):
                 hits.append({"text": match.group(0), "start": match.start(), "end": match.end()})
         if hits:
-            entities.append({"id": "ENTITY-" + eid, "title": record["title"], "matches": hits, "status": "explicit_lexicon_match", "lexicon_version": LEXICON_VERSION})
+            entities.append({"id": "ENTITY-" + eid, "title": record["title"], "matches": hits, "status": "explicit_lexicon_match", "lexicon_version": version})
     return pillars, entities
 
 
@@ -196,10 +211,10 @@ def build_graph(index):
         for pillar in atom["candidate_pillars"]:
             pid = "PILLAR-" + pillar["id"]
             used_pillars[pid] = {"id": pid, "type": "pillar", "kind": "candidate_pillar", "label": pillar["id"]}
-            edges.append({"id": "EDGE-" + digest(atom["id"] + pid)[:24], "from": atom["id"], "to": pid, "kind": "candidate_classification", "matched_terms": pillar["matched_terms"], "lexicon_version": LEXICON_VERSION, "status": "candidate_keyword"})
+            edges.append({"id": "EDGE-" + digest(atom["id"] + pid)[:24], "from": atom["id"], "to": pid, "kind": "candidate_classification", "matched_terms": pillar["matched_terms"], "lexicon_version": index["lexicon_version"], "status": "candidate_keyword"})
         for entity in atom["entities"]:
-            used_entities[entity["id"]] = {"id": entity["id"], "type": "entity", "kind": "entity", "label": entity["title"], "lexicon_version": LEXICON_VERSION}
-            edges.append({"id": "EDGE-" + digest(atom["id"] + entity["id"])[:24], "from": atom["id"], "to": entity["id"], "kind": "explicit_mention", "matches": entity["matches"], "lexicon_version": LEXICON_VERSION})
+            used_entities[entity["id"]] = {"id": entity["id"], "type": "entity", "kind": "entity", "label": entity["title"], "lexicon_version": index["lexicon_version"]}
+            edges.append({"id": "EDGE-" + digest(atom["id"] + entity["id"])[:24], "from": atom["id"], "to": entity["id"], "kind": "explicit_mention", "matches": entity["matches"], "lexicon_version": index["lexicon_version"]})
     nodes.extend(used_pillars[k] for k in sorted(used_pillars))
     nodes.extend(used_entities[k] for k in sorted(used_entities))
     return {"schema_version": VERSION, "projection": "documentary_kb", "nodes": nodes, "edges": edges,
@@ -217,7 +232,7 @@ def _write_atom(path, atom):
     os.replace(temp, path)
 
 
-def ingest_files(paths, out, source_kind="supplied_context", allow_private_git=False):
+def ingest_files(paths, out, source_kind="supplied_context", allow_private_git=False, profile=None):
     """Incremental ingestion; old versions and occurrences remain, no deletion or merging of meaning."""
     out = Path(out).resolve()
     # Public method repository is always excluded. Other Git destinations require
@@ -234,16 +249,21 @@ def ingest_files(paths, out, source_kind="supplied_context", allow_private_git=F
     for path in input_paths:
         if not path.is_file() or path.suffix.lower() not in {".md", ".markdown", ".txt"}:
             raise ValueError(f"Expected extracted Markdown/text file: {path.name}")
+    profile = profile if isinstance(profile, dict) else load_profile(profile)
     out.mkdir(parents=True, exist_ok=True)
     with _writer_lock(out):
         index_path = out / "kb.json"
         if index_path.exists():
             index = json.loads(index_path.read_text(encoding="utf-8"))
-            if index.get("schema_version") != VERSION or index.get("lexicon_version") != LEXICON_VERSION:
+            if index.get("schema_version") != VERSION or index.get("lexicon_version") != profile["lexicon_version"]:
                 raise ValueError("Explicit migration required for changed KB/lexicon version")
+            # One KB, one run profile: vocabularies are never mixed inside one index.
+            if index.get("profile_id") != profile["profile_id"]:
+                raise ValueError("KB index belongs to another run profile or predates profile_id: explicit migration required")
         else:
-            index = {"schema_version": VERSION, "lexicon_version": LEXICON_VERSION, "sources": [], "atoms": [], "versions": [], "location_heads": {},
-                     "normalization_version": "NFKC-casefold-whitespace-v1", "status": "supplied_unverified"}
+            index = {"schema_version": VERSION, "profile_id": profile["profile_id"], "lexicon_version": profile["lexicon_version"],
+                     "sources": [], "atoms": [], "versions": [], "location_heads": {},
+                     "normalization_version": "NFKC-casefold-whitespace-v1", "status": DOCUMENTARY_STATUS}
         sources = {s["id"]: s for s in index["sources"]}
         atoms = {a["id"]: a for a in index["atoms"]}
         # Source copies are authority. Any damage stops intake rather than hiding it.
@@ -267,7 +287,7 @@ def ingest_files(paths, out, source_kind="supplied_context", allow_private_git=F
             if sid not in sources:
                 copy_path = "sources/" + sid + ".source"
                 source = {"id": sid, "sha256": source_hash, "size_bytes": len(raw), "title": path.name,
-                          "kind": source_kind, "status": "supplied_unverified", "encoding": "utf-8", "copy_path": copy_path,
+                          "kind": source_kind, "status": DOCUMENTARY_STATUS, "encoding": "utf-8", "copy_path": copy_path,
                           "locations": [], "supersedes": sorted(previous)}
                 target = out / copy_path
                 temp = target.with_suffix(".tmp")
@@ -306,8 +326,8 @@ def ingest_files(paths, out, source_kind="supplied_context", allow_private_git=F
                 aid = "ATOM-" + digest(content_key)
                 oid = "OCC-" + digest(sid + f":{lo}:{hi}:" + value)
                 if aid not in atoms:
-                    pillars, entities = classify(value)
-                    atoms[aid] = {"id": aid, "kind": kind, "status": "supplied_unverified", "text": value,
+                    pillars, entities = classify(value, profile)
+                    atoms[aid] = {"id": aid, "kind": kind, "status": DOCUMENTARY_STATUS, "text": value,
                                   "normalized_text": normalized(value), "normalization_version": index["normalization_version"],
                                   "semantic_atomization": semantic, "atomization_method": "heuristic_sentence_proposition" if semantic else "structural_block_not_semantically_atomized",
                                   "candidate_pillars": pillars, "entities": entities, "occurrences": []}
@@ -374,7 +394,7 @@ def validate_kb(index, out):
         if atom["id"] in ids:
             errors.append("duplicate atom id: " + atom["id"])
         ids.add(atom["id"])
-        if atom["status"] != "supplied_unverified":
+        if atom["status"] != DOCUMENTARY_STATUS:
             errors.append("automatic status promotion forbidden: " + atom["id"])
         if atom["kind"] in {"table", "code"} and atom["semantic_atomization"]:
             errors.append("structural block falsely marked atomic: " + atom["id"])
@@ -419,10 +439,11 @@ def main(argv=None):
     parser.add_argument("paths", nargs="+", type=Path)
     parser.add_argument("--out", required=True, type=Path)
     parser.add_argument("--source-kind", default="supplied_context")
+    parser.add_argument("--profile", type=Path, default=None, help="run profile JSON; default is the neutral profile (no run vocabulary)")
     parser.add_argument("--allow-private-git", action="store_true", help="Caller declares Git destination private after checking visibility; public method repo remains forbidden")
     args = parser.parse_args(argv)
     try:
-        print(json.dumps(ingest_files(args.paths, args.out, args.source_kind, allow_private_git=args.allow_private_git), ensure_ascii=False, indent=2))
+        print(json.dumps(ingest_files(args.paths, args.out, args.source_kind, allow_private_git=args.allow_private_git, profile=args.profile), ensure_ascii=False, indent=2))
         return 0
     except (OSError, UnicodeError, json.JSONDecodeError, ValueError, KeyError) as exc:
         print(json.dumps({"error": str(exc)}, ensure_ascii=False), file=sys.stderr)

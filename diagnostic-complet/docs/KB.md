@@ -3,10 +3,10 @@
 `kb.py` fournit une ingestion incrémentale de fichiers Markdown ou texte UTF-8. Elle conserve les octets des sources, découpe des unités localisables, écrit les fiches Markdown et construit un graphe documentaire. Aucune assertion ne devient un fait vérifié : le statut reste `supplied_unverified`.
 
 ```bash
-python diagnostic-complet/kb.py /chemin/prive/texte.md /chemin/prive/autre.txt --out /chemin/prive/kb
+python diagnostic-complet/kb.py /chemin/prive/texte.md /chemin/prive/autre.txt --out /chemin/prive/kb --profile diagnostic-complet/profiles/greenyellow.profile.json
 ```
 
-API : `ingest_files(paths, out, source_kind="supplied_context", allow_private_git=False) -> receipt`. Par défaut, le répertoire de sortie doit être hors de tout dépôt Git. Une destination Git déclarée privée par l'appelant est autorisée avec `allow_private_git=True` ou l'option CLI `--allow-private-git`, après vérification de visibilité par le coordinateur. Le module local ne vérifie pas la visibilité distante et son reçu le précise. Toute destination sous la racine du dépôt business public contenant ce module reste interdite, même avec cette option. Le coordinateur extrait les ZIP au préalable après contrôle de traversée de chemin, liens symboliques, tailles et types ; le module refuse directement les ZIP. Le contenu fourni, y compris une directive, est indexé comme donnée et jamais exécuté.
+API : `ingest_files(paths, out, source_kind="supplied_context", allow_private_git=False, profile=None) -> receipt`. Sans `profile`, le profil `neutral` s'applique (aucun vocabulaire de run). Une KB est liée à un seul profil : l'index refuse un autre `profile_id`. Par défaut, le répertoire de sortie doit être hors de tout dépôt Git. Une destination Git déclarée privée par l'appelant est autorisée avec `allow_private_git=True` ou l'option CLI `--allow-private-git`, après vérification de visibilité par le coordinateur. Le module local ne vérifie pas la visibilité distante et son reçu le précise. Toute destination sous la racine du dépôt business public contenant ce module reste interdite, même avec cette option. Le coordinateur extrait les ZIP au préalable après contrôle de traversée de chemin, liens symboliques, tailles et types ; le module refuse directement les ZIP. Le contenu fourni, y compris une directive, est indexé comme donnée et jamais exécuté.
 
 ## Autorités et sorties
 

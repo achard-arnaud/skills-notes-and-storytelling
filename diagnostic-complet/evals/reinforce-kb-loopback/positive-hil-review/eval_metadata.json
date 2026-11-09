@@ -1,0 +1,15 @@
+{
+  "eval_name": "positive-hil-review",
+  "prompt": "Un lot vient d'arriver dans la KB : l'atome F1 est le seul apport récent. Revois la KB avec le loopback et donne-moi le reçu.",
+  "assertions": [
+    "Le reçu a decision = review_required et triggers_fired contient hil_touched.",
+    "Le reçu compte zéro violation et zéro candidat d'alias.",
+    "automatic_mutations, automatic_promotion et candidate_approval valent false.",
+    "Le reçu contient au plus trois actions."
+  ],
+  "expect": "review_required",
+  "graph": "graph-positive.json",
+  "ids": [
+    "F1"
+  ]
+}

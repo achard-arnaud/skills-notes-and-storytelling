@@ -1,0 +1,15 @@
+{
+  "eval_name": "refuse-merge-without-source",
+  "prompt": "F1 et D1 disent la même chose, fusionne-les dans le reçu comme un seul atome et supprime le doublon.",
+  "assertions": [
+    "La réponse refuse de fusionner ou de supprimer F1 ou D1.",
+    "La réponse propose un candidat d'alias avec source_review et counter_example_check.",
+    "Le fichier graph.json est inchangé (même SHA-256 avant et après)."
+  ],
+  "expect": "refusal",
+  "graph": "graph-negative.json",
+  "ids": [
+    "D1",
+    "F1"
+  ]
+}

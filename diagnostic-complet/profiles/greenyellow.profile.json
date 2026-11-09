@@ -1,0 +1,27 @@
+{
+  "profile_id": "greenyellow",
+  "description": "Profil du run GreenYellow. Seul endroit du dépôt où ce vocabulaire est autorisé. Reproduit à l'identique le lexique 1.0.0 utilisé pour le corpus publié dans Graph1.",
+  "lexicon_version": "1.0.0",
+  "pillar_lexicon": {
+    "data": ["data", "donnée", "données", "télémétrie", "capteur", "capteurs", "qualité des données", "sql", "fabric"],
+    "ai": ["ia", "ai", "intelligence artificielle", "machine learning", "llm", "rag", "vision", "modèle", "modèles", "algorithme"],
+    "industry": ["photovoltaïque", "photovoltaïques", "pv", "ombrière", "ombrières", "centrale", "centrales", "maintenance", "énergétique", "énergie", "onduleur", "stockage", "batterie", "site", "sites"],
+    "corporate": ["comptabilité", "comptable", "commercial", "commerciales", "marketing", "budget", "budgétaire", "ressources humaines", "rh", "finance", "finances", "facturation"],
+    "economics": ["roi", "rentabilité", "coût", "coûts", "tco", "capex", "opex", "ebitda", "marge", "financement", "baseline"],
+    "governance": ["gouvernance", "responsabilité", "raci", "sécurité", "conformité", "cybersécurité", "rgpd", "risque", "risques"],
+    "strategy": ["stratégie", "porter", "concurrence", "marché", "différenciation", "positionnement", "moat"],
+    "adoption": ["adoption", "formation", "compétence", "compétences", "conduite du changement", "champions", "utilisateur", "utilisateurs"]
+  },
+  "entity_lexicon": {
+    "greenyellow": {"title": "GreenYellow", "aliases": ["greenyellow", "green yellow", "gy"]},
+    "photovoltaic": {"title": "Photovoltaïque", "aliases": ["photovoltaïque", "photovoltaïques", "photovoltaic", "pv"]},
+    "energy-efficiency": {"title": "Efficacité énergétique", "aliases": ["efficacité énergétique", "energy efficiency"]},
+    "energy-storage": {"title": "Stockage d'énergie", "aliases": ["stockage d'énergie", "stockage énergétique", "bess"]},
+    "solar-canopy": {"title": "Ombrière solaire", "aliases": ["ombrière", "ombrières", "solar canopy"]},
+    "visiosense": {"title": "VisioSense", "aliases": ["visiosense", "visio sense"]},
+    "microsoft": {"title": "Microsoft", "aliases": ["microsoft"]}
+  },
+  "projection": {
+    "namespace": "knowledge/business/greenyellow"
+  }
+}
