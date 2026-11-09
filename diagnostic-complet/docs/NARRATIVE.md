@@ -22,10 +22,60 @@ Une side story doit expliquer pourquoi elle est hors du tronc, ce qu'elle apport
 | object_focus | Partir d'un équipement, d'un document ou d'une mesure | L'objet éclaire le mécanisme et la décision |
 | callback | Reprendre une notion déjà éclairée | Ancre stable vers le passage concerné |
 | portrait / detour / also | Apporter un acteur ou un complément utile | Contribution et borne explicites, sans anecdote gratuite |
+| veille_corporate_perso | Lire les signaux publics d'un acteur (trajectoire, communications, décisions) à travers un point de vue personnel explicitement signé | Retour vers une décision précise du mandat ; observation et lecture séparées |
+| veille_academique | Faire le point sur une littérature, un résultat de recherche ou une méthode éprouvée | Retour vers la question méthodologique posée ; niveau de preuve explicite |
 
 Le contrat local est volontairement plus strict sur les retours que le donneur, qui admet certaines exceptions apparatus/method. Cette différence est une décision d'expérimentation, pas une réécriture silencieuse de la source.
 
+### Choisir entre veille corporate personnelle et veille académique
+
+| Question du lecteur | Type à retenir |
+|---|---|
+| Que fait cet acteur, et que dit-il de sa trajectoire ? | veille_corporate_perso |
+| Que sait-on, avec quel niveau de preuve, sur ce mécanisme ? | veille_academique |
+| Ai-je besoin d'un jugement sur une stratégie d'acteur ? | veille_corporate_perso, à condition que le jugement soit signé |
+| Ai-je besoin de savoir si un résultat tient hors de son étude ? | veille_academique |
+
+Une même matière peut relever des deux types. Dans ce cas, deux side stories séparées, chacune avec son tag, plutôt qu'un encart mixte.
+
+## Formats et lignes éditoriales des veilles
+
+Les deux lignes restent séparées : une veille ne reprend jamais le ton, la source ou le verdict de l'autre. Chaque encart porte un tag couleur visible dans le plan et dans le HTML candidat.
+
+| Tag | Type | Couleur (fond / bordure) | Usage |
+|---|---|---|---|
+| `[VCP]` | veille_corporate_perso | ambre `#FEF3C7` / `#B45309` | Signal public d'un acteur + lecture personnelle |
+| `[VAC]` | veille_academique | indigo `#E0E7FF` / `#3730A3` | Littérature et niveau de preuve |
+
+Les couleurs sont des tokens de thème provisoires ; elles ne doivent pas entrer en conflit avec les couleurs de piliers.
+
+### Veille corporate personnelle — `[VCP]`
+
+- **Format** : 150 à 300 mots, un encart, une figure optionnelle. Structure fixe : signal daté et sourcé → lecture personnelle → implication pour la décision du lecteur → retour vers le tronc.
+- **Sources** : publications de l'acteur (communiqués, rapports annuels, pages corporate), presse identifiée. Chaque signal porte date, source et URL ou empreinte. Aucune source tierce non vérifiée.
+- **Ligne éditoriale** : le fait d'abord, l'opinion ensuite, jamais dans la même phrase. La lecture personnelle est signée (« lecture de l'auteur ») et ne vaut ni position de l'entreprise ni verdict du rapport. Pas de jugement sur des personnes. Aucun argument d'offre ou de fit fournisseur dans cet encart.
+- **Niveau de preuve** : `observed` (signal publié) ou `interpreted` (lecture). Un encart ne contient pas de tendance présentée comme fait.
+- **Limites à écrire** : date de collecte, périmètre couvert, un signal n'est pas une tendance.
+- **Retour** : une décision précise du tronc (piliers ou section), jamais une conclusion générale.
+
+### Veille académique — `[VAC]`
+
+- **Format** : 250 à 450 mots, ou un tableau de 3 à 5 références. Structure fixe : question de recherche → références (auteur, année, venue, DOI ou URL) → résultat et niveau de preuve → portée et transférabilité au cas → retour.
+- **Sources** : revues à comité de lecture, rapports de référence identifiables. Les préprints sont signalés comme tels. Une source non citable n'entre pas.
+- **Ligne éditoriale** : prudence sur les résultats. Distinguer résultat rapporté, reproduit et contesté. Dire le contexte de l'étude (taille, population, durée, conditions) avant toute extrapolation. Aucune généralisation au-delà de ce contexte sans étape de transfert explicite.
+- **Niveau de preuve** : `peer_reviewed`, `preprint`, `grey_literature` ou `opinion`, affiché dans l'encart.
+- **Limites à écrire** : ce que l'étude ne mesure pas, et les contre-résultats connus.
+- **Retour** : la question méthodologique du tronc (baseline, ROI, protocole de pilote), pas un argument de vente.
+
+### Règles communes
+
+- Une side story ne crée aucune preuve nouvelle : toute affirmation renvoie à une source du corpus ou à une référence citée.
+- Un tag manquant ou un format non respecté rend l'encart `candidate` et bloque sa promotion.
+- Les formats des autres types (analytical_focus, dezoom, comparator, method, false_lead, object_focus, callback, portrait/detour/also) restent à définir : ils sont à rechallenger avec l'inventaire.
+
 ## Inventaire candidat à valider après import GreenYellow
+
+**Statut : à rechallenger (retour HITL-258).** Trop peu de pistes, descriptions insuffisantes, pas de format, pas d'objectif ni de critère permettant de choisir entre deux options. Chaque candidat doit être réécrit avec : objectif, format, tag, ligne éditoriale et critère de choix.
 
 1. Vision et diagnostic thermique : de l'observation au signal exploitable, puis à la décision d'inspection. L'apport VisioSense annoncé reste à recevoir et à vérifier ; aucun fit fournisseur n'est établi.
 2. Ombrières et réalité du site : ombrage, géographie, accès et exploitation, au service du diagnostic industriel.
