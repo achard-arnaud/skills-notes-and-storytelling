@@ -19,7 +19,7 @@
 
 ## Décisions du 9 novembre 2026 (séparation build/run et terminologie)
 
-- **D25** : le code de build est run-agnostique. Le vocabulaire de run (entités, piliers, namespace) vit dans `profiles/`. Le défaut est le profil `neutral`. Tests de garde-fou : `tests/test_profiles_terminology.py`.
-- **D26** : une KB = un profil (`profile_id` dans l'index). Mélange refusé ; migration explicite.
-- **D27** : une seule terminologie, `ontology/terminology.json`. La facette `evidence_basis` est retirée (ontologie 0.5.0) et remplacée par les tiers de source.
-- **D28** : un tier vendeur (T2) ou corporate (T1) ne soutient jamais un `verified_fact`, même qualifié. Seuls T3 et T4 le peuvent, après revue humaine référencée.
+- **D27** : le code de build est run-agnostique. Le vocabulaire de run (entités, piliers, namespace) vit dans `profiles/`. Le défaut est le profil `neutral`. Tests de garde-fou : `tests/test_profiles_terminology.py`.
+- **D28** : une KB = un profil (`profile_id` dans l'index). Mélange refusé ; migration explicite.
+- **D29** : une seule terminologie, `ontology/terminology.json`. La facette `evidence_basis` est retirée (ontologie 0.5.0) et remplacée par les tiers de source.
+- **D30** : un tier vendeur (T2) ou corporate (T1) ne soutient jamais un `verified_fact`, même qualifié. Seuls T3 et T4 le peuvent, après revue humaine référencée.
