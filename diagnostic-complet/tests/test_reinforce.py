@@ -31,6 +31,16 @@ class ReinforceReceiptTests(unittest.TestCase):
         self.assertEqual(receipt["decision"], "no_change")
         self.assertEqual(receipt["findings"]["violations"], 0)
 
+    def test_recent_id_absent_from_the_graph_is_unknown_not_clean(self):
+        before = load("graph-positive.json")
+        graph = copy.deepcopy(before)
+        receipt = reinforce.reinforce(graph, recent_ids=["ID-NOT-IN-GRAPH"])
+        self.assertEqual("unknown", receipt["decision"])
+        self.assertEqual([], receipt["actions"])
+        self.assertIs(receipt["automatic_mutations"], False)
+        self.assertIs(receipt["candidate_approval"], False)
+        self.assertEqual(before, graph)
+
     def test_violations_and_directive_trigger_request_review(self):
         receipt = reinforce.reinforce(load("graph-negative-structure.json"), recent_ids=["D2"])
         self.assertEqual(receipt["decision"], "review_required")
