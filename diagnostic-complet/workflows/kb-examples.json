@@ -1,0 +1,276 @@
+{
+  "schema_version": "1.0",
+  "id": "kb-examples-business",
+  "privacy": {
+    "content": "pointer_only",
+    "rule": "Ce fichier est public : il ne contient que des identifiants opaques d'atomes et des libellés neutres rédigés pour ce dépôt. Aucun texte du corpus privé n'est copié ici (D06, D23).",
+    "namespace": "knowledge/business/greenyellow",
+    "resolve": "Dans le dépôt Graph1 privé, branche dev : knowledge/business/greenyellow/kb/atoms/<deux premiers caractères hexadécimaux de l'identifiant>/<ATOM-id>.md",
+    "statuses": {
+      "supplied_unverified": "atome présent dans la KB, jamais promu en fait vérifié",
+      "to_ingest": "matériau fourni dans la conversation, pas encore dans la KB : à ingérer avant usage",
+      "to_collect": "matériau absent de la KB : à collecter à la source",
+      "research_required": "la source existante déclare elle-même ne pas établir le point : recherche nécessaire",
+      "to_confirm": "demande incomplète ou ambiguë : confirmation humaine requise"
+    }
+  },
+  "examples": [
+    {
+      "id": "EX-VCP-01",
+      "type": "veille_corporate_perso",
+      "pillars": ["P-INDUSTRY", "P-DATA"],
+      "topic": "Pitch d'une offre de monitoring énergétique (EasyVision)",
+      "role": "Modèle de pitch d'entreprise en 10 à 15 lignes à partir de pages corporate",
+      "atoms": [
+        "ATOM-572d9018b86c76f7561fc59748ece3ebd682bfd45e3661a4c78f17720b6b3340",
+        "ATOM-b174d1f73b8ab9d18e446d955224243a47bc2a4d4c5260998f8a8700e8c92bee"
+      ],
+      "status": "supplied_unverified",
+      "note": "Page fournisseur : affirmation de l'offre, pas preuve de déploiement, d'intégration ou de ROI chez la cible (PILLARS.md)."
+    },
+    {
+      "id": "EX-VCP-02",
+      "type": "veille_corporate_perso",
+      "pillars": ["P-AI", "P-ADOPTION"],
+      "topic": "Fragments « Land & Scale » comme référence d'autorité ou de définition",
+      "role": "Montrer comment citer une référence d'autorité dans un pitch sans la présenter comme preuve du cas",
+      "atoms": [
+        "ATOM-d36bb40ffb546a5686cd2f69ba389dd421f5c31b4defc5e59f4147135283e766",
+        "ATOM-217c68db678bcc69c66a290e44f776b08437acf79bc132f66c76b6542f3e77e2"
+      ],
+      "status": "supplied_unverified",
+      "note": "Le document source indique lui-même que ces étiquettes sont des noms de synthèse, pas des intitulés canoniques. Référence paginée à retrouver avant tout usage."
+    },
+    {
+      "id": "EX-VCP-03",
+      "type": "veille_corporate_perso",
+      "pillars": ["P-INDUSTRY", "P-AI", "P-DATA"],
+      "topic": "Pitch et retour d'expérience « Ask for the moon » pour Framatome",
+      "role": "Idée à instruire : RAG agentique multimodal + KB à ontologie pour l'assistance à la maintenance sur site à partir de la documentation technique",
+      "atoms": [],
+      "status": "to_collect",
+      "note": "Idée fournie par François le 2026-11-09. Aucune source dans la KB : collecter le pitch et le retour d'expérience avant de rédiger."
+    },
+    {
+      "id": "EX-VAC-01",
+      "type": "veille_academique",
+      "pillars": ["P-AI", "P-ADOPTION", "P-ECONOMICS"],
+      "topic": "Les quatre postures stratégiques d'adoption de l'IA et leur arbitrage",
+      "role": "Modèle de lexique de 5 à 7 entrées : définition sourcée, exemple, en pratique, anti-thèse, mise en perspective",
+      "atoms": [
+        "ATOM-59788990e6b7a2aeca560cc6c7d3ce4a058777beca10014e4b1c8477682b51ce",
+        "ATOM-0fa57900fc69f27f3a2a195bac682415ef95def5078cab0f74810ea5bf3ea3cd",
+        "ATOM-7d17235c18b5043e222a1d1eb5a4eec0ffe167b24606f6763bb8388a6b0c1965"
+      ],
+      "status": "supplied_unverified",
+      "note": "Hypothèse d'arbitrage dans une synthèse fournie, non vérifiée page à page dans l'ouvrage."
+    },
+    {
+      "id": "EX-VAC-02",
+      "type": "veille_academique",
+      "pillars": ["P-AI", "P-ECONOMICS", "P-ADOPTION"],
+      "topic": "Cinq capacités de l'IA, principes TRICUS, seuil de valeur de 10 K$",
+      "role": "Lexique de capacités (perception, création, prédiction, raisonnement, agentique) et filtre de valeur",
+      "atoms": [],
+      "status": "to_ingest",
+      "note": "Rapport fourni dans la conversation du 2026-11-09, absent de la KB. L'ingérer (source-convert puis kb-ingest) et vérifier chaque définition dans l'ouvrage avant usage."
+    },
+    {
+      "id": "EX-DZ-01",
+      "type": "dezoom",
+      "pillars": ["P-GOVERNANCE", "P-INDUSTRY", "P-ECONOMICS"],
+      "topic": "De l'installation à l'agrégateur : verrouillage fournisseur et couche d'orchestration indépendante",
+      "role": "Dézoom de l'échelle équipement vers l'échelle portefeuille, mécanisme de transmission explicite",
+      "atoms": [
+        "ATOM-5f6d7dbd2f0262f8a837e1c876a99f18b6bcb4b60d0d17f3687cd2c6cc2c1abf",
+        "ATOM-a27f423c89aa27a26c02977f31d07aa8355aa55e4262125af210e34df36f7801",
+        "ATOM-971404f009669f3876b99a6a9b103f1ba17155563fb3e5081614fce37d4ed88f",
+        "ATOM-a2115d264b7392d891ee7aea3a6977c79ab5b1a7e02abc09f4d2cdc57fe4cbdc"
+      ],
+      "status": "supplied_unverified",
+      "note": "L'avantage d'une couche d'orchestration est une hypothèse stratégique à valider, pas un fait."
+    },
+    {
+      "id": "EX-DZ-02",
+      "type": "dezoom",
+      "pillars": ["P-ECONOMICS", "P-MARKET", "P-AI"],
+      "topic": "Investissements des concurrents dans l'IA et leurs cas d'usage",
+      "role": "Dézoom vers le secteur : ce que les concurrents investissent, et ce que cela change pour la cible",
+      "atoms": ["ATOM-c8e4c1df7ef3c49c4569b1ccdaff18ca58130e98ce317b3871a761c7a8a151c8"],
+      "status": "research_required",
+      "note": "La source existante ne cite que les noms des concurrents et déclare ne pas sourcer les chiffres. Aucun montant ne peut être repris."
+    },
+    {
+      "id": "EX-CMP-01",
+      "type": "comparator",
+      "pillars": ["P-MARKET", "P-ECONOMICS"],
+      "topic": "Trois archétypes d'acteurs et cinq concurrents nommés, comparés sur quatre modèles de valeur",
+      "role": "Tableau croisé à critère commun, avec conditions de départ et facteurs de confusion",
+      "atoms": [
+        "ATOM-e8ca82aa2aeadc92b47a1c36e80af00b4581db2943d2a52395af16eb3042241f",
+        "ATOM-320611f91652d0469ce13d9266f1c178f7d38277c2359ab49a0eb09bed2e7c5a",
+        "ATOM-c8e4c1df7ef3c49c4569b1ccdaff18ca58130e98ce317b3871a761c7a8a151c8"
+      ],
+      "status": "supplied_unverified",
+      "note": "Archétypes à instruire sur preuves publiques ; pas de classement de performances."
+    },
+    {
+      "id": "EX-CMP-02",
+      "type": "comparator",
+      "pillars": ["P-MARKET", "P-AI"],
+      "topic": "Éléments de benchmarking avec les cas d'usage d'acteurs à préciser",
+      "role": "Comparatif de cas d'usage",
+      "atoms": [],
+      "status": "to_confirm",
+      "note": "La demande du 2026-11-09 s'arrête à « avec les uses cases de » : la liste des acteurs à comparer est à fournir."
+    },
+    {
+      "id": "EX-ILL-01",
+      "type": "illustration",
+      "pillars": ["P-INDUSTRY", "P-AI"],
+      "topic": "Cas d'usage : IA multimodale au service des intervenants sur site",
+      "role": "Illustration de type cas d'usage, orientée B-A-C (cadre à confirmer)",
+      "atoms": [
+        "ATOM-a31fde62600553c9582d731bb94cea4f7212e84c0596f0cc10feebf2e0c446e2",
+        "ATOM-6a096af9c124ed560b071a2120d555c7b6a69487d9aca374c8aa6cac0f78e1a4"
+      ],
+      "status": "supplied_unverified",
+      "note": "Cas candidat, non confirmé comme cas de la cible. Le sigle B-A-C n'est défini dans aucune source : cadre laissé libre jusqu'à confirmation."
+    },
+    {
+      "id": "EX-ILL-02",
+      "type": "illustration",
+      "pillars": ["P-GOVERNANCE", "P-INDUSTRY"],
+      "topic": "Citation de référence d'un dirigeant de l'industrie",
+      "role": "Illustration de type citation : verbatim, datée, attribuée, sourcée",
+      "atoms": [],
+      "status": "research_required",
+      "note": "Aucune citation de dirigeant dans la KB. Ne jamais reconstituer une citation."
+    },
+    {
+      "id": "EX-FOC-01",
+      "type": "analytical_focus",
+      "pillars": ["P-INDUSTRY", "P-DATA"],
+      "topic": "Pourquoi un actif sous-performe : diagnostic à six causes et intelligence distribuée contre intervention située",
+      "role": "Focus analytique : question, thèse, positions contrastées, mécanismes avec statut de preuve",
+      "atoms": [
+        "ATOM-cb8a929cc5064b7908fa00103ffe189555d6fa2503d8905083243dff513e75ab",
+        "ATOM-35f631e279eec413854e5f746401509a9c6eb557825d835414692480160228af",
+        "ATOM-3d476bec1eb7279837ebb14d1edce9b96a8a8276d13b634667d7d8fff0ddeb57"
+      ],
+      "status": "supplied_unverified",
+      "note": "Grille de diagnostic générique, non un incident de la cible."
+    },
+    {
+      "id": "EX-FOC-02",
+      "type": "analytical_focus",
+      "pillars": ["P-AI", "P-GOVERNANCE"],
+      "topic": "Double cerveau",
+      "role": "Focus analytique sur un mécanisme à définir",
+      "atoms": [],
+      "status": "to_collect",
+      "note": "Notion citée le 2026-11-09, absente de la KB et non définie dans les sources : définition et source à fournir avant instruction."
+    },
+    {
+      "id": "EX-FOC-03",
+      "type": "analytical_focus",
+      "pillars": ["P-MARKET", "P-AI", "P-ECONOMICS"],
+      "topic": "Retour d'expérience de cabinets sur les moteurs de l'IA dans les énergies renouvelables ou les certificats d'économies d'énergie",
+      "role": "Focus analytique à partir de rapports de cabinets",
+      "atoms": [],
+      "status": "research_required",
+      "note": "Aucun rapport de cabinet dans la KB. Collecter des publications identifiables ; marquer le niveau de preuve (grey_literature)."
+    },
+    {
+      "id": "EX-MKT-01",
+      "type": "pillar:P-MARKET",
+      "pillars": ["P-MARKET"],
+      "topic": "Basculement macro de l'énergie achetée à l'énergie pilotée, positionnement et marchés d'ancrage",
+      "role": "Ancrage macro d'une analyse de marché",
+      "atoms": [
+        "ATOM-ab246fdb174149f5145baeebb835e41b52e3e6455c0b25ba95353317fac12e15",
+        "ATOM-c7f301ec87e9c54e328d80139f6d2c89f7ea308cc04ccecc5f1ca17d8bfc467c",
+        "ATOM-fd437ae4aeb5e595bfb9b764c7c76e0d362035d13400f2809f409c605fd9c591"
+      ],
+      "status": "supplied_unverified",
+      "note": "Indicateurs nationaux : contexte, pas mesure de maturité de la cible."
+    },
+    {
+      "id": "EX-COR-01",
+      "type": "pillar:P-CORPORATE",
+      "pillars": ["P-CORPORATE"],
+      "topic": "Cas candidats corporate : développement commercial, finance, support interne",
+      "role": "Distinguer les usages corporate des usages industriels",
+      "atoms": [
+        "ATOM-2de03b0eb529641077b5af2e144abca80b61d6b3b726db6d845c3df6edcab68f",
+        "ATOM-6a096af9c124ed560b071a2120d555c7b6a69487d9aca374c8aa6cac0f78e1a4"
+      ],
+      "status": "supplied_unverified",
+      "note": "Les gains ne sont pas confirmés comme cas de la cible."
+    },
+    {
+      "id": "EX-DAT-01",
+      "type": "pillar:P-DATA",
+      "pillars": ["P-DATA"],
+      "topic": "Échelle de maturité orientée décision et rôle de la baseline",
+      "role": "Relier mesure, référentiel et décision avant tout modèle",
+      "atoms": [
+        "ATOM-197d1c23b3a196ada6ecd6c2aa3df71f9e16c8c72a3ff925ab4cf888a6b179ab",
+        "ATOM-cb4eda5f32ec5a6fe8c974c4082ed36e99ec2f52957326620720c4bea29d204c",
+        "ATOM-2aa4a77893751e0868d958ea871d00eea3b2ddf128d5c907f42d99f792fbe193"
+      ],
+      "status": "supplied_unverified",
+      "note": "La BI fournit le socle de confiance ; elle n'est pas une IA au rabais."
+    },
+    {
+      "id": "EX-ECO-01",
+      "type": "pillar:P-ECONOMICS",
+      "pillars": ["P-ECONOMICS"],
+      "topic": "Pipeline de sélection et de financement des cas, métriques propres à chaque cas",
+      "role": "Arbitrage ROI et délai de première valeur",
+      "atoms": [
+        "ATOM-03ff47e9b4d4ea8eb3d39e994498b59c272c580f65f8b3bec334cc5141852abc",
+        "ATOM-2aa4a77893751e0868d958ea871d00eea3b2ddf128d5c907f42d99f792fbe193"
+      ],
+      "status": "supplied_unverified",
+      "note": "Une promesse de gain n'est pas une économie attribuable."
+    },
+    {
+      "id": "EX-GOV-01",
+      "type": "pillar:P-GOVERNANCE",
+      "pillars": ["P-GOVERNANCE", "P-ADOPTION"],
+      "topic": "Rôles par communauté et niveau, avec mesure de valeur par rôle",
+      "role": "Répartir mandat, contrôle et mesure entre métiers, power users, développeurs citoyens et IT",
+      "atoms": ["ATOM-96157df2925f8ba23ed8df12db613cee84e4782b3387123b24210075f8963ab7"],
+      "status": "supplied_unverified",
+      "note": "Rôle de la DSI et de la plateforme data à confirmer avec l'organisation cible."
+    },
+    {
+      "id": "EX-ADO-01",
+      "type": "pillar:P-ADOPTION",
+      "pillars": ["P-ADOPTION"],
+      "topic": "Deux flux à faire converger : terrain ascendant et stratégie descendante",
+      "role": "Passer de l'outil à la pratique durable sans fabrique à POC",
+      "atoms": [
+        "ATOM-fab3660ea25f9d36743d33c0be9c52de8a774a2dae12b8308453b70de7be4849",
+        "ATOM-a4d83b42141df51bc7ee9b6eeb38a4f2ea7f2933eed9e85bf97645afdcc80b54"
+      ],
+      "status": "supplied_unverified",
+      "note": "Aucun taux d'adoption supposé."
+    },
+    {
+      "id": "EX-NAR-01",
+      "type": "main_story",
+      "pillars": [],
+      "topic": "Tension narrative, marqueurs de statut des éléments et synthèse en trois paragraphes",
+      "role": "Modèle de fil principal : tension, marqueurs publié / échange / inférence / hypothèse, synthèse",
+      "atoms": [
+        "ATOM-1832899ae329b94382bfc76ea778642cb5a8335913fa89c18dae26ae8670abf9",
+        "ATOM-e264a5ef7d58faec107a173df1c4192232758614027a340dd17534999587114d",
+        "ATOM-436a5f7c2b193075e2307d72c54de4a2769be9b8c48a17f5a42daf6f4b4594a9"
+      ],
+      "status": "supplied_unverified",
+      "note": "Modèle de structure : on reprend la forme, pas les formulations."
+    }
+  ]
+}

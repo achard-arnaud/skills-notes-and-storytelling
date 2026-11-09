@@ -1,0 +1,20 @@
+{
+  "task_id": "DC-040",
+  "issue": 221,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "docs/PLAN.md",
+      "sha256": "efcd5a980f85f25db577858527348a45d16ec41bff4478a167fdd12453dd3db9"
+    }
+  ],
+  "acceptance_review": [
+    "Contributions intégrées ; les agents ont des scopes disjoints."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run"
+}

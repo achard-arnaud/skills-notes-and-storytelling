@@ -1,0 +1,20 @@
+{
+  "task_id": "R2-10",
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "diagnostic-complet/kb.py",
+      "sha256": "16db473d874766fd5b1a3659c90fe62201750a57d1141ca3ca4fe9e4f1705bb5"
+    }
+  ],
+  "acceptance_review": [
+    "Exécuté à l'échelle : 22 001 atomes, 0 erreur, 0 caractère inexpliqué."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "local_gate_and_artifact_review",
+  "ci": "intentionally_not_run",
+  "limits": [
+    "Heuristique des directives à faux positifs (9).",
+    "Contrôles mécaniques et du coordinateur : pas une approbation humaine."
+  ]
+}

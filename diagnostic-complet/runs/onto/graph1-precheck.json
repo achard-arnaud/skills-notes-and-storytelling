@@ -1,0 +1,26 @@
+{
+  "task_id": "R2-13-precheck",
+  "mode": "read_only",
+  "repository": "achard-arnaud/graph-1-r-f-rentiel-d-activit-s-et-comp-tences",
+  "dev_head": "ad4bf02d7b70c30649bfd29d0e518cc8fad2c739",
+  "frozen_graph": {
+    "path": "build/graph.json",
+    "sha256": "dd784af7a527a8e1ecddcc6bc1b231b49981362aa1e5c862e7aa9946f198b9ca",
+    "nodes": 877,
+    "edges": 1282,
+    "matches_readme_baseline": true
+  },
+  "business_namespace": {
+    "expected": "knowledge/business/greenyellow",
+    "present_on_dev_head": false,
+    "present_on_transport_branch": false,
+    "transport_branch": "bootstrap/transport-graph1-v1",
+    "transport_head": "e158a0c6a57fce017c9166f5a07f57e26550c971"
+  },
+  "content_published": false,
+  "limits": [
+    "Vérification de présence et d'empreinte seulement ; aucun contenu du graphe n'est versionné ici.",
+    "Le transfert business est annoncé en cours côté Codex ; son absence ici ne prouve pas son abandon."
+  ],
+  "writes_to_graph1": false
+}

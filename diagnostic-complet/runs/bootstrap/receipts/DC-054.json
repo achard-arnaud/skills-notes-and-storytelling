@@ -1,0 +1,26 @@
+{
+  "task_id": "DC-054",
+  "issue": 238,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "runs/bootstrap/data.json",
+      "sha256": "61de8a57b17ff4635eb2a1fc32899ac3fa7649cad903338c8a53bc7f294af8a9"
+    }
+  ],
+  "acceptance_review": [
+    "Commande, code retour, couverture et résultat conservés."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run",
+  "test_evidence": [
+    "runs/bootstrap/qa.json",
+    "runs/bootstrap/data.json",
+    "runs/bootstrap/narrative.json",
+    "runs/bootstrap/recovery-review.md"
+  ]
+}

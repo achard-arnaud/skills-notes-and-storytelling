@@ -1,0 +1,20 @@
+{
+  "task_id": "DC-021",
+  "issue": 197,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "docs/PILLARS.md",
+      "sha256": "9852935cdc5d1b5ac171e2f9e70d742a0911ddc4a4fb5dff3f4bf03a15762bf9"
+    }
+  ],
+  "acceptance_review": [
+    "Un problème de données n’est pas qualifié automatiquement de problème IA."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run"
+}

@@ -1,0 +1,20 @@
+{
+  "task_id": "DC-026",
+  "issue": 207,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "docs/CAPABILITIES.md",
+      "sha256": "c84818907beaab3ecaa7e1f1602ef703bf1455744b0e8422cea9af5c22677b3a"
+    }
+  ],
+  "acceptance_review": [
+    "Frontières fonctionnelles et absence d’installation sont explicites."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run"
+}

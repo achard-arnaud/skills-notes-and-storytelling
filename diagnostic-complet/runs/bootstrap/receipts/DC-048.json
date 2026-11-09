@@ -1,0 +1,26 @@
+{
+  "task_id": "DC-048",
+  "issue": 232,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "runtime.py",
+      "sha256": "810a8cf6c06dd21170e8b307eb56843884bc84dbbf8ebac15eff30572cb97355"
+    }
+  ],
+  "acceptance_review": [
+    "Aucun claim importé n’est verified_fact."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run",
+  "test_evidence": [
+    "runs/bootstrap/qa.json",
+    "runs/bootstrap/data.json",
+    "runs/bootstrap/narrative.json",
+    "runs/bootstrap/recovery-review.md"
+  ]
+}

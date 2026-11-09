@@ -1,0 +1,36 @@
+{
+  "skill": "analyzing-adoption-and-change",
+  "registry": "diagnostic-complet/workflows/kb-examples.json",
+  "rule": "Identifiants opaques uniquement. Résoudre dans Graph1 privé ; ne pas recopier le texte (D23).",
+  "examples": [
+    {
+      "id": "EX-ADO-01",
+      "type": "pillar:P-ADOPTION",
+      "pillars": [
+        "P-ADOPTION"
+      ],
+      "topic": "Deux flux à faire converger : terrain ascendant et stratégie descendante",
+      "role": "Passer de l'outil à la pratique durable sans fabrique à POC",
+      "atoms": [
+        "ATOM-fab3660ea25f9d36743d33c0be9c52de8a774a2dae12b8308453b70de7be4849",
+        "ATOM-a4d83b42141df51bc7ee9b6eeb38a4f2ea7f2933eed9e85bf97645afdcc80b54"
+      ],
+      "status": "supplied_unverified",
+      "note": "Aucun taux d'adoption supposé."
+    },
+    {
+      "id": "EX-VAC-02",
+      "type": "veille_academique",
+      "pillars": [
+        "P-AI",
+        "P-ECONOMICS",
+        "P-ADOPTION"
+      ],
+      "topic": "Cinq capacités de l'IA, principes TRICUS, seuil de valeur de 10 K$",
+      "role": "Lexique de capacités (perception, création, prédiction, raisonnement, agentique) et filtre de valeur",
+      "atoms": [],
+      "status": "to_ingest",
+      "note": "Rapport fourni dans la conversation du 2026-11-09, absent de la KB. L'ingérer (source-convert puis kb-ingest) et vérifier chaque définition dans l'ouvrage avant usage."
+    }
+  ]
+}

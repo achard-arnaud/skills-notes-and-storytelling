@@ -1,0 +1,36 @@
+{
+  "skill": "designing-main-story",
+  "registry": "diagnostic-complet/workflows/kb-examples.json",
+  "rule": "Identifiants opaques uniquement. Résoudre dans Graph1 privé ; ne pas recopier le texte (D23).",
+  "examples": [
+    {
+      "id": "EX-NAR-01",
+      "type": "main_story",
+      "pillars": [],
+      "topic": "Tension narrative, marqueurs de statut des éléments et synthèse en trois paragraphes",
+      "role": "Modèle de fil principal : tension, marqueurs publié / échange / inférence / hypothèse, synthèse",
+      "atoms": [
+        "ATOM-1832899ae329b94382bfc76ea778642cb5a8335913fa89c18dae26ae8670abf9",
+        "ATOM-e264a5ef7d58faec107a173df1c4192232758614027a340dd17534999587114d",
+        "ATOM-436a5f7c2b193075e2307d72c54de4a2769be9b8c48a17f5a42daf6f4b4594a9"
+      ],
+      "status": "supplied_unverified",
+      "note": "Modèle de structure : on reprend la forme, pas les formulations."
+    },
+    {
+      "id": "EX-ADO-01",
+      "type": "pillar:P-ADOPTION",
+      "pillars": [
+        "P-ADOPTION"
+      ],
+      "topic": "Deux flux à faire converger : terrain ascendant et stratégie descendante",
+      "role": "Passer de l'outil à la pratique durable sans fabrique à POC",
+      "atoms": [
+        "ATOM-fab3660ea25f9d36743d33c0be9c52de8a774a2dae12b8308453b70de7be4849",
+        "ATOM-a4d83b42141df51bc7ee9b6eeb38a4f2ea7f2933eed9e85bf97645afdcc80b54"
+      ],
+      "status": "supplied_unverified",
+      "note": "Aucun taux d'adoption supposé."
+    }
+  ]
+}

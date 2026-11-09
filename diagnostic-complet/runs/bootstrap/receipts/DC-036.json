@@ -1,0 +1,26 @@
+{
+  "task_id": "DC-036",
+  "issue": 220,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "runs/bootstrap/recovery-review.md",
+      "sha256": "c75bbf0287b0da02191c9ca2c1891167f2f03e825bdb87741368b0609e737aa1"
+    }
+  ],
+  "acceptance_review": [
+    "Prochaine action, limites et interdits retrouvés depuis les artefacts."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run",
+  "test_evidence": [
+    "runs/bootstrap/qa.json",
+    "runs/bootstrap/data.json",
+    "runs/bootstrap/narrative.json",
+    "runs/bootstrap/recovery-review.md"
+  ]
+}

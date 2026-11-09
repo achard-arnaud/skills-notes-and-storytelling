@@ -83,6 +83,8 @@ Node types: `fragment | claim | decision | recommendation | unknown`.
 
 Edge types: `supports | contradicts | qualifies | causes | depends_on | compares_to | answers | motivates | integrates_with | substitutes | complements | enables`.
 
+Canonical relation vocabulary: [contracts/relation-types.json](../contracts/relation-types.json). The schema and prose must match this catalogue. A relation label does not establish evidence or causality.
+
 The graph supports retrieval, deduplication, reranking, bridge detection, ecosystem/complementarity analysis, counter-perspective selection and side-story placement without becoming a heavy ontology.
 
 ## Reranking

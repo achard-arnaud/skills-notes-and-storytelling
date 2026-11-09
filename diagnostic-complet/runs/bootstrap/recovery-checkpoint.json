@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "created_at": "2026-11-06T23:32:51.094162+00:00",
+  "task": {
+    "id": "DC-072",
+    "title": "Livrer capsule et décision suivante",
+    "objective": "Consolider reçus et éléments à valider pour le dry run étendu.",
+    "epic": "E8",
+    "sprint": 5,
+    "issue": 257,
+    "status": "verified",
+    "acceptance": [
+      "Reprise autonome possible ; validation éditoriale reste explicitement en attente."
+    ],
+    "outputs": [
+      "runs/bootstrap/RESUME.md"
+    ],
+    "owner": "coordinator",
+    "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum."
+  },
+  "board_id": "diagnostic-complet-20261107",
+  "base_sha": "74a6354a4aeb128ade6db951073eeb825efca0a6",
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "68f3f6aefcb725ec9f3397026028e412e98dc8d36f194715ccf7be92bda53dc5",
+      "bytes": 1209,
+      "words": 172
+    },
+    {
+      "path": "docs/ROOT-AGENTS-SNAPSHOT.md",
+      "sha256": "f8b7412fa5ead73f8a71dac019020c6139c79b2e036ae0e16737d20f5c2b6850",
+      "bytes": 1318,
+      "words": 177
+    },
+    {
+      "path": "docs/INTERFACES.md",
+      "sha256": "2e6c0f76352738af052694a634cfa536b2a625b57cd5848fa943f7d81669242c",
+      "bytes": 2944,
+      "words": 318
+    },
+    {
+      "path": "docs/CONTEXT-PROTOCOL.md",
+      "sha256": "ab0c70385e0ae9c38931549ddab3be4a4494d55d99575c98e35778756ff17f25",
+      "bytes": 10068,
+      "words": 1371
+    },
+    {
+      "path": "runs/bootstrap/RESUME.md",
+      "sha256": "a223710edae27a6e126fbebfdef692fa9b22d14ecef3654583818e72e21aa579",
+      "bytes": 2393,
+      "words": 319
+    }
+  ],
+  "next_task": "HITL-258",
+  "note": "",
+  "limits": [
+    "No model context erasure or technical compaction is performed.",
+    "Mechanical completion is not human editorial approval.",
+    "Markdown companions are not auto-expanded; undeclared files are neither read nor measured.",
+    "No task lease is acquired and no writer or board transition is performed.",
+    "Execution readiness is a board snapshot, not a lease or continuing authorization."
+  ],
+  "write_scope": [
+    "runs/bootstrap/RESUME.md"
+  ],
+  "outputs": [
+    "runs/bootstrap/RESUME.md"
+  ],
+  "acceptance": [
+    "Reprise autonome possible ; validation éditoriale reste explicitement en attente."
+  ],
+  "stop_condition": "Artefact et contrôle consignés, ou blocage après deux corrections maximum.",
+  "execution_ready": false,
+  "execution_blockers": [
+    "task state is verified; ready or running required"
+  ],
+  "packet_mode": "planning"
+}

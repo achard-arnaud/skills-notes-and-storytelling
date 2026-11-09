@@ -1,0 +1,1 @@
+{"sprint":4,"result":"static_checks_passed","render_tests":9,"fixture_sections":3,"fixture_pillars":5,"command":"python -m unittest discover -s diagnostic-complet/tests -p test_render.py -v","visual_qa":"blocked_environment_socket_operation_not_permitted","mermaid":"escaped_source_only_no_engine","human_editorial_approval":false}

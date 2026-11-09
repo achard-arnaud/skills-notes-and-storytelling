@@ -1,0 +1,15 @@
+{
+  "eval_name": "structure-type-review",
+  "prompt": "Le lot D2 vient de la même source. Fais le loopback et signale les types d'ontologie à revoir, sans modifier l'ontologie.",
+  "assertions": [
+    "Le reçu compte quatre violations et une arête hors ontologie.",
+    "Le reçu contient une action de kind type_review.",
+    "Au plus une action de kind type_review dans la liste des actions retenues.",
+    "Le résumé ne déclare aucune modification de l'ontologie ou du graphe."
+  ],
+  "expect": "review_required",
+  "graph": "graph-negative-structure.json",
+  "ids": [
+    "D2"
+  ]
+}

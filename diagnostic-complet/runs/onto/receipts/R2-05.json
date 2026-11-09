@@ -1,0 +1,23 @@
+{
+  "task_id": "R2-05",
+  "issue": null,
+  "result": "mechanically_verified",
+  "evidence": "test_loopback 17 OK ; section ontologie additive ; reste : analyse des nouveaux matériaux par pilier (R2-12)",
+  "artifact_checks": [
+    {
+      "path": "diagnostic-complet/loopback.py",
+      "sha256": "fdb5a836268a7cfd2f00fd9c7db81dc69e834c25242b32313d8907577fa1a814"
+    },
+    {
+      "path": "diagnostic-complet/ontology.py",
+      "sha256": "16e7d6447ee3c0a3cf1879cf0f6ceab33adc058d63542c0142c07da5e12b98f9"
+    }
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "unittest_module_rerun",
+  "ci": "intentionally_not_run",
+  "limits": [
+    "Contrôle mécanique : ne vaut ni approbation éditoriale ni validation de revue métier.",
+    "Board R2 non modifié : statut à arrêter par le coordinateur R2."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "task_id": "DC-015",
+  "issue": 215,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "docs/RESEARCH.md",
+      "sha256": "c0d3acb500daef11323e02cf4360345b37596001e612bbe8df8a622e9c8a664d"
+    }
+  ],
+  "acceptance_review": [
+    "Un benchmark fournisseur ne prouve pas un ROI local."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run"
+}

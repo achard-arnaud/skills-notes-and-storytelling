@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: positive-hil-review
+expected_outcome: |
+  Décision review_required, déclencheur hil_touched, zéro violation, aucune mutation ni approbation.
+context:
+  scaffold_script: place-files.sh

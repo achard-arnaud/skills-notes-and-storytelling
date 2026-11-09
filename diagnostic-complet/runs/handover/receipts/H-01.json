@@ -1,0 +1,24 @@
+{
+  "task_id": "H-01",
+  "issue": null,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "diagnostic-complet/docs/HANDOVER-DIAGNOSTIC.md",
+      "sha256": "747afd7a783d03d815b4f5fabdfda51ba0925bd028286a11f3d5a09a0dd41e0a"
+    }
+  ],
+  "acceptance_review": [
+    "Forces, écarts et stratégie adaptée sourcés par fichier, commit ou test."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review + local_gate",
+  "limits": [
+    "Contrôles mécaniques et coordinateur ne valent pas approbation éditoriale humaine.",
+    "Un PASS local n'est pas un PASS CI."
+  ],
+  "ci": "intentionally_not_run",
+  "test_evidence": [
+    "diagnostic-complet/docs/LOCAL-GATE.md"
+  ]
+}

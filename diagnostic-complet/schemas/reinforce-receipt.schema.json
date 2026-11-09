@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "reinforce-receipt.schema.json",
+  "title": "Reçu reinforce.py",
+  "description": "Reçu en lecture seule. Ne prouve ni vérité, ni cause, ni approbation humaine.",
+  "type": "object",
+  "required": ["tool", "contract", "ontology", "graph_sha256", "decision", "actions", "deferred_actions",
+               "measurements", "findings", "triggers_fired", "triggers_measured_only",
+               "automatic_mutations", "automatic_promotion", "candidate_approval", "limits"],
+  "properties": {
+    "tool": {"const": "reinforce.py"},
+    "decision": {"enum": ["no_change", "review_required", "unknown"]},
+    "actions": {"type": "array", "maxItems": 3},
+    "automatic_mutations": {"const": false},
+    "automatic_promotion": {"const": false},
+    "candidate_approval": {"const": false}
+  }
+}

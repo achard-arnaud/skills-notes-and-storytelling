@@ -1,0 +1,24 @@
+{
+  "task_id": "R2-07",
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "diagnostic-complet/docs/SKILLS-CATALOG.md",
+      "sha256": "1c87533c8e31e5da2838b331a5eccb89a1f6186c9dbd5ddfb596acc9d01498fb"
+    },
+    {
+      "path": "diagnostic-complet/skills_catalog.py",
+      "sha256": "dd6181a6cc8f2b848a6f0ecef85c6eb1786c1036ecb8ee60f40a2d1224be779d"
+    }
+  ],
+  "acceptance_review": [
+    "Douze opérations en données, catalogue généré, test d'égalité avec le document publié."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "local_gate_and_artifact_review",
+  "ci": "intentionally_not_run",
+  "limits": [
+    "Aucun SKILL.md dans le dépôt public (mandat).",
+    "Contrôles mécaniques et du coordinateur : pas une approbation humaine."
+  ]
+}

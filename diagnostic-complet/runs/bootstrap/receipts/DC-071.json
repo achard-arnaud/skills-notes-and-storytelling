@@ -1,0 +1,26 @@
+{
+  "task_id": "DC-071",
+  "issue": 256,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "docs/NARRATIVE.md",
+      "sha256": "81f9768777396781da083c087cbed41d1145e9d7695186fa3eb5b577c48d4c02"
+    }
+  ],
+  "acceptance_review": [
+    "VisioSense reste à vérifier ; aucune recommandation fournisseur implicite."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run",
+  "test_evidence": [
+    "runs/bootstrap/qa.json",
+    "runs/bootstrap/data.json",
+    "runs/bootstrap/narrative.json",
+    "runs/bootstrap/recovery-review.md"
+  ]
+}

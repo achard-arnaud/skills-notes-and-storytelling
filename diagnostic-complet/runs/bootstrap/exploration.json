@@ -1,0 +1,1 @@
+{"phase":1,"result":"verified_targeted_audit","source_sha":"fb83e0e759d1fef78bbb2cca766fecbb23eda8d5","target_base_sha":"74a6354a4aeb128ade6db951073eeb825efca0a6","evidence":["docs/BASELINE.md","docs/SOURCE-TRANSFER.md","docs/BUSINESS-TRANSFER.md"],"full_source_history_reaudit":false,"private_corpus_published":false}

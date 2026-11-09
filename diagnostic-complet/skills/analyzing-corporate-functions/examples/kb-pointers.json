@@ -1,0 +1,38 @@
+{
+  "skill": "analyzing-corporate-functions",
+  "registry": "diagnostic-complet/workflows/kb-examples.json",
+  "rule": "Identifiants opaques uniquement. Résoudre dans Graph1 privé ; ne pas recopier le texte (D23).",
+  "examples": [
+    {
+      "id": "EX-COR-01",
+      "type": "pillar:P-CORPORATE",
+      "pillars": [
+        "P-CORPORATE"
+      ],
+      "topic": "Cas candidats corporate : développement commercial, finance, support interne",
+      "role": "Distinguer les usages corporate des usages industriels",
+      "atoms": [
+        "ATOM-2de03b0eb529641077b5af2e144abca80b61d6b3b726db6d845c3df6edcab68f",
+        "ATOM-6a096af9c124ed560b071a2120d555c7b6a69487d9aca374c8aa6cac0f78e1a4"
+      ],
+      "status": "supplied_unverified",
+      "note": "Les gains ne sont pas confirmés comme cas de la cible."
+    },
+    {
+      "id": "EX-ILL-01",
+      "type": "illustration",
+      "pillars": [
+        "P-INDUSTRY",
+        "P-AI"
+      ],
+      "topic": "Cas d'usage : IA multimodale au service des intervenants sur site",
+      "role": "Illustration de type cas d'usage, orientée B-A-C (cadre à confirmer)",
+      "atoms": [
+        "ATOM-a31fde62600553c9582d731bb94cea4f7212e84c0596f0cc10feebf2e0c446e2",
+        "ATOM-6a096af9c124ed560b071a2120d555c7b6a69487d9aca374c8aa6cac0f78e1a4"
+      ],
+      "status": "supplied_unverified",
+      "note": "Cas candidat, non confirmé comme cas de la cible. Le sigle B-A-C n'est défini dans aucune source : cadre laissé libre jusqu'à confirmation."
+    }
+  ]
+}

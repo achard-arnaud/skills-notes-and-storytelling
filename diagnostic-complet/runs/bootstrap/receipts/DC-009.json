@@ -1,0 +1,20 @@
+{
+  "task_id": "DC-009",
+  "issue": 209,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "runs/bootstrap/exploration.json",
+      "sha256": "4b893ed031d7ffbe1fd1adf3d44a6fdbd30335ff5fb198fad4857d3c1143fda1"
+    }
+  ],
+  "acceptance_review": [
+    "Les limites de couverture sont consignées, sans faux verdict exhaustif."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run"
+}

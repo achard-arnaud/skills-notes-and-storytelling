@@ -1,0 +1,26 @@
+{
+  "task_id": "DC-062",
+  "issue": 245,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "tests/test_render.py",
+      "sha256": "211abf4665e91c49f8be40b97d4d3c4d7d8eb97c605280a860c39c762df6d5fe"
+    }
+  ],
+  "acceptance_review": [
+    "Un payload HTML injecté reste texte, les retours résolvent."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run",
+  "test_evidence": [
+    "runs/bootstrap/qa.json",
+    "runs/bootstrap/data.json",
+    "runs/bootstrap/narrative.json",
+    "runs/bootstrap/recovery-review.md"
+  ]
+}

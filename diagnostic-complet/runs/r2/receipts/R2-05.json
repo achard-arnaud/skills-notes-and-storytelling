@@ -1,0 +1,28 @@
+{
+  "task_id": "R2-05",
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "diagnostic-complet/loopback.py",
+      "sha256": "47c27e3f10771c4cbc52b9c60dd8f9dc8004876a5ef6fa20f23984b087241fa8"
+    },
+    {
+      "path": "diagnostic-complet/ontology.py",
+      "sha256": "470d8de5850222431fbff26c5737e5d49ee9d26d42be58ce6cb3508984e50878"
+    },
+    {
+      "path": "diagnostic-complet/reinforce.py",
+      "sha256": "aa9b672abd290ad3d5f20f0e30f107434dce2a770ab4d8e4f5891606dfeebbce"
+    }
+  ],
+  "acceptance_review": [
+    "Exécuté sur le corpus réel : 14 violations de 50 038 arêtes, 0 non classé."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "local_gate_and_artifact_review",
+  "ci": "intentionally_not_run",
+  "limits": [
+    "Seuils de cadence non fixés (décision humaine, D18).",
+    "Contrôles mécaniques et du coordinateur : pas une approbation humaine."
+  ]
+}

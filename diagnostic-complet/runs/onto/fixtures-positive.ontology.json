@@ -1,0 +1,72 @@
+{
+  "alias_candidates": {
+    "count": 0,
+    "sample": []
+  },
+  "class_counts": {
+    "analysis.entity": 1,
+    "analysis.hil": 1,
+    "analysis.pillar": 1,
+    "assertion.fact": 2,
+    "assertion.question": 1,
+    "evidence.source": 2,
+    "structure.heading": 1
+  },
+  "limits": [
+    "Le référentiel nomme le vocabulaire ; il ne prouve ni la véracité d'une assertion ni la pertinence d'un lien.",
+    "La densité sémantique n'est pas un score de qualité.",
+    "Les déclencheurs de revue sont des signaux. Un seuil sans calibration n'est pas une cible.",
+    "Les candidats d'alias ne sont jamais appliqués ; la décision est humaine.",
+    "Le libellé des nœuds est tronqué à 180 caractères par kb.py ; deux textes différents peuvent partager un préfixe."
+  ],
+  "ontology_id": "business-kb-ontology",
+  "out_of_ontology": {
+    "count": 0,
+    "sample": []
+  },
+  "review_triggers": [
+    {
+      "calibration": "not_required",
+      "count": 1,
+      "fired": true,
+      "id": "hil_touched",
+      "sample": [
+        "F1"
+      ],
+      "threshold": 1
+    },
+    {
+      "calibration": "not_required",
+      "count": 0,
+      "fired": false,
+      "id": "directive_in_material",
+      "sample": [],
+      "threshold": 1
+    },
+    {
+      "calibration": "pending_real_corpus",
+      "fired": null,
+      "id": "cadence_semantic",
+      "measured_delta": null,
+      "status": "measured_only",
+      "threshold": null
+    }
+  ],
+  "semantic_density": {
+    "denominator": 12,
+    "is_quality_score": false,
+    "numerator": 1,
+    "value": 0.08333333333333333
+  },
+  "semantic_nodes": 4,
+  "status": "proposed",
+  "unclassified": {
+    "count": 0,
+    "sample": []
+  },
+  "version": "0.1.0",
+  "violations": {
+    "count": 0,
+    "sample": []
+  }
+}

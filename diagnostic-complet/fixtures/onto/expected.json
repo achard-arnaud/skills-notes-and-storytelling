@@ -1,0 +1,54 @@
+{
+  "cases": [
+    {
+      "id": "positive",
+      "graph": "graph-positive.json",
+      "recent_ids": [
+        "F1"
+      ],
+      "violations": 0,
+      "unclassified": 0,
+      "alias_candidates": 0,
+      "fired": [
+        "hil_touched"
+      ]
+    },
+    {
+      "id": "negative",
+      "graph": "graph-negative.json",
+      "recent_ids": [
+        "D1"
+      ],
+      "violations": 3,
+      "unclassified": 1,
+      "alias_candidates": 1,
+      "fired": [
+        "directive_in_material"
+      ]
+    },
+    {
+      "id": "negative-structure",
+      "graph": "graph-negative-structure.json",
+      "recent_ids": [
+        "D2"
+      ],
+      "violations": 4,
+      "out_of": 1,
+      "unclassified": 3,
+      "alias_candidates": 0,
+      "fired": [
+        "directive_in_material"
+      ]
+    },
+    {
+      "id": "relations-all",
+      "graph": "graph-relations-all.json",
+      "recent_ids": [],
+      "violations": 0,
+      "out_of": 0,
+      "unclassified": 0,
+      "alias_candidates": 0,
+      "fired": []
+    }
+  ]
+}

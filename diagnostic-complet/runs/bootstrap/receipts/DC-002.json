@@ -1,0 +1,20 @@
+{
+  "task_id": "DC-002",
+  "issue": 189,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "68f3f6aefcb725ec9f3397026028e412e98dc8d36f194715ccf7be92bda53dc5"
+    }
+  ],
+  "acceptance_review": [
+    "Mandat courant, absence de CI et absence de promotion main sont écrits."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run"
+}

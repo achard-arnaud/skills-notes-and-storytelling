@@ -1,0 +1,1 @@
+{"sprint":3,"result":"local_checks_passed","runtime_tests":20,"command":"python -m unittest discover -s diagnostic-complet/tests -p test_runtime.py -v","fixture":"fixtures/synthetic.json","limits":["Markdown blocks are not semantically atomic claims","verification is a declared qualified review, not proof of world truth"],"ci":"intentionally_not_run"}

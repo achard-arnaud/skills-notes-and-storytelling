@@ -1,0 +1,20 @@
+{
+  "task_id": "R2-11",
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "diagnostic-complet/crawl.py",
+      "sha256": "4b058351d47ee74fa564d9037243f15149ed463ffda8219f1d2ebfaa6a0ebd2a"
+    }
+  ],
+  "acceptance_review": [
+    "683 pages extraites, file vide, robots.txt respecté, 54 erreurs consignées."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "local_gate_and_artifact_review",
+  "ci": "intentionally_not_run",
+  "limits": [
+    "Couverture du même hôte seulement.",
+    "Contrôles mécaniques et du coordinateur : pas une approbation humaine."
+  ]
+}

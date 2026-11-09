@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-07",
+  "mode": "local_gates",
+  "ci": "intentionally_not_run",
+  "gates": {
+    "root_contracts": "PASS templates=10 modes=4 workflow=1.3.1",
+    "diagnostic_suite": "223 tests OK",
+    "pedagogical_browser_tests": "13 tests OK",
+    "ontology_check": "ok version 0.4.0, 10 types, 16 rules",
+    "skills_lint": "ok, 12 private drafts, no errors",
+    "r2_board_dag": "ok"
+  },
+  "real_corpus": {
+    "crawl": "683 pages extracted of 737 visited, 54 errors (52 HTTP 404, 2 off-domain redirects), queue empty",
+    "kb": "655 sources, 22001 atoms, 34210 occurrences, 0 ingestion errors, 0 unexplained characters",
+    "ontology": "14 violations of 50038 edges (9 directive, 5 code), 0 unclassified, 3 alias candidates"
+  },
+  "graph1": {
+    "dev_head": "c4cb6720e759d781d6fd120d0ea09eb69e8c1fc3",
+    "main_unchanged": true,
+    "frozen_graph_unchanged": true,
+    "manifest_mismatches": 0,
+    "paths_outside_namespace": 0,
+    "actions_runs_for_delivered_heads": 0
+  },
+  "findings_from_real_data": [
+    "Heading and table atoms were wrongly forbidden as classification anchors (D20, D21).",
+    "kb.py directive heuristic misfires on descriptive sentences (9 atoms): left flagged.",
+    "Loopback hard-coded 3 of 12 canonical relations (D17, fixed in S7)."
+  ],
+  "not_verified": [
+    "editorial approval of pillars (HITL-258)",
+    "semantic review of the 8->12 relation catalogue delta",
+    "installation of skills in a personal circuit",
+    "any CI run"
+  ],
+  "board": "14 verified, 2 awaiting_human (R2-02, R2-08)"
+}

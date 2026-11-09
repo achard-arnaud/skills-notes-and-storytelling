@@ -1,0 +1,9 @@
+{
+  "tasks": 72,
+  "verified_local": 72,
+  "receipts": 72,
+  "pending_bootstrap_tasks": [],
+  "human_editorial_issue": 258,
+  "human_editorial_approval": false,
+  "note": "La clôture du bootstrap ne signifie pas rapport métier terminé ni faits corroborés."
+}

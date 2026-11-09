@@ -1,0 +1,24 @@
+{
+  "task_id": "H-04",
+  "issue": null,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "diagnostic-complet/runs/handover/freshness.json",
+      "sha256": "117765dcf65f648d19e8c64c6b6d34eae68486dbe77836027bf78ae572028bb3"
+    }
+  ],
+  "acceptance_review": [
+    "71 empreintes concordent ; l'écart DC-002 est expliqué et non réécrit."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review + local_gate",
+  "limits": [
+    "Contrôles mécaniques et coordinateur ne valent pas approbation éditoriale humaine.",
+    "Un PASS local n'est pas un PASS CI."
+  ],
+  "ci": "intentionally_not_run",
+  "test_evidence": [
+    "diagnostic-complet/docs/LOCAL-GATE.md"
+  ]
+}

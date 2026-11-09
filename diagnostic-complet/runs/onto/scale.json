@@ -1,0 +1,41 @@
+{
+  "seed": 1,
+  "rows": [
+    {
+      "sources": 10,
+      "atoms_per_source": 20,
+      "nodes": 215,
+      "edges": 265,
+      "seconds_indicative": 0.003,
+      "decision": "review_required",
+      "violations": 0,
+      "semantic_nodes": 167,
+      "actions": 1,
+      "note": "Mesure indicative sur une machine de session ; ne sert à aucun seuil."
+    },
+    {
+      "sources": 40,
+      "atoms_per_source": 25,
+      "nodes": 1045,
+      "edges": 1277,
+      "seconds_indicative": 0.0156,
+      "decision": "review_required",
+      "violations": 0,
+      "semantic_nodes": 798,
+      "actions": 1,
+      "note": "Mesure indicative sur une machine de session ; ne sert à aucun seuil."
+    },
+    {
+      "sources": 100,
+      "atoms_per_source": 30,
+      "nodes": 3105,
+      "edges": 3867,
+      "seconds_indicative": 0.0387,
+      "decision": "review_required",
+      "violations": 0,
+      "semantic_nodes": 2359,
+      "actions": 1,
+      "note": "Mesure indicative sur une machine de session ; ne sert à aucun seuil."
+    }
+  ]
+}

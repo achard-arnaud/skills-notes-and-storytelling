@@ -1,0 +1,21 @@
+{
+  "counts": {
+    "addresses_pillar": 2,
+    "answers": 1,
+    "candidate_classification": 3,
+    "causes": 2,
+    "compares_to": 1,
+    "complements": 1,
+    "contradicts": 1,
+    "depends_on": 1,
+    "derived_from": 11,
+    "enables": 1,
+    "explicit_mention": 2,
+    "integrates_with": 1,
+    "motivates": 1,
+    "qualifies": 1,
+    "substitutes": 1,
+    "supports": 2
+  },
+  "rules": 16
+}

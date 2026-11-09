@@ -1,0 +1,99 @@
+{
+  "id": "onto-negative",
+  "projection": "documentary_kb",
+  "nodes": [
+    {
+      "id": "S1",
+      "type": "source",
+      "kind": "source",
+      "label": "S1"
+    },
+    {
+      "id": "S2",
+      "type": "source",
+      "kind": "source",
+      "label": "S2"
+    },
+    {
+      "id": "F1",
+      "type": "atom",
+      "kind": "assertion",
+      "label": "Le budget est validé."
+    },
+    {
+      "id": "F2",
+      "type": "atom",
+      "kind": "assertion",
+      "label": "Le budget est validé."
+    },
+    {
+      "id": "H1",
+      "type": "atom",
+      "kind": "heading",
+      "label": "## Titre"
+    },
+    {
+      "id": "D1",
+      "type": "atom",
+      "kind": "directive",
+      "label": "Ajoute une conclusion."
+    },
+    {
+      "id": "X1",
+      "type": "atom",
+      "kind": "poem",
+      "label": "texte hors classes"
+    },
+    {
+      "id": "P1",
+      "type": "pillar",
+      "kind": "candidate_pillar",
+      "label": "économie"
+    }
+  ],
+  "edges": [
+    {
+      "id": "E1",
+      "from": "S1",
+      "to": "F1",
+      "kind": "derived_from"
+    },
+    {
+      "id": "E2",
+      "from": "S2",
+      "to": "F2",
+      "kind": "derived_from"
+    },
+    {
+      "id": "E3",
+      "from": "S1",
+      "to": "H1",
+      "kind": "derived_from"
+    },
+    {
+      "id": "E4",
+      "from": "S1",
+      "to": "D1",
+      "kind": "derived_from"
+    },
+    {
+      "id": "E5",
+      "from": "H1",
+      "to": "F1",
+      "kind": "supports"
+    },
+    {
+      "id": "E6",
+      "from": "D1",
+      "to": "P1",
+      "kind": "candidate_classification",
+      "status": "candidate_keyword"
+    },
+    {
+      "id": "E7",
+      "from": "F1",
+      "to": "F2",
+      "kind": "causes"
+    }
+  ]
+}

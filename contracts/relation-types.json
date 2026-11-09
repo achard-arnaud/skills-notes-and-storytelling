@@ -1,0 +1,55 @@
+{
+  "version": "1.0.0",
+  "authority": "canonical_claim_relation_catalog",
+  "relations": [
+    {
+      "id": "supports",
+      "meaning": "Support probatoire contextualisé"
+    },
+    {
+      "id": "contradicts",
+      "meaning": "Contre-preuve ou divergence bornée"
+    },
+    {
+      "id": "qualifies",
+      "meaning": "Qualification de scope ou limite"
+    },
+    {
+      "id": "causes",
+      "meaning": "Causalité explicitement étayée, jamais déduite de navigation"
+    },
+    {
+      "id": "depends_on",
+      "meaning": "Dépendance explicitée"
+    },
+    {
+      "id": "compares_to",
+      "meaning": "Comparaison de propositions au scope compatible"
+    },
+    {
+      "id": "answers",
+      "meaning": "Réponse à une question"
+    },
+    {
+      "id": "motivates",
+      "meaning": "Motivation attribuée et bornée"
+    },
+    {
+      "id": "integrates_with",
+      "meaning": "Intégration documentée"
+    },
+    {
+      "id": "substitutes",
+      "meaning": "Substitution au périmètre défini"
+    },
+    {
+      "id": "complements",
+      "meaning": "Complémentarité explicitée"
+    },
+    {
+      "id": "enables",
+      "meaning": "Condition facilitatrice, pas causalité automatique"
+    }
+  ],
+  "promotion": "A relation type does not establish its truth; scope and evidence remain required."
+}

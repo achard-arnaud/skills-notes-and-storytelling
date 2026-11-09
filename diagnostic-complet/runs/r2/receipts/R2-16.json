@@ -1,0 +1,19 @@
+{
+  "task_id": "R2-16",
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "diagnostic-complet/runs/r2/RESUME.md",
+      "sha256": "b0a69550319be6fe4d53ab73bddc0b5682a0dfddffc9dc6079f1e620fca35049"
+    }
+  ],
+  "acceptance_review": [
+    "Capsule de reprise."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "local_gate_and_artifact_review",
+  "ci": "intentionally_not_run",
+  "limits": [
+    "Contrôles mécaniques et du coordinateur : pas une approbation humaine."
+  ]
+}

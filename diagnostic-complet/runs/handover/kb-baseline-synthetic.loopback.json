@@ -1,0 +1,140 @@
+{
+  "version": 1,
+  "graph_sha256": "f16dd08f95ade399ec446301cae187387a5ccb03b1bfe4ba7c0718e1d1a8de2e",
+  "source_pattern": {
+    "repository": "achard-arnaud/Candidatures-nice",
+    "commit": "1a33eeb3d7bee058a914a1d405c420c5d16d57cd",
+    "path": "workflow/LOOPBACK.md"
+  },
+  "metrics": {
+    "node_records": 18,
+    "nodes": 18,
+    "edge_records": 18,
+    "valid_edge_records": 18,
+    "node_types": {
+      "atom": 15,
+      "pillar": 2,
+      "source": 1
+    },
+    "edge_types": {
+      "candidate_classification": 3,
+      "derived_from": 15
+    },
+    "node_subtypes": {
+      "atom:assertion": 10,
+      "atom:heading": 4,
+      "atom:question": 1,
+      "pillar:candidate_pillar": 2
+    },
+    "directed_density": 0.058823529411764705,
+    "density_numerator": 18,
+    "density_denominator": 306,
+    "density_definition": "unique valid non-self directed endpoint pairs / n(n-1); zero when n < 2",
+    "density_is_quality_score": false
+  },
+  "findings": {
+    "isolated_nodes": {
+      "count": 0,
+      "items": [],
+      "truncated": false
+    },
+    "duplicate_node_ids": {
+      "count": 0,
+      "items": [],
+      "truncated": false
+    },
+    "malformed_nodes": {
+      "count": 0,
+      "items": [],
+      "truncated": false
+    },
+    "duplicate_edge_ids": {
+      "count": 0,
+      "items": [],
+      "truncated": false
+    },
+    "duplicate_edges": {
+      "count": 0,
+      "items": [],
+      "truncated": false
+    },
+    "matching_text_groups": {
+      "count": 0,
+      "items": [],
+      "truncated": false
+    },
+    "invalid_references": {
+      "count": 0,
+      "items": [],
+      "truncated": false
+    },
+    "invalid_pillar_references": {
+      "count": 0,
+      "items": [],
+      "truncated": false
+    },
+    "self_loops": {
+      "count": 0,
+      "items": [],
+      "truncated": false
+    },
+    "endpoint_type_mismatches": {
+      "count": 0,
+      "items": [],
+      "truncated": false
+    },
+    "unknown_node_types": [],
+    "unknown_edge_types": [],
+    "unknown_recent_ids": {
+      "count": 0,
+      "items": [],
+      "truncated": false
+    }
+  },
+  "pillar_coverage": {
+    "status": "available",
+    "pillars": [
+      {
+        "id": "PILLAR-data",
+        "members": 1,
+        "candidate_members": 1,
+        "recent_members": 0
+      },
+      {
+        "id": "PILLAR-economics",
+        "members": 2,
+        "candidate_members": 2,
+        "recent_members": 0
+      }
+    ],
+    "empty_pillars": [],
+    "touched_by_recent_material": [],
+    "uncategorized_recent": {
+      "count": 0,
+      "items": [],
+      "truncated": false
+    },
+    "meaning": "Declared/candidate membership only; keyword candidates remain candidates. Counts prove neither relevance nor approval."
+  },
+  "delta": null,
+  "alerts": [],
+  "review_candidates": [],
+  "deferred_candidates": 0,
+  "budgets": {
+    "actions_max": 3,
+    "corrective_candidates_max": 1,
+    "repairs_per_blocker_max": 2,
+    "detail_items_max": 20,
+    "token_usage": null,
+    "cost": null
+  },
+  "decision": "no_change",
+  "automatic_mutations": false,
+  "automatic_promotion": false,
+  "limits": [
+    "The analyzer observes structure; hypotheses and semantic relevance require source review.",
+    "Density, frequency and lexical overlap are not quality, causality or identity proofs.",
+    "A candidate test is a proposal, not an executed test or human approval.",
+    "No compaction deletes nodes, IDs, evidence or lineage; no scheduler or graph writer is installed."
+  ]
+}

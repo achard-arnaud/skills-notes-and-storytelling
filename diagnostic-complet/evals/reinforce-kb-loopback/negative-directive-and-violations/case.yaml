@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: negative-directive-and-violations
+expected_outcome: |
+  Déclencheur directive_in_material, trois violations, un candidat d'alias, au plus trois actions avec une différée.
+context:
+  scaffold_script: place-files.sh

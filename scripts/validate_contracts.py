@@ -69,7 +69,25 @@ def check_docx_runtime_interface():
     if properties.get("output", {}).get("$ref") != "qa-report.schema.json":
         raise SystemExit("DOCX runtime output must reference qa-report.schema.json")
 
+def check_relation_catalog():
+    catalog = load_json("contracts/relation-types.json")
+    names = [r["id"] for r in catalog["relations"]]
+    if len(names) != len(set(names)) or not names:
+        raise SystemExit("duplicate or empty relation catalogue")
+    schema = load_json("contracts/claims-graph-light.schema.json")
+    allowed = schema["properties"]["edges"]["items"]["properties"]["type"]["enum"]
+    workflow = (ROOT / "references/workflow.md").read_text()
+    line = next(line for line in workflow.splitlines() if line.startswith("Edge types:"))
+    documented = re.findall(r"[a-z_]+", line.split("`", 1)[1].split("`", 1)[0])
+    fixture = load_json("tests/fixtures/relation-catalog-v1.json")
+    if set(names) != set(allowed) or set(names) != set(documented):
+        raise SystemExit("relation catalogue/schema/workflow mismatch")
+    if set(fixture["valid_types"]) != set(names) or set(fixture["invalid_types"]) & set(names):
+        raise SystemExit("relation catalogue fixture mismatch")
+
+
 def main():
+    check_relation_catalog()
     manifest = load_json("templates/manifest.json")
     workflow_version = manifest["workflow_version"]
     check_semver(workflow_version, "workflow_version")

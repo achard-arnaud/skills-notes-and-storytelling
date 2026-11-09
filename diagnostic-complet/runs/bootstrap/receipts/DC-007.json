@@ -1,0 +1,20 @@
+{
+  "task_id": "DC-007",
+  "issue": 190,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "docs/INTAKE-POLICY.md",
+      "sha256": "a29ea1a67006392c2593422025b8e3b6827b7b2ba82921e14223af385bf47992"
+    }
+  ],
+  "acceptance_review": [
+    "La fixture publique est synthétique ; aucun R1 ni contact privé publié."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run"
+}

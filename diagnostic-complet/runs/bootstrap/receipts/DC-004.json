@@ -1,0 +1,20 @@
+{
+  "task_id": "DC-004",
+  "issue": 186,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "docs/OWNERSHIP.md",
+      "sha256": "b0b6bf3adecc9947f7b0caec2df8023dbdc866691eff9625cce9af62688340eb"
+    }
+  ],
+  "acceptance_review": [
+    "Chaque epic local référence un owner existant et son delta."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run"
+}

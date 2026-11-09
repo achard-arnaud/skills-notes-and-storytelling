@@ -1,0 +1,40 @@
+{
+  "task_id": "H-09",
+  "issue": null,
+  "result": "verified",
+  "remote_check": {
+    "ref": "refs/heads/dev",
+    "checked_heads": [
+      {
+        "sha": "dc83429add6945e3d16b575e07554adc5dc7c567",
+        "role": "fast-forward result of the handover micro-commits (before this receipt)"
+      },
+      {
+        "sha": "8edb71b06346e4f56b2d473a9dc1ead040543eaa",
+        "role": "head after the receipt commit (final, observed with git ls-remote)"
+      }
+    ],
+    "previous_sha": "d29882bcb39ae43b76da41eb10012a21c5c6d061",
+    "push_mode": "fast-forward, no force",
+    "main_sha": "74a6354a4aeb128ade6db951073eeb825efca0a6",
+    "main_unchanged": true,
+    "correction": "Première version du reçu annonçait dc83429 comme état observé ; corrigé ici, la tête finale est 8edb71b."
+  },
+  "actions_check": {
+    "method": "list_workflow_runs(branch=dev), read after push of dc83429",
+    "newest_run_head_sha": "74a6354a4aeb128ade6db951073eeb825efca0a6",
+    "runs_for_handover_commits": 0
+  },
+  "artifact_checks": [
+    {
+      "path": "diagnostic-complet/runs/handover/board.json",
+      "sha256": "44d559bc2e0ed4d8834b6d1119a283a7c2633531292f91b7ef2b91f7101a115f"
+    }
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "remote_ref_and_actions_api",
+  "limits": [
+    "Absence de run observée à l'instant du contrôle ; les workflows à déclenchement tardif ne sont pas exclus autrement que par [skip ci]."
+  ],
+  "ci": "intentionally_not_run"
+}

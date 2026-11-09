@@ -1,0 +1,20 @@
+{
+  "task_id": "DC-008",
+  "issue": 191,
+  "result": "verified",
+  "artifact_checks": [
+    {
+      "path": "docs/DECISIONS.md",
+      "sha256": "0d5b1df11252c27ec0efb1eac6c5e24473644d15e0bdf4394588ddd97d0d19e1"
+    }
+  ],
+  "acceptance_review": [
+    "Le prototype est local et indépendant des templates canoniques."
+  ],
+  "reviewer": "coordinator",
+  "verification_method": "targeted_artifact_review",
+  "limits": [
+    "Mechanical and coordinator checks are not human editorial approval."
+  ],
+  "ci": "intentionally_not_run"
+}

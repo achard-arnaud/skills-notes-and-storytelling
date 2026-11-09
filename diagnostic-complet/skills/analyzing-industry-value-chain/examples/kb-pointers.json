@@ -1,0 +1,40 @@
+{
+  "skill": "analyzing-industry-value-chain",
+  "registry": "diagnostic-complet/workflows/kb-examples.json",
+  "rule": "Identifiants opaques uniquement. Résoudre dans Graph1 privé ; ne pas recopier le texte (D23).",
+  "examples": [
+    {
+      "id": "EX-FOC-01",
+      "type": "analytical_focus",
+      "pillars": [
+        "P-INDUSTRY",
+        "P-DATA"
+      ],
+      "topic": "Pourquoi un actif sous-performe : diagnostic à six causes et intelligence distribuée contre intervention située",
+      "role": "Focus analytique : question, thèse, positions contrastées, mécanismes avec statut de preuve",
+      "atoms": [
+        "ATOM-cb8a929cc5064b7908fa00103ffe189555d6fa2503d8905083243dff513e75ab",
+        "ATOM-35f631e279eec413854e5f746401509a9c6eb557825d835414692480160228af",
+        "ATOM-3d476bec1eb7279837ebb14d1edce9b96a8a8276d13b634667d7d8fff0ddeb57"
+      ],
+      "status": "supplied_unverified",
+      "note": "Grille de diagnostic générique, non un incident de la cible."
+    },
+    {
+      "id": "EX-VCP-01",
+      "type": "veille_corporate_perso",
+      "pillars": [
+        "P-INDUSTRY",
+        "P-DATA"
+      ],
+      "topic": "Pitch d'une offre de monitoring énergétique (EasyVision)",
+      "role": "Modèle de pitch d'entreprise en 10 à 15 lignes à partir de pages corporate",
+      "atoms": [
+        "ATOM-572d9018b86c76f7561fc59748ece3ebd682bfd45e3661a4c78f17720b6b3340",
+        "ATOM-b174d1f73b8ab9d18e446d955224243a47bc2a4d4c5260998f8a8700e8c92bee"
+      ],
+      "status": "supplied_unverified",
+      "note": "Page fournisseur : affirmation de l'offre, pas preuve de déploiement, d'intégration ou de ROI chez la cible (PILLARS.md)."
+    }
+  ]
+}

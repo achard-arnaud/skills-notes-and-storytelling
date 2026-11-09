@@ -1,0 +1,427 @@
+{
+  "id": "onto-s6-s7-20261107",
+  "version": 1,
+  "base_sha": "74a6354a4aeb128ade6db951073eeb825efca0a6",
+  "rules": [
+    "[skip ci] sur chaque commit",
+    "fast-forward dev uniquement, sans force, sans PR ni dispatch",
+    "aucune modification de runs/r2/board.json ni de runs/bootstrap/",
+    "aucun seuil de cadence fixé ; aucune approbation de candidat ; aucune promotion"
+  ],
+  "tickets": [
+    {
+      "id": "O-01",
+      "title": "Adapter la méthode du référentiel candidatures (sans données persona)",
+      "outputs": [
+        "docs/ONTOLOGY.md"
+      ],
+      "depends_on": [],
+      "status": "verified",
+      "note": "Section 2 : héritage et différences ; aucune donnée persona reprise."
+    },
+    {
+      "id": "O-02",
+      "title": "Référentiel ontologie v0.1.0",
+      "outputs": [
+        "ontology/ontology-v1.json"
+      ],
+      "depends_on": [
+        "O-01"
+      ],
+      "status": "verified",
+      "note": "python3 ontology.py check : ok, 10 types, 16 règles."
+    },
+    {
+      "id": "O-03",
+      "title": "Validateur du référentiel",
+      "outputs": [
+        "ontology.py"
+      ],
+      "depends_on": [
+        "O-02"
+      ],
+      "status": "verified",
+      "note": "Tests : type inconnu, liste canonique décalée, seuil sans calibration, politique d'alias applicable -> rejetés."
+    },
+    {
+      "id": "O-04",
+      "title": "Classification des nœuds et contrôle des arêtes",
+      "outputs": [
+        "ontology.py"
+      ],
+      "depends_on": [
+        "O-03"
+      ],
+      "status": "verified",
+      "note": "Tests : six kinds d'atomes classés, kind inconnu non classé, domaine/codomaine, preuve de causes."
+    },
+    {
+      "id": "O-05",
+      "title": "Intégration additive dans loopback",
+      "outputs": [
+        "loopback.py"
+      ],
+      "depends_on": [
+        "O-04"
+      ],
+      "status": "verified",
+      "note": "17 tests loopback inchangés ; section ontology ajoutée ; décision et métriques historiques inchangées."
+    },
+    {
+      "id": "O-06",
+      "title": "Atomes structurels hors densité sémantique (K2)",
+      "outputs": [
+        "ontology.py"
+      ],
+      "depends_on": [
+        "O-04"
+      ],
+      "status": "verified",
+      "note": "Test : titres exclus ; baseline synthétique : 4 titres en structure.heading."
+    },
+    {
+      "id": "O-07",
+      "title": "Déclencheurs de revue sans cible (K3)",
+      "outputs": [
+        "ontology.py"
+      ],
+      "depends_on": [
+        "O-04"
+      ],
+      "status": "verified",
+      "note": "Tests : aucun déclenchement sans matériau ; cadence mesurée, seuil null, calibration pending."
+    },
+    {
+      "id": "O-08",
+      "title": "Candidats d'alias sans fusion (K4)",
+      "outputs": [
+        "ontology.py"
+      ],
+      "depends_on": [
+        "O-04"
+      ],
+      "status": "verified",
+      "note": "Tests : deux sources -> candidat, action none ; une source -> aucun candidat."
+    },
+    {
+      "id": "O-09",
+      "title": "Fixtures positive et négative avec résultats attendus",
+      "outputs": [
+        "fixtures/onto/graph-positive.json",
+        "fixtures/onto/graph-negative.json",
+        "fixtures/onto/expected.json"
+      ],
+      "depends_on": [
+        "O-04"
+      ],
+      "status": "verified",
+      "note": "Négatif : 3 violations, 1 non classé, 1 alias, directive déclenchée."
+    },
+    {
+      "id": "O-10",
+      "title": "Contrat de skill reinforce-kb-loopback (sans SKILL.md versionné)",
+      "outputs": [
+        "docs/REINFORCE-KB-SKILL-CONTRACT.md"
+      ],
+      "depends_on": [
+        "O-09"
+      ],
+      "status": "verified",
+      "note": "Test de cohérence : chaque cas d'éval est nommé dans le contrat."
+    },
+    {
+      "id": "O-11",
+      "title": "Alignement sur le catalogue canonique des relations",
+      "outputs": [
+        "ontology/ontology-v1.json"
+      ],
+      "depends_on": [
+        "O-02"
+      ],
+      "status": "verified",
+      "note": "Test : une relation canonique manquante est rejetée ; 12 relations probatoires alignées."
+    },
+    {
+      "id": "O-12",
+      "title": "Reçus mécaniques R2-03, R2-04, R2-05 partiel, R2-06",
+      "outputs": [
+        "runs/onto/receipts/R2-03.json",
+        "runs/onto/receipts/R2-04.json",
+        "runs/onto/receipts/R2-05.json",
+        "runs/onto/receipts/R2-06.json"
+      ],
+      "depends_on": [
+        "O-05"
+      ],
+      "status": "mechanically_verified",
+      "note": "Tests existants relancés ; à confirmer par le coordinateur R2."
+    },
+    {
+      "id": "O-13",
+      "title": "Baseline et rapports sur fixtures",
+      "outputs": [
+        "runs/onto/baseline-synthetic.loopback.json",
+        "runs/onto/fixtures-positive.ontology.json",
+        "runs/onto/fixtures-negative.ontology.json"
+      ],
+      "depends_on": [
+        "O-05",
+        "O-09"
+      ],
+      "status": "verified",
+      "note": "Sorties régénérées depuis le code de dev ; fixtures uniquement."
+    },
+    {
+      "id": "O-14",
+      "title": "Gate complet, capsule et proposition S7",
+      "outputs": [
+        "runs/onto/RESUME.md"
+      ],
+      "depends_on": [
+        "O-12",
+        "O-13"
+      ],
+      "status": "verified",
+      "note": "Capsule et gate S6/S7 ; voir RESUME.md."
+    },
+    {
+      "id": "O-15",
+      "title": "Négatifs structuraux : titre sur HIL, titre sur entité, instruction en fait, classification sans statut, kind inconnu, relation hors catalogue",
+      "outputs": [
+        "fixtures/onto/graph-negative-structure.json"
+      ],
+      "depends_on": [
+        "O-09"
+      ],
+      "status": "verified",
+      "note": "4 violations, 1 hors ontologie, 3 non classés ; attendu écrit dans expected.json."
+    },
+    {
+      "id": "O-16",
+      "title": "Couverture des 16 règles par arêtes valides",
+      "outputs": [
+        "fixtures/onto/graph-relations-all.json",
+        "runs/onto/rule-coverage.json"
+      ],
+      "depends_on": [
+        "O-15"
+      ],
+      "status": "verified",
+      "note": "16/16 exercées ; test RuleCoverageTests."
+    },
+    {
+      "id": "O-17",
+      "title": "Correction : vocabulaire loopback dérivé de l'ontologie (D17)",
+      "outputs": [
+        "loopback.py",
+        "tests/test_ontology.py"
+      ],
+      "depends_on": [
+        "O-16"
+      ],
+      "status": "verified",
+      "note": "Défaut trouvé : 9 relations canoniques absentes de la liste codée ; faux type_review corrigé ; test d'alignement."
+    },
+    {
+      "id": "O-18",
+      "title": "Reçu unique reinforce.py (loopback + ontologie, sans mutation)",
+      "outputs": [
+        "reinforce.py",
+        "tests/test_reinforce.py",
+        "runs/onto/reinforce"
+      ],
+      "depends_on": [
+        "O-17"
+      ],
+      "status": "verified",
+      "note": "7 tests ; quatre reçus de fixtures ; ≤3 actions ; approbation toujours false."
+    },
+    {
+      "id": "O-19",
+      "title": "Protocole de calibration et journal de cadence (D18)",
+      "outputs": [
+        "docs/CADENCE-CALIBRATION-PROTOCOL.md",
+        "tests/test_ontology.py"
+      ],
+      "depends_on": [
+        "O-18"
+      ],
+      "status": "verified",
+      "note": "Seuil accepté seulement avec human_approved et decision_ref ; journal sans seuil ; aucun corpus réel mesuré."
+    },
+    {
+      "id": "O-20",
+      "title": "Gate S7 et artefacts",
+      "outputs": [
+        "runs/onto/receipts"
+      ],
+      "depends_on": [
+        "O-19"
+      ],
+      "status": "verified",
+      "note": "Gate racine, pédagogique navigateur et 145 tests locaux ; push FF [skip ci]."
+    },
+    {
+      "id": "O-21",
+      "title": "Générateur synthétique déterministe (synth.py)",
+      "outputs": [
+        "synth.py",
+        "tests/test_reinforce_scale.py"
+      ],
+      "depends_on": [
+        "O-20"
+      ],
+      "status": "verified",
+      "note": "Même graine, même graphe ; graphe généré conforme au référentiel (0 violation)."
+    },
+    {
+      "id": "O-22",
+      "title": "Idempotence du reçu reinforce",
+      "outputs": [
+        "tests/test_reinforce_scale.py"
+      ],
+      "depends_on": [
+        "O-21"
+      ],
+      "status": "verified",
+      "note": "Deux exécutions identiques : reçus identiques."
+    },
+    {
+      "id": "O-23",
+      "title": "Schéma minimal du reçu (sous-ensemble stdlib)",
+      "outputs": [
+        "schemas/reinforce-receipt.schema.json",
+        "tests/test_reinforce_scale.py"
+      ],
+      "depends_on": [
+        "O-22"
+      ],
+      "status": "verified",
+      "note": "Clés requises, const, enum, maxItems testés ; reçu falsifié refusé. Pas un validateur JSON Schema complet."
+    },
+    {
+      "id": "O-24",
+      "title": "Mesure d'échelle indicative",
+      "outputs": [
+        "runs/onto/scale.json"
+      ],
+      "depends_on": [
+        "O-21"
+      ],
+      "status": "verified",
+      "note": "Jusqu'à 3 105 nœuds ; mesure de session, sans seuil ni conclusion sur la KB réelle."
+    },
+    {
+      "id": "O-25",
+      "title": "Frontière documentée avec run-loopback et challenge-a1",
+      "outputs": [
+        "docs/REINFORCE-KB-SKILL-CONTRACT.md"
+      ],
+      "depends_on": [
+        "O-10"
+      ],
+      "status": "verified",
+      "note": "Section ajoutée au contrat ; aucune modification du dépôt privé."
+    },
+    {
+      "id": "O-26",
+      "title": "Diff entre versions du référentiel (ontology.py diff)",
+      "outputs": [
+        "ontology.py",
+        "tests/test_ontology.py"
+      ],
+      "depends_on": [
+        "O-25"
+      ],
+      "status": "verified",
+      "note": "Changement de règle probatoire : breaking et revue humaine ; identité : unchanged."
+    },
+    {
+      "id": "O-27",
+      "title": "Reçu agrégé sur un lot de graphes (reinforce.py --batch)",
+      "outputs": [
+        "reinforce.py",
+        "tests/test_reinforce.py"
+      ],
+      "depends_on": [
+        "O-26"
+      ],
+      "status": "verified",
+      "note": "Quatre fixtures : 7 violations, 4 non classés, décisions comptées ; aucun classement."
+    },
+    {
+      "id": "O-28",
+      "title": "Runbook du cycle humain",
+      "outputs": [
+        "docs/RUNBOOK-KB-REINFORCEMENT.md"
+      ],
+      "depends_on": [
+        "O-27"
+      ],
+      "status": "verified",
+      "note": "Étapes, préconditions, interdits ; aucune étape n'approuve ni ne promeut."
+    },
+    {
+      "id": "O-29",
+      "title": "Gate S9 et capsule",
+      "outputs": [
+        "runs/onto/RESUME.md"
+      ],
+      "depends_on": [
+        "O-28"
+      ],
+      "status": "verified",
+      "note": "Suite locale et gate racine rejoués avant push."
+    },
+    {
+      "id": "O-30",
+      "title": "Vérification lecture seule du graphe Graph1 gelé et du namespace business",
+      "outputs": [
+        "runs/onto/graph1-precheck.json"
+      ],
+      "depends_on": [
+        "O-29"
+      ],
+      "status": "verified",
+      "note": "Empreinte dd784af7… et 877/1282 conformes ; namespace business absent de dev et de la branche de transport ; aucune écriture."
+    },
+    {
+      "id": "O-31",
+      "title": "Facette knowledge_status alignée sur Graph1 (référentiel v0.2.0)",
+      "outputs": [
+        "ontology/ontology-v1.json",
+        "ontology.py",
+        "tests/test_ontology.py"
+      ],
+      "depends_on": [
+        "O-30"
+      ],
+      "status": "verified",
+      "note": "Six statuts ; HUMAN_ADJUDICATED exige decision_ref ; compteur facet_violations séparé."
+    },
+    {
+      "id": "O-32",
+      "title": "Décision D19 : alignement sans import",
+      "outputs": [
+        "docs/ONTOLOGY.md"
+      ],
+      "depends_on": [
+        "O-31"
+      ],
+      "status": "verified",
+      "note": "Pas d'import de contenu ; graphe de formation séparé."
+    },
+    {
+      "id": "O-33",
+      "title": "Gate S10 et capsule",
+      "outputs": [
+        "runs/onto/RESUME.md"
+      ],
+      "depends_on": [
+        "O-32"
+      ],
+      "status": "verified",
+      "note": "Suite locale et gate racine rejoués avant push."
+    }
+  ]
+}

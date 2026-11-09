@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: clean-cycle-no-change
+expected_outcome: |
+  Pas de déclencheur : décision no_change, aucune action, aucune mutation.
+context:
+  scaffold_script: place-files.sh
