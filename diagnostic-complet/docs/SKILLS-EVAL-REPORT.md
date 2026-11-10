@@ -1,6 +1,6 @@
 # Évaluation rapide des dix skills éditoriaux (9 novembre 2026)
 
-Cette évaluation est une **exécution** (RUN) : ses sorties brutes restent hors du dépôt. Seul ce résumé, sans contenu privé, est versionné (voir `docs/RUN-BUILD-BOUNDARY.md`).
+Cette évaluation est une **exécution** (RUN) : ses sorties brutes restent hors du dépôt. Seul ce résumé, sans contenu privé, est versionné (voir `doc/architecture/ADR-0008-frontiere-run-build.md`).
 
 ## Méthode
 

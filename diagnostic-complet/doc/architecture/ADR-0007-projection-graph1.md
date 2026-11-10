@@ -1,4 +1,23 @@
-# Pont vers Graph1 — projection de la KB business privée
+# ADR-0007 — Projection de la KB vers Graph1
+
+- **Statut** : accepté (publié pour le corpus réel)
+- **Date** : 2026-11-10 (consignation ; décisions d'origine ci-dessous)
+- **Décisions liées** : D06, lots R2-13 et R2-14
+- **Tickets** : #281, #283
+
+## Contexte
+
+La KB business vit dans un namespace privé de Graph1, sans jamais modifier le graphe de formation gelé.
+
+## Décision
+
+Empreinte du graphe gelé vérifiée avant et après, écriture uniquement sous `knowledge/business/`, compression sans perte, MANIFEST à empreintes.
+
+## Conséquences
+
+Le namespace est déclaré par le profil du run (ADR-0008). Les lots suivants doivent passer `--profile` (RF-07).
+
+## Spécification migrée (contenu d'origine, non modifié)
 
 Statut : outil `project.py` livré et testé ; publication consignée dans `runs/r2/DELIVERY.md`. Document public : méthode seulement, aucun contenu de corpus.
 
@@ -32,3 +51,4 @@ Mesure sur 80 pages : `kb.json` 9,3 Mo, `graph.json` 6,7 Mo, atomes 2,5 Mo. Extr
 - Le contenu reste privé : le dépôt public ne reçoit que des comptes et des empreintes.
 - La projection ne vérifie pas la visibilité du dépôt de destination ; l'appelant la garantit.
 - Une projection n'est pas une validation : tout est `SOURCE`, rien n'est `HUMAN_ADJUDICATED`.
+

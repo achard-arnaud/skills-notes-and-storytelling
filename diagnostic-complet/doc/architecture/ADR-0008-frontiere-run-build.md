@@ -1,4 +1,23 @@
-# Frontière entre exécution (RUN) et construction (BUILD), et stockage des exemples de la base de connaissances
+# ADR-0008 — Frontière entre exécution (RUN) et construction (BUILD)
+
+- **Statut** : accepté
+- **Date** : 2026-11-10 (consignation ; décisions d'origine ci-dessous)
+- **Décisions liées** : D25, D26 (autre session), D27, D28 (profils), D33 (microsoft conservé)
+- **Tickets** : #141, #94, #75, #25, RF-01 à RF-05, RF-08
+
+## Contexte
+
+Le corpus réel et les notes de travail ne doivent pas se retrouver dans le code de construction public, ni le code dépendre d'un run.
+
+## Décision
+
+Le code et les référentiels sont run-agnostiques. Le vocabulaire de run vit dans `profiles/<run>.profile.json`. Une KB est liée à un seul profil (`profile_id`). Les exemples de KB sont des identifiants opaques, avec un jumeau synthétique par type. Le profil GreenYellow est conservé dans le dépôt, avec le lexique `microsoft` (D33) ; son emplacement reste à trancher (RF-18).
+
+## Conséquences
+
+Un test échoue si un terme de run apparaît dans le code de build. Changer le lexique du profil change sa version : une migration explicite est requise (RF-06).
+
+## Spécification migrée (contenu d'origine, non modifié)
 
 Décisions D25 et D26. Tickets prioritaires pris en compte : #141 (séparer la maintenance de construction et la production d'exécution), #94 (connaissance sectorielle et réalité de l'entreprise séparées), #75 (captures immuables hors dépôt public), #25 (base de connaissances, captures hors dépôt public, branchement optionnel).
 
@@ -39,3 +58,4 @@ Une connaissance de secteur ne devient pas un déploiement chez la cible sans cl
 ## Ce que cette passe ne fait pas
 
 Elle n'ouvre aucun développement des tickets #141, #94, #75 et #25, qui restent en statut de spécification. Elle applique leurs règles aux livrables de cette session.
+

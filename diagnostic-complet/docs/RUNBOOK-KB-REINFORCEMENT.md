@@ -1,6 +1,6 @@
 # Runbook — cycle de renforcement KB par ontologie
 
-Public : la personne qui revoit la KB après un apport. Aucune étape ci-dessous n'approuve un candidat, ne fusionne un identifiant et ne promeut un fait. Chaque décision se consigne dans `docs/DECISIONS.md`.
+Public : la personne qui revoit la KB après un apport. Aucune étape ci-dessous n'approuve un candidat, ne fusionne un identifiant et ne promeut un fait. Chaque décision se consigne dans `doc/architecture/ADR-0000-registre-decisions-run.md`.
 
 ## 0. Préconditions
 
@@ -36,7 +36,7 @@ Pour chaque action proposée : retenir, modifier, reporter ou rejeter. Consigner
 
 ## 5. Calibrer la cadence (rarement)
 
-Le journal `cadence.jsonl` accumule les mesures. Un seuil n'est proposé qu'après une période d'observation choisie par la personne responsable, et n'entre dans le référentiel que par `calibration: human_approved` avec `decision_ref` (voir `docs/CADENCE-CALIBRATION-PROTOCOL.md`).
+Le journal `cadence.jsonl` accumule les mesures. Un seuil n'est proposé qu'après une période d'observation choisie par la personne responsable, et n'entre dans le référentiel que par `calibration: human_approved` avec `decision_ref` (voir `doc/architecture/ADR-0006-calibration-cadence.md`).
 
 ## 6. Clore
 

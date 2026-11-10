@@ -12,7 +12,7 @@ Principes appliqués : chaque ticket a un artefact, un contrôle, un contre-exem
 | R2-02 Rapatrier matériaux | partial | Séparer explicitement inventaire public (métadonnées) et contenu privé. Aucun texte privé dans Git. | Fichier privé écrit dans le dépôt → échec. |
 | R2-03 Rédaction from-scratch | candidate | Ajouter critère : chaque paragraphe a un fait ou une hypothèse marquée. | Prose antérieure acceptée sans preuve → refus (déjà testé). |
 | R2-04 Révision itérative | candidate | Ajouter : le delta ne réécrit pas le hors-delta (empreinte avant/après). | Modification hors delta → rejet (déjà testé). |
-| R2-05 Loopback graphe et piliers | candidate | Remplacer « mesurer types densité » par le protocole de `docs/KB-REINFORCEMENT.md` ; ajouter K2 (titres). | Titre compté comme assertion → constat structurel. |
+| R2-05 Loopback graphe et piliers | candidate | Remplacer « mesurer types densité » par le protocole de `doc/architecture/ADR-0004-renforcement-kb-spec.md` ; ajouter K2 (titres). | Titre compté comme assertion → constat structurel. |
 | R2-06 Catalogue des relations | candidate | Revue sémantique humaine du delta (4 valeurs) avant promotion `main`. | Relation sans source → refus. |
 | R2-07 Douze skills atomiques | planned | Critère : chaque skill a déclencheurs et exclusions testés ; rien de copié dans le dépôt. | SKILL.md versionné dans le dépôt → refus. |
 | R2-08 Éprouver et installer | planned | Évals avec et sans skill (méthode skill-creator), conservées hors dépôt. | Skill qui ne discrimine pas → à réécrire. |
@@ -31,7 +31,7 @@ Principes appliqués : chaque ticket a un artefact, un contrôle, un contre-exem
 |---|---|---|---|
 | K1 | Catalogue versionné des **types de nœuds** (structure vs contenu), avec fixture | `contracts/` ou `docs/`, plus test | R2-05 |
 | K2 | Règle `structural_atom_share` : titres comptés hors densité, constat dédié | `loopback.py` + test | R2-05 |
-| K3 | Cadence de revue HIL : déclencheur explicite (IDs récents, seuil à calibrer), sans cible | `docs/KB-REINFORCEMENT.md` §4 + test | K2 |
+| K3 | Cadence de revue HIL : déclencheur explicite (IDs récents, seuil à calibrer), sans cible | `doc/architecture/ADR-0004-renforcement-kb-spec.md` §4 + test | K2 |
 | K4 | Politique de candidats alias/doublon : tombstone réversible, source et contre-exemple obligatoires | `docs/` + fixture négative | R2-10 |
 | K5 | Contrat de la skill `reinforce-kb-loopback` et évals (positives et négatives) | `docs/` + `fixtures/` | K1–K4 |
 | K6 | Benchmark avec et sans skill, conservé hors dépôt | `runs/` privé | K5 |

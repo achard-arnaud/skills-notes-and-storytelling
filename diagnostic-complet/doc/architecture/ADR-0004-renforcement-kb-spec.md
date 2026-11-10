@@ -1,4 +1,23 @@
-# Renforcement de la KB par loopback — proposition d'adaptation
+# ADR-0004 — Renforcement de la KB par loopback (spécification)
+
+- **Statut** : spécification ; partiellement remplacée (plafond retiré par D32)
+- **Date** : 2026-11-10 (consignation ; décisions d'origine ci-dessous)
+- **Décisions liées** : D32 (remplace le plafond de trois actions)
+- **Tickets** : #284, #31
+
+## Contexte
+
+Une spécification issue du loopback de candidatures, adaptée au graphe documentaire.
+
+## Décision
+
+Déclencheur explicite, mesure, qualification, périmètre HIL, propositions, validation du reçu, décision humaine hors outil.
+
+## Conséquences
+
+Le plafond de trois actions décrit dans ce document est retiré (D32). Le reste de la spécification reste valable.
+
+## Spécification migrée (contenu d'origine, non modifié)
 
 > Note du 9 novembre 2026 : le plafond de trois actions décrit ci-dessous est retiré (D32). Document conservé comme historique de spécification.
 
@@ -83,3 +102,4 @@ Chaîne exécutée à `dev` (`0bd21f1`) : Markdown synthétique → `kb.py` → 
 ## 8. Suite
 
 Découpage des tickets et ordre des sprints : `docs/BACKLOG-REVIEW.md`. Ticket de suivi : `skills-notes#31` (sous-ticket créé pour cette proposition).
+

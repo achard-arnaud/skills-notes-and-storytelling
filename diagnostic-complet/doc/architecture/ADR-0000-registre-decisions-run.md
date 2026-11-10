@@ -1,4 +1,23 @@
-# Décisions du run
+# ADR-0000 — Registre des décisions du run
+
+- **Statut** : accepté (registre historique)
+- **Date** : 2026-11-10 (consignation ; décisions d'origine ci-dessous)
+- **Décisions liées** : D01 à D26
+- **Tickets** : docs/PLAN.md, runs/r2
+
+## Contexte
+
+Les décisions du run (7 au 10 novembre 2026) étaient consignées dans un journal unique, sans statut ni lien vers leur justification.
+
+## Décision
+
+Ce document reste le registre historique D01 à D26. Les décisions postérieures sont consignées dans l'ADR de leur sujet ; l'index `README.md` donne la correspondance.
+
+## Conséquences
+
+La numérotation continue à D35 ; D27 à D34 vivent dans les ADR 0005, 0008 et 0009. Les reçus de run gardent leurs chemins d'origine.
+
+## Spécification migrée (contenu d'origine, non modifié)
 
 - **D01 — 2026-11-07** : espace isolé `diagnostic-complet/` et branche de travail depuis dev. Le mandat courant autorise code/tests locaux/fast-forward dev ; aucune promotion main.
 - **D02** : invariants Sri Lanka transférés avec provenance ; pas de copier-coller de la voix, de la chronologie, de quotas HIL ou de pages.
@@ -32,3 +51,4 @@
 - **D32** : aucun plafond sur le nombre de propositions d'un cycle de loopback. Un run peut produire des propositions à plusieurs endroits du graphe ; une limite de trois masquait des constats (`deferred_actions` était non nul sur le corpus réel). Chaque proposition reste un candidat non appliqué, décidé par un humain. Le budget anti-boucle (deux réparations par blocage) est conservé : il protège contre les boucles, pas contre la taille d'un cycle.
 - **D33** : l'entité `microsoft` du profil GreenYellow est conservée (RF-08). Justification : la suite Microsoft (Copilot et Copilot Studio, Power Platform, Fabric, Azure) couvre les gammes IA et données pertinentes pour l'intégration GreenYellow. Ajouter ces sous-produits au lexique changerait sa version et exigerait la migration RF-06 ; c'est une décision séparée.
 - **D34** : `diagnostic-complet/AGENTS.md` reste léger et non intégré au framework racine. Il conserve les mandats R2, éditorial (D22 à D24) et le périmètre léger ; il ne contient pas de règles numérotées supplémentaires. Une fusion du 10 novembre a remplacé ces mandats par une version plus lourde : rétabli, et protégé par un test de régression.
+

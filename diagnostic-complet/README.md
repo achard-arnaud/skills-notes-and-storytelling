@@ -13,7 +13,7 @@ Prototype isolé : mandat → enquête fragmentée → preuves → scaffold lect
 - [Plan détaillé, 72 microétapes](docs/PLAN.md) et [board JSON](board.json).
 - [Transfert Sri Lanka](docs/SOURCE-TRANSFER.md), [audit cible](docs/BUSINESS-TRANSFER.md), [ownership](docs/OWNERSHIP.md).
 - [Piliers candidats](docs/PILLARS.md), [recherche](docs/RESEARCH.md), [narration](docs/NARRATIVE.md), [interfaces](docs/INTERFACES.md).
-- [Protocole de contexte](docs/CONTEXT-PROTOCOL.md), [intake privé](docs/INTAKE-POLICY.md), [décisions](docs/DECISIONS.md).
+- [Protocole de contexte](docs/CONTEXT-PROTOCOL.md), [intake privé](docs/INTAKE-POLICY.md), [décisions](doc/architecture/ADR-0000-registre-decisions-run.md).
 - [Workflow des side stories](workflows/side-stories.workflow.json), [candidats](workflows/side-stories.candidates.json), [carte des skills](docs/SKILLS-MAP.md), [skills éditoriaux](skills/).
 
 ## Commandes locales

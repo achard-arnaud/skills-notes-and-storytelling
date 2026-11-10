@@ -1,4 +1,23 @@
-# Protocole de calibration de la cadence de revue HIL
+# ADR-0006 — Protocole de calibration de la cadence de revue
+
+- **Statut** : accepté (aucun seuil posé)
+- **Date** : 2026-11-10 (consignation ; décisions d'origine ci-dessous)
+- **Décisions liées** : D16, D18
+- **Tickets** : #284
+
+## Contexte
+
+Un déclencheur de revue sans calibration ressemble à une règle mais ne repose sur aucune mesure.
+
+## Décision
+
+Aucun seuil de cadence n'est fixé. Un seuil n'est accepté qu'avec `calibration: human_approved` et un `decision_ref`.
+
+## Conséquences
+
+La cadence HIL reste une décision humaine, à prendre après plusieurs cycles mesurés (RF-12).
+
+## Spécification migrée (contenu d'origine, non modifié)
 
 Statut : **protocole, aucun seuil**. Le code mesure et journalise ; il ne décide jamais. Un seuil n'entre dans le référentiel que par une décision humaine référencée (D16).
 
@@ -45,3 +64,4 @@ La règle `cadence_semantic` mesure le nombre de nœuds sémantiques ajoutés de
 - La fixture synthétique ne calibre rien. Les mesures issues des fixtures ne doivent pas servir de seuil.
 - Une cadence élevée peut signaler un corpus bruyant, ou simplement un apport massif et légitime. Le journal ne tranche pas.
 - L'accès au corpus réel (Graph1) reste à confirmer.
+

@@ -2,7 +2,7 @@
 """One read-only receipt: loopback observations plus ontology checks for a KB graph.
 
 Never writes the graph, never merges, promotes or approves. No cap on the number of proposals.
-Contract: docs/REINFORCE-KB-SKILL-CONTRACT.md.
+Contract: doc/architecture/ADR-0005-contrat-skill-reinforce.md.
 """
 from __future__ import annotations
 
@@ -28,7 +28,7 @@ def reinforce(graph: dict, recent_ids=None, previous=None) -> dict:
         by_kind[action["kind"]] = by_kind.get(action["kind"], 0) + 1
     return {
         "tool": "reinforce.py",
-        "contract": "diagnostic-complet/docs/REINFORCE-KB-SKILL-CONTRACT.md",
+        "contract": "diagnostic-complet/doc/architecture/ADR-0005-contrat-skill-reinforce.md",
         "ontology": {"id": onto["ontology_id"], "version": onto["version"], "status": onto["status"]},
         "graph_sha256": loop["graph_sha256"],
         "decision": loop["decision"],

@@ -1,4 +1,23 @@
-# Contrat de la skill `reinforce-kb-loopback` (ontologie)
+# ADR-0005 — Contrat de la skill reinforce-kb-loopback et placement
+
+- **Statut** : accepté
+- **Date** : 2026-11-10 (consignation ; décisions d'origine ci-dessous)
+- **Décisions liées** : D31 (skill dans le dépôt), D32 (sans plafond)
+- **Tickets** : #284, #279, #289
+
+## Contexte
+
+La skill doit être appelable depuis Claude Code et Codex après un run. Le mandat R2 réservait les SKILL.md à l'environnement personnel.
+
+## Décision
+
+D31 : la skill est versionnée dans `operational-skills/`, copiée à l'identique dans `.claude/skills/` et `.agents/skills/`, dépendances mappées dans `dependencies.json`. Exception décidée par l'utilisateur, la skill ne contenant aucun texte privé. D32 : aucun plafond de propositions par cycle.
+
+## Conséquences
+
+Un test vérifie l'identité des copies et l'existence des chemins cités. La couverture reste à évaluer avec un juge indépendant (RF-16).
+
+## Spécification migrée (contenu d'origine, non modifié)
 
 Statut : **contrat et skill versionnés** (décision D31, exception à la réserve R2). La skill est dans `diagnostic-complet/operational-skills/reinforce-kb-loopback/`, copiée à l'identique dans `.claude/skills/` et `.agents/skills/` (test `test_reinforce_skill.py`). Dépendances, cas d'usage et chemins : `dependencies.json`. Ce contrat décrit ce que la skill fait, et ce qu'elle ne fera jamais.
 
@@ -73,3 +92,4 @@ Le test de cohérence `test_ontology.py::FixtureContractTests` vérifie que ces 
 - Calibrer la cadence sur le corpus réel (D16).
 - Relire les règles de liens avec le métier (en particulier `answers` et `causes`).
 - Décider si un seuil de cadence est un objectif. Hors de portée de la passe automatique.
+

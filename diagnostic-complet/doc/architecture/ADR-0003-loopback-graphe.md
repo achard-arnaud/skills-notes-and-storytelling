@@ -1,4 +1,23 @@
-# Loopback du graphe — observation, hypothèse, proposition, test, revue
+# ADR-0003 — Loopback du graphe documentaire
+
+- **Statut** : accepté (implémenté en lecture seule)
+- **Date** : 2026-11-10 (consignation ; décisions d'origine ci-dessous)
+- **Décisions liées** : D17 ; règle de revue du loopback
+- **Tickets** : #284
+
+## Contexte
+
+Le graphe grandit par apports. Il faut observer sa structure et préparer des décisions bornées, sans réécrire ni connaissances ni preuves.
+
+## Décision
+
+Analyse déterministe (densité, isolés, doublons, liens non résolus, couverture des piliers, delta). Aucun score de qualité, aucune cible de densité, aucune écriture.
+
+## Conséquences
+
+Le plafond de propositions est retiré (D32, ADR-0005) : toutes les propositions sont listées, chacune reste un candidat non appliqué.
+
+## Spécification migrée (contenu d'origine, non modifié)
 
 Le graphe grandit par apports documentaires. Son loopback lit sa structure et prépare des décisions bornées ; il ne réécrit ni les connaissances, ni leurs preuves, ni les piliers. Les associations par mots-clés restent candidates. La revue s'appuie sur les nouveaux matériaux et le mandat de l'étude.
 
@@ -62,3 +81,4 @@ L'enrichissement des types suit la même règle : nommer une question utile, mon
 ## Limites opérationnelles
 
 Le code est stdlib, local et sans accès réseau. Il écrit uniquement le rapport explicitement demandé à la CLI ; la fonction ne mute pas ses arguments. Aucun writer de graphe, ordonnanceur, apprentissage de modèle, automatisation GitHub ou promotion de connaissance n'est installé. La compilation des fiches en backlog et l'application d'un éventuel correctif restent des actes du coordinateur autorisé. Les rapports portant du corpus privé restent dans sa destination privée ; seules méthode et fixtures synthétiques entrent dans le dépôt public.
+

@@ -1,4 +1,25 @@
-# Terminologie unique — statuts, tiers et correspondances
+# ADR-0009 — Terminologie unique : statuts, kinds de source et correspondances
+
+- **Statut** : accepté
+- **Date** : 2026-11-10 (consignation ; décisions d'origine ci-dessous)
+- **Décisions liées** : D29, D30, D36 (kind seul, tier retiré, #287)
+- **Tickets** : #287, RF-03, RF-04, RF-10, RF-14
+
+## Contexte
+
+Trois vocabulaires de statut ne se recouvraient pas, et une proposition de « tier » s'ajoutait à `kind` sans apporter de règle nouvelle.
+
+## Décision
+
+`ontology/terminology.json` est la source unique. `kind` est le seul terme de source ; sa table indique les statuts qu'il peut soutenir et son éligibilité à `verified_fact`. Un kind vendeur ou corporate n'est jamais éligible. Un `attributed_claim` doit reposer sur un kind attribuable.
+
+## Conséquences
+
+Les tiers T0 à T4 disparaissent. Le mapping legacy n'est plus nécessaire : aucune étude n'utilisait `tier`. Un kind inconnu n'est pas éligible.
+
+## Spécification migrée (contenu d'origine, non modifié)
+
+> **Note de consignation (10 novembre 2026)** : la spécification ci-dessous décrit les tiers T0 à T4. Ils sont remplacés par les kinds de source (D36, #287). Seule la décision ci-dessus fait foi.
 
 Source de vérité : `ontology/terminology.json` (version 1.0.0, proposé). Ce document est la version lisible ; en cas d'écart, le JSON fait foi et un test échoue (`TerminologyTests`). Aucun module ne redéfinit ces chaînes.
 
@@ -41,3 +62,4 @@ Une machine ne pose jamais `HUMAN_ADJUDICATED`. La facette `evidence_basis` est 
 ## 4. Ce que la terminologie ne dit pas
 
 Un statut ou un tier n'établit pas la vérité. Seule une revue humaine référencée peut poser `verified_fact` ou `HUMAN_ADJUDICATED`.
+

@@ -6,7 +6,7 @@
   "ticket": "skills-notes-and-storytelling#284",
   "authority": {
     "rule": "Référentiel lu en lecture seule. Il nomme le vocabulaire déjà produit par kb.py et loopback.py ; il ne réécrit jamais un graphe, ne fusionne aucun nœud et ne promeut aucun fait.",
-    "decision_record": "diagnostic-complet/docs/ONTOLOGY.md",
+    "decision_record": "diagnostic-complet/doc/architecture/ADR-0002-referentiel-ontologie.md",
     "canonical_relation_catalogue": "contracts/relation-types.json",
     "method_inspiration": "Référentiel kb-ontology du dépôt Candidatures-nice (méthode seulement : classes, types, classes de relations, facettes, champs non contrôlés).",
     "terminology": "ontology/terminology.json"

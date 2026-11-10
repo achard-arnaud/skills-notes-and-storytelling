@@ -8,7 +8,7 @@ compatibility: Dépôt skills-notes-and-storytelling, sous-projet diagnostic-com
 
 Cette skill **diagnostique** la KB après un apport. Elle ne modifie jamais le graphe, la KB, le profil, la terminologie ni les contrats. Elle ne promeut rien et n'approuve rien : chaque proposition reste un candidat, et la décision revient à un humain.
 
-Contrat : `diagnostic-complet/docs/REINFORCE-KB-SKILL-CONTRACT.md`. Dépendances, cas d'usage et chemins vérifiés par test : `dependencies.json`, dans ce même dossier. En cas d'écart entre cette skill et le contrat, le contrat fait foi et l'écart doit être signalé.
+Contrat : `diagnostic-complet/doc/architecture/ADR-0005-contrat-skill-reinforce.md`. Dépendances, cas d'usage et chemins vérifiés par test : `dependencies.json`, dans ce même dossier. En cas d'écart entre cette skill et le contrat, le contrat fait foi et l'écart doit être signalé.
 
 ## Où et comment l'appeler
 

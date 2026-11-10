@@ -19,18 +19,22 @@ RELATIONS = {"supports", "contradicts", "depends_on", "illustrates", "compares",
 # accepted for existing studies and only produce a gap naming their canonical replacement.
 SIDE_KINDS = set(sidestories.CANONICAL_KINDS) | set(sidestories.LEGACY_MAP)
 STATES = {"candidate", "validated", "promoted", "retired"}
-SOURCE_TIERS = TERMINOLOGY["source_tiers"]
-LEGACY_KIND_TO_TIER = TERMINOLOGY["legacy_source_kind_to_tier"]
+SOURCE_KINDS = TERMINOLOGY["source_kinds"]
 
 
-def source_tier(source: dict) -> str:
-    """Explicit `tier` first, then the legacy `kind` mapping; anything else is `unassessed` (safe default)."""
-    tier = source.get("tier") if "tier" in source else LEGACY_KIND_TO_TIER.get(source.get("kind"), "unassessed")
-    return tier if tier in SOURCE_TIERS else "unassessed"
+def source_policy(source: dict):
+    """Policy of a source's `kind`. Unknown or missing kinds have no policy (safe default: not eligible)."""
+    return SOURCE_KINDS.get(source.get("kind"))
 
 
 def verified_eligible(source: dict) -> bool:
-    return bool(SOURCE_TIERS[source_tier(source)]["verified_fact_eligible"])
+    policy = source_policy(source)
+    return bool(policy and policy["verified_fact_eligible"])
+
+
+def attributable(source: dict) -> bool:
+    policy = source_policy(source)
+    return bool(policy and "attributed_claim" in policy["may_back"])
 CONSULTED = {"read", "consulted", "full", "full_text"}
 
 
@@ -207,6 +211,10 @@ def validate_study(study):
             errors.append(f"{claim['id']}: text must be nonempty")
         fragment_ids = refs(claim, "fragment_ids", "fragments", required=status in {"supplied_claim", "attributed_claim", "verified_fact"})
         refs(claim, "pillar_ids", "pillars")
+        if status == "attributed_claim":
+            supporting_sources = {indexes["fragments"][f].get("source_id") for f in fragment_ids if f in indexes["fragments"]}
+            if not any(attributable(indexes["sources"][sid]) for sid in supporting_sources if sid in indexes["sources"]):
+                errors.append(f"{claim['id']}: attributed_claim requires a source whose kind may back attributions")
         if status == "verified_fact":
             verification = claim.get("verification", {})
             if not isinstance(verification, dict):

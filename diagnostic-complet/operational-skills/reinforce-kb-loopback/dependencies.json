@@ -68,7 +68,7 @@
       "id": "UC-5-refuse-merge-without-source",
       "trigger": "Demande de fusion ou de suppression d'atomes sans source.",
       "refusal_basis": [
-        "diagnostic-complet/docs/REINFORCE-KB-SKILL-CONTRACT.md (section Interdits)"
+        "diagnostic-complet/doc/architecture/ADR-0005-contrat-skill-reinforce.md (section Interdits)"
       ],
       "eval": "diagnostic-complet/evals/reinforce-kb-loopback/refuse-merge-without-source"
     }
@@ -89,8 +89,8 @@
       "diagnostic-complet/profiles/neutral.profile.json"
     ],
     "contracts": [
-      "diagnostic-complet/docs/REINFORCE-KB-SKILL-CONTRACT.md",
-      "diagnostic-complet/docs/ONTOLOGY.md"
+      "diagnostic-complet/doc/architecture/ADR-0005-contrat-skill-reinforce.md",
+      "diagnostic-complet/doc/architecture/ADR-0002-referentiel-ontologie.md"
     ],
     "fixtures": [
       "diagnostic-complet/fixtures/onto/graph-positive.json",

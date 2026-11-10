@@ -1,4 +1,23 @@
-# KB documentaire locale — contrat v1
+# ADR-0001 — Contrat de la KB documentaire locale
+
+- **Statut** : accepté
+- **Date** : 2026-11-10 (consignation ; décisions d'origine ci-dessous)
+- **Décisions liées** : D06 (corpus privé hors dépôt public)
+- **Tickets** : #25, #75
+
+## Contexte
+
+Le besoin : atomiser des sources Markdown sans rien promouvoir en fait, et garder la provenance de chaque unité.
+
+## Décision
+
+Copie exacte des octets, identité des atomes par type et texte normalisé, identité des occurrences par source et offsets, statut `supplied_unverified` par défaut.
+
+## Conséquences
+
+Les atomes dédupliqués gardent toutes leurs occurrences. Changer le type d'un atome change son identifiant (voir ADR-0010).
+
+## Spécification migrée (contenu d'origine, non modifié)
 
 `kb.py` fournit une ingestion incrémentale de fichiers Markdown ou texte UTF-8. Elle conserve les octets des sources, découpe des unités localisables, écrit les fiches Markdown et construit un graphe documentaire. Aucune assertion ne devient un fait vérifié : le statut reste `supplied_unverified`.
 
@@ -61,3 +80,4 @@ Validation locale :
 cd diagnostic-complet
 python -m unittest discover -s tests -p test_kb.py -v
 ```
+

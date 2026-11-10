@@ -101,7 +101,7 @@ Définir les destinations autorisées pour captures, fixtures et vues.
 
 - Entrées ciblées : AGENTS.md, docs/INTERFACES.md et reçus des prérequis.
 - Dépendances : DC-007.
-- Sortie : `docs/DECISIONS.md`.
+- Sortie : `doc/architecture/ADR-0000-registre-decisions-run.md`.
 - Acceptation : Le prototype est local et indépendant des templates canoniques.
 - Passage : artefact écrit → contrôle ciblé → reçu → intégration par coordinateur.
 

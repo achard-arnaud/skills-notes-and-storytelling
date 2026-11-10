@@ -76,7 +76,7 @@ Prérequis : R2-07. Sortie : `docs/SKILLS-CATALOG.md`.
 
 ## R2-09 — Préparer tous les formats sources
 
-Prérequis : R2-02. Sortie : `docs/KB.md`.
+Prérequis : R2-02. Sortie : `doc/architecture/ADR-0001-kb-contrat-documentaire.md`.
 
 1. Préserver bytes et hashes.
 2. Extraire ZIP sans traversée.
@@ -112,7 +112,7 @@ Prérequis : R2-10, R2-11. Sortie : `docs/R2-RESULTS.md`.
 
 ## R2-13 — Préparer projection KB privée Graph1
 
-Prérequis : R2-12. Sortie : `docs/GRAPH1-BRIDGE.md`.
+Prérequis : R2-12. Sortie : `doc/architecture/ADR-0007-projection-graph1.md`.
 
 1. Préserver graphe formation gelé.
 2. Créer namespace business indépendant.

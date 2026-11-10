@@ -102,53 +102,57 @@ class TerminologyTests(unittest.TestCase):
         self.assertEqual(onto["facets"]["validation"]["values"], TERM["validation_states"])
         self.assertNotIn("evidence_basis", onto["facets"])
 
-    def test_legacy_kinds_map_to_declared_tiers(self):
-        for kind, tier in TERM["legacy_source_kind_to_tier"].items():
-            self.assertIn(tier, TERM["source_tiers"], kind)
+    def test_kind_is_the_only_source_term(self):
+        self.assertNotIn("source_tiers", TERM)
+        self.assertNotIn("legacy_source_kind_to_tier", TERM)
+        self.assertIn("tier", TERM["retired_terms"])  # recorded as retired, not as a term in use
 
-    def test_vendor_and_corporate_tiers_never_back_verified_facts(self):
-        for tier, spec in TERM["source_tiers"].items():
-            if "verified_fact" in spec["may_back"]:
-                self.assertTrue(spec["verified_fact_eligible"], tier)
-        self.assertFalse(TERM["source_tiers"]["T1"]["verified_fact_eligible"])
-        self.assertFalse(TERM["source_tiers"]["T2"]["verified_fact_eligible"])
-        self.assertEqual(TERM["legacy_source_kind_to_tier"]["primary_vendor"], "T2")
-        self.assertEqual(TERM["legacy_source_kind_to_tier"]["primary_corporate"], "T1")
+    def test_eligibility_follows_claim_statuses(self):
+        for kind, spec in TERM["source_kinds"].items():
+            self.assertEqual(spec["verified_fact_eligible"], "verified_fact" in spec["may_back"], kind)
+            self.assertTrue(set(spec["may_back"]) <= set(TERM["claim_statuses"]), kind)
+
+    def test_vendor_and_corporate_kinds_never_eligible(self):
+        self.assertFalse(TERM["source_kinds"]["primary_vendor"]["verified_fact_eligible"])
+        self.assertFalse(TERM["source_kinds"]["primary_corporate"]["verified_fact_eligible"])
 
     def test_crosswalk_documentary_status_is_the_kb_status(self):
         self.assertEqual(TERM["documentary_status"], kb.DOCUMENTARY_STATUS)
         self.assertEqual(TERM["crosswalk"]["supplied"]["knowledge_status"], "SOURCE")
 
 
-if __name__ == "__main__":
-    unittest.main()
-
-
-class VerifiedTierRegressionTests(unittest.TestCase):
-    """RF-04: a vendor or corporate self-declaration can no longer back a verified_fact."""
+class VerifiedKindRegressionTests(unittest.TestCase):
+    """RF-04 and RF-10, kind-only (#287): a vendor or corporate declaration never backs a verified fact."""
 
     def _study(self):
         from test_runtime import fixture  # same synthetic fixture as the runtime suite
         study = fixture()
         study["claims"][0].update(status="verified_fact", verification={"reviewed": True, "source_ids": ["S1"], "note": "Synthetic review"})
-        study["sources"][0].update(access="read", qualified=True)
+        study["sources"][0].update(access="read", qualified=True, kind="primary_research")
         return study
 
-    def test_vendor_and_corporate_kinds_rejected(self):
-        for kind in ("primary_vendor", "primary_corporate"):
+    def test_vendor_and_corporate_kinds_rejected_even_qualified(self):
+        for kind in ("primary_vendor", "primary_corporate", "primary", "supplied_context"):
             study = self._study()
             study["sources"][0]["kind"] = kind
             self.assertFalse(runtime.validate_study(study)["valid"], kind)
 
-    def test_explicit_eligible_tier_accepted_and_overrides_legacy_kind(self):
+    def test_eligible_kinds_accepted(self):
+        for kind in ("primary_research", "primary_official", "measured_internal"):
+            study = self._study()
+            study["sources"][0]["kind"] = kind
+            self.assertTrue(runtime.validate_study(study)["valid"], kind)
+
+    def test_unqualified_eligible_kind_rejected(self):
         study = self._study()
-        study["sources"][0]["kind"] = "primary_vendor"
-        study["sources"][0]["tier"] = "T3"
-        self.assertTrue(runtime.validate_study(study)["valid"])
-        study["sources"][0]["tier"] = "T1"
+        study["sources"][0]["qualified"] = False
         self.assertFalse(runtime.validate_study(study)["valid"])
 
-    def test_unknown_tier_is_unassessed_and_not_eligible(self):
+    def test_attributed_claim_needs_an_attributable_kind(self):
         study = self._study()
-        study["sources"][0]["tier"] = "T9"
+        study["claims"][0]["status"] = "attributed_claim"
+        study["claims"][0].pop("verification", None)
+        study["sources"][0]["kind"] = "primary_corporate"
+        self.assertTrue(runtime.validate_study(study)["valid"])
+        study["sources"][0]["kind"] = "supplied_context"
         self.assertFalse(runtime.validate_study(study)["valid"])

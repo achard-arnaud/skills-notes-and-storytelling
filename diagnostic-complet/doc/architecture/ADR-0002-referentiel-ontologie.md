@@ -1,4 +1,25 @@
-# Ontologie de la KB documentaire — décision d'architecture
+# ADR-0002 — Référentiel d'ontologie de la KB
+
+- **Statut** : proposé, lecture seule
+- **Date** : 2026-11-10 (consignation ; décisions d'origine ci-dessous)
+- **Décisions liées** : D13 à D21
+- **Tickets** : #284
+
+## Contexte
+
+Sans référentiel commun, les types dérivent : titres comptés comme assertions, instructions promues en faits, relations probatoires sans preuve.
+
+## Décision
+
+Cinq classes, dix types, seize règles d'arêtes (douze relations probatoires canoniques et quatre règles structurelles). Référentiel lu en lecture seule.
+
+## Conséquences
+
+Les seuils restent sans calibration tant qu'aucune décision humaine ne les pose (D16, D18). Version courante : 0.5.0.
+
+## Spécification migrée (contenu d'origine, non modifié)
+
+> **Note de consignation (10 novembre 2026)** : la facette `evidence_basis` est retirée (ontologie 0.5.0, D29). La version courante est 0.5.0 ; les textes ci-dessous décrivent l'état d'origine.
 
 Statut : **proposé, implémenté en lecture seule**. Aucun GO produit. Référentiel : `ontology/ontology-v1.json` (version 0.1.0). Code : `ontology.py`, intégré dans la section `ontology` de `loopback.py`.
 
@@ -87,4 +108,5 @@ Même texte normalisé, au moins deux sources distinctes. Sortie : candidat seul
 - **D19** : la facette `knowledge_status` (v0.2.0) reprend le vocabulaire de statut de Graph1 : `SOURCE`, `DERIVED`, `CANDIDATE`, `HUMAN_ADJUDICATED`, `UNKNOWN`, `NOT_EVALUABLE`. Une machine ne peut poser `HUMAN_ADJUDICATED` ; la règle exige une `decision_ref`. Aucun import de contenu depuis Graph1 n'est fait : le graphe de formation reste gelé et séparé.
 - **D20** (v0.3.0, constat sur corpus réel) : `kb.py` rattache des titres à des piliers et à des entités par son lexique. Sur 80 pages collectées, 513 des 514 violations de la v0.2.0 avaient ce seul motif. La règle était trop stricte : un titre est un ancrage thématique. `candidate_classification` et `explicit_mention` acceptent désormais `structure.heading` ; blocs de code et tableaux restent exclus, et aucune relation probatoire n'est permise à un titre. La violation restante (une instruction classée dans un pilier) est conservée : c'est un vrai constat.
 - **D21** (v0.4.0, corpus complet : 655 sources, 22 001 atomes) : après D20, 56 violations subsistaient. 42 venaient de tableaux du document R1 classés par mots-clés : un tableau porte du contenu thématique, il devient ancrage au même titre qu'un titre. Restent volontairement signalées : 5 classifications d'un bloc de code (le lexique appliqué à du code est douteux) et 9 atomes `directive` classés dans un pilier ou une entité. Ces 9 sont des faux positifs de l'heuristique de `kb.py` (phrases descriptives commençant par un infinitif ou « il faut ») : constat à relire, pas à corriger en silence.
+
 
