@@ -10,7 +10,9 @@
       "to_ingest": "matériau fourni dans la conversation, pas encore dans la KB : à ingérer avant usage",
       "to_collect": "matériau absent de la KB : à collecter à la source",
       "research_required": "la source existante déclare elle-même ne pas établir le point : recherche nécessaire",
-      "to_confirm": "demande incomplète ou ambiguë : confirmation humaine requise"
+      "to_confirm": "demande incomplète ou ambiguë : confirmation humaine requise",
+      "read_at_source": "page ou texte officiel lu en entier ; l'atome n'est pas promu pour autant en fait vérifié",
+      "human_validated": "validé par François à la date indiquée dans decisions ; les limites écrites dans la note restent en vigueur"
     },
     "decoupling": "Côté exécution (privé) : le contenu réel reste dans la KB Graph1 et dans les notes de recherche. Côté construction (public) : chaque exemple pointe vers un jumeau synthétique (champ fixture) qui reproduit sa forme sans son contenu. Les tests et les évaluations n'utilisent que les jumeaux ; aucun test ne dépend du corpus privé (D25).",
     "namespace_source": "Le namespace de projection est celui du profil de run (champ projection.namespace de profiles/<profil>.profile.json) ; il n'est pas écrit ici."
@@ -66,8 +68,8 @@
         "ATOM-126720c9062c247d1ed4022df93a27b98409e5578d3ec10f0b659fdca81aee04",
         "ATOM-139edca48ce61a583d65c9805f5aa959faa712109e8edcbc187aabcfba44a86c"
       ],
-      "status": "supplied_unverified",
-      "note": "Document fourni, vérifié en partie (pages de l'éditeur, extraits de recherche sur l'industriel : relation client et programme de gestion des connaissances). Déploiement et gains chez l'industriel non vérifiés.",
+      "status": "human_validated",
+      "note": "Validé par François le 2026-11-10 (voir decisions). Reste hors périmètre : déploiement et gains chez l'industriel ; chiffres d'éditeur à ne pas lui attribuer.",
       "fixture": "fixtures/examples/veille_corporate_perso.study.json"
     },
     {
@@ -178,10 +180,13 @@
       "role": "Comparatif d'acteurs : liste issue d'un document fourni, complétée par des recherches publiques",
       "atoms": [
         "ATOM-8a8fc4c5d66211c9b7f1e3c9d633202fe31693f1db165dc732a4df6bc10b67b0",
-        "ATOM-22b8e77053e92f52059ee974f94a7d5db0b6895db404163ffc101bd5930cedad"
+        "ATOM-22b8e77053e92f52059ee974f94a7d5db0b6895db404163ffc101bd5930cedad",
+        "ATOM-f59c9cc58e31e13b6c29c51349b64153d11fa3086b862bd262b13e12ea543c69",
+        "ATOM-c3a34c967090c14fbe58c8a69e9ce9977e4806b63306a413f44dc4d7df2fd434",
+        "ATOM-30874b0afc22860c0a593466a823133514d2c9142e8c2046878d4f75d0f75267"
       ],
-      "status": "supplied_unverified",
-      "note": "Aucune disponibilité ni aucun montant d'investissement sourcé ; plusieurs pages de presse non lues (403).",
+      "status": "read_at_source",
+      "note": "Tailles, contrats et mouvements d'entreprise lus à la source ; cinq cibles de disponibilité sur cinq non confirmées ; Engie Impact en cours de cession à un tiers.",
       "fixture": "fixtures/examples/comparator.study.json"
     },
     {
@@ -247,10 +252,13 @@
       "role": "Analyse approfondie d'une notion définie par François",
       "atoms": [
         "ATOM-23bc0e5dd422d50bc6f85276b45641a0551744e18e32178950f8b0e4c2775d44",
-        "ATOM-4edec9533ebc99c93d1bf282a719dcd627d78c06d1442940b9ecf38504c57e0b"
+        "ATOM-4edec9533ebc99c93d1bf282a719dcd627d78c06d1442940b9ecf38504c57e0b",
+        "ATOM-6740f713d50f8a16df0ecd6193a0e28f7b91e1f3e824bdf3b773c6e6ac86f005",
+        "ATOM-ebacc54c36affcb5714eb366f5281f915c1400e1e96ed0d9a7c3de33a0c51cac",
+        "ATOM-d392a26ac2381e190c33b107dcc3039663a05b0d41307a1e82bc3b1c2199b05c"
       ],
       "status": "supplied_unverified",
-      "note": "Définition de François (2026-11-10), sans source externe ; lecture de l'agent à valider.",
+      "note": "Définition de François ; recherche publique : aucun usage du terme, trois composantes retrouvées séparément, sources surtout commerciales ; à présenter comme définition de travail.",
       "fixture": "fixtures/examples/analytical_focus.study.json"
     },
     {
@@ -436,13 +444,17 @@
         "P-MARKET"
       ],
       "topic": "Moteurs réglementaires du marché : reporting de durabilité simplifié, performance des bâtiments, renouvelables",
-      "role": "Lexique de moteurs réglementaires avec leur contre-point",
+      "role": "Lexique de moteurs réglementaires lus dans les textes officiels, avec leur contre-point",
       "atoms": [
         "ATOM-ab314a685c1b2199b4932d88a56d0bb25e251da9486aad82203c7bb657c655ff",
-        "ATOM-3de41d10b1ff323d9c149f5ccf4b5df137c15724f26070b67f8646b839abc42b"
+        "ATOM-3de41d10b1ff323d9c149f5ccf4b5df137c15724f26070b67f8646b839abc42b",
+        "ATOM-b59de8cc198113a86bd7f7d80c5ce6087fd56ec1490542f8947d7edef47832f6",
+        "ATOM-7878c9e48acdaa1e84a6aa8d4cf8944c998d628756426d3c5d6aa253b522772c",
+        "ATOM-92bc191c22348152432697e9f190f7d08bdd2c038faccf028e2cbcb6a8d7fc31",
+        "ATOM-dd9e133066eedb8d00cd5371e6265df0611a3ad40fcee9eb4321c0b79d19c64f"
       ],
-      "status": "supplied_unverified",
-      "note": "Extraits de résultats de recherche, textes officiels non lus ; la simplification du reporting de durabilité nuance le document fourni."
+      "status": "read_at_source",
+      "note": "Reporting de durabilité et performance des bâtiments lus au Journal officiel ; objectif de 42,5 % en 2030 encore en extrait de recherche ; transposition effective par État non vérifiée."
     }
   ],
   "acquisitions": [
@@ -523,6 +535,37 @@
       ],
       "no_result": [],
       "rule": "Résultat négatif consigné pour que l'absence ne soit pas prise pour une lecture."
+    },
+    {
+      "date": "2026-11-10",
+      "batch": 3,
+      "kb_repository_commit": "298bad9f",
+      "profile_id": "greenyellow",
+      "sources": [
+        "SRC-3e9a7d9d334386ff0bd9064384cbcb91587c45bdf7b4654d91bce31f4f6a695d",
+        "SRC-d4a9bfffc3fe8aaed56d516e01abe680987802c540ffdcdf5cb4af40f8c845fb",
+        "SRC-e4b3677f30552174cbb1944f5114fb20b4dd5b7ea32a4d2e12f436bb8b37c586"
+      ],
+      "atom_count": 52,
+      "summary": "Concurrents relus à la source, textes officiels du reporting de durabilité et de la performance des bâtiments, état de l'art public du double cerveau.",
+      "not_read": [
+        "Pages d'exploitation et de maintenance de Voltalia (403)",
+        "Site de Dalkia (accès refusé)",
+        "Page de la revue sur le jumeau numérique de l'organisation (403)",
+        "Article de presse sur l'IA et la mémoire d'organisation (403)"
+      ],
+      "no_result": [
+        "Aucune cible de disponibilité des cinq concurrents n'a été trouvée"
+      ],
+      "rule": "Résultat négatif consigné pour que l'absence ne soit pas prise pour une lecture."
+    }
+  ],
+  "decisions": [
+    {
+      "date": "2026-11-10",
+      "by": "François",
+      "subject": "EX-VCP-03",
+      "decision": "Complément sur l'industriel jugé conforme et vérifié ; le déploiement et les gains chez l'industriel restent hors du périmètre validé."
     }
   ]
 }

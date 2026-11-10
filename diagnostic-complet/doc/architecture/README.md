@@ -28,6 +28,7 @@ Ce dossier consigne les décisions d'architecture et les spécifications interne
 
 | [ADR-0011](ADR-0011-acquisition-2026-11-10-et-migration-profil.md) | Acquisition du 10 novembre et migration du profil de la KB privée | accepté | D37, D38 | (nouveau) |
 | [ADR-0012](ADR-0012-directive-de-style-et-double-cerveau.md) | Directive de style et définition du double cerveau | accepté | D39, D40 | (nouveau) |
+| [ADR-0013](ADR-0013-statuts-de-lecture-et-outil-de-migration.md) | Statuts de lecture, validation humaine et outil de migration du profil | accepté | D41, D42 | RF-06 |
 
 D34 (périmètre léger de `AGENTS.md`) relève du fichier `AGENTS.md`, pas d'un ADR.
 

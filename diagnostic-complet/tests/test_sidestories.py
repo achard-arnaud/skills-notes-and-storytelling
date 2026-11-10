@@ -264,7 +264,7 @@ class KbExamplesTests(unittest.TestCase):
             if not e["atoms"]:
                 self.assertIn(e["status"], {"to_ingest", "to_collect", "research_required", "to_confirm"}, e["id"])
             else:
-                self.assertIn(e["status"], {"supplied_unverified", "research_required"}, e["id"])
+                self.assertIn(e["status"], {"supplied_unverified", "research_required", "read_at_source", "human_validated"}, e["id"])
             self.assertLess(len(e["topic"]) + len(e["role"]) + len(e["note"]), 420, f"{e['id']} reads like copied corpus text")
 
     def test_public_files_do_not_leak_private_paths_or_corpus_fields(self):
@@ -530,6 +530,24 @@ class AcquisitionBatchTwoTests(unittest.TestCase):
 
     def test_new_examples_stay_unverified(self):
         by_id = {e["id"]: e for e in REGISTRY["examples"]}
+        self.assertEqual(by_id["EX-FOC-02"]["status"], "supplied_unverified")
         for ident in ("EX-FOC-02", "EX-CMP-02", "EX-MKT-02"):
-            self.assertEqual(by_id[ident]["status"], "supplied_unverified")
             self.assertTrue(by_id[ident]["atoms"])
+
+    def test_batch_three_and_the_human_decision_are_recorded(self):
+        self.assertEqual([a["batch"] for a in REGISTRY["acquisitions"] if a.get("batch") == 3], [3])
+        decided = {d["subject"]: d for d in REGISTRY["decisions"]}
+        self.assertEqual(decided["EX-VCP-03"]["by"], "François")
+        by_id = {e["id"]: e for e in REGISTRY["examples"]}
+        self.assertEqual(by_id["EX-VCP-03"]["status"], "human_validated")
+        for ident in ("EX-CMP-02", "EX-MKT-02"):
+            self.assertEqual(by_id[ident]["status"], "read_at_source")
+
+
+class BatchThreeReceiptTests(unittest.TestCase):
+    def test_receipt_matches_registry(self):
+        receipt = json.loads((ROOT / "runs/acq-2026-11-10/receipt-batch-3.json").read_text(encoding="utf-8"))
+        batch = [a for a in REGISTRY["acquisitions"] if a.get("batch") == 3][0]
+        self.assertEqual(receipt["delivered_kb_commit"], batch["kb_repository_commit"])
+        self.assertEqual(receipt["source_ids"], batch["sources"])
+        self.assertEqual(receipt["human_adjudicated"], 0)

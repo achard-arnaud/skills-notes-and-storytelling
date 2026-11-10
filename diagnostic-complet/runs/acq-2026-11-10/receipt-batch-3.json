@@ -1,0 +1,37 @@
+{
+  "receipt": "acquisition-2026-11-10-lot-3",
+  "date": "2026-11-10",
+  "base_kb_commit": "00d314d6",
+  "delivered_kb_commit": "298bad9f",
+  "profile_id": "greenyellow",
+  "ci": "intentionally_not_run",
+  "ingested": {
+    "sources_added": 3,
+    "atoms_added": 52,
+    "sources_total": 684,
+    "atoms_total": 23128,
+    "unexplained_non_whitespace_characters": 0,
+    "groups": {
+      "public_research": 3
+    }
+  },
+  "source_ids": [
+    "SRC-3e9a7d9d334386ff0bd9064384cbcb91587c45bdf7b4654d91bce31f4f6a695d",
+    "SRC-d4a9bfffc3fe8aaed56d516e01abe680987802c540ffdcdf5cb4af40f8c845fb",
+    "SRC-e4b3677f30552174cbb1944f5114fb20b4dd5b7ea32a4d2e12f436bb8b37c586"
+  ],
+  "publication": {
+    "mode": "fast-forward, sans force, [skip ci]",
+    "files_written": 62,
+    "frozen_formation_graph_unchanged": true
+  },
+  "human_adjudicated": 0,
+  "human_decisions_recorded_in_registry": [
+    "EX-VCP-03"
+  ],
+  "limits": [
+    "Atomes en supplied_unverified ; promotion en fait vérifié réservée au circuit humain.",
+    "Pages refusées : voir le registre des acquisitions.",
+    "Identifiants et comptes seulement, aucun contenu du corpus."
+  ]
+}

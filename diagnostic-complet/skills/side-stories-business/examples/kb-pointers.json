@@ -53,8 +53,8 @@
         "ATOM-126720c9062c247d1ed4022df93a27b98409e5578d3ec10f0b659fdca81aee04",
         "ATOM-139edca48ce61a583d65c9805f5aa959faa712109e8edcbc187aabcfba44a86c"
       ],
-      "status": "supplied_unverified",
-      "note": "Document fourni, vérifié en partie (pages de l'éditeur, extraits de recherche sur l'industriel : relation client et programme de gestion des connaissances). Déploiement et gains chez l'industriel non vérifiés.",
+      "status": "human_validated",
+      "note": "Validé par François le 2026-11-10 (voir decisions). Reste hors périmètre : déploiement et gains chez l'industriel ; chiffres d'éditeur à ne pas lui attribuer.",
       "fixture": "fixtures/examples/veille_corporate_perso.study.json"
     },
     {
@@ -165,10 +165,13 @@
       "role": "Comparatif d'acteurs : liste issue d'un document fourni, complétée par des recherches publiques",
       "atoms": [
         "ATOM-8a8fc4c5d66211c9b7f1e3c9d633202fe31693f1db165dc732a4df6bc10b67b0",
-        "ATOM-22b8e77053e92f52059ee974f94a7d5db0b6895db404163ffc101bd5930cedad"
+        "ATOM-22b8e77053e92f52059ee974f94a7d5db0b6895db404163ffc101bd5930cedad",
+        "ATOM-f59c9cc58e31e13b6c29c51349b64153d11fa3086b862bd262b13e12ea543c69",
+        "ATOM-c3a34c967090c14fbe58c8a69e9ce9977e4806b63306a413f44dc4d7df2fd434",
+        "ATOM-30874b0afc22860c0a593466a823133514d2c9142e8c2046878d4f75d0f75267"
       ],
-      "status": "supplied_unverified",
-      "note": "Aucune disponibilité ni aucun montant d'investissement sourcé ; plusieurs pages de presse non lues (403).",
+      "status": "read_at_source",
+      "note": "Tailles, contrats et mouvements d'entreprise lus à la source ; cinq cibles de disponibilité sur cinq non confirmées ; Engie Impact en cours de cession à un tiers.",
       "fixture": "fixtures/examples/comparator.study.json"
     },
     {
@@ -269,10 +272,13 @@
       "role": "Analyse approfondie d'une notion définie par François",
       "atoms": [
         "ATOM-23bc0e5dd422d50bc6f85276b45641a0551744e18e32178950f8b0e4c2775d44",
-        "ATOM-4edec9533ebc99c93d1bf282a719dcd627d78c06d1442940b9ecf38504c57e0b"
+        "ATOM-4edec9533ebc99c93d1bf282a719dcd627d78c06d1442940b9ecf38504c57e0b",
+        "ATOM-6740f713d50f8a16df0ecd6193a0e28f7b91e1f3e824bdf3b773c6e6ac86f005",
+        "ATOM-ebacc54c36affcb5714eb366f5281f915c1400e1e96ed0d9a7c3de33a0c51cac",
+        "ATOM-d392a26ac2381e190c33b107dcc3039663a05b0d41307a1e82bc3b1c2199b05c"
       ],
       "status": "supplied_unverified",
-      "note": "Définition de François (2026-11-10), sans source externe ; lecture de l'agent à valider.",
+      "note": "Définition de François ; recherche publique : aucun usage du terme, trois composantes retrouvées séparément, sources surtout commerciales ; à présenter comme définition de travail.",
       "fixture": "fixtures/examples/analytical_focus.study.json"
     },
     {

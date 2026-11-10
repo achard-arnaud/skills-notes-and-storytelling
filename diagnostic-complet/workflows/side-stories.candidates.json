@@ -311,8 +311,8 @@
         "EX-VCP-03",
         "EX-ILL-03"
       ],
-      "readiness": "partial",
-      "gaps": "Document fourni, vérifié en partie ; relation client avec l'industriel et programme de gestion des connaissances confirmés par des extraits de recherche ; déploiement et gains chez l'industriel non vérifiés ; chiffres d'éditeur à ne pas attribuer à l'industriel."
+      "readiness": "supported",
+      "gaps": "Validé par François le 2026-11-10 ; déploiement et gains chez l'industriel hors périmètre ; chiffres d'éditeur à ne pas lui attribuer."
     },
     {
       "id": "CAND-12",
@@ -420,7 +420,7 @@
         "EX-CMP-02"
       ],
       "readiness": "partial",
-      "gaps": "Acteurs : Voltalia, EDF (Dalkia et EDF ENR), Statkraft avec Solarcentury, BayWa r.e., Engie (document fourni, complété par des recherches publiques). Critère commun à choisir par François ; proposition : les quatre modèles de création de valeur. Aucune disponibilité ni aucun montant sourcé ; plusieurs pages non lues."
+      "gaps": "Acteurs : Voltalia, EDF (Dalkia et EDF ENR), Statkraft avec Solarcentury, BayWa r.e., Engie. Tailles, contrats et mouvements d'entreprise lus à la source ; aucune cible de disponibilité confirmée ; Engie Impact cédée à un tiers, donc hors comparaison. Critère commun proposé : les quatre modèles de création de valeur ; à confirmer par François."
     },
     {
       "id": "CAND-16",
@@ -471,7 +471,7 @@
         "EX-FOC-02"
       ],
       "readiness": "partial",
-      "gaps": "Définition de François (2026-11-10) enregistrée dans la base ; aucune source externe ; lecture de l'agent à valider avant rédaction."
+      "gaps": "Définition de François ; recherche publique : aucun usage du terme ; trois composantes retrouvées séparément ; à présenter comme définition de travail. Lecture de l'agent à valider avant rédaction."
     },
     {
       "id": "CAND-18",
@@ -626,7 +626,7 @@
         "EX-MKT-02"
       ],
       "readiness": "partial",
-      "gaps": "Extraits de résultats de recherche ; textes officiels non lus ; dates solaires de la refonte sur la performance des bâtiments divergentes selon les sources."
+      "gaps": "Reporting de durabilité et performance des bâtiments lus au Journal officiel (seuils 450 millions d'euros et 1 000 salariés ; échéances de l'article 10). Reste en extrait : objectif de 42,5 % en 2030 ; transposition effective par État non vérifiée."
     }
   ],
   "readability": "Dans toute sortie destinée à un lecteur, désigner un candidat par son titre, jamais par son identifiant (CAND-xx), et nommer les types par leur libellé lisible."
