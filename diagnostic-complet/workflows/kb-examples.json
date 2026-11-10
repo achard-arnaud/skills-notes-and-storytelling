@@ -197,13 +197,13 @@
         "P-AI"
       ],
       "topic": "Cas d'usage : IA multimodale au service des intervenants sur site",
-      "role": "Illustration de type cas d'usage, orientée B-A-C (cadre à confirmer)",
+      "role": "Illustration de type cas d'usage, construite en bénéfice, avantages et caractéristiques",
       "atoms": [
         "ATOM-a31fde62600553c9582d731bb94cea4f7212e84c0596f0cc10feebf2e0c446e2",
         "ATOM-6a096af9c124ed560b071a2120d555c7b6a69487d9aca374c8aa6cac0f78e1a4"
       ],
       "status": "supplied_unverified",
-      "note": "Cas candidat, non confirmé comme cas de la cible. Le sigle B-A-C n'est défini dans aucune source : cadre laissé libre jusqu'à confirmation.",
+      "note": "Cas candidat, non confirmé comme cas de la cible. Cadre bénéfice, avantages, caractéristiques confirmé par François.",
       "fixture": "fixtures/examples/illustration.study.json"
     },
     {
@@ -566,6 +566,24 @@
       "by": "François",
       "subject": "EX-VCP-03",
       "decision": "Complément sur l'industriel jugé conforme et vérifié ; le déploiement et les gains chez l'industriel restent hors du périmètre validé."
+    },
+    {
+      "date": "2026-11-10",
+      "by": "François",
+      "subject": "CAND-15",
+      "decision": "Critère commun du comparatif : les quatre modèles de création de valeur."
+    },
+    {
+      "date": "2026-11-10",
+      "by": "François",
+      "subject": "cadre des cas d'usage",
+      "decision": "Trois champs : bénéfice (en premier), avantages, caractéristiques."
+    },
+    {
+      "date": "2026-11-10",
+      "by": "François",
+      "subject": "CAND-11",
+      "decision": "Angle de la veille entreprise : numérisation du savoir en entrée, assistant à recherche multimodale fiable (ontologie et module de recherche) en sortie, en parallèle avec la maintenance sur site."
     }
   ]
 }

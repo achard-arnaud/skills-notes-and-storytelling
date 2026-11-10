@@ -289,7 +289,7 @@
     {
       "id": "CAND-11",
       "origin": "retour HITL-258 : exemple VCP",
-      "title": "Pitch d'Ask for the Moon et cas d'usage chez un industriel",
+      "title": "Veille business : un industriel capte son savoir par la numérisation et l'exploite avec un assistant fiable",
       "pillar_ids": [
         "P-AI",
         "P-INDUSTRY",
@@ -300,19 +300,19 @@
         "type": "analytical_focus",
         "when": "l'architecture RAG agentique multimodal avec base à ontologie doit être instruite pour elle-même"
       },
-      "objective": "Présenter une idée d'assistance à la maintenance sur site (RAG agentique multimodal, KB à ontologie, documentation technique) à partir d'un pitch et d'un retour d'expérience sourcés.",
-      "problematique": "Quelle assistance à la maintenance devient crédible quand chaque réponse cite sa source, s'abstient en cas de doute et renvoie vers un expert ?",
+      "objective": "Nourrir une veille business à partir du cas d'un industriel : la captation du savoir par numérisation (en entrée) alimente un assistant à recherche multimodale fiable, fondé sur une ontologie et un module de recherche (en sortie). Le cas est mis en parallèle avec la maintenance sur site et la documentation des installations.",
+      "problematique": "Qu'est-ce qu'un industriel capte de son savoir par la numérisation, et que faut-il en plus (ontologie, module de recherche, citation des sources) pour que l'assistant qui l'exploite reste fiable en maintenance sur site ?",
       "bridge": {
-        "in": "Le tronc décrit la préparation d'une intervention de maintenance sur site et la documentation des installations.",
-        "out": "On revient à la supervision humaine : l'assistant prépare, cite sa source ou s'abstient, le technicien décide."
+        "in": "Le tronc décrit la maintenance sur site et la documentation des installations : le savoir existe, mais il est dispersé et peu numérisé.",
+        "out": "On revient au tronc : la numérisation du savoir est la condition de l'assistant ; l'assistant prépare, cite sa source ou s'abstient, le technicien décide."
       },
-      "choice_criterion": "Pitch si l'on présente le cas et ses preuves ; focus si l'on défend l'architecture.",
+      "choice_criterion": "Veille entreprise : le cas est présenté avec ses preuves et son parallèle. Analyse approfondie si l'architecture (ontologie et module de recherche) doit être défendue pour elle-même.",
       "examples": [
         "EX-VCP-03",
         "EX-ILL-03"
       ],
       "readiness": "supported",
-      "gaps": "Validé par François le 2026-11-10 ; déploiement et gains chez l'industriel hors périmètre ; chiffres d'éditeur à ne pas lui attribuer."
+      "gaps": "Angle demandé par François le 2026-11-10. Validé : relation client et programme de gestion des connaissances. Hors validation : déploiement et gains chez l'industriel ; chiffres d'éditeur à ne pas lui attribuer. Le parallèle avec la maintenance sur site est une lecture, à marquer comme telle."
     },
     {
       "id": "CAND-12",
@@ -420,7 +420,7 @@
         "EX-CMP-02"
       ],
       "readiness": "partial",
-      "gaps": "Acteurs : Voltalia, EDF (Dalkia et EDF ENR), Statkraft avec Solarcentury, BayWa r.e., Engie. Tailles, contrats et mouvements d'entreprise lus à la source ; aucune cible de disponibilité confirmée ; Engie Impact cédée à un tiers, donc hors comparaison. Critère commun proposé : les quatre modèles de création de valeur ; à confirmer par François."
+      "gaps": "Acteurs : Voltalia, EDF (Dalkia et EDF ENR), Statkraft avec Solarcentury, BayWa r.e., Engie. Tailles, contrats et mouvements d'entreprise lus à la source ; aucune cible de disponibilité confirmée ; Engie Impact cédée à un tiers, donc hors comparaison. Critère commun : les quatre modèles de création de valeur (confirmé par François le 2026-11-10)."
     },
     {
       "id": "CAND-16",
@@ -524,7 +524,7 @@
         "EX-ILL-01"
       ],
       "readiness": "partial",
-      "gaps": "Cas candidat, non confirmé chez la cible. Le cadre « B-A-C » est à confirmer."
+      "gaps": "Cas candidat, non confirmé chez la cible. Cadre bénéfice, avantages, caractéristiques confirmé par François."
     },
     {
       "id": "CAND-20",

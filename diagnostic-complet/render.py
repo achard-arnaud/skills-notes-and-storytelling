@@ -139,7 +139,11 @@ def _payload_view(s: dict) -> str:
         extra = ""
         if payload.get("form") == "quote":
             extra = f'<p class="meta">{esc(payload.get("attributed_to", ""))}, {esc(payload.get("date", ""))}, {_locator(payload.get("source", ""))}</p>'
-        out.append(f'<p>{esc(payload.get("text", ""))}</p>{extra}')
+        if payload.get("form") == "use_case":
+            labels = (("benefice", "Bénéfice"), ("avantages", "Avantages"), ("caracteristiques", "Caractéristiques"))
+            out.append("<ul>" + "".join(f"<li><strong>{lab} :</strong> {esc(payload.get(k, ''))}</li>" for k, lab in labels) + "</ul>")
+        else:
+            out.append(f'<p>{esc(payload.get("text", ""))}</p>{extra}')
     a = payload.get("analysis")
     if isinstance(a, dict):
         pos = "".join(f'<li>{esc(p.get("position", ""))} <span class="meta">Réserve : {esc(p.get("caveat", ""))}</span></li>' for p in a.get("positions", []) if isinstance(p, dict))

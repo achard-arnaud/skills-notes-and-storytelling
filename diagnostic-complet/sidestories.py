@@ -166,6 +166,15 @@ def _check_illustration(payload: dict, fmt: dict, out: list[str]) -> None:
     if form not in fmt["forms"]:
         out.append(f"payload.form must be one of {', '.join(fmt['forms'])}")
         return
+    if form == "use_case":
+        parts = fmt["use_case_frame"]["keys"]
+        missing = [k for k in parts if not filled(payload.get(k))]
+        if missing:
+            out.append(f"payload: use_case requires {', '.join(parts)} (missing {', '.join(missing)})")
+            return
+        if sum(words(payload[k]) for k in parts) > fmt["max_words"]:
+            out.append(f"payload: more than {fmt['max_words']} words across {', '.join(parts)}")
+        return
     text = payload.get("text")
     if not filled(text):
         out.append("payload.text required")

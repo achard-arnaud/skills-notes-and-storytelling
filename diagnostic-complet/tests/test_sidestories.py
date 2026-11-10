@@ -70,7 +70,7 @@ VALID = {
                        "payload": {"steps": [{"scale": "site", "statement": "Constat local."}, {"scale": "portefeuille", "statement": "Canal de transmission."}, {"scale": "site", "statement": "Gain local."}]}},
     "comparator": lambda: {"criterion": "Contrôle des données", "confounders": ["taille"], "takeaway": "Les conditions diffèrent.",
                            "payload": {"table": {"columns": ["Acteur", "Critère"], "rows": [["A", "x"], ["B", "y"], ["C", "z"]]}}},
-    "illustration": lambda: {"payload": {"form": "use_case", "text": "Un cas d'usage synthétique."}},
+    "illustration": lambda: {"payload": {"form": "use_case", "benefice": "Gain synthétique.", "avantages": "Avantage synthétique.", "caracteristiques": "Caractéristique synthétique."}},
     "analytical_focus": lambda: {"payload": {"analysis": {
         "core_question": "Pourquoi ?", "thesis": "Parce que.", "takeaway": "Donc.",
         "positions": [{"position": "A", "caveat": "limite A"}, {"position": "B", "caveat": "limite B"}],
@@ -551,3 +551,30 @@ class BatchThreeReceiptTests(unittest.TestCase):
         self.assertEqual(receipt["delivered_kb_commit"], batch["kb_repository_commit"])
         self.assertEqual(receipt["source_ids"], batch["sources"])
         self.assertEqual(receipt["human_adjudicated"], 0)
+
+
+class BeneficeAvantagesCaracteristiquesTests(unittest.TestCase):
+    def frame(self):
+        return next(t for t in WORKFLOW["types"] if t["id"] == "illustration")["format"]["use_case_frame"]
+
+    def test_frame_is_defined_in_words(self):
+        frame = self.frame()
+        self.assertEqual(frame["keys"], ["benefice", "avantages", "caracteristiques"])
+        self.assertNotIn("à confirmer", json.dumps(frame, ensure_ascii=False))
+
+    def test_use_case_needs_the_three_parts(self):
+        fmt = next(t for t in WORKFLOW["types"] if t["id"] == "illustration")["format"]
+        out = []
+        sidestories._check_illustration({"form": "use_case", "benefice": "Gain."}, fmt, out)
+        self.assertTrue(any("avantages" in o and "caracteristiques" in o for o in out))
+        out = []
+        sidestories._check_illustration({"form": "use_case", "benefice": "a", "avantages": "b", "caracteristiques": "c"}, fmt, out)
+        self.assertEqual(out, [])
+
+    def test_render_shows_readable_labels(self):
+        study = base_study({"id": "S1", "kind": "illustration", "state": "candidate", "title": "Cas", "anchor": "SEC1",
+                            "problematique": "Q ?", "bridge": {"in": "a", "out": "b"}, "reason_outside": "r", "payoff": "p",
+                            "payload": {"form": "use_case", "benefice": "Gain.", "avantages": "Avantage.", "caracteristiques": "Trait."}})
+        html = render.render_study(study)
+        for label in ("Bénéfice", "Avantages", "Caractéristiques"):
+            self.assertIn(label, html)

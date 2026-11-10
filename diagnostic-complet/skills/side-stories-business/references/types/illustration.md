@@ -16,7 +16,7 @@ Une forme parmi `use_case`, `quote`, `object`, `person`. **150 mots au plus** ; 
 
 | Forme | Contenu |
 |---|---|
-| `use_case` | Besoin, action, résultat attendu. Le cadre « B-A-C » cité dans la demande n'est défini dans aucune source : cadre laissé libre jusqu'à confirmation |
+| `use_case` | Trois champs : `benefice` (ce que le lecteur y gagne, en premier), `avantages` (par rapport à la pratique actuelle), `caracteristiques` (ce que la solution est et fait). Cadre défini par François |
 | `quote` | Verbatim, daté, attribué, sourcé |
 | `object` | Un équipement, un document ou une mesure, et ce qu'il éclaire |
 | `person` | Un porteur du mécanisme, avec la borne de ce qu'on en dit |
@@ -27,7 +27,9 @@ Une forme parmi `use_case`, `quote`, `object`, `person`. **150 mots au plus** ; 
 {
   "payload": {
     "form": "use_case",
-    "text": "<Besoin, action, résultat attendu, en quelques phrases. Cas candidat, existence chez la cible à confirmer.>"
+    "benefice": "<Ce que le lecteur y gagne.>",
+    "avantages": "<Ce que cela change par rapport à la pratique actuelle.>",
+    "caracteristiques": "<Ce que la solution est et fait. Cas candidat, existence chez la cible à confirmer.>"
   }
 }
 ```

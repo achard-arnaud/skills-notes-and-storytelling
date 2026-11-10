@@ -101,7 +101,9 @@
       "payoff": "Voir un usage borné, sous validation humaine.",
       "payload": {
         "form": "use_case",
-        "text": "Besoin : un technicien perd du temps à retrouver la fiche d'un équipement. Action : il photographie la plaque et l'assistant propose la documentation correspondante. Résultat attendu : une préparation plus rapide, validée par le technicien. Cas candidat, existence chez la cible à confirmer."
+        "benefice": "Une préparation d'intervention plus rapide, validée par le technicien.",
+        "avantages": "Le technicien ne cherche plus la fiche d'un équipement à la main.",
+        "caracteristiques": "Il photographie la plaque ; l'assistant propose la documentation correspondante. Cas candidat, existence chez la cible à confirmer."
       }
     }
   ]

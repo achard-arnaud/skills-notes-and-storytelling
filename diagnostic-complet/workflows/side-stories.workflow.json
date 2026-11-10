@@ -341,8 +341,14 @@
         ],
         "quote_max_words": 40,
         "use_case_frame": {
-          "label": "B-A-C",
-          "expansion": "à confirmer : le sigle n'est défini dans aucune source"
+          "label": "Bénéfice, Avantages, Caractéristiques",
+          "keys": [
+            "benefice",
+            "avantages",
+            "caracteristiques"
+          ],
+          "order": "Le bénéfice vient en premier : ce que le lecteur y gagne. Les avantages le situent par rapport à la pratique actuelle. Les caractéristiques décrivent ce que la solution est et fait.",
+          "source": "Préférence de François, confirmée le 2026-11-10."
         },
         "max_words": 150
       },
