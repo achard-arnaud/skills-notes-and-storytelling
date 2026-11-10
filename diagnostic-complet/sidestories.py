@@ -253,7 +253,49 @@ def side_story_findings(side: dict) -> tuple[list[str], list[str]]:
             _check_illustration(payload, fmt, problems)
         elif kind == "analytical_focus":
             _check_analysis(payload, fmt, levels, problems)
-    return (problems, []) if active else ([], problems)
+    style = style_gaps(side)
+    return (problems, style) if active else ([], problems + style)
+
+
+# Style directive (ADR-0012): indicative checks, reported as gaps and never as errors, because style is
+# an editorial judgment. They catch the mechanical cases only.
+STYLE_PATTERNS = [
+    ("double négation", re.compile(r"\b(?:pas|non)\s+sans\b|\bpas\s+inutile\b", re.I)),
+    ("effet de balancement", re.compile(r"\bnon\s+pas\b[^.;:]{1,80}\bmais\b|\bce\s+n['’]est\s+pas\b[^.;:]{1,80},\s*c['’]est\b|\bpas\s+seulement\b[^.;:]{1,80}\bmais\s+(?:aussi|également|surtout)\b", re.I)),
+    ("introduction convenue", re.compile(r"^\s*(?:dans un monde|à l['’]heure où|il est (?:important|essentiel|crucial) de (?:noter|souligner|rappeler))", re.I)),
+]
+MAX_SENTENCE_WORDS = 35
+_NOT_PROSE = {"source", "date", "venue_or_url", "author", "year", "role", "mode", "form", "attributed_to", "evidence_level", "evidence_status", "scale"}
+
+
+def _prose(value, key=None):
+    if key in _NOT_PROSE:
+        return
+    if isinstance(value, str):
+        yield value
+    elif isinstance(value, dict):
+        for k, v in value.items():
+            yield from _prose(v, k)
+    elif isinstance(value, list):
+        for v in value:
+            yield from _prose(v, key)
+
+
+def style_gaps(side: dict) -> list[str]:
+    """Indicative style findings for the prose of one side story (never blocking)."""
+    found: list[str] = []
+    for field in ("problematique", "bridge", "reason_outside", "payoff", "text", "takeaway", "payload"):
+        for text in _prose(side.get(field)):
+            if "|" in text:  # markdown table: not prose
+                continue
+            for label, pattern in STYLE_PATTERNS:
+                match = pattern.search(text)
+                if match:
+                    found.append(f"style ({label}) : « {match.group(0).strip()[:70]} »")
+            for sentence in re.split(r"(?<=[.!?…])\s+", text.strip()):
+                if words(sentence) > MAX_SENTENCE_WORDS:
+                    found.append(f"style (phrase longue, plus de {MAX_SENTENCE_WORDS} mots) : « {sentence.strip()[:60]}… »")
+    return found
 
 
 def tag_for(kind: str) -> dict | None:

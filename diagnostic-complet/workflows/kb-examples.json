@@ -63,10 +63,11 @@
       "atoms": [
         "ATOM-4979d374b99e26d4944d8f764d20752f0f39a45ffd729af2455bfe3e98e729f0",
         "ATOM-ddccfbc2fe0f6b3726b2afc3f993369f7a78a37a58b8c3e708692e131ea80177",
-        "ATOM-126720c9062c247d1ed4022df93a27b98409e5578d3ec10f0b659fdca81aee04"
+        "ATOM-126720c9062c247d1ed4022df93a27b98409e5578d3ec10f0b659fdca81aee04",
+        "ATOM-139edca48ce61a583d65c9805f5aa959faa712109e8edcbc187aabcfba44a86c"
       ],
       "status": "supplied_unverified",
-      "note": "Document fourni le 2026-11-10, vérifié en partie contre les pages de l'éditeur (chiffres d'éditeur). Page de l'industriel et presse non lues.",
+      "note": "Document fourni, vérifié en partie (pages de l'éditeur, extraits de recherche sur l'industriel : relation client et programme de gestion des connaissances). Déploiement et gains chez l'industriel non vérifiés.",
       "fixture": "fixtures/examples/veille_corporate_perso.study.json"
     },
     {
@@ -173,11 +174,14 @@
         "P-MARKET",
         "P-AI"
       ],
-      "topic": "Éléments de benchmarking avec les cas d'usage d'acteurs à préciser",
-      "role": "Comparatif de cas d'usage",
-      "atoms": [],
-      "status": "to_confirm",
-      "note": "La demande du 2026-11-09 s'arrête à « avec les uses cases de » : la liste des acteurs à comparer est à fournir.",
+      "topic": "Cinq acteurs concurrents comparés sur les modèles de création de valeur",
+      "role": "Comparatif d'acteurs : liste issue d'un document fourni, complétée par des recherches publiques",
+      "atoms": [
+        "ATOM-8a8fc4c5d66211c9b7f1e3c9d633202fe31693f1db165dc732a4df6bc10b67b0",
+        "ATOM-22b8e77053e92f52059ee974f94a7d5db0b6895db404163ffc101bd5930cedad"
+      ],
+      "status": "supplied_unverified",
+      "note": "Aucune disponibilité ni aucun montant d'investissement sourcé ; plusieurs pages de presse non lues (403).",
       "fixture": "fixtures/examples/comparator.study.json"
     },
     {
@@ -239,11 +243,14 @@
         "P-AI",
         "P-GOVERNANCE"
       ],
-      "topic": "Double cerveau",
-      "role": "Focus analytique sur un mécanisme à définir",
-      "atoms": [],
-      "status": "to_collect",
-      "note": "Notion citée le 2026-11-09, introuvable telle quelle. Piste : un mémoire décrit le jumeau numérique comme « cerveau virtuel ». Définition de François nécessaire.",
+      "topic": "Le double cerveau d'un système d'assistance : mémoire à long terme, connaissances, cycle de vie des skills",
+      "role": "Analyse approfondie d'une notion définie par François",
+      "atoms": [
+        "ATOM-23bc0e5dd422d50bc6f85276b45641a0551744e18e32178950f8b0e4c2775d44",
+        "ATOM-4edec9533ebc99c93d1bf282a719dcd627d78c06d1442940b9ecf38504c57e0b"
+      ],
+      "status": "supplied_unverified",
+      "note": "Définition de François (2026-11-10), sans source externe ; lecture de l'agent à valider.",
       "fixture": "fixtures/examples/analytical_focus.study.json"
     },
     {
@@ -421,6 +428,21 @@
       "status": "supplied_unverified",
       "note": "Orthographe VizioSense. Lien avec l'entreprise étudiée et économies annoncées : aucune source trouvée.",
       "fixture": "fixtures/examples/veille_corporate_perso.study.json"
+    },
+    {
+      "id": "EX-MKT-02",
+      "type": "pillar:P-MARKET",
+      "pillars": [
+        "P-MARKET"
+      ],
+      "topic": "Moteurs réglementaires du marché : reporting de durabilité simplifié, performance des bâtiments, renouvelables",
+      "role": "Lexique de moteurs réglementaires avec leur contre-point",
+      "atoms": [
+        "ATOM-ab314a685c1b2199b4932d88a56d0bb25e251da9486aad82203c7bb657c655ff",
+        "ATOM-3de41d10b1ff323d9c149f5ccf4b5df137c15724f26070b67f8646b839abc42b"
+      ],
+      "status": "supplied_unverified",
+      "note": "Extraits de résultats de recherche, textes officiels non lus ; la simplification du reporting de durabilité nuance le document fourni."
     }
   ],
   "acquisitions": [
@@ -477,6 +499,27 @@
         "Presse DirectIndustry et Aeromorning : accès refusé (403)",
         "Article d'architecture de l'éditeur : page introuvable (404)",
         "Étude ENGIE et Modelon : accès non obtenu"
+      ],
+      "no_result": [],
+      "rule": "Résultat négatif consigné pour que l'absence ne soit pas prise pour une lecture."
+    },
+    {
+      "date": "2026-11-10",
+      "batch": 2,
+      "kb_repository_commit": "00d314d6",
+      "profile_id": "greenyellow",
+      "sources": [
+        "SRC-1fc4383e6759f8168bd807988137dbf57270dc51d65906e01e9337d8b9856d9e",
+        "SRC-26cfa079e656dc501a4af3ab52b9d38efd6a7f17ded3d8eaea231b71b30f41b9",
+        "SRC-7e357428d650e59203a3fb7277238fa5ab0cac3c924fed174b8c5acb22f24e2b",
+        "SRC-d34369c48c8cc51a3138bfdec1a6186d41c5d3614504da3cc097d3e0c15af697"
+      ],
+      "atom_count": 72,
+      "summary": "Définition du double cerveau fournie par François, complément sur Framatome (extraits de recherche), analyse des cinq concurrents et analyse du marché et des moteurs réglementaires, complétées par des recherches publiques.",
+      "not_read": [
+        "Pages de Framatome : accès automatisé refusé (403)",
+        "Presse spécialisée sur BayWa r.e. : accès refusé (403)",
+        "Textes officiels de l'Union européenne : extraits de recherche seulement"
       ],
       "no_result": [],
       "rule": "Résultat négatif consigné pour que l'absence ne soit pas prise pour une lecture."

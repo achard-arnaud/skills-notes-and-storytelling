@@ -54,7 +54,7 @@ Fournir au rédacteur le **paquet de rendu** (`../side-stories-business/referenc
 
 ## Style indicatif
 
-Comptable de forme : unités, périodes et hypothèses toujours écrites ; aucune ligne de gain sans sa baseline. Voix de François-Pro : sobre, dense, une idée par phrase.
+Comptable de forme : unités, périodes et hypothèses toujours écrites ; aucune ligne de gain sans sa baseline. Directive de style adoptée (ADR-0012) : direct, factuel, analytique, didactique ; l'essentiel d'abord ; phrases courtes ; jamais d'effet de balancement ni de double négation ; orienté décision.
 
 ## Exemples issus de la KB
 

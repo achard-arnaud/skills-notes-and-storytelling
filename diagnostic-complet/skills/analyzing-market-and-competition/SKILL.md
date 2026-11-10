@@ -54,7 +54,7 @@ Fournir au rédacteur le **paquet de rendu** (`../side-stories-business/referenc
 
 ## Style indicatif
 
-Macro factuelle : chiffres datés avec année et périmètre, formulations comparatives symétriques, aucune hiérarchie d'acteurs implicite. Voix de François-Pro : sobre, dense, une idée par phrase.
+Macro factuelle : chiffres datés avec année et périmètre, formulations comparatives symétriques, aucune hiérarchie d'acteurs implicite. Directive de style adoptée (ADR-0012) : direct, factuel, analytique, didactique ; l'essentiel d'abord ; phrases courtes ; jamais d'effet de balancement ni de double négation ; orienté décision.
 
 ## Exemples issus de la KB
 

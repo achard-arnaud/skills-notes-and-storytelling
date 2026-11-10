@@ -54,7 +54,7 @@ Fournir au rédacteur le **paquet de rendu** (`../side-stories-business/referenc
 
 ## Style indicatif
 
-Neutre sur la technologie, exigeant sur la décision : une capacité ne s'écrit jamais sans le cas, la donnée requise et la supervision. Voix de François-Pro : sobre, dense, une idée par phrase.
+Neutre sur la technologie, exigeant sur la décision : une capacité ne s'écrit jamais sans le cas, la donnée requise et la supervision. Directive de style adoptée (ADR-0012) : direct, factuel, analytique, didactique ; l'essentiel d'abord ; phrases courtes ; jamais d'effet de balancement ni de double négation ; orienté décision.
 
 ## Exemples issus de la KB
 

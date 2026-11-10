@@ -1,0 +1,36 @@
+{
+  "receipt": "acquisition-2026-11-10-lot-2",
+  "date": "2026-11-10",
+  "base_kb_commit": "445f8043",
+  "delivered_kb_commit": "00d314d6",
+  "profile_id": "greenyellow",
+  "ci": "intentionally_not_run",
+  "ingested": {
+    "sources_added": 4,
+    "atoms_added": 72,
+    "sources_total": 681,
+    "atoms_total": 23076,
+    "unexplained_non_whitespace_characters": 0,
+    "groups": {
+      "supplied_context": 1,
+      "public_research": 3
+    }
+  },
+  "source_ids": [
+    "SRC-1fc4383e6759f8168bd807988137dbf57270dc51d65906e01e9337d8b9856d9e",
+    "SRC-26cfa079e656dc501a4af3ab52b9d38efd6a7f17ded3d8eaea231b71b30f41b9",
+    "SRC-7e357428d650e59203a3fb7277238fa5ab0cac3c924fed174b8c5acb22f24e2b",
+    "SRC-d34369c48c8cc51a3138bfdec1a6186d41c5d3614504da3cc097d3e0c15af697"
+  ],
+  "publication": {
+    "mode": "fast-forward, sans force, [skip ci]",
+    "files_written": 84,
+    "frozen_formation_graph_unchanged": true
+  },
+  "human_adjudicated": 0,
+  "limits": [
+    "Tous les atomes sont supplied_unverified.",
+    "Identifiants et comptes seulement, aucun contenu du corpus.",
+    "Pages refusées (403) : extraits de recherche seulement."
+  ]
+}

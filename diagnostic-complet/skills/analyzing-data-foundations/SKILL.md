@@ -52,7 +52,7 @@ Pour un lexique, ne retenir que les notions qui ont une source citable ; pour le
 
 ## Style indicatif
 
-Précis et défini : chaque terme technique est défini à sa première occurrence, les unités et les périodes sont toujours écrites. Voix de François-Pro : sobre, dense, une idée par phrase.
+Précis et défini : chaque terme technique est défini à sa première occurrence, les unités et les périodes sont toujours écrites. Directive de style adoptée (ADR-0012) : direct, factuel, analytique, didactique ; l'essentiel d'abord ; phrases courtes ; jamais d'effet de balancement ni de double négation ; orienté décision.
 
 ## Exemples issus de la KB
 

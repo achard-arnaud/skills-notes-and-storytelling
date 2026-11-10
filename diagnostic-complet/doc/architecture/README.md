@@ -27,6 +27,7 @@ Ce dossier consigne les décisions d'architecture et les spécifications interne
 | [ADR-0010](ADR-0010-detection-directive.md) | Détection des directives | accepté, migration à planifier | D35 | (nouveau) |
 
 | [ADR-0011](ADR-0011-acquisition-2026-11-10-et-migration-profil.md) | Acquisition du 10 novembre et migration du profil de la KB privée | accepté | D37, D38 | (nouveau) |
+| [ADR-0012](ADR-0012-directive-de-style-et-double-cerveau.md) | Directive de style et définition du double cerveau | accepté | D39, D40 | (nouveau) |
 
 D34 (périmètre léger de `AGENTS.md`) relève du fichier `AGENTS.md`, pas d'un ADR.
 

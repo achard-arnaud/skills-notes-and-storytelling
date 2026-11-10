@@ -484,3 +484,52 @@ class SyntheticTwinTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class StyleDirectiveTests(unittest.TestCase):
+    def test_workflow_carries_the_directive(self):
+        style = WORKFLOW["style_indicative"]
+        for key in ("voice", "structure", "syntax", "stance", "forbidden_moves", "check"):
+            self.assertIn(key, style)
+        for move in ("effet de balancement", "double négation", "grandiloquence", "introduction convenue"):
+            self.assertIn(move, style["forbidden_moves"])
+
+    def test_skills_mention_the_directive(self):
+        for skill in list((ROOT / "skills").glob("analyzing-*/SKILL.md")) + [
+            ROOT / "skills/side-stories-business/SKILL.md", ROOT / "skills/designing-main-story/SKILL.md"]:
+            self.assertIn("ADR-0012", skill.read_text(encoding="utf-8"), skill)
+
+    def test_mechanical_patterns_are_reported(self):
+        side = {"problematique": "Ce n'est pas un outil, c'est une méthode.", "bridge": {"in": "Ce n'est pas sans risque.", "out": "Retour au tronc."}}
+        gaps = " | ".join(sidestories.style_gaps(side))
+        self.assertIn("effet de balancement", gaps)
+        self.assertIn("double négation", gaps)
+
+    def test_long_sentence_is_reported(self):
+        side = {"problematique": " ".join(["mot"] * 40) + "."}
+        self.assertTrue(any("phrase" in g.lower() for g in sidestories.style_gaps(side)))
+
+    def test_clean_prose_has_no_gap(self):
+        side = {"problematique": "Quelle part de la fiabilité vient du modèle ?", "bridge": {"in": "Le tronc présente l'assistant.", "out": "On revient à la supervision."}}
+        self.assertEqual(sidestories.style_gaps(side), [])
+
+    def test_style_never_blocks_a_validated_story(self):
+        side = {"problematique": "Ce n'est pas un outil, c'est une méthode."}
+        blocking, pending = sidestories.side_story_findings({**side, "kind": "illustration", "state": "validated"})
+        self.assertFalse(any("balancement" in b for b in blocking))
+
+
+class AcquisitionBatchTwoTests(unittest.TestCase):
+    def test_batch_two_is_logged_with_receipt(self):
+        batches = [a for a in REGISTRY["acquisitions"] if a.get("batch") == 2]
+        self.assertEqual(len(batches), 1)
+        self.assertEqual(batches[0]["kb_repository_commit"], "00d314d6")
+        receipt = json.loads((ROOT / "runs/acq-2026-11-10/receipt-batch-2.json").read_text(encoding="utf-8"))
+        self.assertEqual(receipt["delivered_kb_commit"], "00d314d6")
+        self.assertEqual(receipt["human_adjudicated"], 0)
+
+    def test_new_examples_stay_unverified(self):
+        by_id = {e["id"]: e for e in REGISTRY["examples"]}
+        for ident in ("EX-FOC-02", "EX-CMP-02", "EX-MKT-02"):
+            self.assertEqual(by_id[ident]["status"], "supplied_unverified")
+            self.assertTrue(by_id[ident]["atoms"])

@@ -53,7 +53,7 @@ Fournir au rédacteur le **paquet de rendu** (`../side-stories-business/referenc
 
 ## Style indicatif
 
-Juridiquement prudent : qui, quoi, jusqu'où ; chaque responsabilité nomme son titulaire, jamais « l'organisation ». Voix de François-Pro : sobre, dense, une idée par phrase.
+Juridiquement prudent : qui, quoi, jusqu'où ; chaque responsabilité nomme son titulaire, jamais « l'organisation ». Directive de style adoptée (ADR-0012) : direct, factuel, analytique, didactique ; l'essentiel d'abord ; phrases courtes ; jamais d'effet de balancement ni de double négation ; orienté décision.
 
 ## Exemples issus de la KB
 

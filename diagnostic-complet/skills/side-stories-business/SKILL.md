@@ -40,7 +40,7 @@ Anciens types : `detour`, `also`, `portrait`, `object_focus`, `callback` devienn
 
 ## Style indicatif
 
-Sobre, dense, une idée par phrase, chiffres datés et sourcés, conditionnel pour toute hypothèse. Le détail par type est dans les fichiers de référence ; il oriente la rédaction et ne se vérifie pas mécaniquement.
+Directive de style adoptée (ADR-0012) : direct, factuel, analytique, didactique ; l'essentiel d'abord ; phrases courtes ; jamais d'effet de balancement ni de double négation ; orienté décision. Chiffres datés et sourcés, conditionnel pour toute hypothèse. Source : `style_indicative` du workflow ; `runtime.py validate` signale les écarts mécaniques en lacune. Le détail par type est dans les fichiers de référence ; il oriente la rédaction et ne se vérifie pas mécaniquement.
 
 ## Exemples issus de la KB
 

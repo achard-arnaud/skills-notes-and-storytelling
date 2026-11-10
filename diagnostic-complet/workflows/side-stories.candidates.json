@@ -312,7 +312,7 @@
         "EX-ILL-03"
       ],
       "readiness": "partial",
-      "gaps": "Document fourni le 2026-11-10 et vérifié en partie contre les pages de l'éditeur. Page de l'industriel, presse et vidéo non lues. Chiffres d'éditeur à ne pas attribuer à l'industriel."
+      "gaps": "Document fourni, vérifié en partie ; relation client avec l'industriel et programme de gestion des connaissances confirmés par des extraits de recherche ; déploiement et gains chez l'industriel non vérifiés ; chiffres d'éditeur à ne pas attribuer à l'industriel."
     },
     {
       "id": "CAND-12",
@@ -419,8 +419,8 @@
         "EX-CMP-01",
         "EX-CMP-02"
       ],
-      "readiness": "to_confirm",
-      "gaps": "La demande s'arrête à « avec les uses cases de » : fournir la liste des acteurs. Matière disponible sur cinq concurrents dans les documents fournis, sans disponibilité ni montant sourcés."
+      "readiness": "partial",
+      "gaps": "Acteurs : Voltalia, EDF (Dalkia et EDF ENR), Statkraft avec Solarcentury, BayWa r.e., Engie (document fourni, complété par des recherches publiques). Critère commun à choisir par François ; proposition : les quatre modèles de création de valeur. Aucune disponibilité ni aucun montant sourcé ; plusieurs pages non lues."
     },
     {
       "id": "CAND-16",
@@ -450,7 +450,7 @@
     {
       "id": "CAND-17",
       "origin": "retour HITL-258 : exemple analytical_focus",
-      "title": "Double cerveau",
+      "title": "Le double cerveau d'un système d'assistance",
       "pillar_ids": [
         "P-AI",
         "P-GOVERNANCE"
@@ -460,18 +460,18 @@
         "type": "veille_academique",
         "when": "la notion n'a besoin que d'être définie avec sa source"
       },
-      "objective": "Instruire une notion citée par François et en tirer une thèse utile à la décision.",
-      "problematique": "À définir après réception de la définition et de la source.",
+      "objective": "Montrer que la fiabilité d'un assistant dépend de ce qui l'entoure : mémoire à long terme, connaissances (base de connaissances, gestion documentaire, wiki) et cycle de vie des skills.",
+      "problematique": "Quelle part de la fiabilité d'un assistant vient du modèle, et quelle part de sa mémoire, de ses connaissances et du cycle de vie de ses skills ?",
       "bridge": {
-        "in": "À définir avec le passage d'accueil.",
-        "out": "À définir avec le passage de retour."
+        "in": "Le tronc présente un assistant de maintenance sans dire ce qui garantit la qualité de ses réponses.",
+        "out": "On revient à la supervision : un assistant fiable est d'abord une mémoire et des connaissances gouvernées."
       },
-      "choice_criterion": "Focus si la notion porte une thèse contestable ; lexique si elle n'est qu'à définir.",
+      "choice_criterion": "Analyse approfondie car la notion porte une thèse ; lexique si l'on veut seulement la définir.",
       "examples": [
         "EX-FOC-02"
       ],
-      "readiness": "to_collect",
-      "gaps": "Notion absente de la KB et non définie. Piste du 2026-11-10 : un mémoire décrit le jumeau numérique comme « cerveau virtuel » ; à confirmer par François. Recherche sans résultat pour l'expression exacte."
+      "readiness": "partial",
+      "gaps": "Définition de François (2026-11-10) enregistrée dans la base ; aucune source externe ; lecture de l'agent à valider avant rédaction."
     },
     {
       "id": "CAND-18",
@@ -602,6 +602,31 @@
       ],
       "readiness": "partial",
       "gaps": "Établi : entreprise française, levée de 2,7 millions d'euros, produits et déploiements publics. Non établi : lien avec l'entreprise étudiée, ombrières, bornes de recharge, économies de 30 à 50 %."
+    },
+    {
+      "id": "CAND-23",
+      "origin": "retour du 2026-11-10 : moteurs de marché",
+      "title": "Moteurs réglementaires du marché : ce que la simplification du reporting change",
+      "pillar_ids": [
+        "P-MARKET"
+      ],
+      "type": "veille_academique",
+      "alternative": {
+        "type": "comparator",
+        "when": "les textes sont comparés sur un critère unique d'effet sur les clients"
+      },
+      "objective": "Installer en cinq à sept entrées les moteurs réglementaires du secteur, chacun avec son contre-point.",
+      "problematique": "Quels moteurs réglementaires pèsent encore sur les clients de la cible, et lesquels ont perdu de leur portée ?",
+      "bridge": {
+        "in": "Le tronc invoque la réglementation comme moteur du besoin.",
+        "out": "On revient à la tension de marché : le moteur réglementaire est plus faible pour les clients de taille moyenne."
+      },
+      "choice_criterion": "Lexique car il s'agit de définir et de situer ; comparatif pour arbitrer entre textes.",
+      "examples": [
+        "EX-MKT-02"
+      ],
+      "readiness": "partial",
+      "gaps": "Extraits de résultats de recherche ; textes officiels non lus ; dates solaires de la refonte sur la performance des bâtiments divergentes selon les sources."
     }
   ],
   "readability": "Dans toute sortie destinée à un lecteur, désigner un candidat par son titre, jamais par son identifiant (CAND-xx), et nommer les types par leur libellé lisible."

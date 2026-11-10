@@ -54,7 +54,7 @@ Fournir au rédacteur le **paquet de rendu** (`../side-stories-business/referenc
 
 ## Style indicatif
 
-Descriptif et séquentiel : chaînes causales nommées étape par étape, vocabulaire d'exploitation stable, aucune métrique sans définition. Voix de François-Pro : sobre, dense, une idée par phrase.
+Descriptif et séquentiel : chaînes causales nommées étape par étape, vocabulaire d'exploitation stable, aucune métrique sans définition. Directive de style adoptée (ADR-0012) : direct, factuel, analytique, didactique ; l'essentiel d'abord ; phrases courtes ; jamais d'effet de balancement ni de double négation ; orienté décision.
 
 ## Exemples issus de la KB
 

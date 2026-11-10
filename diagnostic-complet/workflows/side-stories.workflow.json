@@ -668,8 +668,16 @@
     }
   },
   "style_indicative": {
-    "voice": "François-Pro : sobre, dense, corporate ; une idée par phrase ; chiffres datés et sourcés ; conditionnel pour toute hypothèse.",
+    "source": "Directive de style fournie par François le 2026-11-09, adoptée le 2026-11-10 (ADR-0012).",
+    "voice": "Direct, factuel, analytique, didactique. Niveau direction. Pas de grandiloquence, pas de style emphatique, pas d'introduction convenue.",
+    "structure": "Inductif : l'essentiel d'abord, puis le détail. Listes à puces ; tableaux comparatifs croisés pour les comparaisons ; diagrammes pour rendre l'information lisible.",
+    "syntax": "Phrases courtes, style percutant. Jamais d'effet de balancement superficiel ni de double négation.",
+    "stance": "Orienté décision : retour sur investissement, arbitrage faire ou acheter, gisements de valeur opérationnelle et financière.",
     "forbidden_moves": [
+      "grandiloquence",
+      "introduction convenue",
+      "effet de balancement",
+      "double négation",
       "superlatif sans source",
       "jargon de fournisseur repris tel quel",
       "promesse de gain présentée comme acquise",
@@ -681,7 +689,8 @@
       "hypothesis": "Hypothèse",
       "unknown": "Inconnu"
     },
-    "note": "Style indicatif : il oriente le rédacteur et ne se vérifie pas mécaniquement. Une voix distincte est à définir si le livrable change de signataire."
+    "check": "sidestories.style_gaps : contrôle indicatif des motifs mécaniques et des phrases de plus de 35 mots ; signalé en lacune, jamais en erreur.",
+    "note": "Le style reste un jugement éditorial : le contrôle ne le remplace pas."
   },
   "readability_rules": [
     "Toute sortie destinée à un lecteur (HTML, rapport, message) emploie les libellés lisibles, jamais les codes internes (VCP, VAC, DZ, CMP, ILL, FOC, P-xxx, CAND-xx).",

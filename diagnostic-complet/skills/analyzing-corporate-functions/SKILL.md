@@ -52,7 +52,7 @@ Fournir au rédacteur le **paquet de rendu** (`../side-stories-business/referenc
 
 ## Style indicatif
 
-Sobre et opérationnel : un processus, un propriétaire, un résultat mesurable, une limite. Pas de vocabulaire de démonstration technologique. Voix de François-Pro : sobre, dense, une idée par phrase.
+Sobre et opérationnel : un processus, un propriétaire, un résultat mesurable, une limite. Pas de vocabulaire de démonstration technologique. Directive de style adoptée (ADR-0012) : direct, factuel, analytique, didactique ; l'essentiel d'abord ; phrases courtes ; jamais d'effet de balancement ni de double négation ; orienté décision.
 
 ## Exemples issus de la KB
 

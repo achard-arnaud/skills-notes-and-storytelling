@@ -37,7 +37,7 @@ Tension d'entreprise, puis mécanismes et choix, puis conditions de valeur, puis
 
 ## Style indicatif
 
-Titres de section sous forme de question ou d'affirmation à démontrer ; une idée par phrase ; marqueurs de statut visibles (Publié, Échange, Inférence, Hypothèse). Voix de François-Pro.
+Titres de section sous forme de question ou d'affirmation à démontrer ; une idée par phrase ; marqueurs de statut visibles (Publié, Échange, Inférence, Hypothèse). Directive de style adoptée (ADR-0012) : direct, factuel, analytique, didactique ; l'essentiel d'abord ; phrases courtes ; jamais d'effet de balancement ni de double négation ; orienté décision.
 
 ## Exemples issus de la KB
 
