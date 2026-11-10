@@ -35,6 +35,7 @@ Le mandat R2 supersède l'interdiction initiale de création de skills : douze o
 
 - **Build / run** : code et référentiels run-agnostiques. Le vocabulaire de run vit dans `profiles/` ; une KB est liée à un seul profil. Règles complètes : `doc/architecture/ADR-0008-frontiere-run-build.md`, qui prévaut sur les autres formulations.
 - **Terminologie** : statuts, tiers et correspondances viennent de `ontology/terminology.json` uniquement (`doc/architecture/ADR-0009-terminologie-kind.md`). Une source vendeur (T2) ou corporate (T1) ne soutient jamais un `verified_fact`.
+- **Documentation d'architecture** : toute décision et toute spécification interne vivent dans `doc/architecture/ADR-NNNN-sujet.md` (index : `doc/architecture/README.md`). `docs/` ne garde que les registres et rapports de run.
 - **Refactor** : chaque constat de couplage est un ticket `RF-nn` dans `docs/REFACTOR-BACKLOG.md`, avec sa preuve de clôture.
 - **Process** : pas de CI sur `dev`. Gate local avant tout push :
   ```bash
