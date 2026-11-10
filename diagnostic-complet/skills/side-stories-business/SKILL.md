@@ -24,7 +24,7 @@ Anciens types : `detour`, `also`, `portrait`, `object_focus`, `callback` devienn
 
 ## Procédure
 
-1. **Recevoir un candidat** d'un skill de pilier : type probable, problématique, passage d'accueil, claims. Sans problématique ni passage, demander au skill de pilier de les produire ; ne pas les inventer, car une side story sans question dérive vers l'anecdote.
+1. **Recevoir un candidat** d'un skill de pilier : type probable, problématique, passage d'accueil, claims. Sans problématique ni passage, demander au skill de pilier de les produire ; ne pas les inventer, car une side story sans question dérive vers l'anecdote. Si le texte du passage n'est pas fourni, en demander deux phrases clés avant d'écrire les liens avec le passage : un « à confirmer » dans une entrée ne rend aucun service au lecteur.
 2. **Choisir le type** avec `choice_tree`. Écrire une ligne qui dit pourquoi les deux types voisins ne conviennent pas : c'est le critère de choix qui manquait aux premiers inventaires.
 3. **Construire le paquet de rendu** : voir `references/renderer-packet.md`. Le rédacteur ne reçoit que ce paquet.
 4. **Rédiger** au format du type (fichier de référence du type, squelette JSON compris). Un type, une ligne éditoriale : un encart mixte devient deux side stories.

@@ -366,6 +366,14 @@ class SkillFamilyTests(unittest.TestCase):
                 for forbidden in ("/home/user/private", "greenyellow-corpus", "occurrence_ids", "OCC-"):
                     self.assertNotIn(forbidden, blob, f"{path}: {forbidden}")
 
+    def test_second_pass_rules_from_the_eval_run_are_kept(self):
+        vac = (SKILLS / "side-stories-business/references/types/veille_academique.md").read_text(encoding="utf-8")
+        self.assertIn("Une entrée sans source citable n'est pas écrite", vac)
+        _, main = frontmatter(SKILLS / "side-stories-business/SKILL.md")
+        self.assertIn("en demander deux phrases clés", main)
+        _, data = frontmatter(SKILLS / "analyzing-data-foundations/SKILL.md")
+        self.assertIn("demander les références", data)
+
     def test_single_source_of_truth_is_cited_by_the_orchestrating_skill(self):
         _, body = frontmatter(SKILLS / "side-stories-business/SKILL.md")
         self.assertIn("workflows/side-stories.workflow.json", body)

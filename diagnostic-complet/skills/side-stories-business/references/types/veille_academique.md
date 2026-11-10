@@ -52,6 +52,7 @@ Niveaux de preuve : `peer_reviewed`, `preprint`, `grey_literature`, `opinion`, `
 - Dire le contexte de l'étude (taille, population, durée, conditions) avant toute extrapolation. `in_practice` est le **seul** lieu du transfert au cas.
 - Le contre-point est obligatoire : une entrée sans anti-thèse est incomplète.
 - Les préprints sont signalés comme tels ; une source non citable n'entre pas.
+- **Une entrée sans source citable n'est pas écrite** : la retirer ou demander une référence. Ne jamais écrire « aucune source retenue » dans une entrée ni la compléter par une source plausible. S'il reste moins de 5 entrées sourcées, le dire et demander des références plutôt que remplir.
 - Une définition issue d'une synthèse fournie reste `supplied` tant qu'elle n'a pas été retrouvée dans l'ouvrage avec sa page.
 
 ## Style indicatif

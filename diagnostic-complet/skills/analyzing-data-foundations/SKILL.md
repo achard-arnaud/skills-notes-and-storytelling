@@ -42,7 +42,7 @@ Lire `../side-stories-business/SKILL.md`, puis le fichier du type retenu. Types 
 - de la mesure au référentiel
 - de la donnée au workflow
 
-Fournir au rédacteur le **paquet de rendu** (`../side-stories-business/references/renderer-packet.md`) : type, passage d'accueil, problématique, `bridge.in`, `bridge.out`, claims et statuts, interdits. Le rédacteur le vérifie en mode auto-cohérence. Une side story sans problématique ni ponts n'est pas rédigée.
+Pour un lexique, ne retenir que les notions qui ont une source citable ; pour les autres, demander les références au lieu d'écrire « aucune source ». Fournir au rédacteur le **paquet de rendu** (`../side-stories-business/references/renderer-packet.md`) : type, passage d'accueil, problématique, `bridge.in`, `bridge.out`, claims et statuts, interdits. Le rédacteur le vérifie en mode auto-cohérence. Une side story sans problématique ni ponts n'est pas rédigée.
 
 ## Contrat
 
