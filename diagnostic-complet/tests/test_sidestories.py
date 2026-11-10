@@ -572,7 +572,7 @@ class BeneficeAvantagesCaracteristiquesTests(unittest.TestCase):
         self.assertEqual(out, [])
 
     def test_render_shows_readable_labels(self):
-        study = base_study({"id": "S1", "kind": "illustration", "state": "candidate", "title": "Cas", "anchor": "SEC1",
+        study = base_study({"id": "S-BAC", "kind": "illustration", "state": "candidate", "title": "Cas", "anchor": "SEC1",
                             "problematique": "Q ?", "bridge": {"in": "a", "out": "b"}, "reason_outside": "r", "payoff": "p",
                             "payload": {"form": "use_case", "benefice": "Gain.", "avantages": "Avantage.", "caracteristiques": "Trait."}})
         html = render.render_study(study)
