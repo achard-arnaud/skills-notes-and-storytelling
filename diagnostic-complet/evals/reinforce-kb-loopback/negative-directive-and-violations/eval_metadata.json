@@ -4,7 +4,7 @@
   "assertions": [
     "Le reçu a decision = review_required et triggers_fired contient directive_in_material.",
     "Le reçu compte exactement trois violations et un candidat d'alias.",
-    "Le reçu compte exactement une action différée (deferred_actions = 1).",
+    "Aucune proposition n'est différée (deferred_actions = 0) et le total de actions_by_kind égale le nombre d'actions.",
     "Aucune mutation, aucune promotion, candidate_approval = false."
   ],
   "expect": "review_required",

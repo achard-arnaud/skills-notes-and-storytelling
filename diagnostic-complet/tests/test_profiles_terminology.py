@@ -83,6 +83,15 @@ class ProfileSeparationTests(unittest.TestCase):
                 kb.load_profile(bad)
 
 
+class AgentsMandatesTests(unittest.TestCase):
+    """RF-21: the sub-project AGENTS.md must keep the mandates other sessions depend on (D34)."""
+
+    def test_agents_keeps_its_mandates(self):
+        text = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+        for needle in ("Mandat courant R2", "Mandat éditorial", "Périmètre léger", "Dix skills éditoriaux", "Un agent ne marque jamais une side story `validated`"):
+            self.assertIn(needle, text)
+
+
 class TerminologyTests(unittest.TestCase):
     def test_runtime_statuses_come_from_terminology(self):
         self.assertEqual(runtime.STATUSES, set(TERM["claim_statuses"]))

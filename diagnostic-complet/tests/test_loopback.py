@@ -127,15 +127,15 @@ class LoopbackTests(unittest.TestCase):
         self.assertEqual(report["findings"]["unknown_node_types"], ["unregistered"])
         self.assertEqual(report["findings"]["unknown_edge_types"], ["magic_cause"])
 
-    def test_at_most_three_candidates_one_corrective(self):
+    def test_no_cap_on_candidates_and_repair_loop_still_bounded(self):
         graph = proof_graph()
         graph["nodes"] += [{"id": "extra", "kind": "new_type", "label": "same"},
                            {"id": "extra2", "kind": "new_type", "label": "same"}]
         graph["edges"].append({"from": "missing", "to": "extra", "kind": "unknown"})
         report = analyze_graph(graph, ["extra"])
-        self.assertEqual(len(report["review_candidates"]), 3)
-        self.assertEqual(report["deferred_candidates"], 1)
-        self.assertLessEqual(sum(c["corrective_candidate"] for c in report["review_candidates"]), 1)
+        self.assertEqual(report["deferred_candidates"], 0)
+        self.assertGreaterEqual(len(report["review_candidates"]), 4)
+        self.assertTrue(all(c["status"] == "candidate_not_applied" for c in report["review_candidates"]))
         self.assertEqual(report["budgets"]["repairs_per_blocker_max"], 2)
 
     def test_details_are_bounded_but_counts_complete(self):

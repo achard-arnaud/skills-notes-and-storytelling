@@ -1,5 +1,7 @@
 # Renforcement de la KB par loopback — proposition d'adaptation
 
+> Note du 9 novembre 2026 : le plafond de trois actions décrit ci-dessous est retiré (D32). Document conservé comme historique de spécification.
+
 Statut : **SPEC, aucun GO_DEV**. Document public : méthode et mesures sur fixture synthétique uniquement. Rien de ce qui suit ne promeut un fait, ne fusionne un atome, ni ne modifie un contrat.
 
 ## 1. Constat : la skill n'existe pas encore dans cette forme

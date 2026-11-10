@@ -4,7 +4,7 @@
   "assertions": [
     "Le reçu compte quatre violations et une arête hors ontologie.",
     "Le reçu contient une action de kind type_review.",
-    "Au plus une action de kind type_review dans la liste des actions retenues.",
+    "Toutes les actions de kind type_review sont listées, chacune avec status candidate_not_applied.",
     "Le résumé ne déclare aucune modification de l'ontologie ou du graphe."
   ],
   "expect": "review_required",

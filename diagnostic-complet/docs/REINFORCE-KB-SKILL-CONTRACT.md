@@ -1,6 +1,6 @@
 # Contrat de la skill `reinforce-kb-loopback` (ontologie)
 
-Statut : **contrat seul**. Aucun fichier SKILL.md n'est versionné ici : le mandat R2 réserve les skills à l'environnement personnel. Ce contrat décrit ce qu'une skill devra faire, et ce qu'elle ne fera jamais.
+Statut : **contrat et skill versionnés** (décision D31, exception à la réserve R2). La skill est dans `diagnostic-complet/operational-skills/reinforce-kb-loopback/`, copiée à l'identique dans `.claude/skills/` et `.agents/skills/` (test `test_reinforce_skill.py`). Dépendances, cas d'usage et chemins : `dependencies.json`. Ce contrat décrit ce que la skill fait, et ce qu'elle ne fera jamais.
 
 ## Déclencheurs
 
@@ -23,7 +23,7 @@ Sans déclencheur : `no_change`.
 2. **Mesurer** : `python3 reinforce.py graph.json --recent-id … [--previous …] --output reçu.json`. Un seul reçu : loopback, ontologie, actions limitées à trois. Le journal de cadence s'alimente avec `ontology.py log-cadence` (voir `docs/CADENCE-CALIBRATION-PROTOCOL.md`).
 3. **Qualifier** chaque constat : structurel (classe, violation de domaine/codomaine, preuve manquante), sémantique (à relire), hypothèse. Densité : jamais présentée comme qualité.
 4. **Périmètre HIL** : piliers et HIL touchés par le matériau récent. Lister les questions à poser ; ne pas y répondre.
-5. **Proposer** au plus trois actions, dont au plus une modification de type :
+5. **Proposer** toutes les propositions utiles, sans plafond : un cycle peut toucher plusieurs endroits du graphe. Chacune reste un candidat non appliqué, avec son type :
    - corriger une classification ou une règle, avec fixture ;
    - signaler une violation, avec le lien concerné ;
    - proposer un candidat d'alias, avec sources et contre-exemple d'homonymie ;
@@ -34,7 +34,7 @@ Sans déclencheur : `no_change`.
 ## Sorties
 
 - Rapport JSON (loopback + section ontology).
-- Reçu : entrées avec empreintes, constats, actions proposées (≤ 3), `automatic_mutations: false`, `automatic_promotion: false`.
+- Reçu : entrées avec empreintes, constats, actions proposées (sans plafond, comptées par type dans `actions_by_kind`), `automatic_mutations: false`, `automatic_promotion: false`.
 
 ## Frontière avec les skills voisines
 

@@ -15,7 +15,7 @@ python3 diagnostic-complet/reinforce.py graph.json --recent-id <ID> [--previous 
 python3 diagnostic-complet/ontology.py log-cadence reçu.json --log diagnostic-complet/runs/onto/cadence.jsonl
 ```
 
-Lire, dans cet ordre : `decision`, `findings`, `triggers_fired`, puis `actions` (au plus trois).
+Lire, dans cet ordre : `decision`, `findings`, `triggers_fired`, puis `actions` (toutes les propositions, regroupées par type).
 
 ## 2. Qualifier
 

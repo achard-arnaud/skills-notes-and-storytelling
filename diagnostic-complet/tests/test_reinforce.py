@@ -22,9 +22,12 @@ class ReinforceReceiptTests(unittest.TestCase):
         self.assertIs(receipt["automatic_promotion"], False)
         self.assertIs(receipt["candidate_approval"], False)
 
-    def test_actions_are_capped_at_three(self):
+    def test_every_proposal_is_listed_and_none_is_applied(self):
         receipt = reinforce.reinforce(load("graph-negative-structure.json"), recent_ids=["D2"])
-        self.assertLessEqual(len(receipt["actions"]), reinforce.ACTION_LIMIT)
+        self.assertEqual(receipt["deferred_actions"], 0)
+        self.assertEqual(sum(receipt["actions_by_kind"].values()), len(receipt["actions"]))
+        self.assertTrue(all(a["status"] == "candidate_not_applied" for a in receipt["actions"]))
+        self.assertIs(receipt["automatic_mutations"], False)
 
     def test_clean_graph_without_recent_material_is_no_change(self):
         receipt = reinforce.reinforce(load("graph-relations-all.json"))
