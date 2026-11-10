@@ -11,6 +11,8 @@ Décisions D25 et D26. Tickets prioritaires pris en compte : #141 (séparer la m
 | Qui change quoi | Un commit avec tests | Une ingestion ou une recherche, avec reçu |
 | Visible dans le dépôt public | Oui | Seulement des identifiants opaques, des comptes et des empreintes |
 
+Le vocabulaire de run (entités, piliers, namespace de projection) vit dans `profiles/` et une base de connaissances est liée à un seul profil (D27, D28). Le registre `workflows/kb-examples.json` nomme encore le namespace de la base privée : c'est un reste de couplage à déplacer vers un profil.
+
 ## Règles (ticket #141)
 
 1. Une exécution ne corrige jamais silencieusement un contrat, un skill, un workflow ou un gabarit. Un défaut constaté pendant une exécution devient une **proposition de construction** liée (commit séparé ou ticket) ; l'exécution garde la version qu'elle a utilisée.

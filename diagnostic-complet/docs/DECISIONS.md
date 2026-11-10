@@ -23,3 +23,5 @@
 - **D28** : une KB = un profil (`profile_id` dans l'index). Mélange refusé ; migration explicite.
 - **D29** : une seule terminologie, `ontology/terminology.json`. La facette `evidence_basis` est retirée (ontologie 0.5.0) et remplacée par les tiers de source.
 - **D30** : un tier vendeur (T2) ou corporate (T1) ne soutient jamais un `verified_fact`, même qualifié. Seuls T3 et T4 le peuvent, après revue humaine référencée.
+- **D25 — 2026-11-09** : pour les livrables éditoriaux, l'exécution (corpus privé, notes de recherche, sorties d'évaluation) et la construction (contrats, code, tests, skills) sont découplées. Un défaut vu en exécution devient une proposition de construction liée ; aucun test de construction ne lit le corpus privé. Détail : `docs/RUN-BUILD-BOUNDARY.md`.
+- **D26 — 2026-11-09** : les exemples issus de la base de connaissances se stockent en deux parties : identifiants d'atomes côté exécution, et un jumeau synthétique par type de side story côté construction (`fixtures/examples/`), vérifié par les tests. Aucun extrait du corpus ne va dans le dépôt public.
