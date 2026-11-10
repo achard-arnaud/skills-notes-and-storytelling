@@ -45,11 +45,15 @@
         "P-AI",
         "P-DATA"
       ],
-      "topic": "Pitch et retour d'expérience « Ask for the moon » pour Framatome",
-      "role": "Idée à instruire : RAG agentique multimodal + KB à ontologie pour l'assistance à la maintenance sur site à partir de la documentation technique",
-      "atoms": [],
-      "status": "to_collect",
-      "note": "Idée de François (2026-11-09). Recherche du 2026-11-09 sans résultat, consignée dans la KB : collecter le pitch et le retour d'expérience.",
+      "topic": "Ask for the Moon : positionnement, modèle économique et cas d'usage chez un industriel",
+      "role": "Pitch d'un éditeur d'assistants fiables pour la connaissance industrielle, avec ses limites",
+      "atoms": [
+        "ATOM-4979d374b99e26d4944d8f764d20752f0f39a45ffd729af2455bfe3e98e729f0",
+        "ATOM-ddccfbc2fe0f6b3726b2afc3f993369f7a78a37a58b8c3e708692e131ea80177",
+        "ATOM-126720c9062c247d1ed4022df93a27b98409e5578d3ec10f0b659fdca81aee04"
+      ],
+      "status": "supplied_unverified",
+      "note": "Document fourni le 2026-11-10, vérifié en partie contre les pages de l'éditeur (chiffres d'éditeur). Page de l'industriel et presse non lues.",
       "fixture": "fixtures/examples/veille_corporate_perso.study.json"
     },
     {
@@ -164,6 +168,24 @@
       "fixture": "fixtures/examples/comparator.study.json"
     },
     {
+      "id": "EX-CMP-03",
+      "type": "comparator",
+      "pillars": [
+        "P-AI",
+        "P-MARKET"
+      ],
+      "topic": "Jumeau numérique : cas orientés produit et cas orientés client",
+      "role": "Comparatif de cas sur un critère commun : qui porte le bénéfice",
+      "atoms": [
+        "ATOM-070258d035d1caa09a59185861142a69ad39a4a78a95efa61b3184669df459ad",
+        "ATOM-dafe810bea04530445b35ac2cab40d5a3919c4344ffadf611e6250f064231f3c",
+        "ATOM-35dbba10980df558b78b3454602d379d3f04647b59816490b5dde967e4661bec"
+      ],
+      "status": "supplied_unverified",
+      "note": "Chiffres d'éditeurs ou d'auteurs ; certificats d'économies d'énergie : aucune source ; plusieurs cas sur extraits de recherche seulement.",
+      "fixture": "fixtures/examples/comparator.study.json"
+    },
+    {
       "id": "EX-ILL-01",
       "type": "illustration",
       "pillars": [
@@ -198,6 +220,23 @@
       "fixture": "fixtures/examples/illustration.study.json"
     },
     {
+      "id": "EX-ILL-03",
+      "type": "illustration",
+      "pillars": [
+        "P-INDUSTRY",
+        "P-DATA"
+      ],
+      "topic": "Maintenance sur site et documentation des installations avec un assistant sourcé",
+      "role": "Cas d'usage : question d'un technicien, réponse sourcée ou abstention, mise en relation, capitalisation",
+      "atoms": [
+        "ATOM-d89c5505ec942de03c17f863cd23bb939b48f9b02c41464a97ff582fa585feb0",
+        "ATOM-1c40f9d6543aef3bab8f901ee96c834cb1ac7d00eb0238351c15491c1fafaa42"
+      ],
+      "status": "supplied_unverified",
+      "note": "Scénario d'illustration, pas un incident réel ; configuration et contrôles réels non vérifiés.",
+      "fixture": "fixtures/examples/illustration.study.json"
+    },
+    {
       "id": "EX-FOC-01",
       "type": "analytical_focus",
       "pillars": [
@@ -226,7 +265,7 @@
       "role": "Focus analytique sur un mécanisme à définir",
       "atoms": [],
       "status": "to_collect",
-      "note": "Notion citée le 2026-11-09. Recherche sans résultat pour l'expression exacte, consignée dans la KB : définition et source de François nécessaires.",
+      "note": "Notion citée le 2026-11-09, introuvable telle quelle. Piste : un mémoire décrit le jumeau numérique comme « cerveau virtuel ». Définition de François nécessaire.",
       "fixture": "fixtures/examples/analytical_focus.study.json"
     },
     {

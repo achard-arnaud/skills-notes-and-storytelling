@@ -310,7 +310,8 @@
       "return_condition": "Différences et limites de transférabilité nommées ; la conclusion renvoie au critère de décision.",
       "examples": [
         "EX-CMP-01",
-        "EX-CMP-02"
+        "EX-CMP-02",
+        "EX-CMP-03"
       ]
     },
     {
@@ -360,7 +361,8 @@
       "return_condition": "Contribution au passage et borne explicites.",
       "examples": [
         "EX-ILL-01",
-        "EX-ILL-02"
+        "EX-ILL-02",
+        "EX-ILL-03"
       ]
     },
     {

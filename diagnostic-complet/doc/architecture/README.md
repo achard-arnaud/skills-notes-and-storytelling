@@ -26,6 +26,8 @@ Ce dossier consigne les décisions d'architecture et les spécifications interne
 | [ADR-0009](ADR-0009-terminologie-kind.md) | Terminologie et kinds de source | accepté | D29, D30, D36 | `docs/TERMINOLOGY.md` |
 | [ADR-0010](ADR-0010-detection-directive.md) | Détection des directives | accepté, migration à planifier | D35 | (nouveau) |
 
+| [ADR-0011](ADR-0011-acquisition-2026-11-10-et-migration-profil.md) | Acquisition du 10 novembre et migration du profil de la KB privée | accepté | D37, D38 | (nouveau) |
+
 D34 (périmètre léger de `AGENTS.md`) relève du fichier `AGENTS.md`, pas d'un ADR.
 
 ## Pour ajouter une décision

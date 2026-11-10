@@ -32,6 +32,8 @@ Décisions D25 et D26. Tickets prioritaires pris en compte : #141 (séparer la m
 
 Le vocabulaire de run (entités, piliers, namespace de projection) vit dans `profiles/` et une base de connaissances est liée à un seul profil (D27, D28). Le registre `workflows/kb-examples.json` nomme encore le namespace de la base privée : c'est un reste de couplage à déplacer vers un profil.
 
+*Note du 2026-11-10 : le registre ne nomme plus le namespace, il renvoie au profil (D38, ADR-0011).*
+
 ## Règles (ticket #141)
 
 1. Une exécution ne corrige jamais silencieusement un contrat, un skill, un workflow ou un gabarit. Un défaut constaté pendant une exécution devient une **proposition de construction** liée (commit séparé ou ticket) ; l'exécution garde la version qu'elle a utilisée.

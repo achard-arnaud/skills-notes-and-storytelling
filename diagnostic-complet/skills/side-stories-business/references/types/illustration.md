@@ -59,6 +59,7 @@ Concret et bref. Une phrase pour situer, une pour l'apport, une pour la borne. A
 ## Exemples KB
 
 - `EX-ILL-01` : IA multimodale au service des intervenants sur site (cas d'usage candidat, non confirmé comme cas de la cible). À rédiger au conditionnel.
+- `EX-ILL-03` : maintenance sur site et documentation des installations avec un assistant sourcé : le technicien pose une question, l'assistant répond avec sa source ou s'abstient, un expert valide, la réponse est capitalisée. Scénario d'illustration, au conditionnel.
 - `EX-ILL-02` : citation de référence d'un dirigeant de l'industrie. **Recherche requise** : aucune citation dans la KB ; collecter la source avant de rédiger.
 
 Identifiants et statuts : `workflows/kb-examples.json`.

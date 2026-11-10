@@ -16,7 +16,7 @@ Document public : méthode et état du code uniquement. Aucun contenu de corpus.
 
 | ID | Sujet | Statut | Décideur | Note |
 |---|---|---|---|---|
-| RF-06 | Migrer les index KB sans `profile_id` (produits avant ce changement) vers un profil déclaré | open | coordinateur | Refus explicite aujourd'hui. Le corpus privé n'est pas présent dans ce conteneur |
+| RF-06 | Migrer les index KB sans `profile_id` (produits avant ce changement) vers un profil déclaré | partiel | D37 | Index de la KB privée migré le 2026-11-10 (schéma et lexique inchangés, copie conservée, reçu `runs/acq-2026-11-10/receipt.json`). Reste à écrire l'outil de migration reproductible côté construction, avec sa fixture ; la clôture exige ce test |
 | RF-07 | Projection Graph1 : passer `--profile` ou `--namespace` explicitement à chaque lot ; ajouter `profile_id` au MANIFEST | open | coordinateur + rédacteur business | Lien avec le lot R2-14 déjà publié : ne rien rejouer sans reçu |
 | RF-08 | Entité `microsoft` dans le profil GreenYellow | closed | D33 | Conservée : la suite Microsoft (Copilot et Copilot Studio, Power Platform, Fabric, Azure) couvre les gammes IA et données de l'intégration GreenYellow. Sous-produits au lexique = version 1.1.0 + migration RF-06, à décider à part |
 | RF-09 | Faux positifs « directive » (9 sur 18 directives) | closed pour la règle (D35) ; migration des atomes existants ouverte (RF-22) | D35 | Règle resserrée à des marqueurs non ambigus (ADR-0010) ; `Analyse les données.` devient une assertion, compromis accepté |

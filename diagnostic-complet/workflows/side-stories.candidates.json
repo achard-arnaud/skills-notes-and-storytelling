@@ -49,8 +49,8 @@
       },
       "choice_criterion": "Illustration si l'on veut seulement montrer l'objet et sa place dans la chaîne ; focus si l'on défend une thèse sur l'arbitrage d'inspection.",
       "examples": [],
-      "readiness": "to_collect",
-      "gaps": "L'apport VisioSense annoncé n'est pas dans la KB ; aucun fit fournisseur n'est établi. Des pages corporate sur la thermographie existent mais ne valent pas apport."
+      "readiness": "partial",
+      "gaps": "Documents fournis le 2026-11-10 sur la vision par ordinateur embarquée et VizioSense (orthographe avec un z) ; lien avec l'entreprise étudiée et économies annoncées : aucune source trouvée. Aucun fit fournisseur n'est établi."
     },
     {
       "id": "CAND-02",
@@ -289,7 +289,7 @@
     {
       "id": "CAND-11",
       "origin": "retour HITL-258 : exemple VCP",
-      "title": "Pitch et retour d'expérience « Ask for the moon » pour Framatome",
+      "title": "Pitch d'Ask for the Moon et cas d'usage chez un industriel",
       "pillar_ids": [
         "P-AI",
         "P-INDUSTRY",
@@ -301,17 +301,18 @@
         "when": "l'architecture RAG agentique multimodal avec base à ontologie doit être instruite pour elle-même"
       },
       "objective": "Présenter une idée d'assistance à la maintenance sur site (RAG agentique multimodal, KB à ontologie, documentation technique) à partir d'un pitch et d'un retour d'expérience sourcés.",
-      "problematique": "Quelle assistance à la maintenance devient crédible quand la documentation technique est structurée par une ontologie ?",
+      "problematique": "Quelle assistance à la maintenance devient crédible quand chaque réponse cite sa source, s'abstient en cas de doute et renvoie vers un expert ?",
       "bridge": {
-        "in": "Le tronc décrit la préparation d'intervention.",
-        "out": "On revient à la supervision humaine : l'assistant prépare, le technicien décide."
+        "in": "Le tronc décrit la préparation d'une intervention de maintenance sur site et la documentation des installations.",
+        "out": "On revient à la supervision humaine : l'assistant prépare, cite sa source ou s'abstient, le technicien décide."
       },
       "choice_criterion": "Pitch si l'on présente le cas et ses preuves ; focus si l'on défend l'architecture.",
       "examples": [
-        "EX-VCP-03"
+        "EX-VCP-03",
+        "EX-ILL-03"
       ],
-      "readiness": "to_collect",
-      "gaps": "Aucune source dans la KB : collecter le pitch et le retour d'expérience avant de rédiger. L'idée est celle de François du 2026-11-09. Recherche du 2026-11-09 sans résultat, consignée dans la KB."
+      "readiness": "partial",
+      "gaps": "Document fourni le 2026-11-10 et vérifié en partie contre les pages de l'éditeur. Page de l'industriel, presse et vidéo non lues. Chiffres d'éditeur à ne pas attribuer à l'industriel."
     },
     {
       "id": "CAND-12",
@@ -419,7 +420,7 @@
         "EX-CMP-02"
       ],
       "readiness": "to_confirm",
-      "gaps": "La demande s'arrête à « avec les uses cases de » : fournir la liste des acteurs à comparer."
+      "gaps": "La demande s'arrête à « avec les uses cases de » : fournir la liste des acteurs. Matière disponible sur cinq concurrents dans les documents fournis, sans disponibilité ni montant sourcés."
     },
     {
       "id": "CAND-16",
@@ -470,7 +471,7 @@
         "EX-FOC-02"
       ],
       "readiness": "to_collect",
-      "gaps": "Notion absente de la KB et non définie dans les sources : définition et source à fournir. Recherche du 2026-11-09 sans résultat, consignée dans la KB."
+      "gaps": "Notion absente de la KB et non définie. Piste du 2026-11-10 : un mémoire décrit le jumeau numérique comme « cerveau virtuel » ; à confirmer par François. Recherche sans résultat pour l'expression exacte."
     },
     {
       "id": "CAND-18",
@@ -524,6 +525,83 @@
       ],
       "readiness": "partial",
       "gaps": "Cas candidat, non confirmé chez la cible. Le cadre « B-A-C » est à confirmer."
+    },
+    {
+      "id": "CAND-20",
+      "origin": "retour du 2026-11-10 : cas d'usage de jumeau numérique",
+      "title": "Jumeau numérique : cas orientés produit et orientés client",
+      "pillar_ids": [
+        "P-AI",
+        "P-MARKET"
+      ],
+      "type": "comparator",
+      "alternative": {
+        "type": "analytical_focus",
+        "when": "il faut défendre une thèse sur la valeur réelle d'un jumeau plutôt que comparer des cas"
+      },
+      "objective": "Comparer des cas de jumeau numérique selon qui porte le bénéfice : l'éditeur du produit ou l'utilisateur.",
+      "problematique": "Qui capte la valeur d'un jumeau numérique, le fournisseur de la fonction ou le client qui l'utilise ?",
+      "bridge": {
+        "in": "Le tronc cite le jumeau numérique parmi les technologies de la cible.",
+        "out": "On revient au critère de décision : un cas sans référence de départ ne prouve aucun gain."
+      },
+      "choice_criterion": "Comparatif car plusieurs cas se mettent en regard sur un critère commun ; analyse approfondie si une thèse est défendue.",
+      "examples": [
+        "EX-CMP-03"
+      ],
+      "readiness": "partial",
+      "gaps": "Chiffres d'éditeurs ou d'auteurs ; certificats d'économies d'énergie : aucune source ; ENGIE et Modelon sur extrait de recherche seulement."
+    },
+    {
+      "id": "CAND-21",
+      "origin": "retour du 2026-11-10 : documentation des installations",
+      "title": "Documentation des installations pour la maintenance sur site",
+      "pillar_ids": [
+        "P-INDUSTRY"
+      ],
+      "type": "illustration",
+      "alternative": {
+        "type": "analytical_focus",
+        "when": "la documentation tel que construite est défendue comme condition de fiabilité des réponses"
+      },
+      "objective": "Montrer comment une documentation à jour (tel que construit) change la préparation d'une intervention.",
+      "problematique": "Que change une documentation fiable de l'installation à la préparation d'une intervention ?",
+      "bridge": {
+        "in": "Le tronc décrit la préparation d'intervention.",
+        "out": "On revient à la supervision : la réponse vaut ce que vaut la version du document."
+      },
+      "choice_criterion": "Exemple concret pour un cas ; analyse approfondie pour une thèse sur la fiabilité documentaire.",
+      "examples": [
+        "EX-ILL-03",
+        "EX-CMP-03"
+      ],
+      "readiness": "partial",
+      "gaps": "Matière d'éditeurs de capture 3D et d'assistants documentaires ; aucun cas de la cible."
+    },
+    {
+      "id": "CAND-22",
+      "origin": "retour du 2026-11-10 : VizioSense",
+      "title": "Pitch de VizioSense, fournisseur de vision embarquée",
+      "pillar_ids": [
+        "P-INDUSTRY"
+      ],
+      "type": "veille_corporate_perso",
+      "alternative": {
+        "type": "comparator",
+        "when": "d'autres fournisseurs de vision embarquée sont comparés sur un critère commun"
+      },
+      "objective": "Présenter en 10 à 15 lignes un fournisseur de vision embarquée à partir de sources publiques, sans fit fournisseur.",
+      "problematique": "Que prouve réellement l'offre publique d'un fournisseur de vision embarquée pour des parkings sous ombrières ?",
+      "bridge": {
+        "in": "Le tronc évoque la conscience situationnelle du terrain.",
+        "out": "On revient à la décision : une offre publiée n'est pas un déploiement chez la cible."
+      },
+      "choice_criterion": "Pitch pour un seul fournisseur ; comparatif dès qu'un second entre.",
+      "examples": [
+        "EX-VCP-04"
+      ],
+      "readiness": "partial",
+      "gaps": "Établi : entreprise française, levée de 2,7 millions d'euros, produits et déploiements publics. Non établi : lien avec l'entreprise étudiée, ombrières, bornes de recharge, économies de 30 à 50 %."
     }
   ],
   "readability": "Dans toute sortie destinée à un lecteur, désigner un candidat par son titre, jamais par son identifiant (CAND-xx), et nommer les types par leur libellé lisible."

@@ -4,8 +4,7 @@
   "privacy": {
     "content": "pointer_only",
     "rule": "Ce fichier est public : il ne contient que des identifiants opaques d'atomes et des libellés neutres rédigés pour ce dépôt. Aucun texte du corpus privé n'est copié ici (D06, D23).",
-    "namespace": "knowledge/business/greenyellow",
-    "resolve": "Dans le dépôt Graph1 privé, branche dev : knowledge/business/greenyellow/kb/atoms/<deux premiers caractères hexadécimaux de l'identifiant>/<ATOM-id>.md",
+    "resolve": "Dans le dépôt privé de la base de connaissances, branche dev : <namespace du profil>/kb/atoms/<deux premiers caractères hexadécimaux de l'identifiant>/<ATOM-id>.md",
     "statuses": {
       "supplied_unverified": "atome présent dans la KB, jamais promu en fait vérifié",
       "to_ingest": "matériau fourni dans la conversation, pas encore dans la KB : à ingérer avant usage",
@@ -13,7 +12,8 @@
       "research_required": "la source existante déclare elle-même ne pas établir le point : recherche nécessaire",
       "to_confirm": "demande incomplète ou ambiguë : confirmation humaine requise"
     },
-    "decoupling": "Côté exécution (privé) : le contenu réel reste dans la KB Graph1 et dans les notes de recherche. Côté construction (public) : chaque exemple pointe vers un jumeau synthétique (champ fixture) qui reproduit sa forme sans son contenu. Les tests et les évaluations n'utilisent que les jumeaux ; aucun test ne dépend du corpus privé (D25)."
+    "decoupling": "Côté exécution (privé) : le contenu réel reste dans la KB Graph1 et dans les notes de recherche. Côté construction (public) : chaque exemple pointe vers un jumeau synthétique (champ fixture) qui reproduit sa forme sans son contenu. Les tests et les évaluations n'utilisent que les jumeaux ; aucun test ne dépend du corpus privé (D25).",
+    "namespace_source": "Le namespace de projection est celui du profil de run (champ projection.namespace de profiles/<profil>.profile.json) ; il n'est pas écrit ici."
   },
   "examples": [
     {
@@ -58,11 +58,15 @@
         "P-AI",
         "P-DATA"
       ],
-      "topic": "Pitch et retour d'expérience « Ask for the moon » pour Framatome",
-      "role": "Idée à instruire : RAG agentique multimodal + KB à ontologie pour l'assistance à la maintenance sur site à partir de la documentation technique",
-      "atoms": [],
-      "status": "to_collect",
-      "note": "Idée de François (2026-11-09). Recherche du 2026-11-09 sans résultat, consignée dans la KB : collecter le pitch et le retour d'expérience.",
+      "topic": "Ask for the Moon : positionnement, modèle économique et cas d'usage chez un industriel",
+      "role": "Pitch d'un éditeur d'assistants fiables pour la connaissance industrielle, avec ses limites",
+      "atoms": [
+        "ATOM-4979d374b99e26d4944d8f764d20752f0f39a45ffd729af2455bfe3e98e729f0",
+        "ATOM-ddccfbc2fe0f6b3726b2afc3f993369f7a78a37a58b8c3e708692e131ea80177",
+        "ATOM-126720c9062c247d1ed4022df93a27b98409e5578d3ec10f0b659fdca81aee04"
+      ],
+      "status": "supplied_unverified",
+      "note": "Document fourni le 2026-11-10, vérifié en partie contre les pages de l'éditeur (chiffres d'éditeur). Page de l'industriel et presse non lues.",
       "fixture": "fixtures/examples/veille_corporate_perso.study.json"
     },
     {
@@ -239,7 +243,7 @@
       "role": "Focus analytique sur un mécanisme à définir",
       "atoms": [],
       "status": "to_collect",
-      "note": "Notion citée le 2026-11-09. Recherche sans résultat pour l'expression exacte, consignée dans la KB : définition et source de François nécessaires.",
+      "note": "Notion citée le 2026-11-09, introuvable telle quelle. Piste : un mémoire décrit le jumeau numérique comme « cerveau virtuel ». Définition de François nécessaire.",
       "fixture": "fixtures/examples/analytical_focus.study.json"
     },
     {
@@ -366,13 +370,63 @@
       ],
       "status": "supplied_unverified",
       "note": "Modèle de structure : on reprend la forme, pas les formulations."
+    },
+    {
+      "id": "EX-ILL-03",
+      "type": "illustration",
+      "pillars": [
+        "P-INDUSTRY",
+        "P-DATA"
+      ],
+      "topic": "Maintenance sur site et documentation des installations avec un assistant sourcé",
+      "role": "Cas d'usage : question d'un technicien, réponse sourcée ou abstention, mise en relation, capitalisation",
+      "atoms": [
+        "ATOM-d89c5505ec942de03c17f863cd23bb939b48f9b02c41464a97ff582fa585feb0",
+        "ATOM-1c40f9d6543aef3bab8f901ee96c834cb1ac7d00eb0238351c15491c1fafaa42"
+      ],
+      "status": "supplied_unverified",
+      "note": "Scénario d'illustration, pas un incident réel ; configuration et contrôles réels non vérifiés.",
+      "fixture": "fixtures/examples/illustration.study.json"
+    },
+    {
+      "id": "EX-CMP-03",
+      "type": "comparator",
+      "pillars": [
+        "P-AI",
+        "P-MARKET"
+      ],
+      "topic": "Jumeau numérique : cas orientés produit et cas orientés client",
+      "role": "Comparatif de cas sur un critère commun : qui porte le bénéfice",
+      "atoms": [
+        "ATOM-070258d035d1caa09a59185861142a69ad39a4a78a95efa61b3184669df459ad",
+        "ATOM-dafe810bea04530445b35ac2cab40d5a3919c4344ffadf611e6250f064231f3c",
+        "ATOM-35dbba10980df558b78b3454602d379d3f04647b59816490b5dde967e4661bec"
+      ],
+      "status": "supplied_unverified",
+      "note": "Chiffres d'éditeurs ou d'auteurs ; certificats d'économies d'énergie : aucune source ; plusieurs cas sur extraits de recherche seulement.",
+      "fixture": "fixtures/examples/comparator.study.json"
+    },
+    {
+      "id": "EX-VCP-04",
+      "type": "veille_corporate_perso",
+      "pillars": [
+        "P-INDUSTRY",
+        "P-AI"
+      ],
+      "topic": "VizioSense : pitch d'un fournisseur de vision embarquée",
+      "role": "Pitch d'un fournisseur tiers à partir d'une page d'investisseur",
+      "atoms": [
+        "ATOM-e5778c8de15d354f3fef36cdd0907e3c5f65910b98d3a1bd884583406ba54311"
+      ],
+      "status": "supplied_unverified",
+      "note": "Orthographe VizioSense. Lien avec l'entreprise étudiée et économies annoncées : aucune source trouvée.",
+      "fixture": "fixtures/examples/veille_corporate_perso.study.json"
     }
   ],
   "acquisitions": [
     {
       "date": "2026-11-09",
       "kb_repository_commit": "49d1e6dd",
-      "namespace": "knowledge/business/greenyellow",
       "sources": [
         "SRC-291569a8ca8a92bed6c400592b576f3ce205714bee51d317a0786f71ef85f178",
         "SRC-6a85f242878b980ad5f2582ff5702175d718373f509f99af3002ec059a2968b5",
@@ -389,6 +443,42 @@
         "EX-VCP-03",
         "EX-FOC-02"
       ],
+      "rule": "Résultat négatif consigné pour que l'absence ne soit pas prise pour une lecture.",
+      "profile_id": "greenyellow"
+    },
+    {
+      "date": "2026-11-10",
+      "kb_repository_commit": "445f8043",
+      "profile_id": "greenyellow",
+      "sources": [
+        "SRC-10fc12e6089a724946c108f78c6566d4d61de7ad24ccca34702ab77de60ff26b",
+        "SRC-158ad7a6909188412e67b3a58385e31d0352173a8bda0d4e7da7918bf0aa79ea",
+        "SRC-1c32a644f290f7673f741d094d799b2fd80ce70dbd967ca8c4d67007fdbc5c15",
+        "SRC-2119a5376525eac34dceaface7435f23f2e178e8e5e8a01d06d9971a4a3b2caa",
+        "SRC-44ced4b50d416a476995d518c0698fc4a085db748ecb8524007045fce67992f4",
+        "SRC-50eddec0efff115fb2dc7d8df99efe675530452c08eed61a6afa2ce87af2d268",
+        "SRC-60349b328bcb5e170b7062c25f49d3fea02f38571e676ded2b5afb88ea179056",
+        "SRC-8947b9c64bf0ffc8ad6b62d274278c528c7ae170ab88e33525dc6534ca1db0da",
+        "SRC-8adcb585b6007339a54b6ad3af185dc401e7284715432441f480a39d6369c5cf",
+        "SRC-93b8c464ee9c255a2e503449221b0aea5cf8b7b3fe65d48b74acc315a4df2050",
+        "SRC-9c968d63727b8562352ff49893c09f6e5c5e9e166810e5c2ed599c10b7c0357d",
+        "SRC-a53ba9ac81f91a4e54f157304730a52e6bb2e29f443c2d69036d3119c385808a",
+        "SRC-a98b8d6c7c687033003e8579164dc52b34753dc4f25c4b1e51917fa312b925f1",
+        "SRC-acf9600b087622a6577f2e5b9b93ab11596d3700fd2a9ab216c86421af8b32c5",
+        "SRC-ddb987f3bb00cfc6317dec8d24026073039af7e735508f35ed46e002e37d1e8a",
+        "SRC-df5920117faa80ebbb1e8f59e7590d90911beb6aaa039cab5986b9875e2c7516",
+        "SRC-e089ba55b597e156091b34f52664c0952b4c895e6e7dfc901c126a3ac0556372",
+        "SRC-ec054e41901302e8a7b73221b233bb644f45a0a0324072c36af75d8f313882be"
+      ],
+      "atom_count": 830,
+      "summary": "Treize analyses fournies (document Ask for the Moon et douze documents de réponses), une directive de style conservée comme type de source distinct, trois notes de recherche publique (Ask for the Moon, jumeau numérique, VizioSense) et un registre de tri. Statut de tous les atomes : supplied_unverified.",
+      "not_read": [
+        "Page Framatome sur la gestion des connaissances : accès automatisé refusé (403)",
+        "Presse DirectIndustry et Aeromorning : accès refusé (403)",
+        "Article d'architecture de l'éditeur : page introuvable (404)",
+        "Étude ENGIE et Modelon : accès non obtenu"
+      ],
+      "no_result": [],
       "rule": "Résultat négatif consigné pour que l'absence ne soit pas prise pour une lecture."
     }
   ]

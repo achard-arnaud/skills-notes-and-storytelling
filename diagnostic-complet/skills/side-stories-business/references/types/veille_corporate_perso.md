@@ -83,6 +83,7 @@ deux ponts ? Sinon réécris. Deux réparations au plus.
 
 - `EX-VCP-01` : pitch d'une offre de monitoring énergétique à partir de pages corporate. Regarder comment une page produit devient trois faits datés et une ligne `limit`.
 - `EX-VCP-02` : fragments « Land & Scale » comme référence d'autorité. Le document source dit que ces étiquettes ne sont pas canoniques : retrouver la référence paginée avant de citer.
-- `EX-VCP-03` : pitch et retour d'expérience « Ask for the moon » pour Framatome. **À collecter** : aucune source dans la KB ; l'idée (RAG agentique multimodal + KB à ontologie pour l'assistance à la maintenance sur site) reste une piste.
+- `EX-VCP-03` : pitch d'Ask for the Moon (assistants fiables pour la connaissance industrielle), à partir d'un document fourni vérifié en partie contre les pages de l'éditeur. Bon modèle de limites : chiffres d'éditeur, engagement et nombre d'utilisateurs à rapprocher des conditions de vente, déploiement chez l'industriel non vérifié.
+- `EX-VCP-04` : pitch de VizioSense (vision embarquée), à partir d'une page d'investisseur. Le lien avec l'entreprise étudiée n'est pas établi : la ligne de limite doit le dire.
 
 Identifiants et statuts : `workflows/kb-examples.json`.
