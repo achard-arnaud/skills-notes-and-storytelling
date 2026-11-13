@@ -5,6 +5,7 @@ from jsonschema import Draft202012Validator,FormatChecker
 SCHEMA=Path(__file__).resolve().parents[1]/"contracts"/"analysis-result.schema.json"
 def validate(payload, known_claims, known_blocks):
  errors=[e.message for e in Draft202012Validator(json.loads(SCHEMA.read_text()),format_checker=FormatChecker()).iter_errors(payload)]
+ if errors:return errors
  inputs=set(payload.get("input_claim_refs",[]))
  for ref in inputs-set(known_claims):errors.append("Unresolved claim: "+ref)
  for item in payload.get("findings",[]):
@@ -19,3 +20,4 @@ if __name__=="__main__":
  errors=validate(json.loads(Path(a.payload).read_text()),a.claims,a.blocks)
  print(json.dumps({"valid":not errors,"errors":errors,"scope":"schema and bindings only"},ensure_ascii=False))
  raise SystemExit(bool(errors))
+

@@ -9,8 +9,8 @@ Une route principale oriente la question, pas toutes les analyses.
 Formats : réutiliser les contrats existants plutôt que réinventer leurs obligations.
 | Invocation | Contrat existant |
 |---|---|
-| one-pager | baseline/templates/one-pager.md |
-| two-pager | baseline/templates/two-pager.md |
+| one-pager | templates/one-pager.md |
+| two-pager | templates/two-pager.md |
 | architecture | templates/architecture-note.md du dépôt épinglé |
 | benchmark | templates/benchmarking.md du dépôt |
 | intégration ou partenariat | templates/integration-note.md ; distinguer décision de partenariat et architecture d’intégration |
@@ -18,5 +18,6 @@ Formats : réutiliser les contrats existants plutôt que réinventer leurs oblig
 | sell-side/ICP/gap | contrat correspondant du manifeste templates |
 | fiche pédagogique | skills/pedagogical-ai-learning/SKILL.md et contrat sélectionné ; ne pas forcer six pages à tout objectif pédagogique |
 | three-pager | référence candidate dédiée, aucune capacité renderer revendiquée |
-Dans ce paquet d’essai, les chemins baseline/ sont résolus depuis la racine de l’expérience. Dans Git, les originaux du dépôt sont la source de vérité ; le README précise le mapping.
+Les chemins templates/ et skills/ désignent la racine du dépôt épinglé. Le harness de test peut matérialiser ces mêmes fichiers dans un snapshot baseline/ ; ce mapping est technique, sans changement de contrat.
 Un changement de longueur n’exige pas une nouvelle méthode. Un nouveau public/objectif ou de nouvelles obligations de preuve peuvent justifier un contrat sémantique distinct. Le registre sélectionne, il ne certifie pas les formats.
+

@@ -1,0 +1,102 @@
+{
+  "verdict": "PASS_WITH_DECLARED_LIMITS",
+  "scope": "Contenu et structure Markdown ; comparaison principale limitée au two-pager",
+  "reviewer": "same drafting agent; no independent review",
+  "checks": [
+    {
+      "dimension": "content_contract",
+      "status": "PASS",
+      "method": "Lecture du texte et contrôle des éléments requis",
+      "evidence": "Thèse unique ; 4 repères ; tableau mécanisme ; inconnues ; 3 cas proposés ; conditions ; alternative ; CTA réversible. One-pager : 4 faits, tableau, recommandation, 3 actions, source."
+    },
+    {
+      "dimension": "evidence",
+      "status": "PASS",
+      "method": "Rapprochement avec SRC-JOB et registres de claims",
+      "evidence": "Tous les faits d’entreprise sont attribués. Dates et lancement gardent leur statut d’annonce ; aucune actualité <24 h ni traction vérifiée. Durée, parcours, KPI supplémentaires et pilote marqués propositions."
+    },
+    {
+      "dimension": "bindings",
+      "status": "PASS",
+      "method": "Assertions Python : unicité des IDs, références résolues, marqueurs de blocs, source_refs",
+      "evidence": {
+        "blocks": 14,
+        "claims": 11,
+        "analyses": 7
+      }
+    },
+    {
+      "dimension": "analytical_utility",
+      "status": "PASS",
+      "method": "Revue de l’objection susceptible d’inverser la recommandation",
+      "evidence": "Une demande développeur autonome et une capacité d’intégration peuvent justifier une ouverture Router simultanée. La source ne fournit ni demande ni coûts comparables."
+    },
+    {
+      "dimension": "narrative_coherence",
+      "status": "PASS",
+      "method": "Relecture des titres, transitions et conclusion par le rédacteur",
+      "evidence": "Ordre question produit → fonctions → objectifs → limites → parcours → arbitrage → conditions → pilote. L’appel à agir répond à la thèse. Aucune revue indépendante."
+    },
+    {
+      "dimension": "partition",
+      "status": "PASS",
+      "method": "Critère commun : fonctions annoncées puis acteurs/tâches",
+      "evidence": "Alpha et Router se recouvrent explicitement via la dépendance technique ; Gap Map oriente l’écosystème, sans flux technique inventé. Aucun MECE artificiel revendiqué."
+    },
+    {
+      "dimension": "syntax_and_logical_format",
+      "status": "PASS",
+      "method": "JSON rechargé ; marqueurs et pages logiques comptés ; colonnes des tableaux vérifiées",
+      "evidence": {
+        "word_counts_whitespace": {
+          "two-pager.md": 883,
+          "company-one-pager.md": 447
+        },
+        "logical_two_pager_pages": 2,
+        "maximum_table_columns": 4
+      }
+    },
+    {
+      "dimension": "link_provenance",
+      "status": "PASS",
+      "method": "Extraction et comparaison des URL avec les deux URL de SRC-JOB",
+      "evidence": [
+        "https://www.aipotluck.org/chat",
+        "https://www.aipotluck.org/map"
+      ]
+    },
+    {
+      "dimension": "link_live_resolution",
+      "status": "NOT_RUN",
+      "reason": "Pas d’accès externe ; aucune affirmation de disponibilité actuelle."
+    },
+    {
+      "dimension": "physical_rendering_and_pagination",
+      "status": "NOT_RUN",
+      "reason": "Markdown à pages logiques demandé ; aucun rendu ni taille de police testé."
+    },
+    {
+      "dimension": "human_decision",
+      "status": "NOT_RUN",
+      "reason": "La note prépare une discussion ; aucun accord pilote ou engagement externe obtenu."
+    }
+  ],
+  "repairs": [
+    {
+      "location": "B02",
+      "issue": "Une URL Alpha avait été associée au libellé Router dans le brouillon en mémoire.",
+      "action": "Suppression du lien Router et mention de l’absence d’URL propre dans la source.",
+      "recheck": "Extraction finale : seulement les deux URL fournies, rattachées à Alpha et Gap Map."
+    }
+  ],
+  "open_limits": [
+    "Aucun fait externe vérifié",
+    "Aucune validation utilisateur des hypothèses",
+    "Pagination physique non testée"
+  ],
+  "loopback": {
+    "observation": "Le Router a une fonction décrite, mais aucune URL dédiée dans la source.",
+    "layer": "sourcing/local wording",
+    "delta": "NO_REUSABLE_DELTA ; correction locale, aucun changement canonique"
+  }
+}

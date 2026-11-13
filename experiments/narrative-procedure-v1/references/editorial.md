@@ -8,3 +8,4 @@
 - Séparer repères d’organisation et produits : ville/pays, activité, taille, CA/période, stade, funding si pertinent ; source, date et inconnues visibles. Aucun remplissage inventé.
 - Une side story porte question, apport, ancre et retour. Zéro aparté est valide. Source, illustration et hypothèse ne se confondent pas.
 - Garder une source Markdown/JSON portable ; séparer contenu, scaffold, CSS/design et export. Aucun usage de logo ou d’aperçu fabriqué.
+

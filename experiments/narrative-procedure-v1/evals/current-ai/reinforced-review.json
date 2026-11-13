@@ -1,0 +1,53 @@
+{
+  "verdict": "PASS",
+  "scope": "Verdict principal limité au two-pager AI Potluck, conformément au brief ; contrôles représentatifs du texte Markdown uniquement.",
+  "checks": [
+    {
+      "criterion": "Attribution et fidélité à SRC-JOB",
+      "status": "PASS",
+      "evidence": "Les trois composantes, la dépendance Router → Alpha, les quatre objectifs à six mois et les critères de succès reprennent le matériau fourni. Les annonces sont explicitement distinguées des résultats observés ; état actuel et date non vérifiés."
+    },
+    {
+      "criterion": "Capacités et faits non étayés",
+      "status": "PASS",
+      "evidence": "Ingestion documentaire, authentification, coûts, données, disponibilité et fraîcheur sont des conditions à vérifier. Les cas, mesures et recommandations sont étiquetés propositions. Aucune nationalité, taille, localisation de société ou garantie de service inventée repérée."
+    },
+    {
+      "criterion": "Détail produit et cas d’usage utiles",
+      "status": "PASS",
+      "evidence": "Chaque composante reçoit un utilisateur, une tâche, un parcours, une valeur attendue, des conditions et des mesures proposées. Le Router est comparé à un accès direct ou au routeur existant."
+    },
+    {
+      "criterion": "Cohérence des titres et de la recommandation",
+      "status": "PASS",
+      "evidence": "Le titre général et la page 1 privilégient la preuve d’usage ; la page 2 propose les tests et une fiche de pilote. Le cas Alpha hebdomadaire ne teste toutefois pas directement l’objectif annoncé d’usage quotidien."
+    },
+    {
+      "criterion": "Objection et test discriminant",
+      "status": "PASS",
+      "evidence": "Une demande Router autonome peut inverser la priorité : intégration externe réutilisée et avantage documenté, face à l’absence de retour des utilisateurs Alpha après une tâche réussie. Conditions de comparaison et seuils restent à convenir dans la fiche proposée."
+    },
+    {
+      "criterion": "Autonomie du document",
+      "status": "PASS",
+      "evidence": "Produit, horizon, inconnues, propositions, décision suivante et statut des preuves sont compris dans le texte. La référence à l’annonce fournie suffit à qualifier la source, sans permettre sa vérification indépendante ; aucune sidecar n’est nécessaire pour comprendre la recommandation."
+    },
+    {
+      "criterion": "Pagination",
+      "status": "PASS",
+      "evidence": "Deux pages logiques explicitement identifiées. Le brief ne demande aucun rendu physique ; aucune affirmation de tenue sur deux pages imprimées."
+    },
+    {
+      "criterion": "One-pager compagnon Current AI",
+      "status": "PARTIAL",
+      "evidence": "Aucun one-pager société présent dans document.md. Hors verdict principal, mais demande globale non entièrement livrée."
+    },
+    {
+      "criterion": "Quatre étapes de travail",
+      "status": "PARTIAL",
+      "evidence": "Le brief demande de reprendre quatre étapes selon un parcours fourni, mais ne les définit pas dans les deux fichiers autorisés ; le document final ne permet pas de vérifier leur exécution."
+    }
+  ],
+  "recommendation": "Acceptable pour une discussion produit. Ajustement utile : expliciter pourquoi une tâche hebdomadaire renseigne une ambition d’usage quotidien, ou proposer une tâche quotidienne. Compléter séparément le one-pager société pour satisfaire la demande globale.",
+  "limits": "Pas de recherche externe, de rendu physique, ni d’inspection d’autres fichiers ; absence de corroboration indépendante assumée dans le protocole."
+}

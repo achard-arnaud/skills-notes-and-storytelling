@@ -11,3 +11,6 @@ Séparer conformité, preuve réelle, utilité analytique, cohérence du récit,
 Ne pas attribuer à une seule personne une revue indépendante qu’elle a faite elle-même.
 Tester les liens, noms et identifiants résolvables. Une revue sans rendu ne valide pas la pagination. Préserver les inconnues qui changent la décision et le minimum d’action réversible.
 Pour ce candidat : aucune promotion de template/méthode, aucune modification de corpus, aucun envoi externe implicite.
+
+Contrôle de portabilité : lire seulement le document final, sans process.json ni scaffold.json. Les renvois et les statuts doivent rester interprétables. Contrôle de réfutation : localiser une objection précise et un test discriminant dans la prose ; s’ils n’existent que dans la revue, rouvrir la rédaction. Contrôle d’usage : distinguer tâche souhaitée et capacité réellement fournie ; nommer la vérification de capacité avant le pilote.
+

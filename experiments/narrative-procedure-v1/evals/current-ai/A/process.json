@@ -1,0 +1,482 @@
+{
+  "arm": "A",
+  "task": "AI Potluck two-pager produit + Current AI company one-pager",
+  "mode": "FROM_SCRATCH",
+  "analysis_dimension": "product",
+  "secondary_lens": "business",
+  "primary_template": "TWO_PAGER",
+  "subject_spine": "product + use cases",
+  "companion_template": "ONE_PAGER",
+  "workflow_version": "1.3.1",
+  "template_versions": {
+    "two-pager": "1.2.0",
+    "one-pager": "1.0.0"
+  },
+  "four_steps_note": "Le brief demande quatre étapes sans en nommer les intitulés. Regroupement transparent du workflow chargé ; aucune méthode supplémentaire imposée.",
+  "steps_actually_done": [
+    {
+      "step": 1,
+      "label": "Cadrer et charger les preuves",
+      "actions": [
+        "Lu brief, AGENTS, skill puis références de mode, workflow, provenance, validation et templates via read_context.py --arm A.",
+        "Choisi from-scratch, dimension produit et lecteur exécutif préparant une discussion.",
+        "Limité la collecte à SRC-JOB ; aucune navigation, aucun autre bras, aucun dépôt muté."
+      ]
+    },
+    {
+      "step": 2,
+      "label": "Extraire, qualifier et hiérarchiser",
+      "actions": [
+        "Séparé sept fragments F01–F07 des inférences, propositions et inconnues.",
+        "Construit une chaîne légère de provenance ; persistée ici après la rédaction, sans outil de graphe.",
+        "Rerank qualitatif : objectifs six mois et preuves d’usage avant détails organisationnels ; aucune note numérique calculée.",
+        "Conservé les conditions bloquantes hors classement."
+      ]
+    },
+    {
+      "step": 3,
+      "label": "Composer les deux livrables",
+      "actions": [
+        "Choisi deux pages logiques : vérité/thèse puis usages/action ; compagnon company sur une page logique.",
+        "Rédigé depuis les fragments et étiqueté cas, pilote et mesures comme propositions.",
+        "Employé tableaux trois colonnes ; aucun schéma nécessaire pour expliquer davantage le mécanisme.",
+        "Aucun encart : aucun détour ne changeait la décision."
+      ]
+    },
+    {
+      "step": 4,
+      "label": "Contrôler, borner et clôturer",
+      "actions": [
+        "Relu intégralement les deux Markdown via read_context.py.",
+        "Contrôlé attribution, périmètre, tables, CTA unique, inconnues et conditions de révision.",
+        "Évalué la contre-perspective et la voie alternative Router ; pas de seconde passe de rédaction.",
+        "Évalué bridge et dreaming hors payload.",
+        "Relu ADR-1003 après staging ; confirmé conformité sans changer les Markdown."
+      ]
+    }
+  ],
+  "source_ledger": [
+    {
+      "id": "SRC-JOB",
+      "path": "brief.md",
+      "class": "supplied_context",
+      "roles": [
+        "product_truth",
+        "ownership_or_distribution",
+        "risk_or_constraint"
+      ],
+      "authority": "Extrait attribué à annonce VP Product ; intention déclarée, pas corroboration indépendante",
+      "publication_date": null,
+      "access": "fourni intégralement dans brief.md",
+      "verification": "not_corroborrated",
+      "original_run_timestamp": "not_verified",
+      "freshness_claim_under_24h": false
+    }
+  ],
+  "fragments_and_claims": [
+    {
+      "id": "F01",
+      "status": "fact_reported_not_verified",
+      "source": "SRC-JOB §1 phrase 1",
+      "text": "Current AI décrit AI Potluck comme un assemblage ouvert, intégré, utilisable et construit avec l’écosystème."
+    },
+    {
+      "id": "F02",
+      "status": "fact_reported_not_verified",
+      "source": "SRC-JOB §1 phrase 2",
+      "text": "Mandat VP Product : CEO, stratégie, organisation PM, collaboration Head of Engineering et équipe dirigeante, roadmaps et PRD."
+    },
+    {
+      "id": "F03",
+      "status": "fact_reported_not_verified",
+      "source": "SRC-JOB liste composantes, Alpha",
+      "text": "Assistant open source, URL chat, lancement rapporté juillet 2026 AI for Good Genève, test ouvert."
+    },
+    {
+      "id": "F04",
+      "status": "fact_reported_not_verified",
+      "source": "SRC-JOB liste composantes, Gap Map",
+      "text": "URL map, insights sur lacunes et zones à financer ou contribuer."
+    },
+    {
+      "id": "F05",
+      "status": "fact_reported_not_verified",
+      "source": "SRC-JOB liste composantes, Router",
+      "text": "Endpoint unique, fournisseurs publics ou alignés mission, alimente Alpha, produit développeur à venir."
+    },
+    {
+      "id": "F06",
+      "status": "fact_reported_not_verified",
+      "source": "SRC-JOB paragraphe six premiers mois",
+      "text": "Quatre objectifs : quotidien Alpha, décision Router, roadmap 2027 partenaires/bénéficiaires, contributions Alpha."
+    },
+    {
+      "id": "F07",
+      "status": "fact_reported_not_verified",
+      "source": "SRC-JOB paragraphe succès",
+      "text": "Cinq critères annoncés de livraison, adoption, contributions/intégrations, partenaires et lisibilité roadmap."
+    },
+    {
+      "id": "I01",
+      "status": "inference",
+      "from": [
+        "F01",
+        "F06"
+      ],
+      "text": "La valeur intégrée reste à démontrer par un travail récurrent utile."
+    },
+    {
+      "id": "I02",
+      "status": "inference",
+      "from": [
+        "F04",
+        "F06",
+        "F07"
+      ],
+      "text": "Usage, intégration et contribution forment des boucles possibles, pas une causalité prouvée."
+    },
+    {
+      "id": "I03",
+      "status": "inference",
+      "from": [
+        "F01",
+        "F05",
+        "U02",
+        "U03"
+      ],
+      "text": "Ouverture et mission ne suffisent pas à prouver souveraineté/portabilité ; points de contrôle à vérifier."
+    },
+    {
+      "id": "I04",
+      "status": "inference",
+      "from": [
+        "F02"
+      ],
+      "text": "Le mandat annoncé associe stratégie et exécution ; effectivité inconnue."
+    }
+  ],
+  "unknowns": [
+    {
+      "id": "U01",
+      "status": "unknown",
+      "source": "absence dans le périmètre SRC-JOB, pas preuve d’absence réelle",
+      "text": "Utilisateurs, tâches, demande, fréquence et adoption actuelles non fournis."
+    },
+    {
+      "id": "U02",
+      "status": "unknown",
+      "source": "absence dans le périmètre SRC-JOB, pas preuve d’absence réelle",
+      "text": "Qualité, politique de données, modèles, licences détaillées non fournis."
+    },
+    {
+      "id": "U03",
+      "status": "unknown",
+      "source": "absence dans le périmètre SRC-JOB, pas preuve d’absence réelle",
+      "text": "Coûts, prix, support, garanties et portabilité non établis."
+    },
+    {
+      "id": "U04",
+      "status": "unknown",
+      "source": "absence dans le périmètre SRC-JOB, pas preuve d’absence réelle",
+      "text": "Statut, nationalité, siège, effectifs, CA, financement, moyens, effectivité du mandat non établis."
+    }
+  ],
+  "recommendations": [
+    {
+      "id": "R01",
+      "status": "recommendation",
+      "from": [
+        "F06",
+        "I01"
+      ],
+      "text": "Prioriser une preuve Alpha sans confondre demande Router autonome."
+    },
+    {
+      "id": "R02",
+      "status": "hypothesis",
+      "from": [
+        "F03",
+        "F04",
+        "F05"
+      ],
+      "text": "Trois cas exploratoires : synthèse de travail, intégration développeur, décision de contribution ; toutes métriques proposées."
+    },
+    {
+      "id": "R03",
+      "status": "recommendation",
+      "from": [
+        "F05",
+        "F06",
+        "U01"
+      ],
+      "text": "Revoir ordre Alpha/Router si besoin développeur concret et usage Alpha peu récurrent."
+    },
+    {
+      "id": "R04",
+      "status": "recommendation",
+      "from": [
+        "U02",
+        "U03",
+        "I03"
+      ],
+      "text": "Définir responsabilités, autorisation données, conditions, erreurs, repli et sortie avant essai réel."
+    },
+    {
+      "id": "R05",
+      "status": "recommendation",
+      "from": [
+        "R01",
+        "R04"
+      ],
+      "text": "Séance de cadrage d’un essai Alpha proposé de deux semaines ; comparer au processus actuel, observer réutilisation volontaire."
+    },
+    {
+      "id": "R06",
+      "status": "recommendation",
+      "from": [
+        "F01",
+        "F02",
+        "F06",
+        "F07",
+        "U04"
+      ],
+      "text": "Préparer échange Current AI via un exemple partenaire et préciser moyens/mandat."
+    }
+  ],
+  "graph_edges": [
+    {
+      "from": "F01",
+      "relation": "supports",
+      "to": "I01"
+    },
+    {
+      "from": "F06",
+      "relation": "supports",
+      "to": "R01"
+    },
+    {
+      "from": "F05",
+      "relation": "supports",
+      "to": "R03"
+    },
+    {
+      "from": "U01",
+      "relation": "qualifies",
+      "to": "R01"
+    },
+    {
+      "from": "U02",
+      "relation": "qualifies",
+      "to": "R04"
+    },
+    {
+      "from": "U03",
+      "relation": "qualifies",
+      "to": "I03"
+    },
+    {
+      "from": "I01",
+      "relation": "motivates",
+      "to": "R05"
+    },
+    {
+      "from": "R05",
+      "relation": "depends_on",
+      "to": "R04"
+    },
+    {
+      "from": "F02",
+      "relation": "supports",
+      "to": "I04"
+    }
+  ],
+  "section_lineage": {
+    "two-pager.page1": [
+      "F01",
+      "F03",
+      "F04",
+      "F05",
+      "F06",
+      "F07",
+      "I01",
+      "I02",
+      "I03",
+      "U01",
+      "U02",
+      "U03",
+      "R01"
+    ],
+    "two-pager.page2": [
+      "F04",
+      "F05",
+      "F06",
+      "I01",
+      "I02",
+      "I03",
+      "U01",
+      "R01",
+      "R02",
+      "R03",
+      "R04",
+      "R05"
+    ],
+    "company-one-pager": [
+      "F01",
+      "F02",
+      "F03",
+      "F04",
+      "F05",
+      "F06",
+      "F07",
+      "I02",
+      "I04",
+      "U04",
+      "R06"
+    ]
+  },
+  "rerank": {
+    "method": "qualitative",
+    "first": [
+      "F06",
+      "F07",
+      "F01"
+    ],
+    "second": [
+      "F03",
+      "F04",
+      "F05"
+    ],
+    "companion": [
+      "F02"
+    ],
+    "hard_gates": [
+      "Données autorisées",
+      "Conditions d’usage examinées",
+      "Responsables désignés",
+      "Repli et erreurs explicités"
+    ],
+    "confidence": "confiance dans la restitution du matériau ; priorité Alpha seulement hypothèse de discussion"
+  },
+  "rejected_alternatives": [
+    {
+      "option": "Router prioritaire d’emblée",
+      "reason": "Aucune preuve de demande développeur autonome ; conservé comme alternative conditionnelle."
+    },
+    {
+      "option": "Profil entreprise enrichi",
+      "reason": "Source unique ne permet pas de fournir statut, nationalité, taille ou financement."
+    }
+  ],
+  "lock_in_review": {
+    "status": "questions proposées, aucun verrouillage réel établi",
+    "control_points": [
+      "sortie des entrées/résultats Alpha",
+      "API, modèles et comportements Router",
+      "licences et maintien composants",
+      "habitude de travail partenaire"
+    ],
+    "exit": "Retour au processus actuel proposé ; coût à mesurer ; faisabilité non prouvée"
+  },
+  "reviews": {
+    "conformance": {
+      "status": "pass_with_limits",
+      "checks": [
+        "Deux pages logiques et une page compagnon",
+        "Trois cas explicitement proposés",
+        "Faits attribués à l’annonce",
+        "Pas de promesse de service ni chiffre entreprise inventé",
+        "Tables trois colonnes",
+        "Pas d’annexe dans les pages"
+      ],
+      "limits": [
+        "Pagination physique NOT_RUN ; aucun test de rendu ou taille de police demandé."
+      ],
+      "physical_pagination": "NOT_RUN",
+      "adr1003": "Lu après staging ; scaffold lecteur, séparation contenu/rendu et absence de preuve visuelle respectés ; aucune modification nécessaire."
+    },
+    "counter_perspective": {
+      "proposition_attacked": "Alpha doit être le premier terrain de validation.",
+      "strongest_failure": "Intérêt pour l’écosystème ne démontre pas un gain dans une tâche partenaire ; demande Router peut être plus forte.",
+      "verdict": "SURVIVES_WITH_NARROWING",
+      "narrowing": "Recommandation limitée à un cadrage réversible, aucun déploiement ou priorité de marché affirmés ; alternative Router et test baseline conservés dès le brouillon.",
+      "repair_passes": 0,
+      "verification": "Relu une fois : recommandation conditionnelle, falsifier visible, aucun résultat supposé."
+    },
+    "reader_decision": {
+      "status": "pass",
+      "decision": "Cadrer un essai Alpha borné",
+      "uncertainty": "Adoption/demande et conditions opérationnelles inconnues",
+      "falsifier": "Usage non récurrent ou qualité insuffisante ; besoin Router concret changeant ordre",
+      "next_action": "Séance de cadrage partenaire"
+    }
+  },
+  "bridge_evaluation": {
+    "status": "no_additional_document",
+    "companion": "ONE_PAGER demandé, reprend SRC-JOB comme preuve fournie antérieure, sans requalification",
+    "future_candidate": "INTEGRATION_NOTE seulement après choix d’un partenaire, conditions et besoin documentés",
+    "why_no_generation": "Une note supplémentaire ne résoudrait pas la demande inconnue ; cadrage terrain plus petit et réversible"
+  },
+  "dreaming": {
+    "tier": 1,
+    "check_done": true,
+    "outcome": "NO_REUSABLE_DELTA",
+    "reason": "Limitation source unique traitée par attribution et hypothèses explicites ; aucun échec récurrent établi.",
+    "canonical_change": false
+  },
+  "opened_dependencies": [
+    "baseline/AGENTS.md",
+    "baseline/SKILL.md",
+    "baseline/references/modes.md",
+    "baseline/references/versioning-and-lifecycle.md",
+    "baseline/references/workflow.md",
+    "baseline/references/bridges-integration-and-run-memory.md",
+    "baseline/references/dreaming-self-healing.md",
+    "baseline/templates/manifest.json",
+    "baseline/templates/two-pager.md",
+    "baseline/templates/one-pager.md",
+    "baseline/examples/two-pager-v1.md",
+    "baseline/examples/one-pager-v1.md",
+    "baseline/docs/architecture/README.md",
+    "baseline/contracts/relation-types.json",
+    "baseline/docs/architecture/ADR-1003-narrative-artifacts.md"
+  ],
+  "attempted_missing_dependencies": [
+    {
+      "path": "baseline/docs/architecture/README.md",
+      "resolved": true,
+      "note": "Harness staging issue : absent à la première tentative, matérialisé depuis le snapshot exact par le parent, puis lu avec read_context ; aucun défaut du dépôt inféré."
+    },
+    {
+      "path": "baseline/contracts/relation-types.json",
+      "resolved": true,
+      "note": "Harness staging issue : absent à la première tentative, matérialisé depuis le snapshot exact par le parent, puis lu avec read_context ; aucun défaut du dépôt inféré."
+    },
+    {
+      "path": "baseline/docs/architecture/ADR-1003-narrative-artifacts.md",
+      "resolved": true,
+      "note": "Harness staging issue : absent à la première tentative, matérialisé depuis le snapshot exact par le parent, puis lu avec read_context ; aucun défaut du dépôt inféré."
+    }
+  ],
+  "limits": [
+    "Une seule source fournie, non corroborée",
+    "Liens fournis non consultés",
+    "Aucune recherche externe",
+    "Aucune preuve d’adoption, de prix, de financement ou de garanties",
+    "Pagination logique uniquement ; pas de rendu ni DOCX QA",
+    "Pas de coût ni de tokens estimés",
+    "Pas de mutation GitHub"
+  ],
+  "artifacts": [
+    "out-A/two-pager.md",
+    "out-A/company-one-pager.md",
+    "out-A/process.json"
+  ],
+  "wall_time": {
+    "first_read_epoch": 1794601416.663673,
+    "completed_epoch": 1794601646.739713,
+    "elapsed_seconds": 230.076,
+    "method": "time.time() de clôture moins premier read_at réel du ledger out-A/reads.jsonl",
+    "completed_utc": "2026-11-13T20:27:26.739713+00:00"
+  },
+  "metrics_note": "Les métriques de chargement sont à dériver du ledger reads.jsonl ; aucun token ni coût estimé. Wall time inclut attentes/staging et ne mesure pas la vitesse comparative."
+}

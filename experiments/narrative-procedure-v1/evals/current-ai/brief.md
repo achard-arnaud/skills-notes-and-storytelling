@@ -12,3 +12,4 @@ Les six premiers mois visent : usage quotidien d’Alpha dans un petit nombre d�
 Le succès annoncé se mesure par : dates publiques de livraison tenues ; organisations activement utilisatrices d’Alpha et du Router ; projets intégrés et contributions reversées ; partenaires qui livrent une intégration ; roadmap compréhensible sans réunion.
 ## Cadre commun du test
 Pas de recherche externe ni d’accès aux autres résultats pendant cette exécution ; signaler les inconnues. Les recherches nouvelles changeraient le traitement expérimental. Ne pas utiliser les chiffres ou noms du dossier antérieur comme preuves. Toutes les propositions de pilotes, prix et KPI supplémentaires doivent être marquées propositions. Éviter d’inventer nationalité, effectifs, CA, financement, localisation ou garanties de service.
+

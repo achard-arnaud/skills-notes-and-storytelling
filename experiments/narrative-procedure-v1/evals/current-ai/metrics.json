@@ -1,0 +1,62 @@
+{
+  "A": {
+    "method_reads": 15,
+    "method_bytes": 60473,
+    "method_words": 7567,
+    "method_paths": [
+      "baseline/AGENTS.md",
+      "baseline/SKILL.md",
+      "baseline/references/modes.md",
+      "baseline/references/versioning-and-lifecycle.md",
+      "baseline/references/workflow.md",
+      "baseline/references/bridges-integration-and-run-memory.md",
+      "baseline/references/dreaming-self-healing.md",
+      "baseline/templates/manifest.json",
+      "baseline/templates/two-pager.md",
+      "baseline/templates/one-pager.md",
+      "baseline/examples/two-pager-v1.md",
+      "baseline/examples/one-pager-v1.md",
+      "baseline/docs/architecture/README.md",
+      "baseline/contracts/relation-types.json",
+      "baseline/docs/architecture/ADR-1003-narrative-artifacts.md"
+    ],
+    "brief_bytes": 2807,
+    "two_pager_words": 1034,
+    "artifact_bytes": 26326,
+    "model_tokens": null,
+    "model_cost": null
+  },
+  "B": {
+    "method_reads": 10,
+    "method_bytes": 20009,
+    "method_words": 2731,
+    "method_paths": [
+      "baseline/AGENTS.md",
+      "candidate/SKILL.md",
+      "candidate/references/routing.md",
+      "candidate/references/editorial.md",
+      "candidate/references/analysis-interface.md",
+      "baseline/templates/two-pager.md",
+      "baseline/templates/one-pager.md",
+      "candidate/references/review.md",
+      "baseline/docs/architecture/README.md",
+      "baseline/docs/architecture/ADR-1003-narrative-artifacts.md"
+    ],
+    "brief_bytes": 2807,
+    "two_pager_words": 883,
+    "artifact_bytes": 33276,
+    "model_tokens": null,
+    "model_cost": null
+  },
+  "byte_reduction_percent": 66.91,
+  "limitations": [
+    "Single paired trial",
+    "Same model family; isolated threads",
+    "No live research",
+    "No independently verified original timestamp under 24h",
+    "No physical pagination/render QA",
+    "Harness staging delayed A; no speed claim",
+    "Byte/word counts are NOT model token or total context counts",
+    "Parent reviewed method; blind reviewer did not see arm mapping"
+  ]
+}

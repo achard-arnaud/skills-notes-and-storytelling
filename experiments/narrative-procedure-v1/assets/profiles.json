@@ -1,0 +1,48 @@
+{
+  "status": "candidate; navigation only",
+  "routes": {
+    "pedagogical": {
+      "question": "Quel acquis démontrable ?",
+      "checks": [
+        "public",
+        "exemple",
+        "exercice",
+        "feedback"
+      ],
+      "transfer_test": "not_run"
+    },
+    "business": {
+      "question": "Quel choix crée de la valeur ?",
+      "checks": [
+        "baseline",
+        "mécanisme",
+        "alternatives",
+        "risques"
+      ],
+      "transfer_test": "secondary lens only"
+    },
+    "product": {
+      "question": "Quelle tâche pour quel utilisateur ?",
+      "checks": [
+        "parcours",
+        "capacités",
+        "adoption",
+        "mesure"
+      ],
+      "transfer_test": "single Current AI case"
+    },
+    "technical": {
+      "question": "Quel système sous quelles contraintes ?",
+      "checks": [
+        "frontières",
+        "flux",
+        "compromis",
+        "échecs"
+      ],
+      "transfer_test": "not_run"
+    }
+  },
+  "canonical_template_manifest": "templates/manifest.json",
+  "analysis_result_contract": "contracts/analysis-result.schema.json",
+  "automatic_dispatch": false
+}

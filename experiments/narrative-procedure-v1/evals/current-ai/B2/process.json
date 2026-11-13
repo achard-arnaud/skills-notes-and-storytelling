@@ -1,0 +1,86 @@
+{
+  "arm": "B2",
+  "mode": "from-scratch",
+  "route": "produit",
+  "source_scope": "SRC-JOB seulement, matériau fourni non corroboré",
+  "stages": [
+    {
+      "id": 1,
+      "name": "diriger le scaffold",
+      "status": "DONE",
+      "outputs": [
+        "scaffold.json"
+      ],
+      "operations": [
+        "cadrage lecteur et question",
+        "choix du contrat product + use cases",
+        "extraction de sept claims attribués",
+        "ordre des questions, limites et objection",
+        "preuves manquantes explicites"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "rédiger bloc par bloc",
+      "status": "DONE",
+      "outputs": [
+        "two-pager.md",
+        "company-one-pager.md"
+      ],
+      "claim_map": "scaffold.json : claims et claim_refs des blocs",
+      "side_stories": 0,
+      "analysis_specialist_requested": false,
+      "reason": "Les hypothèses restent propositions bornées ; aucune analyse spécialisée ne manque pour restituer le matériau et préparer les questions."
+    },
+    {
+      "id": 3,
+      "name": "relire le récit",
+      "status": "DONE",
+      "checks": [
+        "titres seuls",
+        "transitions et conclusion",
+        "objection et test discriminant dans le document",
+        "source autonome",
+        "accès et ingestion documentaire non présumés",
+        "tableaux et identifiants"
+      ],
+      "returns": 0,
+      "corrections_after_review": 0
+    },
+    {
+      "id": 4,
+      "name": "livrer et loopback",
+      "status": "DONE",
+      "mapping": "deux pages logiques puis compagnon une page logique",
+      "rendering": "NOT_RUN",
+      "loopback": "NO_REUSABLE_DELTA"
+    }
+  ],
+  "measurement": {
+    "basis": "read_context.py ledger, timestamp système à clôture ; aucun token ni coût estimé",
+    "first_ledger_read_at": 1794601820.5086677,
+    "closed_at": 1794602000.4070313,
+    "elapsed_seconds_from_first_ledger_read": 179.898,
+    "ledger_snapshot_event_count": 17,
+    "ledger_snapshot_read_bytes": 55073,
+    "ledger_snapshot_read_words": 7178,
+    "ledger_scope": "Inclut sources, instructions, artefacts et lectures du ledger ; dernier événement de lecture du ledger absent du snapshot imprimé par construction.",
+    "external_research_calls": 0,
+    "live_link_checks": 0,
+    "stage_returns": 0,
+    "estimated_tokens": null,
+    "estimated_cost": null
+  },
+  "constraints": {
+    "other_outputs_accessed": false,
+    "github_mutated": false,
+    "canonical_method_changed": false
+  },
+  "deliverables": [
+    "two-pager.md",
+    "company-one-pager.md",
+    "scaffold.json",
+    "review.json",
+    "process.json"
+  ]
+}

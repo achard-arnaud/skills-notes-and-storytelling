@@ -1,0 +1,82 @@
+{
+  "baseline_sha": "16bcb4325bcace66c2c22fa33a97402cb00e1de9",
+  "candidate_v1_sha": "849c5c5c14a02a4dfe8c8b73febbcf8ef3ffb51c",
+  "source_kind": "supplied_job_excerpt",
+  "source_capture": "brief.md",
+  "original_run_timestamp_verified": false,
+  "internal_reference": "Schema Flow Master, installed skill read on 2026-11-13",
+  "skill_sources": [
+    {
+      "path": "SKILL.md",
+      "blob_sha": "809669ef47de96d54290add534acf7429f50af60",
+      "chars": 12842,
+      "role": "orchestration"
+    },
+    {
+      "path": "diagnostic-complet/skills/analyzing-adoption-and-change/SKILL.md",
+      "blob_sha": "536425c0f06fadda2e97202c9f29174b265941d3",
+      "chars": 4247,
+      "role": "specialized_analysis"
+    },
+    {
+      "path": "diagnostic-complet/skills/analyzing-ai-capabilities/SKILL.md",
+      "blob_sha": "7535ec9be6f8ca1216ac1ad33c0e78538c653ec7",
+      "chars": 4731,
+      "role": "specialized_analysis"
+    },
+    {
+      "path": "diagnostic-complet/skills/analyzing-corporate-functions/SKILL.md",
+      "blob_sha": "28e5f40009a6f011a4d3080db8a72861e260205a",
+      "chars": 4159,
+      "role": "specialized_analysis"
+    },
+    {
+      "path": "diagnostic-complet/skills/analyzing-data-foundations/SKILL.md",
+      "blob_sha": "eefde26772d60cef4367cb605b0ff22629d73dc9",
+      "chars": 4020,
+      "role": "specialized_analysis"
+    },
+    {
+      "path": "diagnostic-complet/skills/analyzing-economics-and-financing/SKILL.md",
+      "blob_sha": "648f331f97197cdb45be515c436b07e8ed77f785",
+      "chars": 4489,
+      "role": "specialized_analysis"
+    },
+    {
+      "path": "diagnostic-complet/skills/analyzing-governance-and-control/SKILL.md",
+      "blob_sha": "6038a9b5fe56e28f8d760118460ead75ae632e63",
+      "chars": 4203,
+      "role": "specialized_analysis"
+    },
+    {
+      "path": "diagnostic-complet/skills/analyzing-industry-value-chain/SKILL.md",
+      "blob_sha": "37518be69f35272f04668cf1ea08f0fa35efd6b8",
+      "chars": 4794,
+      "role": "specialized_analysis"
+    },
+    {
+      "path": "diagnostic-complet/skills/analyzing-market-and-competition/SKILL.md",
+      "blob_sha": "85134da014e749ab9ed1d66e8001a0a0fbcad2e8",
+      "chars": 4559,
+      "role": "specialized_analysis"
+    },
+    {
+      "path": "diagnostic-complet/skills/designing-main-story/SKILL.md",
+      "blob_sha": "4cfb96846a9117811a8783b6176ad28c5fa1223d",
+      "chars": 3914,
+      "role": "narrative_procedure"
+    },
+    {
+      "path": "diagnostic-complet/skills/side-stories-business/SKILL.md",
+      "blob_sha": "ceeffff71f12d2b2b7fade53ae8ce448b18e558e",
+      "chars": 5051,
+      "role": "narrative_procedure"
+    },
+    {
+      "path": "skills/pedagogical-ai-learning/SKILL.md",
+      "blob_sha": "3572b2c441228e408d3c1d8102f18fbdb0fdba04",
+      "chars": 5207,
+      "role": "pedagogical_procedure"
+    }
+  ]
+}

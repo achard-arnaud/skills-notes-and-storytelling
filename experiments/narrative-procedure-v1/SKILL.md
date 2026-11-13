@@ -28,10 +28,14 @@ Lire les titres seuls, puis les transitions et la conclusion. Vérifier réponse
 Lire [les contrôles et retours](references/review.md). Rouvrir l’étape 1 pour une thèse ou structure défectueuse ; l’étape 2 pour une formulation, attribution ou omission locale. Réserver l’approbation humaine à son propriétaire réel.
 Sortie : constats, corrections, périmètre rouvert et verdict explicite.
 
+Avant de conclure la revue, écrire dans le livrable lui-même l’objection qui pourrait inverser la thèse et l’observation qui ferait changer la recommandation. Une réserve générale ou une mention PASS dans review.json ne suffit pas. Tester les titres seuls : chaque titre directeur porte une conclusion qualifiée ou un acquis attendu ; réserver les titres descriptifs aux repères qui le nécessitent.
+
 ## 4. Livrer et réactiver si nécessaire
 Mapper les blocs au contrat choisi : longueur, ordre, sections, sources, liens, chartes et support. Vérifier le rendu si produit ; un Markdown à deux sections n’est pas deux pages physiques vérifiées. Ne pas réduire la police ni supprimer un risque critique pour tenir la pagination.
 Un défaut de preuve retourne au paquet analytique/source ; un défaut d’ordre à 1 ; un défaut de texte à 2 ; un défaut de cohérence à 3 ; un défaut de rendu au renderer. Une réparation ciblée puis une vérification ; échec matériel persistant = REOPEN_TARGETED avec condition de reprise.
 Livrer contenu, références et limites de validation réelles. Effectuer un loopback léger : observation, couche concernée, delta réutilisable ou NO_REUSABLE_DELTA. Aucun changement canonique automatique.
+
+Le livrable diffusé seul reste compréhensible : résoudre les codes de source/claim dans une légende compacte ou conserver des attributions textuelles autonomes. Un cas proposé doit expliciter les capacités nécessaires encore non attestées, notamment accès et ingestion documentaire. Tester ce point avant de présenter un parcours comme immédiatement réalisable.
 
 ## Ressources conditionnelles
 - [Routage et formats](references/routing.md) : intention/format ou révision de format.
@@ -40,3 +44,4 @@ Livrer contenu, références et limites de validation réelles. Effectuer un loo
 - [Interface d’analyse](references/analysis-interface.md) : import ou demande d’analyse.
 - [Three-pager candidat](references/three-pager.md) : seulement si ce format est demandé.
 - [Sources de méthode](references/sources.md) : audit ou approfondissement de la méthode.
+

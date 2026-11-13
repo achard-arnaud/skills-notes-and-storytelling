@@ -1,0 +1,11 @@
+{"path": "brief.md", "bytes": 2807, "words": 405, "sha256": "46012196619ea8871fa075851f15fdd507e2a7920e1def85bc85c131e62a22e4", "read_at": 1794601426.1746905}
+{"path": "baseline/AGENTS.md", "bytes": 1922, "words": 251, "sha256": "140a1c59d0f846f3f3fa1a0b5d6950d70521eec51232d9b8d73f2d131c6a7894", "read_at": 1794601426.1749687}
+{"path": "candidate/SKILL.md", "bytes": 5132, "words": 703, "sha256": "01441a37d27fe73e5bd6e26a47a34052d37c690231d9ad3929d8ac116de8167b", "read_at": 1794601426.1753523}
+{"path": "candidate/references/routing.md", "bytes": 1991, "words": 277, "sha256": "53b67e466db426869b3ffa9db4c437c8bc96833655c8f64e2dbe59c277fb06b0", "read_at": 1794601429.7452877}
+{"path": "candidate/references/editorial.md", "bytes": 1707, "words": 247, "sha256": "3b2a249bc02828e91c53570215ce75e5b5b6bbd7ef5c58932cf46b4edda95ae7", "read_at": 1794601429.745894}
+{"path": "candidate/references/analysis-interface.md", "bytes": 1454, "words": 196, "sha256": "f3a26b678f49cc919441a1c22da3634b23eec45dfaea7bcaf0881f81e07b6ce0", "read_at": 1794601429.7461808}
+{"path": "baseline/templates/two-pager.md", "bytes": 2181, "words": 327, "sha256": "66cbf2110c489d512abaf019a56a08884aacbb2b44e87afaa53c2588631a9cba", "read_at": 1794601434.7129648}
+{"path": "baseline/templates/one-pager.md", "bytes": 233, "words": 37, "sha256": "cc32526d9f0705d4250571c608f2828783772d55a5ae7a259f1d6b4f0e624cf8", "read_at": 1794601434.7133067}
+{"path": "candidate/references/review.md", "bytes": 1292, "words": 191, "sha256": "00382b6db0cb4fbfaf397b37113d713081eda3e6a27064de1e9dea9433303bab", "read_at": 1794601434.7135699}
+{"path": "baseline/docs/architecture/README.md", "bytes": 2058, "words": 265, "sha256": "e6c2eb297ee5e591120501c3e757d9559ee935c070e050319d5542196d69c22a", "read_at": 1794601579.4388866}
+{"path": "baseline/docs/architecture/ADR-1003-narrative-artifacts.md", "bytes": 2039, "words": 237, "sha256": "2646c9784805b96e195ffdfcc9980af833dc54587234d840b2ac376d3233a107", "read_at": 1794601582.9767714}

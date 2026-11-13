@@ -5,3 +5,4 @@ Statuts : attributed_claim, inference, hypothesis, recommendation, unknown. Les 
 Pour SWOT→TOWS : conserver les facteurs S/W/O/T sourcés ; une option SO/WO/ST/WT référence ses facteurs et reste une recommandation ou hypothèse. Ne pas présenter une combinaison de facteurs comme une preuve de résultat.
 Entrée nouvelle → calculer les blocs dépendants, les marquer à revoir ; préserver le reste. Un pointeur hors scope, une date incohérente ou une référence non résolue est un défaut à corriger, pas un espace à compléter par intuition.
 Des dizaines de méthodes ne justifient pas des dizaines d’appels : choisir l’ensemble minimal, expliciter les dépendances et la condition d’arrêt. Les sorties analytiques restent indépendantes du format final.
+

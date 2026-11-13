@@ -22,4 +22,11 @@ class AnalysisTests(unittest.TestCase):
   self.assertEqual(impacted_blocks([self.p,b],{"AN-SYN-1"}),["B-OPTIONS"])
  def test_method_required(self):
   del self.p["method"];self.assertTrue(self.check())
+ def test_non_object_is_reported(self):
+  self.assertTrue(validate([],[],[]))
+ def test_malformed_reference_is_reported(self):
+  self.p["input_claim_refs"]=[{}];self.assertTrue(self.check())
+ def test_empty_reference_is_reported(self):
+  self.p["input_claim_refs"]=[""];self.assertTrue(self.check())
 if __name__=="__main__":unittest.main()
+

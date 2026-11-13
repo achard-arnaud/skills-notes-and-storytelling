@@ -1,0 +1,20 @@
+{
+  "arm": "B2",
+  "method_reads": 9,
+  "method_bytes": 19811,
+  "method_words": 2712,
+  "method_paths": [
+    "baseline/AGENTS.md",
+    "candidate/SKILL.md",
+    "candidate/references/routing.md",
+    "candidate/references/editorial.md",
+    "candidate/references/review.md",
+    "baseline/docs/architecture/README.md",
+    "baseline/templates/two-pager.md",
+    "baseline/templates/one-pager.md",
+    "baseline/docs/architecture/ADR-1003-narrative-artifacts.md"
+  ],
+  "model_tokens": null,
+  "model_cost": null,
+  "not_a_new_AB_replication": true
+}

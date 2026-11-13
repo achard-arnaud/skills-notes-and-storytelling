@@ -1,0 +1,14 @@
+{
+  "observed_at": "2026-11-13T20:34:38.544357+00:00",
+  "command": "python -m unittest discover -s narrative-experiment/candidate/tests -v",
+  "tests": 11,
+  "status": "PASS",
+  "jsonschema_version": "4.26.0",
+  "scope": "analysis result schema, bindings and affected block selection",
+  "not_tested": [
+    "analysis semantic correctness",
+    "physical pagination",
+    "live URLs",
+    "other three routes"
+  ]
+}

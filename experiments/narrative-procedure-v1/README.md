@@ -1,17 +1,30 @@
-# Procédure rédactionnelle factorisée — expérience candidate
+# Procédure rédactionnelle factorisée — candidat 0.2
 
-Branche dédiée ; base main 16bcb4325bcace66c2c22fa33a97402cb00e1de9. Aucune migration de la skill racine ni installation personnelle.
+Expérience sur branche dédiée ; aucune migration de main/dev ni installation personnelle. Les capacités d’analyse et les contrats canoniques existants sont conservés.
 
-[Skill candidate](SKILL.md) · [Routage](references/routing.md) · [Contrat analytique](references/analysis-interface.md) · [Sources](references/sources.md).
+- [Skill candidate](SKILL.md)
+- [Résultats A/B et renforcement](REPORT.md)
+- [Mandat normalisé](MANDATE.md)
+- [Architecture et stratégie de migration](ARCHITECTURE.md)
+- [Harvest des 13 corps de skills main](AUDIT.md)
+- [Protocole et limites](EVAL-PROTOCOL.md)
+- [Modifications de la deuxième passe](V2-CHANGELOG.md)
+- [Revue aveugle initiale](evals/current-ai/blind-review.md) et [revue du document renforcé](evals/current-ai/reinforced-review.md)
 
-La procédure cadre le mandat, dirige le scaffold, rédige par bloc, relit le récit puis contrôle la livraison. Les formats sont des contrats chargés conditionnellement ; les analystes restent des producteurs d’inputs sourcés. Les templates canoniques du dépôt sont conservés.
+## Livrables comparables
 
-Le harness local mappe les originaux templates/ vers baseline/templates/ au SHA de base. Il ne s’agit pas d’un nouveau catalogue runtime. Les chemins baseline mentionnés dans le routage concernent uniquement cet essai.
+| Paquet | Two-pager | Compagnon company | Trace |
+|---|---|---|---|
+| A main | [A](evals/current-ai/A/two-pager.md) | [A](evals/current-ai/A/company-one-pager.md) | [process](evals/current-ai/A/process.json) |
+| B 0.1 | [B](evals/current-ai/B/two-pager.md) | [B](evals/current-ai/B/company-one-pager.md) | [process](evals/current-ai/B/process.json) |
+| B2 0.2 | [B2](evals/current-ai/B2/two-pager.md) | [B2](evals/current-ai/B2/company-one-pager.md) | [process](evals/current-ai/B2/process.json) |
+
+## Utilisation du candidat
+
+Invoquer SKILL.md avec objectif, public, sources et format. Lire les références à la demande ; sélectionner les templates depuis la racine du dépôt épinglé. Le harness de test matérialise ces mêmes contrats sous baseline/templates/. Une note technique ou pédagogique exige ses contrôles distinctifs ; le seul cas produit testé ne valide pas leur transfert.
 
 ## Contrôles exécutables
 
-Python 3 et jsonschema sont nécessaires. Depuis ce dossier : python -m unittest discover -s tests -v. Le validateur contrôle le schéma et les références ; il ne certifie pas l’analyse métier. Fixture TOWS synthétique, aucune donnée client.
+Python 3 et requirements.txt pour le validateur optionnel. Depuis ce dossier : `python -m unittest discover -s tests -v`. Onze tests réussis : [reçu](test-receipt.json). Ils contrôlent schéma, bindings et sélection des blocs, pas vérité ou qualité analytique.
 
-## Essai
-
-Le brief figé est dans evals/current-ai/brief.md. A utilise main, B ce candidat ; chaque agent travaille dans un contexte frais, avec la même source et sans recherche web. Les résultats et limites seront ajoutés après revue. Le cas est disponible dans la conversation ; l’horodatage de son run original n’est pas attesté comme inférieur à 24 heures. Les mots/octets chargés seront mesurés ; tokens modèle, coût et temps actif exact restent inconnus. Cet essai ne prouve pas un gain statistique.
+La source Markdown reste éditable. Les pages sont logiques ; aucun PDF, rendu navigateur, live preview ou coût/token modèle n’est revendiqué. Les limites et les volumes de lecture sont explicites dans REPORT.md.

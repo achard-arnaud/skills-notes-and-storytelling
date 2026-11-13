@@ -1,0 +1,72 @@
+{
+  "arm": "B",
+  "skill": "compose-decision-narrative candidate",
+  "started_at_epoch": 1794601426.1746905,
+  "completed_at_epoch": 1794601634.5612636,
+  "wall_time_seconds": 208.387,
+  "wall_time_scope": "First recorded context read to final artifacts; includes waiting and shared environment latency; no speed inference.",
+  "steps_actually_done": [
+    {
+      "stage": "context",
+      "action": "Chargement du brief, règles communes, candidate, routage, charte, interface analytique, contrats one/two-pager et revue via read_context. Index architectural et ADR-1003 chargés après rédaction à la demande du coordinateur ; relecture de compatibilité effectuée."
+    },
+    {
+      "stage": "1_direction",
+      "action": "Route produit ; épine product + use cases ; question centrale ; hypothèse Alpha puis décision Router ; ordre des questions et objection. Scaffold et liste de lacunes matérialisés avec les blocs lors de la rédaction."
+    },
+    {
+      "stage": "2_fill",
+      "action": "Rédaction depuis source unique ; registre de 11 claims attribués et 7 analyses locales ; 14 blocs avec bindings ; 3 parcours explicitement hypothétiques. Aucun analyste externe appelé car la demande peut être satisfaite conditionnellement, sans valorisation ou marché chiffré."
+    },
+    {
+      "stage": "3_review",
+      "action": "Auto-relecture source, titres, transitions, objection et découpage ; contrôle Python des IDs, références, marqueurs, URL et colonnes. Correction locale du lien Router avant écriture finale."
+    },
+    {
+      "stage": "4_deliver",
+      "action": "Mapping aux deux contrats ; livraison Markdown/JSON ; limites pagination et résolution réseau explicites ; loopback sans modification canonique."
+    }
+  ],
+  "opened_dependencies": [
+    "brief.md",
+    "baseline/AGENTS.md",
+    "candidate/SKILL.md",
+    "candidate/references/routing.md",
+    "candidate/references/editorial.md",
+    "candidate/references/analysis-interface.md",
+    "baseline/templates/two-pager.md",
+    "baseline/templates/one-pager.md",
+    "candidate/references/review.md",
+    "baseline/docs/architecture/README.md",
+    "baseline/docs/architecture/ADR-1003-narrative-artifacts.md"
+  ],
+  "context_load": {
+    "reads": 11,
+    "bytes_sum": 22816,
+    "words_sum": 3136
+  },
+  "repair_decisions": [
+    {
+      "location": "B02",
+      "issue": "Une URL Alpha avait été associée au libellé Router dans le brouillon en mémoire.",
+      "action": "Suppression du lien Router et mention de l’absence d’URL propre dans la source.",
+      "recheck": "Extraction finale : seulement les deux URL fournies, rattachées à Alpha et Gap Map."
+    }
+  ],
+  "limits": [
+    "Aucun fait externe vérifié",
+    "Aucune validation utilisateur des hypothèses",
+    "Pagination physique non testée",
+    "Pas de revue indépendante",
+    "Aucune modification GitHub",
+    "Pas de tokens ni coûts estimés",
+    "Écriture du scaffold et remplissage dans le même appel de matérialisation ; les raisonnements et statuts sont explicités séparément dans le JSON."
+  ],
+  "outputs": [
+    "two-pager.md",
+    "company-one-pager.md",
+    "scaffold.json",
+    "review.json",
+    "process.json"
+  ]
+}

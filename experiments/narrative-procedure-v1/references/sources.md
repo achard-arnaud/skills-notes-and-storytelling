@@ -6,3 +6,4 @@ Consulté le 13 novembre 2026.
 - McKinsey, https://www.mckinsey.com/locations/mckinsey-client-capabilities-network/our-work/strategic-and-change-communications/the-communications-exchange/making-meaning-matter-a-conversation-with-david-pearl : distinguer construction du récit et seule exécution de la présentation ; importance du contexte du lecteur.
 - Candidatures-nice, workflow/PROCESS.md lu sur main : stratégie/preuves → composition → revue/rendu ; capacités du template et preuves distinctes. Cette transposition n’importe ni personas ni autorisations.
 Les action titles, la revue titres-seuls et la matrice de retour sont des conventions retenues pour ce candidat, pas une norme certifiée commune aux Big Four. Aucun benchmark exhaustif des « meilleurs skills » ni classement de popularité revendiqué.
+

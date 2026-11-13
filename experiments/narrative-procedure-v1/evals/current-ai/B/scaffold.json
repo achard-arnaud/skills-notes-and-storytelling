@@ -1,0 +1,534 @@
+{
+  "mode": "from-scratch",
+  "language": "fr",
+  "reader": "Lecteur exécutif préparant une discussion produit",
+  "route": "produit",
+  "dominant_spine": "product + use cases",
+  "central_question": "Quel usage établir pour décider du périmètre produit d’AI Potluck ?",
+  "answer_status": "recommendation conditional on attributed claims",
+  "dominant_thesis": "Prouver un usage récurrent Alpha pour éclairer le choix Router autonome.",
+  "tension": "Transformer un assemblage ouvert et une ambition écosystème en usage durable sans diluer l’effort produit.",
+  "sources": [
+    {
+      "id": "SRC-JOB",
+      "location": "brief.md — Source unique figée",
+      "status": "provided_material_unverified",
+      "date": "unknown",
+      "scope": "Annonce VP Product attribuée, sans recherche externe"
+    }
+  ],
+  "claims": [
+    {
+      "id": "C01",
+      "source_ref": "SRC-JOB",
+      "status": "attributed_claim",
+      "statement": "Current AI décrit AI Potluck comme un projet open source assemblant des composants ouverts en un produit verticalement intégré, utilisable et construit avec l’écosystème."
+    },
+    {
+      "id": "C02",
+      "source_ref": "SRC-JOB",
+      "status": "attributed_claim",
+      "statement": "Le VP Product rapporte au CEO et possède la stratégie produit et l’organisation product management."
+    },
+    {
+      "id": "C03",
+      "source_ref": "SRC-JOB",
+      "status": "attributed_claim",
+      "statement": "Le VP Product collabore avec le Head of Engineering et l’équipe dirigeante, et traduit la vision en roadmaps et PRD."
+    },
+    {
+      "id": "C04",
+      "source_ref": "SRC-JOB",
+      "status": "attributed_claim",
+      "statement": "Alpha est un assistant assemblé depuis des composants open source ; URL https://www.aipotluck.org/chat."
+    },
+    {
+      "id": "C05",
+      "source_ref": "SRC-JOB",
+      "status": "attributed_claim",
+      "statement": "L’annonce présente Alpha comme lancé en juillet 2026 à AI for Good à Genève et en test ouvert."
+    },
+    {
+      "id": "C06",
+      "source_ref": "SRC-JOB",
+      "status": "attributed_claim",
+      "statement": "Gap Map signale les lacunes de l’écosystème et les zones à financer ou auxquelles contribuer ; URL https://www.aipotluck.org/map."
+    },
+    {
+      "id": "C07",
+      "source_ref": "SRC-JOB",
+      "status": "attributed_claim",
+      "statement": "Alpha Public Router est un endpoint unique vers des modèles de fournisseurs publics ou alignés avec la mission ; il alimente Alpha et doit devenir un produit pour développeurs."
+    },
+    {
+      "id": "C08",
+      "source_ref": "SRC-JOB",
+      "status": "attributed_claim",
+      "statement": "Les six premiers mois visent l’usage quotidien d’Alpha dans un petit nombre d’organisations partenaires."
+    },
+    {
+      "id": "C09",
+      "source_ref": "SRC-JOB",
+      "status": "attributed_claim",
+      "statement": "Les six premiers mois visent une décision sur le produit Router et son appel aux développeurs."
+    },
+    {
+      "id": "C10",
+      "source_ref": "SRC-JOB",
+      "status": "attributed_claim",
+      "statement": "Les six premiers mois visent une roadmap 2027 avec partenaires et bénéficiaires de financement et une hausse des contributions à Alpha."
+    },
+    {
+      "id": "C11",
+      "source_ref": "SRC-JOB",
+      "status": "attributed_claim",
+      "statement": "Les critères de succès annoncés sont dates publiques tenues, organisations actives sur Alpha et Router, projets intégrés et contributions reversées, partenaires livrant une intégration, roadmap compréhensible sans réunion."
+    }
+  ],
+  "analyses": [
+    {
+      "id": "A01",
+      "status": "recommendation",
+      "statement": "Privilégier un apprentissage Alpha chez les partenaires pour instruire ensuite le périmètre Router autonome.",
+      "claim_refs": [
+        "C07",
+        "C08",
+        "C09",
+        "C10"
+      ],
+      "counterargument": "Une demande développeur autonome démontrée peut justifier une ouverture simultanée.",
+      "revision_condition": "Preuves comparatives de demande et de capacité d’intégration."
+    },
+    {
+      "id": "A02",
+      "status": "hypothesis",
+      "statement": "Trois parcours proposés : synthèse avec Alpha, intégration via Router, orientation des contributions avec Gap Map ; valeur et mesures à tester.",
+      "claim_refs": [
+        "C04",
+        "C06",
+        "C07"
+      ],
+      "unknowns": [
+        "Capacités d’ingestion Alpha",
+        "Interface et conditions Router",
+        "Méthode et fraîcheur Gap Map",
+        "Demande et résultats utilisateurs"
+      ]
+    },
+    {
+      "id": "A03",
+      "status": "recommendation",
+      "statement": "Pilote Alpha de deux semaines sur une tâche autorisée, comparé au processus habituel, avec seuils fixés avant démarrage.",
+      "claim_refs": [
+        "C03",
+        "C08",
+        "C11"
+      ],
+      "unknowns": [
+        "Responsable confirmé",
+        "Budget",
+        "Qualité et coût",
+        "Droits et conditions d’usage"
+      ]
+    },
+    {
+      "id": "A04",
+      "status": "unknown",
+      "statement": "La source ne fournit ni données financières et organisationnelles détaillées ni résultats d’usage ; les lieux, statuts et dates non fournis restent inconnus.",
+      "claim_refs": [
+        "C05",
+        "C10"
+      ]
+    },
+    {
+      "id": "A05",
+      "status": "inference",
+      "statement": "L’horizon annoncé relie adoption, périmètre produit et préparation de la roadmap, sans date de départ permettant de calculer une échéance.",
+      "claim_refs": [
+        "C08",
+        "C09",
+        "C10"
+      ]
+    },
+    {
+      "id": "A06",
+      "status": "recommendation",
+      "statement": "Vérifier données, licences, conditions fournisseurs, capacités, exploitation et coût avant un engagement pilote.",
+      "claim_refs": [
+        "C01",
+        "C07",
+        "C08"
+      ]
+    },
+    {
+      "id": "A07",
+      "status": "recommendation",
+      "statement": "Préparer la discussion entreprise autour de preuves de tâches, arbitrages et ressources du pilotage produit.",
+      "claim_refs": [
+        "C02",
+        "C03",
+        "C08",
+        "C09",
+        "C10",
+        "C11"
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "id": "B01",
+      "artifact": "two-pager.md",
+      "logical_page": 1,
+      "question": "Quel choix préparer ?",
+      "title": "Faire de l’usage d’Alpha la preuve qui éclaire le choix du Router",
+      "payoff": "Une hypothèse décisionnelle",
+      "claim_refs": [
+        "C07",
+        "C08",
+        "C09",
+        "C10"
+      ],
+      "analysis_refs": [
+        "A01"
+      ],
+      "limits": "Séquence proposée",
+      "material_objection": "Traction développeur indépendante",
+      "transition": "Établir les fonctions",
+      "visual_role": "none",
+      "format_constraint": "Thèse unique",
+      "source_refs": [
+        "SRC-JOB"
+      ]
+    },
+    {
+      "id": "B02",
+      "artifact": "two-pager.md",
+      "logical_page": 1,
+      "question": "Que sont les trois composantes ?",
+      "title": "Trois composantes, des fonctions distinctes",
+      "payoff": "Repères et dépendance Router vers Alpha",
+      "claim_refs": [
+        "C01",
+        "C04",
+        "C06",
+        "C07"
+      ],
+      "analysis_refs": [],
+      "limits": "Aucun flux technique Gap Map établi",
+      "material_objection": "Fonctions annoncées, pas performances",
+      "transition": "Examiner objectifs et succès",
+      "visual_role": "comparison_table_with_dependency",
+      "format_constraint": "3 colonnes",
+      "source_refs": [
+        "SRC-JOB"
+      ]
+    },
+    {
+      "id": "B03",
+      "artifact": "two-pager.md",
+      "logical_page": 1,
+      "question": "Quels repères soutiennent le choix ?",
+      "title": "Quatre repères attribués",
+      "payoff": "Contexte, objectifs et mesures annoncés",
+      "claim_refs": [
+        "C05",
+        "C08",
+        "C09",
+        "C10",
+        "C11"
+      ],
+      "analysis_refs": [],
+      "limits": "Statut non revérifié",
+      "material_objection": "Objectifs non assimilables aux résultats",
+      "transition": "Borner la confiance",
+      "visual_role": "four_facts",
+      "format_constraint": "3–5 faits",
+      "source_refs": [
+        "SRC-JOB"
+      ]
+    },
+    {
+      "id": "B04",
+      "artifact": "two-pager.md",
+      "logical_page": 1,
+      "question": "Pourquoi maintenant et avec quelle confiance ?",
+      "title": "Un horizon annoncé, des résultats inconnus",
+      "payoff": "Éviter une conclusion de traction prématurée",
+      "claim_refs": [
+        "C08",
+        "C09",
+        "C10"
+      ],
+      "analysis_refs": [
+        "A04",
+        "A05"
+      ],
+      "limits": "Aucun calendrier calculé, aucune donnée d’usage",
+      "material_objection": "Des résultats non fournis pourraient changer le choix",
+      "transition": "Passer aux expériences",
+      "visual_role": "none",
+      "format_constraint": "Inconnues matérielles",
+      "source_refs": [
+        "SRC-JOB"
+      ]
+    },
+    {
+      "id": "B05",
+      "artifact": "two-pager.md",
+      "logical_page": 2,
+      "question": "Pour qui tester quelle valeur ?",
+      "title": "Trois parcours à tester",
+      "payoff": "Acteur, tâche, parcours, valeur, conditions et mesure",
+      "claim_refs": [
+        "C04",
+        "C06",
+        "C07"
+      ],
+      "analysis_refs": [
+        "A02"
+      ],
+      "limits": "Tous les parcours sont proposés",
+      "material_objection": "Fonctionnalités et bénéfices à valider",
+      "transition": "Comparer les options",
+      "visual_role": "use_case_table",
+      "format_constraint": "4 colonnes ; 3 cas",
+      "source_refs": [
+        "SRC-JOB"
+      ]
+    },
+    {
+      "id": "B06",
+      "artifact": "two-pager.md",
+      "logical_page": 2,
+      "question": "Quel périmètre engager ?",
+      "title": "Arbitrer le besoin Router autonome",
+      "payoff": "Alternative et condition de révision",
+      "claim_refs": [
+        "C07",
+        "C08",
+        "C09"
+      ],
+      "analysis_refs": [
+        "A01"
+      ],
+      "limits": "Ni coûts ni demande comparables fournis",
+      "material_objection": "Besoin développeur autonome confirmé",
+      "transition": "Vérifier conditions avant pilote",
+      "visual_role": "none",
+      "format_constraint": "Alternative pertinente",
+      "source_refs": [
+        "SRC-JOB"
+      ]
+    },
+    {
+      "id": "B07",
+      "artifact": "two-pager.md",
+      "logical_page": 2,
+      "question": "Quelles conditions peuvent empêcher le pilote ?",
+      "title": "Vérifier les conditions avant engagement",
+      "payoff": "Rendre les gates explicites",
+      "claim_refs": [
+        "C01",
+        "C07",
+        "C08"
+      ],
+      "analysis_refs": [
+        "A06"
+      ],
+      "limits": "Garanties non connues",
+      "material_objection": "Données ou conditions incompatibles",
+      "transition": "Proposer un engagement réversible",
+      "visual_role": "none",
+      "format_constraint": "Contraintes dures",
+      "source_refs": [
+        "SRC-JOB"
+      ]
+    },
+    {
+      "id": "B08",
+      "artifact": "two-pager.md",
+      "logical_page": 2,
+      "question": "Quel prochain pas réversible ?",
+      "title": "Cadrer un pilote sur une tâche",
+      "payoff": "Une action, responsable possible et test",
+      "claim_refs": [
+        "C03",
+        "C08",
+        "C11"
+      ],
+      "analysis_refs": [
+        "A03"
+      ],
+      "limits": "Durée et métriques proposées ; seuils à convenir",
+      "material_objection": "Qualité insuffisante : arrêt",
+      "transition": "Documenter décision et besoins Router",
+      "visual_role": "none",
+      "format_constraint": "CTA unique",
+      "source_refs": [
+        "SRC-JOB"
+      ]
+    },
+    {
+      "id": "B09",
+      "artifact": "two-pager.md",
+      "logical_page": 2,
+      "question": "D’où vient le contenu ?",
+      "title": "Source et portée",
+      "payoff": "Auditabilité",
+      "claim_refs": [],
+      "analysis_refs": [],
+      "limits": "Source fournie, liens non ouverts, pagination non testée",
+      "material_objection": "Aucune corroboration",
+      "transition": "none",
+      "visual_role": "source_note",
+      "format_constraint": "Sources compactes",
+      "source_refs": [
+        "SRC-JOB"
+      ]
+    },
+    {
+      "id": "O01",
+      "artifact": "company-one-pager.md",
+      "logical_page": 1,
+      "question": "Sous quel angle évaluer Current AI ?",
+      "title": "Transformer l’assemblage ouvert en usage durable",
+      "payoff": "Une discussion ciblée",
+      "claim_refs": [
+        "C01",
+        "C08",
+        "C11"
+      ],
+      "analysis_refs": [
+        "A07"
+      ],
+      "limits": "Performance organisationnelle inconnue",
+      "material_objection": "Ambition ne prouve pas exécution",
+      "transition": "Établir les faits",
+      "visual_role": "none",
+      "format_constraint": "Une décision",
+      "source_refs": [
+        "SRC-JOB"
+      ]
+    },
+    {
+      "id": "O02",
+      "artifact": "company-one-pager.md",
+      "logical_page": 1,
+      "question": "Que décrit la source sur l’organisation ?",
+      "title": "Quatre faits attribués",
+      "payoff": "Identité du projet et mandat produit",
+      "claim_refs": [
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C06",
+        "C07",
+        "C08",
+        "C09",
+        "C10"
+      ],
+      "analysis_refs": [],
+      "limits": "Annonce seule",
+      "material_objection": "Objectifs pas résultats",
+      "transition": "Montrer les inconnues",
+      "visual_role": "four_facts",
+      "format_constraint": "3–5 faits",
+      "source_refs": [
+        "SRC-JOB"
+      ]
+    },
+    {
+      "id": "O03",
+      "artifact": "company-one-pager.md",
+      "logical_page": 1,
+      "question": "Quelles limites sur la connaissance entreprise ?",
+      "title": "Repères disponibles et inconnues",
+      "payoff": "Prévenir les confusions de scope",
+      "claim_refs": [
+        "C05",
+        "C10",
+        "C11"
+      ],
+      "analysis_refs": [
+        "A04"
+      ],
+      "limits": "Finance, taille, statut, localisation inconnus",
+      "material_objection": "Bénéficiaires et événement ne décrivent pas le financement ou siège",
+      "transition": "Préparer les demandes de preuve",
+      "visual_role": "comparison_table",
+      "format_constraint": "2 colonnes",
+      "source_refs": [
+        "SRC-JOB"
+      ]
+    },
+    {
+      "id": "O04",
+      "artifact": "company-one-pager.md",
+      "logical_page": 1,
+      "question": "Que demander et qu’est-ce qui changerait le conseil ?",
+      "title": "Examiner usage, arbitrages et ressources",
+      "payoff": "Trois actions et objection décisive",
+      "claim_refs": [
+        "C02",
+        "C03",
+        "C08",
+        "C09",
+        "C10",
+        "C11"
+      ],
+      "analysis_refs": [
+        "A01",
+        "A07"
+      ],
+      "limits": "Actions proposées",
+      "material_objection": "Traction Router plus forte",
+      "transition": "Rappeler la source",
+      "visual_role": "none",
+      "format_constraint": "Recommandation et 3 actions",
+      "source_refs": [
+        "SRC-JOB"
+      ]
+    },
+    {
+      "id": "O05",
+      "artifact": "company-one-pager.md",
+      "logical_page": 1,
+      "question": "Quelle source et quel support ?",
+      "title": "Source et portée",
+      "payoff": "Références résolvables",
+      "claim_refs": [
+        "C04",
+        "C06"
+      ],
+      "analysis_refs": [],
+      "limits": "Liens non ouverts ; une page logique",
+      "material_objection": "Pas de corroboration externe",
+      "transition": "none",
+      "visual_role": "source_note",
+      "format_constraint": "Pas d’annexe",
+      "source_refs": [
+        "SRC-JOB"
+      ]
+    }
+  ],
+  "missing_evidence": [
+    "Demande utilisateur et développeur documentée",
+    "Capacités et conditions techniques",
+    "Usage observé et résultats de tâches",
+    "Coûts, modèle économique et moyens",
+    "Dates de publication et début des six mois"
+  ],
+  "side_stories": [],
+  "pagination": {
+    "logical_pages": {
+      "two-pager.md": 2,
+      "company-one-pager.md": 1
+    },
+    "physical_tested": false
+  },
+  "contracts": [
+    "baseline/templates/two-pager.md",
+    "baseline/templates/one-pager.md"
+  ]
+}

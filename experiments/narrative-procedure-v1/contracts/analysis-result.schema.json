@@ -44,7 +44,8 @@
       "type": "array",
       "uniqueItems": true,
       "items": {
-        "type": "string"
+        "type": "string",
+        "minLength": 1
       },
       "minItems": 1
     },
@@ -78,7 +79,8 @@
             "minItems": 1,
             "uniqueItems": true,
             "items": {
-              "type": "string"
+              "type": "string",
+              "minLength": 1
             }
           }
         }
@@ -101,7 +103,8 @@
       "minItems": 1,
       "uniqueItems": true,
       "items": {
-        "type": "string"
+        "type": "string",
+        "minLength": 1
       }
     }
   }

@@ -1,0 +1,177 @@
+{
+  "mode": "from-scratch",
+  "route": "produit",
+  "secondary_angle": "organisation de la décision produit",
+  "subject_spine": "product + use cases",
+  "reader": "exécutif préparant une discussion produit",
+  "support": "Markdown, deux pages logiques et une page logique compagnon ; aucun rendu physique",
+  "source": {
+    "SRC-JOB": "Annonce VP Product, matériau fourni dans brief.md, non corroboré ; date de publication et horodatage original non vérifiés"
+  },
+  "central_question": "Quelle priorité produit discuter pour convertir les trois composantes AI Potluck en usages durables ?",
+  "thesis": "Proposition : prendre l’usage récurrent d’Alpha comme point de départ, tout en exigeant une preuve distincte de demande pour le Router développeur.",
+  "tension": "Une intégration utilisable promet une expérience cohérente, mais son usage et la demande autonome du Router restent à démontrer.",
+  "claims": [
+    {
+      "id": "C1",
+      "text": "AI Potluck assemble des composants ouverts dans un produit verticalement intégré, construit avec l’écosystème.",
+      "source": "SRC-JOB"
+    },
+    {
+      "id": "C2",
+      "text": "Alpha : assistant open source, annoncé lancé en juillet 2026 à AI for Good à Genève et en test ouvert.",
+      "source": "SRC-JOB"
+    },
+    {
+      "id": "C3",
+      "text": "Gap Map : insights sur les lacunes et zones à financer ou auxquelles contribuer.",
+      "source": "SRC-JOB"
+    },
+    {
+      "id": "C4",
+      "text": "Public Router : endpoint unique vers des modèles publics ou alignés mission ; alimente Alpha ; produit développeur visé.",
+      "source": "SRC-JOB"
+    },
+    {
+      "id": "C5",
+      "text": "Les six premiers mois visent usage quotidien partenaire, décision Router, roadmap 2027 et hausse des contributions.",
+      "source": "SRC-JOB"
+    },
+    {
+      "id": "C6",
+      "text": "Succès annoncé : dates tenues, organisations actives Alpha/Router, projets intégrés et contributions reversées, intégrations livrées par partenaires, roadmap lisible sans réunion.",
+      "source": "SRC-JOB"
+    },
+    {
+      "id": "C7",
+      "text": "VP Product rattaché CEO, propriétaire stratégie et organisation PM, collabore avec Head of Engineering et direction ; traduit vision en roadmaps et PRD.",
+      "source": "SRC-JOB"
+    }
+  ],
+  "blocks": [
+    {
+      "id": "P1-B1",
+      "question": "Quelle décision préparer ?",
+      "title": "Proposition : ancrer la priorité dans l’usage d’Alpha, puis tester le Router séparément",
+      "payoff": "Une hypothèse de réunion, calibrée au matériau",
+      "claim_refs": [
+        "C1",
+        "C5"
+      ],
+      "analysis_refs": [],
+      "limits": "Aucune traction démontrée",
+      "material_objection": "Une demande Router autonome peut inverser la priorité",
+      "transition": "Voir le rôle réel des trois composantes",
+      "visual_role": "prose",
+      "format_constraint": "page 1"
+    },
+    {
+      "id": "P1-B2",
+      "question": "Que fournit le programme ?",
+      "title": "Trois composantes relient expérience, infrastructure et orientation des contributions",
+      "payoff": "Comprendre les frontières et la dépendance attestée",
+      "claim_refs": [
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ],
+      "analysis_refs": [],
+      "limits": "Aucune intégration technique de Gap Map attestée",
+      "material_objection": "Un catalogue ne prouve pas une chaîne de valeur opérationnelle",
+      "transition": "Comparer ces rôles aux résultats attendus",
+      "visual_role": "tableau et flux textuel",
+      "format_constraint": "page 1"
+    },
+    {
+      "id": "P1-B3",
+      "question": "Que cherche-t-on à prouver ?",
+      "title": "Les six premiers mois visent l’adoption et la capacité de livraison",
+      "payoff": "Distinguer objectifs annoncés et résultats",
+      "claim_refs": [
+        "C5",
+        "C6"
+      ],
+      "analysis_refs": [],
+      "limits": "Pas de mesure réalisée fournie",
+      "material_objection": "Une livraison tenue sans usage ne valide pas la valeur",
+      "transition": "Choisir des tâches à observer",
+      "visual_role": "liste compacte",
+      "format_constraint": "page 1"
+    },
+    {
+      "id": "P2-B1",
+      "question": "Quels usages mettre à l’épreuve ?",
+      "title": "Trois cas proposés testent une valeur différente",
+      "payoff": "Acteur, tâche, parcours, valeur, conditions et mesure",
+      "claim_refs": [
+        "C2",
+        "C3",
+        "C4"
+      ],
+      "analysis_refs": [],
+      "limits": "Cas non démontrés ; accès et ingestion non attestés",
+      "material_objection": "Une fonction disponible peut ne résoudre aucune tâche prioritaire",
+      "transition": "Évaluer les alternatives et contraintes",
+      "visual_role": "trois cas structurés",
+      "format_constraint": "page 2"
+    },
+    {
+      "id": "P2-B2",
+      "question": "Quand changer de priorité ?",
+      "title": "Une demande Router autonome pourrait inverser la recommandation",
+      "payoff": "Objection et observation discriminante explicites",
+      "claim_refs": [
+        "C4",
+        "C5"
+      ],
+      "analysis_refs": [],
+      "limits": "Aucune donnée comparative",
+      "material_objection": "Le Router peut être le véritable point d’entrée",
+      "transition": "Faire un test réversible",
+      "visual_role": "prose",
+      "format_constraint": "page 2"
+    },
+    {
+      "id": "P2-B3",
+      "question": "Quelle action engager ?",
+      "title": "Proposition : autoriser seulement un cadrage de pilote réversible",
+      "payoff": "Responsable possible, décision et critères de passage",
+      "claim_refs": [
+        "C5",
+        "C7"
+      ],
+      "analysis_refs": [],
+      "limits": "Aucun engagement opérationnel ni budget supposé",
+      "material_objection": "Capacité ou conditions de données peuvent bloquer le pilote",
+      "transition": "Décider au vu des preuves",
+      "visual_role": "liste courte",
+      "format_constraint": "page 2"
+    },
+    {
+      "id": "CO-B1",
+      "question": "Que sait-on de Current AI ?",
+      "title": "Current AI présente une ambition produit ; son assise reste à qualifier",
+      "payoff": "Séparer organisation et produit",
+      "claim_refs": [
+        "C1",
+        "C7"
+      ],
+      "analysis_refs": [],
+      "limits": "Faits d’entreprise largement absents",
+      "material_objection": "La structure de gouvernance ne prouve pas les ressources",
+      "transition": "Qualifier une discussion de travail",
+      "visual_role": "tableau",
+      "format_constraint": "compagnon"
+    }
+  ],
+  "missing_evidence": [
+    "usage actuel et rétention Alpha",
+    "besoins et demande développeurs Router",
+    "capacités documentaires Alpha et conditions de données",
+    "documentation, accès, stabilité et limites du Router",
+    "provenance et fraîcheur des insights Gap Map",
+    "identité juridique, taille et ressources Current AI"
+  ],
+  "side_stories": []
+}

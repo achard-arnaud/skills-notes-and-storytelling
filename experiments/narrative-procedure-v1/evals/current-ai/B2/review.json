@@ -1,0 +1,64 @@
+{
+  "scope": "Two-pager principal ; one-pager compagnon vérifié séparément. Aucun verdict comparatif sur un autre résultat.",
+  "reviewer": "même agent auteur, auto-revue ; aucune revue indépendante",
+  "verdict": "PASS_WITH_LIMITS",
+  "dimensions": {
+    "format_contract": {
+      "status": "PASS",
+      "evidence": "Deux pages logiques, vérité/thèse puis usages/action ; trois cas proposés ; un tableau de mécanismes. Compagnon : une décision, quatre faits, tableau, recommandation et trois actions."
+    },
+    "evidence": {
+      "status": "PASS",
+      "evidence": "Faits attribués au seul extrait fourni ; statut non corroboré conservé ; aucune précision inventée sur la société."
+    },
+    "analytical_utility": {
+      "status": "PASS",
+      "limits": "Hypothèse produit et protocoles proposés, sans analyse de marché ou validation technique ; inconnues maintenues."
+    },
+    "narrative_coherence": {
+      "status": "PASS",
+      "evidence": "Titres lus seuls, puis transitions et conclusion ; thèse unique, alternative Router et observation de renversement présentes dans la prose."
+    },
+    "syntax_and_identifiers": {
+      "status": "PASS",
+      "evidence": "JSON scaffold parsé ; références de claims résolues ; tableaux Markdown au plus cinq colonnes."
+    },
+    "source_portability": {
+      "status": "PASS",
+      "evidence": "Les deux documents ont été relus seuls ; attributions et statuts interprétables sans scaffold/process."
+    },
+    "use_case_capabilities": {
+      "status": "PASS",
+      "evidence": "Capacité documentaire explicitement non attestée et conditionnée avant pilote ; Router et Gap Map soumis à vérification."
+    },
+    "external_link_availability": {
+      "status": "NOT_RUN",
+      "reason": "Recherche et accès externes exclus ; URLs recopiées de la source, non testées."
+    },
+    "physical_render_and_pagination": {
+      "status": "NOT_RUN",
+      "reason": "Markdown et pages logiques demandés ; aucun rendu physique."
+    },
+    "human_decision": {
+      "status": "NOT_RUN",
+      "reason": "Le cadrage de pilote est une proposition au lecteur, aucune autorisation externe engagée."
+    }
+  },
+  "actual_checks": {
+    "two_logical_pages": true,
+    "three_proposed_use_cases": true,
+    "portable_source_attribution": true,
+    "falsification_in_final_prose": true,
+    "document_capability_gate_in_final_prose": true,
+    "no_more_than_five_table_columns": true,
+    "companion_has_table_and_recommendation": true,
+    "scaffold_claims_resolve": true
+  },
+  "returns": [],
+  "loopback": {
+    "observation": "Les contrôles de portabilité, réfutation et capacités sont satisfaits dans la prose finale.",
+    "layer": "composition RUN",
+    "delta": "NO_REUSABLE_DELTA",
+    "canonical_changes": false
+  }
+}
