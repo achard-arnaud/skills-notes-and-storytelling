@@ -1,0 +1,31 @@
+{
+  "id": "AN-SYN-1",
+  "method": "TOWS",
+  "method_version": "candidate-1",
+  "question": "Quel test de distribution instruire ?",
+  "scope": "Entreprise fictive ; fixture synthétique",
+  "as_of": "2026-11-13",
+  "input_claim_refs": [
+    "SYN-S1",
+    "SYN-O1"
+  ],
+  "findings": [
+    {
+      "statement": "Option SO : tester un canal partenaire avant de développer une vente directe.",
+      "status": "recommendation",
+      "claim_refs": [
+        "SYN-S1",
+        "SYN-O1"
+      ]
+    }
+  ],
+  "counterevidence": [
+    "La capacité du partenaire est inconnue."
+  ],
+  "unknowns": [
+    "Coût d’activation"
+  ],
+  "affects_blocks": [
+    "B-OPTIONS"
+  ]
+}
