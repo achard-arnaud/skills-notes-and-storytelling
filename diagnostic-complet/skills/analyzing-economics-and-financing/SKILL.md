@@ -27,12 +27,12 @@ Un montant publié par l'entreprise est `attributed_claim`. Un gain estimé est 
 
 Lire `../side-stories-business/SKILL.md`, puis le fichier du type retenu. Types recommandés pour ce pilier :
 
-| Type | Quand | Référence |
+| Type affiché | Quand | Référence |
 |---|---|---|
-| `[FOC]` `analytical_focus` | Démonter une promesse de gain : baseline, attribution, seuil de valeur, conditions de réinvestissement. | `../side-stories-business/references/types/analytical_focus.md` |
-| `[CMP]` `comparator` | Comparer des modèles économiques ou des niveaux d'investissement sur un critère commun (CAPEX, risque porté, délai de première valeur). | `../side-stories-business/references/types/comparator.md` |
-| `[DZ]` `dezoom` | Passer de l'économie d'un cas à celle du portefeuille (coût marginal par nouveau cas, réutilisation). | `../side-stories-business/references/types/dezoom.md` |
-| `[VAC]` `veille_academique` | Définir TCO, ROI, délai de retour et seuil de valeur avec leur source et leur limite. | `../side-stories-business/references/types/veille_academique.md` |
+| Analyse approfondie (`analytical_focus`) | Démonter une promesse de gain : baseline, attribution, seuil de valeur, conditions de réinvestissement. | `../side-stories-business/references/types/analytical_focus.md` |
+| Comparatif (`comparator`) | Comparer des modèles économiques ou des niveaux d'investissement sur un critère commun (CAPEX, risque porté, délai de première valeur). | `../side-stories-business/references/types/comparator.md` |
+| Changement d'échelle (`dezoom`) | Passer de l'économie d'un cas à celle du portefeuille (coût marginal par nouveau cas, réutilisation). | `../side-stories-business/references/types/dezoom.md` |
+| Veille académique (`veille_academique`) | Définir TCO, ROI, délai de retour et seuil de valeur avec leur source et leur limite. | `../side-stories-business/references/types/veille_academique.md` |
 
 ### Problématiques types à fournir au rédacteur
 
@@ -54,8 +54,13 @@ Fournir au rédacteur le **paquet de rendu** (`../side-stories-business/referenc
 
 ## Style indicatif
 
-Comptable de forme : unités, périodes et hypothèses toujours écrites ; aucune ligne de gain sans sa baseline. Voix de François-Pro : sobre, dense, une idée par phrase.
+Comptable de forme : unités, périodes et hypothèses toujours écrites ; aucune ligne de gain sans sa baseline. Directive de style adoptée (ADR-0012) : direct, factuel, analytique, didactique ; l'essentiel d'abord ; phrases courtes ; jamais d'effet de balancement ni de double négation ; orienté décision.
 
 ## Exemples issus de la KB
 
 `examples/kb-pointers.json` : `EX-ECO-01`, `EX-DZ-02`. Identifiants opaques à résoudre dans le dépôt Graph1 privé (voir `workflows/kb-examples.json`) ; ne jamais copier leur texte ici (D23).
+
+
+## Références d’architecture conditionnelles
+
+Pour une évolution de méthode, lire [ADR-1001](../../../docs/architecture/ADR-1001-routing-capabilities.md) et [ADR-1002](../../../docs/architecture/ADR-1002-evidence-knowledge.md). Le chargement RUN reste limité au contrat et au paquet de l’étape ; les principes communs ne changent pas les capacités locales.

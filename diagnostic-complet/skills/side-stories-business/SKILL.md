@@ -11,20 +11,20 @@ La source de vérité est `diagnostic-complet/workflows/side-stories.workflow.js
 
 ## Les six types
 
-| Tag | Type | Format en une ligne | Référence |
+| Libellé affiché | Type | Format en une ligne | Référence |
 |---|---|---|---|
-| `[VCP]` | `veille_corporate_perso` | Pitch d'entreprise, 10 à 15 lignes, faits datés puis lecture signée | `references/types/veille_corporate_perso.md` |
-| `[VAC]` | `veille_academique` | Lexique de 5 à 7 entrées en cinq blocs, sources explicites | `references/types/veille_academique.md` |
-| `[DZ]` | `dezoom` | Local, canal de transmission, retour local ; 220 mots | `references/types/dezoom.md` |
-| `[CMP]` | `comparator` | Table de 3 à 5 lignes et 5 colonnes au plus, critère commun | `references/types/comparator.md` |
-| `[ILL]` | `illustration` | Cas d'usage, citation, objet ou personne ; 150 mots | `references/types/illustration.md` |
-| `[FOC]` | `analytical_focus` | Question, thèse, deux positions, mécanismes avec statut de preuve | `references/types/analytical_focus.md` |
+| Veille entreprise | `veille_corporate_perso` | Pitch d'entreprise, 10 à 15 lignes, faits datés puis lecture signée | `references/types/veille_corporate_perso.md` |
+| Veille académique | `veille_academique` | Lexique de 5 à 7 entrées en cinq blocs, sources explicites | `references/types/veille_academique.md` |
+| Changement d'échelle | `dezoom` | Local, canal de transmission, retour local ; 220 mots | `references/types/dezoom.md` |
+| Comparatif | `comparator` | Table de 3 à 5 lignes et 5 colonnes au plus, critère commun | `references/types/comparator.md` |
+| Exemple concret | `illustration` | Cas d'usage, citation, objet ou personne ; 150 mots | `references/types/illustration.md` |
+| Analyse approfondie | `analytical_focus` | Question, thèse, deux positions, mécanismes avec statut de preuve | `references/types/analytical_focus.md` |
 
 Anciens types : `detour`, `also`, `portrait`, `object_focus`, `callback` deviennent `illustration` ; `method` devient `veille_academique` ; `false_lead` devient `analytical_focus`. Ils restent acceptés pour les études existantes mais ne se créent plus. Un rappel (callback) est un champ `bridge.callback_to`, utilisable sur tout type.
 
 ## Procédure
 
-1. **Recevoir un candidat** d'un skill de pilier : type probable, problématique, passage d'accueil, claims. Sans problématique ni passage, demander au skill de pilier de les produire ; ne pas les inventer, car une side story sans question dérive vers l'anecdote.
+1. **Recevoir un candidat** d'un skill de pilier : type probable, problématique, passage d'accueil, claims. Sans problématique ni passage, demander au skill de pilier de les produire ; ne pas les inventer, car une side story sans question dérive vers l'anecdote. Si le texte du passage n'est pas fourni, en demander deux phrases clés avant d'écrire les liens avec le passage : un « à confirmer » dans une entrée ne rend aucun service au lecteur.
 2. **Choisir le type** avec `choice_tree`. Écrire une ligne qui dit pourquoi les deux types voisins ne conviennent pas : c'est le critère de choix qui manquait aux premiers inventaires.
 3. **Construire le paquet de rendu** : voir `references/renderer-packet.md`. Le rédacteur ne reçoit que ce paquet.
 4. **Rédiger** au format du type (fichier de référence du type, squelette JSON compris). Un type, une ligne éditoriale : un encart mixte devient deux side stories.
@@ -40,7 +40,7 @@ Anciens types : `detour`, `also`, `portrait`, `object_focus`, `callback` devienn
 
 ## Style indicatif
 
-Sobre, dense, une idée par phrase, chiffres datés et sourcés, conditionnel pour toute hypothèse. Le détail par type est dans les fichiers de référence ; il oriente la rédaction et ne se vérifie pas mécaniquement.
+Directive de style adoptée (ADR-0012) : direct, factuel, analytique, didactique ; l'essentiel d'abord ; phrases courtes ; jamais d'effet de balancement ni de double négation ; orienté décision. Chiffres datés et sourcés, conditionnel pour toute hypothèse. Source : `style_indicative` du workflow ; `runtime.py validate` signale les écarts mécaniques en lacune. Le détail par type est dans les fichiers de référence ; il oriente la rédaction et ne se vérifie pas mécaniquement.
 
 ## Exemples issus de la KB
 
@@ -49,3 +49,8 @@ Sobre, dense, une idée par phrase, chiffres datés et sourcés, conditionnel po
 ## Hors périmètre
 
 Qualifier les piliers (skills `analyzing-*`), rédiger le tronc (`designing-main-story`), rendre le HTML (`render.py`).
+
+
+## Références d’architecture conditionnelles
+
+Pour une évolution de méthode, lire [ADR-1003](../../../docs/architecture/ADR-1003-narrative-artifacts.md) et [ADR-1005](../../../docs/architecture/ADR-1005-learning-validation.md). Le chargement RUN reste limité au contrat et au paquet de l’étape ; les principes communs ne changent pas les capacités locales.

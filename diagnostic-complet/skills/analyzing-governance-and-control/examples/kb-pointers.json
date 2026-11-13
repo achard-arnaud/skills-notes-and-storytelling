@@ -20,7 +20,8 @@
         "ATOM-a2115d264b7392d891ee7aea3a6977c79ab5b1a7e02abc09f4d2cdc57fe4cbdc"
       ],
       "status": "supplied_unverified",
-      "note": "L'avantage d'une couche d'orchestration est une hypothèse stratégique à valider, pas un fait."
+      "note": "L'avantage d'une couche d'orchestration est une hypothèse stratégique à valider, pas un fait.",
+      "fixture": "fixtures/examples/dezoom.study.json"
     },
     {
       "id": "EX-GOV-01",

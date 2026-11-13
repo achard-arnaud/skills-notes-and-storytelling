@@ -3,9 +3,22 @@
   "id": "side-stories-business",
   "version": "0.1.0",
   "lifecycle": "candidate",
-  "decision_refs": ["D22", "D23", "D24"],
+  "decision_refs": [
+    "D22",
+    "D23",
+    "D24"
+  ],
   "purpose": "Source de vérité lue par les agents et par runtime.py pour les side stories business : types, formats, lignes éditoriales, tags, contrat de passage au rendu et routage par pilier. NARRATIVE.md n'en garde qu'un index.",
-  "reading_order": ["invariants", "choice_tree", "types", "pipeline", "renderer_packet", "self_consistency", "pillar_routing", "style_indicative"],
+  "reading_order": [
+    "invariants",
+    "choice_tree",
+    "types",
+    "pipeline",
+    "renderer_packet",
+    "self_consistency",
+    "pillar_routing",
+    "style_indicative"
+  ],
   "invariants": [
     "Une side story est un artefact de composition : elle ne crée aucune preuve et ne promeut aucun fait.",
     "Elle dit pourquoi elle est hors du tronc, ce qu'elle apporte, où elle se place et où elle ramène.",
@@ -15,43 +28,118 @@
     "Validation mécanique, relecture par un agent et validation humaine restent trois états distincts : aucun agent ne marque une validation humaine.",
     "Chaque type a son format et sa ligne éditoriale. Un encart mixte est interdit : deux matières, deux side stories."
   ],
-  "lifecycle_states": ["candidate", "validated", "promoted", "retired"],
+  "lifecycle_states": [
+    "candidate",
+    "validated",
+    "promoted",
+    "retired"
+  ],
   "color_policy": {
-    "rule": "Le tag texte est toujours visible ; la couleur ne porte jamais seule l'information. Le vert, l'orange et le rouge restent réservés aux statuts de preuve (vérifié, inférence, inconnu).",
+    "rule": "Le libellé lisible (champ label) est toujours affiché dans la sortie finale ; le code court (champ tag) est un identifiant interne, jamais montré au lecteur. La couleur ne porte jamais seule l'information. Le vert, l'orange et le rouge restent réservés aux statuts de preuve (vérifié, inférence, inconnu).",
     "tokens": "bg = fond d'encart, border = bordure et pastille ; valeurs provisoires de thème à contrôler contre la palette des piliers"
   },
   "choice_tree": [
-    {"ask": "Le lecteur doit-il changer d'échelle (équipement, site, portefeuille, secteur) pour comprendre un mécanisme local ?", "yes": "dezoom"},
-    {"ask": "Faut-il présenter une entreprise ou une offre à travers ses signaux publics et une lecture personnelle signée ?", "yes": "veille_corporate_perso"},
-    {"ask": "Faut-il définir 5 à 7 notions avec leur source, leur contre-exemple et leur lien avec le passage ?", "yes": "veille_academique"},
-    {"ask": "Faut-il comparer 3 à 5 acteurs ou cas sur un critère commun ?", "yes": "comparator"},
-    {"ask": "Un mécanisme complexe appelle-t-il une thèse, deux positions contrastées et un enseignement ?", "yes": "analytical_focus"},
-    {"ask": "Un seul cas d'usage, une citation, un objet ou un acteur éclaire-t-il le passage ?", "yes": "illustration"},
-    {"otherwise": "Ne pas créer de side story : l'élément appartient au tronc ou au backlog de recherche."}
+    {
+      "ask": "Le lecteur doit-il changer d'échelle (équipement, site, portefeuille, secteur) pour comprendre un mécanisme local ?",
+      "yes": "dezoom"
+    },
+    {
+      "ask": "Faut-il présenter une entreprise ou une offre à travers ses signaux publics et une lecture personnelle signée ?",
+      "yes": "veille_corporate_perso"
+    },
+    {
+      "ask": "Faut-il définir 5 à 7 notions avec leur source, leur contre-exemple et leur lien avec le passage ?",
+      "yes": "veille_academique"
+    },
+    {
+      "ask": "Faut-il comparer 3 à 5 acteurs ou cas sur un critère commun ?",
+      "yes": "comparator"
+    },
+    {
+      "ask": "Un mécanisme complexe appelle-t-il une thèse, deux positions contrastées et un enseignement ?",
+      "yes": "analytical_focus"
+    },
+    {
+      "ask": "Un seul cas d'usage, une citation, un objet ou un acteur éclaire-t-il le passage ?",
+      "yes": "illustration"
+    },
+    {
+      "otherwise": "Ne pas créer de side story : l'élément appartient au tronc ou au backlog de recherche."
+    }
   ],
   "types": [
     {
       "id": "veille_corporate_perso",
       "tag": "VCP",
-      "label": "Veille corporate personnelle",
-      "color": {"bg": "#CFFAFE", "border": "#0E7490"},
+      "label": "Veille entreprise",
+      "color": {
+        "bg": "#CFFAFE",
+        "border": "#0E7490"
+      },
       "role": "Pitch d'une entreprise ou d'une offre en 10 à 15 lignes, à partir de signaux publics, avec une lecture personnelle signée et séparée des faits.",
       "choose_when": "Le lecteur doit comprendre rapidement qui est cet acteur, ce qu'il vend, avec quelles preuves publiques, et ce que cela implique pour le récit.",
       "not_when": "Il faut comparer plusieurs acteurs (comparator) ou instruire un mécanisme (analytical_focus).",
       "format": {
         "summary": "10 à 15 lignes numérotées, une idée par ligne, 32 mots maximum par ligne ; adapté de templates/one-pager.md (réponse en tête, 3 à 5 faits décisifs, une comparaison, une implication, sources compactes).",
         "payload_key": "lines",
-        "line": {"fields": ["role", "text"], "max_words": 32, "fact_requires": ["date", "source"]},
-        "count": {"min": 10, "max": 15},
-        "roles": ["headline", "offer", "model", "client_problem", "fact", "differentiation", "limit", "personal_reading", "implication", "sources"],
-        "role_rules": {
-          "headline": {"exactly": 1, "position": "first"},
-          "fact": {"min": 3, "max": 5},
-          "limit": {"min": 1},
-          "personal_reading": {"exactly": 1},
-          "implication": {"min": 1}
+        "line": {
+          "fields": [
+            "role",
+            "text"
+          ],
+          "max_words": 32,
+          "fact_requires": [
+            "date",
+            "source"
+          ]
         },
-        "layout": ["headline", "offer", "model", "client_problem", "fact", "differentiation", "limit", "personal_reading", "implication", "sources"],
+        "count": {
+          "min": 10,
+          "max": 15
+        },
+        "roles": [
+          "headline",
+          "offer",
+          "model",
+          "client_problem",
+          "fact",
+          "differentiation",
+          "limit",
+          "personal_reading",
+          "implication",
+          "sources"
+        ],
+        "role_rules": {
+          "headline": {
+            "exactly": 1,
+            "position": "first"
+          },
+          "fact": {
+            "min": 3,
+            "max": 5
+          },
+          "limit": {
+            "min": 1
+          },
+          "personal_reading": {
+            "exactly": 1
+          },
+          "implication": {
+            "min": 1
+          }
+        },
+        "layout": [
+          "headline",
+          "offer",
+          "model",
+          "client_problem",
+          "fact",
+          "differentiation",
+          "limit",
+          "personal_reading",
+          "implication",
+          "sources"
+        ],
         "optional_visual": "une table de comparaison de 5 colonnes au plus, sans appendice"
       },
       "editorial_line": [
@@ -60,27 +148,57 @@
         "Chaque fait porte une date et une source publique identifiable.",
         "Aucun jugement sur des personnes ; aucun argument d'offre ou de fit fournisseur."
       ],
-      "evidence_levels": ["observed", "interpreted"],
+      "evidence_levels": [
+        "observed",
+        "interpreted"
+      ],
       "return_condition": "Une décision précise du tronc ; la ligne implication nomme le passage.",
       "metaprompt": "skills/side-stories-business/references/types/veille_corporate_perso.md#metaprompt",
-      "examples": ["EX-VCP-01", "EX-VCP-02", "EX-VCP-03"]
+      "examples": [
+        "EX-VCP-01",
+        "EX-VCP-02",
+        "EX-VCP-03"
+      ]
     },
     {
       "id": "veille_academique",
       "tag": "VAC",
       "label": "Veille académique",
-      "color": {"bg": "#E0E7FF", "border": "#4338CA"},
+      "color": {
+        "bg": "#E0E7FF",
+        "border": "#4338CA"
+      },
       "role": "Mini-wiki sourcé : un lexique de 5 à 7 entrées, chacune structurée en cinq blocs, pour installer des notions et les relier au passage.",
       "choose_when": "Le lecteur a besoin de notions définies avec leur source, leur contre-exemple et leur portée avant de suivre un raisonnement.",
       "not_when": "Il faut une thèse défendue avec des positions contrastées (analytical_focus) ou une comparaison d'acteurs (comparator).",
       "format": {
         "summary": "Lexique de 5 à 7 entrées. Par entrée : définition sourcée ou thèse ; exemple général ou illustration ; en pratique dans le contexte immédiat ; comparatif ou anti-thèse rapide ; mise en perspective (tableau croisé, schéma) ou synthèse en 1 à 2 phrases.",
         "payload_key": "items",
-        "count": {"min": 5, "max": 7},
-        "item_fields": ["term", "definition", "example", "in_practice", "contrast", "perspective"],
-        "definition_requires": ["source"],
-        "source_fields": ["author", "year", "venue_or_url"],
-        "perspective_modes": ["table", "schema", "synthesis"],
+        "count": {
+          "min": 5,
+          "max": 7
+        },
+        "item_fields": [
+          "term",
+          "definition",
+          "example",
+          "in_practice",
+          "contrast",
+          "perspective"
+        ],
+        "definition_requires": [
+          "source"
+        ],
+        "source_fields": [
+          "author",
+          "year",
+          "venue_or_url"
+        ],
+        "perspective_modes": [
+          "table",
+          "schema",
+          "synthesis"
+        ],
         "synthesis_max_sentences": 2,
         "item_max_words": 120
       },
@@ -90,25 +208,47 @@
         "Le comparatif ou l'anti-thèse est obligatoire : une entrée sans contre-point est incomplète.",
         "Les préprints sont signalés comme tels ; une source non citable n'entre pas."
       ],
-      "evidence_levels": ["peer_reviewed", "preprint", "grey_literature", "opinion", "supplied"],
+      "evidence_levels": [
+        "peer_reviewed",
+        "preprint",
+        "grey_literature",
+        "opinion",
+        "supplied"
+      ],
       "return_condition": "La question méthodologique du tronc (baseline, ROI, protocole de pilote) ; in_practice cite le passage.",
       "metaprompt": "skills/side-stories-business/references/types/veille_academique.md#metaprompt",
-      "examples": ["EX-VAC-01", "EX-VAC-02"]
+      "examples": [
+        "EX-VAC-01",
+        "EX-VAC-02"
+      ]
     },
     {
       "id": "dezoom",
       "tag": "DZ",
-      "label": "Dézoom",
-      "color": {"bg": "#FAE8FF", "border": "#A21CAF"},
+      "label": "Changement d'échelle",
+      "color": {
+        "bg": "#FAE8FF",
+        "border": "#A21CAF"
+      },
       "role": "Changer d'échelle (équipement, site, portefeuille, secteur) pour expliquer un mécanisme local, puis revenir au local avec un gain explicite.",
       "choose_when": "Une observation locale ne s'explique que par un mécanisme d'une autre échelle, et ce mécanisme n'est pas une étape du tronc.",
       "not_when": "Le changement d'échelle est nécessaire à la chaîne causale : il reste dans le tronc.",
       "format": {
         "summary": "Trois temps : local, canal de transmission, retour local. 220 mots au plus, un schéma ou une table de 5 colonnes au plus.",
         "payload_key": "steps",
-        "count": {"min": 3, "max": 3},
-        "step_fields": ["scale", "statement"],
-        "required_top_level": ["scale_from", "scale_to", "mechanism"],
+        "count": {
+          "min": 3,
+          "max": 3
+        },
+        "step_fields": [
+          "scale",
+          "statement"
+        ],
+        "required_top_level": [
+          "scale_from",
+          "scale_to",
+          "mechanism"
+        ],
         "max_words": 220
       },
       "editorial_line": [
@@ -116,23 +256,43 @@
         "Le retour explique quelque chose d'observable localement, pas un commentaire détaché.",
         "Aucun chiffre sectoriel sans source ; un indicateur national n'est pas une mesure de la cible."
       ],
-      "evidence_levels": ["verified", "vendor_claim", "inference", "hypothesis", "unknown"],
+      "evidence_levels": [
+        "verified",
+        "vendor_claim",
+        "inference",
+        "hypothesis",
+        "unknown"
+      ],
       "return_condition": "Échelles de départ et d'arrivée, mécanisme et gain local explicites.",
-      "examples": ["EX-DZ-01", "EX-DZ-02"]
+      "examples": [
+        "EX-DZ-01",
+        "EX-DZ-02"
+      ]
     },
     {
       "id": "comparator",
       "tag": "CMP",
       "label": "Comparatif",
-      "color": {"bg": "#E2E8F0", "border": "#475569"},
+      "color": {
+        "bg": "#E2E8F0",
+        "border": "#475569"
+      },
       "role": "Comparer 3 à 5 acteurs ou cas sur un critère commun, avec les différences de conditions de départ.",
       "choose_when": "Le lecteur doit situer la cible par rapport à d'autres sur une même dimension de décision.",
       "not_when": "Un seul cas éclaire le passage (illustration) ; la comparaison suppose un classement de performances non sourcé.",
       "format": {
         "summary": "Une table de 5 colonnes au plus et 3 à 5 lignes, un critère commun, les facteurs de confusion, une conclusion unique.",
         "payload_key": "table",
-        "table": {"max_columns": 5, "min_rows": 3, "max_rows": 5},
-        "required_top_level": ["criterion", "confounders", "takeaway"],
+        "table": {
+          "max_columns": 5,
+          "min_rows": 3,
+          "max_rows": 5
+        },
+        "required_top_level": [
+          "criterion",
+          "confounders",
+          "takeaway"
+        ],
         "max_words": 180
       },
       "editorial_line": [
@@ -140,25 +300,56 @@
         "Les différences de conditions de départ et les limites de transférabilité sont visibles.",
         "Pas de classement ni de notation sans source ; un archétype est à instruire, pas un verdict."
       ],
-      "evidence_levels": ["verified", "vendor_claim", "inference", "hypothesis", "unknown"],
+      "evidence_levels": [
+        "verified",
+        "vendor_claim",
+        "inference",
+        "hypothesis",
+        "unknown"
+      ],
       "return_condition": "Différences et limites de transférabilité nommées ; la conclusion renvoie au critère de décision.",
-      "examples": ["EX-CMP-01", "EX-CMP-02"]
+      "examples": [
+        "EX-CMP-01",
+        "EX-CMP-02",
+        "EX-CMP-03"
+      ]
     },
     {
       "id": "illustration",
       "tag": "ILL",
-      "label": "Illustration",
-      "color": {"bg": "#EDE9FE", "border": "#6D28D9"},
+      "label": "Exemple concret",
+      "color": {
+        "bg": "#EDE9FE",
+        "border": "#6D28D9"
+      },
       "role": "Un cas d'usage, une citation de référence, un objet ou un acteur qui éclaire le passage. Regroupe portrait, détour, aparté et objet.",
       "choose_when": "Un exemple concret rend le passage lisible, sans ajouter de thèse.",
       "not_when": "L'exemple porte une thèse (analytical_focus) ou doit être comparé à d'autres (comparator).",
       "format": {
         "summary": "Une forme parmi cas d'usage, citation, objet, personne. 150 mots au plus ; une citation tient en 40 mots et porte auteur, date et source.",
         "payload_key": "form",
-        "forms": ["use_case", "quote", "object", "person"],
-        "quote_requires": ["attributed_to", "date", "source"],
+        "forms": [
+          "use_case",
+          "quote",
+          "object",
+          "person"
+        ],
+        "quote_requires": [
+          "attributed_to",
+          "date",
+          "source"
+        ],
         "quote_max_words": 40,
-        "use_case_frame": {"label": "B-A-C", "expansion": "à confirmer : le sigle n'est défini dans aucune source"},
+        "use_case_frame": {
+          "label": "Bénéfice, Avantages, Caractéristiques",
+          "keys": [
+            "benefice",
+            "avantages",
+            "caracteristiques"
+          ],
+          "order": "Le bénéfice vient en premier : ce que le lecteur y gagne. Les avantages le situent par rapport à la pratique actuelle. Les caractéristiques décrivent ce que la solution est et fait.",
+          "source": "Préférence de François, confirmée le 2026-11-10."
+        },
         "max_words": 150
       },
       "editorial_line": [
@@ -166,24 +357,55 @@
         "Un cas d'usage reste candidat tant que son existence chez la cible n'est pas confirmée.",
         "Pas d'anecdote gratuite : la contribution et la borne sont explicites."
       ],
-      "evidence_levels": ["verified", "vendor_claim", "inference", "hypothesis", "unknown"],
+      "evidence_levels": [
+        "verified",
+        "vendor_claim",
+        "inference",
+        "hypothesis",
+        "unknown"
+      ],
       "return_condition": "Contribution au passage et borne explicites.",
-      "examples": ["EX-ILL-01", "EX-ILL-02"]
+      "examples": [
+        "EX-ILL-01",
+        "EX-ILL-02",
+        "EX-ILL-03"
+      ]
     },
     {
       "id": "analytical_focus",
       "tag": "FOC",
-      "label": "Focus analytique",
-      "color": {"bg": "#DBEAFE", "border": "#1E3A8A"},
+      "label": "Analyse approfondie",
+      "color": {
+        "bg": "#DBEAFE",
+        "border": "#1E3A8A"
+      },
       "role": "Un mécanisme complexe traité en une ou deux pages : question, thèse, positions contrastées, mécanismes avec statut de preuve, enseignement.",
       "choose_when": "Le mécanisme compte pour la décision mais est trop étroit pour une section du tronc.",
       "not_when": "Le contenu est un exemple (illustration) ou une définition (veille_academique).",
       "format": {
         "summary": "Une à deux pages. Question centrale, thèse, au moins deux positions contrastées avec réserves, mécanismes avec statut de preuve, enseignement.",
         "payload_key": "analysis",
-        "analysis_required": ["core_question", "thesis", "positions", "mechanisms", "takeaway"],
-        "positions": {"min": 2, "fields": ["position", "caveat"]},
-        "mechanisms": {"min": 1, "fields": ["mechanism", "evidence_status"]},
+        "analysis_required": [
+          "core_question",
+          "thesis",
+          "positions",
+          "mechanisms",
+          "takeaway"
+        ],
+        "positions": {
+          "min": 2,
+          "fields": [
+            "position",
+            "caveat"
+          ]
+        },
+        "mechanisms": {
+          "min": 1,
+          "fields": [
+            "mechanism",
+            "evidence_status"
+          ]
+        },
         "max_words": 450
       },
       "editorial_line": [
@@ -191,9 +413,19 @@
         "Chaque mécanisme porte un statut de preuve ; la présentation ne relève jamais ce statut.",
         "Un schéma passe avant un paragraphe faible ; les tables ont 5 colonnes au plus."
       ],
-      "evidence_levels": ["verified", "vendor_claim", "inference", "hypothesis", "unknown"],
+      "evidence_levels": [
+        "verified",
+        "vendor_claim",
+        "inference",
+        "hypothesis",
+        "unknown"
+      ],
       "return_condition": "Retour à une décision précise du tronc ; l'enseignement nomme laquelle.",
-      "examples": ["EX-FOC-01", "EX-FOC-02", "EX-FOC-03"]
+      "examples": [
+        "EX-FOC-01",
+        "EX-FOC-02",
+        "EX-FOC-03"
+      ]
     }
   ],
   "legacy_kind_map": {
@@ -207,13 +439,48 @@
   },
   "legacy_policy": "Les anciens types restent acceptés pour les études existantes ; ils produisent une lacune « legacy kind » et ne sont plus créés. Un rappel (callback) est désormais un champ bridge.callback_to, utilisable sur tout type.",
   "pipeline": [
-    {"step": 1, "id": "need", "actor": "skill de pilier", "output": "candidat avec type, problématique, passage d'accueil, claims"},
-    {"step": 2, "id": "type", "actor": "skill side-stories-business", "output": "type retenu par l'arbre de choix ; motif de rejet des deux types voisins"},
-    {"step": 3, "id": "packet", "actor": "skill side-stories-business", "output": "paquet de rendu complet (renderer_packet)"},
-    {"step": 4, "id": "render", "actor": "agent rédacteur de la side story", "output": "brouillon au format du type, état candidate"},
-    {"step": 5, "id": "self_consistency", "actor": "agent rédacteur, passe indépendante", "output": "rapport d'auto-cohérence"},
-    {"step": 6, "id": "mechanical", "actor": "runtime.py validate", "output": "erreurs structurelles et lacunes éditoriales"},
-    {"step": 7, "id": "human", "actor": "François", "output": "validation humaine ; seul acte qui permet validated"}
+    {
+      "step": 1,
+      "id": "need",
+      "actor": "skill de pilier",
+      "output": "candidat avec type, problématique, passage d'accueil, claims"
+    },
+    {
+      "step": 2,
+      "id": "type",
+      "actor": "skill side-stories-business",
+      "output": "type retenu par l'arbre de choix ; motif de rejet des deux types voisins"
+    },
+    {
+      "step": 3,
+      "id": "packet",
+      "actor": "skill side-stories-business",
+      "output": "paquet de rendu complet (renderer_packet)"
+    },
+    {
+      "step": 4,
+      "id": "render",
+      "actor": "agent rédacteur de la side story",
+      "output": "brouillon au format du type, état candidate"
+    },
+    {
+      "step": 5,
+      "id": "self_consistency",
+      "actor": "agent rédacteur, passe indépendante",
+      "output": "rapport d'auto-cohérence"
+    },
+    {
+      "step": 6,
+      "id": "mechanical",
+      "actor": "runtime.py validate",
+      "output": "erreurs structurelles et lacunes éditoriales"
+    },
+    {
+      "step": 7,
+      "id": "human",
+      "actor": "François",
+      "output": "validation humaine ; seul acte qui permet validated"
+    }
   ],
   "renderer_packet": {
     "purpose": "Ce que le skill de pilier et le skill side-stories-business fournissent au rédacteur. Sans ces champs, le rédacteur ne rédige pas.",
@@ -224,7 +491,11 @@
       "return_to": "section ou paragraphe de retour",
       "main_passage": "identifiant du passage et une phrase qui résume ce que le tronc vient d'établir",
       "problematique": "une question unique à laquelle la side story répond",
-      "bridge": {"in": "une phrase qui fait entrer depuis le tronc", "out": "une phrase qui ramène au tronc", "callback_to": "ancre optionnelle vers une notion déjà éclairée"},
+      "bridge": {
+        "in": "une phrase qui fait entrer depuis le tronc",
+        "out": "une phrase qui ramène au tronc",
+        "callback_to": "ancre optionnelle vers une notion déjà éclairée"
+      },
       "reason_outside": "pourquoi ce n'est pas dans le tronc",
       "payoff": "ce que le lecteur comprend en plus",
       "claim_ids": "claims mobilisés",
@@ -237,61 +508,198 @@
     "purpose": "Vérifier que le texte tient sans l'intention de son auteur.",
     "max_repairs": 2,
     "checks": [
-      {"id": "restate", "kind": "agent", "rule": "Une passe indépendante, qui ne voit que le texte, reformule la problématique, le pont d'entrée et le pont de sortie ; elles doivent recouvrir celles du paquet."},
-      {"id": "claim_trace", "kind": "agent", "rule": "Chaque affirmation du texte renvoie à un claim ou à une source du paquet ; sinon elle est retirée ou marquée hypothèse."},
-      {"id": "no_uplift", "kind": "agent", "rule": "Aucun statut n'est relevé par la mise en forme : une affirmation fournie reste fournie."},
-      {"id": "format", "kind": "mechanical", "rule": "Compteurs, champs et longueurs du type vérifiés par runtime.py."},
-      {"id": "anchors", "kind": "mechanical", "rule": "parent_section_id et return_to résolvent."},
-      {"id": "separation", "kind": "agent", "rule": "Aucun fait du compte n'est mélangé à un argument d'offre."}
+      {
+        "id": "restate",
+        "kind": "agent",
+        "rule": "Une passe indépendante, qui ne voit que le texte, reformule la problématique, le pont d'entrée et le pont de sortie ; elles doivent recouvrir celles du paquet."
+      },
+      {
+        "id": "claim_trace",
+        "kind": "agent",
+        "rule": "Chaque affirmation du texte renvoie à un claim ou à une source du paquet ; sinon elle est retirée ou marquée hypothèse."
+      },
+      {
+        "id": "no_uplift",
+        "kind": "agent",
+        "rule": "Aucun statut n'est relevé par la mise en forme : une affirmation fournie reste fournie."
+      },
+      {
+        "id": "format",
+        "kind": "mechanical",
+        "rule": "Compteurs, champs et longueurs du type vérifiés par runtime.py."
+      },
+      {
+        "id": "anchors",
+        "kind": "mechanical",
+        "rule": "parent_section_id et return_to résolvent."
+      },
+      {
+        "id": "separation",
+        "kind": "agent",
+        "rule": "Aucun fait du compte n'est mélangé à un argument d'offre."
+      }
     ],
     "on_failure": "Réparer au plus deux fois la même cause, puis marquer bloqué avec la preuve et passer à la suite (D10)."
   },
   "pillar_routing": {
     "P-MARKET": {
-      "types": ["comparator", "dezoom", "veille_corporate_perso", "veille_academique"],
-      "problematiques": ["Pourquoi cet acteur doit-il évoluer maintenant ?", "Quel archétype d'acteur capte la valeur dans cette chaîne ?"],
-      "bridges": ["du constat sectoriel à la décision de la cible", "de la comparaison au critère de choix"]
+      "label": "Marché et concurrence",
+      "types": [
+        "comparator",
+        "dezoom",
+        "veille_corporate_perso",
+        "veille_academique"
+      ],
+      "problematiques": [
+        "Pourquoi cet acteur doit-il évoluer maintenant ?",
+        "Quel archétype d'acteur capte la valeur dans cette chaîne ?"
+      ],
+      "bridges": [
+        "du constat sectoriel à la décision de la cible",
+        "de la comparaison au critère de choix"
+      ]
     },
     "P-INDUSTRY": {
-      "types": ["analytical_focus", "illustration", "dezoom", "veille_corporate_perso"],
-      "problematiques": ["Pourquoi un actif sous-performe-t-il et qui le sait à temps ?", "Quelle alerte justifie un déplacement ?"],
-      "bridges": ["du signal à la décision d'intervention", "de l'installation au portefeuille"]
+      "label": "Chaîne de valeur industrielle",
+      "types": [
+        "analytical_focus",
+        "illustration",
+        "dezoom",
+        "veille_corporate_perso"
+      ],
+      "problematiques": [
+        "Pourquoi un actif sous-performe-t-il et qui le sait à temps ?",
+        "Quelle alerte justifie un déplacement ?"
+      ],
+      "bridges": [
+        "du signal à la décision d'intervention",
+        "de l'installation au portefeuille"
+      ]
     },
     "P-CORPORATE": {
-      "types": ["illustration", "comparator"],
-      "problematiques": ["Quel processus transverse change réellement avec l'IA ?", "Quel usage corporate a sa propre économie ?"],
-      "bridges": ["de l'usage corporate à son économie propre", "du cas au standard réutilisable"]
+      "label": "Fonctions transverses de l'entreprise",
+      "types": [
+        "illustration",
+        "comparator"
+      ],
+      "problematiques": [
+        "Quel processus transverse change réellement avec l'IA ?",
+        "Quel usage corporate a sa propre économie ?"
+      ],
+      "bridges": [
+        "de l'usage corporate à son économie propre",
+        "du cas au standard réutilisable"
+      ]
     },
     "P-DATA": {
-      "types": ["veille_academique", "analytical_focus"],
-      "problematiques": ["Quelle donnée rend la décision fiable ?", "Quelle baseline rend un gain attribuable ?"],
-      "bridges": ["de la mesure au référentiel", "de la donnée au workflow"]
+      "label": "Fondations de données",
+      "types": [
+        "veille_academique",
+        "analytical_focus"
+      ],
+      "problematiques": [
+        "Quelle donnée rend la décision fiable ?",
+        "Quelle baseline rend un gain attribuable ?"
+      ],
+      "bridges": [
+        "de la mesure au référentiel",
+        "de la donnée au workflow"
+      ]
     },
     "P-AI": {
-      "types": ["veille_academique", "analytical_focus", "comparator", "veille_corporate_perso"],
-      "problematiques": ["Quelle capacité d'IA répond à cette décision ?", "Quelle posture d'adoption convient à ce stade ?"],
-      "bridges": ["de la capacité au cas d'usage", "du cas d'usage à la supervision humaine"]
+      "label": "Capacités d'intelligence artificielle",
+      "types": [
+        "veille_academique",
+        "analytical_focus",
+        "comparator",
+        "veille_corporate_perso"
+      ],
+      "problematiques": [
+        "Quelle capacité d'IA répond à cette décision ?",
+        "Quelle posture d'adoption convient à ce stade ?"
+      ],
+      "bridges": [
+        "de la capacité au cas d'usage",
+        "du cas d'usage à la supervision humaine"
+      ]
     },
     "P-ECONOMICS": {
-      "types": ["analytical_focus", "comparator", "dezoom", "veille_academique"],
-      "problematiques": ["Qui finance, qui capte la valeur, qui porte le risque ?", "À partir de quel seuil un cas vaut-il d'être financé ?"],
-      "bridges": ["du gain annoncé à l'économie attribuable", "du cas local à l'économie de portefeuille"]
+      "label": "Économie et financement",
+      "types": [
+        "analytical_focus",
+        "comparator",
+        "dezoom",
+        "veille_academique"
+      ],
+      "problematiques": [
+        "Qui finance, qui capte la valeur, qui porte le risque ?",
+        "À partir de quel seuil un cas vaut-il d'être financé ?"
+      ],
+      "bridges": [
+        "du gain annoncé à l'économie attribuable",
+        "du cas local à l'économie de portefeuille"
+      ]
     },
     "P-GOVERNANCE": {
-      "types": ["dezoom", "veille_academique", "illustration"],
-      "problematiques": ["Qui peut décider, contrôler et répondre ?", "Quelle dépendance fournisseur est réversible ?"],
-      "bridges": ["de la dépendance technique au contrôle contractuel", "du contrôle humain au rôle défini"]
+      "label": "Gouvernance et contrôle",
+      "types": [
+        "dezoom",
+        "veille_academique",
+        "illustration"
+      ],
+      "problematiques": [
+        "Qui peut décider, contrôler et répondre ?",
+        "Quelle dépendance fournisseur est réversible ?"
+      ],
+      "bridges": [
+        "de la dépendance technique au contrôle contractuel",
+        "du contrôle humain au rôle défini"
+      ]
     },
     "P-ADOPTION": {
-      "types": ["illustration", "veille_academique", "comparator"],
-      "problematiques": ["Comment un outil devient-il une pratique durable ?", "Quel dispositif transforme un irritant en capacité réutilisable ?"],
-      "bridges": ["de l'essai à la pratique", "du pilote à la réutilisation"]
+      "label": "Adoption et changement",
+      "types": [
+        "illustration",
+        "veille_academique",
+        "comparator"
+      ],
+      "problematiques": [
+        "Comment un outil devient-il une pratique durable ?",
+        "Quel dispositif transforme un irritant en capacité réutilisable ?"
+      ],
+      "bridges": [
+        "de l'essai à la pratique",
+        "du pilote à la réutilisation"
+      ]
     }
   },
   "style_indicative": {
-    "voice": "François-Pro : sobre, dense, corporate ; une idée par phrase ; chiffres datés et sourcés ; conditionnel pour toute hypothèse.",
-    "forbidden_moves": ["superlatif sans source", "jargon de fournisseur repris tel quel", "promesse de gain présentée comme acquise", "anecdote sans payoff"],
-    "markers": {"observed": "Publié", "interpreted": "Lecture", "hypothesis": "Hypothèse", "unknown": "Inconnu"},
-    "note": "Style indicatif : il oriente le rédacteur et ne se vérifie pas mécaniquement. Une voix distincte est à définir si le livrable change de signataire."
-  }
+    "source": "Directive de style fournie par François le 2026-11-09, adoptée le 2026-11-10 (ADR-0012).",
+    "voice": "Direct, factuel, analytique, didactique. Niveau direction. Pas de grandiloquence, pas de style emphatique, pas d'introduction convenue.",
+    "structure": "Inductif : l'essentiel d'abord, puis le détail. Listes à puces ; tableaux comparatifs croisés pour les comparaisons ; diagrammes pour rendre l'information lisible.",
+    "syntax": "Phrases courtes, style percutant. Jamais d'effet de balancement superficiel ni de double négation.",
+    "stance": "Orienté décision : retour sur investissement, arbitrage faire ou acheter, gisements de valeur opérationnelle et financière.",
+    "forbidden_moves": [
+      "grandiloquence",
+      "introduction convenue",
+      "effet de balancement",
+      "double négation",
+      "superlatif sans source",
+      "jargon de fournisseur repris tel quel",
+      "promesse de gain présentée comme acquise",
+      "anecdote sans payoff"
+    ],
+    "markers": {
+      "observed": "Publié",
+      "interpreted": "Lecture",
+      "hypothesis": "Hypothèse",
+      "unknown": "Inconnu"
+    },
+    "check": "sidestories.style_gaps : contrôle indicatif des motifs mécaniques et des phrases de plus de 35 mots ; signalé en lacune, jamais en erreur.",
+    "note": "Le style reste un jugement éditorial : le contrôle ne le remplace pas."
+  },
+  "readability_rules": [
+    "Toute sortie destinée à un lecteur (HTML, rapport, message) emploie les libellés lisibles, jamais les codes internes (VCP, VAC, DZ, CMP, ILL, FOC, P-xxx, CAND-xx).",
+    "Une abréviation n'est employée que si elle est d'usage courant dans le métier ; sinon elle est écrite en toutes lettres à sa première occurrence."
+  ]
 }

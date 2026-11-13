@@ -63,7 +63,7 @@ class CalibrationPathTests(unittest.TestCase):
 
     def test_threshold_with_human_decision_reference_is_accepted(self):
         validate_referential(self._with_trigger(threshold=50, calibration="human_approved",
-                                                decision_ref="docs/DECISIONS.md#D99"))
+                                                decision_ref="doc/architecture/ADR-0000-registre-decisions-run.md#D99"))
 
     def test_human_approved_without_decision_reference_is_rejected(self):
         with self.assertRaises(OntologyError):
@@ -300,7 +300,7 @@ class KnowledgeStatusFacetTests(unittest.TestCase):
         self.assertEqual(ontology.facet_violations(node, ONTO), ["HUMAN_ADJUDICATED requires decision_ref"])
 
     def test_human_adjudicated_with_decision_reference_is_accepted(self):
-        node = {"id": "F", "knowledge_status": "HUMAN_ADJUDICATED", "decision_ref": "docs/DECISIONS.md#D20"}
+        node = {"id": "F", "knowledge_status": "HUMAN_ADJUDICATED", "decision_ref": "doc/architecture/ADR-0000-registre-decisions-run.md#D20"}
         self.assertEqual(ontology.facet_violations(node, ONTO), [])
 
     def test_unknown_status_is_reported(self):
@@ -321,13 +321,13 @@ class ContractConsistencyTests(unittest.TestCase):
 
     def test_skill_contract_names_every_fixture_eval(self):
         expected = json.loads((self.ROOT / "fixtures" / "onto" / "expected.json").read_text(encoding="utf-8"))
-        contract = (self.ROOT / "docs" / "REINFORCE-KB-SKILL-CONTRACT.md").read_text(encoding="utf-8")
+        contract = (self.ROOT / "doc" / "architecture" / "ADR-0005-contrat-skill-reinforce.md").read_text(encoding="utf-8")
         for case in expected["cases"]:
             with self.subTest(case=case["id"]):
                 self.assertIn("`" + case["id"] + "`", contract)
 
     def test_ontology_doc_states_no_threshold_without_calibration(self):
-        text = (self.ROOT / "docs" / "ONTOLOGY.md").read_text(encoding="utf-8")
+        text = (self.ROOT / "doc" / "architecture" / "ADR-0002-referentiel-ontologie.md").read_text(encoding="utf-8")
         self.assertIn("cadence_semantic", text)
         self.assertIn("aucun", text.lower())
 

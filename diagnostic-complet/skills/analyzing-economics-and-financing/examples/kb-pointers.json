@@ -29,10 +29,14 @@
       "topic": "Investissements des concurrents dans l'IA et leurs cas d'usage",
       "role": "Dézoom vers le secteur : ce que les concurrents investissent, et ce que cela change pour la cible",
       "atoms": [
-        "ATOM-c8e4c1df7ef3c49c4569b1ccdaff18ca58130e98ce317b3871a761c7a8a151c8"
+        "ATOM-c8e4c1df7ef3c49c4569b1ccdaff18ca58130e98ce317b3871a761c7a8a151c8",
+        "ATOM-af1dd60f98ede0399aa1abcc67526ce2b5859c93d7c3d98ef3843c27d1745fff",
+        "ATOM-ffe4ca9f3981afd3f9de10641af699329165178aad28a9e6a174ce66923a658d",
+        "ATOM-a01c4603ceda8b5d095aa1b77a3757e19a7aa450ec902b3573b7e5c6e644233f"
       ],
       "status": "research_required",
-      "note": "La source existante ne cite que les noms des concurrents et déclare ne pas sourcer les chiffres. Aucun montant ne peut être repris."
+      "note": "Cas d'usage d'Engie acquis le 2026-11-09. Aucun montant d'investissement trouvé ; BayWa r.e. sur extraits de recherche seulement ; autres concurrents sans résultat. Ne reprendre aucun montant.",
+      "fixture": "fixtures/examples/dezoom.study.json"
     }
   ]
 }

@@ -1,0 +1,131 @@
+{
+  "id": "SYN-EX-analytical_focus",
+  "title": "Pourquoi un actif sous-performe-t-il ? (fictif)",
+  "synthetic": true,
+  "mandate": {
+    "question": "Faut-il financer un pilote de supervision pour AcmeÉnergie, opérateur fictif ?",
+    "scope": "Cas entièrement fictif, sans lien avec un corpus réel",
+    "audience": "Direction des opérations (fictive)"
+  },
+  "pillars": [
+    {
+      "id": "P-INDUSTRY",
+      "title": "Chaîne de valeur industrielle",
+      "scope": "Exploitation et maintenance"
+    },
+    {
+      "id": "P-AI",
+      "title": "Capacités d'intelligence artificielle",
+      "scope": "Capacités utiles à la décision"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "kind": "supplied_context",
+      "access": "read",
+      "title": "Dossier fictif AcmeÉnergie",
+      "locator": "synthetic:fixture"
+    }
+  ],
+  "fragments": [
+    {
+      "id": "F1",
+      "source_id": "S1",
+      "locator": "synthetic:fixture#1",
+      "text": "Un écart de production est observé sur un site fictif."
+    }
+  ],
+  "claims": [
+    {
+      "id": "C1",
+      "text": "Un écart de production exige une qualification avant intervention.",
+      "status": "supplied_claim",
+      "fragment_ids": [
+        "F1"
+      ],
+      "pillar_ids": [
+        "P-INDUSTRY"
+      ]
+    }
+  ],
+  "relations": [],
+  "sections": [
+    {
+      "id": "SEC1",
+      "title": "De l'alerte à la décision",
+      "claim_ids": [
+        "C1"
+      ],
+      "pillar_ids": [
+        "P-INDUSTRY"
+      ],
+      "paragraphs": [
+        {
+          "id": "PAR1",
+          "text": "Une alerte n'est exploitable qu'une fois qualifiée.",
+          "claim_ids": [
+            "C1"
+          ],
+          "pillar_ids": [
+            "P-INDUSTRY"
+          ],
+          "review": {
+            "evidence": false,
+            "editorial": false
+          }
+        }
+      ]
+    }
+  ],
+  "side_stories": [
+    {
+      "id": "SS1",
+      "kind": "analytical_focus",
+      "title": "Pourquoi un actif sous-performe-t-il ? (fictif)",
+      "claim_ids": [
+        "C1"
+      ],
+      "pillar_ids": [
+        "P-INDUSTRY"
+      ],
+      "parent_section_id": "SEC1",
+      "return_to": "PAR1",
+      "state": "candidate",
+      "problematique": "Comment distinguer un défaut d'un faux écart avant d'engager une intervention ?",
+      "bridge": {
+        "in": "Le tronc suppose qu'une alerte est exploitable.",
+        "out": "On revient au triage : une alerte se qualifie avant de se traiter."
+      },
+      "reason_outside": "Le mécanisme est trop étroit pour une section du tronc.",
+      "payoff": "Savoir quelles causes écarter avant un déplacement.",
+      "payload": {
+        "analysis": {
+          "core_question": "Comment distinguer un défaut d'un faux écart de production ?",
+          "thesis": "Un écart se qualifie en écartant d'abord la ressource, la mesure et le modèle attendu.",
+          "positions": [
+            {
+              "position": "Intervenir dès l'alerte pour limiter la perte.",
+              "caveat": "Risque de déplacements inutiles sur de faux écarts."
+            },
+            {
+              "position": "Qualifier à distance avant tout déplacement.",
+              "caveat": "Retarde la réparation si la qualification est lente."
+            }
+          ],
+          "mechanisms": [
+            {
+              "mechanism": "Une mesure défaillante crée un faux écart qui déclenche une intervention inutile.",
+              "evidence_status": "inference"
+            },
+            {
+              "mechanism": "Une baisse de ressource se confond avec une panne si le modèle attendu ignore la météo.",
+              "evidence_status": "hypothesis"
+            }
+          ],
+          "takeaway": "Pour la décision d'intervention de SEC1, exiger une qualification des causes avant tout déplacement."
+        }
+      }
+    }
+  ]
+}

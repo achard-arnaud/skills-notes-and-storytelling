@@ -17,7 +17,8 @@
         "ATOM-b174d1f73b8ab9d18e446d955224243a47bc2a4d4c5260998f8a8700e8c92bee"
       ],
       "status": "supplied_unverified",
-      "note": "Page fournisseur : affirmation de l'offre, pas preuve de déploiement, d'intégration ou de ROI chez la cible (PILLARS.md)."
+      "note": "Page fournisseur : affirmation de l'offre, pas preuve de déploiement, d'intégration ou de ROI chez la cible (PILLARS.md).",
+      "fixture": "fixtures/examples/veille_corporate_perso.study.json"
     },
     {
       "id": "EX-VCP-02",
@@ -33,7 +34,8 @@
         "ATOM-217c68db678bcc69c66a290e44f776b08437acf79bc132f66c76b6542f3e77e2"
       ],
       "status": "supplied_unverified",
-      "note": "Le document source indique lui-même que ces étiquettes sont des noms de synthèse, pas des intitulés canoniques. Référence paginée à retrouver avant tout usage."
+      "note": "Le document source indique lui-même que ces étiquettes sont des noms de synthèse, pas des intitulés canoniques. Référence paginée à retrouver avant tout usage.",
+      "fixture": "fixtures/examples/veille_corporate_perso.study.json"
     },
     {
       "id": "EX-VCP-03",
@@ -43,11 +45,17 @@
         "P-AI",
         "P-DATA"
       ],
-      "topic": "Pitch et retour d'expérience « Ask for the moon » pour Framatome",
-      "role": "Idée à instruire : RAG agentique multimodal + KB à ontologie pour l'assistance à la maintenance sur site à partir de la documentation technique",
-      "atoms": [],
-      "status": "to_collect",
-      "note": "Idée fournie par François le 2026-11-09. Aucune source dans la KB : collecter le pitch et le retour d'expérience avant de rédiger."
+      "topic": "Ask for the Moon : positionnement, modèle économique et cas d'usage chez un industriel",
+      "role": "Pitch d'un éditeur d'assistants fiables pour la connaissance industrielle, avec ses limites",
+      "atoms": [
+        "ATOM-4979d374b99e26d4944d8f764d20752f0f39a45ffd729af2455bfe3e98e729f0",
+        "ATOM-ddccfbc2fe0f6b3726b2afc3f993369f7a78a37a58b8c3e708692e131ea80177",
+        "ATOM-126720c9062c247d1ed4022df93a27b98409e5578d3ec10f0b659fdca81aee04",
+        "ATOM-139edca48ce61a583d65c9805f5aa959faa712109e8edcbc187aabcfba44a86c"
+      ],
+      "status": "human_validated",
+      "note": "Validé par François le 2026-11-10 (voir decisions). Reste hors périmètre : déploiement et gains chez l'industriel ; chiffres d'éditeur à ne pas lui attribuer.",
+      "fixture": "fixtures/examples/veille_corporate_perso.study.json"
     },
     {
       "id": "EX-VAC-01",
@@ -65,7 +73,8 @@
         "ATOM-7d17235c18b5043e222a1d1eb5a4eec0ffe167b24606f6763bb8388a6b0c1965"
       ],
       "status": "supplied_unverified",
-      "note": "Hypothèse d'arbitrage dans une synthèse fournie, non vérifiée page à page dans l'ouvrage."
+      "note": "Hypothèse d'arbitrage dans une synthèse fournie, non vérifiée page à page dans l'ouvrage.",
+      "fixture": "fixtures/examples/veille_academique.study.json"
     },
     {
       "id": "EX-VAC-02",
@@ -77,9 +86,15 @@
       ],
       "topic": "Cinq capacités de l'IA, principes TRICUS, seuil de valeur de 10 K$",
       "role": "Lexique de capacités (perception, création, prédiction, raisonnement, agentique) et filtre de valeur",
-      "atoms": [],
-      "status": "to_ingest",
-      "note": "Rapport fourni dans la conversation du 2026-11-09, absent de la KB. L'ingérer (source-convert puis kb-ingest) et vérifier chaque définition dans l'ouvrage avant usage."
+      "atoms": [
+        "ATOM-e9d9aeb9d33a67a85c23a4759a92abee0d58fc1691864f08addd42510267a2b4",
+        "ATOM-d97002007967e266842fd0c37d6327078cfe3620cb7b4bd2571f5af929dd0dc7",
+        "ATOM-785f23fff6b170f1f1865a7cef9b0e99b5a8713d48c06db2ab3fa9b3ba8da6b6",
+        "ATOM-c001ec59962e90ae632dccae5cdd750f8f095237af9a550c633b3cd5f7ebddaa"
+      ],
+      "status": "supplied_unverified",
+      "note": "Rapport fourni le 2026-11-09 et ingéré dans la KB. Chaque définition reste à vérifier dans l'ouvrage avant usage.",
+      "fixture": "fixtures/examples/veille_academique.study.json"
     },
     {
       "id": "EX-DZ-01",
@@ -98,7 +113,8 @@
         "ATOM-a2115d264b7392d891ee7aea3a6977c79ab5b1a7e02abc09f4d2cdc57fe4cbdc"
       ],
       "status": "supplied_unverified",
-      "note": "L'avantage d'une couche d'orchestration est une hypothèse stratégique à valider, pas un fait."
+      "note": "L'avantage d'une couche d'orchestration est une hypothèse stratégique à valider, pas un fait.",
+      "fixture": "fixtures/examples/dezoom.study.json"
     },
     {
       "id": "EX-DZ-02",
@@ -111,10 +127,14 @@
       "topic": "Investissements des concurrents dans l'IA et leurs cas d'usage",
       "role": "Dézoom vers le secteur : ce que les concurrents investissent, et ce que cela change pour la cible",
       "atoms": [
-        "ATOM-c8e4c1df7ef3c49c4569b1ccdaff18ca58130e98ce317b3871a761c7a8a151c8"
+        "ATOM-c8e4c1df7ef3c49c4569b1ccdaff18ca58130e98ce317b3871a761c7a8a151c8",
+        "ATOM-af1dd60f98ede0399aa1abcc67526ce2b5859c93d7c3d98ef3843c27d1745fff",
+        "ATOM-ffe4ca9f3981afd3f9de10641af699329165178aad28a9e6a174ce66923a658d",
+        "ATOM-a01c4603ceda8b5d095aa1b77a3757e19a7aa450ec902b3573b7e5c6e644233f"
       ],
       "status": "research_required",
-      "note": "La source existante ne cite que les noms des concurrents et déclare ne pas sourcer les chiffres. Aucun montant ne peut être repris."
+      "note": "Cas d'usage d'Engie acquis le 2026-11-09. Aucun montant d'investissement trouvé ; BayWa r.e. sur extraits de recherche seulement ; autres concurrents sans résultat. Ne reprendre aucun montant.",
+      "fixture": "fixtures/examples/dezoom.study.json"
     },
     {
       "id": "EX-CMP-01",
@@ -131,7 +151,8 @@
         "ATOM-c8e4c1df7ef3c49c4569b1ccdaff18ca58130e98ce317b3871a761c7a8a151c8"
       ],
       "status": "supplied_unverified",
-      "note": "Archétypes à instruire sur preuves publiques ; pas de classement de performances."
+      "note": "Archétypes à instruire sur preuves publiques ; pas de classement de performances.",
+      "fixture": "fixtures/examples/comparator.study.json"
     },
     {
       "id": "EX-CMP-02",
@@ -140,11 +161,36 @@
         "P-MARKET",
         "P-AI"
       ],
-      "topic": "Éléments de benchmarking avec les cas d'usage d'acteurs à préciser",
-      "role": "Comparatif de cas d'usage",
-      "atoms": [],
-      "status": "to_confirm",
-      "note": "La demande du 2026-11-09 s'arrête à « avec les uses cases de » : la liste des acteurs à comparer est à fournir."
+      "topic": "Cinq acteurs concurrents comparés sur les modèles de création de valeur",
+      "role": "Comparatif d'acteurs : liste issue d'un document fourni, complétée par des recherches publiques",
+      "atoms": [
+        "ATOM-8a8fc4c5d66211c9b7f1e3c9d633202fe31693f1db165dc732a4df6bc10b67b0",
+        "ATOM-22b8e77053e92f52059ee974f94a7d5db0b6895db404163ffc101bd5930cedad",
+        "ATOM-f59c9cc58e31e13b6c29c51349b64153d11fa3086b862bd262b13e12ea543c69",
+        "ATOM-c3a34c967090c14fbe58c8a69e9ce9977e4806b63306a413f44dc4d7df2fd434",
+        "ATOM-30874b0afc22860c0a593466a823133514d2c9142e8c2046878d4f75d0f75267"
+      ],
+      "status": "read_at_source",
+      "note": "Tailles, contrats et mouvements d'entreprise lus à la source ; cinq cibles de disponibilité sur cinq non confirmées ; Engie Impact en cours de cession à un tiers.",
+      "fixture": "fixtures/examples/comparator.study.json"
+    },
+    {
+      "id": "EX-CMP-03",
+      "type": "comparator",
+      "pillars": [
+        "P-AI",
+        "P-MARKET"
+      ],
+      "topic": "Jumeau numérique : cas orientés produit et cas orientés client",
+      "role": "Comparatif de cas sur un critère commun : qui porte le bénéfice",
+      "atoms": [
+        "ATOM-070258d035d1caa09a59185861142a69ad39a4a78a95efa61b3184669df459ad",
+        "ATOM-dafe810bea04530445b35ac2cab40d5a3919c4344ffadf611e6250f064231f3c",
+        "ATOM-35dbba10980df558b78b3454602d379d3f04647b59816490b5dde967e4661bec"
+      ],
+      "status": "supplied_unverified",
+      "note": "Chiffres d'éditeurs ou d'auteurs ; certificats d'économies d'énergie : aucune source ; plusieurs cas sur extraits de recherche seulement.",
+      "fixture": "fixtures/examples/comparator.study.json"
     },
     {
       "id": "EX-ILL-01",
@@ -154,26 +200,48 @@
         "P-AI"
       ],
       "topic": "Cas d'usage : IA multimodale au service des intervenants sur site",
-      "role": "Illustration de type cas d'usage, orientée B-A-C (cadre à confirmer)",
+      "role": "Illustration de type cas d'usage, construite en bénéfice, avantages et caractéristiques",
       "atoms": [
         "ATOM-a31fde62600553c9582d731bb94cea4f7212e84c0596f0cc10feebf2e0c446e2",
         "ATOM-6a096af9c124ed560b071a2120d555c7b6a69487d9aca374c8aa6cac0f78e1a4"
       ],
       "status": "supplied_unverified",
-      "note": "Cas candidat, non confirmé comme cas de la cible. Le sigle B-A-C n'est défini dans aucune source : cadre laissé libre jusqu'à confirmation."
+      "note": "Cas candidat, non confirmé comme cas de la cible. Cadre bénéfice, avantages, caractéristiques confirmé par François.",
+      "fixture": "fixtures/examples/illustration.study.json"
     },
     {
       "id": "EX-ILL-02",
       "type": "illustration",
       "pillars": [
-        "P-GOVERNANCE",
-        "P-INDUSTRY"
+        "P-INDUSTRY",
+        "P-ADOPTION"
       ],
-      "topic": "Citation de référence d'un dirigeant de l'industrie",
+      "topic": "Citation de référence d'une dirigeante du secteur : la prévision au cœur du métier",
       "role": "Illustration de type citation : verbatim, datée, attribuée, sourcée",
-      "atoms": [],
-      "status": "research_required",
-      "note": "Aucune citation de dirigeant dans la KB. Ne jamais reconstituer une citation."
+      "atoms": [
+        "ATOM-e21a854f6a7a6617bb1442bd48dd5c9d6a448b58e57aa1b8f7c62b44d25b7a18",
+        "ATOM-a01c4603ceda8b5d095aa1b77a3757e19a7aa450ec902b3573b7e5c6e644233f"
+      ],
+      "status": "supplied_unverified",
+      "note": "Deux citations directes retrouvées dans la presse (2024, 2026), datées et sourcées dans la note privée. Relire sur la page avant publication ; ne jamais reformuler. Parole d'un concurrent, pas un fait.",
+      "fixture": "fixtures/examples/illustration.study.json"
+    },
+    {
+      "id": "EX-ILL-03",
+      "type": "illustration",
+      "pillars": [
+        "P-INDUSTRY",
+        "P-DATA"
+      ],
+      "topic": "Maintenance sur site et documentation des installations avec un assistant sourcé",
+      "role": "Cas d'usage : question d'un technicien, réponse sourcée ou abstention, mise en relation, capitalisation",
+      "atoms": [
+        "ATOM-d89c5505ec942de03c17f863cd23bb939b48f9b02c41464a97ff582fa585feb0",
+        "ATOM-1c40f9d6543aef3bab8f901ee96c834cb1ac7d00eb0238351c15491c1fafaa42"
+      ],
+      "status": "supplied_unverified",
+      "note": "Scénario d'illustration, pas un incident réel ; configuration et contrôles réels non vérifiés.",
+      "fixture": "fixtures/examples/illustration.study.json"
     },
     {
       "id": "EX-FOC-01",
@@ -190,7 +258,8 @@
         "ATOM-3d476bec1eb7279837ebb14d1edce9b96a8a8276d13b634667d7d8fff0ddeb57"
       ],
       "status": "supplied_unverified",
-      "note": "Grille de diagnostic générique, non un incident de la cible."
+      "note": "Grille de diagnostic générique, non un incident de la cible.",
+      "fixture": "fixtures/examples/analytical_focus.study.json"
     },
     {
       "id": "EX-FOC-02",
@@ -199,11 +268,18 @@
         "P-AI",
         "P-GOVERNANCE"
       ],
-      "topic": "Double cerveau",
-      "role": "Focus analytique sur un mécanisme à définir",
-      "atoms": [],
-      "status": "to_collect",
-      "note": "Notion citée le 2026-11-09, absente de la KB et non définie dans les sources : définition et source à fournir avant instruction."
+      "topic": "Le double cerveau d'un système d'assistance : mémoire à long terme, connaissances, cycle de vie des skills",
+      "role": "Analyse approfondie d'une notion définie par François",
+      "atoms": [
+        "ATOM-23bc0e5dd422d50bc6f85276b45641a0551744e18e32178950f8b0e4c2775d44",
+        "ATOM-4edec9533ebc99c93d1bf282a719dcd627d78c06d1442940b9ecf38504c57e0b",
+        "ATOM-6740f713d50f8a16df0ecd6193a0e28f7b91e1f3e824bdf3b773c6e6ac86f005",
+        "ATOM-ebacc54c36affcb5714eb366f5281f915c1400e1e96ed0d9a7c3de33a0c51cac",
+        "ATOM-d392a26ac2381e190c33b107dcc3039663a05b0d41307a1e82bc3b1c2199b05c"
+      ],
+      "status": "supplied_unverified",
+      "note": "Définition de François ; recherche publique : aucun usage du terme, trois composantes retrouvées séparément, sources surtout commerciales ; à présenter comme définition de travail.",
+      "fixture": "fixtures/examples/analytical_focus.study.json"
     },
     {
       "id": "EX-FOC-03",
@@ -215,9 +291,14 @@
       ],
       "topic": "Retour d'expérience de cabinets sur les moteurs de l'IA dans les énergies renouvelables ou les certificats d'économies d'énergie",
       "role": "Focus analytique à partir de rapports de cabinets",
-      "atoms": [],
-      "status": "research_required",
-      "note": "Aucun rapport de cabinet dans la KB. Collecter des publications identifiables ; marquer le niveau de preuve (grey_literature)."
+      "atoms": [
+        "ATOM-26fa8bf102083be6949f0a171e2fa16f2cf5ce7f0a854d4de0425c368871247b",
+        "ATOM-c563610671d1efa5198db006e76c75be9e906931055104ae049aa6ba619d3a03",
+        "ATOM-9bf155abccdc79ac639fffec3a2d40c30a05ded4aef5c5a9c2673f537b6d014d"
+      ],
+      "status": "supplied_unverified",
+      "note": "Pages de KPMG et de Deloitte lues le 2026-11-09 ; rapports complets non lus ; EY et PwC sans résultat ; certificats d'économies d'énergie absents. Littérature grise.",
+      "fixture": "fixtures/examples/analytical_focus.study.json"
     }
   ]
 }

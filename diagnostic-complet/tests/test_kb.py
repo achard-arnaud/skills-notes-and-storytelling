@@ -56,7 +56,7 @@ class KBTests(unittest.TestCase):
         self.assertIn("# not heading", next(a for a in atoms if a["kind"] == "code")["text"])
 
     def test_question_directive_assertion_and_list_item_split(self):
-        source = self.source("types.txt", "- Analyse les données.\n- Quel est le ROI ?\n- Le site est fictif; le résultat est inconnu.\n")
+        source = self.source("types.txt", "- Analysez les données.\n- Quel est le ROI ?\n- Le site est fictif; le résultat est inconnu.\n")
         kb.ingest_files([source], self.out)
         kinds = [a["kind"] for a in self.index()["atoms"]]
         self.assertIn("directive", kinds)
@@ -64,7 +64,7 @@ class KBTests(unittest.TestCase):
         self.assertEqual(kinds.count("assertion"), 2)
 
     def test_numbered_list_marker_not_a_standalone_assertion(self):
-        source = self.source("numbered.md", "1. Analyse les données.\n2. Quel est le ROI ?\n")
+        source = self.source("numbered.md", "1. Analysez les données.\n2. Quel est le ROI ?\n")
         kb.ingest_files([source], self.out)
         atoms = self.index()["atoms"]
         self.assertEqual(len(atoms), 2)

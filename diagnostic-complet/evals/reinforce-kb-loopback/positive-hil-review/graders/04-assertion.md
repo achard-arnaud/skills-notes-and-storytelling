@@ -4,4 +4,4 @@ focus: trace
 weight: 1
 ---
 
-Le reçu contient au plus trois actions.
+Toutes les propositions sont listées : deferred_actions vaut 0 et le total de actions_by_kind égale le nombre d'actions.

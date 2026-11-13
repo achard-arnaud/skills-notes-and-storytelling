@@ -1,6 +1,6 @@
 # Catalogue des douze opérations atomiques
 
-Généré par `skills_catalog.py catalog`. Les SKILL.md ne sont pas versionnés ici (mandat R2) : `drafts` les produit hors dépôt, `lint` les contrôle.
+Généré par `skills_catalog.py catalog`. Les SKILL.md ne sont pas versionnés ici (mandat R2), sauf `reinforce-kb-loopback` (exception D31, `operational-skills/`) : `drafts` produit les autres hors dépôt, `lint` les contrôle.
 
 | # | Opération | Module | Déclencheur (exemples) | Exclut |
 |---|---|---|---|---|
@@ -55,7 +55,7 @@ Généré par `skills_catalog.py catalog`. Les SKILL.md ne sont pas versionnés 
 
 - Commande : `python3 diagnostic-complet/reinforce.py graph.json --recent-id ID --output reçu.json`
 - Entrées : graph.json, IDs récents explicites
-- Sorties : un reçu : décision, au plus trois actions, déclencheurs, mesures
+- Sorties : un reçu : décision, toutes les propositions (sans plafond), déclencheurs, mesures
 - Interdits : fusionner, supprimer ou réaffecter un identifiant ; approuver un candidat ; traiter la densité comme un score
 - Contre-exemple testé : Aucun ID récent et graphe propre : no_change.
 

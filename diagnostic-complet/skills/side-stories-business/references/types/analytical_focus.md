@@ -1,6 +1,6 @@
-# `[FOC]` Focus analytique
+# Analyse approfondie (focus analytique)
 
-Tag `FOC`, couleur marine. Source de vérité : `workflows/side-stories.workflow.json`, type `analytical_focus`. Harvesté de `composing-side-stories` (dépôt tourisme) et de sa grammaire visuelle inspirée de `two-pager-nice`. Intègre l'ancien `false_lead` : une fausse piste est une position contrastée examinée puis écartée.
+Libellé affiché : **Analyse approfondie** (code interne `FOC`, jamais montré au lecteur) ; couleur marine. Source de vérité : `workflows/side-stories.workflow.json`, type `analytical_focus`. Harvesté de `composing-side-stories` (dépôt tourisme) et de sa grammaire visuelle inspirée de `two-pager-nice`. Intègre l'ancien `false_lead` : une fausse piste est une position contrastée examinée puis écartée.
 
 ## Rôle
 

@@ -27,12 +27,12 @@ Une capacité décrite par un fournisseur est `supplied_claim`. Un gain d'IA non
 
 Lire `../side-stories-business/SKILL.md`, puis le fichier du type retenu. Types recommandés pour ce pilier :
 
-| Type | Quand | Référence |
+| Type affiché | Quand | Référence |
 |---|---|---|
-| `[VAC]` `veille_academique` | Installer les capacités de l'IA ou les postures d'adoption avec source et contre-point. | `../side-stories-business/references/types/veille_academique.md` |
-| `[FOC]` `analytical_focus` | Instruire une architecture ou un mécanisme (RAG agentique multimodal, base de connaissances à ontologie, double cerveau) par la décision qu'il sert. | `../side-stories-business/references/types/analytical_focus.md` |
-| `[CMP]` `comparator` | Comparer des postures ou des solutions sur un critère unique (contrôle, réversibilité, valeur attendue). | `../side-stories-business/references/types/comparator.md` |
-| `[VCP]` `veille_corporate_perso` | Présenter un éditeur, un cabinet ou un retour d'expérience d'IA en 10 à 15 lignes, offre et preuves séparées. | `../side-stories-business/references/types/veille_corporate_perso.md` |
+| Veille académique (`veille_academique`) | Installer les capacités de l'IA ou les postures d'adoption avec source et contre-point. | `../side-stories-business/references/types/veille_academique.md` |
+| Analyse approfondie (`analytical_focus`) | Instruire une architecture ou un mécanisme (RAG agentique multimodal, base de connaissances à ontologie, double cerveau) par la décision qu'il sert. | `../side-stories-business/references/types/analytical_focus.md` |
+| Comparatif (`comparator`) | Comparer des postures ou des solutions sur un critère unique (contrôle, réversibilité, valeur attendue). | `../side-stories-business/references/types/comparator.md` |
+| Veille entreprise (`veille_corporate_perso`) | Présenter un éditeur, un cabinet ou un retour d'expérience d'IA en 10 à 15 lignes, offre et preuves séparées. | `../side-stories-business/references/types/veille_corporate_perso.md` |
 
 ### Problématiques types à fournir au rédacteur
 
@@ -54,8 +54,13 @@ Fournir au rédacteur le **paquet de rendu** (`../side-stories-business/referenc
 
 ## Style indicatif
 
-Neutre sur la technologie, exigeant sur la décision : une capacité ne s'écrit jamais sans le cas, la donnée requise et la supervision. Voix de François-Pro : sobre, dense, une idée par phrase.
+Neutre sur la technologie, exigeant sur la décision : une capacité ne s'écrit jamais sans le cas, la donnée requise et la supervision. Directive de style adoptée (ADR-0012) : direct, factuel, analytique, didactique ; l'essentiel d'abord ; phrases courtes ; jamais d'effet de balancement ni de double négation ; orienté décision.
 
 ## Exemples issus de la KB
 
 `examples/kb-pointers.json` : `EX-VAC-01`, `EX-VAC-02`. Identifiants opaques à résoudre dans le dépôt Graph1 privé (voir `workflows/kb-examples.json`) ; ne jamais copier leur texte ici (D23).
+
+
+## Références d’architecture conditionnelles
+
+Pour une évolution de méthode, lire [ADR-1001](../../../docs/architecture/ADR-1001-routing-capabilities.md) et [ADR-1002](../../../docs/architecture/ADR-1002-evidence-knowledge.md). Le chargement RUN reste limité au contrat et au paquet de l’étape ; les principes communs ne changent pas les capacités locales.

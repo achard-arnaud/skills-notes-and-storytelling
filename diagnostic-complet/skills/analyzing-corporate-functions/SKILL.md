@@ -27,10 +27,10 @@ Les cas candidats sont `hypothesis` ; les gains annoncés non confirmés pour la
 
 Lire `../side-stories-business/SKILL.md`, puis le fichier du type retenu. Types recommandés pour ce pilier :
 
-| Type | Quand | Référence |
+| Type affiché | Quand | Référence |
 |---|---|---|
-| `[ILL]` `illustration` | Montrer un usage transverse (commercial, finance, support interne) avec sa propre économie, séparé des usages industriels. | `../side-stories-business/references/types/illustration.md` |
-| `[CMP]` `comparator` | Comparer deux manières de traiter un même processus corporate sur un critère commun (délai, contrôle, coût). | `../side-stories-business/references/types/comparator.md` |
+| Exemple concret (`illustration`) | Montrer un usage transverse (commercial, finance, support interne) avec sa propre économie, séparé des usages industriels. | `../side-stories-business/references/types/illustration.md` |
+| Comparatif (`comparator`) | Comparer deux manières de traiter un même processus corporate sur un critère commun (délai, contrôle, coût). | `../side-stories-business/references/types/comparator.md` |
 
 ### Problématiques types à fournir au rédacteur
 
@@ -52,8 +52,13 @@ Fournir au rédacteur le **paquet de rendu** (`../side-stories-business/referenc
 
 ## Style indicatif
 
-Sobre et opérationnel : un processus, un propriétaire, un résultat mesurable, une limite. Pas de vocabulaire de démonstration technologique. Voix de François-Pro : sobre, dense, une idée par phrase.
+Sobre et opérationnel : un processus, un propriétaire, un résultat mesurable, une limite. Pas de vocabulaire de démonstration technologique. Directive de style adoptée (ADR-0012) : direct, factuel, analytique, didactique ; l'essentiel d'abord ; phrases courtes ; jamais d'effet de balancement ni de double négation ; orienté décision.
 
 ## Exemples issus de la KB
 
 `examples/kb-pointers.json` : `EX-COR-01`, `EX-ILL-01`. Identifiants opaques à résoudre dans le dépôt Graph1 privé (voir `workflows/kb-examples.json`) ; ne jamais copier leur texte ici (D23).
+
+
+## Références d’architecture conditionnelles
+
+Pour une évolution de méthode, lire [ADR-1001](../../../docs/architecture/ADR-1001-routing-capabilities.md) et [ADR-1002](../../../docs/architecture/ADR-1002-evidence-knowledge.md). Le chargement RUN reste limité au contrat et au paquet de l’étape ; les principes communs ne changent pas les capacités locales.

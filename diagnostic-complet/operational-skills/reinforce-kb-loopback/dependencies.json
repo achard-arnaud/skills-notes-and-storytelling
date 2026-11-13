@@ -1,0 +1,109 @@
+{
+  "skill": "reinforce-kb-loopback",
+  "canonical": "diagnostic-complet/operational-skills/reinforce-kb-loopback/SKILL.md",
+  "mirrors": [
+    ".claude/skills/reinforce-kb-loopback/SKILL.md",
+    ".agents/skills/reinforce-kb-loopback/SKILL.md"
+  ],
+  "exception": "D31 : skill de dépôt. Elle ne contient aucun texte du corpus privé ; la réserve R2 sur les SKILL.md ne s'applique pas à elle.",
+  "invoked_after": "Un run d'ingestion (kb.py) a produit un graph.json et un apport est identifié par ses IDs.",
+  "use_cases": [
+    {
+      "id": "UC-1-review-after-intake",
+      "trigger": "Des identifiants récents explicites sont fournis.",
+      "commands": [
+        "python3 diagnostic-complet/ontology.py check",
+        "python3 diagnostic-complet/reinforce.py <graph.json> --recent-id <ID> --output <reçu.json>"
+      ],
+      "reads": [
+        "diagnostic-complet/kb.py (producteur de graph.json, profil via --profile)",
+        "diagnostic-complet/ontology/ontology-v1.json"
+      ],
+      "writes": [
+        "<reçu.json> hors dépôt"
+      ],
+      "tests": [
+        "diagnostic-complet/tests/test_reinforce.py::test_every_proposal_is_listed_and_none_is_applied"
+      ]
+    },
+    {
+      "id": "UC-2-pillar-or-hil-review",
+      "trigger": "Un humain demande une revue ciblée d'un pilier ou d'un HIL.",
+      "commands": [
+        "python3 diagnostic-complet/loopback.py <graph.json> --recent-id <ID>"
+      ],
+      "reads": [
+        "diagnostic-complet/loopback.py (pillar_review, ontology_trigger)",
+        "diagnostic-complet/profiles/<run>.profile.json (piliers)"
+      ],
+      "writes": [
+        "aucun ; rapport sur sortie explicite seulement"
+      ],
+      "tests": [
+        "diagnostic-complet/tests/test_loopback.py"
+      ]
+    },
+    {
+      "id": "UC-3-no-trigger",
+      "trigger": "Aucun identifiant récent, aucune directive, aucune demande ciblée.",
+      "expect": "decision = no_change, actions = []",
+      "tests": [
+        "diagnostic-complet/tests/test_reinforce.py::test_clean_graph_without_recent_material_is_no_change"
+      ],
+      "eval": "diagnostic-complet/evals/reinforce-kb-loopback/clean-cycle-no-change"
+    },
+    {
+      "id": "UC-4-refuse-human-adjudication",
+      "trigger": "Demande de poser verified_fact ou HUMAN_ADJUDICATED.",
+      "refusal_basis": [
+        "diagnostic-complet/ontology/terminology.json (knowledge_status.machine_may_set, requires)",
+        "diagnostic-complet/ontology.py (facet_violations)"
+      ],
+      "tests": [
+        "diagnostic-complet/tests/test_ontology.py"
+      ],
+      "eval": "diagnostic-complet/evals/reinforce-kb-loopback/refuse-human-adjudication"
+    },
+    {
+      "id": "UC-5-refuse-merge-without-source",
+      "trigger": "Demande de fusion ou de suppression d'atomes sans source.",
+      "refusal_basis": [
+        "diagnostic-complet/doc/architecture/ADR-0005-contrat-skill-reinforce.md (section Interdits)"
+      ],
+      "eval": "diagnostic-complet/evals/reinforce-kb-loopback/refuse-merge-without-source"
+    }
+  ],
+  "dependencies": {
+    "scripts": [
+      "diagnostic-complet/ontology.py",
+      "diagnostic-complet/reinforce.py",
+      "diagnostic-complet/loopback.py",
+      "diagnostic-complet/kb.py"
+    ],
+    "referentials": [
+      "diagnostic-complet/ontology/ontology-v1.json",
+      "diagnostic-complet/ontology/terminology.json",
+      "contracts/relation-types.json"
+    ],
+    "profiles": [
+      "diagnostic-complet/profiles/neutral.profile.json"
+    ],
+    "contracts": [
+      "diagnostic-complet/doc/architecture/ADR-0005-contrat-skill-reinforce.md",
+      "diagnostic-complet/doc/architecture/ADR-0002-referentiel-ontologie.md"
+    ],
+    "fixtures": [
+      "diagnostic-complet/fixtures/onto/graph-positive.json",
+      "diagnostic-complet/fixtures/onto/graph-negative.json",
+      "diagnostic-complet/fixtures/onto/graph-negative-structure.json",
+      "diagnostic-complet/fixtures/onto/graph-relations-all.json"
+    ],
+    "evals": [
+      "diagnostic-complet/evals/reinforce-kb-loopback"
+    ],
+    "tests": [
+      "diagnostic-complet/tests/test_reinforce.py",
+      "diagnostic-complet/tests/test_reinforce_skill.py"
+    ]
+  }
+}

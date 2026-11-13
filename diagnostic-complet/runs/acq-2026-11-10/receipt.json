@@ -1,0 +1,66 @@
+{
+  "receipt": "acquisition-2026-11-10",
+  "date": "2026-11-10",
+  "base_kb_commit": "49d1e6dd",
+  "delivered_kb_commit": "445f8043",
+  "profile_id": "greenyellow",
+  "ci": "intentionally_not_run",
+  "profile_migration": {
+    "ticket": "RF-06",
+    "change": "champ profile_id ajouté à l'index, valeur du profil déclaré",
+    "schema_version": "1.0.0",
+    "lexicon_version": "1.0.0",
+    "index_sha256_before": "e4b66ea7a1e84f02c17285348a6fd5bea257d8c8eebfc08b1a53ab7a55467c95",
+    "backup": "hors dépôt, dossier de travail privé",
+    "sources_before": 659,
+    "atoms_before": 22174
+  },
+  "ingested": {
+    "sources_added": 18,
+    "atoms_added": 830,
+    "sources_total": 677,
+    "atoms_total": 23004,
+    "unexplained_non_whitespace_characters": 0,
+    "groups": {
+      "supplied_analysis": 13,
+      "supplied_style_directive": 1,
+      "public_research": 3,
+      "triage_register": 1
+    }
+  },
+  "source_ids": [
+    "SRC-10fc12e6089a724946c108f78c6566d4d61de7ad24ccca34702ab77de60ff26b",
+    "SRC-158ad7a6909188412e67b3a58385e31d0352173a8bda0d4e7da7918bf0aa79ea",
+    "SRC-1c32a644f290f7673f741d094d799b2fd80ce70dbd967ca8c4d67007fdbc5c15",
+    "SRC-2119a5376525eac34dceaface7435f23f2e178e8e5e8a01d06d9971a4a3b2caa",
+    "SRC-44ced4b50d416a476995d518c0698fc4a085db748ecb8524007045fce67992f4",
+    "SRC-50eddec0efff115fb2dc7d8df99efe675530452c08eed61a6afa2ce87af2d268",
+    "SRC-60349b328bcb5e170b7062c25f49d3fea02f38571e676ded2b5afb88ea179056",
+    "SRC-8947b9c64bf0ffc8ad6b62d274278c528c7ae170ab88e33525dc6534ca1db0da",
+    "SRC-8adcb585b6007339a54b6ad3af185dc401e7284715432441f480a39d6369c5cf",
+    "SRC-93b8c464ee9c255a2e503449221b0aea5cf8b7b3fe65d48b74acc315a4df2050",
+    "SRC-9c968d63727b8562352ff49893c09f6e5c5e9e166810e5c2ed599c10b7c0357d",
+    "SRC-a53ba9ac81f91a4e54f157304730a52e6bb2e29f443c2d69036d3119c385808a",
+    "SRC-a98b8d6c7c687033003e8579164dc52b34753dc4f25c4b1e51917fa312b925f1",
+    "SRC-acf9600b087622a6577f2e5b9b93ab11596d3700fd2a9ab216c86421af8b32c5",
+    "SRC-ddb987f3bb00cfc6317dec8d24026073039af7e735508f35ed46e002e37d1e8a",
+    "SRC-df5920117faa80ebbb1e8f59e7590d90911beb6aaa039cab5986b9875e2c7516",
+    "SRC-e089ba55b597e156091b34f52664c0952b4c895e6e7dfc901c126a3ac0556372",
+    "SRC-ec054e41901302e8a7b73221b233bb644f45a0a0324072c36af75d8f313882be"
+  ],
+  "publication": {
+    "mode": "fast-forward, sans force, [skip ci]",
+    "files_written": 855,
+    "frozen_formation_graph_unchanged": true,
+    "formation_graph_sha256": "dd784af7a527a8e1ecddcc6bc1b231b49981362aa1e5c862e7aa9946f198b9ca"
+  },
+  "checks": {
+    "pointer_registry": "57 identifiants vérifiés côté exécution avec pointers_check.py, 0 manquant"
+  },
+  "human_adjudicated": 0,
+  "limits": [
+    "Tous les atomes sont supplied_unverified.",
+    "Aucun contenu du corpus dans ce reçu : identifiants et comptes seulement.",
+    "Pages refusées (403), introuvables (404) ou non obtenues : listées dans le registre des exemples."
+  ]
+}

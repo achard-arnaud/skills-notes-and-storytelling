@@ -27,11 +27,11 @@ Un dispositif d'accompagnement décrit est `attributed_claim` ; son efficacité 
 
 Lire `../side-stories-business/SKILL.md`, puis le fichier du type retenu. Types recommandés pour ce pilier :
 
-| Type | Quand | Référence |
+| Type affiché | Quand | Référence |
 |---|---|---|
-| `[ILL]` `illustration` | Montrer un cas où un irritant terrain devient une capacité réutilisable, ou un dispositif d'accompagnement. | `../side-stories-business/references/types/illustration.md` |
-| `[VAC]` `veille_academique` | Définir les notions de conduite du changement et de pratique durable (cadre d'augmentation des processus, par exemple) avec source. | `../side-stories-business/references/types/veille_academique.md` |
-| `[CMP]` `comparator` | Comparer deux dispositifs d'adoption (communauté, centre d'expertise, produit) sur un critère commun. | `../side-stories-business/references/types/comparator.md` |
+| Exemple concret (`illustration`) | Montrer un cas où un irritant terrain devient une capacité réutilisable, ou un dispositif d'accompagnement. | `../side-stories-business/references/types/illustration.md` |
+| Veille académique (`veille_academique`) | Définir les notions de conduite du changement et de pratique durable (cadre d'augmentation des processus, par exemple) avec source. | `../side-stories-business/references/types/veille_academique.md` |
+| Comparatif (`comparator`) | Comparer deux dispositifs d'adoption (communauté, centre d'expertise, produit) sur un critère commun. | `../side-stories-business/references/types/comparator.md` |
 
 ### Problématiques types à fournir au rédacteur
 
@@ -53,8 +53,13 @@ Fournir au rédacteur le **paquet de rendu** (`../side-stories-business/referenc
 
 ## Style indicatif
 
-Humain et concret : des rôles, des gestes, des décisions ; une mesure par rôle, jamais un taux global sans définition. Voix de François-Pro : sobre, dense, une idée par phrase.
+Humain et concret : des rôles, des gestes, des décisions ; une mesure par rôle, jamais un taux global sans définition. Directive de style adoptée (ADR-0012) : direct, factuel, analytique, didactique ; l'essentiel d'abord ; phrases courtes ; jamais d'effet de balancement ni de double négation ; orienté décision.
 
 ## Exemples issus de la KB
 
 `examples/kb-pointers.json` : `EX-ADO-01`, `EX-VAC-02`. Identifiants opaques à résoudre dans le dépôt Graph1 privé (voir `workflows/kb-examples.json`) ; ne jamais copier leur texte ici (D23).
+
+
+## Références d’architecture conditionnelles
+
+Pour une évolution de méthode, lire [ADR-1001](../../../docs/architecture/ADR-1001-routing-capabilities.md) et [ADR-1002](../../../docs/architecture/ADR-1002-evidence-knowledge.md). Le chargement RUN reste limité au contrat et au paquet de l’étape ; les principes communs ne changent pas les capacités locales.

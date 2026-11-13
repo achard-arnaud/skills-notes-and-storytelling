@@ -27,10 +27,10 @@ Les définitions d'un référentiel fourni sont `supplied_claim`. Un volume de d
 
 Lire `../side-stories-business/SKILL.md`, puis le fichier du type retenu. Types recommandés pour ce pilier :
 
-| Type | Quand | Référence |
+| Type affiché | Quand | Référence |
 |---|---|---|
-| `[VAC]` `veille_academique` | Définir 5 à 7 notions (qualité de données, référentiel, baseline, interopérabilité, ownership) avec sources. | `../side-stories-business/references/types/veille_academique.md` |
-| `[FOC]` `analytical_focus` | Expliquer pourquoi une mesure n'est pas décisionnelle (baseline, temporalité, accès) et ce qui la rendrait fiable. | `../side-stories-business/references/types/analytical_focus.md` |
+| Veille académique (`veille_academique`) | Définir 5 à 7 notions (qualité de données, référentiel, baseline, interopérabilité, ownership) avec sources. | `../side-stories-business/references/types/veille_academique.md` |
+| Analyse approfondie (`analytical_focus`) | Expliquer pourquoi une mesure n'est pas décisionnelle (baseline, temporalité, accès) et ce qui la rendrait fiable. | `../side-stories-business/references/types/analytical_focus.md` |
 
 ### Problématiques types à fournir au rédacteur
 
@@ -42,7 +42,7 @@ Lire `../side-stories-business/SKILL.md`, puis le fichier du type retenu. Types 
 - de la mesure au référentiel
 - de la donnée au workflow
 
-Fournir au rédacteur le **paquet de rendu** (`../side-stories-business/references/renderer-packet.md`) : type, passage d'accueil, problématique, `bridge.in`, `bridge.out`, claims et statuts, interdits. Le rédacteur le vérifie en mode auto-cohérence. Une side story sans problématique ni ponts n'est pas rédigée.
+Pour un lexique, ne retenir que les notions qui ont une source citable ; pour les autres, demander les références au lieu d'écrire « aucune source ». Fournir au rédacteur le **paquet de rendu** (`../side-stories-business/references/renderer-packet.md`) : type, passage d'accueil, problématique, `bridge.in`, `bridge.out`, claims et statuts, interdits. Le rédacteur le vérifie en mode auto-cohérence. Une side story sans problématique ni ponts n'est pas rédigée.
 
 ## Contrat
 
@@ -52,8 +52,13 @@ Fournir au rédacteur le **paquet de rendu** (`../side-stories-business/referenc
 
 ## Style indicatif
 
-Précis et défini : chaque terme technique est défini à sa première occurrence, les unités et les périodes sont toujours écrites. Voix de François-Pro : sobre, dense, une idée par phrase.
+Précis et défini : chaque terme technique est défini à sa première occurrence, les unités et les périodes sont toujours écrites. Directive de style adoptée (ADR-0012) : direct, factuel, analytique, didactique ; l'essentiel d'abord ; phrases courtes ; jamais d'effet de balancement ni de double négation ; orienté décision.
 
 ## Exemples issus de la KB
 
 `examples/kb-pointers.json` : `EX-DAT-01`, `EX-FOC-01`. Identifiants opaques à résoudre dans le dépôt Graph1 privé (voir `workflows/kb-examples.json`) ; ne jamais copier leur texte ici (D23).
+
+
+## Références d’architecture conditionnelles
+
+Pour une évolution de méthode, lire [ADR-1001](../../../docs/architecture/ADR-1001-routing-capabilities.md) et [ADR-1002](../../../docs/architecture/ADR-1002-evidence-knowledge.md). Le chargement RUN reste limité au contrat et au paquet de l’étape ; les principes communs ne changent pas les capacités locales.

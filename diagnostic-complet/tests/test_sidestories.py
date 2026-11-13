@@ -1,4 +1,5 @@
 import copy
+from html import escape as html_escape
 import importlib.util
 import json
 from pathlib import Path
@@ -69,7 +70,7 @@ VALID = {
                        "payload": {"steps": [{"scale": "site", "statement": "Constat local."}, {"scale": "portefeuille", "statement": "Canal de transmission."}, {"scale": "site", "statement": "Gain local."}]}},
     "comparator": lambda: {"criterion": "Contrôle des données", "confounders": ["taille"], "takeaway": "Les conditions diffèrent.",
                            "payload": {"table": {"columns": ["Acteur", "Critère"], "rows": [["A", "x"], ["B", "y"], ["C", "z"]]}}},
-    "illustration": lambda: {"payload": {"form": "use_case", "text": "Un cas d'usage synthétique."}},
+    "illustration": lambda: {"payload": {"form": "use_case", "benefice": "Gain synthétique.", "avantages": "Avantage synthétique.", "caracteristiques": "Caractéristique synthétique."}},
     "analytical_focus": lambda: {"payload": {"analysis": {
         "core_question": "Pourquoi ?", "thesis": "Parce que.", "takeaway": "Donc.",
         "positions": [{"position": "A", "caveat": "limite A"}, {"position": "B", "caveat": "limite B"}],
@@ -112,6 +113,19 @@ class WorkflowTests(unittest.TestCase):
         pillars = re.findall(r"\| (P-[A-Z]+) \|", (ROOT / "docs/PILLARS.md").read_text(encoding="utf-8"))
         self.assertEqual(8, len(pillars))
         self.assertEqual(set(pillars), set(WORKFLOW["pillar_routing"]))
+
+    def test_labels_are_plain_words_not_codes(self):
+        labels = [t["label"] for t in WORKFLOW["types"]] + [r["label"] for r in WORKFLOW["pillar_routing"].values()]
+        self.assertEqual(len(labels), len(set(labels)))
+        for label in labels:
+            self.assertNotRegex(label, r"\b[A-Z]{2,5}\b", f"{label!r} contains an abbreviation")
+            self.assertNotRegex(label, r"^[A-Z]-|CAND-", label)
+            self.assertGreaterEqual(len(label), 8)
+
+    def test_candidates_are_named_by_readable_titles(self):
+        for c in CANDIDATES["candidates"]:
+            self.assertNotRegex(c["title"], r"CAND-\d|\b(?:VCP|VAC|FOC|CMP|ILL)\b", c["id"])
+        self.assertIn("jamais par son identifiant", CANDIDATES["readability"])
 
     def test_runtime_vocabulary_is_derived_from_workflow(self):
         self.assertEqual(set(WORKFLOW["legacy_kind_map"]) | {t["id"] for t in WORKFLOW["types"]}, runtime.SIDE_KINDS)
@@ -226,8 +240,9 @@ class LegacyAndRenderTests(unittest.TestCase):
 
     def test_render_shows_the_visible_tag_and_its_css(self):
         html = render.render_study(study_for("veille_academique", "candidate"))
-        self.assertIn('class="tag tag-VAC"', html)
-        self.assertIn("[VAC]", html)
+        self.assertIn('class="tag tag-VAC">Veille académique</span>', html)
+        for code in ("[VAC]", "[VCP]", "[FOC]", "VCP<", ">VAC<", ">FOC<"):
+            self.assertNotIn(code, html, "internal codes must never reach the reader")
         self.assertIn(".tag-VCP{", html)
         self.assertNotIn("http://", html.replace("http://www.w3.org", ""))
 
@@ -249,7 +264,7 @@ class KbExamplesTests(unittest.TestCase):
             if not e["atoms"]:
                 self.assertIn(e["status"], {"to_ingest", "to_collect", "research_required", "to_confirm"}, e["id"])
             else:
-                self.assertIn(e["status"], {"supplied_unverified", "research_required"}, e["id"])
+                self.assertIn(e["status"], {"supplied_unverified", "research_required", "read_at_source", "human_validated"}, e["id"])
             self.assertLess(len(e["topic"]) + len(e["role"]) + len(e["note"]), 420, f"{e['id']} reads like copied corpus text")
 
     def test_public_files_do_not_leak_private_paths_or_corpus_fields(self):
@@ -291,7 +306,7 @@ class SkillFamilyTests(unittest.TestCase):
     def test_pillar_skill_routes_exactly_the_workflow_types_with_existing_references(self):
         for pillar, name in PILLAR_SKILLS.items():
             _, body = frontmatter(SKILLS / name / "SKILL.md")
-            routed = set(re.findall(r"`\[(?:[A-Z]{2,3})\]` `([a-z_]+)`", body))
+            routed = set(re.findall(r"\(`([a-z_]+)`\) \|", body))
             self.assertEqual(set(WORKFLOW["pillar_routing"][pillar]["types"]), routed, name)
             for t in routed:
                 self.assertTrue((SKILLS / "side-stories-business/references/types" / f"{t}.md").exists(), f"{name}:{t}")
@@ -317,7 +332,7 @@ class SkillFamilyTests(unittest.TestCase):
         for spec in WORKFLOW["types"]:
             path = SKILLS / "side-stories-business/references/types" / f"{spec['id']}.md"
             text = path.read_text(encoding="utf-8")
-            self.assertIn(f"Tag `{spec['tag']}`", text)
+            self.assertIn(f"**{spec['label']}**", text)
             for ex in spec["examples"]:
                 self.assertIn(ex, text, f"{spec['id']} reference must discuss {ex}")
             blocks = [json.loads(b) for b in re.findall(r"```json\n(.*?)\n```", text, re.S)]
@@ -350,6 +365,14 @@ class SkillFamilyTests(unittest.TestCase):
                 blob = path.read_text(encoding="utf-8")
                 for forbidden in ("/home/user/private", "greenyellow-corpus", "occurrence_ids", "OCC-"):
                     self.assertNotIn(forbidden, blob, f"{path}: {forbidden}")
+
+    def test_second_pass_rules_from_the_eval_run_are_kept(self):
+        vac = (SKILLS / "side-stories-business/references/types/veille_academique.md").read_text(encoding="utf-8")
+        self.assertIn("Une entrée sans source citable n'est pas écrite", vac)
+        _, main = frontmatter(SKILLS / "side-stories-business/SKILL.md")
+        self.assertIn("en demander deux phrases clés", main)
+        _, data = frontmatter(SKILLS / "analyzing-data-foundations/SKILL.md")
+        self.assertIn("demander les références", data)
 
     def test_single_source_of_truth_is_cited_by_the_orchestrating_skill(self):
         _, body = frontmatter(SKILLS / "side-stories-business/SKILL.md")
@@ -410,5 +433,148 @@ class CandidateInventoryTests(unittest.TestCase):
             self.assertIn(by_id[ident]["readiness"], ("supported", "partial"), ident)
 
 
+class SyntheticTwinTests(unittest.TestCase):
+    """Build side (public) stays testable without the run side (private corpus): D25."""
+
+    def test_every_type_example_has_a_synthetic_twin_that_validates_as_candidate_and_promoted(self):
+        for e in REGISTRY["examples"]:
+            if e["type"] not in WORKFLOW["legacy_kind_map"].values() and e["type"] not in {t["id"] for t in WORKFLOW["types"]}:
+                continue
+            with self.subTest(example=e["id"]):
+                path = ROOT / e["fixture"]
+                study = json.loads(path.read_text(encoding="utf-8"))
+                self.assertTrue(study["synthetic"] and study["id"].startswith("SYN-"))
+                self.assertEqual(e["type"], study["side_stories"][0]["kind"])
+                result = runtime.validate_study(study)
+                self.assertEqual([], result["errors"])
+                self.assertEqual([], [g for g in result["gaps"] if g.startswith("SS1")])
+                study["side_stories"][0]["state"] = "promoted"
+                self.assertEqual([], runtime.validate_study(study)["errors"])
+                html = render.render_study(study)
+                label = next(t["label"] for t in WORKFLOW["types"] if t["id"] == e["type"])
+                self.assertIn(html_escape(label), html)
+
+    def test_rendered_reader_shows_content_in_plain_words_and_escapes_everything(self):
+        for path in sorted((ROOT / "fixtures/examples").glob("*.json")):
+            with self.subTest(fixture=path.name):
+                study = json.loads(path.read_text(encoding="utf-8"))
+                html = render.render_study(study)
+                visible = re.sub(r"<style>.*?</style>|<script>.*?</script>|<[^>]+>", " ", html, flags=re.S)
+                kind = study["side_stories"][0]["kind"]
+                for hidden in (kind, "candidate", "supplied", "evidence_level", "hypothesis_", "VCP", "VAC", "FOC", "CMP", "ILL"):
+                    self.assertNotIn(hidden, visible, f"{path.name}: internal term {hidden!r} reached the reader")
+                self.assertIn("Proposition", visible)
+                payload = study["side_stories"][0]["payload"]
+                first_text = json.dumps(payload, ensure_ascii=False)
+                self.assertTrue(any(word in visible for word in re.findall(r"[A-Za-zÀ-ÿ']{6,}", first_text)[:3]), "payload text must be shown")
+                injected = json.loads(json.dumps(study))
+                side = injected["side_stories"][0]
+                side["payload"] = json.loads(json.dumps(payload).replace("Un", "<script>alert(1)</script>Un"))
+                self.assertNotIn("<script>alert(1)", render.render_study(injected))
+
+    def test_twins_contain_no_corpus_marker_and_no_invented_citation(self):
+        for path in (ROOT / "fixtures/examples").glob("*.json"):
+            blob = path.read_text(encoding="utf-8")
+            for forbidden in ("ATOM-", "greenyellow", "GreenYellow", "EasyVision", "Framatome", "/home/user/private"):
+                self.assertNotIn(forbidden, blob, f"{path.name}: {forbidden}")
+            study = json.loads(blob)
+            for item in study["side_stories"][0].get("payload", {}).get("items", []):
+                self.assertEqual("Exemple fictif", item["definition"]["source"]["author"])
+
+
 if __name__ == "__main__":
     unittest.main()
+
+
+class StyleDirectiveTests(unittest.TestCase):
+    def test_workflow_carries_the_directive(self):
+        style = WORKFLOW["style_indicative"]
+        for key in ("voice", "structure", "syntax", "stance", "forbidden_moves", "check"):
+            self.assertIn(key, style)
+        for move in ("effet de balancement", "double négation", "grandiloquence", "introduction convenue"):
+            self.assertIn(move, style["forbidden_moves"])
+
+    def test_skills_mention_the_directive(self):
+        for skill in list((ROOT / "skills").glob("analyzing-*/SKILL.md")) + [
+            ROOT / "skills/side-stories-business/SKILL.md", ROOT / "skills/designing-main-story/SKILL.md"]:
+            self.assertIn("ADR-0012", skill.read_text(encoding="utf-8"), skill)
+
+    def test_mechanical_patterns_are_reported(self):
+        side = {"problematique": "Ce n'est pas un outil, c'est une méthode.", "bridge": {"in": "Ce n'est pas sans risque.", "out": "Retour au tronc."}}
+        gaps = " | ".join(sidestories.style_gaps(side))
+        self.assertIn("effet de balancement", gaps)
+        self.assertIn("double négation", gaps)
+
+    def test_long_sentence_is_reported(self):
+        side = {"problematique": " ".join(["mot"] * 40) + "."}
+        self.assertTrue(any("phrase" in g.lower() for g in sidestories.style_gaps(side)))
+
+    def test_clean_prose_has_no_gap(self):
+        side = {"problematique": "Quelle part de la fiabilité vient du modèle ?", "bridge": {"in": "Le tronc présente l'assistant.", "out": "On revient à la supervision."}}
+        self.assertEqual(sidestories.style_gaps(side), [])
+
+    def test_style_never_blocks_a_validated_story(self):
+        side = {"problematique": "Ce n'est pas un outil, c'est une méthode."}
+        blocking, pending = sidestories.side_story_findings({**side, "kind": "illustration", "state": "validated"})
+        self.assertFalse(any("balancement" in b for b in blocking))
+
+
+class AcquisitionBatchTwoTests(unittest.TestCase):
+    def test_batch_two_is_logged_with_receipt(self):
+        batches = [a for a in REGISTRY["acquisitions"] if a.get("batch") == 2]
+        self.assertEqual(len(batches), 1)
+        self.assertEqual(batches[0]["kb_repository_commit"], "00d314d6")
+        receipt = json.loads((ROOT / "runs/acq-2026-11-10/receipt-batch-2.json").read_text(encoding="utf-8"))
+        self.assertEqual(receipt["delivered_kb_commit"], "00d314d6")
+        self.assertEqual(receipt["human_adjudicated"], 0)
+
+    def test_new_examples_stay_unverified(self):
+        by_id = {e["id"]: e for e in REGISTRY["examples"]}
+        self.assertEqual(by_id["EX-FOC-02"]["status"], "supplied_unverified")
+        for ident in ("EX-FOC-02", "EX-CMP-02", "EX-MKT-02"):
+            self.assertTrue(by_id[ident]["atoms"])
+
+    def test_batch_three_and_the_human_decision_are_recorded(self):
+        self.assertEqual([a["batch"] for a in REGISTRY["acquisitions"] if a.get("batch") == 3], [3])
+        decided = {d["subject"]: d for d in REGISTRY["decisions"]}
+        self.assertEqual(decided["EX-VCP-03"]["by"], "François")
+        by_id = {e["id"]: e for e in REGISTRY["examples"]}
+        self.assertEqual(by_id["EX-VCP-03"]["status"], "human_validated")
+        for ident in ("EX-CMP-02", "EX-MKT-02"):
+            self.assertEqual(by_id[ident]["status"], "read_at_source")
+
+
+class BatchThreeReceiptTests(unittest.TestCase):
+    def test_receipt_matches_registry(self):
+        receipt = json.loads((ROOT / "runs/acq-2026-11-10/receipt-batch-3.json").read_text(encoding="utf-8"))
+        batch = [a for a in REGISTRY["acquisitions"] if a.get("batch") == 3][0]
+        self.assertEqual(receipt["delivered_kb_commit"], batch["kb_repository_commit"])
+        self.assertEqual(receipt["source_ids"], batch["sources"])
+        self.assertEqual(receipt["human_adjudicated"], 0)
+
+
+class BeneficeAvantagesCaracteristiquesTests(unittest.TestCase):
+    def frame(self):
+        return next(t for t in WORKFLOW["types"] if t["id"] == "illustration")["format"]["use_case_frame"]
+
+    def test_frame_is_defined_in_words(self):
+        frame = self.frame()
+        self.assertEqual(frame["keys"], ["benefice", "avantages", "caracteristiques"])
+        self.assertNotIn("à confirmer", json.dumps(frame, ensure_ascii=False))
+
+    def test_use_case_needs_the_three_parts(self):
+        fmt = next(t for t in WORKFLOW["types"] if t["id"] == "illustration")["format"]
+        out = []
+        sidestories._check_illustration({"form": "use_case", "benefice": "Gain."}, fmt, out)
+        self.assertTrue(any("avantages" in o and "caracteristiques" in o for o in out))
+        out = []
+        sidestories._check_illustration({"form": "use_case", "benefice": "a", "avantages": "b", "caracteristiques": "c"}, fmt, out)
+        self.assertEqual(out, [])
+
+    def test_render_shows_readable_labels(self):
+        study = base_study({"id": "S-BAC", "kind": "illustration", "state": "candidate", "title": "Cas", "anchor": "SEC1",
+                            "problematique": "Q ?", "bridge": {"in": "a", "out": "b"}, "reason_outside": "r", "payoff": "p",
+                            "payload": {"form": "use_case", "benefice": "Gain.", "avantages": "Avantage.", "caracteristiques": "Trait."}})
+        html = render.render_study(study)
+        for label in ("Bénéfice", "Avantages", "Caractéristiques"):
+            self.assertIn(label, html)

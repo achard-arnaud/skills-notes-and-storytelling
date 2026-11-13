@@ -52,7 +52,7 @@ SKILLS = [
   "command": "python3 diagnostic-complet/reinforce.py graph.json --recent-id ID --output reçu.json",
   "trigger": "revois la KB après cet apport ; reçu de renforcement du graphe",
   "exclude": "le diagnostic d'un run CV (run-loopback), la revue d'un A1 sans incident (challenge-a1-template)",
-  "inputs": "graph.json, IDs récents explicites", "outputs": "un reçu : décision, au plus trois actions, déclencheurs, mesures",
+  "inputs": "graph.json, IDs récents explicites", "outputs": "un reçu : décision, toutes les propositions (sans plafond), déclencheurs, mesures",
   "steps": ["Lancer le reçu.", "Qualifier chaque constat : structurel, sémantique ou hypothèse.", "Poser les questions HIL, sans y répondre."],
   "forbid": ["fusionner, supprimer ou réaffecter un identifiant", "approuver un candidat", "traiter la densité comme un score"],
   "negative": "Aucun ID récent et graphe propre : no_change."},
@@ -117,7 +117,7 @@ SKILLS = [
 
 def catalog_markdown() -> str:
     lines = ["# Catalogue des douze opérations atomiques", "",
-             "Généré par `skills_catalog.py catalog`. Les SKILL.md ne sont pas versionnés ici (mandat R2) : `drafts` les produit hors dépôt, `lint` les contrôle.", "",
+             "Généré par `skills_catalog.py catalog`. Les SKILL.md ne sont pas versionnés ici (mandat R2), sauf `reinforce-kb-loopback` (exception D31, `operational-skills/`) : `drafts` produit les autres hors dépôt, `lint` les contrôle.", "",
              "| # | Opération | Module | Déclencheur (exemples) | Exclut |", "|---|---|---|---|---|"]
     for i, s in enumerate(SKILLS, 1):
         lines.append(f"| {i} | `{s['name']}` | `{s['module']}` | {s['trigger']} | {s['exclude']} |")

@@ -1,6 +1,6 @@
-# `[VAC]` Veille académique — mini-wiki sourcé
+# Veille académique : mini-wiki sourcé
 
-Tag `VAC`, couleur indigo. Source de vérité : `workflows/side-stories.workflow.json`, type `veille_academique`.
+Libellé affiché : **Veille académique** (code interne `VAC`, jamais montré au lecteur) ; couleur indigo. Source de vérité : `workflows/side-stories.workflow.json`, type `veille_academique`.
 
 ## Rôle
 
@@ -52,6 +52,7 @@ Niveaux de preuve : `peer_reviewed`, `preprint`, `grey_literature`, `opinion`, `
 - Dire le contexte de l'étude (taille, population, durée, conditions) avant toute extrapolation. `in_practice` est le **seul** lieu du transfert au cas.
 - Le contre-point est obligatoire : une entrée sans anti-thèse est incomplète.
 - Les préprints sont signalés comme tels ; une source non citable n'entre pas.
+- **Une entrée sans source citable n'est pas écrite** : la retirer ou demander une référence. Ne jamais écrire « aucune source retenue » dans une entrée ni la compléter par une source plausible. S'il reste moins de 5 entrées sourcées, le dire et demander des références plutôt que remplir.
 - Une définition issue d'une synthèse fournie reste `supplied` tant qu'elle n'a pas été retrouvée dans l'ouvrage avec sa page.
 
 ## Style indicatif
@@ -61,7 +62,7 @@ Registre encyclopédique : définitions en une phrase, termes stables d'une entr
 ## Métaprompt (brouillon)
 
 ```text
-Tu rédiges une side story [VAC] : lexique de <N> entrées (5 à 7) pour le passage <PASSAGE>.
+Tu rédiges une side story de type veille académique : lexique de <N> entrées (5 à 7) pour le passage <PASSAGE>.
 Entrées : notions <NOTIONS>, sources citables <SOURCES>, problématique <PROBLEMATIQUE>.
 Pour chaque notion : definition (text, source auteur/année/lieu, evidence_level), example hors cas,
 in_practice qui cite le passage, contrast (anti-thèse rapide), perspective (table, schéma ou

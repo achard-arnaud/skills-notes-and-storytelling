@@ -1,7 +1,0 @@
----
-type: llm
-focus: trace
-weight: 1
----
-
-The result matches this description: Les claims portent un statut de preuve (publié, fourni, inférence ou hypothèse). Le critère de comparaison est commun et écrit avant les noms. Aucun classement ni chiffre de performance de concurrent n'est inventé. L'indicateur national est traité comme contexte. Le candidat de side story a un type, une problématique, un pont d'entrée et un pont de sortie.

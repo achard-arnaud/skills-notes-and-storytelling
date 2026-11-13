@@ -27,12 +27,12 @@ Les communications de l'entreprise sont `supplied_claim` ou `attributed_claim` ;
 
 Lire `../side-stories-business/SKILL.md`, puis le fichier du type retenu. Types recommandés pour ce pilier :
 
-| Type | Quand | Référence |
+| Type affiché | Quand | Référence |
 |---|---|---|
-| `[CMP]` `comparator` | Situer la cible face à 3 à 5 acteurs sur un même critère de création de valeur. | `../side-stories-business/references/types/comparator.md` |
-| `[DZ]` `dezoom` | Passer du site au portefeuille puis au marché quand un indicateur local ne s'explique que par la structure sectorielle. | `../side-stories-business/references/types/dezoom.md` |
-| `[VCP]` `veille_corporate_perso` | Présenter un acteur clé du marché (concurrent, partenaire, fournisseur) à partir de ses signaux publics. | `../side-stories-business/references/types/veille_corporate_perso.md` |
-| `[VAC]` `veille_academique` | Installer une notion de stratégie ou d'économie industrielle avec sa source et sa limite. | `../side-stories-business/references/types/veille_academique.md` |
+| Comparatif (`comparator`) | Situer la cible face à 3 à 5 acteurs sur un même critère de création de valeur. | `../side-stories-business/references/types/comparator.md` |
+| Changement d'échelle (`dezoom`) | Passer du site au portefeuille puis au marché quand un indicateur local ne s'explique que par la structure sectorielle. | `../side-stories-business/references/types/dezoom.md` |
+| Veille entreprise (`veille_corporate_perso`) | Présenter un acteur clé du marché (concurrent, partenaire, fournisseur) à partir de ses signaux publics. | `../side-stories-business/references/types/veille_corporate_perso.md` |
+| Veille académique (`veille_academique`) | Installer une notion de stratégie ou d'économie industrielle avec sa source et sa limite. | `../side-stories-business/references/types/veille_academique.md` |
 
 ### Problématiques types à fournir au rédacteur
 
@@ -54,8 +54,13 @@ Fournir au rédacteur le **paquet de rendu** (`../side-stories-business/referenc
 
 ## Style indicatif
 
-Macro factuelle : chiffres datés avec année et périmètre, formulations comparatives symétriques, aucune hiérarchie d'acteurs implicite. Voix de François-Pro : sobre, dense, une idée par phrase.
+Macro factuelle : chiffres datés avec année et périmètre, formulations comparatives symétriques, aucune hiérarchie d'acteurs implicite. Directive de style adoptée (ADR-0012) : direct, factuel, analytique, didactique ; l'essentiel d'abord ; phrases courtes ; jamais d'effet de balancement ni de double négation ; orienté décision.
 
 ## Exemples issus de la KB
 
 `examples/kb-pointers.json` : `EX-MKT-01`, `EX-CMP-01`. Identifiants opaques à résoudre dans le dépôt Graph1 privé (voir `workflows/kb-examples.json`) ; ne jamais copier leur texte ici (D23).
+
+
+## Références d’architecture conditionnelles
+
+Pour une évolution de méthode, lire [ADR-1001](../../../docs/architecture/ADR-1001-routing-capabilities.md) et [ADR-1002](../../../docs/architecture/ADR-1002-evidence-knowledge.md). Le chargement RUN reste limité au contrat et au paquet de l’étape ; les principes communs ne changent pas les capacités locales.

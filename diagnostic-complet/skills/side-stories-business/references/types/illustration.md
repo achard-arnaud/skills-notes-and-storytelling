@@ -1,6 +1,6 @@
-# `[ILL]` Illustration
+# Exemple concret
 
-Tag `ILL`, couleur violette. Source de vérité : `workflows/side-stories.workflow.json`, type `illustration`. Regroupe `portrait`, `detour`, `also` et `object_focus`, dont les rôles se recouvraient.
+Libellé affiché : **Exemple concret** (code interne `ILL`, jamais montré au lecteur) ; couleur violette. Source de vérité : `workflows/side-stories.workflow.json`, type `illustration`. Regroupe `portrait`, `detour`, `also` et `object_focus`, dont les rôles se recouvraient.
 
 ## Rôle
 
@@ -16,7 +16,7 @@ Une forme parmi `use_case`, `quote`, `object`, `person`. **150 mots au plus** ; 
 
 | Forme | Contenu |
 |---|---|
-| `use_case` | Besoin, action, résultat attendu. Le cadre « B-A-C » cité dans la demande n'est défini dans aucune source : cadre laissé libre jusqu'à confirmation |
+| `use_case` | Trois champs : `benefice` (ce que le lecteur y gagne, en premier), `avantages` (par rapport à la pratique actuelle), `caracteristiques` (ce que la solution est et fait). Cadre défini par François |
 | `quote` | Verbatim, daté, attribué, sourcé |
 | `object` | Un équipement, un document ou une mesure, et ce qu'il éclaire |
 | `person` | Un porteur du mécanisme, avec la borne de ce qu'on en dit |
@@ -27,7 +27,9 @@ Une forme parmi `use_case`, `quote`, `object`, `person`. **150 mots au plus** ; 
 {
   "payload": {
     "form": "use_case",
-    "text": "<Besoin, action, résultat attendu, en quelques phrases. Cas candidat, existence chez la cible à confirmer.>"
+    "benefice": "<Ce que le lecteur y gagne.>",
+    "avantages": "<Ce que cela change par rapport à la pratique actuelle.>",
+    "caracteristiques": "<Ce que la solution est et fait. Cas candidat, existence chez la cible à confirmer.>"
   }
 }
 ```
@@ -59,6 +61,7 @@ Concret et bref. Une phrase pour situer, une pour l'apport, une pour la borne. A
 ## Exemples KB
 
 - `EX-ILL-01` : IA multimodale au service des intervenants sur site (cas d'usage candidat, non confirmé comme cas de la cible). À rédiger au conditionnel.
+- `EX-ILL-03` : maintenance sur site et documentation des installations avec un assistant sourcé : le technicien pose une question, l'assistant répond avec sa source ou s'abstient, un expert valide, la réponse est capitalisée. Scénario d'illustration, au conditionnel.
 - `EX-ILL-02` : citation de référence d'un dirigeant de l'industrie. **Recherche requise** : aucune citation dans la KB ; collecter la source avant de rédiger.
 
 Identifiants et statuts : `workflows/kb-examples.json`.

@@ -28,9 +28,15 @@
       ],
       "topic": "Cinq capacités de l'IA, principes TRICUS, seuil de valeur de 10 K$",
       "role": "Lexique de capacités (perception, création, prédiction, raisonnement, agentique) et filtre de valeur",
-      "atoms": [],
-      "status": "to_ingest",
-      "note": "Rapport fourni dans la conversation du 2026-11-09, absent de la KB. L'ingérer (source-convert puis kb-ingest) et vérifier chaque définition dans l'ouvrage avant usage."
+      "atoms": [
+        "ATOM-e9d9aeb9d33a67a85c23a4759a92abee0d58fc1691864f08addd42510267a2b4",
+        "ATOM-d97002007967e266842fd0c37d6327078cfe3620cb7b4bd2571f5af929dd0dc7",
+        "ATOM-785f23fff6b170f1f1865a7cef9b0e99b5a8713d48c06db2ab3fa9b3ba8da6b6",
+        "ATOM-c001ec59962e90ae632dccae5cdd750f8f095237af9a550c633b3cd5f7ebddaa"
+      ],
+      "status": "supplied_unverified",
+      "note": "Rapport fourni le 2026-11-09 et ingéré dans la KB. Chaque définition reste à vérifier dans l'ouvrage avant usage.",
+      "fixture": "fixtures/examples/veille_academique.study.json"
     }
   ]
 }

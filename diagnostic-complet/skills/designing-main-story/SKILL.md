@@ -37,7 +37,7 @@ Tension d'entreprise, puis mécanismes et choix, puis conditions de valeur, puis
 
 ## Style indicatif
 
-Titres de section sous forme de question ou d'affirmation à démontrer ; une idée par phrase ; marqueurs de statut visibles (Publié, Échange, Inférence, Hypothèse). Voix de François-Pro.
+Titres de section sous forme de question ou d'affirmation à démontrer ; une idée par phrase ; marqueurs de statut visibles (Publié, Échange, Inférence, Hypothèse). Directive de style adoptée (ADR-0012) : direct, factuel, analytique, didactique ; l'essentiel d'abord ; phrases courtes ; jamais d'effet de balancement ni de double négation ; orienté décision.
 
 ## Exemples issus de la KB
 
@@ -46,3 +46,8 @@ Titres de section sous forme de question ou d'affirmation à démontrer ; une id
 ## Modules associés
 
 `writing.py from-scratch` et `writing.py iterative` (conservation et invalidation), `context.py` (paquets bornés), `render.py` (vue lecteur), skills `analyzing-*` (piliers), `side-stories-business` (encarts).
+
+
+## Références d’architecture conditionnelles
+
+Pour une évolution de méthode, lire [ADR-1003](../../../docs/architecture/ADR-1003-narrative-artifacts.md) et [ADR-1005](../../../docs/architecture/ADR-1005-learning-validation.md). Le chargement RUN reste limité au contrat et au paquet de l’étape ; les principes communs ne changent pas les capacités locales.

@@ -27,12 +27,12 @@ Les cas décrits par l'entreprise sont `attributed_claim` ; les causes de sous-p
 
 Lire `../side-stories-business/SKILL.md`, puis le fichier du type retenu. Types recommandés pour ce pilier :
 
-| Type | Quand | Référence |
+| Type affiché | Quand | Référence |
 |---|---|---|
-| `[FOC]` `analytical_focus` | Traiter un mécanisme d'exploitation trop étroit pour une section : diagnostic de sous-performance, arbitrage entre alerte et déplacement. | `../side-stories-business/references/types/analytical_focus.md` |
-| `[ILL]` `illustration` | Faire voir un équipement, une mesure, un document de maintenance ou un cas d'usage terrain. | `../side-stories-business/references/types/illustration.md` |
-| `[DZ]` `dezoom` | Relier une anomalie locale à la logique de portefeuille ou à la dépendance à un fournisseur d'équipement. | `../side-stories-business/references/types/dezoom.md` |
-| `[VCP]` `veille_corporate_perso` | Présenter une offre de supervision ou un éditeur d'outil d'exploitation, sans prétendre à un déploiement chez la cible. | `../side-stories-business/references/types/veille_corporate_perso.md` |
+| Analyse approfondie (`analytical_focus`) | Traiter un mécanisme d'exploitation trop étroit pour une section : diagnostic de sous-performance, arbitrage entre alerte et déplacement. | `../side-stories-business/references/types/analytical_focus.md` |
+| Exemple concret (`illustration`) | Faire voir un équipement, une mesure, un document de maintenance ou un cas d'usage terrain. | `../side-stories-business/references/types/illustration.md` |
+| Changement d'échelle (`dezoom`) | Relier une anomalie locale à la logique de portefeuille ou à la dépendance à un fournisseur d'équipement. | `../side-stories-business/references/types/dezoom.md` |
+| Veille entreprise (`veille_corporate_perso`) | Présenter une offre de supervision ou un éditeur d'outil d'exploitation, sans prétendre à un déploiement chez la cible. | `../side-stories-business/references/types/veille_corporate_perso.md` |
 
 ### Problématiques types à fournir au rédacteur
 
@@ -54,8 +54,13 @@ Fournir au rédacteur le **paquet de rendu** (`../side-stories-business/referenc
 
 ## Style indicatif
 
-Descriptif et séquentiel : chaînes causales nommées étape par étape, vocabulaire d'exploitation stable, aucune métrique sans définition. Voix de François-Pro : sobre, dense, une idée par phrase.
+Descriptif et séquentiel : chaînes causales nommées étape par étape, vocabulaire d'exploitation stable, aucune métrique sans définition. Directive de style adoptée (ADR-0012) : direct, factuel, analytique, didactique ; l'essentiel d'abord ; phrases courtes ; jamais d'effet de balancement ni de double négation ; orienté décision.
 
 ## Exemples issus de la KB
 
 `examples/kb-pointers.json` : `EX-FOC-01`, `EX-VCP-01`. Identifiants opaques à résoudre dans le dépôt Graph1 privé (voir `workflows/kb-examples.json`) ; ne jamais copier leur texte ici (D23).
+
+
+## Références d’architecture conditionnelles
+
+Pour une évolution de méthode, lire [ADR-1001](../../../docs/architecture/ADR-1001-routing-capabilities.md) et [ADR-1002](../../../docs/architecture/ADR-1002-evidence-knowledge.md). Le chargement RUN reste limité au contrat et au paquet de l’étape ; les principes communs ne changent pas les capacités locales.

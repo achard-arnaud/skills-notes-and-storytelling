@@ -1,6 +1,6 @@
-# `[CMP]` Comparatif
+# Comparatif
 
-Tag `CMP`, couleur ardoise. Source de vérité : `workflows/side-stories.workflow.json`, type `comparator`. Intègre l'anti-thèse de l'ancien `false_lead` quand elle prend la forme d'une comparaison.
+Libellé affiché : **Comparatif** (code interne `CMP`, jamais montré au lecteur) ; couleur ardoise. Source de vérité : `workflows/side-stories.workflow.json`, type `comparator`. Intègre l'anti-thèse de l'ancien `false_lead` quand elle prend la forme d'une comparaison.
 
 ## Rôle
 
@@ -53,6 +53,7 @@ Neutre et symétrique : mêmes verbes, même niveau de détail par ligne. Le ton
 ## Exemples KB
 
 - `EX-CMP-01` : trois archétypes d'acteurs et cinq concurrents nommés, à comparer sur quatre modèles de création de valeur (proximité et contrat, financement, exploitation, couche numérique). Le document source recommande de ne pas noter les acteurs sans preuves publiques : la table décrit, elle ne classe pas.
+- `EX-CMP-03` : jumeau numérique, cas orientés produit (le jumeau est une fonction d'un produit) et cas orientés client (le bénéfice est décrit chez l'utilisateur). Critère commun : qui porte le bénéfice. Chiffres d'éditeurs ou d'auteurs, sans référence de départ vérifiée.
 - `EX-CMP-02` : benchmark avec des cas d'usage d'acteurs. **À confirmer** : la demande du 2026-11-09 s'arrête à « avec les uses cases de » ; fournir la liste des acteurs.
 
 Identifiants et statuts : `workflows/kb-examples.json`.

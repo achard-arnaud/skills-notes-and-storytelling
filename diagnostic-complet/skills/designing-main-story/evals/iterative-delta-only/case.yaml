@@ -2,3 +2,5 @@ schema_version: "1.1"
 name: iterative-delta-only
 expected_outcome: |
   La réponse calcule la clôture de dépendances (source, fragment, claim, paragraphes et encarts qui les consomment), ne rouvre que les revues affectées, remet les encarts concernés à candidat, demande l'empreinte de baseline, et rappelle qu'aucune approbation humaine n'est posée automatiquement.
+context:
+  scaffold_script: place-files.sh

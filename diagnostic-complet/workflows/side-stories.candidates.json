@@ -2,7 +2,9 @@
   "schema_version": "1.0",
   "id": "side-stories-candidates-first-case",
   "lifecycle": "candidate",
-  "decision_refs": ["D24"],
+  "decision_refs": [
+    "D24"
+  ],
   "purpose": "Inventaire réécrit après le retour HITL-258 du 2026-11-09 : types simplifiés, un objectif, une problématique, des ponts et un critère de choix par candidat. Ce n'est pas une liste d'encarts à produire : le scaffold choisit, François valide chaque encart.",
   "human_gate": "Aucun candidat n'est validé. Le passage à `validated` est un acte humain, une side story à la fois.",
   "readiness_values": {
@@ -16,237 +18,616 @@
   "selection_rule": "Une side story seulement si le tronc ne peut pas porter le contenu sans se détourner de sa question. Aucun quota par section ni par pilier. En cas de recouvrement entre candidats sur un même passage, n'en retenir qu'un.",
   "suggested_first_wave": {
     "status": "proposition de l'agent, non validée",
-    "ids": ["CAND-10", "CAND-12", "CAND-03", "CAND-04", "CAND-19"],
+    "ids": [
+      "CAND-10",
+      "CAND-12",
+      "CAND-03",
+      "CAND-04",
+      "CAND-19"
+    ],
     "why": "Matière déjà présente dans la KB, types différents, quatre piliers touchés ; aucun ne dépend d'une collecte externe."
   },
   "candidates": [
     {
-      "id": "CAND-01", "origin": "inventaire initial n°1",
+      "id": "CAND-01",
+      "origin": "inventaire initial n°1",
       "title": "Vision et diagnostic thermique : de l'image à la décision d'inspection",
-      "pillar_ids": ["P-INDUSTRY", "P-AI"],
-      "type": "illustration", "alternative": {"type": "analytical_focus", "when": "la décision d'inspection arbitre entre couverture, coût et fiabilité et doit être démontrée"},
+      "pillar_ids": [
+        "P-INDUSTRY",
+        "P-AI"
+      ],
+      "type": "illustration",
+      "alternative": {
+        "type": "analytical_focus",
+        "when": "la décision d'inspection arbitre entre couverture, coût et fiabilité et doit être démontrée"
+      },
       "objective": "Faire voir comment une observation thermique devient un signal exploitable puis une décision d'inspection.",
       "problematique": "À quel moment une image thermique justifie-t-elle un déplacement ?",
-      "bridge": {"in": "Le tronc a établi qu'un écart de production ne se règle pas à distance.", "out": "On revient à la décision d'intervention : l'image en est un input, pas la preuve."},
+      "bridge": {
+        "in": "Le tronc a établi qu'un écart de production ne se règle pas à distance.",
+        "out": "On revient à la décision d'intervention : l'image en est un input, pas la preuve."
+      },
       "choice_criterion": "Illustration si l'on veut seulement montrer l'objet et sa place dans la chaîne ; focus si l'on défend une thèse sur l'arbitrage d'inspection.",
-      "examples": [], "readiness": "to_collect",
-      "gaps": "L'apport VisioSense annoncé n'est pas dans la KB ; aucun fit fournisseur n'est établi. Des pages corporate sur la thermographie existent mais ne valent pas apport."
+      "examples": [],
+      "readiness": "partial",
+      "gaps": "Documents fournis le 2026-11-10 sur la vision par ordinateur embarquée et VizioSense (orthographe avec un z) ; lien avec l'entreprise étudiée et économies annoncées : aucune source trouvée. Aucun fit fournisseur n'est établi."
     },
     {
-      "id": "CAND-02", "origin": "inventaire initial n°2",
+      "id": "CAND-02",
+      "origin": "inventaire initial n°2",
       "title": "Ombrières et réalité du site",
-      "pillar_ids": ["P-INDUSTRY"],
-      "type": "illustration", "alternative": {"type": "dezoom", "when": "il faut montrer comment une contrainte de site se répercute sur la performance d'un portefeuille"},
+      "pillar_ids": [
+        "P-INDUSTRY"
+      ],
+      "type": "illustration",
+      "alternative": {
+        "type": "dezoom",
+        "when": "il faut montrer comment une contrainte de site se répercute sur la performance d'un portefeuille"
+      },
       "objective": "Montrer, à partir d'un type d'actif, ce que l'ombrage, la géographie, l'accès et l'exploitation changent au diagnostic.",
       "problematique": "Qu'est-ce que le terrain ajoute au signal que la plateforme ne voit pas ?",
-      "bridge": {"in": "Le tronc décrit le flux signal vers décision.", "out": "On revient au triage : une alerte vaut selon ce que le site permet."},
+      "bridge": {
+        "in": "Le tronc décrit le flux signal vers décision.",
+        "out": "On revient au triage : une alerte vaut selon ce que le site permet."
+      },
       "choice_criterion": "Illustration pour un objet et ses contraintes ; dézoom si la question est celle du changement d'échelle.",
-      "examples": [], "readiness": "supported",
+      "examples": [],
+      "readiness": "supported",
       "gaps": "Beaucoup de pages corporate sur ombrières et carports : choisir une source, dater, ne pas généraliser au portefeuille."
     },
     {
-      "id": "CAND-03", "origin": "inventaire initial n°3",
+      "id": "CAND-03",
+      "origin": "inventaire initial n°3",
       "title": "Sous-performance et faux positifs",
-      "pillar_ids": ["P-INDUSTRY", "P-DATA"],
-      "type": "analytical_focus", "alternative": {"type": "veille_academique", "when": "le passage exige seulement de définir baseline, faux positif et modèle attendu"},
+      "pillar_ids": [
+        "P-INDUSTRY",
+        "P-DATA"
+      ],
+      "type": "analytical_focus",
+      "alternative": {
+        "type": "veille_academique",
+        "when": "le passage exige seulement de définir baseline, faux positif et modèle attendu"
+      },
       "objective": "Démonter l'idée qu'un écart de production est un défaut : ressource, équipement, donnée, exploitation, site, contrat.",
       "problematique": "Comment distinguer un défaut d'un faux écart avant d'engager une intervention ?",
-      "bridge": {"in": "Le tronc suppose qu'une alerte est exploitable.", "out": "On revient au triage opérationnel : une alerte se qualifie avant de se traiter."},
+      "bridge": {
+        "in": "Le tronc suppose qu'une alerte est exploitable.",
+        "out": "On revient au triage opérationnel : une alerte se qualifie avant de se traiter."
+      },
       "choice_criterion": "Focus car la question appelle une thèse et deux positions défendables ; lexique si l'on ne veut que des définitions.",
-      "examples": ["EX-FOC-01"], "readiness": "partial",
+      "examples": [
+        "EX-FOC-01"
+      ],
+      "readiness": "partial",
       "gaps": "Grille générique, pas un incident de la cible. Le terme « faux positif » n'est pas dans la KB."
     },
     {
-      "id": "CAND-04", "origin": "inventaire initial n°4",
-      "title": "OEM et couche d'orchestration",
-      "pillar_ids": ["P-GOVERNANCE", "P-INDUSTRY", "P-ECONOMICS"],
-      "type": "dezoom", "alternative": {"type": "comparator", "when": "il faut comparer plusieurs archétypes d'acteurs sur un critère commun"},
+      "id": "CAND-04",
+      "origin": "inventaire initial n°4",
+      "title": "Fabricants d'équipements et couche d'orchestration indépendante",
+      "pillar_ids": [
+        "P-GOVERNANCE",
+        "P-INDUSTRY",
+        "P-ECONOMICS"
+      ],
+      "type": "dezoom",
+      "alternative": {
+        "type": "comparator",
+        "when": "il faut comparer plusieurs archétypes d'acteurs sur un critère commun"
+      },
       "objective": "Passer de l'équipement à l'agrégateur pour expliquer le verrouillage fournisseur et la valeur d'une couche indépendante.",
       "problematique": "Pourquoi qui contrôle la donnée change-t-il la valeur d'un signal local ?",
-      "bridge": {"in": "Ce qui vaut pour un site se joue autrement à l'échelle du portefeuille.", "out": "On revient au choix build, buy ou partner : la dépendance est un critère."},
+      "bridge": {
+        "in": "Ce qui vaut pour un site se joue autrement à l'échelle du portefeuille.",
+        "out": "On revient au choix build, buy ou partner : la dépendance est un critère."
+      },
       "choice_criterion": "Dézoom car le mécanisme est un changement d'échelle ; comparatif si l'on met des acteurs côte à côte.",
-      "examples": ["EX-DZ-01"], "readiness": "partial",
+      "examples": [
+        "EX-DZ-01"
+      ],
+      "readiness": "partial",
       "gaps": "L'avantage d'une couche d'orchestration est une hypothèse à valider, pas un fait."
     },
     {
-      "id": "CAND-05", "origin": "inventaire initial n°5",
-      "title": "Baseline et ROI : d'une promesse de gain à une économie attribuable",
-      "pillar_ids": ["P-ECONOMICS", "P-DATA"],
-      "type": "analytical_focus", "alternative": {"type": "veille_academique", "when": "le passage n'a besoin que de définir TCO, ROI, délai de retour et seuil de valeur"},
+      "id": "CAND-05",
+      "origin": "inventaire initial n°5",
+      "title": "Situation de référence et retour sur investissement : d'une promesse de gain à une économie attribuable",
+      "pillar_ids": [
+        "P-ECONOMICS",
+        "P-DATA"
+      ],
+      "type": "analytical_focus",
+      "alternative": {
+        "type": "veille_academique",
+        "when": "le passage n'a besoin que de définir TCO, ROI, délai de retour et seuil de valeur"
+      },
       "objective": "Expliquer pourquoi un gain annoncé n'est pas encore une économie attribuable et quelle baseline le rendrait telle.",
       "problematique": "Quelles conditions font d'un gain annoncé une économie attribuable ?",
-      "bridge": {"in": "Le tronc présente des cas à fort potentiel.", "out": "On revient au protocole de pilote : la baseline y est la première décision."},
+      "bridge": {
+        "in": "Le tronc présente des cas à fort potentiel.",
+        "out": "On revient au protocole de pilote : la baseline y est la première décision."
+      },
       "choice_criterion": "Focus car il y a une thèse et des objections ; lexique pour seulement définir les termes.",
-      "examples": ["EX-ECO-01", "EX-VAC-02"], "readiness": "partial",
+      "examples": [
+        "EX-ECO-01",
+        "EX-VAC-02"
+      ],
+      "readiness": "partial",
       "gaps": "Le filtre de valeur et les principes d'augmentation de processus viennent d'un rapport fourni, absent de la KB : à ingérer et à vérifier dans l'ouvrage."
     },
     {
-      "id": "CAND-06", "origin": "inventaire initial n°6",
+      "id": "CAND-06",
+      "origin": "inventaire initial n°6",
       "title": "Finance des actifs et performance",
-      "pillar_ids": ["P-ECONOMICS", "P-INDUSTRY"],
-      "type": "dezoom", "alternative": {"type": "analytical_focus", "when": "le passage doit défendre une thèse sur le partage du risque de performance"},
+      "pillar_ids": [
+        "P-ECONOMICS",
+        "P-INDUSTRY"
+      ],
+      "type": "dezoom",
+      "alternative": {
+        "type": "analytical_focus",
+        "when": "le passage doit défendre une thèse sur le partage du risque de performance"
+      },
       "objective": "Relier la mesure d'un site aux engagements contractuels, au risque et au financement de portefeuille.",
       "problematique": "Comment une mesure locale devient-elle un engagement financé ?",
-      "bridge": {"in": "Le tronc établit la mesure de performance d'un actif.", "out": "On revient au contrat : la mesure y est opposable ou ne l'est pas."},
+      "bridge": {
+        "in": "Le tronc établit la mesure de performance d'un actif.",
+        "out": "On revient au contrat : la mesure y est opposable ou ne l'est pas."
+      },
       "choice_criterion": "Dézoom car l'échelle change (site vers portefeuille financé) ; focus si une thèse sur le risque est défendue.",
-      "examples": ["EX-ECO-01"], "readiness": "partial",
+      "examples": [
+        "EX-ECO-01"
+      ],
+      "readiness": "partial",
       "gaps": "Ne pas réduire à la comptabilité ; aucun montant sans source."
     },
     {
-      "id": "CAND-07", "origin": "inventaire initial n°7",
+      "id": "CAND-07",
+      "origin": "inventaire initial n°7",
       "title": "Fonctions corporate : usages transverses",
-      "pillar_ids": ["P-CORPORATE"],
-      "type": "illustration", "alternative": {"type": "comparator", "when": "deux manières de traiter un même processus sont comparables sur un critère commun"},
+      "pillar_ids": [
+        "P-CORPORATE"
+      ],
+      "type": "illustration",
+      "alternative": {
+        "type": "comparator",
+        "when": "deux manières de traiter un même processus sont comparables sur un critère commun"
+      },
       "objective": "Montrer un usage transverse (commercial, finance, support interne) avec sa propre économie, à part des usages industriels.",
       "problematique": "Quel usage corporate a une économie propre, distincte de l'exploitation d'actifs ?",
-      "bridge": {"in": "Le tronc traite les usages industriels.", "out": "On revient au portefeuille de cas : le corporate a sa propre mesure."},
+      "bridge": {
+        "in": "Le tronc traite les usages industriels.",
+        "out": "On revient au portefeuille de cas : le corporate a sa propre mesure."
+      },
       "choice_criterion": "Illustration pour un seul cas ; comparatif si plusieurs sont mis en regard.",
-      "examples": ["EX-COR-01", "EX-ILL-01"], "readiness": "partial",
+      "examples": [
+        "EX-COR-01",
+        "EX-ILL-01"
+      ],
+      "readiness": "partial",
       "gaps": "Cas candidats, non confirmés comme besoins de la cible."
     },
     {
-      "id": "CAND-08", "origin": "inventaire initial n°8",
+      "id": "CAND-08",
+      "origin": "inventaire initial n°8",
       "title": "Gouvernance et déploiement local : groupe, pays, site",
-      "pillar_ids": ["P-GOVERNANCE", "P-ADOPTION"],
-      "type": "dezoom", "alternative": {"type": "veille_academique", "when": "le passage doit seulement définir contrôle humain, supervision et réversibilité"},
+      "pillar_ids": [
+        "P-GOVERNANCE",
+        "P-ADOPTION"
+      ],
+      "type": "dezoom",
+      "alternative": {
+        "type": "veille_academique",
+        "when": "le passage doit seulement définir contrôle humain, supervision et réversibilité"
+      },
       "objective": "Passer de la règle groupe à son application locale pour montrer où se perdent ou se gagnent responsabilité, compétences et droits.",
       "problematique": "Où se décide réellement une règle de supervision : au groupe, au pays ou au site ?",
-      "bridge": {"in": "Le tronc pose une capacité commune.", "out": "On revient au dispositif : qui répond de quoi à chaque échelle."},
+      "bridge": {
+        "in": "Le tronc pose une capacité commune.",
+        "out": "On revient au dispositif : qui répond de quoi à chaque échelle."
+      },
       "choice_criterion": "Dézoom car le sujet est un changement d'échelle de responsabilité ; lexique si l'on ne veut que des définitions.",
-      "examples": ["EX-GOV-01"], "readiness": "partial",
+      "examples": [
+        "EX-GOV-01"
+      ],
+      "readiness": "partial",
       "gaps": "Rôle de la DSI et de la plateforme data à confirmer avec l'organisation cible."
     },
     {
-      "id": "CAND-09", "origin": "inventaire initial n°9",
-      "title": "Data, ML et LLM : choisir par la décision",
-      "pillar_ids": ["P-DATA", "P-AI"],
-      "type": "veille_academique", "alternative": {"type": "analytical_focus", "when": "le passage doit défendre un choix technique précis contre une alternative"},
+      "id": "CAND-09",
+      "origin": "inventaire initial n°9",
+      "title": "Données, apprentissage automatique et grands modèles de langage : choisir par la décision",
+      "pillar_ids": [
+        "P-DATA",
+        "P-AI"
+      ],
+      "type": "veille_academique",
+      "alternative": {
+        "type": "analytical_focus",
+        "when": "le passage doit défendre un choix technique précis contre une alternative"
+      },
       "objective": "Installer cinq à sept notions (BI, ML, LLM, RAG, agent, évaluation) pour expliquer le choix technique par la décision à prendre.",
       "problematique": "Quelle famille de technique répond à quelle décision ?",
-      "bridge": {"in": "Le tronc parle d'IA sans distinguer les familles.", "out": "On revient au cas d'usage : sa famille se déduit de sa décision."},
+      "bridge": {
+        "in": "Le tronc parle d'IA sans distinguer les familles.",
+        "out": "On revient au cas d'usage : sa famille se déduit de sa décision."
+      },
       "choice_criterion": "Lexique car il s'agit de définir et de situer ; focus si le choix est un arbitrage contesté.",
-      "examples": ["EX-DAT-01", "EX-VAC-02"], "readiness": "partial",
+      "examples": [
+        "EX-DAT-01",
+        "EX-VAC-02"
+      ],
+      "readiness": "partial",
       "gaps": "Définitions à sourcer dans des références citables ; recouvre CAND-13 : un seul lexique par passage."
     },
     {
-      "id": "CAND-10", "origin": "retour HITL-258 : exemple VCP",
+      "id": "CAND-10",
+      "origin": "retour HITL-258 : exemple VCP",
       "title": "Pitch d'une offre de monitoring énergétique",
-      "pillar_ids": ["P-INDUSTRY", "P-DATA"],
-      "type": "veille_corporate_perso", "alternative": {"type": "comparator", "when": "plusieurs offres de supervision sont comparées sur un critère commun"},
+      "pillar_ids": [
+        "P-INDUSTRY",
+        "P-DATA"
+      ],
+      "type": "veille_corporate_perso",
+      "alternative": {
+        "type": "comparator",
+        "when": "plusieurs offres de supervision sont comparées sur un critère commun"
+      },
       "objective": "Présenter en 10 à 15 lignes une offre de monitoring à partir de pages corporate, preuves datées séparées de la lecture personnelle.",
       "problematique": "Que prouve réellement une offre de supervision publiée, et que laisse-t-elle ouvert ?",
-      "bridge": {"in": "Le tronc évoque la supervision comme levier.", "out": "On revient à la chaîne d'exploitation : une offre n'est pas un déploiement."},
+      "bridge": {
+        "in": "Le tronc évoque la supervision comme levier.",
+        "out": "On revient à la chaîne d'exploitation : une offre n'est pas un déploiement."
+      },
       "choice_criterion": "Pitch pour un seul acteur et son offre ; comparatif dès qu'un second acteur entre.",
-      "examples": ["EX-VCP-01"], "readiness": "supported",
+      "examples": [
+        "EX-VCP-01"
+      ],
+      "readiness": "supported",
       "gaps": "Pages corporate : affirmations d'offre, pas déploiement ni ROI chez la cible."
     },
     {
-      "id": "CAND-11", "origin": "retour HITL-258 : exemple VCP",
-      "title": "Pitch et retour d'expérience « Ask for the moon » pour Framatome",
-      "pillar_ids": ["P-AI", "P-INDUSTRY", "P-DATA"],
-      "type": "veille_corporate_perso", "alternative": {"type": "analytical_focus", "when": "l'architecture RAG agentique multimodal avec base à ontologie doit être instruite pour elle-même"},
-      "objective": "Présenter une idée d'assistance à la maintenance sur site (RAG agentique multimodal, KB à ontologie, documentation technique) à partir d'un pitch et d'un retour d'expérience sourcés.",
-      "problematique": "Quelle assistance à la maintenance devient crédible quand la documentation technique est structurée par une ontologie ?",
-      "bridge": {"in": "Le tronc décrit la préparation d'intervention.", "out": "On revient à la supervision humaine : l'assistant prépare, le technicien décide."},
-      "choice_criterion": "Pitch si l'on présente le cas et ses preuves ; focus si l'on défend l'architecture.",
-      "examples": ["EX-VCP-03"], "readiness": "to_collect",
-      "gaps": "Aucune source dans la KB : collecter le pitch et le retour d'expérience avant de rédiger. L'idée est celle de François du 2026-11-09."
+      "id": "CAND-11",
+      "origin": "retour HITL-258 : exemple VCP",
+      "title": "Veille business : un industriel capte son savoir par la numérisation et l'exploite avec un assistant fiable",
+      "pillar_ids": [
+        "P-AI",
+        "P-INDUSTRY",
+        "P-DATA"
+      ],
+      "type": "veille_corporate_perso",
+      "alternative": {
+        "type": "analytical_focus",
+        "when": "l'architecture RAG agentique multimodal avec base à ontologie doit être instruite pour elle-même"
+      },
+      "objective": "Nourrir une veille business à partir du cas d'un industriel : la captation du savoir par numérisation (en entrée) alimente un assistant à recherche multimodale fiable, fondé sur une ontologie et un module de recherche (en sortie). Le cas est mis en parallèle avec la maintenance sur site et la documentation des installations.",
+      "problematique": "Qu'est-ce qu'un industriel capte de son savoir par la numérisation, et que faut-il en plus (ontologie, module de recherche, citation des sources) pour que l'assistant qui l'exploite reste fiable en maintenance sur site ?",
+      "bridge": {
+        "in": "Le tronc décrit la maintenance sur site et la documentation des installations : le savoir existe, mais il est dispersé et peu numérisé.",
+        "out": "On revient au tronc : la numérisation du savoir est la condition de l'assistant ; l'assistant prépare, cite sa source ou s'abstient, le technicien décide."
+      },
+      "choice_criterion": "Veille entreprise : le cas est présenté avec ses preuves et son parallèle. Analyse approfondie si l'architecture (ontologie et module de recherche) doit être défendue pour elle-même.",
+      "examples": [
+        "EX-VCP-03",
+        "EX-ILL-03"
+      ],
+      "readiness": "supported",
+      "gaps": "Angle demandé par François le 2026-11-10. Validé : relation client et programme de gestion des connaissances. Hors validation : déploiement et gains chez l'industriel ; chiffres d'éditeur à ne pas lui attribuer. Le parallèle avec la maintenance sur site est une lecture, à marquer comme telle."
     },
     {
-      "id": "CAND-12", "origin": "retour HITL-258 : exemple VAC",
+      "id": "CAND-12",
+      "origin": "retour HITL-258 : exemple VAC",
       "title": "Lexique des postures stratégiques d'adoption de l'IA",
-      "pillar_ids": ["P-AI", "P-ADOPTION", "P-ECONOMICS"],
-      "type": "veille_academique", "alternative": {"type": "comparator", "when": "les quatre postures sont comparées sur un critère unique pour une décision"},
+      "pillar_ids": [
+        "P-AI",
+        "P-ADOPTION",
+        "P-ECONOMICS"
+      ],
+      "type": "veille_academique",
+      "alternative": {
+        "type": "comparator",
+        "when": "les quatre postures sont comparées sur un critère unique pour une décision"
+      },
       "objective": "Installer les quatre postures et leur arbitrage en lexique sourcé, avec anti-thèse et lien avec le passage.",
       "problematique": "Quelle posture convient à quel stade, et laquelle ne tient pas seule ?",
-      "bridge": {"in": "Le tronc propose un portefeuille hybride d'usages.", "out": "On revient à la trajectoire : l'ordre des postures n'est pas obligatoire."},
+      "bridge": {
+        "in": "Le tronc propose un portefeuille hybride d'usages.",
+        "out": "On revient à la trajectoire : l'ordre des postures n'est pas obligatoire."
+      },
       "choice_criterion": "Lexique pour définir et situer ; comparatif pour trancher entre options.",
-      "examples": ["EX-VAC-01"], "readiness": "partial",
+      "examples": [
+        "EX-VAC-01"
+      ],
+      "readiness": "partial",
       "gaps": "Hypothèse d'arbitrage issue d'une synthèse fournie ; vérifier dans l'ouvrage, avec pages. Les étiquettes de synthèse ne sont pas canoniques."
     },
     {
-      "id": "CAND-13", "origin": "retour HITL-258 : exemple VAC",
+      "id": "CAND-13",
+      "origin": "retour HITL-258 : exemple VAC",
       "title": "Lexique des capacités de l'IA, des principes TRICUS et du seuil de valeur",
-      "pillar_ids": ["P-AI", "P-ECONOMICS", "P-ADOPTION"],
-      "type": "veille_academique", "alternative": {"type": "analytical_focus", "when": "le seuil de valeur est défendu contre une autre règle de décision"},
+      "pillar_ids": [
+        "P-AI",
+        "P-ECONOMICS",
+        "P-ADOPTION"
+      ],
+      "type": "veille_academique",
+      "alternative": {
+        "type": "analytical_focus",
+        "when": "le seuil de valeur est défendu contre une autre règle de décision"
+      },
       "objective": "Définir perception, création, prédiction, raisonnement, agentique, puis les principes d'augmentation de processus et le filtre de valeur minimale.",
       "problematique": "Quelle capacité d'IA, à quel seuil de valeur, justifie un cas ?",
-      "bridge": {"in": "Le tronc doit choisir des cas à financer.", "out": "On revient à la sélection : les notions fixent le vocabulaire de la décision."},
+      "bridge": {
+        "in": "Le tronc doit choisir des cas à financer.",
+        "out": "On revient à la sélection : les notions fixent le vocabulaire de la décision."
+      },
       "choice_criterion": "Lexique car les notions sont à installer ; focus si une règle de décision est contestée.",
-      "examples": ["EX-VAC-02"], "readiness": "to_ingest",
-      "gaps": "Rapport fourni dans la conversation, absent de la KB. Recouvre CAND-09 : un seul lexique par passage."
+      "examples": [
+        "EX-VAC-02"
+      ],
+      "readiness": "partial",
+      "gaps": "Rapport ingéré dans la KB le 2026-11-09 ; chaque définition reste à vérifier dans l'ouvrage. Recouvre le lexique « Données, apprentissage automatique et grands modèles de langage » : un seul lexique par passage."
     },
     {
-      "id": "CAND-14", "origin": "retour HITL-258 : exemple dézoom",
-      "title": "Investissements des concurrents dans l'IA et leurs cas d'usage",
-      "pillar_ids": ["P-MARKET", "P-ECONOMICS", "P-AI"],
-      "type": "dezoom", "alternative": {"type": "comparator", "when": "les concurrents sont mis en regard sur un critère commun avec des sources de même nature"},
+      "id": "CAND-14",
+      "origin": "retour HITL-258 : exemple dézoom",
+      "title": "Investissements des concurrents dans l'intelligence artificielle et leurs cas d'usage",
+      "pillar_ids": [
+        "P-MARKET",
+        "P-ECONOMICS",
+        "P-AI"
+      ],
+      "type": "dezoom",
+      "alternative": {
+        "type": "comparator",
+        "when": "les concurrents sont mis en regard sur un critère commun avec des sources de même nature"
+      },
       "objective": "Passer du cas de la cible au secteur pour situer l'effort d'investissement des concurrents en IA et ses cas d'usage.",
       "problematique": "Que change, pour la cible, ce que ses concurrents investissent en IA ?",
-      "bridge": {"in": "Le tronc pose la tension de marché.", "out": "On revient à la décision : le rythme sectoriel pèse sur l'urgence."},
+      "bridge": {
+        "in": "Le tronc pose la tension de marché.",
+        "out": "On revient à la décision : le rythme sectoriel pèse sur l'urgence."
+      },
       "choice_criterion": "Dézoom car on change d'échelle vers le secteur ; comparatif si l'on tabule des acteurs.",
-      "examples": ["EX-DZ-02"], "readiness": "research_required",
-      "gaps": "La KB ne donne que les noms des concurrents et déclare ne pas sourcer les chiffres : aucun montant ne peut être repris."
+      "examples": [
+        "EX-DZ-02"
+      ],
+      "readiness": "research_required",
+      "gaps": "Cas d'usage d'Engie acquis ; aucun montant d'investissement trouvé ; autres concurrents sans résultat exploitable ; BayWa r.e. sur extraits de recherche seulement. Aucun montant ne peut être repris."
     },
     {
-      "id": "CAND-15", "origin": "retour HITL-258 : exemple comparator",
+      "id": "CAND-15",
+      "origin": "retour HITL-258 : exemple comparator",
       "title": "Benchmark de cas d'usage entre acteurs",
-      "pillar_ids": ["P-MARKET", "P-AI"],
-      "type": "comparator", "alternative": {"type": "illustration", "when": "un seul cas éclaire le passage"},
+      "pillar_ids": [
+        "P-MARKET",
+        "P-AI"
+      ],
+      "type": "comparator",
+      "alternative": {
+        "type": "illustration",
+        "when": "un seul cas éclaire le passage"
+      },
       "objective": "Comparer 3 à 5 acteurs sur un critère commun à partir de cas d'usage de même nature.",
       "problematique": "Sur quel critère commun les acteurs diffèrent-ils vraiment ?",
-      "bridge": {"in": "Le tronc situe la cible dans un marché.", "out": "On revient au critère de décision : la comparaison le précise."},
+      "bridge": {
+        "in": "Le tronc situe la cible dans un marché.",
+        "out": "On revient au critère de décision : la comparaison le précise."
+      },
       "choice_criterion": "Comparatif dès que plusieurs acteurs sont en regard ; illustration pour un seul.",
-      "examples": ["EX-CMP-01", "EX-CMP-02"], "readiness": "to_confirm",
-      "gaps": "La demande s'arrête à « avec les uses cases de » : fournir la liste des acteurs à comparer."
+      "examples": [
+        "EX-CMP-01",
+        "EX-CMP-02"
+      ],
+      "readiness": "partial",
+      "gaps": "Acteurs : Voltalia, EDF (Dalkia et EDF ENR), Statkraft avec Solarcentury, BayWa r.e., Engie. Tailles, contrats et mouvements d'entreprise lus à la source ; aucune cible de disponibilité confirmée ; Engie Impact cédée à un tiers, donc hors comparaison. Critère commun : les quatre modèles de création de valeur (confirmé par François le 2026-11-10)."
     },
     {
-      "id": "CAND-16", "origin": "retour HITL-258 : exemple portrait / detour / also",
-      "title": "Citation de référence d'un dirigeant de l'industrie",
-      "pillar_ids": ["P-GOVERNANCE", "P-INDUSTRY"],
-      "type": "illustration", "alternative": {"type": "veille_corporate_perso", "when": "la parole du dirigeant est replacée dans le pitch de son entreprise"},
+      "id": "CAND-16",
+      "origin": "retour HITL-258 : exemple portrait / detour / also",
+      "title": "Citation d'une dirigeante du secteur : la prévision au cœur du métier d'énergéticien",
+      "pillar_ids": [
+        "P-INDUSTRY"
+      ],
+      "type": "illustration",
+      "alternative": {
+        "type": "veille_corporate_perso",
+        "when": "la parole du dirigeant est replacée dans le pitch de son entreprise"
+      },
       "objective": "Ancrer un passage par une citation verbatim, datée, attribuée et sourcée.",
-      "problematique": "Que dit un dirigeant du secteur de la responsabilité d'un système automatisé ?",
-      "bridge": {"in": "Le tronc pose la question du contrôle.", "out": "On revient au dispositif : la citation éclaire, elle ne prouve pas."},
-      "choice_criterion": "Illustration pour la citation seule ; pitch si l'entreprise du dirigeant devient le sujet.",
-      "examples": ["EX-ILL-02"], "readiness": "research_required",
-      "gaps": "Aucune citation dans la KB. Ne jamais reconstituer."
+      "problematique": "Pourquoi, selon une dirigeante du secteur, la prévision est-elle au cœur de l'activité ?",
+      "bridge": {
+        "in": "Le tronc présente la prévision comme capacité d'intelligence artificielle utile à la décision.",
+        "out": "On revient au cas : la citation éclaire l'enjeu, elle ne prouve pas la valeur chez la cible."
+      },
+      "choice_criterion": "Exemple concret pour la citation seule ; veille entreprise si l'entreprise de la dirigeante devient le sujet.",
+      "examples": [
+        "EX-ILL-02"
+      ],
+      "readiness": "partial",
+      "gaps": "Citation directe retrouvée dans la presse (2024) avec une seconde sur l'analyse d'appels d'offres (2026) ; à relire sur la page avant publication. Parole d'une dirigeante d'un concurrent, pas un fait ; ne jamais reformuler."
     },
     {
-      "id": "CAND-17", "origin": "retour HITL-258 : exemple analytical_focus",
-      "title": "Double cerveau",
-      "pillar_ids": ["P-AI", "P-GOVERNANCE"],
-      "type": "analytical_focus", "alternative": {"type": "veille_academique", "when": "la notion n'a besoin que d'être définie avec sa source"},
-      "objective": "Instruire une notion citée par François et en tirer une thèse utile à la décision.",
-      "problematique": "À définir après réception de la définition et de la source.",
-      "bridge": {"in": "À définir avec le passage d'accueil.", "out": "À définir avec le passage de retour."},
-      "choice_criterion": "Focus si la notion porte une thèse contestable ; lexique si elle n'est qu'à définir.",
-      "examples": ["EX-FOC-02"], "readiness": "to_collect",
-      "gaps": "Notion absente de la KB et non définie dans les sources : définition et source à fournir."
+      "id": "CAND-17",
+      "origin": "retour HITL-258 : exemple analytical_focus",
+      "title": "Le double cerveau d'un système d'assistance",
+      "pillar_ids": [
+        "P-AI",
+        "P-GOVERNANCE"
+      ],
+      "type": "analytical_focus",
+      "alternative": {
+        "type": "veille_academique",
+        "when": "la notion n'a besoin que d'être définie avec sa source"
+      },
+      "objective": "Montrer que la fiabilité d'un assistant dépend de ce qui l'entoure : mémoire à long terme, connaissances (base de connaissances, gestion documentaire, wiki) et cycle de vie des skills.",
+      "problematique": "Quelle part de la fiabilité d'un assistant vient du modèle, et quelle part de sa mémoire, de ses connaissances et du cycle de vie de ses skills ?",
+      "bridge": {
+        "in": "Le tronc présente un assistant de maintenance sans dire ce qui garantit la qualité de ses réponses.",
+        "out": "On revient à la supervision : un assistant fiable est d'abord une mémoire et des connaissances gouvernées."
+      },
+      "choice_criterion": "Analyse approfondie car la notion porte une thèse ; lexique si l'on veut seulement la définir.",
+      "examples": [
+        "EX-FOC-02"
+      ],
+      "readiness": "partial",
+      "gaps": "Définition de François ; recherche publique : aucun usage du terme ; trois composantes retrouvées séparément ; à présenter comme définition de travail. Lecture de l'agent à valider avant rédaction."
     },
     {
-      "id": "CAND-18", "origin": "retour HITL-258 : exemple analytical_focus",
-      "title": "Retour d'expérience de cabinets sur les moteurs de l'IA dans les énergies renouvelables et les certificats d'économies d'énergie",
-      "pillar_ids": ["P-MARKET", "P-AI", "P-ECONOMICS"],
-      "type": "analytical_focus", "alternative": {"type": "veille_academique", "when": "seules des définitions sourcées sont nécessaires"},
+      "id": "CAND-18",
+      "origin": "retour HITL-258 : exemple analytical_focus",
+      "title": "Retour d'expérience de grands cabinets de conseil sur les moteurs de l'intelligence artificielle dans les énergies renouvelables et les certificats d'économies d'énergie",
+      "pillar_ids": [
+        "P-MARKET",
+        "P-AI",
+        "P-ECONOMICS"
+      ],
+      "type": "analytical_focus",
+      "alternative": {
+        "type": "veille_academique",
+        "when": "seules des définitions sourcées sont nécessaires"
+      },
       "objective": "Dégager, de rapports de cabinets identifiables, une thèse sur les moteurs de valeur de l'IA dans le secteur.",
       "problematique": "Quels moteurs de valeur de l'IA ressortent des rapports sectoriels, avec quelles réserves ?",
-      "bridge": {"in": "Le tronc affirme des gains potentiels.", "out": "On revient à la sélection des cas : les moteurs suggèrent où chercher."},
+      "bridge": {
+        "in": "Le tronc affirme des gains potentiels.",
+        "out": "On revient à la sélection des cas : les moteurs suggèrent où chercher."
+      },
       "choice_criterion": "Focus car il faut confronter des positions ; lexique si les rapports servent de source de définitions.",
-      "examples": ["EX-FOC-03"], "readiness": "research_required",
-      "gaps": "Aucun rapport de cabinet dans la KB : collecter des publications identifiables, niveau de preuve `grey_literature`."
+      "examples": [
+        "EX-FOC-03"
+      ],
+      "readiness": "partial",
+      "gaps": "Pages de KPMG et de Deloitte lues (rapports complets non lus) ; EY et PwC sans résultat utilisable ; certificats d'économies d'énergie absents. Niveau de preuve : littérature grise."
     },
     {
-      "id": "CAND-19", "origin": "retour HITL-258 : exemple portrait / detour / also",
+      "id": "CAND-19",
+      "origin": "retour HITL-258 : exemple portrait / detour / also",
       "title": "Cas d'usage : IA multimodale au service des intervenants",
-      "pillar_ids": ["P-INDUSTRY", "P-AI"],
-      "type": "illustration", "alternative": {"type": "veille_corporate_perso", "when": "le cas est présenté comme l'offre d'un acteur précis"},
+      "pillar_ids": [
+        "P-INDUSTRY",
+        "P-AI"
+      ],
+      "type": "illustration",
+      "alternative": {
+        "type": "veille_corporate_perso",
+        "when": "le cas est présenté comme l'offre d'un acteur précis"
+      },
       "objective": "Faire voir un cas d'usage terrain : photo d'une plaque, recherche documentaire, pré-remplissage d'un rapport, sous validation humaine.",
       "problematique": "Où l'IA multimodale économise-t-elle du temps administratif sans prendre la décision ?",
-      "bridge": {"in": "Le tronc décrit la préparation et la clôture d'une intervention.", "out": "On revient à la supervision : l'assistant prépare, le technicien décide."},
+      "bridge": {
+        "in": "Le tronc décrit la préparation et la clôture d'une intervention.",
+        "out": "On revient à la supervision : l'assistant prépare, le technicien décide."
+      },
       "choice_criterion": "Illustration pour un cas ; pitch si le cas est le produit d'une entreprise.",
-      "examples": ["EX-ILL-01"], "readiness": "partial",
-      "gaps": "Cas candidat, non confirmé chez la cible. Le cadre « B-A-C » est à confirmer."
+      "examples": [
+        "EX-ILL-01"
+      ],
+      "readiness": "partial",
+      "gaps": "Cas candidat, non confirmé chez la cible. Cadre bénéfice, avantages, caractéristiques confirmé par François."
+    },
+    {
+      "id": "CAND-20",
+      "origin": "retour du 2026-11-10 : cas d'usage de jumeau numérique",
+      "title": "Jumeau numérique : cas orientés produit et orientés client",
+      "pillar_ids": [
+        "P-AI",
+        "P-MARKET"
+      ],
+      "type": "comparator",
+      "alternative": {
+        "type": "analytical_focus",
+        "when": "il faut défendre une thèse sur la valeur réelle d'un jumeau plutôt que comparer des cas"
+      },
+      "objective": "Comparer des cas de jumeau numérique selon qui porte le bénéfice : l'éditeur du produit ou l'utilisateur.",
+      "problematique": "Qui capte la valeur d'un jumeau numérique, le fournisseur de la fonction ou le client qui l'utilise ?",
+      "bridge": {
+        "in": "Le tronc cite le jumeau numérique parmi les technologies de la cible.",
+        "out": "On revient au critère de décision : un cas sans référence de départ ne prouve aucun gain."
+      },
+      "choice_criterion": "Comparatif car plusieurs cas se mettent en regard sur un critère commun ; analyse approfondie si une thèse est défendue.",
+      "examples": [
+        "EX-CMP-03"
+      ],
+      "readiness": "partial",
+      "gaps": "Chiffres d'éditeurs ou d'auteurs ; certificats d'économies d'énergie : aucune source ; ENGIE et Modelon sur extrait de recherche seulement."
+    },
+    {
+      "id": "CAND-21",
+      "origin": "retour du 2026-11-10 : documentation des installations",
+      "title": "Documentation des installations pour la maintenance sur site",
+      "pillar_ids": [
+        "P-INDUSTRY"
+      ],
+      "type": "illustration",
+      "alternative": {
+        "type": "analytical_focus",
+        "when": "la documentation tel que construite est défendue comme condition de fiabilité des réponses"
+      },
+      "objective": "Montrer comment une documentation à jour (tel que construit) change la préparation d'une intervention.",
+      "problematique": "Que change une documentation fiable de l'installation à la préparation d'une intervention ?",
+      "bridge": {
+        "in": "Le tronc décrit la préparation d'intervention.",
+        "out": "On revient à la supervision : la réponse vaut ce que vaut la version du document."
+      },
+      "choice_criterion": "Exemple concret pour un cas ; analyse approfondie pour une thèse sur la fiabilité documentaire.",
+      "examples": [
+        "EX-ILL-03",
+        "EX-CMP-03"
+      ],
+      "readiness": "partial",
+      "gaps": "Matière d'éditeurs de capture 3D et d'assistants documentaires ; aucun cas de la cible."
+    },
+    {
+      "id": "CAND-22",
+      "origin": "retour du 2026-11-10 : VizioSense",
+      "title": "Pitch de VizioSense, fournisseur de vision embarquée",
+      "pillar_ids": [
+        "P-INDUSTRY"
+      ],
+      "type": "veille_corporate_perso",
+      "alternative": {
+        "type": "comparator",
+        "when": "d'autres fournisseurs de vision embarquée sont comparés sur un critère commun"
+      },
+      "objective": "Présenter en 10 à 15 lignes un fournisseur de vision embarquée à partir de sources publiques, sans fit fournisseur.",
+      "problematique": "Que prouve réellement l'offre publique d'un fournisseur de vision embarquée pour des parkings sous ombrières ?",
+      "bridge": {
+        "in": "Le tronc évoque la conscience situationnelle du terrain.",
+        "out": "On revient à la décision : une offre publiée n'est pas un déploiement chez la cible."
+      },
+      "choice_criterion": "Pitch pour un seul fournisseur ; comparatif dès qu'un second entre.",
+      "examples": [
+        "EX-VCP-04"
+      ],
+      "readiness": "partial",
+      "gaps": "Établi : entreprise française, levée de 2,7 millions d'euros, produits et déploiements publics. Non établi : lien avec l'entreprise étudiée, ombrières, bornes de recharge, économies de 30 à 50 %."
+    },
+    {
+      "id": "CAND-23",
+      "origin": "retour du 2026-11-10 : moteurs de marché",
+      "title": "Moteurs réglementaires du marché : ce que la simplification du reporting change",
+      "pillar_ids": [
+        "P-MARKET"
+      ],
+      "type": "veille_academique",
+      "alternative": {
+        "type": "comparator",
+        "when": "les textes sont comparés sur un critère unique d'effet sur les clients"
+      },
+      "objective": "Installer en cinq à sept entrées les moteurs réglementaires du secteur, chacun avec son contre-point.",
+      "problematique": "Quels moteurs réglementaires pèsent encore sur les clients de la cible, et lesquels ont perdu de leur portée ?",
+      "bridge": {
+        "in": "Le tronc invoque la réglementation comme moteur du besoin.",
+        "out": "On revient à la tension de marché : le moteur réglementaire est plus faible pour les clients de taille moyenne."
+      },
+      "choice_criterion": "Lexique car il s'agit de définir et de situer ; comparatif pour arbitrer entre textes.",
+      "examples": [
+        "EX-MKT-02"
+      ],
+      "readiness": "partial",
+      "gaps": "Reporting de durabilité et performance des bâtiments lus au Journal officiel (seuils 450 millions d'euros et 1 000 salariés ; échéances de l'article 10). Reste en extrait : objectif de 42,5 % en 2030 ; transposition effective par État non vérifiée."
     }
-  ]
+  ],
+  "readability": "Dans toute sortie destinée à un lecteur, désigner un candidat par son titre, jamais par son identifiant (CAND-xx), et nommer les types par leur libellé lisible."
 }

@@ -1,6 +1,6 @@
 # Carte des skills, du workflow et des étapes de `AGENTS.md`
 
-Deux familles coexistent. Les **douze opérations atomiques** (`docs/SKILLS-CATALOG.md`, générées par `skills_catalog.py`) enveloppent des modules de ce dossier ; leurs `SKILL.md` restent hors dépôt (mandat R2). La **famille éditoriale** de dix skills vit dans `skills/` (D23) et porte les règles de rédaction ; elle ne contient aucun texte du corpus privé.
+Trois familles coexistent : l'exception `reinforce-kb-loopback` (D31) vit dans `diagnostic-complet/operational-skills/`, hors du dossier éditorial `skills/`. Les deux familles de la carte sont décrites ci-dessous. Les **douze opérations atomiques** (`docs/SKILLS-CATALOG.md`, générées par `skills_catalog.py`) enveloppent des modules de ce dossier ; leurs `SKILL.md` restent hors dépôt (mandat R2). La **famille éditoriale** de dix skills vit dans `skills/` (D23) et porte les règles de rédaction ; elle ne contient aucun texte du corpus privé.
 
 Aucun dossier `.skills/` n'existe dans ce dépôt. Les skills éditoriaux sont dans `diagnostic-complet/skills/` ; le dossier racine `skills/` contient un skill sans rapport (`pedagogical-ai-learning`).
 
@@ -23,7 +23,7 @@ Aucun dossier `.skills/` n'existe dans ce dépôt. Les skills éditoriaux sont d
 
 ## Piliers, skills et side stories
 
-| Pilier | Skill | Types de side stories recommandés |
+| Pilier | Skill | Types de side stories recommandés (identifiants internes) |
 |---|---|---|
 | P-MARKET | `analyzing-market-and-competition` | `comparator`, `dezoom`, `veille_corporate_perso`, `veille_academique` |
 | P-INDUSTRY | `analyzing-industry-value-chain` | `analytical_focus`, `illustration`, `dezoom`, `veille_corporate_perso` |

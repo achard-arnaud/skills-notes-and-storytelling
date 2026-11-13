@@ -20,6 +20,12 @@ DEFAULT_PROFILE = PROFILES_DIR / "neutral.profile.json"
 TERMINOLOGY = json.loads((ROOT / "ontology" / "terminology.json").read_text(encoding="utf-8"))
 DOCUMENTARY_STATUS = TERMINOLOGY["documentary_status"]
 PROFILE_ID_PATTERN = re.compile(r"^[a-z0-9][a-z0-9-]{1,63}$")
+# D35: only unambiguous instruction markers. Bare infinitives and singular imperatives (analyser,
+# utiliser, analyse, recherche) are also descriptive forms, so they never make a directive on their own.
+DIRECTIVE_PATTERN = re.compile(
+    r"(?i)^(?:tu\s+(?:dois|devras)\b|vous\s+devez\b|merci\s+de\b|please\b|must\b"
+    r"|(?:ignore|oublie)\s+(?:les|toutes|tout|ces|ce|la|le)\b"
+    r"|(?:lisez|ajoutez|créez|rédigez|utilisez|analysez|recherchez|ignorez|oubliez|répondez|vérifiez|citez|résumez)\b)")
 
 
 class ProfileError(ValueError):
@@ -176,7 +182,7 @@ def split_units(text):
             content = re.sub(r"^\s*(?:[-*+]\s+|\d+[.)]\s+|>\s*)", "", value)
             if content.rstrip().endswith("?"):
                 kind = "question"
-            elif re.match(r"(?i)^(?:tu\s+(?:dois|devras)|vous\s+devez|il\s+faut|ne\s+pas|merci\s+de|doit\b|must\b|please\b|ignore\b|lis\b|lire\b|ajoute[rz]?\b|crée[rz]?\b|analyse[rz]?\b|recherche[rz]?\b|rédige[rz]?\b|utilise[rz]?\b)", content):
+            elif DIRECTIVE_PATTERN.match(content):
                 kind = "directive"
             else:
                 kind = "assertion"

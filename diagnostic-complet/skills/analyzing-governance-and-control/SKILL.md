@@ -27,11 +27,11 @@ Un avantage d'indépendance ou d'orchestration est `hypothesis` à valider. Un r
 
 Lire `../side-stories-business/SKILL.md`, puis le fichier du type retenu. Types recommandés pour ce pilier :
 
-| Type | Quand | Référence |
+| Type affiché | Quand | Référence |
 |---|---|---|
-| `[DZ]` `dezoom` | Passer de la dépendance technique (interface, droits sur les données) à la dépendance contractuelle et stratégique. | `../side-stories-business/references/types/dezoom.md` |
-| `[VAC]` `veille_academique` | Définir contrôle humain, réversibilité, supervision et conformité avec source et contre-point. | `../side-stories-business/references/types/veille_academique.md` |
-| `[ILL]` `illustration` | Montrer un cas de décision partagée entre groupe, pays et site, ou une citation de dirigeant sur la responsabilité. | `../side-stories-business/references/types/illustration.md` |
+| Changement d'échelle (`dezoom`) | Passer de la dépendance technique (interface, droits sur les données) à la dépendance contractuelle et stratégique. | `../side-stories-business/references/types/dezoom.md` |
+| Veille académique (`veille_academique`) | Définir contrôle humain, réversibilité, supervision et conformité avec source et contre-point. | `../side-stories-business/references/types/veille_academique.md` |
+| Exemple concret (`illustration`) | Montrer un cas de décision partagée entre groupe, pays et site, ou une citation de dirigeant sur la responsabilité. | `../side-stories-business/references/types/illustration.md` |
 
 ### Problématiques types à fournir au rédacteur
 
@@ -53,8 +53,13 @@ Fournir au rédacteur le **paquet de rendu** (`../side-stories-business/referenc
 
 ## Style indicatif
 
-Juridiquement prudent : qui, quoi, jusqu'où ; chaque responsabilité nomme son titulaire, jamais « l'organisation ». Voix de François-Pro : sobre, dense, une idée par phrase.
+Juridiquement prudent : qui, quoi, jusqu'où ; chaque responsabilité nomme son titulaire, jamais « l'organisation ». Directive de style adoptée (ADR-0012) : direct, factuel, analytique, didactique ; l'essentiel d'abord ; phrases courtes ; jamais d'effet de balancement ni de double négation ; orienté décision.
 
 ## Exemples issus de la KB
 
 `examples/kb-pointers.json` : `EX-DZ-01`, `EX-GOV-01`. Identifiants opaques à résoudre dans le dépôt Graph1 privé (voir `workflows/kb-examples.json`) ; ne jamais copier leur texte ici (D23).
+
+
+## Références d’architecture conditionnelles
+
+Pour une évolution de méthode, lire [ADR-1001](../../../docs/architecture/ADR-1001-routing-capabilities.md) et [ADR-1002](../../../docs/architecture/ADR-1002-evidence-knowledge.md). Le chargement RUN reste limité au contrat et au paquet de l’étape ; les principes communs ne changent pas les capacités locales.
