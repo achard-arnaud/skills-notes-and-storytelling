@@ -49,3 +49,8 @@ Directive de style adoptée (ADR-0012) : direct, factuel, analytique, didactique
 ## Hors périmètre
 
 Qualifier les piliers (skills `analyzing-*`), rédiger le tronc (`designing-main-story`), rendre le HTML (`render.py`).
+
+
+## Références d’architecture conditionnelles
+
+Pour une évolution de méthode, lire [ADR-1003](../../../docs/architecture/ADR-1003-narrative-artifacts.md) et [ADR-1005](../../../docs/architecture/ADR-1005-learning-validation.md). Le chargement RUN reste limité au contrat et au paquet de l’étape ; les principes communs ne changent pas les capacités locales.

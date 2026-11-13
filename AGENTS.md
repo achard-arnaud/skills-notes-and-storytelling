@@ -29,3 +29,8 @@ mode
 
 ## Evidence policy
 Side stories are composition artifacts and cannot originate unsupported claims. Account/buyer reality and seller/product truth remain independent until an explicit fit stage.
+
+
+## Architecture commune — revue documentaire du 13 novembre 2026
+
+Lire [l’index des décisions](docs/architecture/README.md), puis seulement l’ADR pertinent : routage et méthodes (1001), connaissance (1002), narration et rendu (1003), RUN/BUILD et contexte (1004), loopback et validation (1005), autorités et convergence (1006). Les principes sont approuvés ; les capacités réelles restent définies par les contrats et manifests au SHA du run. Cette publication documentaire ne migre aucun enum ni template. [Couverture des 14 ADR historiques](docs/architecture/ADR-REVIEW-2026-11-13.md).

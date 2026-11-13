@@ -57,3 +57,8 @@ Sobre et opérationnel : un processus, un propriétaire, un résultat mesurable,
 ## Exemples issus de la KB
 
 `examples/kb-pointers.json` : `EX-COR-01`, `EX-ILL-01`. Identifiants opaques à résoudre dans le dépôt Graph1 privé (voir `workflows/kb-examples.json`) ; ne jamais copier leur texte ici (D23).
+
+
+## Références d’architecture conditionnelles
+
+Pour une évolution de méthode, lire [ADR-1001](../../../docs/architecture/ADR-1001-routing-capabilities.md) et [ADR-1002](../../../docs/architecture/ADR-1002-evidence-knowledge.md). Le chargement RUN reste limité au contrat et au paquet de l’étape ; les principes communs ne changent pas les capacités locales.

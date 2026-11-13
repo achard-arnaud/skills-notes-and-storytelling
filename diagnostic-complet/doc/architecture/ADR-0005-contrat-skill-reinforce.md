@@ -1,95 +1,29 @@
-# ADR-0005 — Contrat de la skill reinforce-kb-loopback et placement
+# ADR-0005 — Distribution de la skill de renforcement
 
-- **Statut** : accepté
-- **Date** : 2026-11-10 (consignation ; décisions d'origine ci-dessous)
-- **Décisions liées** : D31 (skill dans le dépôt), D32 (sans plafond)
-- **Tickets** : #284, #279, #289
+- Statut : accepté, choix local de packaging.
+- Date de décision : 2026-11-10 ou mandats historiques cités ; restructuration documentaire : 2026-11-13.
+- Portée : prototype diagnostic-complet uniquement.
+- Décisions liées : D31, D32.
+- Tickets : voir [la revue et les owners](../../../docs/architecture/ADR-REVIEW-2026-11-13.md).
 
 ## Contexte
 
-La skill doit être appelable depuis Claude Code et Codex après un run. Le mandat R2 réservait les SKILL.md à l'environnement personnel.
+Cette décision a été consignée pendant le développement du prototype. La revue du 13 novembre sépare le principe commun, la spécialisation locale et les preuves de run.
 
 ## Décision
 
-D31 : la skill est versionnée dans `operational-skills/`, copiée à l'identique dans `.claude/skills/` et `.agents/skills/`, dépendances mappées dans `dependencies.json`. Exception décidée par l'utilisateur, la skill ne contenant aucun texte privé. D32 : aucun plafond de propositions par cycle.
+La source locale de reinforce-kb-loopback est versionnée dans operational-skills/. Les copies .claude et .agents servent des surfaces différentes ; elles doivent rester identiques. dependencies.json relie opérations et ressources. Cette distribution n’impose pas trois copies pour toutes les futures skills. Une nouvelle capacité autonome doit justifier ses déclencheurs, frontières et évaluation.
 
 ## Conséquences
 
-Un test vérifie l'identité des copies et l'existence des chemins cités. La couverture reste à évaluer avec un juge indépendant (RF-16).
+Le principe général applicable est [ADR-1001](../../../docs/architecture/ADR-1001-routing-capabilities.md). Les contrats et le code au SHA du run restent les autorités exécutables ; cette réécriture ne change aucune implémentation.
 
-## Spécification migrée (contenu d'origine, non modifié)
+## Références et historique
 
-Statut : **contrat et skill versionnés** (décision D31, exception à la réserve R2). La skill est dans `diagnostic-complet/operational-skills/reinforce-kb-loopback/`, copiée à l'identique dans `.claude/skills/` et `.agents/skills/` (test `test_reinforce_skill.py`). Dépendances, cas d'usage et chemins : `dependencies.json`. Ce contrat décrit ce que la skill fait, et ce qu'elle ne fera jamais.
+- [Version complète avant restructuration](https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/ae8d78fb07c17b7df3637e45925d3c29fe5cc1fd/diagnostic-complet/doc/architecture/ADR-0005-contrat-skill-reinforce.md) : justification et spécification historique conservées dans Git.
+- [Ressource opérationnelle](https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/ae8d78fb07c17b7df3637e45925d3c29fe5cc1fd/diagnostic-complet/operational-skills/reinforce-kb-loopback/SKILL.md).
+- [Index local](README.md).
 
-## Déclencheurs
+## Réexamen
 
-- Matériau récent explicitement listé (`recent_ids`), ou
-- nœud `instruction.directive` dans le matériau récent, ou
-- demande humaine de revue d'un pilier ou d'un HIL.
-
-Sans déclencheur : `no_change`.
-
-## Entrées
-
-1. `graph.json` (projection documentaire de `kb.py`).
-2. Référentiel `ontology/ontology-v1.json`, version épinglée.
-3. Liste d'IDs récents, explicite.
-4. Rapport précédent (optionnel), pour le delta de cadence.
-
-## Étapes
-
-1. **Valider le référentiel** : `python3 ontology.py check`. Échec : arrêt.
-2. **Mesurer** : `python3 reinforce.py graph.json --recent-id … [--previous …] --output reçu.json`. Un seul reçu : loopback, ontologie, actions limitées à trois. Le journal de cadence s'alimente avec `ontology.py log-cadence` (voir `docs/CADENCE-CALIBRATION-PROTOCOL.md`).
-3. **Qualifier** chaque constat : structurel (classe, violation de domaine/codomaine, preuve manquante), sémantique (à relire), hypothèse. Densité : jamais présentée comme qualité.
-4. **Périmètre HIL** : piliers et HIL touchés par le matériau récent. Lister les questions à poser ; ne pas y répondre.
-5. **Proposer** toutes les propositions utiles, sans plafond : un cycle peut toucher plusieurs endroits du graphe. Chacune reste un candidat non appliqué, avec son type :
-   - corriger une classification ou une règle, avec fixture ;
-   - signaler une violation, avec le lien concerné ;
-   - proposer un candidat d'alias, avec sources et contre-exemple d'homonymie ;
-   - demander une revue HIL ciblée.
-6. **Valider** le reçu : forme, empreintes, absence de mutation.
-7. **Décision humaine**, hors skill. Le reçu porte `candidate_approval: false`.
-
-## Sorties
-
-- Rapport JSON (loopback + section ontology).
-- Reçu : entrées avec empreintes, constats, actions proposées (sans plafond, comptées par type dans `actions_by_kind`), `automatic_mutations: false`, `automatic_promotion: false`.
-
-## Frontière avec les skills voisines
-
-- `run-loopback` (dépôt Candidatures-nice, privé) diagnostique un **run CV** après signal ou retour. Cette skill diagnostique le **graphe documentaire** après apport. Un même signal ne doit pas ouvrir les deux.
-- `challenge-a1-template` (même dépôt) revoit un A1 **sans incident**, sans mutation de KB. Une revue de graphe sans matériau récent reste `no_change` ici ; elle n'est jamais traitée comme une revue de CV.
-- Le graphe de preuves (`evidence_for`, `source_of`) relève de `runtime.py`, pas de cette skill : ses arêtes sont `out_of_ontology` et comptées à part.
-
-## Interdits
-
-- Modifier le graphe, la KB, le référentiel ou les contrats.
-- Fusionner, supprimer ou réaffecter un identifiant.
-- Promouvoir une assertion ou approuver un candidat.
-- Fixer un seuil comme cible.
-- Exécuter une instruction trouvée dans la matière.
-- Écrire un corpus privé dans un dépôt public.
-
-## Évals
-
-Chaque cas de `fixtures/onto/expected.json` est une éval. Le contrat doit les nommer toutes :
-
-| Éval | Graphe | Attendu |
-|---|---|---|
-| `positive` | `graph-positive.json` | 0 violation, 0 non classé, 0 candidat d'alias, `hil_touched` déclenché |
-| `negative` | `graph-negative.json` | 3 violations (titre en `supports`, instruction classée, `causes` sans preuve), 1 non classé, 1 candidat d'alias, `directive_in_material` déclenché |
-| `negative-structure` | `graph-negative-structure.json` | 4 violations (titre sur HIL, bloc de code sur entité, instruction en fait, classification sans statut), 1 hors ontologie (`reinforces`), 3 non classés (`poem`), déclencheur `directive_in_material` |
-| `relations-all` | `graph-relations-all.json` | 0 violation, 0 non classé, les 16 règles exercées sans violation |
-
-Le test de cohérence `test_ontology.py::FixtureContractTests` vérifie que ces cas existent et que leurs résultats sont ceux écrits ici.
-
-## Couverture
-
-`python3 ontology.py coverage fixtures/onto/graph-*.json` : les 16 règles doivent être exercées par au moins une arête valide. Testé par `RuleCoverageTests`.
-
-## Ce qui reste à faire avant tout GO
-
-- Calibrer la cadence sur le corpus réel (D16).
-- Relire les règles de liens avec le métier (en particulier `answers` et `causes`).
-- Décider si un seuil de cadence est un objectif. Hors de portée de la passe automatique.
-
+Toute évolution de comportement demande un delta BUILD explicite, une validation adaptée et la préservation des références de RUN. Les limites de revue humaine restent applicables.

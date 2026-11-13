@@ -34,7 +34,7 @@ Le mandat R2 supersède l'interdiction initiale de création de skills : douze o
 ## Invariants (détail dans les documents cités)
 
 - **Build / run** : code et référentiels run-agnostiques. Le vocabulaire de run vit dans `profiles/` ; une KB est liée à un seul profil. Règles complètes : `doc/architecture/ADR-0008-frontiere-run-build.md`, qui prévaut sur les autres formulations.
-- **Terminologie** : statuts, tiers et correspondances viennent de `ontology/terminology.json` uniquement (`doc/architecture/ADR-0009-terminologie-kind.md`). Une source vendeur (T2) ou corporate (T1) ne soutient jamais un `verified_fact`.
+- **Terminologie** : statuts, kinds de source et correspondances viennent de `ontology/terminology.json` uniquement (`doc/architecture/ADR-0009-terminologie-kind.md`). Une source de kind vendeur ou corporate ne soutient jamais un `verified_fact`.
 - **Documentation d'architecture** : toute décision et toute spécification interne vivent dans `doc/architecture/ADR-NNNN-sujet.md` (index : `doc/architecture/README.md`). `docs/` ne garde que les registres et rapports de run.
 - **Refactor** : chaque constat de couplage est un ticket `RF-nn` dans `docs/REFACTOR-BACKLOG.md`, avec sa preuve de clôture.
 - **Process** : pas de CI sur `dev`. Gate local avant tout push :
@@ -46,3 +46,8 @@ Le mandat R2 supersède l'interdiction initiale de création de skills : douze o
   Le résultat se déclare comme `ci: intentionally_not_run`.
 - **Push** : fast-forward uniquement, jamais de force. Si `origin/dev` a changé, rebaser ses seuls commits locaux puis repousser.
 - **Pull request** : la PR #285 a été fusionnée dans `main` le 9 novembre à 23:51 par le compte du dépôt (passée en prête puis fusionnée en 5 secondes ; pas un agent). Le suivi est dans la PR draft #290. Un agent ne merge jamais une PR.
+
+
+## Revue documentaire — 13 novembre 2026
+
+Le mandat utilisateur courant autorise la restructuration des ADR et la publication des seuls principes communs sur dev et main. Les restrictions historiques de publication du prototype demeurent applicables au runtime et au corpus. Lire [l’architecture commune](../docs/architecture/README.md), puis les décisions locales utiles dans [l’index local](doc/architecture/README.md). Les ADR communs gouvernent les principes ; les contrats locaux fixent l’exécution. Pour les détails d’un run ancien, utiliser sa version épinglée et ses reçus.

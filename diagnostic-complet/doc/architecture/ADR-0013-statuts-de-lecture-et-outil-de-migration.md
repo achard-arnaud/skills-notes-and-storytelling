@@ -1,22 +1,29 @@
-# ADR-0013 — Statuts de lecture, validation humaine et outil de migration du profil
+# ADR-0013 — Migration sûre et statuts de revue
 
-- **Statut** : accepté
-- **Date** : 2026-11-10
-- **Décisions liées** : D41 (outil de migration), D42 (statuts de lecture et validation humaine)
-- **Tickets** : RF-06, #291
+- Statut : accepté, contrat local.
+- Date de décision : 2026-11-10 ou mandats historiques cités ; restructuration documentaire : 2026-11-13.
+- Portée : prototype diagnostic-complet uniquement.
+- Décisions liées : D41, D42.
+- Tickets : voir [la revue et les owners](../../../docs/architecture/ADR-REVIEW-2026-11-13.md).
 
 ## Contexte
 
-François a demandé de relancer les recherches sur les concurrents et le marché, de considérer le complément sur l'industriel comme validé et vérifié, de rechercher la notion de double cerveau sur internet, et de traiter RF-06.
+Cette décision a été consignée pendant le développement du prototype. La revue du 13 novembre sépare le principe commun, la spécialisation locale et les preuves de run.
 
 ## Décision
 
-1. **D41 — outil de migration.** `kb_migrate.py` déclare le profil de run sur un index qui n'en porte pas. Essai à blanc par défaut ; `--apply` exige une sauvegarde hors de la base et écrit un reçu (empreintes et nombres, aucun contenu). Il refuse si le schéma, le lexique ou le profil diffèrent : un nouveau lexique demande une réingestion, pas une étiquette. Il ne touche ni aux atomes ni aux sources.
-2. **D42 — deux statuts nouveaux dans le registre d'exemples.** `read_at_source` : la page ou le texte officiel a été lu en entier ; l'atome n'est pas promu en fait vérifié. `human_validated` : François a validé, à la date inscrite dans `decisions` ; les limites écrites restent en vigueur. Aucun agent ne pose `human_validated`.
+kb_migrate.py privilégie un essai à blanc, une sauvegarde et un reçu ; il refuse une simple réétiquette lorsque le schéma ou le lexique diffère. read_at_source signifie lecture à la source, sans promotion factuelle ; human_validated exige une décision humaine datée et bornée. Une décision sur une partie d’un cas ne valide pas ses gains, son déploiement ou ses autres assertions.
 
 ## Conséquences
 
-- Validation de l'industriel : périmètre limité à la relation client et au programme de gestion des connaissances ; le déploiement et les gains restent hors validation.
-- La promotion d'un atome en fait vérifié suit toujours le circuit humain de la base ; le registre public ne le remplace pas.
-- Concurrents : aucune cible de disponibilité confirmée sur cinq ; Engie Impact est cédée à un tiers, ce qui sort cette branche de la comparaison.
-- Marché : les seuils du reporting de durabilité (450 millions d'euros, 1 000 salariés) et les échéances de l'article 10 sont lus au Journal officiel.
+Le principe général applicable est [ADR-1005](../../../docs/architecture/ADR-1005-learning-validation.md). Les contrats et le code au SHA du run restent les autorités exécutables ; cette réécriture ne change aucune implémentation.
+
+## Références et historique
+
+- [Version complète avant restructuration](https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/ae8d78fb07c17b7df3637e45925d3c29fe5cc1fd/diagnostic-complet/doc/architecture/ADR-0013-statuts-de-lecture-et-outil-de-migration.md) : justification et spécification historique conservées dans Git.
+- [Ressource opérationnelle](https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/ae8d78fb07c17b7df3637e45925d3c29fe5cc1fd/diagnostic-complet/kb_migrate.py).
+- [Index local](README.md).
+
+## Réexamen
+
+Toute évolution de comportement demande un delta BUILD explicite, une validation adaptée et la préservation des références de RUN. Les limites de revue humaine restent applicables.

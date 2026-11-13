@@ -136,3 +136,8 @@ La classe de template (`product`, `business`, `tech`, `pedagogique`) reste disti
 ## Pilote Perception approfondi — paysage
 
 Le profil pédagogique v0.3 utilise un seul [contrat de contenu](contracts/pedagogical-sheet.schema.json). [Perception](learning/enterprise-ai/perception.sheet.json) est repris en six pages paysage, avec quatre histoires sourcées, un schéma systémique, les quatre configurations du livre et un backlog BAC. [Le catalogue](learning/enterprise-ai/USE_CASE_CATALOG.md) conserve les 70 situations et leurs conditions. Les cinq autres fiches restent candidates dans leur version précédente.
+
+
+## Architecture commune — revue documentaire du 13 novembre 2026
+
+Lire [l’index des décisions](docs/architecture/README.md), puis seulement l’ADR pertinent : routage et méthodes (1001), connaissance (1002), narration et rendu (1003), RUN/BUILD et contexte (1004), loopback et validation (1005), autorités et convergence (1006). Les principes sont approuvés ; les capacités réelles restent définies par les contrats et manifests au SHA du run. Cette publication documentaire ne migre aucun enum ni template. [Couverture des 14 ADR historiques](docs/architecture/ADR-REVIEW-2026-11-13.md).

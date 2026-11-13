@@ -1,54 +1,29 @@
-# ADR-0007 — Projection de la KB vers Graph1
+# ADR-0007 — Projection privée Graph1
 
-- **Statut** : accepté (publié pour le corpus réel)
-- **Date** : 2026-11-10 (consignation ; décisions d'origine ci-dessous)
-- **Décisions liées** : D06, lots R2-13 et R2-14
-- **Tickets** : #281, #283
+- Statut : accepté, adaptateur local.
+- Date de décision : 2026-11-10 ou mandats historiques cités ; restructuration documentaire : 2026-11-13.
+- Portée : prototype diagnostic-complet uniquement.
+- Décisions liées : D06, R2-13, R2-14.
+- Tickets : voir [la revue et les owners](../../../docs/architecture/ADR-REVIEW-2026-11-13.md).
 
 ## Contexte
 
-La KB business vit dans un namespace privé de Graph1, sans jamais modifier le graphe de formation gelé.
+Cette décision a été consignée pendant le développement du prototype. La revue du 13 novembre sépare le principe commun, la spécialisation locale et les preuves de run.
 
 ## Décision
 
-Empreinte du graphe gelé vérifiée avant et après, écriture uniquement sous `knowledge/business/`, compression sans perte, MANIFEST à empreintes.
+Graph1 reçoit une projection dans un namespace privé déclaré. Vérifier les empreintes du graphe protégé avant et après, le manifeste et les chemins écrits. Les identifiants restent résolvables. La publication d’un lot est une preuve historique à consulter dans son reçu ; elle ne prouve pas la disponibilité actuelle. Graph1 n’est pas imposé aux autres parcours.
 
 ## Conséquences
 
-Le namespace est déclaré par le profil du run (ADR-0008). Les lots suivants doivent passer `--profile` (RF-07).
+Le principe général applicable est [ADR-1004](../../../docs/architecture/ADR-1004-run-build-context.md). Les contrats et le code au SHA du run restent les autorités exécutables ; cette réécriture ne change aucune implémentation.
 
-## Spécification migrée (contenu d'origine, non modifié)
+## Références et historique
 
-Statut : outil `project.py` livré et testé ; publication consignée dans `runs/r2/DELIVERY.md`. Document public : méthode seulement, aucun contenu de corpus.
+- [Version complète avant restructuration](https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/ae8d78fb07c17b7df3637e45925d3c29fe5cc1fd/diagnostic-complet/doc/architecture/ADR-0007-projection-graph1.md) : justification et spécification historique conservées dans Git.
+- [Ressource opérationnelle](https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/ae8d78fb07c17b7df3637e45925d3c29fe5cc1fd/diagnostic-complet/project.py).
+- [Index local](README.md).
 
-## Principe
+## Réexamen
 
-Graph1 est le référentiel de formation **gelé** (graphe de 877 nœuds et 1 282 arêtes, empreinte `dd784af7a527a8e1ecddcc6bc1b231b49981362aa1e5c862e7aa9946f198b9ca`). La KB business y vit dans un namespace séparé, `knowledge/business/greenyellow/`, qui ne modifie ni ne référence ce graphe comme source.
-
-## Garde-fous de `project.py`
-
-| Garde-fou | Effet |
-|---|---|
-| Empreinte du graphe gelé vérifiée **avant** | Refus si elle ne correspond pas à la baseline déclarée. |
-| Empreinte vérifiée **après** | Échec si le graphe gelé a changé pendant l'écriture. |
-| Namespace sous `knowledge/business/` | Refus de `canonical/`, `build/`, `tmp_extract/`, `scripts/`, `tests/`, `docs/`, `.github/`, de toute remontée `..` et des chemins absolus. |
-| Aucune suppression | Seuls des fichiers sont écrits ; un fichier identique n'est pas réécrit. |
-| MANIFEST | Chemins, SHA-256, tailles ; `original_sha256` pour les fichiers compressés. |
-| Compression sans perte | gzip déterministe (`mtime=0`) pour les JSON volumineux et le HTML brut. |
-| Atomes répartis | Sous-dossiers par préfixe hexadécimal de l'identifiant, pour éviter un dossier plat de dizaines de milliers de fichiers. |
-| Lots | `--only <préfixe>` publie un sous-ensemble : un lot par commit, fast-forward, `[skip ci]`. |
-
-## Pourquoi compresser et répartir
-
-Mesure sur 80 pages : `kb.json` 9,3 Mo, `graph.json` 6,7 Mo, atomes 2,5 Mo. Extrapolé au corpus complet, `kb.json` dépasserait 80 Mo non compressé, près de la limite de 100 Mo par fichier de GitHub. La compression est sans perte et vérifiable par `original_sha256`.
-
-## Disposition
-
-`sources/` (Markdown source), `kb/` (KB, graphe compressé, atomes répartis), `coverage/` (état de la collecte), `raw/` (HTML brut compressé), `MANIFEST.json`, `README.md`.
-
-## Limites
-
-- Le contenu reste privé : le dépôt public ne reçoit que des comptes et des empreintes.
-- La projection ne vérifie pas la visibilité du dépôt de destination ; l'appelant la garantit.
-- Une projection n'est pas une validation : tout est `SOURCE`, rien n'est `HUMAN_ADJUDICATED`.
-
+Toute évolution de comportement demande un delta BUILD explicite, une validation adaptée et la préservation des références de RUN. Les limites de revue humaine restent applicables.

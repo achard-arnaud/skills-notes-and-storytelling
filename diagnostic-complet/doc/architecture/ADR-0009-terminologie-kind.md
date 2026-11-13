@@ -1,65 +1,29 @@
-# ADR-0009 — Terminologie unique : statuts, kinds de source et correspondances
+# ADR-0009 — Terminologie et éligibilité des sources
 
-- **Statut** : accepté
-- **Date** : 2026-11-10 (consignation ; décisions d'origine ci-dessous)
-- **Décisions liées** : D29, D30, D36 (kind seul, tier retiré, #287)
-- **Tickets** : #287, RF-03, RF-04, RF-10, RF-14
+- Statut : accepté, contrat local courant.
+- Date de décision : 2026-11-10 ou mandats historiques cités ; restructuration documentaire : 2026-11-13.
+- Portée : prototype diagnostic-complet uniquement.
+- Décisions liées : D29, D30, D36.
+- Tickets : voir [la revue et les owners](../../../docs/architecture/ADR-REVIEW-2026-11-13.md).
 
 ## Contexte
 
-Trois vocabulaires de statut ne se recouvraient pas, et une proposition de « tier » s'ajoutait à `kind` sans apporter de règle nouvelle.
+Cette décision a été consignée pendant le développement du prototype. La revue du 13 novembre sépare le principe commun, la spécialisation locale et les preuves de run.
 
 ## Décision
 
-`ontology/terminology.json` est la source unique. `kind` est le seul terme de source ; sa table indique les statuts qu'il peut soutenir et son éligibilité à `verified_fact`. Un kind vendeur ou corporate n'est jamais éligible. Un `attributed_claim` doit reposer sur un kind attribuable.
+ontology/terminology.json est l’autorité locale pour statuts et kinds de source. kind remplace les tiers historiques T0–T4. Les contrôles d’attribution et d’éligibilité à verified_fact suivent ce contrat ; les kinds corporate et vendeur ne deviennent pas indépendamment vérifiés par réemploi. Une validation de schéma ne certifie pas le monde réel.
 
 ## Conséquences
 
-Les tiers T0 à T4 disparaissent. Le mapping legacy n'est plus nécessaire : aucune étude n'utilisait `tier`. Un kind inconnu n'est pas éligible.
+Le principe général applicable est [ADR-1002](../../../docs/architecture/ADR-1002-evidence-knowledge.md). Les contrats et le code au SHA du run restent les autorités exécutables ; cette réécriture ne change aucune implémentation.
 
-## Spécification migrée (contenu d'origine, non modifié)
+## Références et historique
 
-> **Note de consignation (10 novembre 2026)** : la spécification ci-dessous décrit les tiers T0 à T4. Ils sont remplacés par les kinds de source (D36, #287). Seule la décision ci-dessus fait foi.
+- [Version complète avant restructuration](https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/ae8d78fb07c17b7df3637e45925d3c29fe5cc1fd/diagnostic-complet/doc/architecture/ADR-0009-terminologie-kind.md) : justification et spécification historique conservées dans Git.
+- [Ressource opérationnelle](https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/ae8d78fb07c17b7df3637e45925d3c29fe5cc1fd/diagnostic-complet/ontology/terminology.json).
+- [Index local](README.md).
 
-Source de vérité : `ontology/terminology.json` (version 1.0.0, proposé). Ce document est la version lisible ; en cas d'écart, le JSON fait foi et un test échoue (`TerminologyTests`). Aucun module ne redéfinit ces chaînes.
+## Réexamen
 
-## 1. Statuts de claim (`runtime.py`)
-
-| Statut | Sens | Peut être posé par |
-|---|---|---|
-| `supplied_claim` | Assertion de la matière fournie, non vérifiée (défaut) | Import |
-| `attributed_claim` | « Un acteur déclare X » ; ne porte pas le fait | Import, avec source T1 à T3 |
-| `inference` | Conclusion à partir d'autres claims ; jamais une source | Analyse |
-| `hypothesis` | Piste à éprouver, avec contre-hypothèse | Analyse |
-| `verified_fact` | Revu par un humain, source consultée d'un tier éligible, `qualified: true` | Humain uniquement |
-| `unknown` | Non déterminé | Tout |
-
-## 2. Tiers de source
-
-| Tier | Exemples | Peut soutenir | Éligible à `verified_fact` |
-|---|---|---|---|
-| T0 | Matière fournie, transcript interne, note | `supplied_claim` | Non |
-| T1 | Site corporate, communiqué, rapport annuel | `attributed_claim` | Non |
-| T2 | Presse, analystes, fournisseur, benchmark commercial | `attributed_claim` | Non |
-| T3 | Régulateur, dépôt légal, statistique officielle, standard, étude publiée | `attributed_claim`, `verified_fact` | **Oui** |
-| T4 | Mesure interne avec méthode, donnée client avec périmètre | `verified_fact` | **Oui** (reste privée) |
-| unassessed | Tier absent ou non mappé (défaut sûr) | `supplied_claim` | Non |
-
-Résolution : `tier` explicite prime ; sinon le mapping legacy `kind` (`primary_regulatory`, `primary_official`, `primary_research`, `primary_repo` → T3 ; `primary_corporate` → T1 ; `primary_vendor` → T2 ; `primary` → unassessed) ; sinon `unassessed`.
-
-Règle transverse : répéter une même origine (un communiqué repris par plusieurs médias) ne change pas son tier.
-
-## 3. États de validation et correspondances
-
-| Concept | Claim (runtime) | Documentaire (`kb.py`) | Validation (ontologie) | `knowledge_status` (Graph1) |
-|---|---|---|---|---|
-| Matière fournie | `supplied_claim` | `supplied_unverified` | `supplied_unverified` | `SOURCE` |
-| Candidat | — | — | `candidate_unconfirmed` | `CANDIDATE` |
-| Revu humainement | `verified_fact` | — | `candidate_confirmed` | `HUMAN_ADJUDICATED` (exige `decision_ref`) |
-
-Une machine ne pose jamais `HUMAN_ADJUDICATED`. La facette `evidence_basis` est retirée : elle était déclarée, jamais produite, et son rôle est tenu par le tier.
-
-## 4. Ce que la terminologie ne dit pas
-
-Un statut ou un tier n'établit pas la vérité. Seule une revue humaine référencée peut poser `verified_fact` ou `HUMAN_ADJUDICATED`.
-
+Toute évolution de comportement demande un delta BUILD explicite, une validation adaptée et la préservation des références de RUN. Les limites de revue humaine restent applicables.

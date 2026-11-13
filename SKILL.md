@@ -156,3 +156,8 @@ Tiering:
 - Tier 3 — explicit `FEEDBACK_DREAMING` multi-run system review.
 
 A reusable change requires evidence from a real run, separation of case-specific vs reusable deltas, a candidate patch, regression coverage and human approval. Never silently mutate the canonical template catalog.
+
+
+## Architecture commune — revue documentaire du 13 novembre 2026
+
+Lire [l’index des décisions](docs/architecture/README.md), puis seulement l’ADR pertinent : routage et méthodes (1001), connaissance (1002), narration et rendu (1003), RUN/BUILD et contexte (1004), loopback et validation (1005), autorités et convergence (1006). Les principes sont approuvés ; les capacités réelles restent définies par les contrats et manifests au SHA du run. Cette publication documentaire ne migre aucun enum ni template. [Couverture des 14 ADR historiques](docs/architecture/ADR-REVIEW-2026-11-13.md).

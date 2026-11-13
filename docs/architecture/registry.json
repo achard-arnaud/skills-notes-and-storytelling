@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Documentation navigation only; no runtime capability declaration",
+  "date": "2026-11-13",
+  "decisions": [
+    {
+      "id": "ADR-1001",
+      "path": "ADR-1001-routing-capabilities.md",
+      "title": "Routage et capacités d’analyse",
+      "status": "accepted_documentary_principle",
+      "implementation": "see_existing_contracts"
+    },
+    {
+      "id": "ADR-1002",
+      "path": "ADR-1002-evidence-knowledge.md",
+      "title": "Connaissance, provenance et cycle de vie",
+      "status": "accepted_documentary_principle",
+      "implementation": "see_existing_contracts"
+    },
+    {
+      "id": "ADR-1003",
+      "path": "ADR-1003-narrative-artifacts.md",
+      "title": "Narration, contrats de contenu et rendu",
+      "status": "accepted_documentary_principle",
+      "implementation": "see_existing_contracts"
+    },
+    {
+      "id": "ADR-1004",
+      "path": "ADR-1004-run-build-context.md",
+      "title": "Séparation RUN/BUILD et contexte portable",
+      "status": "accepted_documentary_principle",
+      "implementation": "see_existing_contracts"
+    },
+    {
+      "id": "ADR-1005",
+      "path": "ADR-1005-learning-validation.md",
+      "title": "Loopback, validations et promotion",
+      "status": "accepted_documentary_principle",
+      "implementation": "see_existing_contracts"
+    },
+    {
+      "id": "ADR-1006",
+      "path": "ADR-1006-governance-convergence.md",
+      "title": "Autorités documentaires et convergence progressive",
+      "status": "accepted_documentary_principle",
+      "implementation": "see_existing_contracts"
+    }
+  ]
+}
