@@ -1,0 +1,18 @@
+{
+  "decision": "Qualifier l’opportunité pour une offre de revue des dossiers.",
+  "claims": {
+    "C1": "Le responsable demande une exportation signée avant tout essai réel.",
+    "C2": "La démonstration exporte un fichier CSV.",
+    "C3": "La signature figure au carnet de développement."
+  },
+  "oracle": {
+    "pages": null,
+    "required": [
+      "VALIDATE",
+      "fichier signé",
+      "report du pilote"
+    ],
+    "defect": "Le verdict de poursuite ignore un prérequis acheteur non démontré."
+  },
+  "synthetic": true
+}

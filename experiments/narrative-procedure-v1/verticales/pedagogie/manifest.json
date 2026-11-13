@@ -1,0 +1,62 @@
+{
+  "vertical": "pedagogical",
+  "template": "ai-enterprise-learning-six-page",
+  "template_version": "0.3.0",
+  "contract": "contracts/pedagogical-sheet.schema.json",
+  "canonical_input": "learning/enterprise-ai/perception.sheet.json",
+  "ref": "ca67c1ebe940f5a548b2fd76fc75a8f0f149087c",
+  "roles": [
+    [
+      "directeur",
+      "Choisir un geste observable et son public",
+      "objectif et trace attendue"
+    ],
+    [
+      "scribe",
+      "Composer chaque page au contrat choisi",
+      "texte et exercice avec sources"
+    ],
+    [
+      "relecteur",
+      "Tester la correction sur une réponse plausible",
+      "lacune et page à rouvrir"
+    ],
+    [
+      "livraison",
+      "Projeter le JSON candidat puis vérifier chaque page",
+      "preuve de rendu et verdict humain séparés"
+    ]
+  ],
+  "blocks": [
+    [
+      "understand",
+      "Construire le concept depuis des cas attribués"
+    ],
+    [
+      "transmit",
+      "Faire expliquer et pratiquer le geste"
+    ],
+    [
+      "diagnose",
+      "Relier obstacles, responsables et mesures"
+    ],
+    [
+      "integrate",
+      "Placer la capacité dans un workflow et borner la délégation"
+    ],
+    [
+      "value",
+      "Relier les tâches aux acteurs et à la mesure proposée"
+    ],
+    [
+      "act",
+      "Sélectionner des cas identifiés et organiser un essai"
+    ]
+  ],
+  "return_routes": {
+    "acquis_non_evaluable": "transmit",
+    "objectif_ambigu": "directeur",
+    "mise_en_page": "livraison"
+  },
+  "fixture": "fixture.json"
+}

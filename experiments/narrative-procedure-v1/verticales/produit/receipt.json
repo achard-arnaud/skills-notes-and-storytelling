@@ -1,0 +1,50 @@
+[
+  {
+    "template": "two-pager",
+    "version": "v1",
+    "status": "FAIL",
+    "errors": [
+      "missing literal chaque séance",
+      "missing literal corrections",
+      "missing literal interrompre"
+    ]
+  },
+  {
+    "template": "two-pager",
+    "version": "v2",
+    "status": "PASS",
+    "errors": []
+  },
+  {
+    "template": "opportunity-note-icp",
+    "version": "v1",
+    "status": "FAIL",
+    "errors": [
+      "missing literal VALIDATE",
+      "missing literal fichier signé",
+      "missing literal report du pilote"
+    ]
+  },
+  {
+    "template": "opportunity-note-icp",
+    "version": "v2",
+    "status": "PASS",
+    "errors": []
+  },
+  {
+    "template": "three-pager",
+    "version": "v1",
+    "status": "FAIL",
+    "errors": [
+      "missing literal échantillon stratifié",
+      "missing literal catégories absentes",
+      "missing literal maintenir la bêta"
+    ]
+  },
+  {
+    "template": "three-pager",
+    "version": "v2",
+    "status": "PASS",
+    "errors": []
+  }
+]

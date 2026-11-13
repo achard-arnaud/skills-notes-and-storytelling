@@ -1,0 +1,35 @@
+{
+  "id": "BUS-one-pager",
+  "synthetic": true,
+  "template": "one-pager",
+  "input": {
+    "C1": {
+      "kind": "quote",
+      "launch_cost_eur": 1200
+    },
+    "C2": {
+      "kind": "vendor_hypothesis",
+      "saving_eur_per_case": 8
+    },
+    "C3": {
+      "kind": "unknown",
+      "eligible_volume": null
+    }
+  },
+  "expected": {
+    "threshold_cases": 150,
+    "benefit_status": "hypothesis",
+    "blocks": [
+      "thesis",
+      "facts",
+      "comparison",
+      "action"
+    ]
+  },
+  "sample_blocks": {
+    "thesis": "Autoriser un essai seulement si le coût complet est couvert.",
+    "facts": "La fixture donne un coût de lancement de 1 200 euros et une économie unitaire supposée de 8 euros.",
+    "comparison": "À 100 dossiers, la contribution vaut −400 euros. À 200 dossiers, elle vaut +400 euros.",
+    "action": "La responsable opérations mesurera volume et économie unitaire sur un échantillon avant engagement."
+  }
+}

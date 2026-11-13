@@ -37,6 +37,10 @@ Livrer contenu, références et limites de validation réelles. Effectuer un loo
 
 Le livrable diffusé seul reste compréhensible : résoudre les codes de source/claim dans une légende compacte ou conserver des attributions textuelles autonomes. Un cas proposé doit expliciter les capacités nécessaires encore non attestées, notamment accès et ingestion documentaire. Tester ce point avant de présenter un parcours comme immédiatement réalisable.
 
+## Choisir le scaffold d’une verticale
+
+Pour une note à plusieurs blocs ou une révision ciblée, ouvrir [le registre des quatre verticales](verticales/registry.json). Choisir le couple route et template, puis ouvrir le profil et le manifeste indiqués. Le manifeste attribue les blocs aux rôles et indique la fixture à rejouer après modification. Une tâche simple peut suivre directement le contrat de format. [Résultats du second essai et revue de consolidation](verticales/README.md).
+
 ## Ressources conditionnelles
 - [Routage et formats](references/routing.md) : intention/format ou révision de format.
 - [Charte rédactionnelle](references/editorial.md) : conception et rédaction.

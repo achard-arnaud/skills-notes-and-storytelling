@@ -1,0 +1,106 @@
+{
+  "vertical": "business",
+  "revision": 2,
+  "source_ref": "ca67c1ebe940f5a548b2fd76fc75a8f0f149087c",
+  "roles": [
+    {
+      "id": "director",
+      "input": "mandat + claims datés",
+      "output": "questions ordonnées et objection décisive",
+      "return_if": "décision imprécise"
+    },
+    {
+      "id": "analyst",
+      "input": "question économique + unités + période",
+      "output": "résultat conditionnel, calcul et sensibilité",
+      "return_if": "hypothèse sans origine"
+    },
+    {
+      "id": "scribe",
+      "input": "blocs retenus et claims associés",
+      "output": "note lisible seule",
+      "return_if": "bénéfice sans condition"
+    },
+    {
+      "id": "reviewer",
+      "input": "note et registre des claims",
+      "output": "défauts localisés et lot à rouvrir",
+      "return_if": "contre-exemple qui inverse la décision"
+    },
+    {
+      "id": "delivery",
+      "input": "note relue et contrat de format",
+      "output": "version et limites de contrôle",
+      "return_if": "preuve ou lisibilité perdue"
+    }
+  ],
+  "formats": {
+    "one-pager": {
+      "template": "templates/one-pager.md",
+      "block_ids": [
+        "thesis",
+        "facts",
+        "comparison",
+        "action"
+      ],
+      "fixture": "fixtures/one-pager.json"
+    },
+    "two-pager": {
+      "template": "templates/two-pager.md",
+      "block_ids": [
+        "truth",
+        "mechanism",
+        "unknowns",
+        "uses",
+        "next_step"
+      ],
+      "fixture": "fixtures/two-pager.json"
+    },
+    "benchmarking": {
+      "template": "templates/benchmarking.md",
+      "block_ids": [
+        "baseline",
+        "criteria",
+        "hard_gates",
+        "peers",
+        "falsifier"
+      ],
+      "fixture": "fixtures/benchmarking.json"
+    },
+    "buy-side-gap-analysis": {
+      "template": "templates/buy-side-gap-analysis.md",
+      "block_ids": [
+        "baseline",
+        "target",
+        "capability_gap",
+        "economics",
+        "rollback"
+      ],
+      "fixture": "fixtures/buy-side-gap-analysis.json"
+    },
+    "strategic-market-note": {
+      "template": "templates/strategic-market-note.md",
+      "block_ids": [
+        "thesis",
+        "market_signal",
+        "local_exposure",
+        "mechanism",
+        "alternatives",
+        "test"
+      ],
+      "fixture": "fixtures/strategic-market-note.json"
+    },
+    "diagnostic-reco-sellside": {
+      "template": "templates/diagnostic-reco-sellside.md",
+      "block_ids": [
+        "commercial_thesis",
+        "buyer",
+        "value_unit",
+        "pricing",
+        "proof",
+        "owner"
+      ],
+      "fixture": "fixtures/diagnostic-reco-sellside.json"
+    }
+  }
+}

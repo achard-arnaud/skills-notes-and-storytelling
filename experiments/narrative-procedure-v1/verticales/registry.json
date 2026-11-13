@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "routes": {
+    "produit": {
+      "profile": "produit/PROFILE.md",
+      "manifest": "produit/manifest.json",
+      "replay": "produit/verify.py",
+      "fixtures": {
+        "two-pager": "produit/two-pager/fixture.json",
+        "opportunity-note-icp": "produit/opportunity-note-icp/fixture.json",
+        "three-pager": "produit/three-pager/fixture.json"
+      }
+    },
+    "business": {
+      "profile": "business/PROFILE.md",
+      "manifest": "business/manifest.json",
+      "replay": "business/check.py",
+      "fixtures": {
+        "one-pager": "business/fixtures/one-pager.json",
+        "two-pager": "business/fixtures/two-pager.json",
+        "benchmarking": "business/fixtures/benchmarking.json",
+        "buy-side-gap-analysis": "business/fixtures/buy-side-gap-analysis.json",
+        "strategic-market-note": "business/fixtures/strategic-market-note.json",
+        "diagnostic-reco-sellside": "business/fixtures/diagnostic-reco-sellside.json"
+      }
+    },
+    "technique": {
+      "profile": "technique/profile.md",
+      "manifest": "technique/manifest.json",
+      "replay": "technique/check.py",
+      "fixtures": {
+        "architecture-note": "technique/fixtures/architecture-note.json",
+        "integration-note": "technique/fixtures/integration-note.json"
+      }
+    },
+    "pedagogie": {
+      "profile": "pedagogie/PROFILE.md",
+      "manifest": "pedagogie/manifest.json",
+      "replay": "pedagogie/replay.py",
+      "fixtures": {
+        "ai-enterprise-learning-six-page": "pedagogie/fixture.json"
+      }
+    }
+  }
+}

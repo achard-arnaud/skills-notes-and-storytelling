@@ -1,0 +1,9 @@
+{
+  "title": "Avant de recopier un montant, choisir le geste justifiable",
+  "steps": [
+    "Distribuer trois mini-pièces fictives. A — montant imprimé 24 €, proposition 24 €. B — aucun total imprimé, proposition 30 € par addition. C — zone masquée, proposition 42 €.",
+    "Individuellement, inscrire pour chaque pièce un geste et l’indice visible qui le justifie. Choix possibles : ACCEPTER le champ, SIGNALER un calcul à confirmer ou SUSPENDRE la saisie.",
+    "En binôme, comparer les indices. Le formateur demande à chacun de justifier toute différence avant de dévoiler le corrigé."
+  ],
+  "check": "Corrigé formateur : A → ACCEPTER (montant lisible et identique), B → SIGNALER (total calculé, absent de la pièce), C → SUSPENDRE (montant invérifiable). Si un participant accepte C, lui faire pointer le montant sur la pièce, puis lui proposer le réessai suivant : date illisible, proposition « hier ». La réponse attendue est SUSPENDRE, avec mention de l’absence de date vérifiable."
+}

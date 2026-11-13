@@ -1,0 +1,34 @@
+[
+  {
+    "template": "architecture-note",
+    "version": "v1",
+    "missing": [
+      "countertest"
+    ],
+    "invalid_refs": [],
+    "expected_observed": true
+  },
+  {
+    "template": "architecture-note",
+    "version": "v2",
+    "missing": [],
+    "invalid_refs": [],
+    "expected_observed": true
+  },
+  {
+    "template": "integration-note",
+    "version": "v1",
+    "missing": [
+      "posture"
+    ],
+    "invalid_refs": [],
+    "expected_observed": true
+  },
+  {
+    "template": "integration-note",
+    "version": "v2",
+    "missing": [],
+    "invalid_refs": [],
+    "expected_observed": true
+  }
+]

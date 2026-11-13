@@ -1,0 +1,39 @@
+{
+  "id": "BUS-strategic-market-note",
+  "synthetic": true,
+  "template": "strategic-market-note",
+  "input": {
+    "C1": {
+      "kind": "quote",
+      "launch_cost_eur": 1200
+    },
+    "C2": {
+      "kind": "vendor_hypothesis",
+      "saving_eur_per_case": 8
+    },
+    "C3": {
+      "kind": "unknown",
+      "eligible_volume": null
+    }
+  },
+  "expected": {
+    "threshold_cases": 150,
+    "benefit_status": "hypothesis",
+    "blocks": [
+      "thesis",
+      "market_signal",
+      "local_exposure",
+      "mechanism",
+      "alternatives",
+      "test"
+    ]
+  },
+  "sample_blocks": {
+    "thesis": "Autoriser un essai seulement si le coût complet est couvert.",
+    "market_signal": "Un fournisseur fictif annonce une économie unitaire de 8 euros.",
+    "local_exposure": "Le portefeuille local de dossiers éligibles reste à mesurer.",
+    "mechanism": "Le lancement est amorti lorsque le volume multiplié par l’économie unitaire atteint le coût initial.",
+    "alternatives": "Mesurer un pilote borné ou conserver le traitement manuel.",
+    "test": "Réviser la thèse si les économies mesurées et le volume observé ne couvrent pas le lancement."
+  }
+}

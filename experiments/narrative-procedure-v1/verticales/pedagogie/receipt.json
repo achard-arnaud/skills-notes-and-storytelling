@@ -1,0 +1,22 @@
+{
+  "v1": {
+    "schema": "PASS",
+    "changed_pages": [
+      "transmit"
+    ],
+    "defects": [
+      "Tâches A/B/C indisponibles dans le support",
+      "Corrigé inaccessible",
+      "Réessai absent"
+    ],
+    "exercise_gate": "FAIL"
+  },
+  "v2": {
+    "schema": "PASS",
+    "changed_pages": [
+      "transmit"
+    ],
+    "defects": [],
+    "exercise_gate": "PASS"
+  }
+}

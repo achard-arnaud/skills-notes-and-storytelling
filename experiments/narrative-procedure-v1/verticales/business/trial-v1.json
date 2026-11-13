@@ -1,0 +1,7 @@
+{
+  "fixed_cost_eur": 1200,
+  "assumed_saving_eur_per_case": 8,
+  "threshold_cases": 150,
+  "benefit_status": "verified",
+  "decision": "Déployer le traitement sur les dossiers."
+}

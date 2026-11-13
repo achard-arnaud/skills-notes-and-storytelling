@@ -1,0 +1,37 @@
+{
+  "id": "BUS-buy-side-gap-analysis",
+  "synthetic": true,
+  "template": "buy-side-gap-analysis",
+  "input": {
+    "C1": {
+      "kind": "quote",
+      "launch_cost_eur": 1200
+    },
+    "C2": {
+      "kind": "vendor_hypothesis",
+      "saving_eur_per_case": 8
+    },
+    "C3": {
+      "kind": "unknown",
+      "eligible_volume": null
+    }
+  },
+  "expected": {
+    "threshold_cases": 150,
+    "benefit_status": "hypothesis",
+    "blocks": [
+      "baseline",
+      "target",
+      "capability_gap",
+      "economics",
+      "rollback"
+    ]
+  },
+  "sample_blocks": {
+    "baseline": "Conserver le traitement manuel coûte zéro euro de lancement supplémentaire dans ce comparatif.",
+    "target": "Réduire le coût par dossier éligible en maintenant la capacité de reprise manuelle.",
+    "capability_gap": "La prise en charge des exceptions doit être démontrée sur échantillon.",
+    "economics": "À 8 euros évités par dossier, 150 dossiers couvrent 1 200 euros de lancement.",
+    "rollback": "Reprendre les dossiers en manuel si le pilote omet une exception obligatoire."
+  }
+}

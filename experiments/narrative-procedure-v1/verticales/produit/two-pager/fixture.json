@@ -1,0 +1,18 @@
+{
+  "decision": "Décider d’un pilote de priorisation des demandes.",
+  "claims": {
+    "C1": "Trois responsables classent chaque semaine les demandes avec un tableur.",
+    "C2": "Le prototype accepte un import CSV manuel.",
+    "C3": "La mesure de temps disponible est mensuelle."
+  },
+  "oracle": {
+    "pages": 2,
+    "required": [
+      "chaque séance",
+      "corrections",
+      "interrompre"
+    ],
+    "defect": "Le rythme de la mesure existante ne permet pas de décider après deux séances."
+  },
+  "synthetic": true
+}

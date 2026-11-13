@@ -1,0 +1,37 @@
+{
+  "id": "BUS-two-pager",
+  "synthetic": true,
+  "template": "two-pager",
+  "input": {
+    "C1": {
+      "kind": "quote",
+      "launch_cost_eur": 1200
+    },
+    "C2": {
+      "kind": "vendor_hypothesis",
+      "saving_eur_per_case": 8
+    },
+    "C3": {
+      "kind": "unknown",
+      "eligible_volume": null
+    }
+  },
+  "expected": {
+    "threshold_cases": 150,
+    "benefit_status": "hypothesis",
+    "blocks": [
+      "truth",
+      "mechanism",
+      "unknowns",
+      "uses",
+      "next_step"
+    ]
+  },
+  "sample_blocks": {
+    "truth": "Le projet fictif demande 1 200 euros de lancement.",
+    "mechanism": "Le lancement est amorti lorsque le volume multiplié par l’économie unitaire atteint le coût initial.",
+    "unknowns": "Le nombre de dossiers éligibles et la persistance des économies restent inconnus.",
+    "uses": "Deux usages candidats sont le tri initial des dossiers et la revue des exceptions.",
+    "next_step": "Échantillonner les dossiers éligibles et chronométrer la revue des exceptions."
+  }
+}

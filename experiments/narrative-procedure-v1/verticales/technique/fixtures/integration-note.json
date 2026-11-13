@@ -1,0 +1,22 @@
+{
+  "synthetic": true,
+  "question": "Comment exposer des statuts de commande dans un portail partenaire ?",
+  "claims": {
+    "C1": "Le producteur possède les identifiants et statuts des commandes.",
+    "C2": "Le portail accepte des fichiers déposés.",
+    "C3": "Le support et la tarification ne sont pas contractualisés."
+  },
+  "expected_blocks": [
+    "party_truth",
+    "decision",
+    "posture",
+    "pilot",
+    "exit"
+  ],
+  "negative_oracle": "posture",
+  "expected_source_ids": [
+    "C1",
+    "C2",
+    "C3"
+  ]
+}

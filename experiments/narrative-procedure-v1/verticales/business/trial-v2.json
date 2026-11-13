@@ -1,0 +1,7 @@
+{
+  "fixed_cost_eur": 1200,
+  "assumed_saving_eur_per_case": 8,
+  "threshold_cases": 150,
+  "benefit_status": "hypothesis",
+  "decision": "Chronométrer les dossiers éligibles. Déployer si volume × économie observée couvre 1 200 euros."
+}

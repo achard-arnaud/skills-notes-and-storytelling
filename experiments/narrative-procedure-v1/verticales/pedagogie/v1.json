@@ -1,0 +1,8 @@
+{
+  "title": "Exercice de vérification sur une pièce fictive",
+  "steps": [
+    "Le formateur présente trois champs proposés. En binôme, déterminer si chaque champ peut alimenter le dossier.",
+    "Expliquer au groupe la différence entre lecture et calcul."
+  ],
+  "check": "Le groupe décrit comment vérifier la proposition."
+}

@@ -1,0 +1,37 @@
+{
+  "id": "BUS-benchmarking",
+  "synthetic": true,
+  "template": "benchmarking",
+  "input": {
+    "C1": {
+      "kind": "quote",
+      "launch_cost_eur": 1200
+    },
+    "C2": {
+      "kind": "vendor_hypothesis",
+      "saving_eur_per_case": 8
+    },
+    "C3": {
+      "kind": "unknown",
+      "eligible_volume": null
+    }
+  },
+  "expected": {
+    "threshold_cases": 150,
+    "benefit_status": "hypothesis",
+    "blocks": [
+      "baseline",
+      "criteria",
+      "hard_gates",
+      "peers",
+      "falsifier"
+    ]
+  },
+  "sample_blocks": {
+    "baseline": "Conserver le traitement manuel coûte zéro euro de lancement supplémentaire dans ce comparatif.",
+    "criteria": "Comparer le coût de lancement et le coût évité pour les mêmes dossiers et le même horizon.",
+    "hard_gates": "Retirer une option de la comparaison tant que sa couverture des dossiers obligatoires est inconnue.",
+    "peers": "Comparer le maintien en manuel au pilote en conservant le même périmètre de travail.",
+    "falsifier": "Suspendre la proposition si la mesure donne moins de 150 dossiers à économie unitaire constante."
+  }
+}

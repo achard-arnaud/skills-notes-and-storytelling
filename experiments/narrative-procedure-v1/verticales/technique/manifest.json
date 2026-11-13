@@ -1,0 +1,66 @@
+{
+  "version": "0.2-candidate",
+  "vertical": "technique",
+  "roles": [
+    {
+      "id": "direction",
+      "input": "mandat et preuves",
+      "output": "questions ordonnées",
+      "reopen": "direction"
+    },
+    {
+      "id": "scribe",
+      "input": "questions et claims locaux",
+      "output": "blocs Markdown",
+      "reopen": "scribe"
+    },
+    {
+      "id": "review",
+      "input": "blocs et hypothèses",
+      "output": "objection et décision de reprise",
+      "reopen": "direction ou scribe"
+    },
+    {
+      "id": "delivery",
+      "input": "blocs revus",
+      "output": "note et limites de rendu",
+      "reopen": "review"
+    }
+  ],
+  "templates": {
+    "architecture-note": {
+      "canonical_path": "templates/architecture-note.md",
+      "fixture": "fixtures/architecture-note.json",
+      "required_blocks": [
+        "boundary",
+        "flow",
+        "failure",
+        "alternative",
+        "countertest"
+      ],
+      "roles": [
+        "direction",
+        "scribe",
+        "review",
+        "delivery"
+      ]
+    },
+    "integration-note": {
+      "canonical_path": "templates/integration-note.md",
+      "fixture": "fixtures/integration-note.json",
+      "required_blocks": [
+        "party_truth",
+        "decision",
+        "posture",
+        "pilot",
+        "exit"
+      ],
+      "roles": [
+        "direction",
+        "scribe",
+        "review",
+        "delivery"
+      ]
+    }
+  }
+}

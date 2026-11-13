@@ -1,0 +1,18 @@
+{
+  "synthetic": true,
+  "decision": "Étendre une bêta à une seconde équipe",
+  "claims": {
+    "C1": "Vingt dossiers proviennent exclusivement de la première équipe.",
+    "C2": "Un cas rare a exigé une reprise manuelle.",
+    "C3": "La seconde équipe traite le double de catégories."
+  },
+  "oracle": {
+    "pages": 3,
+    "required": [
+      "échantillon stratifié",
+      "catégories absentes",
+      "maintenir la bêta"
+    ],
+    "defect": "La distribution de la première équipe est utilisée pour recommander un déploiement général."
+  }
+}

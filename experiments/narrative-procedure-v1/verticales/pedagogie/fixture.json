@@ -1,0 +1,33 @@
+{
+  "brief": "Réviser uniquement l’activité Transmettre de la fiche Perception. Des débutants doivent décider quoi faire d’un champ lu, calculé ou illisible avant de le recopier.",
+  "inputs": [
+    {
+      "id": "A",
+      "card": "Montant imprimé 24 € et proposition 24 €.",
+      "expected": "ACCEPTER",
+      "reason": "montant lisible et identique"
+    },
+    {
+      "id": "B",
+      "card": "Aucun total imprimé. Le système propose 30 € par addition.",
+      "expected": "SIGNALER",
+      "reason": "total calculé, absent de la pièce"
+    },
+    {
+      "id": "C",
+      "card": "Zone du montant masquée. Le système propose 42 €.",
+      "expected": "SUSPENDRE",
+      "reason": "montant invérifiable"
+    }
+  ],
+  "transfer": {
+    "card": "La date imprimée est illisible. L’outil suggère hier.",
+    "expected": "SUSPENDRE"
+  },
+  "only_changed_page": "transmit",
+  "expected_defects": [
+    "Tâches A/B/C indisponibles dans le support",
+    "Corrigé inaccessible",
+    "Réessai absent"
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "route": "product",
+  "version": "0.2",
+  "roles": [
+    {
+      "id": "director",
+      "input": "mandat, paquet de claims",
+      "output": "question et objection par bloc",
+      "return_on": "décision ambiguë"
+    },
+    {
+      "id": "analyst",
+      "input": "question dont dépend la conclusion",
+      "output": "hypothèse et preuve manquante",
+      "return_on": "preuve indisponible"
+    },
+    {
+      "id": "scribe",
+      "input": "bloc et références locales",
+      "output": "texte attribué",
+      "return_on": "capacité alléguée sans preuve"
+    },
+    {
+      "id": "reviewer",
+      "input": "document et scaffold",
+      "output": "écarts avec les gates métier",
+      "return_on": "recommandation incompatible avec les preuves"
+    },
+    {
+      "id": "delivery",
+      "input": "texte revu",
+      "output": "Markdown portable",
+      "return_on": "références ou format illisibles"
+    }
+  ],
+  "templates": {
+    "two-pager": {
+      "canonical_path": "templates/two-pager.md",
+      "fixture": "two-pager/fixture.json",
+      "scaffold": [
+        {
+          "block": "P1",
+          "question": "Quelle friction le pilote teste-t-il ?",
+          "claim_refs": [
+            "C1"
+          ],
+          "owner": "scribe"
+        },
+        {
+          "block": "P2",
+          "question": "Quelle capacité rend les usages possibles ?",
+          "claim_refs": [
+            "C2"
+          ],
+          "owner": "scribe"
+        },
+        {
+          "block": "P3",
+          "question": "Quelle observation ferait abandonner le pilote ?",
+          "claim_refs": [
+            "C3"
+          ],
+          "owner": "scribe"
+        }
+      ],
+      "review": "reviewer",
+      "delivery": "delivery"
+    },
+    "opportunity-note-icp": {
+      "canonical_path": "templates/opportunity-note-icp.md",
+      "fixture": "opportunity-note-icp/fixture.json",
+      "scaffold": [
+        {
+          "block": "I1",
+          "question": "Quel prérequis a fixé l’acheteur ?",
+          "claim_refs": [
+            "C1"
+          ],
+          "owner": "scribe"
+        },
+        {
+          "block": "I2",
+          "question": "Que démontre l’offre ?",
+          "claim_refs": [
+            "C2"
+          ],
+          "owner": "scribe"
+        },
+        {
+          "block": "I3",
+          "question": "Quelle décision le gate permet-il ?",
+          "claim_refs": [
+            "C3"
+          ],
+          "owner": "scribe"
+        }
+      ],
+      "review": "reviewer",
+      "delivery": "delivery"
+    },
+    "three-pager": {
+      "canonical_path": "experiments/narrative-procedure-v1/references/three-pager.md",
+      "lifecycle": "candidate",
+      "fixture": "three-pager/fixture.json",
+      "scaffold": [
+        {
+          "block": "T1",
+          "question": "Pourquoi élargir ?",
+          "claim_refs": [
+            "C1"
+          ],
+          "owner": "scribe"
+        },
+        {
+          "block": "T2",
+          "question": "Quel risque a-t-on observé ?",
+          "claim_refs": [
+            "C2"
+          ],
+          "owner": "scribe"
+        },
+        {
+          "block": "T3",
+          "question": "Quelle population faut-il tester ?",
+          "claim_refs": [
+            "C3"
+          ],
+          "owner": "scribe"
+        }
+      ],
+      "review": "reviewer",
+      "delivery": "delivery"
+    }
+  }
+}

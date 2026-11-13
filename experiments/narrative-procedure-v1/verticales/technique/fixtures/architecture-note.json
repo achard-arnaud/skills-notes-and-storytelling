@@ -1,0 +1,22 @@
+{
+  "synthetic": true,
+  "question": "Comment garder le catalogue disponible pendant une panne du fournisseur ?",
+  "claims": {
+    "C1": "Le catalogue local est publié chaque nuit.",
+    "C2": "Le fournisseur expose un export quotidien.",
+    "C3": "La fraîcheur tolérée reste à déterminer."
+  },
+  "expected_blocks": [
+    "boundary",
+    "flow",
+    "failure",
+    "alternative",
+    "countertest"
+  ],
+  "negative_oracle": "countertest",
+  "expected_source_ids": [
+    "C1",
+    "C2",
+    "C3"
+  ]
+}

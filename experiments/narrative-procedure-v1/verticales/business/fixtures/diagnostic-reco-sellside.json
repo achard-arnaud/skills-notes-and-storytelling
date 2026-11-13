@@ -1,0 +1,39 @@
+{
+  "id": "BUS-diagnostic-reco-sellside",
+  "synthetic": true,
+  "template": "diagnostic-reco-sellside",
+  "input": {
+    "C1": {
+      "kind": "quote",
+      "launch_cost_eur": 1200
+    },
+    "C2": {
+      "kind": "vendor_hypothesis",
+      "saving_eur_per_case": 8
+    },
+    "C3": {
+      "kind": "unknown",
+      "eligible_volume": null
+    }
+  },
+  "expected": {
+    "threshold_cases": 150,
+    "benefit_status": "hypothesis",
+    "blocks": [
+      "commercial_thesis",
+      "buyer",
+      "value_unit",
+      "pricing",
+      "proof",
+      "owner"
+    ]
+  },
+  "sample_blocks": {
+    "commercial_thesis": "Tester un forfait initial uniquement sur les acheteurs pouvant atteindre le seuil d’usage.",
+    "buyer": "La direction des opérations est l’acheteur hypothétique. Son budget doit être confirmé.",
+    "value_unit": "Le dossier effectivement traité est l’unité de valeur proposée.",
+    "pricing": "Comparer forfait de lancement et tarif à l’usage à couverture fonctionnelle identique.",
+    "proof": "Vérifier l’économie par dossier dans le contexte acheteur avant de promettre un retour.",
+    "owner": "Le responsable commercial conduira un entretien de qualification et vérifiera le volume."
+  }
+}
