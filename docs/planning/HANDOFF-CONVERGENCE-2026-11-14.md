@@ -69,3 +69,12 @@ Statut de réception : dossier préparé et vérifié par lecture distante ; auc
 
 ## Mise à jour PR #300 — 14 novembre 2026
 Lire le [rapport critique](../architecture/SKILLS-CRITICAL-REVIEW-2026-11-14.md) pour les noms canoniques et les limites des preuves. Le premier lot documentaire de mapping est [#303](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/303), enfant de #295 ; #296/#297/#301 appliquent les mêmes principes selon leur finalité. Consulter le contrat SDLC courant pour les horaires et l’admission, les anciens horaires de cette documentation restent historiques.
+
+
+## Reprise consolidée après S1a — 14 novembre 2026
+La PR #300 est synchronisée par #304, commit dev 8023fd0c36fdf825eef67909811b5eb20b0129d2. Le rapport critique est maintenant une entrée des tickets #294–297/#301/#130/#142.
+La tranche #303 produit diagnostic-complet/docs/ANALYSIS-CONTRACT-MAPPING.md et fixtures/analysis-contract-mapping.json. Lire le mapping avant d’implémenter l’enveloppe analytique de #295 ; l’étude documentée n’accepte pas une clé analyses ajoutée silencieusement. Les blocs narratifs doivent être liés après l’analyse.
+La revue des PR multi-repo est enregistrée dans Skills-SDLC-superpower#7 : sept PR sur cinq dépôts, conditions de reprise documentées ; les deux PR non draft mais bloquées/attente de revue ont été remises en draft. Aucune fermeture globale ni fusion fonctionnelle de ce portefeuille. Relire owners et HEAD.
+Stratégie explicite : branche bornée depuis le dev courant, PR vers dev, vérification du HEAD, promotion main selon les gates. Pas d’écriture directe sur dev pour les prochains lots.
+Pour la reprise, garder GPT-6.1 Sol pour l’exécution bornée. Une revue d’architecture plus approfondie est ponctuelle ; le changement de modèle ne remplace pas mandat et critères. Nouvelle conversation recommandée pour repartir des seuls artefacts utiles. Aucune compaction manuelle contrôlée et aucun gain de tokens promis.
+Le contrat SDLC opérationnel courant est SDD-TDD-20261114-v5 au moment de cette rédaction ; résoudre sa version en vigueur au prochain démarrage, les anciens horaires de cette capsule ne constituent pas le calendrier actif.
