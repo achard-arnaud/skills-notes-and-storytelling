@@ -1,0 +1,32 @@
+{
+  "deleted": [
+    {
+      "path": "/tmp/dpdf-tools/Delos-AI-Worker-Version-2.pdf-2.png",
+      "bytes": 14993,
+      "reason": "aperçu PDF temporaire, PDF conservé"
+    },
+    {
+      "path": "/tmp/dpdf-tools/Delos-AI-Worker-Version-2.pdf-1.png",
+      "bytes": 13889,
+      "reason": "aperçu PDF temporaire, PDF conservé"
+    },
+    {
+      "path": "/tmp/dpdf-tools/Delos-AI-Worker-Version-1.pdf-2.png",
+      "bytes": 15418,
+      "reason": "aperçu PDF temporaire, PDF conservé"
+    },
+    {
+      "path": "/tmp/dpdf-tools/Delos-AI-Worker-Version-1.pdf-1.png",
+      "bytes": 14401,
+      "reason": "aperçu PDF temporaire, PDF conservé"
+    },
+    {
+      "path": "/tmp/dpdf-tools/pages.jpg",
+      "bytes": 49513,
+      "reason": "aperçu PDF temporaire, PDF conservé"
+    }
+  ],
+  "bytes": 108214,
+  "retained": "PDF finaux, sources, fixtures et documents de recherche",
+  "context_window_compaction": "unavailable"
+}
