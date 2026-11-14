@@ -1,5 +1,8 @@
 # Decision Notes & Storytelling
 
+Product profiles, diagnostics and comparisons start with [the purpose-based research route](experiments/narrative-procedure-v1/references/product-intents.md). Page length is a delivery setting.
+
+
 Revue documentaire vérifiée : **22 octobre 2026**.
 
 > **A governed decision-note skill, not an installed research platform.** This repository owns research methodology, evidence and claim lineage, narrative decisions, versioned templates, counter-perspective QA, bridge proposals and bounded learning. Rendering is downstream. As of 2026-10-22 the workflow is specified/documented; it does **not** ship a React runtime, GitHub webhook service, Obsidian connector, four-format export API, or autonomous agent orchestration.
@@ -34,7 +37,6 @@ The status here mirrors the manifest; the manifest remains authoritative on futu
 |---|---|---:|---|
 | `architecture-note` | Architecture, system/capability, tradeoffs, risks and economics | 5–10 | **candidate** |
 | `one-pager` | Executive orientation to one decision | 1 | validated |
-| `two-pager` | Compact company/product/person/strategy evaluation | 2 | validated |
 | `benchmarking` | Compare alternatives against common criteria | 2–6 | candidate |
 | `buy-side-gap-analysis` | Adopt / replace / complement / partner | 4–8 | candidate |
 | `diagnostic-reco-sellside` | Positioning and GTM diagnostic | 5–9 | validated |

@@ -16,7 +16,7 @@ Afficher les distributions et conserver les réponses ambiguës. Éviter de conv
 
 ## Dépendances et sortie
 
-Dépendances analytiques conditionnelles — segmentation. Livrer un résultat daté, son périmètre, ses claim_refs, ses limites et ses blocs destinataires (attentes client, arbitrage de fonctionnalités). Formats candidats — two-pager,three-pager.
+Dépendances analytiques conditionnelles — segmentation. Livrer un résultat daté, son périmètre, ses claim_refs, ses limites et ses blocs destinataires (attentes client, arbitrage de fonctionnalités). Formats candidats — three-pager.
 
 ## Oracles synthétiques
 
@@ -27,3 +27,5 @@ Dépendances analytiques conditionnelles — segmentation. Livrer un résultat d
 
 [Référence de méthode](https://www.jstage.jst.go.jp/article/quality/14/2/14_KJ00002952366/_article/-char/en). Exemple et oracles conçus pour ce dépôt. Alignement pédagogique possible avec le travail d’analyse du besoin ou de suivi de la valeur. L’usage de cette technique ne constitue ni une exigence universelle ni une attestation de certification PMI-PBA ou PMP. [PMI-PBA](https://www.pmi.org/certifications/business-analysis-pba) · [PMP](https://www.pmi.org/certifications/project-management-pmp).
 
+
+Finalités produit applicables : diagnostic-produit, benchmark-fonctionnel.

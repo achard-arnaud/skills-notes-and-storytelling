@@ -16,7 +16,7 @@ Publier effectif, taux de réponse et biais de sélection. Éviter de conclure �
 
 ## Dépendances et sortie
 
-Dépendances analytiques conditionnelles — segmentation,adoption. Livrer un résultat daté, son périmètre, ses claim_refs, ses limites et ses blocs destinataires (signal de demande, contre-preuve, prochain test). Formats candidats — two-pager,three-pager.
+Dépendances analytiques conditionnelles — segmentation,adoption. Livrer un résultat daté, son périmètre, ses claim_refs, ses limites et ses blocs destinataires (signal de demande, contre-preuve, prochain test). Formats candidats — three-pager.
 
 ## Oracles synthétiques
 
@@ -27,3 +27,5 @@ Dépendances analytiques conditionnelles — segmentation,adoption. Livrer un r�
 
 [Référence de méthode](https://review.firstround.com/how-superhuman-built-an-engine-to-find-product-market-fit/). Exemple et oracles conçus pour ce dépôt. Alignement pédagogique possible avec le travail d’analyse du besoin ou de suivi de la valeur. L’usage de cette technique ne constitue ni une exigence universelle ni une attestation de certification PMI-PBA ou PMP. [PMI-PBA](https://www.pmi.org/certifications/business-analysis-pba) · [PMP](https://www.pmi.org/certifications/project-management-pmp).
 
+
+Finalités produit applicables : diagnostic-produit, traction-commerciale.

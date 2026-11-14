@@ -8,7 +8,8 @@ def read(path):
     return json.loads(path.read_text())
 def run(root):
     vertical = root / "verticales"
-    catalog = read(vertical / "registry.json")["routes"]
+    registry = read(vertical / "registry.json")
+    catalog = registry["routes"]
     mba = read(root / "mba/registry.json")["methods"]
     validator = Draft202012Validator(read(root/"contracts/analysis-result.schema.json"), format_checker=FormatChecker())
     counts = Counter()
@@ -26,7 +27,9 @@ def run(root):
             receipts.append({"route":route,"template":template,"blocks":blocks})
     for file in (root/"history/fixtures").glob("*.json"):
         case = read(file)
-        assert case["template"] in catalog[case["vertical"]]["fixtures"]
+        active = catalog[case["vertical"]]["fixtures"]
+        archived = registry.get("retired_fixtures", {}).get(case["vertical"], {})
+        assert case["template"] in active or case["template"] in archived
         counts[case["template"]] += 1
     assert max(counts.values()) <= 5
     for entry in mba.values():

@@ -290,7 +290,6 @@
       "id": "product.segmentation",
       "file": "produit/segmentation.md",
       "templates": [
-        "two-pager",
         "opportunity-note-icp"
       ],
       "family": "product",
@@ -303,7 +302,6 @@
       "id": "product.pmf",
       "file": "produit/pmf.md",
       "templates": [
-        "two-pager",
         "three-pager"
       ],
       "family": "product",
@@ -316,7 +314,6 @@
       "id": "product.kano",
       "file": "produit/kano.md",
       "templates": [
-        "two-pager",
         "three-pager"
       ],
       "family": "product",
@@ -329,7 +326,6 @@
       "id": "product.rice",
       "file": "produit/rice.md",
       "templates": [
-        "two-pager",
         "three-pager"
       ],
       "family": "product",
@@ -342,7 +338,6 @@
       "id": "product.ttv",
       "file": "produit/ttv.md",
       "templates": [
-        "two-pager",
         "three-pager"
       ],
       "family": "product",
@@ -355,7 +350,6 @@
       "id": "product.adoption",
       "file": "produit/adoption.md",
       "templates": [
-        "two-pager",
         "three-pager"
       ],
       "family": "product",
@@ -449,7 +443,6 @@
       "file": "socle/unit-economics.md",
       "templates": [
         "one-pager",
-        "two-pager",
         "diagnostic-reco-sellside"
       ],
       "family": "économie",

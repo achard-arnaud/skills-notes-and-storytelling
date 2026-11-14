@@ -1,11 +1,7 @@
 # Produit
 
-Partir du choix du responsable produit et de la tâche que réalise l’utilisateur. Attacher à chaque promesse le statut de la capacité, puis préciser qui observe la valeur, sur quelle population, à quelle fréquence et par rapport à quelle alternative.
+Choisir une ou plusieurs des [huit finalités](../../references/product-intents.md). Le manifeste rend ces finalités repérables. L’identité du produit, le public, la tâche et la sortie constituent le tronc commun. Ajouter uniquement les analyses qui enrichissent la question posée.
 
-Lire uniquement la charte du format retenu dans le manifeste. Le directeur pose les questions successives. L’analyste reçoit un paquet borné lorsque la réponse change le choix. Le scribe consomme des claims locaux au bloc. Le relecteur teste l’objection et demande une réouverture ciblée. La livraison contrôle l’autonomie du document. Ces rôles peuvent être assurés successivement par une seule personne.
+Le directeur conserve la formulation du lecteur. Le chercheur constitue le registre, l’analyste qualifie les écarts, le rédacteur illustre le mécanisme, le relecteur vérifie que chaque conclusion est attribuée au bon objet. Une seule personne peut assumer ces rôles. Une demande de décision explicite peut recevoir des alternatives ou un protocole de pilote après ce travail.
 
-Pour la qualification ICP, établir séparément le prérequis de l’acheteur et la capacité constatée avant d’autoriser un pilote. Pour le two-pager, relier le rythme de mesure à la décision et garder le critère d’arrêt dans le texte. Pour le three-pager candidat, l’objection de transférabilité relie la deuxième page au protocole de la troisième.
-
-## Revue fonctionnelle
-
-Vérifier les prérequis observés chez l’acheteur et comparer la fenêtre de mesure avec la date de décision. Un contrôle manquant rouvre le bloc du pilote.
+Avant livraison, faire expliquer à un lecteur qui découvre le produit ce qu’il permet, par quel mécanisme et sous quelles limites. Si sa seule réponse est une recommandation de tester, rouvrir le cadrage.

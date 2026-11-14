@@ -59,11 +59,10 @@ Default rule: prefer the **smallest reversible next decision**. Do not generate 
 |---|---|
 | Architecture note | benchmarking for alternatives; integration note for implementation/partner path; one-pager for executive decision |
 | One-pager | deeper source template only when the compressed decision exposes a material unknown |
-| Two-pager | opportunity note for target fit; integration note for concrete partnership/integration; sell-side diagnostic for GTM work |
 | Benchmarking | buy-side gap analysis for winner vs incumbent; integration note for coexistence/complementarity; architecture note for unresolved technical feasibility |
 | Buy-side gap analysis | integration note for `buy/build/partner` execution; architecture note for migration design; one-pager for approval |
 | Sell-side diagnostic | opportunity note for a named ICP/account; benchmarking for competitive validation; integration note for co-distribution/partner strategy |
-| Opportunity note ICP | integration note for pilot/partnership; buy-side analysis when buyer adoption becomes the question; two-pager for meeting preparation |
+| Opportunity note ICP | integration note for pilot/partnership; buy-side analysis when buyer adoption becomes the question; reuse the product profile for meeting preparation |
 | Integration note | architecture note for deep implementation; opportunity note for partner/account validation; one-pager for go/no-go approval |
 
 ## Integration note

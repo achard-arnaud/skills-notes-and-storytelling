@@ -6,10 +6,10 @@
       "manifest": "produit/manifest.json",
       "replay": "produit/verify.py",
       "fixtures": {
-        "two-pager": "produit/two-pager/fixture.json",
         "opportunity-note-icp": "produit/opportunity-note-icp/fixture.json",
         "three-pager": "produit/three-pager/fixture.json"
-      }
+      },
+      "dispatch": "intents"
     },
     "business": {
       "profile": "business/PROFILE.md",
@@ -17,7 +17,6 @@
       "replay": "business/check.py",
       "fixtures": {
         "one-pager": "business/fixtures/one-pager.json",
-        "two-pager": "business/fixtures/two-pager.json",
         "benchmarking": "business/fixtures/benchmarking.json",
         "buy-side-gap-analysis": "business/fixtures/buy-side-gap-analysis.json",
         "strategic-market-note": "business/fixtures/strategic-market-note.json",
@@ -40,6 +39,14 @@
       "fixtures": {
         "ai-enterprise-learning-six-page": "pedagogie/fixture.json"
       }
+    }
+  },
+  "retired_fixtures": {
+    "produit": {
+      "two-pager": "produit/two-pager/fixture.json"
+    },
+    "business": {
+      "two-pager": "business/fixtures/two-pager.json"
     }
   }
 }

@@ -24,10 +24,12 @@ Cas synthétique. Scénario fictif mensuel : prix 30 EUR, coût variable 20 EUR 
 
 ## Application et recombinaison
 
-Formats envisagés : one-pager, two-pager, diagnostic-reco-sellside. La sélection du bloc, l’étiquette de statut et le contrôle de transfert sont des conventions éditoriales locales. La référence méthodologique justifie l’outil ; l’exemple et l’option décrits ici sont fictifs.
+Formats envisagés : one-pager, diagnostic-reco-sellside. La sélection du bloc, l’étiquette de statut et le contrôle de transfert sont des conventions éditoriales locales. La référence méthodologique justifie l’outil ; l’exemple et l’option décrits ici sont fictifs.
 
 Notes liées : [marketing-4p](marketing-4p.md), [porter](porter.md).
 
 ## Sources de méthode
 
 - https://www.sba.gov/counseling/plan-your-business/break-even-point-calculator/
+
+Finalités produit applicables : traction-commerciale, diagnostic-4p.

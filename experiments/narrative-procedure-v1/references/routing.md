@@ -6,11 +6,12 @@ Une route principale oriente la question, pas toutes les analyses.
 | business | Quel choix et quel mécanisme de valeur ? | Baseline, économie, alternatives, risque et réversibilité |
 | produit | Pour qui, quelle tâche, quelle adoption ? | Parcours, capacités attestées, friction, hypothèse de valeur |
 | technique | Quel système et quel compromis ? | Frontières, flux, contraintes, modes d’échec et critères non fonctionnels |
-Formats : réutiliser les contrats existants plutôt que réinventer leurs obligations.
+Pour tout sujet produit, sélectionner la [finalité analytique](product-intents.md) et ses angles secondaires. Une longueur demandée devient un budget de restitution en fin de rédaction. En exploration, conserver la question ouverte et décrire les résultats et les inconnues.
+
+Autres formats : réutiliser les contrats existants plutôt que réinventer leurs obligations.
 | Invocation | Contrat existant |
 |---|---|
 | one-pager | templates/one-pager.md |
-| two-pager | templates/two-pager.md |
 | architecture | templates/architecture-note.md du dépôt épinglé |
 | benchmark | templates/benchmarking.md du dépôt |
 | intégration ou partenariat | templates/integration-note.md ; distinguer décision de partenariat et architecture d’intégration |

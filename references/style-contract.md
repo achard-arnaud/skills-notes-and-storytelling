@@ -70,6 +70,6 @@ Hard gates:
 
 - Architecture note: portrait, prose + diagrams + analytical side stories.
 - One-pager: landscape or portrait depending decision density; one dominant message.
-- Two-pager: A4 landscape by default; dense but readable.
+- For an explicit two-page delivery limit, paginate the selected analysis after content QA.
 - Benchmarking: landscape preferred; comparison tables dominate.
 - Buy-side gap analysis: portrait or landscape according to matrix density; executive recommendation on page 1.

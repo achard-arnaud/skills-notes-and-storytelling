@@ -12,7 +12,7 @@ Choisir le format puis ouvrir une fiche. Les sources et les oracles sont détail
 | [Ishikawa](socle/ishikawa.md) | opérations | integration-note, architecture-note, ai-enterprise-learning-six-page |
 | [Mix marketing 4P](socle/marketing-4p.md) | marketing | opportunity-note-icp, diagnostic-reco-sellside |
 | [VRIO](socle/vrio.md) | ressources | buy-side-gap-analysis, strategic-market-note |
-| [Économie unitaire](socle/unit-economics.md) | économie | one-pager, two-pager, diagnostic-reco-sellside |
+| [Économie unitaire](socle/unit-economics.md) | économie | one-pager, diagnostic-reco-sellside  · traction-commerciale, diagnostic-4p |
 
 ## Business
 
@@ -35,12 +35,12 @@ Choisir le format puis ouvrir une fiche. Les sources et les oracles sont détail
 | Méthode | Famille | Formats proposés |
 |---|---|---|
 | [Qualifier un compte avec l’ICP](produit/icp.md) | product | opportunity-note-icp |
-| [Délimiter les segments produit et marché](produit/segmentation.md) | product | two-pager, opportunity-note-icp |
-| [Éprouver l’adéquation produit–marché](produit/pmf.md) | product | two-pager, three-pager |
-| [Qualifier l’effet d’un attribut sur la satisfaction](produit/kano.md) | product | two-pager, three-pager |
-| [Prioriser des initiatives avec RICE](produit/rice.md) | product | two-pager, three-pager |
-| [Mesurer le délai jusqu’à la première valeur](produit/ttv.md) | product | two-pager, three-pager |
-| [Relier adoption, cadence métier et KPI](produit/adoption.md) | product | two-pager, three-pager |
+| [Délimiter les segments produit et marché](produit/segmentation.md) | product | opportunity-note-icp  · etude-marche, diagnostic-4p, clients-360 |
+| [Éprouver l’adéquation produit–marché](produit/pmf.md) | product | three-pager  · diagnostic-produit, traction-commerciale |
+| [Qualifier l’effet d’un attribut sur la satisfaction](produit/kano.md) | product | three-pager  · diagnostic-produit, benchmark-fonctionnel |
+| [Prioriser des initiatives avec RICE](produit/rice.md) | product | three-pager  · diagnostic-produit |
+| [Mesurer le délai jusqu’à la première valeur](produit/ttv.md) | product | three-pager  · usages-chaine-valeur |
+| [Relier adoption, cadence métier et KPI](produit/adoption.md) | product | three-pager  · traction-commerciale, clients-360 |
 
 ## Technique
 

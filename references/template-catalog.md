@@ -4,7 +4,6 @@
 |---|---|---:|---:|---|
 | ARCHITECTURE_NOTE | understand architecture, scale, risks, economics | portrait | 5–10 pp | diagrams, prose, side stories, tables |
 | ONE_PAGER | fast executive orientation | portrait/landscape | 1 p | thesis, 3–5 facts, recommendation |
-| TWO_PAGER | company/product/person or compact strategy | landscape | 2 pp | dense cards, comparison, CTA |
 | BENCHMARKING | compare multiple options consistently | landscape | 2–6 pp | matrices, scoring, sensitivity |
 | BUY_SIDE_GAP_ANALYSIS | adopt / replace / complement / partner | portrait/landscape | 4–8 pp | baseline, gap matrix, migration, TCO, risks |
 | DIAGNOSTIC_RECO_SELL_SIDE | improve seller positioning and commercial motion | portrait | 5–9 pp | diagnosis, threats, ICP, packaging, proof, pricing, recommendations |
@@ -16,8 +15,8 @@ Use for technical architecture + operating model + scalability + business model.
 ## One-pager
 One dominant decision. Avoid a miniature report.
 
-## Two-pager
-Dense but readable. Use strong hierarchy, diagrams before weak prose and tables <=5 columns.
+## Product analysis
+Select a [research purpose](../experiments/narrative-procedure-v1/references/product-intents.md) and follow its evidence requirements before choosing the presentation length.
 
 ## Benchmarking
 Requires identical evaluation criteria and evidence status per option. Scores remain heuristics unless externally validated.

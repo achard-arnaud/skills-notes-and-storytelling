@@ -14,11 +14,12 @@ def read(path):
 def select(route, template, method, block):
     profiles = read(SKILL / 'verticales/registry.json')['routes']
     profile = profiles[route]
-    if template not in profile['fixtures']:
-        raise ValueError('Unknown route/format combination')
     manifest = read(SKILL / 'verticales' / profile['manifest'])
     formats = manifest.get('formats', manifest.get('templates', {}))
-    item = formats.get(template, {})
+    intents = manifest.get('intents', {})
+    if template not in intents and template not in profile['fixtures']:
+        raise ValueError('Unknown route/intent or route/format combination')
+    item = intents.get(template, formats.get(template, {}))
     blocks = item.get('block_ids') or item.get('required_blocks') or [
         b['block'] for b in item.get('scaffold', [])
     ] or [b[0] for b in manifest.get('blocks', [])]
@@ -26,7 +27,10 @@ def select(route, template, method, block):
         raise ValueError('Unresolved target block')
     entries = read(ROOT / 'catalog.json')['methods']
     asset = entries[method]
-    if template not in asset['templates']:
+    if template in intents:
+        if method not in item['methods']:
+            raise ValueError('Undeclared method/intent binding')
+    elif template not in asset['templates']:
         raise ValueError('Undeclared method/format binding')
     note = ROOT / asset['file']
     if not note.is_file():
@@ -37,6 +41,7 @@ def select(route, template, method, block):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    for field in ('route', 'template', 'method', 'block'):
+    for field in ('route', 'method', 'block'):
         parser.add_argument('--'+field, required=True)
+    parser.add_argument('--intent', '--template', dest='template', required=True)
     print(json.dumps(select(**vars(parser.parse_args())), ensure_ascii=False, indent=2))

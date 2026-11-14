@@ -1,6 +1,6 @@
 {
   "route": "product",
-  "version": "0.2",
+  "version": "0.3",
   "roles": [
     {
       "id": "director",
@@ -34,38 +34,6 @@
     }
   ],
   "templates": {
-    "two-pager": {
-      "canonical_path": "templates/two-pager.md",
-      "fixture": "two-pager/fixture.json",
-      "scaffold": [
-        {
-          "block": "P1",
-          "question": "Quelle friction le pilote teste-t-il ?",
-          "claim_refs": [
-            "C1"
-          ],
-          "owner": "scribe"
-        },
-        {
-          "block": "P2",
-          "question": "Quelle capacité rend les usages possibles ?",
-          "claim_refs": [
-            "C2"
-          ],
-          "owner": "scribe"
-        },
-        {
-          "block": "P3",
-          "question": "Quelle observation ferait abandonner le pilote ?",
-          "claim_refs": [
-            "C3"
-          ],
-          "owner": "scribe"
-        }
-      ],
-      "review": "reviewer",
-      "delivery": "delivery"
-    },
     "opportunity-note-icp": {
       "canonical_path": "templates/opportunity-note-icp.md",
       "fixture": "opportunity-note-icp/fixture.json",
@@ -136,6 +104,138 @@
     "fixture": "two-pager/fixture.json",
     "oracle": "../functional_review.py",
     "reopen": "bloc dépendant puis revue",
-    "evidence": "../../NARRATIVE.md"
+    "evidence": "../../NARRATIVE.md",
+    "purpose": "Historical buyer-pilot regression. Replay only on an explicit decision mandate."
+  },
+  "default_intent": "fiche-produit",
+  "reference": "../../references/product-intents.md",
+  "intents": {
+    "fiche-produit": {
+      "label": "Fiche produit",
+      "question": "Que fait le produit, pour qui et avec quelles limites ?",
+      "block_ids": [
+        "identite",
+        "mecanisme",
+        "capacites",
+        "usages",
+        "limites"
+      ],
+      "methods": [
+        "product.icp",
+        "business.core-competencies"
+      ]
+    },
+    "diagnostic-produit": {
+      "label": "Diagnostic produit",
+      "question": "Quelles capacités sont démontrées, difficiles à substituer ou encore fragiles ?",
+      "block_ids": [
+        "perimetre",
+        "mecanismes",
+        "differenciation",
+        "lacunes"
+      ],
+      "methods": [
+        "product.pmf",
+        "product.kano",
+        "vrio",
+        "ishikawa",
+        "product.rice"
+      ]
+    },
+    "traction-commerciale": {
+      "label": "Diagnostic de traction commerciale",
+      "question": "Quels signaux attestent acquisition, activation, revenu, renouvellement ou expansion ?",
+      "block_ids": [
+        "population",
+        "entonnoir",
+        "revenus",
+        "retention",
+        "inconnues"
+      ],
+      "methods": [
+        "product.adoption",
+        "product.pmf",
+        "unit-economics"
+      ]
+    },
+    "benchmark-fonctionnel": {
+      "label": "Benchmark de fonctionnalités",
+      "question": "Sur une même tâche et un même périmètre, que peut accomplir chaque alternative ?",
+      "block_ids": [
+        "comparables",
+        "criteres",
+        "matrice",
+        "ecarts"
+      ],
+      "methods": [
+        "business.competitive-diagnostic",
+        "business.tco",
+        "product.kano"
+      ]
+    },
+    "etude-marche": {
+      "label": "Étude de marché",
+      "question": "Quels segments, acheteurs, substituts et dynamiques délimitent le marché ?",
+      "block_ids": [
+        "perimetre",
+        "segments",
+        "demande",
+        "offre",
+        "evolution"
+      ],
+      "methods": [
+        "product.segmentation",
+        "porter",
+        "pestel"
+      ]
+    },
+    "diagnostic-4p": {
+      "label": "Diagnostic 4P",
+      "question": "Comment offre, prix, distribution et communication se soutiennent-ils ?",
+      "block_ids": [
+        "produit",
+        "prix",
+        "distribution",
+        "promotion",
+        "coherence"
+      ],
+      "methods": [
+        "marketing-4p",
+        "product.segmentation",
+        "unit-economics"
+      ]
+    },
+    "clients-360": {
+      "label": "360 clients",
+      "question": "Qui achète, utilise, prescrit et renouvelle, dans quels contextes et avec quelles preuves ?",
+      "block_ids": [
+        "segments",
+        "acteurs",
+        "parcours",
+        "clients",
+        "objections"
+      ],
+      "methods": [
+        "product.icp",
+        "product.segmentation",
+        "product.adoption"
+      ]
+    },
+    "usages-chaine-valeur": {
+      "label": "Usages et chaîne de valeur",
+      "question": "À quelles étapes opérationnelles le produit intervient-il, et qui reçoit quoi ?",
+      "block_ids": [
+        "chaine",
+        "acteurs",
+        "usages",
+        "dependances",
+        "valeur"
+      ],
+      "methods": [
+        "business.porter-value-chain",
+        "product.ttv",
+        "business.core-competencies"
+      ]
+    }
   }
 }

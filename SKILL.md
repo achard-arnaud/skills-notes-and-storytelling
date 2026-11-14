@@ -1,6 +1,6 @@
 ---
 name: decision-notes-and-storytelling
-description: Create, revise, or industrialize evidence-grounded decision notes, architecture notes, one-pagers, two-pagers, benchmarks, buy-side gap analyses, sell-side diagnostic/recommendation notes, ICP opportunity notes and integration notes and pedagogical learning sheets. Own research-to-claims-to-storytelling, evidence lineage, template bridges, counter-perspective QA, lock-in mapping, next-step nudging and the governed tiered dreaming loop. Route six-page enterprise AI learning sheets to the pedagogical skill and keep their content binding, semantic HTML scaffold and renderer separate. Pair with the runtime DOCX skill when a Word artifact is requested.
+description: Create, revise, or industrialize evidence-grounded decision notes, architecture notes, product profiles and diagnostics, one-pagers, benchmarks, buy-side gap analyses, sell-side diagnostic/recommendation notes, ICP opportunity notes and integration notes and pedagogical learning sheets. Own research-to-claims-to-storytelling, evidence lineage, template bridges, counter-perspective QA, lock-in mapping, next-step nudging and the governed tiered dreaming loop. Route six-page enterprise AI learning sheets to the pedagogical skill and keep their content binding, semantic HTML scaffold and renderer separate. Pair with the runtime DOCX skill when a Word artifact is requested.
 ---
 
 # Decision Notes & Storytelling
@@ -9,7 +9,7 @@ description: Create, revise, or industrialize evidence-grounded decision notes, 
 
 This skill is a governed decision-note OS. It owns **context reconstruction, research, evidence lineage, claims, decision architecture, narrative composition, template routing, cross-template bridges, counter-perspective QA and learning loops**. Rendering is a downstream concern.
 
-Use the lightest output that closes the decision. Do not create a larger report when a one-pager, two-pager or bounded integration decision is sufficient.
+For product work, enter the [product analysis procedure](experiments/narrative-procedure-v1/SKILL.md) before choosing any template. Select one primary purpose, combine relevant secondary analyses, describe the product and its evidence, and apply an explicit page limit only at delivery. Without a buyer decision, end with a diagnostic and the material unknowns.
 
 ## Generation mode
 
@@ -36,11 +36,10 @@ For `ARCHITECTURE_NOTE`, read the dimension-specific contract in [templates/arch
 
 ## Template enum
 
-Select exactly one primary template:
+For a product request, follow the product procedure above. For the other routes, select one primary template:
 
 - `ARCHITECTURE_NOTE`
 - `ONE_PAGER`
-- `TWO_PAGER`
 - `BENCHMARKING`
 - `BUY_SIDE_GAP_ANALYSIS`
 - `DIAGNOSTIC_RECO_SELL_SIDE`

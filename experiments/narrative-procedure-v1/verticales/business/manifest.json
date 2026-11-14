@@ -45,17 +45,6 @@
       ],
       "fixture": "fixtures/one-pager.json"
     },
-    "two-pager": {
-      "template": "templates/two-pager.md",
-      "block_ids": [
-        "truth",
-        "mechanism",
-        "unknowns",
-        "uses",
-        "next_step"
-      ],
-      "fixture": "fixtures/two-pager.json"
-    },
     "benchmarking": {
       "template": "templates/benchmarking.md",
       "block_ids": [

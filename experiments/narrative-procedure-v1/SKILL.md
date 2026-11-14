@@ -1,58 +1,14 @@
 ---
 name: compose-decision-narrative
-description: Composer ou réviser une note, un one/two/three-pager, une étude produit, une note business ou technique ou un support pédagogique depuis des preuves et analyses explicites. Sélectionner le contrat de format, diriger le scaffold, rédiger bloc par bloc, relire le récit et préparer sa livraison. Demander une analyse spécialisée quand elle manque.
+description: Étudier un produit, une entreprise ou un marché selon la finalité demandée, puis rédiger un diagnostic, un comparatif, une note stratégique ou technique ou un support pédagogique à partir de preuves. Reprendre des recherches existantes et croiser plusieurs angles sur une entité.
 ---
 
-# Compose Decision Narrative — candidat expérimental
+# Partir de ce que le lecteur cherche à comprendre
 
-Livrer une réponse utile au lecteur en conservant les preuves et le contexte. La procédure est commune ; les contrats de contenu, chartes et rendus se choisissent à la demande. Cette skill ne collecte pas automatiquement les sources et ne conduit pas tous les frameworks d’analyse.
-
-## Cadrer et charger seulement ce qui sert
-Identifier objectif du lecteur, décision ou acquis attendu, sujet/entités, scope, horizon, sources, mode neuf/itératif et support. En itératif, épingler la baseline et le delta avant de modifier le contenu. Distinguer information manquante bloquante et inconnue que le livrable peut rendre visible.
-Lire [le routage](references/routing.md) pour choisir une route principale et le contrat de format. Lire seulement le template sélectionné et ses obligations. Les angles secondaires sont autorisés. Ne pas choisir les chapitres à partir des piliers d’analyse.
-Lire [le contrat analytique](references/analysis-interface.md) seulement si une analyse spécialisée est requise, reçue ou modifiée. Les faits d’entreprise doivent garder date, scope et source ; un rapport précédent est un pointeur vers ses preuves.
-
-## 1. Diriger le scaffold
-Formuler une question centrale et une réponse calibrée au niveau de preuve. Pour l’apprentissage, préciser l’acquis démontrable. Nommer la tension utile sans dramatiser. Construire l’ordre des questions du lecteur, puis attribuer aux blocs : ID, question, action title ou titre pédagogique, payoff, claim_refs/analysis_refs, limites, objection matérielle, transition, rôle visuel et contrainte de format.
-Lire [la charte rédactionnelle](references/editorial.md). Une thèse peut rester une hypothèse ; une liste de sujets n’est pas une démonstration.
-Sortie : scaffold et liste de preuves manquantes. Si le raisonnement manque, ouvrir une demande analytique bornée ; ne pas remplir par une prose plausible.
-
-## 2. Rédiger bloc par bloc
-Rédiger chaque bloc depuis ses seules preuves/analyses. Préserver noms, unités, dates, scope, attributions, inconnues et contre-preuves. Une analyse externe reste distincte d’une preuve primaire.
-Conserver une claim-map et les blocs hors delta. Ne pas changer la thèse en remplissant un bloc sans rouvrir le scaffold. Pour un cas d’usage, montrer acteur, tâche, parcours, valeur attendue, conditions, statut de démonstration et mesure pertinente.
-Les cartes, tableaux, schémas et apartés servent le lecteur ; ils ne rehaussent aucun statut de preuve.
-Sortie : blocs rédigés et claim-map ; marquer les gaps.
-
-## 3. Relire à l’échelle du récit
-Lire les titres seuls, puis les transitions et la conclusion. Vérifier réponse à la question, niveau de zoom, causalité, répétitions, contradictions, alignement sur la tension et absence de perte décisionnelle. Tester l’objection qui pourrait inverser la conclusion. Relire le découpage sous un critère commun, en déclarant les recouvrements réels.
-Lire [les contrôles et retours](references/review.md). Rouvrir l’étape 1 pour une thèse ou structure défectueuse ; l’étape 2 pour une formulation, attribution ou omission locale. Réserver l’approbation humaine à son propriétaire réel.
-Sortie : constats, corrections, périmètre rouvert et verdict explicite.
-
-Avant de conclure la revue, écrire dans le livrable lui-même l’objection qui pourrait inverser la thèse et l’observation qui ferait changer la recommandation. Une réserve générale ou une mention PASS dans review.json ne suffit pas. Tester les titres seuls : chaque titre directeur porte une conclusion qualifiée ou un acquis attendu ; réserver les titres descriptifs aux repères qui le nécessitent.
-
-## 4. Livrer et réactiver si nécessaire
-Mapper les blocs au contrat choisi : longueur, ordre, sections, sources, liens, chartes et support. Vérifier le rendu si produit ; un Markdown à deux sections n’est pas deux pages physiques vérifiées. Ne pas réduire la police ni supprimer un risque critique pour tenir la pagination.
-Un défaut de preuve retourne au paquet analytique/source ; un défaut d’ordre à 1 ; un défaut de texte à 2 ; un défaut de cohérence à 3 ; un défaut de rendu au renderer. Une réparation ciblée puis une vérification ; échec matériel persistant = REOPEN_TARGETED avec condition de reprise.
-Livrer contenu, références et limites de validation réelles. Effectuer un loopback léger : observation, couche concernée, delta réutilisable ou NO_REUSABLE_DELTA. Aucun changement canonique automatique.
-
-Le livrable diffusé seul reste compréhensible : résoudre les codes de source/claim dans une légende compacte ou conserver des attributions textuelles autonomes. Un cas proposé doit expliciter les capacités nécessaires encore non attestées, notamment accès et ingestion documentaire. Tester ce point avant de présenter un parcours comme immédiatement réalisable.
-
-## Choisir le scaffold d’une verticale
-
-Pour une note à plusieurs blocs ou une révision ciblée, ouvrir [le registre des quatre verticales](verticales/registry.json). Choisir le couple route et template, puis ouvrir le profil et le manifeste indiqués. Le manifeste attribue les blocs aux rôles et indique la fixture à rejouer après modification. Une tâche simple peut suivre directement le contrat de format. [Résultats du second essai et revue de consolidation](verticales/README.md).
-
-## Sélectionner une méthode et reprendre le run
-
-Pour sélectionner une méthode parmi les quatre verticales, ouvrir le [catalogue méthodologique](mba/taxonomy/CATALOGUE.md) ou interroger le sélecteur `mba/taxonomy/tools/resolve_method.py` avec route, format, méthode et bloc. Charger la seule fiche retenue. Les [parcours de diagnostic](mba/taxonomy/chains.json) proposent des dépendances possibles. Conserver les claims et les inconnues dans le paquet de reprise.
-
-Pour une analyse spécialisée, sélectionner le bloc à éclairer dans le manifeste route–format, puis choisir une seule carte dans [le registre MBA](mba/registry.json) selon la question résiduelle. Enregistrer un AnalysisResult avec les claims d’entrée, le statut de la conclusion, la contre-épreuve et les blocs affectés. Le rédacteur conserve le mandat et reprend les blocs référencés. Lors d’un changement de verticale ou de source, suivre [le protocole de reprise](refs/reprise.md). Les corpus historiques et fixtures servent à la maintenance. Pour rédiger, ouvrir uniquement les ressources du mandat courant.
-
-## Ressources conditionnelles
-- [Routage et formats](references/routing.md) : intention/format ou révision de format.
-- [Charte rédactionnelle](references/editorial.md) : conception et rédaction.
-- [Contrôles](references/review.md) : revue et sortie.
-- [Interface d’analyse](references/analysis-interface.md) : import ou demande d’analyse.
-- [Three-pager candidat](references/three-pager.md) : seulement si ce format est demandé.
-- [Sources de méthode](references/sources.md) : audit ou approfondissement de la méthode.
-
-
+1. **Interpréter le mandat.** Relever les termes exacts du demandeur, l’objet, les entités voisines, le lecteur et la question. « Parle-moi de ce produit » déclenche une fiche descriptive. Une décision, un budget, un acheteur, un calendrier ou un projet pilote doivent venir du mandat pour gouverner le récit. Une demande de longueur contraint uniquement la livraison. En révision, épingler l’artefact de départ, les observations humaines et les claims affectés.
+2. **Choisir le parcours.** En produit, ouvrir [les huit finalités](references/product-intents.md) et [le profil](verticales/produit/PROFILE.md). Sélectionner une finalité principale, ajouter les seules analyses qui répondent à une question distincte. En business, technique ou pédagogie, suivre [le routage](references/routing.md) et le [registre](verticales/registry.json). Pour une entreprise dont le produit est nommé, conserver deux objets liés : les ventes, le financement et les effectifs de la société ne se transmettent pas au produit. Une fiche entreprise comprend identité, ville/pays, taille datée, activité, produits, géographies documentées et jalons économiques pertinents.
+3. **Reconstituer le corpus.** Chercher conversations et livrables antérieurs pour l’entité et ses alias. Consigner la demande initiale, les corrections et le résultat final. Remonter aux sources derrière les assertions. Conserver les documents privés dans leur espace d’origine. Si les preuves sont insuffisantes et que la recherche est permise, l’effectuer avant rédaction. Appliquer le [protocole de recherche](references/product-intents.md#constituer-le-registre-de-preuves). Si les sources sont imposées, annoncer la portée exacte de ce corpus.
+4. **Instruire puis structurer.** Séparer constats, interprétations, contradictions et inconnues. Si la question nécessite une méthode spécialisée, utiliser le [catalogue](mba/taxonomy/CATALOGUE.md), puis le [contrat analytique](references/analysis-interface.md) pour rattacher résultat, sources et limites au bloc concerné. Construire un ordre de questions cohérent avec la finalité. Pour la pédagogie, partir des acquis et de la tâche de transfert ; pour la technique, des frontières, mécanismes et contraintes ; pour une décision explicite, des options et des arbitrages documentés.
+5. **Rédiger.** Attribuer à chaque bloc une question lecteur, une réponse, sa preuve et sa limite. Appliquer [la charte](references/editorial.md). Expliquer le mécanisme dans les mots des acteurs. Employer les tableaux pour comparer des unités homogènes et les schémas pour montrer des relations. Une capacité démontrée sur un cas n’établit ni sa fréquence d’usage ni son retour sur investissement.
+6. **Relire contre le mandat d’origine.** Commencer par relire la demande verbatim, indépendamment du brief intermédiaire. Vérifier que le lecteur peut identifier l’objet, comprendre son fonctionnement et distinguer ce qui est documenté de ce qui reste ouvert. Un mandat inventé, une confusion société/produit ou une méthode qui dicte une conclusion invalident l’essai, même si un juge apprécie la rédaction. Appliquer les [contrôles éditoriaux](references/review.md) à la finalité choisie ; réserver les critères de décision au cas où le lecteur doit décider.
+7. **Livrer et reprendre.** Fournir le niveau de détail demandé avec liens vers produit, pièces et sources. Une contrainte physique explicite déclenche une mise en page et son contrôle après validation du contenu. Conserver la matrice claims-preuves, le périmètre, la date de collecte, les inconnues et les blocs à rouvrir via [le protocole de reprise](refs/reprise.md). Une révision de forme réutilise les claims ; une source nouvelle rouvre uniquement les conclusions qui en dépendent.

@@ -16,7 +16,7 @@ Publier dénominateur, date et règle de segmentation. Distinguer segment d’ut
 
 ## Dépendances et sortie
 
-Dépendances analytiques conditionnelles — aucune. Livrer un résultat daté, son périmètre, ses claim_refs, ses limites et ses blocs destinataires (segments, taille et limites). Formats candidats — two-pager,opportunity-note-icp.
+Dépendances analytiques conditionnelles — aucune. Livrer un résultat daté, son périmètre, ses claim_refs, ses limites et ses blocs destinataires (segments, taille et limites). Formats candidats — opportunity-note-icp.
 
 ## Oracles synthétiques
 
@@ -27,3 +27,5 @@ Dépendances analytiques conditionnelles — aucune. Livrer un résultat daté, 
 
 [Référence de méthode](https://openstax.org/books/principles-marketing/pages/5-4-essential-factors-in-effective-market-segmentation). Exemple et oracles conçus pour ce dépôt. Alignement pédagogique possible avec le travail d’analyse du besoin ou de suivi de la valeur. L’usage de cette technique ne constitue ni une exigence universelle ni une attestation de certification PMI-PBA ou PMP. [PMI-PBA](https://www.pmi.org/certifications/business-analysis-pba) · [PMP](https://www.pmi.org/certifications/project-management-pmp).
 
+
+Finalités produit applicables : etude-marche, diagnostic-4p, clients-360.
