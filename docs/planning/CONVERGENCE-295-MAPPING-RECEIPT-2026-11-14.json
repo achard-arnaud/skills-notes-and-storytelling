@@ -1,0 +1,138 @@
+{
+  "kind": "convergence-295-mapping-checks/v1",
+  "date_paris": "2026-11-14",
+  "base_sha": "d904d8b4375f6112bc570dbbe128c6aa512f2561",
+  "scope": "Mapping fixture only; no runtime or schema migration",
+  "python": "3.12.14",
+  "source_blobs_verified": 8,
+  "schema_check": "PASS",
+  "cases": [
+    {
+      "id": "legacy_binding",
+      "expected_valid": true,
+      "actual_valid": true,
+      "errors": [],
+      "check": "PASS"
+    },
+    {
+      "id": "pre_scaffold_without_binding",
+      "expected_valid": false,
+      "actual_valid": false,
+      "errors": [
+        {
+          "validator": "required",
+          "path": []
+        }
+      ],
+      "check": "PASS"
+    },
+    {
+      "id": "pre_scaffold_empty_binding",
+      "expected_valid": false,
+      "actual_valid": false,
+      "errors": [
+        {
+          "validator": "minItems",
+          "path": [
+            "affects_blocks"
+          ]
+        }
+      ],
+      "check": "PASS"
+    },
+    {
+      "id": "unmapped_question_identity",
+      "expected_valid": false,
+      "actual_valid": false,
+      "errors": [
+        {
+          "validator": "additionalProperties",
+          "path": []
+        }
+      ],
+      "check": "PASS"
+    },
+    {
+      "id": "no_claim_inputs",
+      "expected_valid": false,
+      "actual_valid": false,
+      "errors": [
+        {
+          "validator": "minItems",
+          "path": [
+            "input_claim_refs"
+          ]
+        }
+      ],
+      "check": "PASS"
+    },
+    {
+      "id": "verified_fact_not_a_donor_finding_status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "errors": [
+        {
+          "validator": "enum",
+          "path": [
+            "findings",
+            0,
+            "status"
+          ]
+        }
+      ],
+      "check": "PASS"
+    },
+    {
+      "id": "recommendation_is_analysis_only",
+      "expected_valid": true,
+      "actual_valid": true,
+      "errors": [],
+      "check": "PASS"
+    }
+  ],
+  "status_boundary_check": "PASS",
+  "runtime_tests": "NOT_RUN (documentary fixture only)",
+  "source_graph_semantic_reference_resolution": "NOT_TESTED by donor JSON Schema",
+  "sources": [
+    {
+      "path": "diagnostic-complet/runtime.py",
+      "ref": "d904d8b4375f6112bc570dbbe128c6aa512f2561",
+      "blob_sha": "e5b0a2a8171393a97d79d7aa2474eea0299a1e99"
+    },
+    {
+      "path": "diagnostic-complet/context.py",
+      "ref": "d904d8b4375f6112bc570dbbe128c6aa512f2561",
+      "blob_sha": "f5c6f38d0e5d57eea8dba11cba55a63bde942825"
+    },
+    {
+      "path": "diagnostic-complet/writing.py",
+      "ref": "d904d8b4375f6112bc570dbbe128c6aa512f2561",
+      "blob_sha": "da799ab6547ad24efb1612dffe86259ad12cc166"
+    },
+    {
+      "path": "diagnostic-complet/docs/INTERFACES.md",
+      "ref": "d904d8b4375f6112bc570dbbe128c6aa512f2561",
+      "blob_sha": "2d8dd10884dd7c2b56ac73a8f436cc8ee1643a2f"
+    },
+    {
+      "path": "docs/architecture/ADR-1007-study-workflow.md",
+      "ref": "d904d8b4375f6112bc570dbbe128c6aa512f2561",
+      "blob_sha": "90bb7d822e1fa8e85d406dd0cb3c0162088cfbdd"
+    },
+    {
+      "path": "docs/planning/CONVERGENCE-PLAN-2026-11-14.md",
+      "ref": "d904d8b4375f6112bc570dbbe128c6aa512f2561",
+      "blob_sha": "99c39cd1dc8fa425584d87e8b2013a6e30cd0e7d"
+    },
+    {
+      "path": "diagnostic-complet/ontology/terminology.json",
+      "ref": "d904d8b4375f6112bc570dbbe128c6aa512f2561",
+      "blob_sha": "27f1ff8f699a9f3df5be4e679fc3e3ecaadf5fe5"
+    },
+    {
+      "path": "experiments/narrative-procedure-v1/contracts/analysis-result.schema.json",
+      "ref": "75c8293de6984c6fac80e016528bdfa4ec019226",
+      "blob_sha": "b2303d0bd50e23a7c7a2ad7eb71b896fcacdc446"
+    }
+  ]
+}

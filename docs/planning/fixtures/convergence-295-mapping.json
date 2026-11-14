@@ -1,0 +1,118 @@
+{
+  "kind": "convergence-295-mapping-fixture/v1",
+  "purpose": "Synthetic compatibility probes of the pinned donor schema; not a target schema, production study or evidence of analytical quality.",
+  "source_ref": "75c8293de6984c6fac80e016528bdfa4ec019226",
+  "source_path": "experiments/narrative-procedure-v1/contracts/analysis-result.schema.json",
+  "source_blob_sha": "b2303d0bd50e23a7c7a2ad7eb71b896fcacdc446",
+  "base_payload": {
+    "id": "SYN-ANALYSIS-1",
+    "method": "synthetic-comparison",
+    "method_version": "0.0-synthetic",
+    "question": "Quelle inconnue synthétique doit être instruite ?",
+    "scope": "Synthetic fixture only",
+    "as_of": "2026-11-14",
+    "input_claim_refs": [
+      "SYN-CLAIM-1"
+    ],
+    "findings": [
+      {
+        "statement": "Résultat synthétique inconnu, sans assertion métier.",
+        "status": "unknown",
+        "claim_refs": [
+          "SYN-CLAIM-1"
+        ]
+      }
+    ],
+    "counterevidence": [],
+    "unknowns": [
+      "Preuve synthétique manquante."
+    ],
+    "affects_blocks": [
+      "SYN-BLOCK-1"
+    ]
+  },
+  "cases": [
+    {
+      "id": "legacy_binding",
+      "expected_valid": true
+    },
+    {
+      "id": "pre_scaffold_without_binding",
+      "remove_fields": [
+        "affects_blocks"
+      ],
+      "expected_valid": false,
+      "expected_error": {
+        "validator": "required",
+        "field": "affects_blocks"
+      }
+    },
+    {
+      "id": "pre_scaffold_empty_binding",
+      "set_fields": {
+        "affects_blocks": []
+      },
+      "expected_valid": false,
+      "expected_error": {
+        "validator": "minItems",
+        "field": "affects_blocks"
+      }
+    },
+    {
+      "id": "unmapped_question_identity",
+      "set_fields": {
+        "question_id": "SYN-QUESTION-1"
+      },
+      "expected_valid": false,
+      "expected_error": {
+        "validator": "additionalProperties",
+        "field": "question_id"
+      }
+    },
+    {
+      "id": "no_claim_inputs",
+      "set_fields": {
+        "input_claim_refs": []
+      },
+      "expected_valid": false,
+      "expected_error": {
+        "validator": "minItems",
+        "field": "input_claim_refs"
+      }
+    },
+    {
+      "id": "verified_fact_not_a_donor_finding_status",
+      "set_fields": {
+        "findings": [
+          {
+            "statement": "Synthetic only",
+            "status": "verified_fact",
+            "claim_refs": [
+              "SYN-CLAIM-1"
+            ]
+          }
+        ]
+      },
+      "expected_valid": false,
+      "expected_error": {
+        "validator": "enum",
+        "field": "status"
+      }
+    },
+    {
+      "id": "recommendation_is_analysis_only",
+      "set_fields": {
+        "findings": [
+          {
+            "statement": "Recommandation synthétique, pas un fait.",
+            "status": "recommendation",
+            "claim_refs": [
+              "SYN-CLAIM-1"
+            ]
+          }
+        ]
+      },
+      "expected_valid": true
+    }
+  ]
+}
