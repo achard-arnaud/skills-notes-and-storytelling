@@ -5,9 +5,9 @@ import unittest
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path[:0]=[str(ROOT),str(ROOT/'tests')]
-from analysis_writing import prepare_analysis_writing, plan_analysis_writing_revision
+from analysis_writing import apply_analysis_writing_revision, prepare_analysis_writing, plan_analysis_writing_revision
 from test_adoption import sample, run_method
-from writing import study_hash
+from writing import study_hash, text_hash
 from render import render_study
 
 
@@ -114,6 +114,96 @@ class AnalysisWritingTests(unittest.TestCase):
         self.assertIn('P1',receipt['writing']['evidence_invalidated_paragraph_ids'])
         layout=plan_analysis_writing_revision(study,env,ctx,['P1'],expected_study_hash=study_hash(study),expected_envelope_hash=study_hash(env))
         self.assertEqual([],layout['invalidate_analysis_ids'])
+
+    def test_applies_analysis_invalidation_to_approved_unchanged_paragraph_only(self):
+        args=inputs();prepared=prepare(args);study=prepared['study'];env=args[3];ctx=prepared['analysis_context']
+        study['sections'][0]['paragraphs']=[dict(id='P1',text='Candidate',claim_ids=['C1'],pillar_ids=[],
+                                                     review={'evidence':True,'editorial':True,'text_sha256':text_hash('Candidate')})]
+        study['sections'].append(dict(id='B2',title='Independent',claim_ids=[],pillar_ids=[],
+                                      paragraphs=[dict(id='P2',text='Independent',claim_ids=[],pillar_ids=[],
+                                                       review={'evidence':True,'editorial':True,'text_sha256':text_hash('Independent')})]))
+        before=copy.deepcopy((study,env,ctx))
+        result=apply_analysis_writing_revision(
+            study,env,ctx,['A1'],expected_study_hash=study_hash(study),expected_envelope_hash=study_hash(env))
+        paragraphs={p['id']:p for s in result['study']['sections'] for p in s.get('paragraphs',[])}
+        self.assertEqual('Candidate',paragraphs['P1']['text'])
+        self.assertFalse(paragraphs['P1']['review']['evidence'])
+        self.assertTrue(paragraphs['P1']['review']['editorial'])
+        self.assertEqual(before[0]['sections'][1],result['study']['sections'][1])
+        self.assertEqual(['analysis_dependency_changed'],result['ledger'][0]['reasons'])
+        self.assertEqual(text_hash('Candidate'),result['ledger'][0]['before_sha256'])
+        self.assertEqual(result['ledger'][0]['before_sha256'],result['ledger'][0]['after_sha256'])
+        self.assertEqual(['A1'],result['analysis_review']['analysis_ids'])
+        self.assertEqual(['P1'],result['analysis_review']['paragraph_ids'])
+        self.assertEqual(before,(study,env,ctx))
+
+    def test_application_keeps_core_replacement_rules_and_historical_ledger(self):
+        args=inputs();prepared=prepare(args);study=prepared['study'];env=args[3];ctx=prepared['analysis_context']
+        study['sections'][0]['paragraphs']=[dict(id='P1',text='Candidate',claim_ids=['C1'],pillar_ids=[],
+                                                     review={'evidence':True,'editorial':True,'text_sha256':text_hash('Candidate')})]
+        study['sections'].append(dict(id='B2',title='Independent',claim_ids=[],pillar_ids=[],
+                                      paragraphs=[dict(id='P2',text='Independent',claim_ids=[],pillar_ids=[],review={})]))
+        history={'sequence':1,'id':'P0','kind':'paragraphs','reasons':['historical']}
+        study['writing_ledger']=[copy.deepcopy(history)]
+        before=copy.deepcopy(study)
+        result=apply_analysis_writing_revision(
+            study,env,ctx,['A1'],{'P1':'Revised candidate'},
+            expected_study_hash=study_hash(study),expected_envelope_hash=study_hash(env))
+        paragraphs={p['id']:p for s in result['study']['sections'] for p in s.get('paragraphs',[])}
+        self.assertEqual('Revised candidate',paragraphs['P1']['text'])
+        self.assertEqual({'evidence':False,'editorial':False,'text_sha256':text_hash('Revised candidate')},
+                         paragraphs['P1']['review'])
+        self.assertEqual(before['sections'][1],result['study']['sections'][1])
+        self.assertEqual(history,result['study']['writing_ledger'][0])
+        self.assertEqual(['prose_changed','analysis_dependency_changed'],result['ledger'][0]['reasons'])
+        self.assertEqual(2,result['ledger'][0]['sequence'])
+        self.assertEqual(before,study)
+
+        with self.assertRaisesRegex(ValueError,'outside selected dependency closure'):
+            apply_analysis_writing_revision(
+                study,env,ctx,['A1'],{'P2':'Unauthorized rewrite'},
+                expected_study_hash=study_hash(study),expected_envelope_hash=study_hash(env))
+        self.assertEqual(before,study)
+
+    def test_application_rejects_stale_lease_context_and_unknown_refs_before_write(self):
+        args=inputs();prepared=prepare(args);study=prepared['study'];env=args[3];ctx=prepared['analysis_context']
+        study['sections'][0]['paragraphs']=[dict(id='P1',text='Candidate',claim_ids=['C1'],pillar_ids=[],review={})]
+        before=copy.deepcopy((study,env,ctx))
+        applied=apply_analysis_writing_revision(
+            study,env,ctx,['A1'],expected_study_hash=study_hash(study),expected_envelope_hash=study_hash(env))
+        with self.assertRaisesRegex(ValueError,'baseline lease mismatch'):
+            apply_analysis_writing_revision(
+                applied['study'],env,ctx,['A1'],expected_study_hash=study_hash(study),
+                expected_envelope_hash=study_hash(env))
+        stale=copy.deepcopy(ctx);stale['bindings'][0]['analysis_refs']=['A404']
+        stale['context_revision']=study_hash({k:v for k,v in stale.items() if k!='context_revision'})
+        with self.assertRaises(ValueError):
+            apply_analysis_writing_revision(
+                study,env,stale,['A1'],expected_study_hash=study_hash(study),
+                expected_envelope_hash=study_hash(env))
+        with self.assertRaisesRegex(ValueError,'unknown changed IDs'):
+            apply_analysis_writing_revision(
+                study,env,ctx,['A404'],expected_study_hash=study_hash(study),
+                expected_envelope_hash=study_hash(env))
+        self.assertEqual(before,(study,env,ctx))
+
+    def test_source_and_layout_changes_keep_distinct_review_scopes(self):
+        args=inputs();prepared=prepare(args);study=prepared['study'];env=args[3];ctx=prepared['analysis_context']
+        review={'evidence':True,'editorial':True,'text_sha256':text_hash('Candidate')}
+        study['sections'][0]['paragraphs']=[dict(id='P1',text='Candidate',claim_ids=['C1'],pillar_ids=[],review=review)]
+        study['sections'].append(dict(id='B2',title='Independent',claim_ids=[],pillar_ids=[],
+                                      paragraphs=[dict(id='P2',text='Independent',claim_ids=[],pillar_ids=[],review={})]))
+        source=apply_analysis_writing_revision(
+            study,env,ctx,['SRC1'],expected_study_hash=study_hash(study),expected_envelope_hash=study_hash(env))
+        layout=apply_analysis_writing_revision(
+            study,env,ctx,['P1'],expected_study_hash=study_hash(study),expected_envelope_hash=study_hash(env))
+        self.assertEqual(['A1'],source['analysis_review']['analysis_ids'])
+        self.assertEqual(['P1'],source['analysis_review']['paragraph_ids'])
+        self.assertEqual([],layout['analysis_review']['analysis_ids'])
+        self.assertEqual([],layout['analysis_review']['paragraph_ids'])
+        self.assertEqual(study['sections'][1],source['study']['sections'][1])
+        self.assertEqual(study['sections'][1],layout['study']['sections'][1])
+        self.assertTrue(layout['study']['sections'][0]['paragraphs'][0]['review']['evidence'])
 
     def test_stale_context_and_unknown_binding_refused(self):
         args=inputs();prepared=prepare(args);study=prepared['study'];env=args[3]

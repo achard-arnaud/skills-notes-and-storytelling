@@ -244,10 +244,22 @@ source suit la clôture existante ; une correction seulement narrative ne rouvre
 pas l'analyse. Le contexte doit correspondre à l'enveloppe et aux sections courantes.
 
 Ce reçu **planifie** la revue : aucun texte, flag d'approbation ou statut d'analyse
-n'est modifié, aucune enveloppe périmée n'est rafraîchie. L'application de prose et
-la revue humaine doivent consommer le périmètre et les invalidations prescrites ;
-ce module ne certifie pas une application externe qui les ignorerait. Une évolution
-future de l'application pourra refuser ce cas explicitement.
+n'est modifié, aucune enveloppe périmée n'est rafraîchie.
+
+`apply_analysis_writing_revision(...)` consomme ce plan avec les mêmes leases et
+réutilise `writing.apply_iterative` uniquement avec les IDs d'étude de sa clôture.
+Les remplacements hors périmètre sont refusés par le contrat writing. Le wrapper
+force ensuite `review.evidence: false` sur les paragraphes liés à une analyse
+invalidée, y compris lorsque leur texte ne change pas, sans retirer leur approbation
+éditoriale dans ce seul cas. Une réécriture conserve la règle writing : les deux
+approbations sont retirées et le hash du nouveau texte est enregistré.
+
+Le ledger historique est conservé et l'entrée du paragraphe porte la raison
+`analysis_dependency_changed`, les anciennes/nouvelles revues et les hash de texte.
+La sortie `analysis_review` liste analyses, sections et paragraphes à réconcilier ;
+elle indique explicitement que contexte et enveloppe n'ont pas été revalidés ou
+rafraîchis et n'accorde aucune approbation humaine. Révision de source, enveloppe,
+synthèse et recette sémantique restent des opérations séparées.
 
 Tests : `python3 -m unittest discover -s diagnostic-complet/tests -p 'test_analysis_writing.py' -v`.
 Ils couvrent aussi le renderer HTML existant sur une phrase synthétique fournie,
