@@ -156,3 +156,41 @@ Sa réconciliation doit être explicite ; aucune revalidation historique ou
 fraîcheur d'un futur résultat n'est attestée par ce plan de baseline.
 
 Régression synthétique : `python3 -m unittest discover -s diagnostic-complet/tests -p 'test_analysis_impact.py' -v`.
+
+## Application d'adoption — #295.A4
+
+`adoption.analyze_adoption(study, brief, plan, question_ref, measurements,
+analysis_id=...)` applique la méthode candidate `product.adoption` à des **mesures
+explicitement fournies par l'analyste**. Il appelle le résolveur A2, puis contrôle
+son résultat avec A1 et `validate_planned_analysis`. Aucun nombre n'est extrait
+ou interprété depuis le texte d'un claim.
+
+`measurements` contient exactement `eligible` et `active` (`value` entier positif
+ou nul, ou `None`, et `claim_refs`), `unit: "users"`, `cohort`, `period`,
+`frequency` (textes non vides ou `None`). Les références des deux comptes sont
+résolues dans l'exigence `eligible_population` ou `useful_event` du plan. Une
+valeur connue exige une preuve déclarée ; compte négatif/booléen/non entier,
+unité incompatible, référence hors exigence et actifs > éligibles sont refusés.
+La cohérence sémantique des valeurs, du groupe et de la fenêtre reste à revoir.
+
+Si les exigences et mesures sont présentes, le taux est actifs / éligibles × 100,
+arrondi à 0,01 point de pourcentage en HALF_UP. Le finding reste `inference`,
+attribué aux claims d'entrée et limité à la cohorte/période/cadence déclarées.
+Aucune rétention, causalité, performance économique, recommandation ou vérification
+indépendante n'en est déduite. Une valeur inconnue, un dénominateur nul, un contexte
+absent ou une lacune du plan produit `partial`, `findings: []`, `needs_research: true`
+et les inconnues explicites. Un numérateur nul avec dénominateur positif reste un
+zéro calculable ; une absence de preuve ne devient pas zéro.
+
+Retour : `envelope` A1 et `method_output` séparé contenant mesures conservées,
+leur `measurements_revision` (`writing.study_hash`), version de méthode, taux,
+unité du taux, arrondi et limites ; `human_approval: false`. Ni étude, ni claims,
+ni schéma A1 ne sont modifiés. Les valeurs externes sont une interprétation
+attribuée de l'analyste, pas une nouvelle source vérifiée. Une correction de ces
+valeurs exige un nouveau résultat d'analyse ; A3 sait cibler cet ID d'analyse.
+
+Fixture de bout en bout `fixtures/convergence-adoption.json` : données entièrement
+synthétiques, 12 utilisateurs sur 40 éligibles → 30,00 %, résultat relié à ses claims,
+valide dans le plan, analyse créée avant les blocs et impact retrouvé depuis SRC1.
+Ce cas prouve la chaîne technique, pas un déploiement ni une satisfaction métier.
+Tests : `python3 -m unittest discover -s diagnostic-complet/tests -p 'test_adoption.py' -v`.

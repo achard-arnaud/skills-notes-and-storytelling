@@ -1,0 +1,31 @@
+{
+  "status": "synthetic_regression_not_customer_data",
+  "study": {
+    "id": "synthetic-adoption-study",
+    "title": "Synthetic weekly adoption",
+    "mandate": {"question": "What usage is documented?", "scope": "Synthetic cohort W45", "audience": "Product reader"},
+    "pillars": [],
+    "sources": [{"id": "SRC1", "kind": "synthetic_fixture", "access": "synthetic", "title": "Synthetic cohort register", "locator": "fixture:cohort"}],
+    "fragments": [{"id": "F1", "source_id": "SRC1", "locator": "rows 1-3", "text": "40 eligible users; 12 distinct users performed the useful weekly task; cohort alpha, 2026-W45."}],
+    "claims": [
+      {"id": "C1", "text": "The supplied register declares 40 eligible users.", "status": "supplied_claim", "fragment_ids": ["F1"], "pillar_ids": []},
+      {"id": "C2", "text": "12 distinct users performed the useful task in the same cohort and period.", "status": "supplied_claim", "fragment_ids": ["F1"], "pillar_ids": []},
+      {"id": "C3", "text": "Cohort alpha, weekly task, period 2026-W45; synthetic data only.", "status": "supplied_claim", "fragment_ids": ["F1"], "pillar_ids": []}
+    ],
+    "relations": [], "sections": [], "side_stories": []
+  },
+  "brief": {"schema_version": "1.0", "id": "I1", "study_ref": "synthetic-adoption-study", "question": "What usage is documented?", "scope": "Synthetic cohort W45", "audience": "Product reader", "intent": "traction-commerciale", "decision_requested": false, "as_of": "2026-11-14"},
+  "question": {
+    "id": "Q1", "question": "What is weekly adoption in the supplied cohort?", "method": "product.adoption", "method_version": "514cac66e7fe571d85e2dd71e65142f481148b20", "input_claim_refs": ["C1", "C2", "C3"],
+    "evidence_map": [
+      {"requirement": "eligible_population", "claim_refs": ["C1"]},
+      {"requirement": "useful_event", "claim_refs": ["C2"]},
+      {"requirement": "expected_frequency", "claim_refs": ["C3"]},
+      {"requirement": "cohort", "claim_refs": ["C3"]},
+      {"requirement": "period", "claim_refs": ["C3"]}
+    ],
+    "unknowns": [], "queries": [], "stop_condition": "Stop at the supplied cohort; no claim about retention or other periods."
+  },
+  "measurements": {"eligible": {"value": 40, "claim_refs": ["C1"]}, "active": {"value": 12, "claim_refs": ["C2"]}, "unit": "users", "cohort": "alpha", "period": "2026-W45", "frequency": "weekly"},
+  "expected": {"percentage": "30.00", "status": "inference", "state": "complete", "human_approval": false}
+}
