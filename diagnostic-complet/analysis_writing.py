@@ -8,7 +8,8 @@ from pathlib import Path
 from analysis import _shape
 from analysis_impact import plan_analysis_revision
 from planning import validate_planned_analysis
-from writing import EVIDENCE_KEYS, _index, plan_iterative, prepare_from_scratch, study_hash
+from writing import (EVIDENCE_KEYS, _index, apply_iterative, plan_iterative,
+                     prepare_from_scratch, study_hash, text_hash)
 
 SCHEMA = json.loads((Path(__file__).parent / 'schemas/analysis-writing.v1.schema.json').read_text(encoding='utf-8'))
 
@@ -156,3 +157,72 @@ def plan_analysis_writing_revision(study, envelope, analysis_context, changed_id
     receipt['analysis_invalidated_section_ids'] = sorted(affected_sections)
     receipt['analysis_invalidated_paragraph_ids'] = sorted(paragraphs)
     return receipt
+
+
+def apply_analysis_writing_revision(study, envelope, analysis_context, changed_ids,
+                                    replacements=None, *, expected_study_hash,
+                                    expected_envelope_hash):
+    """Apply a bounded writing revision and its analytical review invalidations.
+
+    The analytical context is used only to derive the existing paragraph closure.
+    It is not refreshed or certified by this operation. Externally supplied prose
+    remains subject to the core writing replacement and review contracts.
+    """
+    receipt = plan_analysis_writing_revision(
+        study, envelope, analysis_context, changed_ids,
+        expected_study_hash=expected_study_hash,
+        expected_envelope_hash=expected_envelope_hash,
+    )
+    applied = apply_iterative(
+        study, receipt['writing']['changed_ids'], replacements,
+        expected_baseline_hash=expected_study_hash,
+    )
+    result = applied['study']
+    ledger = applied['ledger']
+    indexed = _index(result)
+    existing = {entry['id']: entry for entry in ledger}
+
+    for ident in receipt['analysis_invalidated_paragraph_ids']:
+        kind, paragraph = indexed[ident]
+        if kind != 'paragraphs':
+            raise ValueError('analysis binding resolved outside a paragraph')
+        previous_review = copy.deepcopy(paragraph.get('review', {}))
+        review = copy.deepcopy(previous_review)
+        review['evidence'] = False
+        paragraph['review'] = review
+        entry = existing.get(ident)
+        if entry is None:
+            before = paragraph.get('text', '')
+            entry = {
+                'sequence': len(result.get('writing_ledger', [])) + 1,
+                'id': ident, 'kind': kind,
+                'before_sha256': text_hash(before), 'after_sha256': text_hash(before),
+                'reasons': ['analysis_dependency_changed'],
+                'previous_review': previous_review,
+                'result_review': copy.deepcopy(review), 'human_approval': False,
+            }
+            ledger.append(entry)
+            result.setdefault('writing_ledger', []).append(copy.deepcopy(entry))
+        else:
+            if 'analysis_dependency_changed' not in entry['reasons']:
+                entry['reasons'].append('analysis_dependency_changed')
+            entry['result_review'] = copy.deepcopy(review)
+            for historical in result.get('writing_ledger', []):
+                if historical.get('sequence') == entry['sequence'] and historical.get('id') == ident:
+                    historical.update(copy.deepcopy(entry))
+                    break
+
+    return {
+        'study': result,
+        'plan': receipt,
+        'ledger': ledger,
+        'analysis_review': {
+            'state': ('reconciliation_required' if receipt['invalidate_analysis_ids']
+                      else 'no_analysis_invalidation'),
+            'analysis_ids': list(receipt['invalidate_analysis_ids']),
+            'section_ids': list(receipt['analysis_invalidated_section_ids']),
+            'paragraph_ids': list(receipt['analysis_invalidated_paragraph_ids']),
+            'context_revalidated': False, 'envelope_refreshed': False,
+            'human_approval': False,
+        },
+    }
