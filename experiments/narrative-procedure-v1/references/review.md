@@ -1,3 +1,7 @@
+# Portée des contrôles
+
+Appliquer d’abord le [contrat de contexte et de substance](business-product-context.md). Pour un mandat descriptif ou diagnostique, vérifier mécanismes, explications concurrentes, preuves et inconnues. Les contrôles de recommandation, pilote et test décisionnel ci-dessous s’appliquent lorsqu’une décision est demandée. Le jugement compare la sortie à la demande originale et aux attentes de substance.
+
 # Revue et retours
 | Défaut observé | Contrôle | Retour |
 |---|---|---|
