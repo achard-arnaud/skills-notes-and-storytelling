@@ -65,3 +65,7 @@ Au contrôle de cette session, seul /root était actif. Aucun agent secondaire n
 Aucun compteur fiable des compactions antérieures ni commande de compaction manuelle disponible. Sauvegarde durable et nouvelle conversation constituent le moyen de reprise contrôlable.
 Les fichiers transitoires supprimés figurent dans CLEANUP-RECEIPT-2026-11-14.json ; les sources et livrables restent préservés dans leurs destinations. Supprimer des fichiers n’efface pas les tokens déjà lus. Aucun effacement de préférences ou de mémoire utilisateur.
 Statut de réception : dossier préparé et vérifié par lecture distante ; aucun run dans une nouvelle conversation lancé.
+
+
+## Mise à jour PR #300 — 14 novembre 2026
+Lire le [rapport critique](../architecture/SKILLS-CRITICAL-REVIEW-2026-11-14.md) pour les noms canoniques et les limites des preuves. Le premier lot documentaire de mapping est [#303](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/303), enfant de #295 ; #296/#297/#301 appliquent les mêmes principes selon leur finalité. Consulter le contrat SDLC courant pour les horaires et l’admission, les anciens horaires de cette documentation restent historiques.
