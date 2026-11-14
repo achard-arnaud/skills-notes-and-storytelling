@@ -194,3 +194,62 @@ synthétiques, 12 utilisateurs sur 40 éligibles → 30,00 %, résultat relié �
 valide dans le plan, analyse créée avant les blocs et impact retrouvé depuis SRC1.
 Ce cas prouve la chaîne technique, pas un déploiement ni une satisfaction métier.
 Tests : `python3 -m unittest discover -s diagnostic-complet/tests -p 'test_adoption.py' -v`.
+
+## Synthèse vers brief/scaffold et rédaction — #296.B1
+
+`analysis_writing.prepare_analysis_writing(study, envelope, plan, brief, synthesis,
+reader_scaffold, perspective=...)` consomme les résultats A1–A4 via le bootstrap
+`writing.prepare_from_scratch`. Il ne génère ni prose ni finding, et ne modifie
+aucun de ses inputs. Le schéma `schemas/analysis-writing.v1.schema.json` décrit
+SynthesisPacket et `$defs.readerScaffold`.
+
+La synthèse fournie porte version, `study_ref`, `envelope_revision`,
+`candidate_thesis {text, finding_refs}`, `observations` et `claim_disposition`.
+Une référence de finding contient `analysis_ref` et `finding_index` (position
+zéro-indexée dans l'enveloppe exacte). Les statements/statuts/claims ne sont pas
+ressaisis par le rédacteur : ils sont copiés depuis les observations sélectionnées.
+Une thèse candidate doit référencer ces observations si elles existent. Son texte
+et les titres demeurent des apports éditoriaux externes : une référence valide ne
+prouve pas leur fidélité sémantique, ni leur force narrative.
+
+Chaque claim de l'étude reçoit exactement une disposition `included`, `displaced`
+ou `omitted` ; les deux dernières exigent une raison et ne peuvent désigner un
+claim utilisé dans le tronc. Une disposition included doit correspondre à un
+usage dans les blocs. Tous les résultats sélectionnés doivent être consommés par
+au moins un bloc ; aucun finding nouveau n'est créé par cette sélection.
+
+Le scaffold fourni contient des sections `id`, `title`, `analysis_refs`,
+`claim_ids`, `pillar_ids`. Chaque section consomme analyses et/ou claims connus.
+Les claims des findings sélectionnés sont ajoutés au bloc qui utilise leur analyse.
+Une analyse complète non sélectionnée ne peut alimenter un bloc ; une analyse
+partial peut porter une question ouverte avec ses lacunes et sans finding.
+Les liens analytiques sont tardifs : ils restent dans `analysis_context.bindings`,
+jamais injectés dans l'étude evidence-only ni dans la topologie acceptée par writing.
+
+Sortie : wrapper writing existant (`study`, `packet`, `ledger`) et `analysis_context`
+séparé : révisions étude/enveloppe/plan/brief/synthèse, `perspective` product|business|combined,
+thèse candidate, findings résolus, bindings, dispositions, contre-preuves, inconnues,
+états et lacunes conservés ; `human_approval: false`. Le contexte est lié à son hash
+`context_revision`. Deux perspectives peuvent fournir des scaffolds différents
+sur les mêmes preuves et la même enveloppe, sans requalification ni duplication
+factuelle. Le rendu consomme la clé `study` du wrapper ; la rédaction externe utilise
+les matériaux résolus puis la revue indépendante prévue par writing.
+
+`plan_analysis_writing_revision(study, envelope, analysis_context, changed_ids,
+expected_study_hash=..., expected_envelope_hash=...)` réutilise le reçu A3 et les
+bindings explicites pour cibler sections/paragraphes dépendant d'un output d'analyse.
+Le plan writing intègre ces IDs et la liste des paragraphes à revoir factuellement.
+Une section indépendante n'est pas ajoutée par ce seul lien. Une correction de
+source suit la clôture existante ; une correction seulement narrative ne rouvre
+pas l'analyse. Le contexte doit correspondre à l'enveloppe et aux sections courantes.
+
+Ce reçu **planifie** la revue : aucun texte, flag d'approbation ou statut d'analyse
+n'est modifié, aucune enveloppe périmée n'est rafraîchie. L'application de prose et
+la revue humaine doivent consommer le périmètre et les invalidations prescrites ;
+ce module ne certifie pas une application externe qui les ignorerait. Une évolution
+future de l'application pourra refuser ce cas explicitement.
+
+Tests : `python3 -m unittest discover -s diagnostic-complet/tests -p 'test_analysis_writing.py' -v`.
+Ils couvrent aussi le renderer HTML existant sur une phrase synthétique fournie,
+sans recette visuelle ni étude d'entreprise réelle. La recette sémantique S2 et
+l'essai complet/reprise à froid/cas de réserve S3 restent distincts du PASS technique.
