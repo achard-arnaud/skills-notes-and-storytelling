@@ -1,0 +1,93 @@
+{
+  "version": "0.1",
+  "status": "acceptance_specification_not_runtime_test",
+  "issue": 303,
+  "study": {
+    "id": "study-synthetic",
+    "revision": "r1",
+    "claims": [
+      {
+        "id": "C1",
+        "status": "attributed_claim",
+        "text": "L’éditeur annonce un déploiement."
+      },
+      {
+        "id": "C2",
+        "status": "unknown",
+        "text": "La fréquence d’usage reste inconnue."
+      }
+    ]
+  },
+  "cases": [
+    {
+      "id": "nominal",
+      "question": {
+        "id": "Q1",
+        "text": "Que documente le déploiement ?"
+      },
+      "input_claim_refs": [
+        "C1",
+        "C2"
+      ],
+      "analysis": {
+        "id": "A1",
+        "method": "evidence-review",
+        "method_version": "synthetic-v1",
+        "findings": [
+          {
+            "statement": "Le déploiement annoncé ne mesure pas la fréquence d’usage.",
+            "status": "inference",
+            "claim_refs": [
+              "C1",
+              "C2"
+            ]
+          },
+          {
+            "statement": "Rechercher une cohorte datée.",
+            "status": "recommendation",
+            "claim_refs": [
+              "C2"
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "analysis_before_blocks": true,
+        "attribution_preserved": true,
+        "recommendation_kept_outside_verified_facts": true,
+        "late_binding": {
+          "analysis_id": "A1",
+          "block_id": "B1"
+        },
+        "source_change_invalidates": [
+          "C1",
+          "A1",
+          "B1"
+        ]
+      }
+    },
+    {
+      "id": "incomplete",
+      "question": {
+        "id": "Q2",
+        "text": "Quel est le gain net ?"
+      },
+      "input_claim_refs": [
+        "C2"
+      ],
+      "missing_evidence": [
+        "baseline",
+        "coûts",
+        "résultats observés"
+      ],
+      "expected": {
+        "state": "partial",
+        "findings": [],
+        "needs_research": true,
+        "mandatory_fake_block": false,
+        "zero_gain_inference": false,
+        "legacy_candidate_contract_accepts_this_shape": false
+      }
+    }
+  ]
+}
