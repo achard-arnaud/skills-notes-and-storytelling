@@ -1,0 +1,306 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "analysis-envelope.v1.schema.json",
+  "title": "Analysis envelope v1 — structural validity is not truth or human approval",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "study_ref",
+    "input_revision",
+    "analyses"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "study_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "input_revision": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "analyses": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/analysis"
+      }
+    }
+  },
+  "$defs": {
+    "analysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "method",
+        "method_version",
+        "question",
+        "scope",
+        "as_of",
+        "input_claim_refs",
+        "findings",
+        "counterevidence",
+        "unknowns",
+        "question_ref",
+        "state",
+        "needs_research"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "method_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "as_of": {
+          "type": "string",
+          "format": "date"
+        },
+        "input_claim_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "findings": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "statement",
+              "status",
+              "claim_refs"
+            ],
+            "properties": {
+              "statement": {
+                "type": "string",
+                "minLength": 1
+              },
+              "status": {
+                "enum": [
+                  "attributed_claim",
+                  "inference",
+                  "hypothesis",
+                  "recommendation",
+                  "unknown"
+                ]
+              },
+              "claim_refs": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        },
+        "counterevidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unknowns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "question_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "state": {
+          "enum": [
+            "partial",
+            "complete"
+          ]
+        },
+        "needs_research": {
+          "type": "boolean"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "const": "partial"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "needs_research": {
+                "const": true
+              },
+              "unknowns": {
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "const": "complete"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "input_claim_refs": {
+                "minItems": 1
+              },
+              "findings": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "legacyResult": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "method",
+        "method_version",
+        "question",
+        "scope",
+        "as_of",
+        "input_claim_refs",
+        "findings",
+        "counterevidence",
+        "unknowns",
+        "affects_blocks"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "method_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "as_of": {
+          "type": "string",
+          "format": "date"
+        },
+        "input_claim_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "findings": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "statement",
+              "status",
+              "claim_refs"
+            ],
+            "properties": {
+              "statement": {
+                "type": "string",
+                "minLength": 1
+              },
+              "status": {
+                "enum": [
+                  "attributed_claim",
+                  "inference",
+                  "hypothesis",
+                  "recommendation",
+                  "unknown"
+                ]
+              },
+              "claim_refs": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        },
+        "counterevidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unknowns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "affects_blocks": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}
