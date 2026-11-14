@@ -141,8 +141,11 @@ class CrawlTests(unittest.TestCase):
         c.load_robots()
         c.add(f"https://{HOST}/a/", "seed")
         c.run()
-        md = next((Path(self.tmp.name) / "pages").glob("*.md")).read_text(encoding="utf-8")
-        self.assertIn("# A", md)
+        pages = [path.read_text(encoding="utf-8")
+                 for path in (Path(self.tmp.name) / "pages").glob("*.md")]
+        page_a = [md for md in pages if f"Source: https://{HOST}/a/\n" in md]
+        self.assertEqual(len(page_a), 1, "Expected exactly one extracted page for source A")
+        self.assertIn("# A", page_a[0])
 
 
 
