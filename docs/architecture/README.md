@@ -24,3 +24,7 @@ La racine exprime l’architecture commune. Le sous-projet diagnostic-complet co
 5. En BUILD, proposer un delta borné avec validation adaptée et compatibilité.
 
 Un ADR porte une décision cohérente : contexte, choix, conséquences et condition de réexamen. Une spécification de commande va dans une référence opérationnelle ; un bilan de run dans son reçu privé ou expurgé. Conserver les IDs historiques et marquer les remplacements. Le [registre documentaire](registry.json) est un index de lecture, pas un nouveau manifeste runtime.
+
+
+## Mise à jour PR #300 — 14 novembre 2026
+Lire le [rapport critique](SKILLS-CRITICAL-REVIEW-2026-11-14.md) pour les noms canoniques et les limites des preuves. Le premier lot documentaire de mapping est [#303](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/303), enfant de #295 ; #296/#297/#301 appliquent les mêmes principes selon leur finalité. Consulter le contrat SDLC courant pour les horaires et l’admission, les anciens horaires de cette documentation restent historiques.
