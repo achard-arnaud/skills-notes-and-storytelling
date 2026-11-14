@@ -34,3 +34,8 @@ Side stories are composition artifacts and cannot originate unsupported claims. 
 ## Architecture commune — revue documentaire du 13 novembre 2026
 
 Lire [l’index des décisions](docs/architecture/README.md), puis seulement l’ADR pertinent : routage et méthodes (1001), connaissance (1002), narration et rendu (1003), RUN/BUILD et contexte (1004), loopback et validation (1005), autorités et convergence (1006). Les principes sont approuvés ; les capacités réelles restent définies par les contrats et manifests au SHA du run. Cette publication documentaire ne migre aucun enum ni template. [Couverture des 14 ADR historiques](docs/architecture/ADR-REVIEW-2026-11-13.md).
+
+
+## Hygiène des artefacts RUN et BUILD
+
+Conserver les livrables de run, corpus privés, exports temporaires et captures dans leur destination de travail ou de livraison. Versionner dans le dépôt les méthodes, contrats, documentation de projet et fixtures de régression explicitement curatées. Un exemple public doit être minimal, attribué et autorisé, ou synthétique ; une sortie de run brute ne devient pas une fixture par simple déplacement. Cette règle encadre les nouveaux apports ; les éventuelles migrations de contenus historiques gardent leurs références et reçus.
