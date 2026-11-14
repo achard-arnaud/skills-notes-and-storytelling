@@ -18,5 +18,35 @@
     "C1",
     "C2",
     "C3"
-  ]
+  ],
+  "functional_case": {
+    "origin": "independent synthetic counterfactual; supplementary typed record",
+    "corrected": {
+      "architecture_kept": true,
+      "observed_lag_ms": 240,
+      "reject_above_ms": 300,
+      "posture": "production",
+      "exit_rehearsed": true
+    },
+    "holdouts": [
+      {
+        "id": "T1",
+        "replace": {
+          "observed_lag_ms": 410
+        },
+        "expected_errors": [
+          "countertest_invalidates_choice"
+        ]
+      },
+      {
+        "id": "T2",
+        "replace": {
+          "exit_rehearsed": false
+        },
+        "expected_errors": [
+          "production_without_exit"
+        ]
+      }
+    ]
+  }
 }

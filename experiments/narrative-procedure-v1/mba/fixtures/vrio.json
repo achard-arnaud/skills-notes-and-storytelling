@@ -1,0 +1,65 @@
+{
+  "synthetic": true,
+  "claims": {
+    "C1": "Le banc interne réduit le temps d’un cycle témoin.",
+    "C2": "Les alternatives des concurrents ne sont pas documentées."
+  },
+  "blocks": [
+    "options",
+    "context"
+  ],
+  "result": {
+    "id": "A-vrio",
+    "method": "vrio",
+    "method_version": "1.0",
+    "question": "Cette ressource pourrait-elle soutenir un avantage durable ?",
+    "scope": "Étude synthétique de kits pour ateliers locaux",
+    "as_of": "2026-11-14",
+    "input_claim_refs": [
+      "C1",
+      "C2"
+    ],
+    "findings": [
+      {
+        "statement": "La valeur opérationnelle observée justifie d’instruire rareté et imitation.",
+        "status": "inference",
+        "claim_refs": [
+          "C1",
+          "C2"
+        ]
+      }
+    ],
+    "counterevidence": [
+      "Les observations du pilote peuvent différer sur une autre population."
+    ],
+    "unknowns": [
+      "Transférabilité hors du pilote."
+    ],
+    "affects_blocks": [
+      "options"
+    ]
+  },
+  "positive_details": {
+    "resource": "Banc d’étalonnage",
+    "dimensions": {
+      "value": "supported",
+      "rarity": "unknown",
+      "inimitability": "unknown",
+      "organization": "unknown"
+    },
+    "conclusion": "conditional",
+    "comparison": "Concurrents opérant le même service local."
+  },
+  "negative_details": {
+    "resource": "Banc d’étalonnage",
+    "dimensions": {
+      "value": "supported",
+      "rarity": "unknown",
+      "inimitability": "unknown",
+      "organization": "unknown"
+    },
+    "conclusion": "sustained_advantage",
+    "comparison": "Concurrents opérant le même service local."
+  },
+  "expected_negative": "vrio_evidence"
+}

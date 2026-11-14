@@ -1,0 +1,66 @@
+[
+  {
+    "route": "produit",
+    "mutation": "P1",
+    "previous_exit": 0,
+    "strengthened_errors": [
+      "buyer_prerequisite"
+    ]
+  },
+  {
+    "route": "produit",
+    "mutation": "P2",
+    "previous_exit": 0,
+    "strengthened_errors": [
+      "metric_unavailable_at_decision"
+    ]
+  },
+  {
+    "route": "business",
+    "mutation": "B1",
+    "previous_exit": 0,
+    "strengthened_errors": [
+      "benefit_unobserved"
+    ]
+  },
+  {
+    "route": "business",
+    "mutation": "B2",
+    "previous_exit": 0,
+    "strengthened_errors": [
+      "below_break_even"
+    ]
+  },
+  {
+    "route": "technique",
+    "mutation": "T1",
+    "previous_exit": 0,
+    "strengthened_errors": [
+      "countertest_invalidates_choice"
+    ]
+  },
+  {
+    "route": "technique",
+    "mutation": "T2",
+    "previous_exit": 0,
+    "strengthened_errors": [
+      "production_without_exit"
+    ]
+  },
+  {
+    "route": "pedagogie",
+    "mutation": "E1",
+    "previous_exit": 0,
+    "strengthened_errors": [
+      "incorrect_key"
+    ]
+  },
+  {
+    "route": "pedagogie",
+    "mutation": "E2",
+    "previous_exit": 0,
+    "strengthened_errors": [
+      "repeated_material"
+    ]
+  }
+]

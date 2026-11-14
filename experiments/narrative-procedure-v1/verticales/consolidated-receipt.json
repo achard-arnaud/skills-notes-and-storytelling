@@ -119,5 +119,71 @@
       "defects": [],
       "exercise_gate": "PASS"
     }
+  },
+  "functional_review": {
+    "produit": [
+      {
+        "variant": "P1",
+        "v1_observed": [
+          "buyer_prerequisite"
+        ],
+        "v2_observed": []
+      },
+      {
+        "variant": "P2",
+        "v1_observed": [
+          "metric_unavailable_at_decision"
+        ],
+        "v2_observed": []
+      }
+    ],
+    "business": [
+      {
+        "variant": "B1",
+        "v1_observed": [
+          "benefit_unobserved"
+        ],
+        "v2_observed": []
+      },
+      {
+        "variant": "B2",
+        "v1_observed": [
+          "below_break_even"
+        ],
+        "v2_observed": []
+      }
+    ],
+    "technique": [
+      {
+        "variant": "T1",
+        "v1_observed": [
+          "countertest_invalidates_choice"
+        ],
+        "v2_observed": []
+      },
+      {
+        "variant": "T2",
+        "v1_observed": [
+          "production_without_exit"
+        ],
+        "v2_observed": []
+      }
+    ],
+    "pedagogie": [
+      {
+        "variant": "E1",
+        "v1_observed": [
+          "incorrect_key"
+        ],
+        "v2_observed": []
+      },
+      {
+        "variant": "E2",
+        "v1_observed": [
+          "repeated_material"
+        ],
+        "v2_observed": []
+      }
+    ]
   }
 }

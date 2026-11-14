@@ -31,5 +31,36 @@
     "facts": "La fixture donne un coût de lancement de 1 200 euros et une économie unitaire supposée de 8 euros.",
     "comparison": "À 100 dossiers, la contribution vaut −400 euros. À 200 dossiers, elle vaut +400 euros.",
     "action": "La responsable opérations mesurera volume et économie unitaire sur un échantillon avant engagement."
+  },
+  "functional_case": {
+    "origin": "independent synthetic counterfactual; supplementary typed record",
+    "corrected": {
+      "decision": "book_gain",
+      "saving_basis": "measured",
+      "eligible_volume": 175,
+      "unit_saving": 8,
+      "fixed_cost": 1200,
+      "break_even_cases": 150
+    },
+    "holdouts": [
+      {
+        "id": "B1",
+        "replace": {
+          "saving_basis": "supplier_estimate"
+        },
+        "expected_errors": [
+          "benefit_unobserved"
+        ]
+      },
+      {
+        "id": "B2",
+        "replace": {
+          "eligible_volume": 110
+        },
+        "expected_errors": [
+          "below_break_even"
+        ]
+      }
+    ]
   }
 }

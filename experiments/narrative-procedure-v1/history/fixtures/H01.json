@@ -1,0 +1,23 @@
+{
+  "id": "H01",
+  "vertical": "produit",
+  "template": "two-pager",
+  "synthetic": true,
+  "negative_origin": "observed_review",
+  "brief": "Une équipe propose un assistant pour classer des formulaires. Le brief décrit une interface conversationnelle.",
+  "v1": {
+    "text": "Le pilote charge les formulaires automatiquement [C7].",
+    "features": {
+      "requires_external_legend": true,
+      "input_capability": "assumed"
+    }
+  },
+  "v2": {
+    "text": "Vérifier avec un formulaire fictif que la saisie est possible. Si elle échoue, reporter le pilote. La fiche de démo du fournisseur décrit seulement le dialogue.",
+    "features": {
+      "requires_external_legend": false,
+      "input_capability": "to_verify"
+    }
+  },
+  "oracle": "standalone_capability"
+}

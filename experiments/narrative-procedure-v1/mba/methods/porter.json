@@ -1,0 +1,23 @@
+{
+  "id": "porter",
+  "name": "Cinq forces de Porter",
+  "version": "1.0",
+  "trigger": "Comparer les forces qui conditionnent la captation de valeur dans un secteur défini.",
+  "question": "Quelle pression structurelle mérite une contre-mesure ?",
+  "required_inputs": [
+    "question et périmètre",
+    "claims identifiés à date",
+    "bloc consommateur"
+  ],
+  "procedure": [
+    "Établir produit, territoire et limites du marché.",
+    "Examiner clients, fournisseurs, entrants, substituts et rivalité, avec preuves ou inconnues.",
+    "Relier la force matérielle à un mécanisme de prix, coût ou accès.",
+    "Tester une explication alternative avant de recommander une posture."
+  ],
+  "stop_when": "Arrêter après une conclusion bornée avec contre-épreuve, ou consigner la preuve manquante.",
+  "evidence_limit": "La structure du secteur n’établit pas la rentabilité propre à l’entreprise.",
+  "method_source": "https://www.isc.hbs.edu/strategy/business-strategy/Pages/the-five-forces.aspx",
+  "output_contract": "AnalysisResult",
+  "example": "../fixtures/porter.json"
+}

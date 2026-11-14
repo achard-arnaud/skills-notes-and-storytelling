@@ -131,5 +131,11 @@
       "review": "reviewer",
       "delivery": "delivery"
     }
+  },
+  "functional_review": {
+    "fixture": "two-pager/fixture.json",
+    "oracle": "../functional_review.py",
+    "reopen": "bloc dépendant puis revue",
+    "evidence": "../../NARRATIVE.md"
   }
 }

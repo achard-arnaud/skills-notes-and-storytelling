@@ -1,0 +1,25 @@
+{
+  "id": "H05",
+  "vertical": "technique",
+  "template": "integration-note",
+  "synthetic": true,
+  "negative_origin": "cross_format_negative_constructed",
+  "brief": "Un service fictif de gestion documentaire publie un statut de validation dont dépend une application cliente.",
+  "v1": {
+    "text": "La publication du statut garantit le blocage des documents en attente.",
+    "features": {
+      "consumer_check": "unverified",
+      "guaranteed": true,
+      "countertest": null
+    }
+  },
+  "v2": {
+    "text": "L’application cliente doit vérifier le statut. Avant le pilote, envoyer un document en attente dans un environnement de démonstration et vérifier que sa diffusion est bloquée.",
+    "features": {
+      "consumer_check": "unverified",
+      "guaranteed": false,
+      "countertest": "document en attente bloqué"
+    }
+  },
+  "oracle": "integration_boundary"
+}

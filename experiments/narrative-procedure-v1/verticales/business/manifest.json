@@ -102,5 +102,11 @@
       ],
       "fixture": "fixtures/diagnostic-reco-sellside.json"
     }
+  },
+  "functional_review": {
+    "fixture": "fixtures/one-pager.json",
+    "oracle": "../functional_review.py",
+    "reopen": "bloc dépendant puis revue",
+    "evidence": "../../NARRATIVE.md"
   }
 }

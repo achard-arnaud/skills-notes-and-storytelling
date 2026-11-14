@@ -1,0 +1,41 @@
+{
+  "version": "1.0",
+  "contract": "analysis-result.schema.json (canonical upstream)",
+  "methods": {
+    "swot-tows": {
+      "asset": "methods/swot-tows.json",
+      "fixture": "fixtures/swot-tows.json",
+      "dispatch_question": "Quelle option exploite une force pour saisir une occasion ?"
+    },
+    "pestel": {
+      "asset": "methods/pestel.json",
+      "fixture": "fixtures/pestel.json",
+      "dispatch_question": "Quel changement externe peut déplacer le calendrier d’achat ?"
+    },
+    "porter": {
+      "asset": "methods/porter.json",
+      "fixture": "fixtures/porter.json",
+      "dispatch_question": "Quelle pression structurelle mérite une contre-mesure ?"
+    },
+    "ishikawa": {
+      "asset": "methods/ishikawa.json",
+      "fixture": "fixtures/ishikawa.json",
+      "dispatch_question": "Quelles causes possibles faut-il départager pour réduire les retours ?"
+    },
+    "marketing-4p": {
+      "asset": "methods/marketing-4p.json",
+      "fixture": "fixtures/marketing-4p.json",
+      "dispatch_question": "Quelle combinaison d’offre, de prix et de distribution tester ?"
+    },
+    "vrio": {
+      "asset": "methods/vrio.json",
+      "fixture": "fixtures/vrio.json",
+      "dispatch_question": "Cette ressource pourrait-elle soutenir un avantage durable ?"
+    },
+    "unit-economics": {
+      "asset": "methods/unit-economics.json",
+      "fixture": "fixtures/unit-economics.json",
+      "dispatch_question": "Quel volume rendrait l’essai économiquement viable ?"
+    }
+  }
+}

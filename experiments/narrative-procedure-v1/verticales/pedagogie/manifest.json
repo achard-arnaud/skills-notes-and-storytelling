@@ -58,5 +58,11 @@
     "objectif_ambigu": "directeur",
     "mise_en_page": "livraison"
   },
-  "fixture": "fixture.json"
+  "fixture": "fixture.json",
+  "functional_review": {
+    "fixture": "fixture.json",
+    "oracle": "../functional_review.py",
+    "reopen": "bloc dépendant puis revue",
+    "evidence": "../../NARRATIVE.md"
+  }
 }

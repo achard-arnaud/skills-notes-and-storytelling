@@ -1,0 +1,63 @@
+{
+  "synthetic": true,
+  "claims": {
+    "C1": "Deux fournisseurs assurent les composants du pilote.",
+    "C2": "Changer de composant exige une nouvelle qualification."
+  },
+  "blocks": [
+    "options",
+    "context"
+  ],
+  "result": {
+    "id": "A-porter",
+    "method": "porter",
+    "method_version": "1.0",
+    "question": "Quelle pression structurelle mérite une contre-mesure ?",
+    "scope": "Étude synthétique de kits pour ateliers locaux",
+    "as_of": "2026-11-14",
+    "input_claim_refs": [
+      "C1",
+      "C2"
+    ],
+    "findings": [
+      {
+        "statement": "La requalification pourrait accroître le pouvoir de négociation des fournisseurs.",
+        "status": "inference",
+        "claim_refs": [
+          "C1",
+          "C2"
+        ]
+      }
+    ],
+    "counterevidence": [
+      "Les observations du pilote peuvent différer sur une autre population."
+    ],
+    "unknowns": [
+      "Transférabilité hors du pilote."
+    ],
+    "affects_blocks": [
+      "options"
+    ]
+  },
+  "positive_details": {
+    "market": "Maintenance locale des capteurs de froid",
+    "forces": {
+      "suppliers": "candidate",
+      "buyers": "unknown",
+      "entrants": "unknown",
+      "substitutes": "unknown",
+      "rivalry": "unknown"
+    },
+    "driver": "Qualification longue d’un composant de remplacement.",
+    "countertest": "Chiffrer le coût et le délai d’une seconde source."
+  },
+  "negative_details": {
+    "market": "Maintenance locale des capteurs de froid",
+    "forces": {
+      "rivalry": "candidate"
+    },
+    "driver": "Qualification longue d’un composant de remplacement.",
+    "countertest": "Chiffrer le coût et le délai d’une seconde source."
+  },
+  "expected_negative": "porter_coverage"
+}

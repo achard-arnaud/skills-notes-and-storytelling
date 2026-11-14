@@ -1,0 +1,23 @@
+{
+  "id": "vrio",
+  "name": "VRIO",
+  "version": "1.0",
+  "trigger": "Qualifier une capacité propre à l’organisation et les conditions de sa captation.",
+  "question": "Cette ressource pourrait-elle soutenir un avantage durable ?",
+  "required_inputs": [
+    "question et périmètre",
+    "claims identifiés à date",
+    "bloc consommateur"
+  ],
+  "procedure": [
+    "Nommer une ressource précise et le mécanisme de valeur.",
+    "Examiner rareté parmi les concurrents et coûts d’imitation.",
+    "Vérifier gouvernance, processus et moyens d’exploitation.",
+    "Conclure au niveau permis par la dimension la moins étayée."
+  ],
+  "stop_when": "Arrêter après une conclusion bornée avec contre-épreuve, ou consigner la preuve manquante.",
+  "evidence_limit": "La valeur seule laisse ouvertes la rareté, l’imitabilité et l’organisation.",
+  "method_source": "https://open.oregonstate.education/strategicmanagement/chapter/4-vrio-analysis/",
+  "output_contract": "AnalysisResult",
+  "example": "../fixtures/vrio.json"
+}

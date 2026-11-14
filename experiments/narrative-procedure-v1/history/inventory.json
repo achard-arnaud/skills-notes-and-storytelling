@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "access": "Material in supplied conversation, paired outputs and native archive artifacts. Personal Context search unavailable. No full-account transcript export.",
+  "cases": [
+    {
+      "id": "H01",
+      "vertical": "produit",
+      "target_template": "two-pager",
+      "source_access": "conversation_and_paired_replay",
+      "observed_pattern": "Le lecteur isolé dépendait de codes résolus dans une annexe. La revue aveugle signalait également une capacité d’entrée documentaire à vérifier.",
+      "defect_origin": "observed_review",
+      "fixture": "fixtures/H01.json"
+    },
+    {
+      "id": "H02",
+      "vertical": "produit",
+      "target_template": "opportunity-note-icp",
+      "source_access": "original_output_excerpt",
+      "observed_pattern": "La note de positionnement distinguait le client idéal inféré, le problème utilisateur et les alternatives en place.",
+      "defect_origin": "positive_pattern_negative_constructed",
+      "fixture": "fixtures/H02.json"
+    },
+    {
+      "id": "H03",
+      "vertical": "business",
+      "target_template": "two-pager",
+      "source_access": "original_output_read",
+      "observed_pattern": "Le livrable distinguait le prix observable du produit actuel et l’économie inconnue d’une extension adjacente.",
+      "defect_origin": "positive_pattern_negative_constructed",
+      "fixture": "fixtures/H03.json"
+    },
+    {
+      "id": "H04",
+      "vertical": "business",
+      "target_template": "strategic-market-note",
+      "source_access": "original_output_excerpt_and_user_steering",
+      "observed_pattern": "La demande de révision appelait deux activités et leurs mécanismes de valeur. La version approfondie les distinguait avec des métriques et des risques propres. La première version exacte est indisponible.",
+      "defect_origin": "requested_revision_observed_in_later_output",
+      "fixture": "fixtures/H04.json"
+    },
+    {
+      "id": "H05",
+      "vertical": "technique",
+      "target_template": "integration-note",
+      "source_access": "original_output_read_cross_format",
+      "observed_pattern": "Le schéma de la note source rendait explicite le composant qui applique la décision et l’inconnue opérationnelle. Transfert du two-pager à la note d’intégration.",
+      "defect_origin": "cross_format_negative_constructed",
+      "fixture": "fixtures/H05.json"
+    },
+    {
+      "id": "H06",
+      "vertical": "pedagogie",
+      "target_template": "ai-enterprise-learning-six-page",
+      "source_access": "original_output_excerpt",
+      "observed_pattern": "La fiche passait d’un conseil vague à un événement observable et une action corrective. Le transfert porte sur un bloc pédagogique.",
+      "defect_origin": "positive_pattern_negative_constructed",
+      "fixture": "fixtures/H06.json"
+    }
+  ]
+}

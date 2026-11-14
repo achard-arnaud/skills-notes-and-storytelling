@@ -1,0 +1,30 @@
+{
+  "swot-tows": {
+    "positive": "PASS",
+    "negative_rejected_for": "tows_pair"
+  },
+  "pestel": {
+    "positive": "PASS",
+    "negative_rejected_for": "pestel_status"
+  },
+  "porter": {
+    "positive": "PASS",
+    "negative_rejected_for": "porter_coverage"
+  },
+  "ishikawa": {
+    "positive": "PASS",
+    "negative_rejected_for": "ishikawa_cause"
+  },
+  "marketing-4p": {
+    "positive": "PASS",
+    "negative_rejected_for": "marketing_demand"
+  },
+  "vrio": {
+    "positive": "PASS",
+    "negative_rejected_for": "vrio_evidence"
+  },
+  "unit-economics": {
+    "positive": "PASS",
+    "negative_rejected_for": "unit_threshold"
+  }
+}

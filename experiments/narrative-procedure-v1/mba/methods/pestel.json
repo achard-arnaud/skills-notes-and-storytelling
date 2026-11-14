@@ -1,0 +1,23 @@
+{
+  "id": "pestel",
+  "name": "PESTEL",
+  "version": "1.0",
+  "trigger": "Qualifier une exposition à un changement macro et décider quoi surveiller.",
+  "question": "Quel changement externe peut déplacer le calendrier d’achat ?",
+  "required_inputs": [
+    "question et périmètre",
+    "claims identifiés à date",
+    "bloc consommateur"
+  ],
+  "procedure": [
+    "Définir territoire, horizon et décision.",
+    "Examiner les six dimensions, marquer les lacunes et retenir les facteurs matériels.",
+    "Distinguer événement constaté, scénario et canal de transmission vers la cible.",
+    "Donner un indicateur avancé, un responsable de veille et un critère de révision."
+  ],
+  "stop_when": "Arrêter après une conclusion bornée avec contre-épreuve, ou consigner la preuve manquante.",
+  "evidence_limit": "Une proposition de texte ou un signal social ne prouve ni entrée en vigueur ni achat.",
+  "method_source": "https://openstax.org/books/principles-marketing/pages/12-3-the-five-step-procedure-for-establishing-pricing-policy",
+  "output_contract": "AnalysisResult",
+  "example": "../fixtures/pestel.json"
+}

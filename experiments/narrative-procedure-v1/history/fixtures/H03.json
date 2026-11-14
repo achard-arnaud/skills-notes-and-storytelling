@@ -1,0 +1,25 @@
+{
+  "id": "H03",
+  "vertical": "business",
+  "template": "two-pager",
+  "synthetic": true,
+  "negative_origin": "positive_pattern_negative_constructed",
+  "brief": "Un abonnement fictif coûte 12 unités par utilisateur. Un nouveau module est annoncé sans prix.",
+  "v1": {
+    "text": "Le module supplémentaire rapporte 12 unités par utilisateur.",
+    "features": {
+      "published_price_scope": "core",
+      "revenue_scope": "extension",
+      "extension_revenue": 12
+    }
+  },
+  "v2": {
+    "text": "Le tarif de 12 concerne l’abonnement actuel. Le revenu du module reste inconnu jusqu’à la mesure du prix et du taux de souscription.",
+    "features": {
+      "published_price_scope": "core",
+      "revenue_scope": "extension",
+      "extension_revenue": null
+    }
+  },
+  "oracle": "scope_revenue"
+}

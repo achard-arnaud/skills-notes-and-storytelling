@@ -9,3 +9,7 @@ Le lecteur doit pouvoir décider quoi financer, dans quel périmètre et à quel
 5. Un changement de coût, de volume ou de périmètre rouvre les calculs et les recommandations qui en dépendent. Une modification purement éditoriale rouvre la revue du bloc concerné.
 
 Les blocs du manifeste sont des repères de sélection et des fixtures d’interface. Le contrat canonique de chaque template porte la totalité de ses obligations. Le format approfondi demande, entre autres, des comparateurs réellement sourcés. Une donnée manquante ouvre une investigation.
+
+## Revue fonctionnelle
+
+Calculer le seuil sur les unités compatibles. Pour comptabiliser un gain, vérifier origine de la mesure et volume éligible. Sinon présenter un scénario conditionnel.

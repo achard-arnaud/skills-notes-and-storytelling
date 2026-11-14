@@ -1,0 +1,27 @@
+{
+  "id": "H06",
+  "vertical": "pedagogie",
+  "template": "ai-enterprise-learning-six-page",
+  "synthetic": true,
+  "negative_origin": "positive_pattern_negative_constructed",
+  "brief": "Un apprenant contrôle une synthèse d’inventaire fictive.",
+  "v1": {
+    "text": "Vérifier la qualité de la synthèse.",
+    "features": {
+      "observable": null,
+      "trigger": null,
+      "corrective_action": null,
+      "retry": null
+    }
+  },
+  "v2": {
+    "text": "Comparer le numéro de lot à la source. Si le numéro diffère, suspendre la diffusion, corriger et refaire la comparaison sur un autre lot.",
+    "features": {
+      "observable": "numéro de lot",
+      "trigger": "différence",
+      "corrective_action": "suspendre et corriger",
+      "retry": "autre lot"
+    }
+  },
+  "oracle": "observable_learning"
+}

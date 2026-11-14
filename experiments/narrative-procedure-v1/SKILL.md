@@ -41,6 +41,10 @@ Le livrable diffusé seul reste compréhensible : résoudre les codes de source/
 
 Pour une note à plusieurs blocs ou une révision ciblée, ouvrir [le registre des quatre verticales](verticales/registry.json). Choisir le couple route et template, puis ouvrir le profil et le manifeste indiqués. Le manifeste attribue les blocs aux rôles et indique la fixture à rejouer après modification. Une tâche simple peut suivre directement le contrat de format. [Résultats du second essai et revue de consolidation](verticales/README.md).
 
+## Sélectionner une méthode et reprendre le run
+
+Pour une analyse spécialisée, sélectionner le bloc à éclairer dans le manifeste route–format, puis choisir une seule carte dans [le registre MBA](mba/registry.json) selon la question résiduelle. Enregistrer un AnalysisResult avec les claims d’entrée, le statut de la conclusion, la contre-épreuve et les blocs affectés. Le rédacteur conserve le mandat et reprend les blocs référencés. Lors d’un changement de verticale ou de source, suivre [le protocole de reprise](refs/reprise.md). Les corpus historiques et fixtures servent à la maintenance. Pour rédiger, ouvrir uniquement les ressources du mandat courant.
+
 ## Ressources conditionnelles
 - [Routage et formats](references/routing.md) : intention/format ou révision de format.
 - [Charte rédactionnelle](references/editorial.md) : conception et rédaction.
@@ -48,4 +52,5 @@ Pour une note à plusieurs blocs ou une révision ciblée, ouvrir [le registre d
 - [Interface d’analyse](references/analysis-interface.md) : import ou demande d’analyse.
 - [Three-pager candidat](references/three-pager.md) : seulement si ce format est demandé.
 - [Sources de méthode](references/sources.md) : audit ou approfondissement de la méthode.
+
 

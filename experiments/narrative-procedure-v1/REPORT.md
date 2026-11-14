@@ -59,3 +59,6 @@ Le schéma et le validateur acceptent un résultat semi-structuré, ses input_cl
 ## Conditions qui changeraient la recommandation
 Rejeter ou restreindre la factorisation si elle fait disparaître une exigence métier, augmente les références non chargées, exige des retours fréquents au canon ou dégrade l’apprentissage/les compromis techniques. Renforcer l’adoption si des cas indépendants multi-domaines et une reprise à froid montrent fidélité, autonomie et contrôle de l’effort.
 
+
+
+[Cycle suivant : archives, bibliothèque MBA et essai apparié business](REPORT-R3.md).

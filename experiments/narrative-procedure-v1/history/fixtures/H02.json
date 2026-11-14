@@ -1,0 +1,25 @@
+{
+  "id": "H02",
+  "vertical": "produit",
+  "template": "opportunity-note-icp",
+  "synthetic": true,
+  "negative_origin": "positive_pattern_negative_constructed",
+  "brief": "Un éditeur propose une base de procédures pour ateliers. Aucun acheteur identifié.",
+  "v1": {
+    "text": "Le directeur de site achètera le produit.",
+    "features": {
+      "buyer_status": "confirmed",
+      "budget_owner_verified": false,
+      "alternative": null
+    }
+  },
+  "v2": {
+    "text": "Le responsable d’atelier est une cible hypothétique. Interroger le propriétaire du budget et comparer avec le processus documentaire actuel.",
+    "features": {
+      "buyer_status": "hypothesis",
+      "budget_owner_verified": false,
+      "alternative": "processus documentaire actuel"
+    }
+  },
+  "oracle": "buyer_qualification"
+}

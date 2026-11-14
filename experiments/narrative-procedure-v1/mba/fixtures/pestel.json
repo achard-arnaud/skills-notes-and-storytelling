@@ -1,0 +1,61 @@
+{
+  "synthetic": true,
+  "claims": {
+    "C1": "Une consultation de filière est ouverte sur les certificats.",
+    "C2": "Les achats du pilote exigent actuellement un certificat papier."
+  },
+  "blocks": [
+    "options",
+    "context"
+  ],
+  "result": {
+    "id": "A-pestel",
+    "method": "pestel",
+    "method_version": "1.0",
+    "question": "Quel changement externe peut déplacer le calendrier d’achat ?",
+    "scope": "Étude synthétique de kits pour ateliers locaux",
+    "as_of": "2026-11-14",
+    "input_claim_refs": [
+      "C1",
+      "C2"
+    ],
+    "findings": [
+      {
+        "statement": "Une éventuelle adoption du nouveau certificat déplacerait le calendrier d’achat.",
+        "status": "hypothesis",
+        "claim_refs": [
+          "C1",
+          "C2"
+        ]
+      }
+    ],
+    "counterevidence": [
+      "Les observations du pilote peuvent différer sur une autre population."
+    ],
+    "unknowns": [
+      "Transférabilité hors du pilote."
+    ],
+    "affects_blocks": [
+      "options"
+    ]
+  },
+  "positive_details": {
+    "axis": "legal",
+    "origin": "external",
+    "event_status": "proposal",
+    "application": "conditional",
+    "horizon": "12 mois",
+    "mechanism": "Modifier le justificatif exigé lors de la commande.",
+    "indicator": "Publication de la règle finale."
+  },
+  "negative_details": {
+    "axis": "legal",
+    "origin": "external",
+    "event_status": "proposal",
+    "application": "in_force",
+    "horizon": "12 mois",
+    "mechanism": "Modifier le justificatif exigé lors de la commande.",
+    "indicator": "Publication de la règle finale."
+  },
+  "expected_negative": "pestel_status"
+}

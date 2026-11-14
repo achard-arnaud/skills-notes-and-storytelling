@@ -1,0 +1,61 @@
+{
+  "synthetic": true,
+  "claims": {
+    "C1": "Scénario fictif mensuel : prix 30 EUR, coût variable 20 EUR par kit.",
+    "C2": "Le coût fixe du mois est de 105 EUR."
+  },
+  "blocks": [
+    "options",
+    "context"
+  ],
+  "result": {
+    "id": "A-unit-economics",
+    "method": "unit-economics",
+    "method_version": "1.0",
+    "question": "Quel volume rendrait l’essai économiquement viable ?",
+    "scope": "Étude synthétique de kits pour ateliers locaux",
+    "as_of": "2026-11-14",
+    "input_claim_refs": [
+      "C1",
+      "C2"
+    ],
+    "findings": [
+      {
+        "statement": "Il faudrait vendre au moins onze kits dans le mois aux conditions du scénario.",
+        "status": "inference",
+        "claim_refs": [
+          "C1",
+          "C2"
+        ]
+      }
+    ],
+    "counterevidence": [
+      "Les observations du pilote peuvent différer sur une autre population."
+    ],
+    "unknowns": [
+      "Transférabilité hors du pilote."
+    ],
+    "affects_blocks": [
+      "options"
+    ]
+  },
+  "positive_details": {
+    "unit": "kit",
+    "period": "mois",
+    "currency": "EUR",
+    "price": 30,
+    "variable": 20,
+    "fixed": 105,
+    "break_even": 11
+  },
+  "negative_details": {
+    "unit": "kit",
+    "period": "mois",
+    "currency": "EUR",
+    "price": 30,
+    "variable": 20,
+    "fixed": 105,
+    "break_even": 10
+  },
+  "expected_negative": "unit_threshold"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "swot-tows",
+  "name": "SWOT → TOWS",
+  "version": "1.0",
+  "trigger": "Convertir des facteurs internes et externes qualifiés en options testables.",
+  "question": "Quelle option exploite une force pour saisir une occasion ?",
+  "required_inputs": [
+    "question et périmètre",
+    "claims identifiés à date",
+    "bloc consommateur"
+  ],
+  "procedure": [
+    "Délimiter activité, horizon et décideur.",
+    "Classer chaque facteur par origine et effet pour le sujet, avec ses claims.",
+    "Croiser une paire interne/externe en SO, ST, WO ou WT et expliciter le mécanisme.",
+    "Comparer option, coût de mise à l’épreuve et observation qui ferait renoncer."
+  ],
+  "stop_when": "Arrêter après une conclusion bornée avec contre-épreuve, ou consigner la preuve manquante.",
+  "evidence_limit": "Une combinaison fournit une option stratégique ; sa réussite reste à éprouver.",
+  "method_source": "https://www.sciencedirect.com/science/article/pii/0024630182901200",
+  "output_contract": "AnalysisResult",
+  "example": "../fixtures/swot-tows.json"
+}

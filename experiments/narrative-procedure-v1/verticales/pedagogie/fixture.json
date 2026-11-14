@@ -29,5 +29,64 @@
     "Tâches A/B/C indisponibles dans le support",
     "Corrigé inaccessible",
     "Réessai absent"
-  ]
+  ],
+  "functional_case": {
+    "origin": "independent synthetic counterfactual; supplementary typed record",
+    "corrected": {
+      "cards": {
+        "A": {
+          "condition": "legible_match",
+          "material": "imprimé 24"
+        },
+        "B": {
+          "condition": "derived_only",
+          "material": "total calculé 30"
+        },
+        "C": {
+          "condition": "illegible",
+          "material": "montant occulté"
+        }
+      },
+      "answers": {
+        "A": "accept",
+        "B": "flag",
+        "C": "suspend"
+      },
+      "transfer": {
+        "id": "D",
+        "condition": "illegible",
+        "material": "date tachée",
+        "answer": "suspend"
+      }
+    },
+    "holdouts": [
+      {
+        "id": "E1",
+        "replace": {
+          "answers": {
+            "A": "accept",
+            "B": "accept",
+            "C": "suspend"
+          }
+        },
+        "expected_errors": [
+          "incorrect_key"
+        ]
+      },
+      {
+        "id": "E2",
+        "replace": {
+          "transfer": {
+            "id": "D",
+            "condition": "illegible",
+            "material": "montant occulté",
+            "answer": "suspend"
+          }
+        },
+        "expected_errors": [
+          "repeated_material"
+        ]
+      }
+    ]
+  }
 }

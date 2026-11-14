@@ -5,6 +5,8 @@ from pathlib import Path
 import subprocess
 import sys
 
+from functional_review import replay as replay_functional
+
 ROOT = Path(__file__).resolve().parent
 
 
@@ -27,6 +29,7 @@ def main():
             command.extend(["--repo", str(args.repo.resolve())] if args.repo else ["--snapshot", str(args.snapshot.resolve())])
         run = subprocess.run(command, capture_output=True, text=True, check=True)
         results[route] = json.loads(run.stdout)
+    results["functional_review"] = replay_functional()
     print(json.dumps(results, ensure_ascii=False, indent=2))
 
 

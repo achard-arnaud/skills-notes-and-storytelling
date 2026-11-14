@@ -1,0 +1,150 @@
+{
+  "routes": 4,
+  "bindings": [
+    {
+      "route": "produit",
+      "template": "two-pager",
+      "blocks": [
+        "P1",
+        "P2",
+        "P3"
+      ]
+    },
+    {
+      "route": "produit",
+      "template": "opportunity-note-icp",
+      "blocks": [
+        "I1",
+        "I2",
+        "I3"
+      ]
+    },
+    {
+      "route": "produit",
+      "template": "three-pager",
+      "blocks": [
+        "T1",
+        "T2",
+        "T3"
+      ]
+    },
+    {
+      "route": "business",
+      "template": "one-pager",
+      "blocks": [
+        "thesis",
+        "facts",
+        "comparison",
+        "action"
+      ]
+    },
+    {
+      "route": "business",
+      "template": "two-pager",
+      "blocks": [
+        "truth",
+        "mechanism",
+        "unknowns",
+        "uses",
+        "next_step"
+      ]
+    },
+    {
+      "route": "business",
+      "template": "benchmarking",
+      "blocks": [
+        "baseline",
+        "criteria",
+        "hard_gates",
+        "peers",
+        "falsifier"
+      ]
+    },
+    {
+      "route": "business",
+      "template": "buy-side-gap-analysis",
+      "blocks": [
+        "baseline",
+        "target",
+        "capability_gap",
+        "economics",
+        "rollback"
+      ]
+    },
+    {
+      "route": "business",
+      "template": "strategic-market-note",
+      "blocks": [
+        "thesis",
+        "market_signal",
+        "local_exposure",
+        "mechanism",
+        "alternatives",
+        "test"
+      ]
+    },
+    {
+      "route": "business",
+      "template": "diagnostic-reco-sellside",
+      "blocks": [
+        "commercial_thesis",
+        "buyer",
+        "value_unit",
+        "pricing",
+        "proof",
+        "owner"
+      ]
+    },
+    {
+      "route": "technique",
+      "template": "architecture-note",
+      "blocks": [
+        "boundary",
+        "flow",
+        "failure",
+        "alternative",
+        "countertest"
+      ]
+    },
+    {
+      "route": "technique",
+      "template": "integration-note",
+      "blocks": [
+        "party_truth",
+        "decision",
+        "posture",
+        "pilot",
+        "exit"
+      ]
+    },
+    {
+      "route": "pedagogie",
+      "template": "ai-enterprise-learning-six-page",
+      "blocks": [
+        "understand",
+        "transmit",
+        "diagnose",
+        "integrate",
+        "value",
+        "act"
+      ]
+    }
+  ],
+  "fixtures_by_template": {
+    "two-pager": 4,
+    "opportunity-note-icp": 2,
+    "three-pager": 1,
+    "one-pager": 1,
+    "benchmarking": 1,
+    "buy-side-gap-analysis": 1,
+    "strategic-market-note": 2,
+    "diagnostic-reco-sellside": 1,
+    "architecture-note": 1,
+    "integration-note": 2,
+    "ai-enterprise-learning-six-page": 2
+  },
+  "schema_valid_mba_results": 7,
+  "example_bound_block": [
+    "thesis"
+  ]
+}

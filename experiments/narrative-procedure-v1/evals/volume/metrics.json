@@ -1,0 +1,168 @@
+{
+  "A": {
+    "reads": 11,
+    "bytes": 49597,
+    "words": 6575,
+    "unique_files": 10,
+    "ledger": [
+      {
+        "path": "baseline/AGENTS.md",
+        "bytes": 1922,
+        "sha256": "140a1c59d0f846f3f3fa1a0b5d6950d70521eec51232d9b8d73f2d131c6a7894",
+        "words": 251
+      },
+      {
+        "path": "baseline/SKILL.md",
+        "bytes": 12928,
+        "sha256": "16d971f170aa562058714e6a45ec972c2ea28dad00aee53a09d7c2078804214d",
+        "words": 1591
+      },
+      {
+        "path": "baseline/docs/architecture/README.md",
+        "bytes": 2058,
+        "sha256": "e6c2eb297ee5e591120501c3e757d9559ee935c070e050319d5542196d69c22a",
+        "words": 265
+      },
+      {
+        "path": "baseline/references/modes.md",
+        "bytes": 3706,
+        "sha256": "4e4d021b804c07149ebcdd2d4c6ba5af9b515dc93cd8a26256a3e636a61f6f66",
+        "words": 540
+      },
+      {
+        "path": "baseline/references/workflow.md",
+        "bytes": 7915,
+        "sha256": "4bd831a389a4b7e8abbee59a225663c82b284fed24372a70b04611a5025dcfa8",
+        "words": 1057
+      },
+      {
+        "path": "baseline/templates/one-pager.md",
+        "bytes": 233,
+        "sha256": "cc32526d9f0705d4250571c608f2828783772d55a5ae7a259f1d6b4f0e624cf8",
+        "words": 37
+      },
+      {
+        "path": "baseline/references/versioning-and-lifecycle.md",
+        "bytes": 1719,
+        "sha256": "44c749dcc9ddcc387f05fc5bace4fbda2ca6a64221c706c70098d2d043c2f011",
+        "words": 255
+      },
+      {
+        "path": "baseline/references/bridges-integration-and-run-memory.md",
+        "bytes": 6748,
+        "sha256": "459cf953db1e87fe8723b8296c260e47ebfeb97864d9c8353cceb35bb55e5b46",
+        "words": 899
+      },
+      {
+        "path": "baseline/references/dreaming-self-healing.md",
+        "bytes": 10096,
+        "sha256": "e904690f175326bc8eab668908726262a93ae3df47ae583dd3d2a1050d8c9c6d",
+        "words": 1406
+      },
+      {
+        "path": "baseline/docs/architecture/ADR-1003-narrative-artifacts.md",
+        "bytes": 2039,
+        "sha256": "2646c9784805b96e195ffdfcc9980af833dc54587234d840b2ac376d3233a107",
+        "words": 237
+      },
+      {
+        "path": "baseline/templates/one-pager.md",
+        "bytes": 233,
+        "sha256": "cc32526d9f0705d4250571c608f2828783772d55a5ae7a259f1d6b4f0e624cf8",
+        "words": 37
+      }
+    ]
+  },
+  "B": {
+    "reads": 14,
+    "bytes": 28959,
+    "words": 3521,
+    "unique_files": 14,
+    "ledger": [
+      {
+        "path": "consolidated/SKILL.md",
+        "bytes": 7103,
+        "sha256": "6c66f02d89e892726212756ffb12105e715791a5fb5cf0ac1035f86f62a28dea",
+        "words": 975
+      },
+      {
+        "path": "consolidated/verticales/registry.json",
+        "bytes": 1567,
+        "sha256": "d1b7f515f51b8fa970b3e58ab526bc4f1bb4cc637c811763830d484fbc197629",
+        "words": 79
+      },
+      {
+        "path": "consolidated/mba/registry.json",
+        "bytes": 1514,
+        "sha256": "deb15eac82acfdc0d52ae74951239552660369a3c8fb6d6f7362ea545a1d60d7",
+        "words": 128
+      },
+      {
+        "path": "baseline/templates/one-pager.md",
+        "bytes": 233,
+        "sha256": "cc32526d9f0705d4250571c608f2828783772d55a5ae7a259f1d6b4f0e624cf8",
+        "words": 37
+      },
+      {
+        "path": "baseline/AGENTS.md",
+        "bytes": 1922,
+        "sha256": "140a1c59d0f846f3f3fa1a0b5d6950d70521eec51232d9b8d73f2d131c6a7894",
+        "words": 251
+      },
+      {
+        "path": "consolidated/verticales/business/PROFILE.md",
+        "bytes": 1660,
+        "sha256": "572138bca4f88a8382dce6814ddc1c7b0aa704420f4b24f9a424713d2f7bebd2",
+        "words": 242
+      },
+      {
+        "path": "consolidated/verticales/business/manifest.json",
+        "bytes": 2891,
+        "sha256": "6da5c93a0fde3d8ef1f38eb9d7ad6853ee027df9f73928b92398edd99470bad6",
+        "words": 221
+      },
+      {
+        "path": "consolidated/mba/methods/unit-economics.json",
+        "bytes": 1061,
+        "sha256": "950c5de9722f108fcc11ce1fa6e4898df6110f3aee8878287b994f166e452ff7",
+        "words": 108
+      },
+      {
+        "path": "candidate/references/routing.md",
+        "bytes": 1997,
+        "sha256": "61b260947c5385426c458786f2954b42fec82ddf920362899d351e5a4f42bd30",
+        "words": 279
+      },
+      {
+        "path": "candidate/references/analysis-interface.md",
+        "bytes": 1454,
+        "sha256": "f3a26b678f49cc919441a1c22da3634b23eec45dfaea7bcaf0881f81e07b6ce0",
+        "words": 196
+      },
+      {
+        "path": "candidate/references/editorial.md",
+        "bytes": 1707,
+        "sha256": "3b2a249bc02828e91c53570215ce75e5b5b6bbd7ef5c58932cf46b4edda95ae7",
+        "words": 247
+      },
+      {
+        "path": "candidate/references/review.md",
+        "bytes": 1753,
+        "sha256": "279eaf62b454f4280044bf774563772befd2a761f15554fde725bc7343327fd5",
+        "words": 256
+      },
+      {
+        "path": "baseline/docs/architecture/README.md",
+        "bytes": 2058,
+        "sha256": "e6c2eb297ee5e591120501c3e757d9559ee935c070e050319d5542196d69c22a",
+        "words": 265
+      },
+      {
+        "path": "baseline/docs/architecture/ADR-1003-narrative-artifacts.md",
+        "bytes": 2039,
+        "sha256": "2646c9784805b96e195ffdfcc9980af833dc54587234d840b2ac376d3233a107",
+        "words": 237
+      }
+    ]
+  }
+}

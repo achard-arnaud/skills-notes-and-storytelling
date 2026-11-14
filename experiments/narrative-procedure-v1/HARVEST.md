@@ -1,0 +1,22 @@
+# Comparaison de quatre dépôts sources
+
+Lecture du 14 novembre 2026. La comparaison cible le choix d’une méthode, le transfert de son résultat et la charge de lecture du rédacteur. Les deux premières sources ont été relues aux mêmes commits que le cycle précédent. Le mécanisme de délégation et le cas McKinsey étendent le benchmark.
+
+| Source et ressources inspectées | Mécanisme observé | Décision et épreuve locale |
+|---|---|---|
+| [Anthropic, Internal Comms](https://github.com/anthropics/skills/blob/2c5958ecac7cee2b583967a2c4981d0f4a75c579/skills/internal-comms/SKILL.md) et [charte 3P](https://github.com/anthropics/skills/blob/2c5958ecac7cee2b583967a2c4981d0f4a75c579/skills/internal-comms/examples/3p-updates.md) | Le point d’entrée sélectionne une famille de communication. Sa référence fixe ensuite lecteur, granularité, cadence et sections. | Retenir le chargement du seul couple route–format. Tester le two-pager pour deux publics afin de vérifier que chaque profil conserve ses propres attentes. La cadence hebdomadaire appartient au cas 3P. |
+| [Data Storytelling](https://github.com/wshobson/agents/blob/9c61ab243def98f72da12abd41cfcf5bcd91af9d/plugins/business-analytics/skills/data-storytelling/SKILL.md) et [exemples détaillés](https://github.com/wshobson/agents/blob/9c61ab243def98f72da12abd41cfcf5bcd91af9d/plugins/business-analytics/skills/data-storytelling/references/details.md) | La procédure distingue données, interprétation et visuel. La référence développe notamment comparaison, tendance et problème–solution. | Adapter la séquence baseline, observation, hypothèse et décision à la route business. Un rendu qui affirme une économie attribuable sur la seule foi d’une estimation fournisseur doit rouvrir le bloc. Écarter l’obligation de trois arguments et les chiffres des exemples. |
+| [OpenAI Agents SDK, handoffs](https://github.com/openai/openai-agents-python/blob/64fbde5d02b42ae5f9db668eb0184cdb3fc9d775/docs/handoffs.md) et [agents as tools](https://github.com/openai/openai-agents-python/blob/64fbde5d02b42ae5f9db668eb0184cdb3fc9d775/examples/agent_patterns/agents_as_tools.py) | Le handoff transfère la conduite du run. Un filtre peut sélectionner les éléments transmis. Dans l’exemple agents-as-tools, le coordinateur appelle une spécialité puis exploite ses sorties. | Retenir ce deuxième partage de responsabilités pour le MBA. Le rédacteur conserve le mandat, envoie une question et des claims bornés, puis rattache la conclusion et ses limites aux blocs dépendants. Une méthode peut être exécutée par une personne ou un agent. L’installation du SDK et la compaction native de l’historique demanderaient une justification opérationnelle séparée. |
+| [McKinsey, Vizro](https://github.com/mckinsey/vizro/blob/146b932464447c64ee5d19b67aef85ac244d59e2/README.md) | Le projet configure des applications de visualisation de données. | Conserver comme comparable de rendu conditionnel. Le README inspecté établit la vocation de visualisation du toolkit et ne documente aucun framework d’agents de stratégie MBA. Aucun choix de runtime n’en découle. |
+
+## Bootstrap vers la branche étudiée
+
+La [baseline expérimentale](https://github.com/achard-arnaud/skills-notes-and-storytelling/tree/e0c55b5d85ec121add4a9f9b38a910767d8e1cb6/experiments/narrative-procedure-v1) possède déjà quatre routes, des profils spécialisés et un contrat de résultat analytique. Le transfert porte sur la décision de chargement et sur l’acceptation du résultat.
+
+1. Résoudre l’objectif, le lecteur et le couple route–format depuis le registre.
+2. Rechercher les analyses réutilisables à l’horizon du mandat. Ouvrir un seul asset MBA suivant la question encore décisive.
+3. Conserver la méthode, son périmètre, ses entrées, ses hypothèses, sa conclusion, les éléments contraires et les IDs des blocs affectés.
+4. Pour une reprise, relire le checkpoint et les seules dépendances modifiées. La taille des fichiers lus donne une mesure de contexte documentaire. Les tokens facturés et la mémoire interne du modèle demandent une télémétrie distincte.
+5. Vérifier que la correction touche la règle en cause, puis rejouer le témoin et un cas différent. Documenter séparément statut structurel, plausibilité analytique et qualité de lecture.
+
+Périmètre de preuve. Sept fichiers primaires lus sur quatre dépôts à des révisions immuables. Cette comparaison qualifie les mécanismes documentés. Elle ne mesure aucune performance des frameworks externes. Aucun code tiers copié ni exécuté.

@@ -1,0 +1,57 @@
+{
+  "synthetic": true,
+  "claims": {
+    "C1": "Le poste B compte six retours sur vingt dossiers dans la semaine fictive.",
+    "C2": "Le gabarit et la répartition des dossiers ont changé ensemble."
+  },
+  "blocks": [
+    "options",
+    "context"
+  ],
+  "result": {
+    "id": "A-ishikawa",
+    "method": "ishikawa",
+    "method_version": "1.0",
+    "question": "Quelles causes possibles faut-il départager pour réduire les retours ?",
+    "scope": "Étude synthétique de kits pour ateliers locaux",
+    "as_of": "2026-11-14",
+    "input_claim_refs": [
+      "C1",
+      "C2"
+    ],
+    "findings": [
+      {
+        "statement": "Le changement de gabarit pourrait expliquer une partie des retours du poste B.",
+        "status": "hypothesis",
+        "claim_refs": [
+          "C1",
+          "C2"
+        ]
+      }
+    ],
+    "counterevidence": [
+      "Les observations du pilote peuvent différer sur une autre population."
+    ],
+    "unknowns": [
+      "Transférabilité hors du pilote."
+    ],
+    "affects_blocks": [
+      "options"
+    ]
+  },
+  "positive_details": {
+    "effect": "Retours au poste B sur une semaine.",
+    "cause": "Nouveau gabarit",
+    "cause_status": "candidate",
+    "discriminating_test": "Comparer deux lots de dossiers de même complexité avec les deux gabarits.",
+    "confounder": "Complexité des dossiers"
+  },
+  "negative_details": {
+    "effect": "Retours au poste B sur une semaine.",
+    "cause": "Nouveau gabarit",
+    "cause_status": "proven",
+    "discriminating_test": "Comparer deux lots de dossiers de même complexité avec les deux gabarits.",
+    "confounder": "Complexité des dossiers"
+  },
+  "expected_negative": "ishikawa_cause"
+}

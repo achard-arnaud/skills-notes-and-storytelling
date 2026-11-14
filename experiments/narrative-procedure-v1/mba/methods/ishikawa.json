@@ -1,0 +1,23 @@
+{
+  "id": "ishikawa",
+  "name": "Ishikawa",
+  "version": "1.0",
+  "trigger": "Organiser des hypothèses de causes autour d’un effet observé.",
+  "question": "Quelles causes possibles faut-il départager pour réduire les retours ?",
+  "required_inputs": [
+    "question et périmètre",
+    "claims identifiés à date",
+    "bloc consommateur"
+  ],
+  "procedure": [
+    "Définir l’effet, la population et la fenêtre.",
+    "Choisir des branches selon le processus étudié.",
+    "Relier symptômes, causes candidates et observations contradictoires.",
+    "Concevoir un contrôle discriminant pour chaque cause prioritaire."
+  ],
+  "stop_when": "Arrêter après une conclusion bornée avec contre-épreuve, ou consigner la preuve manquante.",
+  "evidence_limit": "Une branche dessine une hypothèse causale. Son existence ne confirme pas la cause.",
+  "method_source": "https://www.ihi.org/library/tools/cause-and-effect-diagram",
+  "output_contract": "AnalysisResult",
+  "example": "../fixtures/ishikawa.json"
+}

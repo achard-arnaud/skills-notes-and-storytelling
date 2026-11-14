@@ -1,0 +1,27 @@
+{
+  "id": "H04",
+  "vertical": "business",
+  "template": "strategic-market-note",
+  "synthetic": true,
+  "negative_origin": "requested_revision_observed_in_later_output",
+  "brief": "Une entreprise fictive fabrique des pièces et vend de la maintenance.",
+  "v1": {
+    "text": "Prioriser les activités selon leur seul chiffre d’affaires consolidé.",
+    "features": {
+      "metrics": {
+        "fabrication": "CA consolidé",
+        "maintenance": "CA consolidé"
+      }
+    }
+  },
+  "v2": {
+    "text": "Comparer la marge par pièce et le coût d’intervention par contrat. Examiner les deux périmètres avant de décider d’un investissement commun.",
+    "features": {
+      "metrics": {
+        "fabrication": "marge par pièce",
+        "maintenance": "coût par contrat"
+      }
+    }
+  },
+  "oracle": "activity_scope"
+}

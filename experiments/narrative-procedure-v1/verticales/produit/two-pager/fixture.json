@@ -14,5 +14,43 @@
     ],
     "defect": "Le rythme de la mesure existante ne permet pas de décider après deux séances."
   },
-  "synthetic": true
+  "synthetic": true,
+  "functional_case": {
+    "origin": "independent synthetic counterfactual; supplementary typed record",
+    "corrected": {
+      "decision": "launch",
+      "required_buyer_capabilities": [
+        "csv_export",
+        "approval"
+      ],
+      "observed_buyer_capabilities": [
+        "approval",
+        "csv_export"
+      ],
+      "decision_window_days": 14,
+      "metric_window_days": 7
+    },
+    "holdouts": [
+      {
+        "id": "P1",
+        "replace": {
+          "observed_buyer_capabilities": [
+            "approval"
+          ]
+        },
+        "expected_errors": [
+          "buyer_prerequisite"
+        ]
+      },
+      {
+        "id": "P2",
+        "replace": {
+          "metric_window_days": 30
+        },
+        "expected_errors": [
+          "metric_unavailable_at_decision"
+        ]
+      }
+    ]
+  }
 }

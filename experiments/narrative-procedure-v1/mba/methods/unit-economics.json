@@ -1,0 +1,23 @@
+{
+  "id": "unit-economics",
+  "name": "Économie unitaire",
+  "version": "1.0",
+  "trigger": "Comparer contribution unitaire et coûts fixes sur une même période.",
+  "question": "Quel volume rendrait l’essai économiquement viable ?",
+  "required_inputs": [
+    "question et périmètre",
+    "claims identifiés à date",
+    "bloc consommateur"
+  ],
+  "procedure": [
+    "Définir unité, devise, période et volumes éligibles.",
+    "Séparer prix, coût variable et coût fixe attribuables.",
+    "Calculer contribution puis seuil en unités entières si marge positive.",
+    "Comparer au volume réalisable et présenter une sensibilité."
+  ],
+  "stop_when": "Arrêter après une conclusion bornée avec contre-épreuve, ou consigner la preuve manquante.",
+  "evidence_limit": "Un seuil calculé reste conditionnel aux prix, coûts et volumes du scénario.",
+  "method_source": "https://www.sba.gov/counseling/plan-your-business/break-even-point-calculator/",
+  "output_contract": "AnalysisResult",
+  "example": "../fixtures/unit-economics.json"
+}

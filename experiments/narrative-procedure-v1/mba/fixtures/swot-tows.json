@@ -1,0 +1,83 @@
+{
+  "synthetic": true,
+  "claims": {
+    "C1": "Le service dispose d’un banc de calibrage libre.",
+    "C2": "Une coopérative demande un essai réversible."
+  },
+  "blocks": [
+    "options",
+    "context"
+  ],
+  "result": {
+    "id": "A-swot-tows",
+    "method": "swot-tows",
+    "method_version": "1.0",
+    "question": "Quelle option exploite une force pour saisir une occasion ?",
+    "scope": "Étude synthétique de kits pour ateliers locaux",
+    "as_of": "2026-11-14",
+    "input_claim_refs": [
+      "C1",
+      "C2"
+    ],
+    "findings": [
+      {
+        "statement": "Tester le calibrage auprès de la coopérative, sous réserve de sa disponibilité.",
+        "status": "recommendation",
+        "claim_refs": [
+          "C1",
+          "C2"
+        ]
+      }
+    ],
+    "counterevidence": [
+      "Les observations du pilote peuvent différer sur une autre population."
+    ],
+    "unknowns": [
+      "Transférabilité hors du pilote."
+    ],
+    "affects_blocks": [
+      "options"
+    ]
+  },
+  "positive_details": {
+    "factors": [
+      {
+        "id": "F1",
+        "kind": "S",
+        "claim": "C1"
+      },
+      {
+        "id": "F2",
+        "kind": "O",
+        "claim": "C2"
+      }
+    ],
+    "pair": [
+      "F1",
+      "F2"
+    ],
+    "quadrant": "SO",
+    "test": "Comparer erreurs et temps avec la pratique actuelle."
+  },
+  "negative_details": {
+    "factors": [
+      {
+        "id": "F1",
+        "kind": "S",
+        "claim": "C1"
+      },
+      {
+        "id": "F2",
+        "kind": "O",
+        "claim": "C2"
+      }
+    ],
+    "pair": [
+      "F1",
+      "F2"
+    ],
+    "quadrant": "ST",
+    "test": "Comparer erreurs et temps avec la pratique actuelle."
+  },
+  "expected_negative": "tows_pair"
+}

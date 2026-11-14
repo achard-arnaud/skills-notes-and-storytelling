@@ -1,0 +1,67 @@
+{
+  "synthetic": true,
+  "claims": {
+    "C1": "Le service fictif pourrait fournir un kit à l’atelier.",
+    "C2": "Deux ateliers acceptent une démonstration, aucun achat enregistré."
+  },
+  "blocks": [
+    "options",
+    "context"
+  ],
+  "result": {
+    "id": "A-marketing-4p",
+    "method": "marketing-4p",
+    "method_version": "1.0",
+    "question": "Quelle combinaison d’offre, de prix et de distribution tester ?",
+    "scope": "Étude synthétique de kits pour ateliers locaux",
+    "as_of": "2026-11-14",
+    "input_claim_refs": [
+      "C1",
+      "C2"
+    ],
+    "findings": [
+      {
+        "statement": "Tester la réservation d’un kit à prix annoncé auprès des ateliers intéressés.",
+        "status": "recommendation",
+        "claim_refs": [
+          "C1",
+          "C2"
+        ]
+      }
+    ],
+    "counterevidence": [
+      "Les observations du pilote peuvent différer sur une autre population."
+    ],
+    "unknowns": [
+      "Transférabilité hors du pilote."
+    ],
+    "affects_blocks": [
+      "options"
+    ]
+  },
+  "positive_details": {
+    "segment": "Ateliers de quartier",
+    "mix": {
+      "product": "Kit d’étalonnage",
+      "price": "Essai proposé à 30 EUR",
+      "place": "Retrait en atelier",
+      "promotion": "Démonstration sur rendez-vous"
+    },
+    "price_basis": "proposed",
+    "demand_status": "untested",
+    "test": "Observer les réservations payantes."
+  },
+  "negative_details": {
+    "segment": "Ateliers de quartier",
+    "mix": {
+      "product": "Kit d’étalonnage",
+      "price": "Essai proposé à 30 EUR",
+      "place": "Retrait en atelier",
+      "promotion": "Démonstration sur rendez-vous"
+    },
+    "price_basis": "proposed",
+    "demand_status": "verified",
+    "test": "Observer les réservations payantes."
+  },
+  "expected_negative": "marketing_demand"
+}

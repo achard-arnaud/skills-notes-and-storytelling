@@ -1,0 +1,23 @@
+{
+  "id": "marketing-4p",
+  "name": "Mix marketing 4P",
+  "version": "1.0",
+  "trigger": "Construire un mix cohérent pour un segment et une tâche.",
+  "question": "Quelle combinaison d’offre, de prix et de distribution tester ?",
+  "required_inputs": [
+    "question et périmètre",
+    "claims identifiés à date",
+    "bloc consommateur"
+  ],
+  "procedure": [
+    "Identifier segment, tâche et alternative actuelle.",
+    "Décrire produit, prix, canal et promotion pour ce segment.",
+    "Tester la cohérence entre promesse, coût du canal et capacité de livraison.",
+    "Isoler le comportement observable qui départage deux mixes."
+  ],
+  "stop_when": "Arrêter après une conclusion bornée avec contre-épreuve, ou consigner la preuve manquante.",
+  "evidence_limit": "Un prix proposé ne mesure pas la disposition à payer.",
+  "method_source": "https://openstax.org/books/principles-marketing/pages/1-2-the-marketing-mix-and-the-4ps-of-marketing",
+  "output_contract": "AnalysisResult",
+  "example": "../fixtures/marketing-4p.json"
+}
