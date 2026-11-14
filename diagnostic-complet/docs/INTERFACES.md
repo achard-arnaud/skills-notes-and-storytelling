@@ -15,3 +15,54 @@ context.py (stdlib) : fonctions/CLI pour valider le DAG de board.json, sélectio
 render.py (stdlib) : render_study(study)-> HTML autonome avec onglets accessibles Récit/Piliers/Preuves/Side stories, texte échappé, liens d'ancres internes résolvables. Les piliers filtrent les vues, sans imposer huit sections. Compatible file:// sans dépendance ni CDN. N'annonce pas de rendu Mermaid réel sans moteur présent ; montrer source Mermaid explicitement si fourni.
 
 Tests négatifs significatifs pour chaque contrat. Aucun auteur ne clôture les tickets sans validation et reçu par le coordinateur.
+
+## Enveloppe analytique v1 — #295.A1
+
+`analysis.py` expose `validate_analysis_envelope(envelope, study)` (stdlib, sans mutation,
+réseau ni génération). Contrat : `schemas/analysis-envelope.v1.schema.json`. L'enveloppe
+reste extérieure à l'étude et n'est jamais ajoutée à l'entrée de `writing.prepare_from_scratch`.
+
+- `schema_version: "1.0"`, `study_ref: study.id`, `input_revision` : SHA-256 obtenu par
+  `writing.study_hash({k: study[k] for k in writing.EVIDENCE_KEYS if k in study})`.
+  La présence/absence d'une clé fait partie de la révision. Sources, fragments et claims
+  modifiés la périment ; sections, paragraphes et mise en page seuls ne la modifient pas.
+- `analyses` non vide : `id`, `question_ref` (identité stable indépendante des sections),
+  `question`, `method`, `method_version`, `scope`, `as_of` (date ISO réelle),
+  `input_claim_refs`, `findings`, `counterevidence`, `unknowns`, `state`, `needs_research`.
+  `method_version` est une version déclarée non vide ; sa présence ne prouve pas sa
+  résolution dans un catalogue. La résolution de méthode/question sera une tranche séparée.
+- `findings` conserve les objets `statement`, `status`, `claim_refs` non vide ; statuts :
+  attributed_claim, inference, hypothesis, recommendation, unknown. Une recommandation
+  reste une analyse ; aucun statut ni claim n'est créé dans l'étude. Contre-preuves et
+  inconnues restent des textes conservés, même sans fragment disponible.
+- `state: partial` autorise zéro finding et zéro claim d'entrée, exige `needs_research: true`
+  et au moins une inconnue textuelle non vide. `complete` exige au moins un finding et
+  un claim d'entrée ; il qualifie la matière structurelle, jamais la vérité ou l'approbation.
+  Aucun `affects_blocks` requis ni accepté ici : le binding narratif est différé.
+- Identifiants d'analyse uniques et distincts des claims ; chaque référence de claim
+  d'entrée ou de finding résout dans l'étude fournie. `study_ref` étranger ou révision
+  périmée sont refusés même si les IDs de claims coïncident.
+
+Retour : `valid`, `errors`, `structural_errors`, `reference_errors`, `gaps`,
+`human_approval: false`. Les références sont contrôlées après la structure ; les lacunes
+ne deviennent pas des erreurs structurelles. Le validateur contrôle l'identité et l'index
+claims nécessaires ici ; la validation complète de l'étude reste `runtime.validate_study`.
+Il ne résout pas de catalogue, ne valide pas la sémantique, ne lie pas de blocs et
+n'invalide pas le DAG. Le helper de schéma interne ne couvre que le vocabulaire du contrat
+local publié ; ce n'est pas une bibliothèque JSON Schema générale.
+
+### Voie legacy explicite
+
+`validate_legacy_analysis_result(payload, study)` lit sans migration le contrat donneur
+`75c8293de6984c6fac80e016528bdfa4ec019226`, blob `b2303d0bd50e23a7c7a2ad7eb71b896fcacdc446`
+(copie exacte dans `$defs.legacyResult`). Il conserve les onze champs et les contraintes,
+dont `affects_blocks`, `findings` et `input_claim_refs` non vides. Pas de détection
+implicite par absence de version : le demandeur choisit cette API distincte.
+Les claims sont résolus contre l'étude passée ; l'origine inter-études, la révision
+historique et l'existence des blocs ne sont pas démontrables par ce payload et restent
+une limite explicite dans `gaps`. Aucun appel à `resolve_method.select` ni faux bloc.
+
+Oracles : [mapping #303](ANALYSIS-CONTRACT-MAPPING.md) et sa fixture synthétique ;
+régression : `python3 -m unittest discover -s diagnostic-complet/tests -p 'test_analysis.py' -v`.
+#295 reste ouvert : IntentBrief/AnalysisPlan, résolution par question, liaison tardive,
+synthèse métier et invalidation des descendants ne sont pas livrés par A1.
