@@ -93,6 +93,15 @@ class AnalysisTests(unittest.TestCase):
             self.assertTrue(result['reference_errors'])
             self.assertFalse(result['valid'])
 
+    def test_finding_cannot_cite_a_claim_outside_declared_inputs(self):
+        study, envelope = sample()
+        envelope['analyses'][0]['input_claim_refs'] = ['C1']
+        self.assertFalse(validate_analysis_envelope(envelope, study)['valid'])
+        legacy = {k: v for k, v in envelope['analyses'][0].items()
+                  if k not in ('question_ref', 'state', 'needs_research')}
+        legacy['affects_blocks'] = ['B1']
+        self.assertFalse(validate_legacy_analysis_result(legacy, study)['valid'])
+
     def test_duplicate_and_collision(self):
         for ident in ('A1', 'C1'):
             study, envelope = sample()

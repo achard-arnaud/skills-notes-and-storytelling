@@ -92,6 +92,11 @@ def _references(rows, claim_ids):
         if ident in seen or ident in claim_ids:
             errors.append(f'analysis {ident}: duplicate id or collision with claim')
         seen.add(ident)
+        inputs = set(row['input_claim_refs'])
+        for finding in row['findings']:
+            for ref in finding['claim_refs']:
+                if ref not in inputs:
+                    errors.append(f'analysis {ident}: finding outside declared inputs: {ref}')
         refs = row['input_claim_refs'] + [ref for finding in row['findings'] for ref in finding['claim_refs']]
         for ref in dict.fromkeys(refs):
             if ref not in claim_ids:
