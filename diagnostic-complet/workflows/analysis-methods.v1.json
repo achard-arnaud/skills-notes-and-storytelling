@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "source": {
+    "repository": "achard-arnaud/skills-notes-and-storytelling",
+    "commit": "75c8293de6984c6fac80e016528bdfa4ec019226",
+    "manifest_blob": "91a3a46bc34e22eac992eeb65c361972aeaf6ff2",
+    "catalog_blob": "1821cd9973cd0509986847241a5d79bdce1e4ff0"
+  },
+  "methods": {
+    "product.adoption": {
+      "id": "product.adoption",
+      "method_version": "514cac66e7fe571d85e2dd71e65142f481148b20",
+      "intents": [
+        "traction-commerciale",
+        "clients-360"
+      ],
+      "note": "https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/75c8293de6984c6fac80e016528bdfa4ec019226/experiments/narrative-procedure-v1/mba/taxonomy/produit/adoption.md",
+      "required_evidence": [
+        "eligible_population",
+        "useful_event",
+        "expected_frequency",
+        "cohort",
+        "period"
+      ],
+      "state": "candidate",
+      "limitations": [
+        "A claim reference does not establish semantic sufficiency or independent measurement.",
+        "The question packet does not execute the method or calculate adoption."
+      ]
+    }
+  }
+}

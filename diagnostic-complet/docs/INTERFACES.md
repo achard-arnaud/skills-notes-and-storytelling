@@ -66,3 +66,62 @@ Oracles : [mapping #303](ANALYSIS-CONTRACT-MAPPING.md) et sa fixture synthétiqu
 régression : `python3 -m unittest discover -s diagnostic-complet/tests -p 'test_analysis.py' -v`.
 #295 reste ouvert : IntentBrief/AnalysisPlan, résolution par question, liaison tardive,
 synthèse métier et invalidation des descendants ne sont pas livrés par A1.
+
+## Intention et plan d'analyse v1 — #295.A2
+
+`planning.py` expose `validate_analysis_plan(plan, brief, study)`,
+`resolve_question(plan, brief, study, question_ref)` et
+`validate_planned_analysis(envelope, plan, brief, study)`. Fonctions stdlib,
+sans mutation, collecte réseau, génération, calcul d'adoption ni approbation.
+Le schéma `schemas/analysis-planning.v1.schema.json` contient AnalysisPlan et
+`$defs.intentBrief`. Le helper structurel local accepte désormais une racine de
+schéma explicite et les entiers/minimum ; les contrats A1/legacy restent identiques.
+
+IntentBrief contient `schema_version: "1.0"`, `id`, `study_ref`, `question`, `scope`,
+`audience`, `intent`, `decision_requested` booléen explicite et `as_of` ISO.
+Cette tranche couvre `traction-commerciale` et `clients-360`. Les six autres
+finalités et les parcours business/pédagogiques ne sont pas activés par ce contrat.
+Aucune recommandation/pilote n'est déduit d'un nom d'entreprise ou de produit.
+
+AnalysisPlan contient version, `id`, `intent_ref`, `study_ref`, `input_revision`
+(projection evidence-only A1), `intent_revision` (`writing.study_hash(brief)`),
+`catalog_revision` (`writing.study_hash(planning.CATALOG)`), `questions` non vide et
+`budget` (`max_publications`, `max_queries`, entiers positifs). Le budget est un
+plafond déclaré, pas un compteur de consommation ou un ordonnanceur de recherche.
+Une mise en page seule ne périme pas les preuves ; étude, brief ou catalogue
+modifiés imposent une relecture des révisions. Ni plan ni brief ne deviennent
+une clé de l'étude ou une entrée de `writing.prepare_from_scratch`.
+
+Chaque question porte `id`, `question`, `method`, `method_version`,
+`input_claim_refs`, `evidence_map` (exigence → claims d'entrée), `unknowns`,
+`queries` et `stop_condition`. Les IDs sont uniques et disjoints des identités
+étude/brief/plan/claims. Référence étrangère, exigence inconnue/dupliquée ou
+claim hors entrées est refusé. Une exigence sans claim reste une lacune ; aucun
+fragment ni résultat factice n'est construit. Référencer un claim ne démontre
+pas qu'il prouve sémantiquement l'exigence : cette revue appartient à l'analyste.
+
+`workflows/analysis-methods.v1.json` est une adaptation minimale et attribuée du
+donneur `75c8293...`, catalogue `1821cd99`, manifest produit `91a3a46b` :
+`product.adoption`, version = blob de note `514cac66e7fe571d85e2dd71e65142f481148b20`.
+La note est liée à ce commit exact. Exigences : population éligible, événement
+utile, fréquence attendue, cohorte et période. L'activation requiert la finalité
+et la version exactes ; aucune méthode supplémentaire n'est implicite. La note
+reste candidate ; aucune conformité externe ni donnée réelle n'est attestée.
+
+Le paquet de question contient copies du brief, question, méthode, claims et
+budget, les révisions, les lacunes, `analysis_executed: false`,
+`human_approval: false` et l'état `ready_for_analysis` ou `needs_research`.
+Il n'appelle pas la voie legacy `resolve_method.select` et ne fabrique pas de bloc.
+
+Une enveloppe A1 **fournie par l'analyste** peut ensuite être comparée au plan :
+question/méthode/version/scope/claims d'entrée exacts ; au plus un résultat par
+question. Une question sans analyse reste une lacune. Un résultat `complete`
+masquant des lacunes du plan est refusé ; un résultat `partial` conserve ses
+inconnues. Une recommandation exige `decision_requested: true`. Cette comparaison
+ne prouve ni la vérité de l'analyse, ni l'originalité historique du plan fourni,
+ni une analyse exécutée par le script. La production et la revue des résultats
+restent des opérations distinctes ; l'enveloppe A1 n'est pas migrée silencieusement.
+
+Validation : `python3 -m unittest discover -s diagnostic-complet/tests -p 'test_planning.py' -v`.
+Les fixtures sont synthétiques. S1 reste ouvert pour synthèse et invalidation des
+consommateurs ; S2/S3 et le rendu ne sont pas déclarés livrés par cette tranche.
