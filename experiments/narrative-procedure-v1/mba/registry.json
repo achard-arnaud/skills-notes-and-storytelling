@@ -37,5 +37,11 @@
       "fixture": "fixtures/unit-economics.json",
       "dispatch_question": "Quel volume rendrait l’essai économiquement viable ?"
     }
+  },
+  "taxonomy": {
+    "catalog": "taxonomy/catalog.json",
+    "chains": "taxonomy/chains.json",
+    "selector": "taxonomy/tools/resolve_method.py",
+    "guide": "taxonomy/README.md"
   }
 }

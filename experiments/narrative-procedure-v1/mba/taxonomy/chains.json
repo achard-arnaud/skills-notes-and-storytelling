@@ -1,0 +1,85 @@
+{
+  "semantics": "Groupes de méthodes candidates successives. Les diagnostics externe et interne peuvent être instruits indépendamment. Ouvrir seulement les méthodes utiles au mandat.",
+  "paths": {
+    "diagnostic stratégique": [
+      [
+        "pestel",
+        "porter",
+        "business.competitive-diagnostic"
+      ],
+      [
+        "business.porter-value-chain",
+        "business.core-competencies",
+        "vrio"
+      ],
+      [
+        "swot-tows"
+      ],
+      [
+        "product.icp",
+        "marketing-4p"
+      ],
+      [
+        "business.tco",
+        "business.roi",
+        "business.break-even",
+        "business.van"
+      ],
+      [
+        "business.execution-csf",
+        "business.business-plan"
+      ]
+    ],
+    "valeur produit": [
+      [
+        "product.segmentation",
+        "product.icp"
+      ],
+      [
+        "product.pmf",
+        "product.kano"
+      ],
+      [
+        "product.rice"
+      ],
+      [
+        "product.ttv",
+        "product.adoption"
+      ]
+    ],
+    "architecture et intégration": [
+      [
+        "TECH-01"
+      ],
+      [
+        "TECH-02",
+        "TECH-05"
+      ],
+      [
+        "TECH-03",
+        "TECH-04"
+      ],
+      [
+        "TECH-06",
+        "TECH-07"
+      ]
+    ],
+    "transfert pédagogique": [
+      [
+        "PED-BLOOM-REVISE",
+        "PED-PERCEPTION"
+      ],
+      [
+        "PED-SCAFFOLD",
+        "PED-EXERCICE"
+      ],
+      [
+        "PED-FEEDBACK",
+        "PED-TRANSFERT"
+      ],
+      [
+        "PED-CHANGEMENT"
+      ]
+    ]
+  }
+}

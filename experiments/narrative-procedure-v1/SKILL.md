@@ -43,6 +43,8 @@ Pour une note à plusieurs blocs ou une révision ciblée, ouvrir [le registre d
 
 ## Sélectionner une méthode et reprendre le run
 
+Pour sélectionner une méthode parmi les quatre verticales, ouvrir le [catalogue méthodologique](mba/taxonomy/CATALOGUE.md) ou interroger le sélecteur `mba/taxonomy/tools/resolve_method.py` avec route, format, méthode et bloc. Charger la seule fiche retenue. Les [parcours de diagnostic](mba/taxonomy/chains.json) proposent des dépendances possibles. Conserver les claims et les inconnues dans le paquet de reprise.
+
 Pour une analyse spécialisée, sélectionner le bloc à éclairer dans le manifeste route–format, puis choisir une seule carte dans [le registre MBA](mba/registry.json) selon la question résiduelle. Enregistrer un AnalysisResult avec les claims d’entrée, le statut de la conclusion, la contre-épreuve et les blocs affectés. Le rédacteur conserve le mandat et reprend les blocs référencés. Lors d’un changement de verticale ou de source, suivre [le protocole de reprise](refs/reprise.md). Les corpus historiques et fixtures servent à la maintenance. Pour rédiger, ouvrir uniquement les ressources du mandat courant.
 
 ## Ressources conditionnelles

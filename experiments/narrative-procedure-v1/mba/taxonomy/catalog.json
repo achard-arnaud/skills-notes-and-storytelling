@@ -1,0 +1,548 @@
+{
+  "version": 1,
+  "methods": {
+    "business.tco": {
+      "id": "business.tco",
+      "file": "business/tco.md",
+      "family": "economie",
+      "templates": [
+        "buy-side-gap-analysis",
+        "benchmarking"
+      ],
+      "sources": [
+        "https://www.procurement.govt.nz/assets/procurement-property/documents/guide-total-cost-ownership.pdf"
+      ],
+      "collection": "business"
+    },
+    "business.roi": {
+      "id": "business.roi",
+      "file": "business/roi.md",
+      "family": "economie",
+      "templates": [
+        "buy-side-gap-analysis",
+        "strategic-market-note"
+      ],
+      "sources": [
+        "https://openstax.org/books/principles-managerial-accounting/pages/9-3-describe-the-types-of-responsibility-centers"
+      ],
+      "collection": "business"
+    },
+    "business.break-even": {
+      "id": "business.break-even",
+      "file": "business/break-even.md",
+      "family": "economie",
+      "templates": [
+        "buy-side-gap-analysis",
+        "strategic-market-note",
+        "one-pager"
+      ],
+      "sources": [
+        "https://openstax.org/books/principles-managerial-accounting/pages/3-2-calculate-a-break-even-point-in-units-and-dollars"
+      ],
+      "collection": "business"
+    },
+    "business.van": {
+      "id": "business.van",
+      "file": "business/van.md",
+      "family": "economie",
+      "templates": [
+        "buy-side-gap-analysis",
+        "strategic-market-note"
+      ],
+      "sources": [
+        "https://openstax.org/books/principles-finance/pages/16-summary"
+      ],
+      "collection": "business"
+    },
+    "business.tri": {
+      "id": "business.tri",
+      "file": "business/tri.md",
+      "family": "economie",
+      "templates": [
+        "buy-side-gap-analysis",
+        "strategic-market-note"
+      ],
+      "sources": [
+        "https://openstax.org/books/principles-finance/pages/16-summary"
+      ],
+      "collection": "business"
+    },
+    "business.payback": {
+      "id": "business.payback",
+      "file": "business/payback.md",
+      "family": "economie",
+      "templates": [
+        "buy-side-gap-analysis",
+        "one-pager"
+      ],
+      "sources": [
+        "https://openstax.org/books/principles-finance/pages/16-summary"
+      ],
+      "collection": "business"
+    },
+    "business.porter-value-chain": {
+      "id": "business.porter-value-chain",
+      "file": "business/porter-value-chain.md",
+      "family": "strategie",
+      "templates": [
+        "strategic-market-note",
+        "buy-side-gap-analysis"
+      ],
+      "sources": [
+        "https://www.isc.hbs.edu/strategy/business-strategy/Pages/the-value-chain.aspx"
+      ],
+      "collection": "business"
+    },
+    "business.core-competencies": {
+      "id": "business.core-competencies",
+      "file": "business/core-competencies.md",
+      "family": "strategie",
+      "templates": [
+        "strategic-market-note",
+        "diagnostic-reco-sellside"
+      ],
+      "sources": [
+        "https://hbr.org/archive-toc/3903"
+      ],
+      "collection": "business"
+    },
+    "business.competitive-diagnostic": {
+      "id": "business.competitive-diagnostic",
+      "file": "business/competitive-diagnostic.md",
+      "family": "strategie",
+      "templates": [
+        "benchmarking",
+        "diagnostic-reco-sellside",
+        "strategic-market-note"
+      ],
+      "sources": [
+        "https://www.sba.gov/counseling/plan-your-business/"
+      ],
+      "collection": "business"
+    },
+    "business.execution-csf": {
+      "id": "business.execution-csf",
+      "file": "business/execution-csf.md",
+      "family": "execution",
+      "templates": [
+        "strategic-market-note",
+        "buy-side-gap-analysis",
+        "diagnostic-reco-sellside"
+      ],
+      "sources": [
+        "https://hbr.org/1979/03/chief-executives-define-their-own-data-needs"
+      ],
+      "collection": "business"
+    },
+    "business.business-plan": {
+      "id": "business.business-plan",
+      "file": "business/business-plan.md",
+      "family": "strategie",
+      "templates": [
+        "strategic-market-note",
+        "diagnostic-reco-sellside"
+      ],
+      "sources": [
+        "https://legacy.sba.gov/business-guide/plan-your-business/write-your-business-plan"
+      ],
+      "collection": "business"
+    },
+    "PED-BLOOM-REVISE": {
+      "id": "PED-BLOOM-REVISE",
+      "file": "pedagogie/bloom-revise.md",
+      "family": "pedagogie",
+      "templates": [
+        "ai-enterprise-learning-six-page"
+      ],
+      "blocks": [
+        "understand",
+        "transmit"
+      ],
+      "sources": [
+        "https://cmapspublic2.ihmc.us/rid%3D1Q2PTM7HL-26LTFBX-9YN8/Krathwohl%202002.pdf",
+        "https://www.cmu.edu/teaching/assessment/basics/alignment.html"
+      ],
+      "collection": "pedagogie"
+    },
+    "PED-PERCEPTION": {
+      "id": "PED-PERCEPTION",
+      "file": "pedagogie/perception.md",
+      "family": "pedagogie",
+      "templates": [
+        "ai-enterprise-learning-six-page"
+      ],
+      "blocks": [
+        "understand",
+        "transmit",
+        "diagnose",
+        "integrate",
+        "value",
+        "act"
+      ],
+      "sources": [
+        "https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/ca67c1ebe940f5a548b2fd76fc75a8f0f149087c/templates/ai-enterprise-learning-six-page.md",
+        "https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/ca67c1ebe940f5a548b2fd76fc75a8f0f149087c/learning/enterprise-ai/perception.sheet.json"
+      ],
+      "collection": "pedagogie"
+    },
+    "PED-SCAFFOLD": {
+      "id": "PED-SCAFFOLD",
+      "file": "pedagogie/scaffold.md",
+      "family": "pedagogie",
+      "templates": [
+        "ai-enterprise-learning-six-page"
+      ],
+      "blocks": [
+        "understand",
+        "transmit",
+        "diagnose",
+        "integrate",
+        "value",
+        "act"
+      ],
+      "sources": [
+        "https://www.cmu.edu/teaching/assessment/basics/alignment.html",
+        "https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/ca67c1ebe940f5a548b2fd76fc75a8f0f149087c/templates/ai-enterprise-learning-six-page.md",
+        "https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/ca67c1ebe940f5a548b2fd76fc75a8f0f149087c/diagnostic-complet/docs/NARRATIVE.md"
+      ],
+      "collection": "pedagogie"
+    },
+    "PED-EXERCICE": {
+      "id": "PED-EXERCICE",
+      "file": "pedagogie/exercice.md",
+      "family": "pedagogie",
+      "templates": [
+        "ai-enterprise-learning-six-page"
+      ],
+      "blocks": [
+        "transmit"
+      ],
+      "sources": [
+        "https://ies.ed.gov/ncee/WWC/PracticeGuide/1/Published",
+        "https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/ca67c1ebe940f5a548b2fd76fc75a8f0f149087c/learning/enterprise-ai/perception.sheet.json"
+      ],
+      "collection": "pedagogie"
+    },
+    "PED-FEEDBACK": {
+      "id": "PED-FEEDBACK",
+      "file": "pedagogie/feedback.md",
+      "family": "pedagogie",
+      "templates": [
+        "ai-enterprise-learning-six-page"
+      ],
+      "blocks": [
+        "transmit",
+        "act"
+      ],
+      "sources": [
+        "https://www.cmu.edu/teaching/designteach/syllabus/newcourse/assessments.html",
+        "https://www.cmu.edu/teaching/assessment/basics/alignment.html"
+      ],
+      "collection": "pedagogie"
+    },
+    "PED-TRANSFERT": {
+      "id": "PED-TRANSFERT",
+      "file": "pedagogie/transfert.md",
+      "family": "pedagogie",
+      "templates": [
+        "ai-enterprise-learning-six-page"
+      ],
+      "blocks": [
+        "transmit",
+        "act"
+      ],
+      "sources": [
+        "https://www.cdc.gov/training-development/php/about/evaluate-training-measuring-effectiveness.html",
+        "https://www.cmu.edu/teaching/assessment/basics/alignment.html"
+      ],
+      "collection": "pedagogie"
+    },
+    "PED-CHANGEMENT": {
+      "id": "PED-CHANGEMENT",
+      "file": "pedagogie/changement.md",
+      "family": "pedagogie",
+      "templates": [
+        "ai-enterprise-learning-six-page"
+      ],
+      "blocks": [
+        "diagnose",
+        "value",
+        "act"
+      ],
+      "sources": [
+        "https://www.cdc.gov/training-development/php/about/evaluate-training-measuring-effectiveness.html"
+      ],
+      "collection": "pedagogie"
+    },
+    "product.icp": {
+      "id": "product.icp",
+      "file": "produit/icp.md",
+      "templates": [
+        "opportunity-note-icp"
+      ],
+      "family": "product",
+      "sources": [
+        "https://cdn2.hubspot.net/hubfs/137828/Inbound%20Sales%20%28ISC%29/Ideal%20Customer%20Profile.pdf"
+      ],
+      "collection": "produit"
+    },
+    "product.segmentation": {
+      "id": "product.segmentation",
+      "file": "produit/segmentation.md",
+      "templates": [
+        "two-pager",
+        "opportunity-note-icp"
+      ],
+      "family": "product",
+      "sources": [
+        "https://openstax.org/books/principles-marketing/pages/5-4-essential-factors-in-effective-market-segmentation"
+      ],
+      "collection": "produit"
+    },
+    "product.pmf": {
+      "id": "product.pmf",
+      "file": "produit/pmf.md",
+      "templates": [
+        "two-pager",
+        "three-pager"
+      ],
+      "family": "product",
+      "sources": [
+        "https://review.firstround.com/how-superhuman-built-an-engine-to-find-product-market-fit/"
+      ],
+      "collection": "produit"
+    },
+    "product.kano": {
+      "id": "product.kano",
+      "file": "produit/kano.md",
+      "templates": [
+        "two-pager",
+        "three-pager"
+      ],
+      "family": "product",
+      "sources": [
+        "https://www.jstage.jst.go.jp/article/quality/14/2/14_KJ00002952366/_article/-char/en"
+      ],
+      "collection": "produit"
+    },
+    "product.rice": {
+      "id": "product.rice",
+      "file": "produit/rice.md",
+      "templates": [
+        "two-pager",
+        "three-pager"
+      ],
+      "family": "product",
+      "sources": [
+        "https://www.intercom.com/blog/rice-simple-prioritization-for-product-managers"
+      ],
+      "collection": "produit"
+    },
+    "product.ttv": {
+      "id": "product.ttv",
+      "file": "produit/ttv.md",
+      "templates": [
+        "two-pager",
+        "three-pager"
+      ],
+      "family": "product",
+      "sources": [
+        "https://go.pendo.io/rs/185-LQW-370/images/Pendo_eBook_2021_10KPIs.pdf"
+      ],
+      "collection": "produit"
+    },
+    "product.adoption": {
+      "id": "product.adoption",
+      "file": "produit/adoption.md",
+      "templates": [
+        "two-pager",
+        "three-pager"
+      ],
+      "family": "product",
+      "sources": [
+        "https://amplitude.com/docs/analytics/product-analytics"
+      ],
+      "collection": "produit"
+    },
+    "swot-tows": {
+      "id": "swot-tows",
+      "file": "socle/swot-tows.md",
+      "templates": [
+        "strategic-market-note",
+        "buy-side-gap-analysis"
+      ],
+      "family": "stratégie",
+      "sources": [
+        "https://www.sciencedirect.com/science/article/pii/0024630182901200"
+      ],
+      "collection": "socle"
+    },
+    "pestel": {
+      "id": "pestel",
+      "file": "socle/pestel.md",
+      "templates": [
+        "strategic-market-note",
+        "architecture-note"
+      ],
+      "family": "environnement",
+      "sources": [
+        "https://openstax.org/books/principles-marketing/pages/12-3-the-five-step-procedure-for-establishing-pricing-policy",
+        "https://www.open.edu/openlearn/mod/oucontent/view.php?id=109138&section=_unit7.2"
+      ],
+      "collection": "socle"
+    },
+    "porter": {
+      "id": "porter",
+      "file": "socle/porter.md",
+      "templates": [
+        "benchmarking",
+        "strategic-market-note"
+      ],
+      "family": "industrie",
+      "sources": [
+        "https://www.isc.hbs.edu/strategy/business-strategy/Pages/the-five-forces.aspx"
+      ],
+      "collection": "socle"
+    },
+    "ishikawa": {
+      "id": "ishikawa",
+      "file": "socle/ishikawa.md",
+      "templates": [
+        "integration-note",
+        "architecture-note",
+        "ai-enterprise-learning-six-page"
+      ],
+      "family": "opérations",
+      "sources": [
+        "https://www.ihi.org/library/tools/cause-and-effect-diagram"
+      ],
+      "collection": "socle"
+    },
+    "marketing-4p": {
+      "id": "marketing-4p",
+      "file": "socle/marketing-4p.md",
+      "templates": [
+        "opportunity-note-icp",
+        "diagnostic-reco-sellside"
+      ],
+      "family": "marketing",
+      "sources": [
+        "https://openstax.org/books/principles-marketing/pages/1-2-the-marketing-mix-and-the-4ps-of-marketing"
+      ],
+      "collection": "socle"
+    },
+    "vrio": {
+      "id": "vrio",
+      "file": "socle/vrio.md",
+      "templates": [
+        "buy-side-gap-analysis",
+        "strategic-market-note"
+      ],
+      "family": "ressources",
+      "sources": [
+        "https://open.oregonstate.education/strategicmanagement/chapter/4-vrio-analysis/"
+      ],
+      "collection": "socle"
+    },
+    "unit-economics": {
+      "id": "unit-economics",
+      "file": "socle/unit-economics.md",
+      "templates": [
+        "one-pager",
+        "two-pager",
+        "diagnostic-reco-sellside"
+      ],
+      "family": "économie",
+      "sources": [
+        "https://www.sba.gov/counseling/plan-your-business/break-even-point-calculator/"
+      ],
+      "collection": "socle"
+    },
+    "TECH-01": {
+      "id": "TECH-01",
+      "file": "technique/c4.md",
+      "family": "technique",
+      "templates": [
+        "architecture-note"
+      ],
+      "sources": [
+        "https://c4model.com/diagrams"
+      ],
+      "collection": "technique"
+    },
+    "TECH-02": {
+      "id": "TECH-02",
+      "file": "technique/choix-stack.md",
+      "family": "technique",
+      "templates": [
+        "architecture-note"
+      ],
+      "sources": [
+        "https://martinfowler.com/bliki/ArchitectureDecisionRecord.html"
+      ],
+      "collection": "technique"
+    },
+    "TECH-03": {
+      "id": "TECH-03",
+      "file": "technique/scalabilite.md",
+      "family": "technique",
+      "templates": [
+        "architecture-note"
+      ],
+      "sources": [
+        "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/performance-test"
+      ],
+      "collection": "technique"
+    },
+    "TECH-04": {
+      "id": "TECH-04",
+      "file": "technique/contre-test.md",
+      "family": "technique",
+      "templates": [
+        "architecture-note",
+        "integration-note"
+      ],
+      "sources": [
+        "https://sre.google/workbook/canarying-releases/"
+      ],
+      "collection": "technique"
+    },
+    "TECH-05": {
+      "id": "TECH-05",
+      "file": "technique/impact-integration.md",
+      "family": "technique",
+      "templates": [
+        "integration-note"
+      ],
+      "sources": [
+        "https://learn.microsoft.com/en-us/azure/architecture/patterns/anti-corruption-layer"
+      ],
+      "collection": "technique"
+    },
+    "TECH-06": {
+      "id": "TECH-06",
+      "file": "technique/posture-integration.md",
+      "family": "technique",
+      "templates": [
+        "integration-note"
+      ],
+      "sources": [
+        "https://martinfowler.com/bliki/StranglerFigApplication.html"
+      ],
+      "collection": "technique"
+    },
+    "TECH-07": {
+      "id": "TECH-07",
+      "file": "technique/dette-ttm.md",
+      "family": "technique",
+      "templates": [
+        "architecture-note",
+        "integration-note"
+      ],
+      "sources": [
+        "https://martinfowler.com/bliki/TechnicalDebtQuadrant.html"
+      ],
+      "collection": "technique"
+    }
+  }
+}

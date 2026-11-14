@@ -1,0 +1,122 @@
+[
+  {
+    "id": "PED-BLOOM-REVISE",
+    "file": "bloom-revise.md",
+    "family": "pedagogie",
+    "templates": [
+      "ai-enterprise-learning-six-page"
+    ],
+    "blocks": [
+      "understand",
+      "transmit"
+    ],
+    "sources": [
+      "https://cmapspublic2.ihmc.us/rid%3D1Q2PTM7HL-26LTFBX-9YN8/Krathwohl%202002.pdf",
+      "https://www.cmu.edu/teaching/assessment/basics/alignment.html"
+    ]
+  },
+  {
+    "id": "PED-PERCEPTION",
+    "file": "perception.md",
+    "family": "pedagogie",
+    "templates": [
+      "ai-enterprise-learning-six-page"
+    ],
+    "blocks": [
+      "understand",
+      "transmit",
+      "diagnose",
+      "integrate",
+      "value",
+      "act"
+    ],
+    "sources": [
+      "https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/ca67c1ebe940f5a548b2fd76fc75a8f0f149087c/templates/ai-enterprise-learning-six-page.md",
+      "https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/ca67c1ebe940f5a548b2fd76fc75a8f0f149087c/learning/enterprise-ai/perception.sheet.json"
+    ]
+  },
+  {
+    "id": "PED-SCAFFOLD",
+    "file": "scaffold.md",
+    "family": "pedagogie",
+    "templates": [
+      "ai-enterprise-learning-six-page"
+    ],
+    "blocks": [
+      "understand",
+      "transmit",
+      "diagnose",
+      "integrate",
+      "value",
+      "act"
+    ],
+    "sources": [
+      "https://www.cmu.edu/teaching/assessment/basics/alignment.html",
+      "https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/ca67c1ebe940f5a548b2fd76fc75a8f0f149087c/templates/ai-enterprise-learning-six-page.md",
+      "https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/ca67c1ebe940f5a548b2fd76fc75a8f0f149087c/diagnostic-complet/docs/NARRATIVE.md"
+    ]
+  },
+  {
+    "id": "PED-EXERCICE",
+    "file": "exercice.md",
+    "family": "pedagogie",
+    "templates": [
+      "ai-enterprise-learning-six-page"
+    ],
+    "blocks": [
+      "transmit"
+    ],
+    "sources": [
+      "https://ies.ed.gov/ncee/WWC/PracticeGuide/1/Published",
+      "https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/ca67c1ebe940f5a548b2fd76fc75a8f0f149087c/learning/enterprise-ai/perception.sheet.json"
+    ]
+  },
+  {
+    "id": "PED-FEEDBACK",
+    "file": "feedback.md",
+    "family": "pedagogie",
+    "templates": [
+      "ai-enterprise-learning-six-page"
+    ],
+    "blocks": [
+      "transmit",
+      "act"
+    ],
+    "sources": [
+      "https://www.cmu.edu/teaching/designteach/syllabus/newcourse/assessments.html",
+      "https://www.cmu.edu/teaching/assessment/basics/alignment.html"
+    ]
+  },
+  {
+    "id": "PED-TRANSFERT",
+    "file": "transfert.md",
+    "family": "pedagogie",
+    "templates": [
+      "ai-enterprise-learning-six-page"
+    ],
+    "blocks": [
+      "transmit",
+      "act"
+    ],
+    "sources": [
+      "https://www.cdc.gov/training-development/php/about/evaluate-training-measuring-effectiveness.html",
+      "https://www.cmu.edu/teaching/assessment/basics/alignment.html"
+    ]
+  },
+  {
+    "id": "PED-CHANGEMENT",
+    "file": "changement.md",
+    "family": "pedagogie",
+    "templates": [
+      "ai-enterprise-learning-six-page"
+    ],
+    "blocks": [
+      "diagnose",
+      "value",
+      "act"
+    ],
+    "sources": [
+      "https://www.cdc.gov/training-development/php/about/evaluate-training-measuring-effectiveness.html"
+    ]
+  }
+]

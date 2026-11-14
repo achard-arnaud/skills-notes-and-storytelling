@@ -1,0 +1,89 @@
+[
+  {
+    "id": "swot-tows",
+    "file": "swot-tows.md",
+    "templates": [
+      "strategic-market-note",
+      "buy-side-gap-analysis"
+    ],
+    "family": "stratégie",
+    "sources": [
+      "https://www.sciencedirect.com/science/article/pii/0024630182901200"
+    ]
+  },
+  {
+    "id": "pestel",
+    "file": "pestel.md",
+    "templates": [
+      "strategic-market-note",
+      "architecture-note"
+    ],
+    "family": "environnement",
+    "sources": [
+      "https://openstax.org/books/principles-marketing/pages/12-3-the-five-step-procedure-for-establishing-pricing-policy",
+      "https://www.open.edu/openlearn/mod/oucontent/view.php?id=109138&section=_unit7.2"
+    ]
+  },
+  {
+    "id": "porter",
+    "file": "porter.md",
+    "templates": [
+      "benchmarking",
+      "strategic-market-note"
+    ],
+    "family": "industrie",
+    "sources": [
+      "https://www.isc.hbs.edu/strategy/business-strategy/Pages/the-five-forces.aspx"
+    ]
+  },
+  {
+    "id": "ishikawa",
+    "file": "ishikawa.md",
+    "templates": [
+      "integration-note",
+      "architecture-note",
+      "ai-enterprise-learning-six-page"
+    ],
+    "family": "opérations",
+    "sources": [
+      "https://www.ihi.org/library/tools/cause-and-effect-diagram"
+    ]
+  },
+  {
+    "id": "marketing-4p",
+    "file": "marketing-4p.md",
+    "templates": [
+      "opportunity-note-icp",
+      "diagnostic-reco-sellside"
+    ],
+    "family": "marketing",
+    "sources": [
+      "https://openstax.org/books/principles-marketing/pages/1-2-the-marketing-mix-and-the-4ps-of-marketing"
+    ]
+  },
+  {
+    "id": "vrio",
+    "file": "vrio.md",
+    "templates": [
+      "buy-side-gap-analysis",
+      "strategic-market-note"
+    ],
+    "family": "ressources",
+    "sources": [
+      "https://open.oregonstate.education/strategicmanagement/chapter/4-vrio-analysis/"
+    ]
+  },
+  {
+    "id": "unit-economics",
+    "file": "unit-economics.md",
+    "templates": [
+      "one-pager",
+      "two-pager",
+      "diagnostic-reco-sellside"
+    ],
+    "family": "économie",
+    "sources": [
+      "https://www.sba.gov/counseling/plan-your-business/break-even-point-calculator/"
+    ]
+  }
+]

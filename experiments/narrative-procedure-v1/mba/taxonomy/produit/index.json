@@ -1,0 +1,86 @@
+[
+  {
+    "id": "product.icp",
+    "file": "icp.md",
+    "templates": [
+      "opportunity-note-icp"
+    ],
+    "family": "product",
+    "sources": [
+      "https://cdn2.hubspot.net/hubfs/137828/Inbound%20Sales%20%28ISC%29/Ideal%20Customer%20Profile.pdf"
+    ]
+  },
+  {
+    "id": "product.segmentation",
+    "file": "segmentation.md",
+    "templates": [
+      "two-pager",
+      "opportunity-note-icp"
+    ],
+    "family": "product",
+    "sources": [
+      "https://openstax.org/books/principles-marketing/pages/5-4-essential-factors-in-effective-market-segmentation"
+    ]
+  },
+  {
+    "id": "product.pmf",
+    "file": "pmf.md",
+    "templates": [
+      "two-pager",
+      "three-pager"
+    ],
+    "family": "product",
+    "sources": [
+      "https://review.firstround.com/how-superhuman-built-an-engine-to-find-product-market-fit/"
+    ]
+  },
+  {
+    "id": "product.kano",
+    "file": "kano.md",
+    "templates": [
+      "two-pager",
+      "three-pager"
+    ],
+    "family": "product",
+    "sources": [
+      "https://www.jstage.jst.go.jp/article/quality/14/2/14_KJ00002952366/_article/-char/en"
+    ]
+  },
+  {
+    "id": "product.rice",
+    "file": "rice.md",
+    "templates": [
+      "two-pager",
+      "three-pager"
+    ],
+    "family": "product",
+    "sources": [
+      "https://www.intercom.com/blog/rice-simple-prioritization-for-product-managers"
+    ]
+  },
+  {
+    "id": "product.ttv",
+    "file": "ttv.md",
+    "templates": [
+      "two-pager",
+      "three-pager"
+    ],
+    "family": "product",
+    "sources": [
+      "https://go.pendo.io/rs/185-LQW-370/images/Pendo_eBook_2021_10KPIs.pdf"
+    ]
+  },
+  {
+    "id": "product.adoption",
+    "file": "adoption.md",
+    "templates": [
+      "two-pager",
+      "three-pager"
+    ],
+    "family": "product",
+    "sources": [
+      "https://amplitude.com/docs/analytics/product-analytics"
+    ]
+  }
+]
+

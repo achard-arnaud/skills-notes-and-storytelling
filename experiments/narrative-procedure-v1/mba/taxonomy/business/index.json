@@ -1,0 +1,137 @@
+[
+  {
+    "id": "business.tco",
+    "file": "tco.md",
+    "family": "economie",
+    "templates": [
+      "buy-side-gap-analysis",
+      "benchmarking"
+    ],
+    "sources": [
+      "https://www.procurement.govt.nz/assets/procurement-property/documents/guide-total-cost-ownership.pdf"
+    ]
+  },
+  {
+    "id": "business.roi",
+    "file": "roi.md",
+    "family": "economie",
+    "templates": [
+      "buy-side-gap-analysis",
+      "strategic-market-note"
+    ],
+    "sources": [
+      "https://openstax.org/books/principles-managerial-accounting/pages/9-3-describe-the-types-of-responsibility-centers"
+    ]
+  },
+  {
+    "id": "business.break-even",
+    "file": "break-even.md",
+    "family": "economie",
+    "templates": [
+      "buy-side-gap-analysis",
+      "strategic-market-note",
+      "one-pager"
+    ],
+    "sources": [
+      "https://openstax.org/books/principles-managerial-accounting/pages/3-2-calculate-a-break-even-point-in-units-and-dollars"
+    ]
+  },
+  {
+    "id": "business.van",
+    "file": "van.md",
+    "family": "economie",
+    "templates": [
+      "buy-side-gap-analysis",
+      "strategic-market-note"
+    ],
+    "sources": [
+      "https://openstax.org/books/principles-finance/pages/16-summary"
+    ]
+  },
+  {
+    "id": "business.tri",
+    "file": "tri.md",
+    "family": "economie",
+    "templates": [
+      "buy-side-gap-analysis",
+      "strategic-market-note"
+    ],
+    "sources": [
+      "https://openstax.org/books/principles-finance/pages/16-summary"
+    ]
+  },
+  {
+    "id": "business.payback",
+    "file": "payback.md",
+    "family": "economie",
+    "templates": [
+      "buy-side-gap-analysis",
+      "one-pager"
+    ],
+    "sources": [
+      "https://openstax.org/books/principles-finance/pages/16-summary"
+    ]
+  },
+  {
+    "id": "business.porter-value-chain",
+    "file": "porter-value-chain.md",
+    "family": "strategie",
+    "templates": [
+      "strategic-market-note",
+      "buy-side-gap-analysis"
+    ],
+    "sources": [
+      "https://www.isc.hbs.edu/strategy/business-strategy/Pages/the-value-chain.aspx"
+    ]
+  },
+  {
+    "id": "business.core-competencies",
+    "file": "core-competencies.md",
+    "family": "strategie",
+    "templates": [
+      "strategic-market-note",
+      "diagnostic-reco-sellside"
+    ],
+    "sources": [
+      "https://hbr.org/archive-toc/3903"
+    ]
+  },
+  {
+    "id": "business.competitive-diagnostic",
+    "file": "competitive-diagnostic.md",
+    "family": "strategie",
+    "templates": [
+      "benchmarking",
+      "diagnostic-reco-sellside",
+      "strategic-market-note"
+    ],
+    "sources": [
+      "https://www.sba.gov/counseling/plan-your-business/"
+    ]
+  },
+  {
+    "id": "business.execution-csf",
+    "file": "execution-csf.md",
+    "family": "execution",
+    "templates": [
+      "strategic-market-note",
+      "buy-side-gap-analysis",
+      "diagnostic-reco-sellside"
+    ],
+    "sources": [
+      "https://hbr.org/1979/03/chief-executives-define-their-own-data-needs"
+    ]
+  },
+  {
+    "id": "business.business-plan",
+    "file": "business-plan.md",
+    "family": "strategie",
+    "templates": [
+      "strategic-market-note",
+      "diagnostic-reco-sellside"
+    ],
+    "sources": [
+      "https://legacy.sba.gov/business-guide/plan-your-business/write-your-business-plan"
+    ]
+  }
+]

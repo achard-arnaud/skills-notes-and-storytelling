@@ -1,0 +1,360 @@
+{
+  "source": "synthetic analytical fixtures",
+  "checks": [
+    {
+      "case": "tco_nominal_eur_2y",
+      "inputs": [
+        100,
+        [
+          30,
+          40
+        ],
+        10,
+        20
+      ],
+      "expected": 160,
+      "actual": 160.0,
+      "status": "PASS"
+    },
+    {
+      "case": "tco_sign",
+      "inputs": [
+        100,
+        [
+          -30
+        ],
+        10,
+        20
+      ],
+      "expected": "invalid",
+      "actual": "invalid",
+      "status": "PASS"
+    },
+    {
+      "case": "roi_gross_200_cost_160",
+      "inputs": [
+        200,
+        160
+      ],
+      "expected": 0.25,
+      "actual": 0.25,
+      "status": "PASS"
+    },
+    {
+      "case": "roi_zero_cost",
+      "inputs": [
+        100,
+        0
+      ],
+      "expected": "invalid",
+      "actual": "invalid",
+      "status": "PASS"
+    },
+    {
+      "case": "van_10pct_t0_and_2_year_ends",
+      "inputs": [
+        0.1,
+        [
+          -100,
+          55,
+          60.5
+        ]
+      ],
+      "expected": 0,
+      "actual": -1.4210854715202004e-14,
+      "status": "PASS"
+    },
+    {
+      "case": "van_invalid_discount",
+      "inputs": [
+        -1,
+        [
+          -100,
+          110
+        ]
+      ],
+      "expected": "invalid",
+      "actual": "invalid",
+      "status": "PASS"
+    },
+    {
+      "case": "tri_conventional",
+      "inputs": [
+        [
+          -100,
+          55,
+          60.5
+        ]
+      ],
+      "expected": 0.1,
+      "actual": 0.09999999999999998,
+      "status": "PASS"
+    },
+    {
+      "case": "tri_negative_return",
+      "inputs": [
+        [
+          -100,
+          80
+        ]
+      ],
+      "expected": -0.2,
+      "actual": -0.2,
+      "status": "PASS"
+    },
+    {
+      "case": "tri_ambiguous_two_roots",
+      "inputs": [
+        [
+          -100,
+          230,
+          -132
+        ]
+      ],
+      "expected": "invalid",
+      "actual": "invalid",
+      "status": "PASS"
+    },
+    {
+      "case": "multiple_moic_value_over_invested",
+      "inputs": [
+        360,
+        120
+      ],
+      "expected": 3,
+      "actual": 3.0,
+      "status": "PASS"
+    },
+    {
+      "case": "multiple_ev_ebitda_same_scope_period",
+      "inputs": [
+        900,
+        150
+      ],
+      "expected": 6,
+      "actual": 6.0,
+      "status": "PASS"
+    },
+    {
+      "case": "multiple_negative_ebitda",
+      "inputs": [
+        900,
+        -150
+      ],
+      "expected": "invalid",
+      "actual": "invalid",
+      "status": "PASS"
+    },
+    {
+      "case": "payback_undiscounted_years",
+      "inputs": [
+        [
+          -100,
+          40,
+          80
+        ]
+      ],
+      "expected": 1.75,
+      "actual": 1.75,
+      "status": "PASS"
+    },
+    {
+      "case": "payback_not_recovered",
+      "inputs": [
+        [
+          -100,
+          20,
+          40
+        ]
+      ],
+      "expected": null,
+      "actual": null,
+      "status": "PASS"
+    },
+    {
+      "case": "break_even_indivisible_cases",
+      "inputs": [
+        121,
+        13,
+        5
+      ],
+      "expected": 16,
+      "actual": 16,
+      "status": "PASS"
+    },
+    {
+      "case": "break_even_negative_contribution",
+      "inputs": [
+        121,
+        4,
+        5
+      ],
+      "expected": "invalid",
+      "actual": "invalid",
+      "status": "PASS"
+    },
+    {
+      "case": "rice_quarter_users_person_months",
+      "inputs": [
+        250,
+        2,
+        0.8,
+        4
+      ],
+      "expected": 100,
+      "actual": 100.0,
+      "status": "PASS"
+    },
+    {
+      "case": "rice_percent_misentered",
+      "inputs": [
+        250,
+        2,
+        80,
+        4
+      ],
+      "expected": "invalid",
+      "actual": "invalid",
+      "status": "PASS"
+    },
+    {
+      "case": "ttv_with_right_censoring",
+      "inputs": [
+        [
+          [
+            2,
+            true
+          ],
+          [
+            3,
+            false
+          ],
+          [
+            5,
+            true
+          ],
+          [
+            7,
+            false
+          ]
+        ]
+      ],
+      "expected": 5,
+      "actual": 5,
+      "status": "PASS"
+    },
+    {
+      "case": "ttv_censor_and_event_same_day",
+      "inputs": [
+        [
+          [
+            2,
+            true
+          ],
+          [
+            2,
+            false
+          ],
+          [
+            5,
+            true
+          ],
+          [
+            7,
+            false
+          ]
+        ]
+      ],
+      "expected": 5,
+      "actual": 5,
+      "status": "PASS"
+    },
+    {
+      "case": "ttv_median_not_reached",
+      "inputs": [
+        [
+          [
+            2,
+            true
+          ],
+          [
+            4,
+            false
+          ],
+          [
+            7,
+            false
+          ]
+        ]
+      ],
+      "expected": null,
+      "actual": null,
+      "status": "PASS"
+    },
+    {
+      "case": "ttv_all_censored",
+      "inputs": [
+        [
+          [
+            2,
+            false
+          ],
+          [
+            4,
+            false
+          ]
+        ]
+      ],
+      "expected": null,
+      "actual": null,
+      "status": "PASS"
+    },
+    {
+      "case": "adoption_distinct_users_same_window",
+      "inputs": [
+        [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        [
+          "a",
+          "a",
+          "b"
+        ]
+      ],
+      "expected": 0.5,
+      "actual": 0.5,
+      "status": "PASS"
+    },
+    {
+      "case": "adoption_mixed_cohort",
+      "inputs": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "x"
+        ]
+      ],
+      "expected": "invalid",
+      "actual": "invalid",
+      "status": "PASS"
+    },
+    {
+      "case": "adoption_no_eligible_users",
+      "inputs": [
+        [],
+        []
+      ],
+      "expected": "invalid",
+      "actual": "invalid",
+      "status": "PASS"
+    }
+  ],
+  "passed": 25,
+  "total": 25
+}
