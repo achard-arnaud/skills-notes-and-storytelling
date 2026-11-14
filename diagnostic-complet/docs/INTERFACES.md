@@ -125,3 +125,34 @@ restent des opérations distinctes ; l'enveloppe A1 n'est pas migrée silencieus
 Validation : `python3 -m unittest discover -s diagnostic-complet/tests -p 'test_planning.py' -v`.
 Les fixtures sont synthétiques. S1 reste ouvert pour synthèse et invalidation des
 consommateurs ; S2/S3 et le rendu ne sont pas déclarés livrés par cette tranche.
+
+## Plan d'impact analytique — #295.A3
+
+`analysis_impact.plan_analysis_revision(study, envelope, changed_ids,
+expected_study_hash=..., expected_envelope_hash=...)` calcule les analyses à revoir
+à partir d'une baseline explicite, avant d'appliquer la correction. Les deux
+empreintes exactes sont obligatoires ; l'enveloppe doit être valide contre cette
+étude. IDs inconnus, dupliqués, mal typés ou analyses en collision avec un noeud
+de l'étude sont refusés. Aucune entrée n'est modifiée.
+
+Le calcul réutilise `writing.plan_iterative` pour source → fragment → claim,
+relations et consommateurs rédactionnels existants. Une analyse est affectée si
+ses claims d'entrée sont dans cette clôture ou si son propre ID a changé. Une
+correction de section/paragraphe seule ne rouvre pas l'analyse ; les branches
+indépendantes restent dans `untouched_analysis_ids`. Les cycles de relations
+suivent le comportement existant de la clôture, sans nouveau moteur de graphe.
+
+Le reçu porte les empreintes de baseline, `changed_ids`, `claim_ids`,
+`invalidate_analysis_ids`, `question_refs`, `untouched_analysis_ids` et le plan
+`writing` existant, avec `envelope_refreshed: false`, `human_approval: false`.
+Il prescrit une revue, sans supprimer de finding, modifier un statut ou exécuter
+une réanalyse. La liaison analyse → bloc est encore une dépendance S2, absente
+de cette couche ; le plan rédactionnel ne représente que les liens de claims
+existants. Une modification de mandat/périmètre exige un nouveau plan A2.
+
+L'empreinte globale `input_revision` A1 reste contraignante : le reçu d'impact
+sélectif ne rend **pas** l'ancienne enveloppe valide après changement de preuve.
+Sa réconciliation doit être explicite ; aucune revalidation historique ou
+fraîcheur d'un futur résultat n'est attestée par ce plan de baseline.
+
+Régression synthétique : `python3 -m unittest discover -s diagnostic-complet/tests -p 'test_analysis_impact.py' -v`.
