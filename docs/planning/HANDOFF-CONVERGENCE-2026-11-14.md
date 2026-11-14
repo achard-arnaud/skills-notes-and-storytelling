@@ -1,7 +1,7 @@
 # Reprise autonome — convergence Business/Product et essai 3
 
 ## Action immédiate
-Lire ce document puis l’epic #294 et le lot #295. Vérifier les HEAD distants, la PR de préparation et tout owner actif avant d’écrire. Le présent document prépare une nouvelle conversation ; aucune tâche distante n’est lancée par sa présence.
+Lire d'abord le **Checkpoint de convergence après #313** à la fin de ce document, puis le refinement #296.B2 et le journal SDD/TDD courant. A1–A4, B1 et C1 sont déjà intégrés ; ne pas les rejouer. Vérifier les HEAD distants et tout owner actif avant d’écrire. Ce document ne lance aucune tâche distante.
 
 ## Besoin du lecteur
 François veut des analyses substantielles et mémorisables : comprendre une entreprise et son produit, mécanismes, usages détaillés, architecture fonctionnelle, valeur et limites ; les liens, aperçus et widgets doivent rendre la lecture plaisante. Sans mandat décisionnel, produire une analyse et un diagnostic. Les huit finalités produit sont fiche produit, diagnostic produit, traction commerciale, benchmark fonctionnel, marché, 4P, clients 360, usages/chaîne de valeur.
@@ -78,3 +78,52 @@ La revue des PR multi-repo est enregistrée dans Skills-SDLC-superpower#7 : sept
 Stratégie explicite : branche bornée depuis le dev courant, PR vers dev, vérification du HEAD, promotion main selon les gates. Pas d’écriture directe sur dev pour les prochains lots.
 Pour la reprise, garder GPT-6.1 Sol pour l’exécution bornée. Une revue d’architecture plus approfondie est ponctuelle ; le changement de modèle ne remplace pas mandat et critères. Nouvelle conversation recommandée pour repartir des seuls artefacts utiles. Aucune compaction manuelle contrôlée et aucun gain de tokens promis.
 Le contrat SDLC opérationnel courant est SDD-TDD-20261114-v5 au moment de cette rédaction ; résoudre sa version en vigueur au prochain démarrage, les anciens horaires de cette capsule ne constituent pas le calendrier actif.
+
+## Checkpoint de convergence après #313 — 14 novembre 2026
+
+Cette entrée actualise les consignes de reprise antérieures sans en effacer les preuves.
+Base fonctionnelle dev : 44ae1377644175bbdabf163602e47304d62678a9, arbre1863052674d2bca0d7189043b65b2a1788b9dca4.
+Résoudre le dev courant avant toute écriture ; le présent checkpoint documentaire doit être ajouté par PR vers dev.
+Main observée : 2b3de4d4fc23455d21a76fdee8a81b98df66a098, aucune promotion runtime par cette session.
+
+| Lot | Livraison dev | Capacité et limite |
+|---|---|---|
+| #295.A1 | #306, merge4dd0882 par TDD17h | Enveloppe/validation/legacy ; ne pas refaire |
+| #307 | #308, mergea46faaa | Test crawler par identité corrigé, ticket clos |
+| #295.A2 | #309, merge189e604 | IntentBrief/AnalysisPlan, question avant blocs, catalogue candidat product.adoption |
+| #295.A3 | #310, merge6f2cd10 | Plan sélectif de revue des analyses, réemploi de writing.plan_iterative |
+| #295.A4 | #311, merge0e7002a | Adoption calculée sur mesures explicites attribuées, nominal/partial, pas données client |
+| #296.B1 | #312, merge6786408 | Synthèse sélectionnée → brief/scaffold, deux perspectives mêmes preuves, liens tardifs et plan d'impact |
+| #297.C1 | #313, merge44ae137 | Protocole d'essai et reprise technique dans processus neuf, aucun essai métier complet |
+
+Preuves producteur locales Python3.12.14 : suites338/345/352/361 puis **364/364** ;
+contrats racine, ontology et diff PASS. CI des HEAD PR309–313 : validate/scripts/validate_contracts.py SUCCESS,
+pas de tests runtime couverts par ces CI. Dernier runPR31343617411368/job132515392089 ; arbre local égal au distant.
+Pas de rerun de confort, reset/force, changement de workflow/automation/horaire/skill, corpus réel ou promotion main.
+Les owners manuels A2/A3/A4/B1/C1 sont **RELEASED**, aucun chemin réservé. Le TDD17h n'a pas produit les unités manuelles.
+
+### Prochaine unité raffinée : #296.B2
+Lire [le refinement B2 écrit/relu](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/296#issuecomment-6880943678).
+B1 calcule les paragraphes dont la revue factuelle doit être invalidée, sans appliquer ces flags.
+B2 doit réutiliser writing.apply_iterative, appliquer effectivement les invalidations prescrites,
+préserver les indépendants et le ledger, refuser les leases périmées ; aucun refresh automatique des analyses.
+Scope proposé : analysis_writing.py, test_analysis_writing.py et INTERFACES.md uniquement.
+Aucun code/test B2 exécuté ; owner futur NON_RÉSERVÉ. Vérifier toute branche/PR/prise en charge apparue entre-temps.
+Les révisions globales A1 restent contraignantes ; un plan d'impact ne rend pas une enveloppe périmée fraîche.
+
+### Programme SDD/TDD et état des parents
+Le [plan16–21h](https://github.com/achard-arnaud/Candidatures-nice/issues/220#issuecomment-6879545166)
+et son journal reçoivent ce checkpoint ; aucun appel immédiat ni nouvelle tâche créée.
+Prochain passage existant18h : reprise après refresh des refs/owners, B2 si admissible, sinon repli indépendant du plan.
+La demande utilisateur la plus récente autorisait cette progression manuelle après306 ; elle ne change pas le calendrier.
+Ne pas rejouer A1–A4/307/B1/C1 ni confondre leur intégration avec l'acceptation des parents.
+
+#295/#296/#297 restent OPEN : le parcours minimal traction est intégré techniquement,
+mais la recette S2 et l'étude comparative S3 ne sont pas déclarées validées.
+[Protocole S3](../../diagnostic-complet/docs/CONVERGENCE-TRIAL-PROTOCOL.md) :
+mandat original et exceptions, corpus40–70 publications pertinentes lues/qualifiées, mêmes conditions main/cible,
+cas de réserve distinct figé avant collecte, reprise réelle, correction appliquée, rendu et acceptation humaine séparés.
+La régression à froid est synthétique ; elle ne remplace ni une recherche réelle, ni une nouvelle conversation humaine,
+ni le jugement de François. L'original Current AI non retrouvé demeure une limite.
+
+Rollback de chaque lot : revert du delta/merge concerné en préservant les flux, jamais reset ou force d'une branche partagée.
