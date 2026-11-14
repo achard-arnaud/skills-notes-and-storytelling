@@ -1,0 +1,85 @@
+{
+  "branch": "B",
+  "brief": "company",
+  "ref": "6655ae1f9fb3bf3d1a115c8aaae8913e31f72eea",
+  "method_files": [
+    {
+      "path": "experiments/narrative-procedure-v1/SKILL.md",
+      "bytes": 7525,
+      "sha": "6678d0ae589013a24d7a95f6236611ea7896e6eb"
+    },
+    {
+      "path": "experiments/narrative-procedure-v1/references/routing.md",
+      "bytes": 1997,
+      "sha": "5850457862405bd897f4677d43e3c9acb23986e5"
+    },
+    {
+      "path": "experiments/narrative-procedure-v1/references/editorial.md",
+      "bytes": 1707,
+      "sha": "5a092c2a7eb2988de88584acb073a6f2d247127c"
+    },
+    {
+      "path": "experiments/narrative-procedure-v1/references/review.md",
+      "bytes": 1753,
+      "sha": "30151d303a03b44634ffd1ffe22e83e599ad5997"
+    },
+    {
+      "path": "experiments/narrative-procedure-v1/verticales/registry.json",
+      "bytes": 1567,
+      "sha": "0027ed2de305c888ac16792a0fbe0c7e3f605606"
+    },
+    {
+      "path": "experiments/narrative-procedure-v1/mba/taxonomy/CATALOGUE.md",
+      "bytes": 4980,
+      "sha": "6913eb5d93eeca82a3a8c9af856d31f17680e252"
+    },
+    {
+      "path": "experiments/narrative-procedure-v1/verticales/business/PROFILE.md",
+      "bytes": 1660,
+      "sha": "fece23524f848c1a28e20289b631f0c6a66d5ec1"
+    },
+    {
+      "path": "experiments/narrative-procedure-v1/verticales/business/manifest.json",
+      "bytes": 2891,
+      "sha": "300497b63d71d15bbed96d7fcba186fcae1b183d"
+    },
+    {
+      "path": "experiments/narrative-procedure-v1/mba/taxonomy/socle/unit-economics.md",
+      "bytes": 1931,
+      "sha": "150a1f0b5b08f3cdc9c33025962f9d78c6441ebd"
+    },
+    {
+      "path": "experiments/narrative-procedure-v1/references/analysis-interface.md",
+      "bytes": 1454,
+      "sha": "35effb1f2520a7d6dadb0a605685176e739cb3a6"
+    },
+    {
+      "path": "experiments/narrative-procedure-v1/mba/methods/unit-economics.json",
+      "bytes": 1061,
+      "sha": "3c951f0efef6c5bb56438eb604393e22449bc0f4"
+    },
+    {
+      "path": "templates/one-pager.md",
+      "bytes": 232,
+      "sha": "b30e5fd7dd6d1525b151080bc456720dee7b9c50"
+    }
+  ],
+  "total_bytes": 28758,
+  "analysis": {
+    "method": "unit-economics",
+    "input_claim_refs": [
+      "S4"
+    ],
+    "status": "unknown",
+    "finding": "Prix facturé, volume et coûts variables par mission manquent. Aucune marge unitaire calculable.",
+    "countertest": "Reconstituer le prix facturé et la consommation en crédits sur une mission clôturée.",
+    "affects_blocks": [
+      "comparison",
+      "action"
+    ]
+  },
+  "review": {
+    "sources": "fixed packet",
+    "physical_pagination": "NOT_RUN"
+  }
+}

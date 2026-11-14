@@ -1,0 +1,46 @@
+{
+  "repository": "achard-arnaud/skills-notes-and-storytelling",
+  "ref": "7000c86a7e54cafc68c5bb5ada9aeed5df186aae",
+  "paths": [
+    {
+      "path": "SKILL.md",
+      "bytes": 12927
+    },
+    {
+      "path": "templates/two-pager.md",
+      "bytes": 2180
+    },
+    {
+      "path": "references/modes.md",
+      "bytes": 3705
+    },
+    {
+      "path": "references/workflow.md",
+      "bytes": 7914
+    },
+    {
+      "path": "references/versioning-and-lifecycle.md",
+      "bytes": 1718
+    },
+    {
+      "path": "references/bridges-integration-and-run-memory.md",
+      "bytes": 6747
+    },
+    {
+      "path": "references/dreaming-self-healing.md",
+      "bytes": 10095
+    },
+    {
+      "path": "docs/architecture/README.md",
+      "bytes": 2057
+    },
+    {
+      "path": "docs/architecture/ADR-1003-narrative-artifacts.md",
+      "bytes": 2038
+    }
+  ],
+  "total_bytes": 49381,
+  "mode": "FROM_SCRATCH",
+  "dimension": "product",
+  "template": "TWO_PAGER"
+}

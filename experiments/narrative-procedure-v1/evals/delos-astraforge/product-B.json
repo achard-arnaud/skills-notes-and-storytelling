@@ -1,0 +1,52 @@
+{
+  "variant": "B",
+  "task": "product",
+  "ref": "6655ae1f9fb3bf3d1a115c8aaae8913e31f72eea",
+  "method_files": [
+    {
+      "path": "experiments/narrative-procedure-v1/SKILL.md",
+      "bytes": 7525
+    },
+    {
+      "path": "experiments/narrative-procedure-v1/references/routing.md",
+      "bytes": 1997
+    },
+    {
+      "path": "experiments/narrative-procedure-v1/references/editorial.md",
+      "bytes": 1707
+    },
+    {
+      "path": "experiments/narrative-procedure-v1/references/review.md",
+      "bytes": 1753
+    },
+    {
+      "path": "experiments/narrative-procedure-v1/verticales/registry.json",
+      "bytes": 1567
+    },
+    {
+      "path": "experiments/narrative-procedure-v1/mba/taxonomy/CATALOGUE.md",
+      "bytes": 4980
+    },
+    {
+      "path": "experiments/narrative-procedure-v1/verticales/produit/PROFILE.md",
+      "bytes": 1248
+    },
+    {
+      "path": "experiments/narrative-procedure-v1/verticales/produit/manifest.json",
+      "bytes": 3582
+    },
+    {
+      "path": "experiments/narrative-procedure-v1/mba/taxonomy/produit/adoption.md",
+      "bytes": 1876
+    },
+    {
+      "path": "templates/two-pager.md",
+      "bytes": 2180
+    }
+  ],
+  "unique_files": 10,
+  "total_bytes": 28415,
+  "source_packet": "/tmp/delos-ab/product",
+  "method": "product.adoption",
+  "scope": "Deux pages logiques. Aucun rendu physique."
+}

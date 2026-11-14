@@ -1,0 +1,5 @@
+Décision : faut-il consacrer un entretien de qualification à Delos comme éditeur B2B ? One-pager société en français, 350 mots maximum. Sources figées consultées le 14 novembre 2026.
+S1 https://annuaire-entreprises.data.gouv.fr/entreprise/delos-intelligence-977575612 SAS française créée le 2 juillet 2023, siège Paris, SIREN 977575612, programmation informatique, 10–19 salariés en 2024.
+S2 https://delos.so/fr/about L’éditeur se présente comme fournisseur de travailleurs IA spécialisés par fonction, intégrés aux outils des équipes. 
+S3 https://delos.so/ Le site revendique la confiance de plus de 300 entreprises. Cohortes payantes actives et rétention non documentées par cette affirmation.
+S4 https://help.delos.so/categories/credits-billing/subscription-plans Plans Explore 25 €, Advanced 45 €, Premium 80 € mensuels avec allocations de crédits, entreprise sur devis. La suite et le Worker ont des périmètres tarifaires distincts ; prix complet d’une mission non établi. CA, financement et marge non établis dans ce paquet.
