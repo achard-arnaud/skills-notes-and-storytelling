@@ -1,0 +1,66 @@
+{
+  "version": "0.1.0",
+  "status": "specification_candidate",
+  "issue": 301,
+  "legacy": {
+    "template": "ai-enterprise-learning-six-page",
+    "role": "explicit_enterprise_ambassador_profile"
+  },
+  "families": [
+    {
+      "id": "PED-DEEP-DIVE",
+      "reference": "references/deep-dive.md",
+      "status": "candidate",
+      "renderer_status": "not_validated_for_this_family"
+    },
+    {
+      "id": "PED-MEMO",
+      "reference": "references/memo.md",
+      "status": "candidate",
+      "renderer_status": "not_validated_for_this_family"
+    },
+    {
+      "id": "PED-MATRIX",
+      "reference": "references/matrix.md",
+      "status": "candidate",
+      "renderer_status": "not_validated_for_this_family"
+    },
+    {
+      "id": "PED-PRACTICE",
+      "reference": "references/practice.md",
+      "status": "candidate",
+      "renderer_status": "not_validated_for_this_family"
+    },
+    {
+      "id": "PED-FACILITATOR",
+      "reference": "references/facilitator.md",
+      "status": "candidate",
+      "renderer_status": "not_validated_for_this_family"
+    },
+    {
+      "id": "PED-METAPROMPT",
+      "reference": "references/metaprompt.md",
+      "status": "candidate",
+      "renderer_status": "not_validated_for_this_family"
+    },
+    {
+      "id": "PED-ADDENDUM",
+      "reference": "references/addendum.md",
+      "status": "candidate",
+      "renderer_status": "not_validated_for_this_family"
+    },
+    {
+      "id": "PED-VISUAL",
+      "reference": "references/visual.md",
+      "status": "candidate",
+      "renderer_status": "not_validated_for_this_family"
+    }
+  ],
+  "mode_variants": [
+    "prediction",
+    "perception",
+    "creation",
+    "raisonnement",
+    "agentique"
+  ]
+}
