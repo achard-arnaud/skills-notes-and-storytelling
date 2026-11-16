@@ -5,6 +5,11 @@ description: Use when a business study must explain how the physical value chain
 
 # Analyser la chaîne de valeur industrielle (P-INDUSTRY)
 
+## Shared editorial and research quality
+
+Apply the [shared editorial and research quality contract](../../../references/editorial-and-research-quality.md) to direct prose, substantive footnotes and final repetition review. Company sitemap and 20–200 complementary-search budgets apply only within a named-company or business-market research run.
+
+
 **Question structurante** : Comment la chaîne de valeur physique crée-t-elle et perd-elle de la valeur ?
 **Scope** : Études, actifs, exploitation, maintenance, supervision, terrain, sous-traitance.
 **Exclusions** : Les fonctions corporate générales (P-CORPORATE). Une fiche fournisseur ne prouve ni déploiement, ni intégration, ni ROI chez la cible.
