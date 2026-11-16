@@ -27,7 +27,7 @@ class ProjectTests(unittest.TestCase):
         self.src = Path(self.tmp.name) / "kb"
         (self.src / "atoms").mkdir(parents=True)
         (self.src / "atoms" / "a.md").write_text("# a\n", encoding="utf-8")
-        (self.src / "kb.json").write_text("{}", encoding="utf-8")
+        (self.src / "kb.json").write_text('{"profile_id": "fixture-run"}', encoding="utf-8")
 
     def run_project(self, **kw):
         kw.setdefault("namespace", NS)
@@ -71,8 +71,20 @@ class ProjectTests(unittest.TestCase):
         self.run_project()
         base = self.root / "knowledge/business/fixture-run"
         manifest = json.loads((base / "MANIFEST.json").read_text(encoding="utf-8"))
+        self.assertEqual(manifest["profile_id"], "fixture-run")
         for entry in manifest["entries"]:
             self.assertEqual(sha((base / entry["path"]).read_bytes()), entry["sha256"])
+
+    def test_missing_profile_id_refuses_before_any_write(self):
+        (self.src / "kb.json").write_text("{}", encoding="utf-8")
+        with self.assertRaises(project.ProjectionError):
+            self.run_project()
+        self.assertFalse((self.root / "knowledge").exists())
+
+    def test_expected_profile_must_match_source_kb(self):
+        with self.assertRaises(project.ProjectionError):
+            self.run_project(expected_profile_id="another-profile")
+        self.assertFalse((self.root / "knowledge").exists())
 
 
 

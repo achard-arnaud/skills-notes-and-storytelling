@@ -105,7 +105,7 @@ SKILLS = [
   "forbid": ["afficher un état humain non validé comme validé", "charger une ressource externe"],
   "negative": "Contenu injecté : échappé."},
  {"name": "graph1-project", "module": "project.py",
-  "command": "python3 diagnostic-complet/project.py --graph1 CLONE --frozen-sha SHA --source kb=KB",
+  "command": "python3 diagnostic-complet/project.py --graph1 CLONE --frozen-sha SHA --profile PROFILE --source kb=KB",
   "trigger": "publie la KB dans le namespace business de Graph1",
   "exclude": "toute modification du graphe de formation gelé",
   "inputs": "KB privée, clone Graph1, empreinte du graphe gelé", "outputs": "fichiers sous knowledge/business/, MANIFEST avec empreintes",

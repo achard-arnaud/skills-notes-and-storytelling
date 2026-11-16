@@ -109,7 +109,7 @@ Généré par `skills_catalog.py catalog`. Les SKILL.md ne sont pas versionnés 
 
 ### `graph1-project`
 
-- Commande : `python3 diagnostic-complet/project.py --graph1 CLONE --frozen-sha SHA --source kb=KB`
+- Commande : `python3 diagnostic-complet/project.py --graph1 CLONE --frozen-sha SHA --profile PROFILE --source kb=KB`
 - Entrées : KB privée, clone Graph1, empreinte du graphe gelé
 - Sorties : fichiers sous knowledge/business/, MANIFEST avec empreintes
 - Interdits : écrire sous canonical/, build/, tests/, scripts/, docs/ ; publier sans [skip ci] ni fast-forward ; forcer un push

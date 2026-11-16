@@ -41,6 +41,31 @@ def check_namespace(root: Path, namespace: str) -> Path:
     return target
 
 
+def source_profile_id(sources: dict[str, Path], expected: str | None = None) -> str:
+    """Read the run profile from projected KB indexes and reject ambiguous receipts."""
+    declared = set()
+    for source in sources.values():
+        source = Path(source)
+        index = source if source.is_file() and source.name == "kb.json" else source / "kb.json"
+        if not index.is_file():
+            continue
+        try:
+            profile_id = json.loads(index.read_text(encoding="utf-8")).get("profile_id")
+        except (OSError, json.JSONDecodeError) as error:
+            raise ProjectionError(f"cannot read profile_id from {index}: {error}") from error
+        if not profile_id or not isinstance(profile_id, str):
+            raise ProjectionError(f"projected KB {index} has no profile_id; migrate it before projection")
+        declared.add(profile_id)
+    if not declared:
+        raise ProjectionError("no projected KB declares profile_id")
+    if len(declared) != 1:
+        raise ProjectionError(f"projected KBs declare different profiles: {sorted(declared)}")
+    profile_id = declared.pop()
+    if expected is not None and profile_id != expected:
+        raise ProjectionError(f"projected KB profile '{profile_id}' differs from explicit profile '{expected}'")
+    return profile_id
+
+
 def _write(target: Path, data: bytes, written: list):
     target.parent.mkdir(parents=True, exist_ok=True)
     if target.exists() and target.read_bytes() == data:
@@ -51,7 +76,8 @@ def _write(target: Path, data: bytes, written: list):
 
 def project(graph1_root: Path, frozen_sha: str, sources: dict[str, Path], namespace: str | None = None,
             include_raw: Path | None = None, dry_run: bool = False, shard_atoms: int = 0,
-            compress_over: int = 0, only: set[str] | None = None, manifest: bool = True) -> dict:
+            compress_over: int = 0, only: set[str] | None = None, manifest: bool = True,
+            expected_profile_id: str | None = None) -> dict:
     if namespace is None:
         raise ProjectionError("namespace required: declare projection.namespace in the run profile")
     root = Path(graph1_root)
@@ -59,6 +85,7 @@ def project(graph1_root: Path, frozen_sha: str, sources: dict[str, Path], namesp
     if not frozen.exists() or sha256_file(frozen) != frozen_sha:
         raise ProjectionError("frozen formation graph hash does not match the declared baseline; refusing")
     target = check_namespace(root, namespace)
+    profile_id = source_profile_id(sources, expected_profile_id)
     written: list[Path] = []
     entries = []
     in_batch = 0
@@ -91,7 +118,7 @@ def project(graph1_root: Path, frozen_sha: str, sources: dict[str, Path], namesp
                 _write(target / rel, data, written)
             if selected:
                 in_batch += 1
-    manifest_doc = {"namespace": namespace, "frozen_graph_sha256": frozen_sha, "files": len(entries),
+    manifest_doc = {"namespace": namespace, "profile_id": profile_id, "frozen_graph_sha256": frozen_sha, "files": len(entries),
                 "total_bytes": sum(e["bytes"] for e in entries), "entries": entries,
                 "rules": ["private corpus; not for the public repository", "imported sources are supplied, not verified",
                           "the frozen formation graph is separate and unchanged"]}
@@ -103,7 +130,7 @@ def project(graph1_root: Path, frozen_sha: str, sources: dict[str, Path], namesp
     outside = [p for p in written if target not in p.parents and p != target]
     if outside:
         raise ProjectionError(f"wrote outside the namespace: {outside}")
-    return {"namespace": namespace, "dry_run": dry_run, "files": len(entries), "in_batch": in_batch, "total_bytes": manifest_doc["total_bytes"],
+    return {"namespace": namespace, "profile_id": profile_id, "dry_run": dry_run, "files": len(entries), "in_batch": in_batch, "total_bytes": manifest_doc["total_bytes"],
             "written": len(written), "frozen_graph_unchanged": after == frozen_sha}
 
 
@@ -122,14 +149,20 @@ def main(argv=None) -> int:
     parser.add_argument("--only", action="append", help="only entries whose relative path starts with this prefix (batch publication)")
     args = parser.parse_args(argv)
     namespace = args.namespace
+    expected_profile_id = None
     if namespace is None and args.profile:
-        namespace = (load_profile(args.profile).get("projection") or {}).get("namespace")
+        profile = load_profile(args.profile)
+        namespace = (profile.get("projection") or {}).get("namespace")
+        expected_profile_id = profile["profile_id"]
+    elif args.profile:
+        expected_profile_id = load_profile(args.profile)["profile_id"]
     sources = {}
     for item in args.source:
         key, _, value = item.partition("=")
         sources[key] = Path(value)
     print(json.dumps(project(args.graph1, args.frozen_sha, sources, namespace, args.raw_html, args.dry_run,
-                     args.shard_atoms, args.compress_over, set(args.only) if args.only else None, not args.no_manifest),
+                     args.shard_atoms, args.compress_over, set(args.only) if args.only else None, not args.no_manifest,
+                     expected_profile_id),
                      ensure_ascii=False, indent=2))
     return 0
 

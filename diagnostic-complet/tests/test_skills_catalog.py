@@ -31,6 +31,10 @@ class CatalogDataTests(unittest.TestCase):
         published = (ROOT / "docs" / "SKILLS-CATALOG.md").read_text(encoding="utf-8")
         self.assertEqual(published, sc.catalog_markdown())
 
+    def test_graph1_projection_declares_profile(self):
+        projection = next(skill for skill in sc.SKILLS if skill["name"] == "graph1-project")
+        self.assertIn("--profile", projection["command"])
+
 
 class DraftTests(unittest.TestCase):
     def test_drafts_lint_clean_outside_the_repo(self):
