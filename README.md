@@ -34,7 +34,7 @@ The status here mirrors the manifest; the manifest remains authoritative on futu
 |---|---|---:|---|
 | `architecture-note` | Architecture, system/capability, tradeoffs, risks and economics | 5–10 | **candidate** |
 | `one-pager` | Executive orientation to one decision | 1 | validated |
-| `two-pager` | Compact company/product/person/strategy evaluation | 2 | validated |
+| `two-pager` | Business-first company, market, product and strategy analysis; person/fit only when requested | 2 | validated |
 | `benchmarking` | Compare alternatives against common criteria | 2–6 | candidate |
 | `buy-side-gap-analysis` | Adopt / replace / complement / partner | 4–8 | candidate |
 | `diagnostic-reco-sellside` | Positioning and GTM diagnostic | 5–9 | validated |

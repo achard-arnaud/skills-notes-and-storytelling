@@ -1,52 +1,42 @@
-# Template — Two-pager
+# Template - Business two-pager
 
 ## Purpose
-Create a dense meeting-ready executive brief that lets a reader understand **what is true, why it matters, what the fit is and what decision/conversation should happen next** in exactly two pages.
+Create a meeting-ready, exactly two-page business analysis that describes how a company or offer creates, delivers and captures value; shows strategic position and execution; and preserves evidence limits. The default is a business analysis, not an employer or candidate brief.
 
-Do not use it as a miniature deep report. Research may be deep; the artifact is deliberately compressed.
+Read references/business-two-pager.md for the full content and evidence contract and references/two-pager-rendering.md for the flexible HTML/CSS binding.
 
-## Declare the subject spine
-Choose the dominant spine before drafting:
-- `company + product`;
-- `company + person`;
-- `product + use cases`;
-- `target + offer fit`;
-- `compact strategy/decision`.
+## Choose one subject spine
+- company or business unit;
+- company + product portfolio;
+- market + competitive position;
+- strategy or transformation;
+- target + offer fit, only when requested;
+- company + person, only when requested.
 
-When several entities are involved, establish independent truth before asserting fit or synergy.
+Declare audience, analysis cutoff, decision question, geography and time horizon. Keep company, product, customer and market truth separate until the fit analysis.
 
-## Page 1 — Truth and thesis
-- headline answer / meeting thesis;
-- entity/company/product/person truth;
-- why-now/context;
-- 3–5 decisive evidence-backed facts;
-- one mechanism/architecture/value-chain visual when it explains the thesis better than prose;
-- explicit unknowns that materially constrain confidence.
+## Page 1 - Description and strategic highlights
+Lead with a descriptive thesis and compact signalétique. Select only available, decision-relevant fields:
+- identity, footprint and locations;
+- employees, revenue and relevant KPIs, with period, unit, source and perimeter;
+- CEO / CTO / board / ownership / funding when material;
+- positioning, markets, customer segments and evidenced customer or mission mix;
+- business model, offer and operating organization.
 
-## Page 2 — Fit and action
-- fit/gap or opportunity mechanism;
-- 2–4 concrete use cases or value paths where relevant;
-- constraints/hard gates;
-- differentiation or nearest alternative when decision-relevant;
-- recommendation / conversation hypothesis;
-- smallest reversible next step;
-- optional bridge to deeper benchmark, opportunity or integration note.
+Include a value-creation mechanism or one useful organization/product/market-segmentation diagram when it clarifies structure; a distinct newsflow and strategic-highlights container covering the prior 24 months; and a sourced SWOT -> TOWS view when it helps explain strategic choices. Unknowns stay explicit. Do not infer an employer thesis from a hiring post.
 
-## Compression rules
-- every block must answer a decision question; delete biography/catalog material that does not;
-- evidence status survives compression;
-- do not compress uncertainty out of the document;
-- use tables/cards for parallel facts, prose for causal reasoning;
-- no more than one dominant thesis and one primary CTA;
-- bridges/dreaming remain outside the two-page payload unless the next action itself is decision-critical.
+## Page 2 - Strategy and execution
+Include, in decision-relevant order:
+- strategy, operating changes, investment/capability needs, ownership/timing and observed execution;
+- concise product/service and use-case descriptions tied to customer value and monetization;
+- competitive insights normalized by segment, geography and scope;
+- moat mechanism, durability evidence and erosion paths;
+- three to five takeaways and, when requested, the decision conditions and reversible next step.
 
-## Visual grammar
-- strong hierarchy and compact cards;
-- diagrams before weak explanatory prose;
-- tables <=5 columns;
-- semantic evidence labels;
-- no body text below 9 pt;
-- source footprint compact but auditable.
+An announced ambition is not execution evidence. A claimed advantage is not a demonstrated moat.
 
-## QA
-A successful two-pager should support a 10–20 minute meeting without requiring the reader to discover the underlying research corpus, while preserving a bridge back to that corpus for follow-up.
+## Flexible composition
+The two-page frame is stable. Bind only evidence-backed content; omit missing fields rather than adding filler. The current renderer has a fixed outer frame, while content labels, lists and column order can vary within its JSON contract. Keep the 24-month newsflow in a distinct titled container, one dominant thesis, no more than one primary diagram and at most five table columns. Candidate-fit blocks are opt-in.
+
+## Quality gate
+Two pages exactly; evidence status and source lineage survive; no unsupported company metrics, leadership lines, news events, moat claims or causal diagrams; business truth precedes fit; visual containers explain the thesis rather than decorate it; the final takeaway follows from the evidence.
