@@ -5,6 +5,11 @@ description: Use when a business study must say which intelligence or automation
 
 # Analyser les capacités d'IA utiles (P-AI)
 
+## Shared editorial and research quality
+
+Apply the [shared editorial and research quality contract](../../../references/editorial-and-research-quality.md) to direct prose, substantive footnotes and final repetition review. Company sitemap and 20–200 complementary-search budgets apply only within a named-company or business-market research run.
+
+
 **Question structurante** : Quelle intelligence ou automatisation est utile à la décision ?
 **Scope** : Perception, prédiction, optimisation, génération, agents, évaluations, supervision ; solutions conditionnées par la donnée et le workflow.
 **Exclusions** : Un effet de mode : le choix technique s'explique par la décision à prendre. Le déploiement et les compétences relèvent de P-ADOPTION.
