@@ -1,0 +1,21 @@
+{
+  "contract": "references/editorial-and-research-quality.md",
+  "consumers": [
+    "SKILL.md",
+    "diagnostic-complet/skills/analyzing-adoption-and-change/SKILL.md",
+    "diagnostic-complet/skills/analyzing-ai-capabilities/SKILL.md",
+    "diagnostic-complet/skills/analyzing-corporate-functions/SKILL.md",
+    "diagnostic-complet/skills/analyzing-data-foundations/SKILL.md",
+    "diagnostic-complet/skills/analyzing-economics-and-financing/SKILL.md",
+    "diagnostic-complet/skills/analyzing-governance-and-control/SKILL.md",
+    "diagnostic-complet/skills/analyzing-industry-value-chain/SKILL.md",
+    "diagnostic-complet/skills/analyzing-market-and-competition/SKILL.md",
+    "diagnostic-complet/skills/designing-main-story/SKILL.md",
+    "diagnostic-complet/skills/side-stories-business/SKILL.md",
+    "references/business-two-pager.md",
+    "references/style-contract.md",
+    "references/versioning-and-lifecycle.md",
+    "references/workflow.md",
+    "skills/pedagogical-ai-learning/SKILL.md"
+  ]
+}

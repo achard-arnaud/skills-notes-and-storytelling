@@ -15,6 +15,8 @@ Example:
 
 > This score is a decision heuristic. It prioritizes evidence for comparison.
 
+Write direct, affirmative, concrete sentences. Express legal boundaries through their precise scope and conditions. Preserve exact quotations and necessary legal prohibitions. Split compressed rhetorical comparisons into separate substantive statements.
+
 ## Tables
 
 - Default comparison device.
@@ -69,3 +71,15 @@ Hard gates:
 - Two-pager: A4 landscape by default; dense but readable.
 - Benchmarking: landscape preferred; comparison tables dominate.
 - Buy-side gap analysis: portrait or landscape according to matrix density; executive recommendation on page 1.
+
+## Reader-facing analysis and method records
+
+Use the body of each container for the substantive analysis. Keep execution accounting, reversibility of document production, QA outcomes and workflow commentary in run-method records. Explain industrial reversibility in the body when contracts, transferable assets or switching costs are material.
+
+Reserve footers and container endings for page numbers, source references and extremely discreet illustrative legends defining symbols, units or figure scope. Place analytical conclusions in the body. Keep method commentary and self-evaluation in the sidecar records.
+
+## Mandatory cross-container repetition review
+
+After drafting and after the final render, map each material proposition to its primary location across introduction, diagram, table, prose, box, conclusion and footer. A repeated proposition must add a distinct mechanism, discriminating example or material exception. Keep the opening synthesis brief and let the body develop its evidence. Merge semantic duplicates and use compact cross-references for necessary reminders. Preserve legally material conditions.
+
+Record proposition, locations, contribution and edit in the run’s editorial-review record. Check prose-versus-diagram, prose-versus-table and opening-versus-conclusion redundancy. Run a final scan for avoidable negative constructions and rhetorical oppositions in reader-facing prose. Rewrite inherited exclusions as positive qualification criteria while preserving exact quotations and legal prohibitions. Inspect every footer and container ending. Each container contributes identifiable information.

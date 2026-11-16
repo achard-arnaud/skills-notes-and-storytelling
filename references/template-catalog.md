@@ -2,6 +2,7 @@
 
 | Enum | Primary decision | Orientation | Default length | Core payloads |
 |---|---|---:|---:|---|
+| REGULATORY_NOTE | comprendre la portée du texte et ses effets sectoriels | adaptative | 3–5 pp | qualification, responsabilités, preuves, impacts, calendrier, sources |
 | ARCHITECTURE_NOTE | understand architecture, scale, risks, economics | portrait | 5–10 pp | diagrams, prose, side stories, tables |
 | ONE_PAGER | fast executive orientation | portrait/landscape | 1 p | thesis, 3–5 facts, recommendation |
 | TWO_PAGER | company/product/person or compact strategy | landscape | 2 pp | dense cards, comparison, CTA |
@@ -86,3 +87,7 @@ Preferred side stories:
 ## AI-enterprise-learning-six-page
 
 A pedagogical class, separate from the business/product/technical analysis lens. Follow the six fixed page questions and the Train-the-Trainer requirements in the template contract. The content binding holds variables and prose; the scaffold holds semantic HTML anchors; CSS and pagination belong to the downstream renderer. Use the [taxonomy](template-taxonomy.md) and [pedagogical skill](../skills/pedagogical-ai-learning/SKILL.md).
+
+## Regulatory-note
+
+Classe `legal-reglementaire`. Suivre [le contrat](../templates/regulatory-note.md) et [la skill spécialisée](../skills/regulatory-bootstrap/SKILL.md). Le mandat descriptif gouverne la composition et les contrôles. Les recommandations constituent une variante explicitement demandée.

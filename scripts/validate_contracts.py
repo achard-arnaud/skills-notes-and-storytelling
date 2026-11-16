@@ -7,7 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from src.template_types import OutputTemplateType, GenerationMode
+from src.template_types import OutputTemplateType, GenerationMode, TemplateClass
 
 SEMVER = re.compile(r"^\d+\.\d+\.\d+$")
 
@@ -38,6 +38,12 @@ def check_template_enums(enum_types):
     """Require every schema that declares template_type to match the canonical enum."""
     for path in sorted((ROOT / "contracts").glob("*.schema.json")):
         schema = json.loads(path.read_text())
+        template_class = schema.get("properties", {}).get("template_class", {})
+        classes = {item.value for item in TemplateClass}
+        if "enum" in template_class and set(template_class["enum"]) != classes:
+            raise SystemExit(f"template class/schema mismatch in {path.relative_to(ROOT)}")
+        if "const" in template_class and template_class["const"] not in classes:
+            raise SystemExit(f"unknown template class in {path.relative_to(ROOT)}")
         template_type = schema.get("properties", {}).get("template_type")
         if template_type is None:
             continue
@@ -102,7 +108,7 @@ def main():
     check_docx_runtime_interface()
 
     valid_template_lifecycle = {"candidate", "validated", "promoted", "retired"}
-    valid_template_classes = {"product", "business", "tech", "pedagogique"}
+    valid_template_classes = {x.value for x in TemplateClass}
     mode_enum = {x.value for x in GenerationMode}
 
     for item in manifest["templates"]:

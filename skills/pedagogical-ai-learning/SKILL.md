@@ -5,7 +5,7 @@ description: Concevoir des fiches pédagogiques approfondies « Pour aller plus 
 
 # Fiches IA — comprendre, transmettre, intégrer
 
-Follow the [shared editorial and research quality contract](../references/editorial-and-research-quality.md) for direct prose and final repetition review. Company research budgets apply only when the learning analysis investigates a named company or market.
+Follow the [shared editorial and research quality contract](../../references/editorial-and-research-quality.md) for direct prose and final repetition review. Company research budgets apply only when the learning analysis investigates a named company or market.
 
 
 ## Lire juste ce qu’il faut
