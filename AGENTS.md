@@ -26,6 +26,7 @@ mode
 - New template: starts candidate, then human approval + passing fixture may validate it.
 - Promotion to main: integration branch `dev` must be green.
 - Any DOCX-related output must satisfy `tests/QA_CHECKLIST.md`.
+- Any skill or shared editorial-rule change must include a transverse mention review: link the shared contract from applicable skills, scope research quotas correctly, and record coverage/follow-up.
 
 ## Evidence policy
 Side stories are composition artifacts and cannot originate unsupported claims. Account/buyer reality and seller/product truth remain independent until an explicit fit stage.
