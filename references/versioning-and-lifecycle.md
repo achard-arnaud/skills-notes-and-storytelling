@@ -64,3 +64,8 @@ A feedback/dreaming run records:
 ## Historical snapshots
 
 Old fixtures remain valid historical snapshots when a new major version is created. Do not rewrite a v1 fixture to masquerade as v2 evidence.
+
+
+## Shared skill-rule propagation
+
+When a skill or shared reference changes, complete the transverse mention review in [the shared editorial and research quality contract](editorial-and-research-quality.md). Identify output-producing skills, add a reference where the rule applies, scope company-research quotas only to research-capable skills, and record reviewed skills plus follow-up. Keep common wording centralized.
