@@ -5,6 +5,11 @@ description: Use when a business study must show how an organization turns a too
 
 # Analyser l'adoption et le changement (P-ADOPTION)
 
+## Shared editorial and research quality
+
+Apply the [shared editorial and research quality contract](../../../references/editorial-and-research-quality.md) to direct prose, substantive footnotes and final repetition review. Company sitemap and 20–200 complementary-search budgets apply only within a named-company or business-market research run.
+
+
 **Question structurante** : Comment l'organisation transforme-t-elle un outil en pratique durable ?
 **Scope** : Compétences, rôles, changement, formation, usages, mesure de valeur.
 **Exclusions** : Un taux d'adoption supposé : ne jamais en inventer. Le choix de la capacité (P-AI) et la gouvernance (P-GOVERNANCE).
