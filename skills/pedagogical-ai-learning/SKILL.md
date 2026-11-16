@@ -5,6 +5,9 @@ description: Concevoir des fiches pédagogiques approfondies « Pour aller plus 
 
 # Fiches IA — comprendre, transmettre, intégrer
 
+Follow the [shared editorial and research quality contract](../references/editorial-and-research-quality.md) for direct prose and final repetition review. Company research budgets apply only when the learning analysis investigates a named company or market.
+
+
 ## Lire juste ce qu’il faut
 
 Lire le brief courant, le registre de sources et le catalogue fourni. Pour une fiche existante, lire son `<capacité>.sheet.json`; pour Perception, partir de `learning/enterprise-ai/perception.sheet.json`. Lire uniquement le [contrat actif](../../contracts/pedagogical-sheet.schema.json), le [template de six pages](../../templates/ai-enterprise-learning-six-page.md) et, au moment du rendu, la [recette de composition](references/hivest-rendering.md).
