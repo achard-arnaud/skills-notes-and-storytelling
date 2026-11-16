@@ -5,6 +5,11 @@ description: Use when material from a business study (une entreprise, une offre,
 
 # Side stories business
 
+## Shared editorial and research quality
+
+Apply the [shared editorial and research quality contract](../../../references/editorial-and-research-quality.md) to direct prose, substantive footnotes and final repetition review. Company sitemap and 20–200 complementary-search budgets apply only within a named-company or business-market research run.
+
+
 Une side story est un artefact de composition : elle éclaire le récit principal sans en faire partie, et elle ne crée jamais de preuve. Ce skill adapte `composing-side-stories` (dépôt tourisme) au cas business et ramène dix types hérités à **six types**, parce que peu de formats bien définis valent mieux que beaucoup de formats vagues.
 
 La source de vérité est `diagnostic-complet/workflows/side-stories.workflow.json`. Lire d'abord ses sections `invariants`, `choice_tree` et `types`. `python3 diagnostic-complet/sidestories.py types` liste les types, leurs tags et leurs exemples.
