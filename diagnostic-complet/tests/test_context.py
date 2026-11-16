@@ -1,4 +1,5 @@
 import contextlib
+from copy import deepcopy
 import io
 import json
 from pathlib import Path
@@ -213,6 +214,37 @@ class ContextTests(unittest.TestCase):
         self.assertNotIn("invalidated_by", result["tasks"][0])
         self.assertNotIn("invalidated_by", result["tasks"][3])
         self.assertEqual(original["tasks"][1]["status"], "verified")
+
+    def test_invalidation_can_be_bounded_to_one_study(self):
+        original = {"id": "multi-study", "tasks": [
+            {"id": "a-source", "status": "verified", "depends_on": [],
+             "study_scope": study_scope("study-a"), "receipt": {"sha": "a1"}},
+            {"id": "a-derived", "status": "completed", "depends_on": ["a-source"],
+             "study_scope": study_scope("study-a"), "receipt": {"sha": "a2"}},
+            {"id": "b-source", "status": "verified", "depends_on": [],
+             "study_scope": study_scope("study-b"), "receipt": {"sha": "b1"}},
+            {"id": "b-derived", "status": "completed", "depends_on": ["b-source", "a-derived"],
+             "study_scope": study_scope("study-b"), "receipt": {"sha": "b2"}}]}
+        checkpoint_b = {"study_scope": study_scope("study-b"), "task": "b-derived",
+                        "inputs": [{"path": "b.md", "sha256": "b" * 64}]}
+        before = deepcopy(original)
+        checkpoint_before = deepcopy(checkpoint_b)
+
+        result = context.invalidate_descendants(original, ["a-source"], study_id="study-a")
+        by_id = {task["id"]: task for task in result["tasks"]}
+
+        self.assertEqual(by_id["a-source"]["status"], "planned")
+        self.assertEqual(by_id["a-derived"]["status"], "planned")
+        self.assertEqual(by_id["b-source"], before["tasks"][2])
+        self.assertEqual(by_id["b-derived"], before["tasks"][3])
+        self.assertEqual(checkpoint_b, checkpoint_before)
+        self.assertEqual(original, before)
+
+    def test_study_bounded_invalidation_rejects_changed_task_from_other_study(self):
+        data = board()
+        data["tasks"][1]["study_scope"] = study_scope("study-b")
+        with self.assertRaisesRegex(ValueError, "does not belong to study study-a"):
+            context.invalidate_descendants(data, ["b"], study_id="study-a")
 
     def test_cli_packet_checkpoint_resume_and_failure_code(self):
         boardfile = self.root / "board.json"

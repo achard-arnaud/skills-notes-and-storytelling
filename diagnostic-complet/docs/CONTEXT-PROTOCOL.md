@@ -63,6 +63,13 @@ distinct et déclaré ; la similarité du sujet, un exemple précédent ou l'ét
 dernier run n'ajoutent jamais un input autorisé. Les fixtures publiques de ce
 contrat sont synthétiques.
 
+Lorsqu'une source change, `invalidate_descendants` accepte un `study_id`
+explicite. La tâche source doit appartenir à cette étude et seuls ses descendants
+portant le même `study_scope.id` sont rouverts. Les tâches, reçus et checkpoints
+des autres études restent inchangés. Sans `study_id`, le comportement historique
+du DAG est conservé ; cette compatibilité ne vaut ni autorisation de partage
+inter-études ni contrat de stockage durable.
+
 Budgets initiaux proposés, ajustables après mesure : capsule centrale ≤800 mots ; paquet tâche ≤8 000 mots de fichiers effectivement chargés ; réponse d'agent ≤600 mots hors artefacts ; maximum trois agents de travail simultanés plus l'orchestrateur. Le nombre de mots est un proxy mesurable, **pas** un nombre de tokens ni une mesure de toute la fenêtre système. Si un tokenizer exact du modèle n'est pas disponible, le reçu indique `token_count: unknown`.
 
 Tout compagnon obligatoire d'une instruction entre dans le calcul. Le contrôle Sri Lanka existant le fait déjà (`scripts/audit_context_budget.py`, testé par `test_context_budget_runtime.py`) ; il refuse aussi d'auditer un ancien manifeste comme s'il couvrait le dernier run. À adapter plutôt que revendiquer une mémoire automatique.
