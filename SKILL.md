@@ -41,6 +41,8 @@ Select exactly one primary template:
 - `ARCHITECTURE_NOTE`
 - `ONE_PAGER`
 - `TWO_PAGER`
+
+For a business-first two-pager, read [the business contract](references/business-two-pager.md) before drafting and [the rendering contract](references/two-pager-rendering.md) when a visual artifact is requested. This template starts with company and business description; target/person fit is opt-in.
 - `BENCHMARKING`
 - `BUY_SIDE_GAP_ANALYSIS`
 - `DIAGNOSTIC_RECO_SELL_SIDE`
