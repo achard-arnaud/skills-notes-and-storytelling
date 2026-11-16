@@ -147,14 +147,16 @@ A review finding should identify the lens that produced it. This prevents stylis
 2. context/problem-framing QA;
 3. content-contract QA;
 4. source and evidence-status QA;
-5. lock-in/sovereignty/process-control location check when material;
-6. counter-perspective/red-team QA;
-7. optional single repair/narrowing pass;
-8. single red-team verification pass;
-9. stylistic/layout/render QA when applicable;
-10. reader/decision QA;
-11. decision + falsifier check;
-12. bridge evaluation using preserved RunContext;
-13. select dreaming tier using [dreaming-self-healing.md](dreaming-self-healing.md);
-14. mandatory dreaming check;
-15. if reusable delta exists, create candidate patch/fixture proposal for human approval.
+5. company research coverage QA when applicable, using [the shared editorial and research quality contract](editorial-and-research-quality.md);
+6. lock-in/sovereignty/process-control location check when material;
+7. counter-perspective/red-team QA;
+8. optional single repair/narrowing pass;
+9. single red-team verification pass;
+10. stylistic/layout/render QA when applicable;
+11. dedicated editorial repetition review across all content containers;
+12. reader/decision QA;
+13. decision + falsifier check;
+14. bridge evaluation using preserved RunContext;
+15. select dreaming tier using [dreaming-self-healing.md](dreaming-self-healing.md);
+16. mandatory dreaming check;
+17. if reusable delta exists, create candidate patch/fixture proposal for human approval.
