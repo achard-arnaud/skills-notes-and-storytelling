@@ -88,5 +88,5 @@ End with three to five ranked business takeaways that synthesize the pages. If a
 - Bind only modules supported by evidence. Missing fields collapse cleanly; they do not produce empty cards or filler text.
 - Preserve competing explanations and material unknowns through compression.
 - Keep seller, company, customer, market and candidate evidence distinct until the relevant comparison stage.
-- Use the template as a flexible content contract: module order may adapt to the strongest business explanation, while page count, business-first thesis, two-year newsflow container and closing takeaways remain stable.
+- Use the business reference as the flexible authoring contract: prioritize the strongest business explanation. The transferred renderer retains a fixed outer frame, so map modules into its cards/columns and reorder content only where the JSON contract permits. Keep the two-page count, business-first thesis, distinct prior-24-month newsflow container and closing takeaways stable.
 - Crosswalk: executive-one-two-pager contributes decision gates, takeaways, value mechanisms and falsification; two-pager-nice contributes evidence color/status, CSS tokens, modular cards, visual QA and stable page mechanics. This business reference governs the descriptive business spine when either renderer is used.
