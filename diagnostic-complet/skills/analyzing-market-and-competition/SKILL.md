@@ -5,6 +5,11 @@ description: Use when a business study must explain why a company has to evolve:
 
 # Analyser le marché et la concurrence (P-MARKET)
 
+## Shared editorial and research quality
+
+Apply the [shared editorial and research quality contract](../../../references/editorial-and-research-quality.md) to direct prose, substantive footnotes and final repetition review. Company sitemap and 20–200 complementary-search budgets apply only within a named-company or business-market research run.
+
+
 **Question structurante** : Pourquoi cette entreprise doit-elle évoluer ?
 **Scope** : Macro, marché, concurrence, Porter si utile, contraintes sectorielles.
 **Exclusions** : Une capacité interne déjà acquise (P-INDUSTRY, P-CORPORATE) ; tout chiffre de performance d'un concurrent sans source publique.
