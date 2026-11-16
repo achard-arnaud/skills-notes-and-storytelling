@@ -11,6 +11,21 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import context
 
 
+def shared_reference(path="one.md", revision=None, **overrides):
+    reference = {
+        "source_study_id": "study-b",
+        "source_id": "source-b-1",
+        "source_revision": revision or "0" * 64,
+        "path": path,
+        "source_status": "supplied_claim",
+        "status": "supplied_claim",
+        "purpose": "comparison",
+        "authorization_ref": "AUTH-2026-001",
+    }
+    reference.update(overrides)
+    return reference
+
+
 def board():
     return {"id": "demo", "base_sha": "abc", "tasks": [
         {"id": "a", "status": "completed", "depends_on": [], "issue_body": "do not load"},
@@ -38,6 +53,7 @@ class ContextTests(unittest.TestCase):
         self.root = Path(self.tmp.name)
         (self.root / "one.md").write_text("énergie fiable\n", encoding="utf-8")
         (self.root / "other.md").write_text("Unrelated secret", encoding="utf-8")
+        self.one_revision = context._read_input(self.root, "one.md")["sha256"]
 
     def packet(self, **kwargs):
         return context.build_packet(self.root, board(), "b", ["one.md"], **kwargs)
@@ -118,6 +134,57 @@ class ContextTests(unittest.TestCase):
         data = execution_board()
         data["tasks"][1]["study_scope"]["methods"] = []
         with self.assertRaisesRegex(ValueError, "methods"):
+            context.build_packet(self.root, data, "b", ["one.md"], for_execution=True)
+
+    def test_declared_shared_reference_is_preserved_by_packet_and_checkpoint(self):
+        data = execution_board()
+        reference = shared_reference(revision=self.one_revision)
+        data["tasks"][1]["study_scope"]["shared_references"] = [reference]
+
+        packet = context.build_packet(self.root, data, "b", ["one.md"], for_execution=True)
+        self.assertEqual(packet["study_scope"]["shared_references"], [reference])
+        self.assertEqual(context.checkpoint(self.root, packet)["study_scope"]["shared_references"], [reference])
+
+    def test_shared_reference_requires_explicit_authorization_and_requested_path(self):
+        for change, error in (
+            ({"authorization_ref": ""}, "authorization_ref"),
+            ({"path": "other.md"}, "not authorized"),
+        ):
+            data = execution_board()
+            data["tasks"][1]["study_scope"]["shared_references"] = [
+                shared_reference(revision=self.one_revision, **change)]
+            with self.assertRaisesRegex(ValueError, error):
+                context.build_packet(self.root, data, "b", ["one.md"], for_execution=True)
+
+        data = execution_board()
+        data["tasks"][1]["study_scope"]["authorized_inputs"].append("other.md")
+        other_revision = context._read_input(self.root, "other.md")["sha256"]
+        data["tasks"][1]["study_scope"]["shared_references"] = [
+            shared_reference(path="other.md", revision=other_revision)]
+        with self.assertRaisesRegex(ValueError, "not requested"):
+            context.build_packet(self.root, data, "b", ["one.md"], for_execution=True)
+
+    def test_shared_reference_rejects_stale_revision_status_promotion_and_same_study(self):
+        for change, error in (
+            ({"source_revision": "f" * 64}, "stale source revision"),
+            ({"status": "verified_fact"}, "status promotion"),
+            ({"source_study_id": "study-a"}, "must differ"),
+        ):
+            data = execution_board()
+            data["tasks"][1]["study_scope"]["shared_references"] = [
+                shared_reference(revision=self.one_revision, **change)]
+            with self.assertRaisesRegex(ValueError, error):
+                context.build_packet(self.root, data, "b", ["one.md"], for_execution=True)
+
+    def test_shared_reference_contract_rejects_invalid_shape_and_purpose(self):
+        data = execution_board()
+        data["tasks"][1]["study_scope"]["shared_references"] = [
+            shared_reference(revision=self.one_revision, purpose="evidence")]
+        with self.assertRaisesRegex(ValueError, "purpose"):
+            context.build_packet(self.root, data, "b", ["one.md"], for_execution=True)
+
+        data["tasks"][1]["study_scope"]["shared_references"] = ["implicit"]
+        with self.assertRaisesRegex(ValueError, "must be an object"):
             context.build_packet(self.root, data, "b", ["one.md"], for_execution=True)
 
     def test_planned_packet_is_readable_but_not_executable(self):

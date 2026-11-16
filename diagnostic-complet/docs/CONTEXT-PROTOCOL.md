@@ -34,8 +34,18 @@ Pour atteindre 60–100 microétapes sans bureaucratie : viser 72 unités logiqu
     "subject": "cible explicite du mandat courant",
     "input_revision": "SHA-256 lowercase des entrées autorisées",
     "scope": "frontière métier et exclusions de cette étude",
-    "authorized_inputs": ["fixtures/study-a.json"],
-    "methods": ["méthode générique explicitement demandée"]
+    "authorized_inputs": ["fixtures/study-a.json", "fixtures/study-b-reference.json"],
+    "methods": ["méthode générique explicitement demandée"],
+    "shared_references": [{
+      "source_study_id": "study-synthetic-b",
+      "source_id": "source-b-1",
+      "source_revision": "SHA-256 lowercase du fichier partagé",
+      "path": "fixtures/study-b-reference.json",
+      "source_status": "supplied_claim",
+      "status": "supplied_claim",
+      "purpose": "comparison",
+      "authorization_ref": "AUTH-2026-001"
+    }]
   },
   "inputs": [{"path": "chemin", "sha256": "empreinte", "scope": "section/lignes"}],
   "instructions": ["AGENTS.md", "instruction métier ciblée"],
@@ -56,6 +66,16 @@ de planning historique sans scope reste consultable, mais il porte un blocker et
 ne peut pas devenir exécutable. Le packet puis le checkpoint conservent l'identité,
 le sujet, la révision, le périmètre et les méthodes afin que le hand-off ne puisse
 pas reprendre implicitement la dernière étude ou KB consultée.
+
+`shared_references` est optionnel. Lorsqu'il est présent, chaque objet déclare une
+étude source différente, un identifiant et une révision SHA-256 de source, un
+chemin déjà présent dans `authorized_inputs` **et** demandé au paquet, la finalité
+`comparison` ou `contextualization`, ainsi qu'une `authorization_ref` non vide.
+`source_status` est le statut reçu et `status` le statut transporté : les deux
+doivent être identiques. Le builder refuse avant hydratation du paquet une
+autorisation absente, un chemin non déclaré, une empreinte périmée ou toute
+promotion de statut. Le packet et son checkpoint conservent cette déclaration
+sans contenu implicite ni changement de statut.
 
 Les méthodes génériques restent séparées des fichiers d'étude. Une comparaison
 inter-études, un partage de claim ou une invalidation croisée exige un contrat

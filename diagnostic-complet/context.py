@@ -16,6 +16,9 @@ STATUSES = {"planned", "ready", "running", "verified", "blocked", "awaiting_huma
 SATISFIED = {"verified", "completed", "done"}
 TASK_FIELDS = ("id", "title", "objective", "epic", "sprint", "issue", "status", "acceptance", "outputs", "owner", "stop_condition")
 STUDY_SCOPE_FIELDS = ("id", "subject", "input_revision", "scope", "authorized_inputs", "methods")
+SHARED_REFERENCE_FIELDS = ("source_study_id", "source_id", "source_revision", "path",
+                           "source_status", "status", "purpose", "authorization_ref")
+SHARED_REFERENCE_PURPOSES = {"comparison", "contextualization"}
 
 
 def validate_board(board: dict) -> dict:
@@ -115,6 +118,55 @@ def _read_input(root, raw):
             "bytes": len(data), "words": len(content.split()), "content": content}
 
 
+def _validate_shared_references(root: Path, study_id: str, raw: object,
+                                authorized: list[str], requested: list[str]) -> list[dict]:
+    """Validate explicit cross-study references before packet content hydration."""
+    if not isinstance(raw, list):
+        raise ValueError("study_scope.shared_references must be a list")
+    references, seen = [], set()
+    for index, item in enumerate(raw):
+        prefix = f"study_scope.shared_references[{index}]"
+        if not isinstance(item, dict):
+            raise ValueError(f"{prefix} must be an object")
+        missing = [field for field in SHARED_REFERENCE_FIELDS if field not in item]
+        unknown = sorted(set(item) - set(SHARED_REFERENCE_FIELDS))
+        if missing:
+            raise ValueError(f"{prefix}.{missing[0]} is required")
+        if unknown:
+            raise ValueError(f"{prefix} has unknown field {unknown[0]}")
+        for field in ("source_study_id", "source_id", "path", "source_status", "status",
+                      "purpose", "authorization_ref"):
+            if not isinstance(item[field], str) or not item[field].strip():
+                raise ValueError(f"{prefix}.{field} must be nonempty")
+        if item["source_study_id"] == study_id:
+            raise ValueError(f"{prefix}.source_study_id must differ from study_scope.id")
+        if not isinstance(item["source_revision"], str) or not re.fullmatch(r"[0-9a-f]{64}", item["source_revision"]):
+            raise ValueError(f"{prefix}.source_revision must be a lowercase SHA-256")
+        if item["purpose"] not in SHARED_REFERENCE_PURPOSES:
+            raise ValueError(f"{prefix}.purpose must be comparison or contextualization")
+        if item["status"] != item["source_status"]:
+            raise ValueError(f"{prefix}: status promotion is forbidden")
+
+        path = local_file(root, item["path"])
+        normalized = str(path.relative_to(root))
+        if normalized not in authorized:
+            raise ValueError(f"shared reference {normalized} is not authorized for study {study_id}")
+        if normalized not in requested:
+            raise ValueError(f"shared reference {normalized} was not requested for this packet")
+        identity = (item["source_study_id"], item["source_id"], normalized)
+        if identity in seen:
+            raise ValueError(f"duplicate shared reference: {item['source_id']}")
+
+        current = _read_input(root, normalized)
+        if current["sha256"] != item["source_revision"]:
+            raise ValueError(f"stale source revision for shared reference {item['source_id']}")
+        reference = {field: deepcopy(item[field]) for field in SHARED_REFERENCE_FIELDS}
+        reference["path"] = normalized
+        references.append(reference)
+        seen.add(identity)
+    return references
+
+
 def validate_study_scope(root: Path, raw: dict, requested_paths: list[str]) -> dict:
     """Validate one explicit study boundary before hydrating packet contents."""
     if not isinstance(raw, dict):
@@ -148,6 +200,9 @@ def validate_study_scope(root: Path, raw: dict, requested_paths: list[str]) -> d
         raise ValueError(f"input {unauthorized[0]} is not authorized for study {raw['id']}")
     result = {field: deepcopy(raw[field]) for field in STUDY_SCOPE_FIELDS}
     result["authorized_inputs"] = authorized
+    if "shared_references" in raw:
+        result["shared_references"] = _validate_shared_references(
+            root, raw["id"], raw["shared_references"], authorized, requested)
     return result
 
 
