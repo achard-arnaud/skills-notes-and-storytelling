@@ -5,6 +5,11 @@ description: Use when a business study must cover the transversal processes of t
 
 # Analyser les fonctions corporate (P-CORPORATE)
 
+## Shared editorial and research quality
+
+Apply the [shared editorial and research quality contract](../../../references/editorial-and-research-quality.md) to direct prose, substantive footnotes and final repetition review. Company sitemap and 20–200 complementary-search budgets apply only within a named-company or business-market research run.
+
+
 **Question structurante** : Quels processus transverses soutiennent l'entreprise ?
 **Scope** : Commercial, marketing, achats administratifs, comptabilité, budget, finance d'entreprise, RH, juridique, support interne.
 **Exclusions** : Le pilotage industriel et la baseline de production (P-INDUSTRY, P-DATA). L'émission d'une facture est corporate ; la liaison contractuelle peut faire intervenir P-ECONOMICS et P-GOVERNANCE sans les fusionner.
