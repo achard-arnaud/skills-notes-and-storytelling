@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "business-brief-handoff.v1.schema.json",
+  "title": "Business brief content hand-off v1 — immutable pre-render receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "content_revision",
+    "content_spec",
+    "human_approval"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "kind": {"const": "business-brief-content-handoff"},
+    "content_revision": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "content_spec": {"type": "object"},
+    "human_approval": {"const": false}
+  }
+}

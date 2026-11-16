@@ -1,4 +1,4 @@
-"""Validate an evidence-led business brief before any rendering hand-off."""
+"""Validate and freeze an evidence-led business brief before rendering."""
 from __future__ import annotations
 
 import hashlib
@@ -10,6 +10,10 @@ from analysis import _shape
 
 SCHEMA = json.loads(
     (Path(__file__).parent / "schemas/business-brief-content.v1.schema.json")
+    .read_text(encoding="utf-8")
+)
+HANDOFF_SCHEMA = json.loads(
+    (Path(__file__).parent / "schemas/business-brief-handoff.v1.schema.json")
     .read_text(encoding="utf-8")
 )
 
@@ -25,6 +29,29 @@ def _result(structural_errors, semantic_errors, content_revision=None):
         "handoff_ready": not errors,
         "human_approval": False,
     }
+
+
+def _handoff_result(structural_errors, semantic_errors, revision_errors,
+                    content_revision=None, handoff=None):
+    errors = structural_errors + semantic_errors + revision_errors
+    return {
+        "valid": not errors,
+        "errors": errors,
+        "structural_errors": structural_errors,
+        "semantic_errors": semantic_errors,
+        "revision_errors": revision_errors,
+        "content_revision": content_revision,
+        "handoff_ready": not errors,
+        "handoff": handoff if not errors else None,
+        "human_approval": False,
+    }
+
+
+def _content_revision(content):
+    return hashlib.sha256(
+        json.dumps(content, sort_keys=True, ensure_ascii=False, separators=(",", ":"))
+        .encode("utf-8")
+    ).hexdigest()
 
 
 def _semantic_errors(content):
@@ -75,8 +102,55 @@ def validate_business_brief_content(content):
     if structural:
         return _result(structural, [])
     semantic = _semantic_errors(content)
-    revision = hashlib.sha256(
-        json.dumps(content, sort_keys=True, ensure_ascii=False, separators=(",", ":"))
-        .encode("utf-8")
-    ).hexdigest()
+    revision = _content_revision(content)
     return _result([], semantic, revision)
+
+
+def freeze_business_brief_handoff(content, expected_revision=None):
+    """Freeze a valid content spec into a versioned, self-verifiable envelope.
+
+    The optional expected revision is a compare-and-set guard. The returned
+    envelope owns a JSON copy, so later caller mutations cannot alter the receipt.
+    """
+    content_result = validate_business_brief_content(content)
+    if not content_result["valid"]:
+        return _handoff_result(
+            content_result["structural_errors"],
+            content_result["semantic_errors"],
+            [],
+            content_result["content_revision"],
+        )
+
+    revision = content_result["content_revision"]
+    revision_errors = []
+    if expected_revision is not None and expected_revision != revision:
+        revision_errors.append("expected_revision: does not match current content")
+    if revision_errors:
+        return _handoff_result([], [], revision_errors, revision)
+
+    frozen_content = json.loads(json.dumps(content, ensure_ascii=False))
+    handoff = {
+        "schema_version": "1.0",
+        "kind": "business-brief-content-handoff",
+        "content_revision": revision,
+        "content_spec": frozen_content,
+        "human_approval": False,
+    }
+    return _handoff_result([], [], [], revision, handoff)
+
+
+def verify_business_brief_handoff(handoff, expected_revision=None):
+    """Verify envelope shape, content validity and canonical revision, without mutation."""
+    structural = _shape(handoff, HANDOFF_SCHEMA, root=HANDOFF_SCHEMA)
+    if structural:
+        return _handoff_result(structural, [], [])
+
+    content_result = validate_business_brief_content(handoff["content_spec"])
+    semantic = list(content_result["errors"])
+    revision = content_result["content_revision"]
+    revision_errors = []
+    if revision is not None and handoff["content_revision"] != revision:
+        revision_errors.append("content_revision: content changed after freeze")
+    if expected_revision is not None and handoff["content_revision"] != expected_revision:
+        revision_errors.append("expected_revision: does not match hand-off")
+    return _handoff_result(structural, semantic, revision_errors, revision)

@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "kind": "business-brief-content-handoff",
+  "content_revision": "7418fcd65a169442a9a5baff1bf567068071bed9df37e203b1b6375a8849afff",
+  "content_spec": {
+    "schema_version": "1.0",
+    "id": "BBC-SYNTH-1",
+    "mode": "business",
+    "primary_dimension": "business",
+    "subject": {
+      "id": "synthetic-company",
+      "name": "Synthetic Company",
+      "scope": "Public synthetic business profile"
+    },
+    "audience": "Strategy reader",
+    "question": "What is documented about the synthetic business?",
+    "cutoff": "2026-11-16",
+    "template": {
+      "id": "two-pager",
+      "version": "1.0.0"
+    },
+    "decision_requested": false,
+    "claims": [
+      {
+        "id": "C1",
+        "statement": "The synthetic company reports one offer.",
+        "status": "attributed_claim",
+        "grade": "B",
+        "source": {
+          "id": "S1",
+          "kind": "primary_vendor",
+          "locator": "synthetic://company/offer#1",
+          "published_at": "2026-11-01"
+        },
+        "confidence": "medium",
+        "contradiction": "none_found",
+        "contradiction_detail": "No contradiction in the supplied synthetic set.",
+        "unknowns": [
+          "Independent market adoption is not established."
+        ]
+      }
+    ],
+    "recommendations": []
+  },
+  "human_approval": false
+}

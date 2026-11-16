@@ -150,10 +150,29 @@ contradiction inconnue sans unknown et owner incohérent bloquent le hand-off.
 
 Un succès retourne `content_revision`, SHA-256 canonique de l'objet validé,
 `handoff_ready: true` et `human_approval: false`. Ce hash ne constitue ni une
-preuve de source, ni une validation métier, ni une recette visuelle. AC4–AC6,
+preuve de source, ni une validation métier, ni une recette visuelle. AC5–AC6,
 renderer, pagination, PDF, repli et validation humaine restent des gates de run
 séparés. Régression ciblée :
 `python3 -m unittest discover -s diagnostic-complet/tests -p 'test_business_brief_content.py' -v`.
+
+## Hand-off de contenu business v1 — #318.S2
+
+`freeze_business_brief_handoff(content, expected_revision=...)` crée l'enveloppe
+`schemas/business-brief-handoff.v1.schema.json` uniquement après validation AC1–AC3.
+Elle contient une copie JSON du content spec, sa révision SHA-256 canonique, une
+version explicite et `human_approval: false`. La garde optionnelle
+`expected_revision` applique une comparaison stricte avant création : une révision
+périmée ne produit aucune enveloppe. La fixture
+`fixtures/business-brief-handoff.json` est synthétique et correspond exactement à
+la fixture de contenu AC1–AC3.
+
+`verify_business_brief_handoff(handoff, expected_revision=...)` revalide la forme,
+le content spec embarqué et son empreinte. Elle refuse une version inconnue, une
+entrée mal formée, un hash invalide, un contenu modifié après gel ou une révision
+attendue différente. Les deux API préservent leurs entrées et ne modifient ni
+assertion, ni statut, ni source. Elles n'appellent aucun renderer et ne créent ni
+PDF, ni approbation humaine. AC5–AC6, la pagination, le repli de rendu et la recette
+visuelle restent hors de ce contrat.
 
 ## Plan d'impact analytique — #295.A3
 
