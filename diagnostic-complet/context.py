@@ -8,12 +8,14 @@ from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
+import re
 import sys
 
 
 STATUSES = {"planned", "ready", "running", "verified", "blocked", "awaiting_human", "completed", "done"}
 SATISFIED = {"verified", "completed", "done"}
 TASK_FIELDS = ("id", "title", "objective", "epic", "sprint", "issue", "status", "acceptance", "outputs", "owner", "stop_condition")
+STUDY_SCOPE_FIELDS = ("id", "subject", "input_revision", "scope", "authorized_inputs", "methods")
 
 
 def validate_board(board: dict) -> dict:
@@ -113,6 +115,42 @@ def _read_input(root, raw):
             "bytes": len(data), "words": len(content.split()), "content": content}
 
 
+def validate_study_scope(root: Path, raw: dict, requested_paths: list[str]) -> dict:
+    """Validate one explicit study boundary before hydrating packet contents."""
+    if not isinstance(raw, dict):
+        raise ValueError("study_scope must be an object")
+    for field in ("id", "subject", "input_revision", "scope"):
+        if not isinstance(raw.get(field), str) or not raw[field].strip():
+            raise ValueError(f"study_scope.{field} must be nonempty")
+    if not re.fullmatch(r"[0-9a-f]{64}", raw["input_revision"]):
+        raise ValueError("study_scope.input_revision must be a lowercase SHA-256")
+    for field in ("authorized_inputs", "methods"):
+        values = raw.get(field)
+        if (not isinstance(values, list) or not values
+                or any(not isinstance(value, str) or not value.strip() for value in values)
+                or len(values) != len(set(values))):
+            raise ValueError(f"study_scope.{field} must be a nonempty unique string list")
+    root = Path(root).resolve()
+    authorized = []
+    for item in raw["authorized_inputs"]:
+        path = local_file(root, item)
+        normalized = str(path.relative_to(root))
+        if normalized not in authorized:
+            authorized.append(normalized)
+    requested = []
+    for item in requested_paths:
+        path = local_file(root, item)
+        normalized = str(path.relative_to(root))
+        if normalized not in requested:
+            requested.append(normalized)
+    unauthorized = [path for path in requested if path not in authorized]
+    if unauthorized:
+        raise ValueError(f"input {unauthorized[0]} is not authorized for study {raw['id']}")
+    result = {field: deepcopy(raw[field]) for field in STUDY_SCOPE_FIELDS}
+    result["authorized_inputs"] = authorized
+    return result
+
+
 def build_packet(root: Path, board: dict, task_id: str, paths: list[str], max_words: int = 8000,
                  for_execution: bool = False) -> dict:
     """Hydrate only explicitly declared files, not all board task inputs or issue bodies."""
@@ -130,6 +168,12 @@ def build_packet(root: Path, board: dict, task_id: str, paths: list[str], max_wo
                 if dep["status"] not in SATISFIED]
     if task.get("status", "planned") not in {"ready", "running"}:
         blockers.append(f"task state is {task.get('status', 'planned')}; ready or running required")
+    raw_study_scope = task.get("study_scope")
+    study_scope = None
+    if raw_study_scope is None:
+        blockers.append("task.study_scope is required for execution")
+    else:
+        study_scope = validate_study_scope(root, raw_study_scope, paths)
     execution_ready = not blockers
     if for_execution and not execution_ready:
         raise ValueError("task is not execution-ready: " + "; ".join(blockers))
@@ -144,6 +188,7 @@ def build_packet(root: Path, board: dict, task_id: str, paths: list[str], max_wo
         raise ValueError(f"context budget exceeded: {words} words > {max_words}")
     return {"version": 1, "task": {k: task[k] for k in TASK_FIELDS if k in task},
             "board_id": board.get("id"), "base_sha": board.get("base_sha"),
+            "study_scope": study_scope,
             "dependencies": dependencies,
             "write_scope": deepcopy(task.get("outputs", [])),
             "outputs": deepcopy(task.get("outputs", [])),
@@ -158,12 +203,13 @@ def build_packet(root: Path, board: dict, task_id: str, paths: list[str], max_wo
                        "max_words": max_words, "token_count": None,
                        "token_measurement": "unknown; words and UTF-8 bytes only",
                        "measurement_scope": "declared input file bodies only; excludes task envelope and runtime context"},
-            "context_coverage": "declared_inputs_only; caller must declare root/routed instructions and mandatory companions explicitly",
+            "context_coverage": "explicit_study_and_declared_inputs_only; caller must declare root/routed instructions and mandatory companions explicitly",
             "limits": ["No model context erasure or technical compaction is performed.",
                        "Mechanical completion is not human editorial approval.",
                        "Markdown companions are not auto-expanded; undeclared files are neither read nor measured.",
                        "No task lease is acquired and no writer or board transition is performed.",
-                       "Execution readiness is a board snapshot, not a lease or continuing authorization."]}
+                       "Execution readiness is a board snapshot, not a lease or continuing authorization.",
+                       "No previous study, KB or cross-study reference is selected implicitly."]}
 
 
 def checkpoint(root: Path, packet: dict, next_task: str | None = None, note: str = "") -> dict:
@@ -182,7 +228,7 @@ def checkpoint(root: Path, packet: dict, next_task: str | None = None, note: str
             "next_task": next_task, "note": note,
             "limits": deepcopy(packet.get("limits", []))}
     for field in ("write_scope", "outputs", "acceptance", "stop_condition", "execution_ready",
-                  "execution_blockers", "packet_mode"):
+                  "execution_blockers", "packet_mode", "study_scope"):
         if field in packet:
             snapshot[field] = deepcopy(packet[field])
     return snapshot
@@ -214,6 +260,7 @@ def resume_markdown(snapshot: dict) -> str:
     task = snapshot["task"]
     lines = ["# Reprise du diagnostic complet", "", f"Tâche : {task['id']} — {task.get('title', '')}",
              f"Objectif : {task.get('objective', '')}",
+             f"Étude : {(snapshot.get('study_scope') or {}).get('id') or 'non déclarée'}",
              f"Base enregistrée : {snapshot.get('base_sha') or 'inconnue'}",
              f"Prochaine tâche proposée : {snapshot.get('next_task') or 'à sélectionner depuis le board'}", "",
              "Avant reprise : exécuter `context.py resume-check` avec ce checkpoint ; une entrée périmée exige revalidation.",
