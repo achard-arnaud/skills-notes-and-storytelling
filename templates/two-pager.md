@@ -36,7 +36,7 @@ Include, in decision-relevant order:
 An announced ambition is not execution evidence. A claimed advantage is not a demonstrated moat.
 
 ## Flexible composition
-The page structure is stable; individual blocks are optional and reorderable. Bind only evidence-backed content. Missing fields collapse; no empty cards. Keep one dominant thesis, no more than one primary diagram and at most five table columns. Candidate-fit blocks are opt-in.
+The two-page frame is stable. Bind only evidence-backed content; omit missing fields rather than adding filler. The current renderer has a fixed outer frame, while content labels, lists and column order can vary within its JSON contract. Keep the 24-month newsflow in a distinct titled container, one dominant thesis, no more than one primary diagram and at most five table columns. Candidate-fit blocks are opt-in.
 
 ## Quality gate
 Two pages exactly; evidence status and source lineage survive; no unsupported company metrics, leadership lines, news events, moat claims or causal diagrams; business truth precedes fit; visual containers explain the thesis rather than decorate it; the final takeaway follows from the evidence.
