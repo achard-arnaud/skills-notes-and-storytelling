@@ -1,22 +1,23 @@
 ---
 template_type: two-pager
-template_version: 1.2.0
-fixture_version: 1.2.0
+template_version: 1.3.0
+fixture_version: 1.3.0
 workflow_version: 1.3.1
+analysis_dimension: business
 ---
 
-# Two-pager regression fixture
+# Business two-pager regression fixture
 
 Checks:
-- exactly two pages and one dominant thesis/CTA;
-- one subject spine declared: company+product, company+person, product+use-cases, target+offer or compact strategy;
-- independent entity truth precedes fit/synergy;
-- page 1 contains truth, why-now, decisive facts and material unknowns;
-- page 2 contains fit mechanism, bounded use cases/value paths, constraints and reversible next step;
-- biography/catalog material without decision value is removed;
-- evidence and uncertainty survive compression;
-- counter-perspective challenges the main recommendation without creating a parallel essay;
-- reader/decision QA preserves one dominant thesis and CTA;
-- tables <=5 columns and diagrams readable at 100%;
-- meeting/next-decision bridge preserves source/claim lineage;
-- dreaming tier selection runs outside the two-page payload.
+- exactly two pages; default subject spine is descriptive business analysis, not hiring fit;
+- company scale signals include units, period, perimeter and source;
+- company, product, market and customer truth remain distinct before fit;
+- page 1 has positioning/value creation, useful structure or segmentation visual, a prior-24-month newsflow container, and material unknowns;
+- SWOT is evidence-backed and connects to conditional TOWS paths rather than unsupported recommendations;
+- page 2 covers strategy and execution status, products/use cases, normalized competitive insights and moat durability/erosion;
+- three to five takeaways follow from evidence; candidate fit appears only when requested;
+- optional modules bind flexibly, missing evidence collapses cleanly, no empty cards;
+- Schema Flow Master diagram choice matches the structural question and labels hypotheses;
+- claims, external statements, inferences, hypotheses, contradictions and unknowns remain distinct;
+- no unsupported revenue, KPI, leadership, organization, customer-mix, funding or news claims;
+- one primary diagram, tables <=5 columns, readable layout and source lineage survive compression.

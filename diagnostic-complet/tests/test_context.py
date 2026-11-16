@@ -1,4 +1,5 @@
 import contextlib
+from copy import deepcopy
 import io
 import json
 from pathlib import Path
@@ -16,6 +17,18 @@ def board():
         {"id": "b", "status": "planned", "depends_on": ["a"], "objective": "read one file"},
         {"id": "c", "status": "planned", "depends_on": ["b"]},
         {"id": "d", "status": "blocked", "depends_on": []}]}
+
+
+def study_scope(study_id="study-a", inputs=None):
+    return {"id": study_id, "subject": "Synthetic study A", "input_revision": "a" * 64,
+            "scope": "Only the declared synthetic study", "authorized_inputs": inputs or ["one.md"],
+            "methods": ["generic-analysis"]}
+
+
+def execution_board():
+    data = board()
+    data["tasks"][1].update(status="ready", study_scope=study_scope())
+    return data
 
 
 class ContextTests(unittest.TestCase):
@@ -65,9 +78,9 @@ class ContextTests(unittest.TestCase):
         self.assertEqual([x["path"] for x in packet["inputs"]], ["one.md"])
 
     def test_packet_carries_scope_acceptance_and_stop_without_claiming_lease(self):
-        data = board()
+        data = execution_board()
         data["tasks"][1].update(outputs=["out/result.md"], acceptance=["review evidence"],
-                                stop_condition="Stop after the review", status="ready")
+                                stop_condition="Stop after the review")
         packet = context.build_packet(self.root, data, "b", ["one.md"], for_execution=True)
         self.assertEqual(packet["write_scope"], ["out/result.md"])
         self.assertEqual(packet["outputs"], ["out/result.md"])
@@ -75,9 +88,37 @@ class ContextTests(unittest.TestCase):
         self.assertEqual(packet["stop_condition"], "Stop after the review")
         self.assertTrue(packet["execution_ready"])
         self.assertEqual(packet["packet_mode"], "execution")
+        self.assertEqual(packet["study_scope"]["id"], "study-a")
+        self.assertEqual(packet["study_scope"]["authorized_inputs"], ["one.md"])
         self.assertTrue(any("No task lease" in limit for limit in packet["limits"]))
         snapshot = context.checkpoint(self.root, packet)
         self.assertEqual(snapshot["write_scope"], packet["write_scope"])
+        self.assertEqual(snapshot["study_scope"], packet["study_scope"])
+
+    def test_execution_requires_explicit_study_scope(self):
+        data = board()
+        data["tasks"][1]["status"] = "ready"
+        packet = context.build_packet(self.root, data, "b", ["one.md"])
+        self.assertFalse(packet["execution_ready"])
+        self.assertIn("study_scope is required", "; ".join(packet["execution_blockers"]))
+        with self.assertRaisesRegex(ValueError, "study_scope is required"):
+            context.build_packet(self.root, data, "b", ["one.md"], for_execution=True)
+
+    def test_cross_study_input_is_refused_before_packet_hydration(self):
+        data = execution_board()
+        with self.assertRaisesRegex(ValueError, "not authorized for study study-a"):
+            context.build_packet(self.root, data, "b", ["other.md"], for_execution=True)
+
+    def test_study_scope_fields_are_explicit_and_validated(self):
+        for field in ("id", "subject", "input_revision", "scope"):
+            data = execution_board()
+            data["tasks"][1]["study_scope"][field] = ""
+            with self.subTest(field=field), self.assertRaisesRegex(ValueError, field):
+                context.build_packet(self.root, data, "b", ["one.md"], for_execution=True)
+        data = execution_board()
+        data["tasks"][1]["study_scope"]["methods"] = []
+        with self.assertRaisesRegex(ValueError, "methods"):
+            context.build_packet(self.root, data, "b", ["one.md"], for_execution=True)
 
     def test_planned_packet_is_readable_but_not_executable(self):
         packet = self.packet()
@@ -91,7 +132,7 @@ class ContextTests(unittest.TestCase):
         for dep_state in ("blocked", "awaiting_human", "planned", "running"):
             data = board()
             data["tasks"][0]["status"] = dep_state
-            data["tasks"][1]["status"] = "ready"
+            data["tasks"][1].update(status="ready", study_scope=study_scope())
             packet = context.build_packet(self.root, data, "b", ["one.md"])
             self.assertFalse(packet["execution_ready"])
             self.assertTrue(any("dependency a" in item for item in packet["execution_blockers"]))
@@ -102,7 +143,7 @@ class ContextTests(unittest.TestCase):
         for dep_state in context.SATISFIED:
             data = board()
             data["tasks"][0]["status"] = dep_state
-            data["tasks"][1]["status"] = "ready"
+            data["tasks"][1].update(status="ready", study_scope=study_scope())
             self.assertTrue(context.build_packet(self.root, data, "b", ["one.md"], for_execution=True)["execution_ready"])
         data["tasks"][1]["status"] = "verified"
         with self.assertRaisesRegex(ValueError, "task state is verified"):
@@ -173,6 +214,37 @@ class ContextTests(unittest.TestCase):
         self.assertNotIn("invalidated_by", result["tasks"][0])
         self.assertNotIn("invalidated_by", result["tasks"][3])
         self.assertEqual(original["tasks"][1]["status"], "verified")
+
+    def test_invalidation_can_be_bounded_to_one_study(self):
+        original = {"id": "multi-study", "tasks": [
+            {"id": "a-source", "status": "verified", "depends_on": [],
+             "study_scope": study_scope("study-a"), "receipt": {"sha": "a1"}},
+            {"id": "a-derived", "status": "completed", "depends_on": ["a-source"],
+             "study_scope": study_scope("study-a"), "receipt": {"sha": "a2"}},
+            {"id": "b-source", "status": "verified", "depends_on": [],
+             "study_scope": study_scope("study-b"), "receipt": {"sha": "b1"}},
+            {"id": "b-derived", "status": "completed", "depends_on": ["b-source", "a-derived"],
+             "study_scope": study_scope("study-b"), "receipt": {"sha": "b2"}}]}
+        checkpoint_b = {"study_scope": study_scope("study-b"), "task": "b-derived",
+                        "inputs": [{"path": "b.md", "sha256": "b" * 64}]}
+        before = deepcopy(original)
+        checkpoint_before = deepcopy(checkpoint_b)
+
+        result = context.invalidate_descendants(original, ["a-source"], study_id="study-a")
+        by_id = {task["id"]: task for task in result["tasks"]}
+
+        self.assertEqual(by_id["a-source"]["status"], "planned")
+        self.assertEqual(by_id["a-derived"]["status"], "planned")
+        self.assertEqual(by_id["b-source"], before["tasks"][2])
+        self.assertEqual(by_id["b-derived"], before["tasks"][3])
+        self.assertEqual(checkpoint_b, checkpoint_before)
+        self.assertEqual(original, before)
+
+    def test_study_bounded_invalidation_rejects_changed_task_from_other_study(self):
+        data = board()
+        data["tasks"][1]["study_scope"] = study_scope("study-b")
+        with self.assertRaisesRegex(ValueError, "does not belong to study study-a"):
+            context.invalidate_descendants(data, ["b"], study_id="study-a")
 
     def test_cli_packet_checkpoint_resume_and_failure_code(self):
         boardfile = self.root / "board.json"

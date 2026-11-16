@@ -66,9 +66,14 @@ def phase2(partial=False):
 
 def save(folder,payload):
     (folder/'phase2.json').write_text(json.dumps(payload,ensure_ascii=False),encoding='utf-8')
+    revision=hashlib.sha256((folder/'phase2.json').read_bytes()).hexdigest()
     board={'id':'synthetic-convergence-board','base_sha':'synthetic-base-v1','tasks':[
         {'id':'phase2','title':'Analysis supplied','status':'done','depends_on':[]},
-        {'id':'phase3','title':'Consume selected analysis','status':'ready','depends_on':['phase2'],'outputs':['prepared.json']}]}
+        {'id':'phase3','title':'Consume selected analysis','status':'ready','depends_on':['phase2'],
+         'outputs':['prepared.json'],'study_scope':{
+             'id':'synthetic-convergence','subject':'Synthetic analysis-writing replay',
+             'input_revision':revision,'scope':'Only the saved synthetic phase 2 artifact',
+             'authorized_inputs':['phase2.json'],'methods':['analysis-writing']}}]}
     packet=context.build_packet(folder,board,'phase3',['phase2.json'],for_execution=True)
     checkpoint=context.checkpoint(folder,packet,next_task='phase3',note='Synthetic cold-resume test only')
     (folder/'checkpoint.json').write_text(json.dumps(checkpoint),encoding='utf-8')

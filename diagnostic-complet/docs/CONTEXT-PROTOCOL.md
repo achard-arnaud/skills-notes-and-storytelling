@@ -29,6 +29,14 @@ Pour atteindre 60–100 microétapes sans bureaucratie : viser 72 unités logiqu
   "issue": null,
   "objective": "une seule question à résoudre",
   "base_commit": "SHA exact",
+  "study_scope": {
+    "id": "study-synthetic-a",
+    "subject": "cible explicite du mandat courant",
+    "input_revision": "SHA-256 lowercase des entrées autorisées",
+    "scope": "frontière métier et exclusions de cette étude",
+    "authorized_inputs": ["fixtures/study-a.json"],
+    "methods": ["méthode générique explicitement demandée"]
+  },
   "inputs": [{"path": "chemin", "sha256": "empreinte", "scope": "section/lignes"}],
   "instructions": ["AGENTS.md", "instruction métier ciblée"],
   "write_scope": ["diagnostic-complet/..."],
@@ -39,6 +47,28 @@ Pour atteindre 60–100 microétapes sans bureaucratie : viser 72 unités logiqu
   "budget": {"input_words_max": 8000, "return_words_max": 600, "repairs_max": 2}
 }
 ```
+
+Un paquet d'exécution exige ce `study_scope`. Les six champs sont explicites et
+`input_revision` est une empreinte SHA-256 ; `authorized_inputs` constitue la
+liste blanche des fichiers que le builder peut hydrater. Un chemin déclaré au
+CLI mais absent de cette liste est refusé avant lecture de son contenu. Un paquet
+de planning historique sans scope reste consultable, mais il porte un blocker et
+ne peut pas devenir exécutable. Le packet puis le checkpoint conservent l'identité,
+le sujet, la révision, le périmètre et les méthodes afin que le hand-off ne puisse
+pas reprendre implicitement la dernière étude ou KB consultée.
+
+Les méthodes génériques restent séparées des fichiers d'étude. Une comparaison
+inter-études, un partage de claim ou une invalidation croisée exige un contrat
+distinct et déclaré ; la similarité du sujet, un exemple précédent ou l'état du
+dernier run n'ajoutent jamais un input autorisé. Les fixtures publiques de ce
+contrat sont synthétiques.
+
+Lorsqu'une source change, `invalidate_descendants` accepte un `study_id`
+explicite. La tâche source doit appartenir à cette étude et seuls ses descendants
+portant le même `study_scope.id` sont rouverts. Les tâches, reçus et checkpoints
+des autres études restent inchangés. Sans `study_id`, le comportement historique
+du DAG est conservé ; cette compatibilité ne vaut ni autorisation de partage
+inter-études ni contrat de stockage durable.
 
 Budgets initiaux proposés, ajustables après mesure : capsule centrale ≤800 mots ; paquet tâche ≤8 000 mots de fichiers effectivement chargés ; réponse d'agent ≤600 mots hors artefacts ; maximum trois agents de travail simultanés plus l'orchestrateur. Le nombre de mots est un proxy mesurable, **pas** un nombre de tokens ni une mesure de toute la fenêtre système. Si un tokenizer exact du modèle n'est pas disponible, le reçu indique `token_count: unknown`.
 
