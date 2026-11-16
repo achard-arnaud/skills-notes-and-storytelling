@@ -37,6 +37,8 @@ Tension d'entreprise, puis mécanismes et choix, puis conditions de valeur, puis
 
 ## Style indicatif
 
+Appliquer le [contrat partagé de qualité éditoriale et de recherche](../../../references/editorial-and-research-quality.md) aux sections business : formuler chaque conclusion directement, expliciter l'intérêt économique des inférences, documenter le budget de recherche société par société et laisser les notes de méthode hors du récit analytique. Le scaffold nomme les éléments probants attendus pour les retours clients et le niveau d'autonomie ; le rédacteur produit des constats distincts à partir de ces preuves.
+
 Titres de section sous forme de question ou d'affirmation à démontrer ; une idée par phrase ; marqueurs de statut visibles (Publié, Échange, Inférence, Hypothèse). Directive de style adoptée (ADR-0012) : direct, factuel, analytique, didactique ; l'essentiel d'abord ; phrases courtes ; jamais d'effet de balancement ni de double négation ; orienté décision.
 
 ## Exemples issus de la KB
