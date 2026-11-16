@@ -12,15 +12,15 @@ The reusable implementation is in renderers/two_pager_nice. It transfers the int
 
 ## Flexible binding
 
-Use the existing page contract as a set of slots rather than a fixed narrative questionnaire. Keep the two-page frame and business logic stable; bind only evidence-backed modules.
+Use the existing page contract as a reusable layout with business meaning supplied by the case data, not as a fixed narrative questionnaire. The two-page frame and renderer's outer slot order are stable; within them, bind only evidence-backed modules and vary labels, payloads, card types and column order as supported by the JSON contract.
 
 Typical page 1 slots: headline/gate, signal cards, value-creation flow, company / market / operating-model columns, strategic newsflow, SWOT/TOWS and source/unknown note.
 
 Typical page 2 slots: strategy-to-execution flow, product/use-case modules, competition/moat, execution evidence, decision takeaways and next-step block.
 
-A slot may be omitted or moved when its information is immaterial or unavailable. A missing metric, leadership profile, funding event or customer split collapses; do not render an empty card, invented placeholder, or forced SWOT. Keep the prior-24-month newsflow container distinct when the time-bound review was requested; if no material event is evidenced, state that coverage found no qualifying signal and define source/cutoff.
+Optional content inside cards and lists may be omitted or re-ordered when immaterial or unavailable. The current renderer still expects its outer frame (header/gate, three top cards, flow, lower layout and footer); it does not yet collapse whole outer blocks. Map the distinct prior-24-month newsflow to a dedicated lower column/card, with its own title and dated items. A missing metric, leadership profile, funding event or customer split should be omitted from payloads, not filled with an invented placeholder or forced SWOT. Keep the prior-24-month newsflow container distinct when the time-bound review was requested; if no material event is evidenced, state that coverage found no qualifying signal and define source/cutoff.
 
-The renderer's current structural contract uses a document object (title, language, theme) and two page objects. Each page binds a kicker, subtitle, decision gate, three top cards, one flow, a page layout and a closing strip. The layout can be three columns or due diligence. Reuse those blocks for business meaning through labels and payload; do not hard-code company, employer, product or candidate facts into templates. Extend the content schema before adding new block types.
+The renderer's current structural contract uses a document object (title, language, theme) and two page objects. Each page binds a kicker, subtitle, decision gate, three top cards, one flow, a page layout and a closing strip. The lower layout can be three columns or due diligence. Reuse those blocks for business meaning through labels and payload; do not hard-code company, employer, product or candidate facts into templates. Adding an independently collapsible block, a new layout family or a native diagram component requires an explicit schema/template/CSS change and a regression fixture.
 
 ## CSS and design tokens
 
@@ -32,7 +32,7 @@ Minimums: 9 pt body text and padding, 11 pt preferred body text, no clipping/ove
 
 ## Schema Flow Master harvest
 
-Choose one diagram only when it resolves a structure question. Use organization chart for evidenced reporting lines; C4 context for ecosystem boundaries; a simple hierarchy/table for product segmentation; a flow for value creation or execution. Store editable Mermaid separately from any rendered image. Keep unknown connections dashed/labeled as hypotheses; do not claim renderer support for a diagram family until tested in the target environment.
+Choose one diagram only when it resolves a structure question. Use organization chart for evidenced reporting lines; C4 context for ecosystem boundaries; a simple hierarchy/table for product segmentation; a flow for value creation or execution. Store editable Mermaid separately from any rendered image. The current renderer has no native Mermaid slot: map a diagram to a supported card/list or add a tested diagram block before embedding it. Keep unknown connections dashed/labeled as hypotheses; do not claim renderer support for a diagram family until tested in the target environment.
 
 ## Commands and verification
 
