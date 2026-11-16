@@ -274,14 +274,27 @@ def resume_markdown(snapshot: dict) -> str:
     return "\n".join(lines) + "\n"
 
 
-def invalidate_descendants(board: dict, changed_ids: list[str]) -> dict:
-    """Return a copied board with changed tasks and dependent results reopened."""
+def _task_study_id(task: dict) -> str | None:
+    scope = task.get("study_scope")
+    return scope.get("id") if isinstance(scope, dict) else None
+
+
+def invalidate_descendants(board: dict, changed_ids: list[str], study_id: str | None = None) -> dict:
+    """Return a copied board with changed tasks and eligible descendants reopened."""
     tasks = _valid_tasks(board)
     if not set(changed_ids) <= tasks.keys():
         raise ValueError("unknown changed task")
+    if study_id is not None:
+        if not isinstance(study_id, str) or not study_id.strip():
+            raise ValueError("study_id must be a nonempty string")
+        mismatched = [task_id for task_id in changed_ids
+                      if _task_study_id(tasks[task_id]) != study_id]
+        if mismatched:
+            raise ValueError(f"changed task {mismatched[0]} does not belong to study {study_id}")
     affected = set(changed_ids)
     while True:
         expanded = affected | {tid for tid, task in tasks.items()
+                               if (study_id is None or _task_study_id(task) == study_id)
                                if affected.intersection(task.get("depends_on", []))}
         if expanded == affected:
             break
