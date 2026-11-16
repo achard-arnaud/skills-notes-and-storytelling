@@ -5,6 +5,11 @@ description: Use when a business study must say who can decide, control and answ
 
 # Analyser gouvernance et contrôle (P-GOVERNANCE)
 
+## Shared editorial and research quality
+
+Apply the [shared editorial and research quality contract](../../../references/editorial-and-research-quality.md) to direct prose, substantive footnotes and final repetition review. Company sitemap and 20–200 complementary-search budgets apply only within a named-company or business-market research run.
+
+
 **Question structurante** : Qui peut décider, contrôler et répondre des résultats ?
 **Scope** : Mandat, responsabilités, risques, sécurité, conformité, contrôle humain, dépendances, réversibilité.
 **Exclusions** : Le choix d'outil lui-même (P-AI) et le déploiement des compétences (P-ADOPTION).
