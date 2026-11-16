@@ -126,6 +126,35 @@ Validation : `python3 -m unittest discover -s diagnostic-complet/tests -p 'test_
 Les fixtures sont synthétiques. S1 reste ouvert pour synthèse et invalidation des
 consommateurs ; S2/S3 et le rendu ne sont pas déclarés livrés par cette tranche.
 
+## Content spec business v1 — #318.S1
+
+`business_brief_content.py` expose
+`validate_business_brief_content(content)` (stdlib, sans mutation, recherche,
+génération ni rendu). Le contrat
+`schemas/business-brief-content.v1.schema.json` fige AC1–AC3 avant tout hand-off
+de mise en page ; la fixture de régression est
+`fixtures/business-brief-content.json` et ne contient que des données synthétiques.
+
+Le scaffold consigne `mode: business`, `primary_dimension: business`, sujet et
+périmètre, audience, question, cutoff et template/version. `decision_requested`
+est explicite : un mandat descriptif garde `recommendations: []` ; un mandat
+décisionnel exige au moins une option avec conditions, falsifier, action, owner
+(assigné ou rôle explicitement non assigné) et gate. Le validateur n'invente
+jamais une recommandation à partir du sujet ou du template.
+
+Chaque assertion matérielle a un identifiant, un texte, un statut, un grade, une
+source avec kind/localisateur/date, une confiance, un état de contradiction et
+des inconnues explicites. Une source fournisseur ou corporate ne peut pas porter
+`verified_fact`. Identifiants dupliqués, contradiction présente sans détail,
+contradiction inconnue sans unknown et owner incohérent bloquent le hand-off.
+
+Un succès retourne `content_revision`, SHA-256 canonique de l'objet validé,
+`handoff_ready: true` et `human_approval: false`. Ce hash ne constitue ni une
+preuve de source, ni une validation métier, ni une recette visuelle. AC4–AC6,
+renderer, pagination, PDF, repli et validation humaine restent des gates de run
+séparés. Régression ciblée :
+`python3 -m unittest discover -s diagnostic-complet/tests -p 'test_business_brief_content.py' -v`.
+
 ## Plan d'impact analytique — #295.A3
 
 `analysis_impact.plan_analysis_revision(study, envelope, changed_ids,
