@@ -2,22 +2,18 @@
 
 ## Prose
 
-Prefer:
-- direct affirmative statements;
-- short paragraphs of 2–5 sentences;
-- bullets for lists of 3+ items;
-- tables for comparisons;
-- explicit labels for facts, hypotheses, unknowns and recommendations.
+Follow the [shared editorial and research quality contract](editorial-and-research-quality.md).
 
-Rewrite avoidable opposition patterns.
+- State the analytical point directly and affirmatively; give each sentence one job.
+- Use short paragraphs of 2–5 sentences, bullets for lists of 3+ items, and tables for comparisons.
+- Label facts, inferences, hypotheses, unknowns and recommendations explicitly.
+- Replace compressed contrasts and disclaimers with separate evidence-based findings and their business meaning.
+- Put analytical caveats and implications in the body. Keep footnotes and container endings for concise source or status legends.
+- Run a dedicated semantic repetition review across every content container before delivery.
 
-Instead of:
-> This is not an objective measure, but a decision heuristic.
+Example:
 
-Prefer:
 > This score is a decision heuristic. It prioritizes evidence for comparison.
-
-Use a negative construction only when the negation itself prevents a material misunderstanding.
 
 ## Tables
 
