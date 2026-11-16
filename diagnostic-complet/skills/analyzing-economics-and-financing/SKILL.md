@@ -5,6 +5,11 @@ description: Use when a business study must show who finances, who pays, who cap
 
 # Analyser l'économie et le financement (P-ECONOMICS)
 
+## Shared editorial and research quality
+
+Apply the [shared editorial and research quality contract](../../../references/editorial-and-research-quality.md) to direct prose, substantive footnotes and final repetition review. Company sitemap and 20–200 complementary-search budgets apply only within a named-company or business-market research run.
+
+
 **Question structurante** : Qui finance, paie, capte la valeur et porte le risque ?
 **Scope** : Modèle économique, financement des actifs, unité économique, cash, TCO, ROI.
 **Exclusions** : L'automatisation comptable corporate (P-CORPORATE). Une promesse de gain n'est pas une économie attribuable.
