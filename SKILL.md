@@ -100,6 +100,8 @@ Treat lock-in as a **location and control-point question**, not merely a severit
 
 ## Evidence and prose rules
 
+Apply the shared [editorial and research quality contract](references/editorial-and-research-quality.md) across output-producing work. It defines direct, tangible prose, business meaning for inferences, the final repetition review, and company-research coverage when applicable.
+
 - Lead with the decision, result or central thesis.
 - Prefer direct affirmative formulations.
 - Prefer bullets for enumerations of 3+ items and tables for structured comparisons.
