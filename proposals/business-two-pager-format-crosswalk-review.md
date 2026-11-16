@@ -45,7 +45,7 @@ The third page carries traceability from value-chain activity to initiative prio
 5. Compress a larger backlog to at most five themes; do not transfer the three-page star/rank/quadrant machinery automatically.
 6. State missing mix, margin, customer concentration, baseline, owner or moat evidence as unknown; do not fill from a role advertisement.
 7. Keep competitive archetypes distinct from sourced named competitors. A comparison without normalized scope is only a hypothesis.
-8. **Business-analysis boundary:** do not introduce a candidate, François, recruiter, job-posting narrative, employer-fit score or application decision into the company description. If requested, candidate fit is a separate analysis and separate output variant.
+8. **Business-analysis boundary:** do not introduce any candidate or personal profile, recruiter narrative, job-posting fit, employer-fit score or application decision into the company description. If requested, candidate fit is a separate analysis and output variant.
 
 ## Distinction between the two formats
 
