@@ -82,6 +82,12 @@ Describe the potential moat as an evidenced mechanism, such as switching costs, 
 
 End with three to five ranked business takeaways that synthesize the pages. If a decision was requested, state the decision implication, conditions, proof needed and smallest reversible next step. Otherwise end with the central strategic tension and the evidence that would resolve it. Do not append a candidate recommendation by default.
 
+## Business-specific quality gates
+
+Before drafting, apply [the shared editorial and research quality contract](editorial-and-research-quality.md). For a named-company analysis, meet its company-site coverage and complementary-search budget, then report actual coverage and limits. Explain the business payoff of material inferences. Treat pricing policy and monetization as explicit business questions: state published terms/signals or the missing evidence and its consequence.
+
+The final QA includes a dedicated repetition pass across the thesis, identity/KPI band, cards, tables, newsflow, footnotes and takeaways. Keep analytical caveats in the body; reserve footnotes and container endings for concise source/status legends.
+
 ## Binding and evidence rules
 
 - Keep source ledger and claims separate from layout. Every KPI carries date, units, perimeter and source.
