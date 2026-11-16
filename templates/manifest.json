@@ -239,6 +239,35 @@
       "content_model": "learning/enterprise-ai/perception.sheet.json",
       "qa_command": "python renderers/pedagogical/landscape.py learning/enterprise-ai/perception.sheet.json --out build/perception --verify",
       "legacy_renderer": "renderers/pedagogical/render.py"
+    },
+    {
+      "type": "regulatory-note",
+      "version": "0.1.0",
+      "template_class": "legal-reglementaire",
+      "lifecycle": "candidate",
+      "orientation": "adaptive",
+      "page_range": [
+        3,
+        5
+      ],
+      "supported_modes": [
+        "from-scratch",
+        "iterative",
+        "feedback-dreaming"
+      ],
+      "supported_dimensions": [
+        "business",
+        "product",
+        "technical"
+      ],
+      "default_dimension": "business",
+      "dimension_contract": "templates/regulatory-note.md",
+      "skill": "skills/regulatory-bootstrap/SKILL.md",
+      "qa_fixture": "examples/regulatory-note-v0.md",
+      "qa_fixture_version": "0.1.0",
+      "content_contract": "contracts/output-spec.schema.json",
+      "scaffold_contract": "contracts/scaffold.schema.json",
+      "rendering_status": "content-contract-only"
     }
   ]
 }

@@ -131,7 +131,7 @@ La classe `pedagogique` dispose maintenant d’un renderer HTML/PDF/PNG exécuta
 
 Commande pilote : `python renderers/pedagogical/render.py learning/enterprise-ai/perception.md --out build/learning`, puis `python renderers/pedagogical/verify.py learning/enterprise-ai/perception.md build/learning/perception`.
 
-La classe de template (`product`, `business`, `tech`, `pedagogique`) reste distincte de la dimension d’analyse. Voir [la taxonomie](references/template-taxonomy.md).
+La classe de template (`product`, `business`, `tech`, `pedagogique`, `legal-reglementaire`) reste distincte de la dimension d’analyse. Voir [la taxonomie](references/template-taxonomy.md).
 
 ## Pilote Perception approfondi — paysage
 
@@ -141,3 +141,11 @@ Le profil pédagogique v0.3 utilise un seul [contrat de contenu](contracts/pedag
 ## Architecture commune — revue documentaire du 13 novembre 2026
 
 Lire [l’index des décisions](docs/architecture/README.md), puis seulement l’ADR pertinent : routage et méthodes (1001), connaissance (1002), narration et rendu (1003), RUN/BUILD et contexte (1004), loopback et validation (1005), autorités et convergence (1006). Les principes sont approuvés ; les capacités réelles restent définies par les contrats et manifests au SHA du run. Cette publication documentaire ne migre aucun enum ni template. [Couverture des 14 ADR historiques](docs/architecture/ADR-REVIEW-2026-11-13.md).
+
+## Legal & réglementaire
+
+La classe `legal-reglementaire` accueille les notes canoniques sur la portée d’un texte et ses conséquences sectorielles. Le template [regulatory-note](templates/regulatory-note.md), la [skill Regulatory Bootstrap](skills/regulatory-bootstrap/SKILL.md) et la [fixture synthétique](examples/regulatory-note-v0.md) forment la première tranche candidate.
+
+Le protocole combine socle officiel, guides et lectures tier-one, confrontation des versions et huit axes d’impact. Il réserve une cible de 50 % de l’effort documentaire aux sources primaires, avec un plancher de 30 %, et prévoit au moins 100 requêtes complémentaires distinctes pour un run approfondi. Le journal démontre l’effort réellement exécuté. Le livrable développe les mécanismes sectoriels; les bilans de méthode se conservent à part.
+
+Exemple d’usage — « Utilise Regulatory Bootstrap pour analyser ce règlement dans le wealth management, arrêté à cette date, en trois à cinq pages descriptives avec une carte introductive si utile. » Le contrat de contenu et le scaffold restent séparés du rendu. Cette tranche ajoute la méthode et son intégration au catalogue; le renderer se choisit selon le format de sortie.

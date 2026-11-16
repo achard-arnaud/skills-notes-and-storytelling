@@ -5,8 +5,10 @@ class TemplateClass(str, Enum):
     BUSINESS = "business"
     TECH = "tech"
     PEDAGOGIQUE = "pedagogique"
+    LEGAL_REGLEMENTAIRE = "legal-reglementaire"
 
 class OutputTemplateType(str, Enum):
+    REGULATORY_NOTE = "regulatory-note"
     ARCHITECTURE_NOTE = "architecture-note"
     STRATEGIC_MARKET_NOTE = "strategic-market-note"
     ONE_PAGER = "one-pager"

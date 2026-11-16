@@ -1,6 +1,6 @@
 ---
 name: decision-notes-and-storytelling
-description: Create, revise, or industrialize evidence-grounded decision notes, architecture notes, one-pagers, two-pagers, benchmarks, buy-side gap analyses, sell-side diagnostic/recommendation notes, ICP opportunity notes and integration notes and pedagogical learning sheets. Own research-to-claims-to-storytelling, evidence lineage, template bridges, counter-perspective QA, lock-in mapping, next-step nudging and the governed tiered dreaming loop. Route six-page enterprise AI learning sheets to the pedagogical skill and keep their content binding, semantic HTML scaffold and renderer separate. Pair with the runtime DOCX skill when a Word artifact is requested.
+description: Create, revise, or industrialize evidence-grounded decision notes, architecture notes, one-pagers, two-pagers, benchmarks, buy-side gap analyses, sell-side diagnostic/recommendation notes, ICP opportunity notes and integration notes and pedagogical learning sheets and canonical sector-specific regulatory notes. Own research-to-claims-to-storytelling, evidence lineage, template bridges, counter-perspective QA, lock-in mapping, next-step nudging and the governed tiered dreaming loop. Route six-page enterprise AI learning sheets to the pedagogical skill and keep their content binding, semantic HTML scaffold and renderer separate. Pair with the runtime DOCX skill when a Word artifact is requested.
 ---
 
 # Decision Notes & Storytelling
@@ -38,6 +38,7 @@ For `ARCHITECTURE_NOTE`, read the dimension-specific contract in [templates/arch
 
 Select exactly one primary template:
 
+- `REGULATORY_NOTE` (class `legal-reglementaire`; follow `skills/regulatory-bootstrap/SKILL.md` and `templates/regulatory-note.md`)
 - `ARCHITECTURE_NOTE`
 - `ONE_PAGER`
 - `TWO_PAGER`
@@ -55,6 +56,10 @@ Every template is versioned in `templates/manifest.json` with a QA fixture. Read
 ## Pedagogical template route
 
 For `AI_ENTERPRISE_LEARNING_SIX_PAGE`, use `template_class=pedagogique`. The specialized skill owns the six-page learning sequence; general research, evidence lineage, sourcing, counter-perspective QA and feedback-dreaming invariants still apply. Do not fold HTML structure or CSS rendering into the content-binding step.
+
+## Legal & réglementaire template route
+
+For `REGULATORY_NOTE`, select `template_class=legal-reglementaire` and read the specialized skill and template. Retain the shared evidence, claims, scaffold and rendering boundaries. Frame a descriptive sector thesis. Keep recommendations, pilots, decision nudges and next-action containers in explicitly requested variants. The regulatory research protocol governs source budgets, the 100 complementary-query minimum and execution accounting. Use [the prose and visual contract](references/style-contract.md) and the mandatory cross-container repetition review. Keep run-method accounting in its sidecar records.
 
 ## Canonical workflow
 
