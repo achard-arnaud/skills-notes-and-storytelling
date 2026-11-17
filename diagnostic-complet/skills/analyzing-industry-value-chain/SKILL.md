@@ -18,7 +18,7 @@ Un pilier est une vue analytique, pas un chapitre ni un quota : on le mobilise q
 
 ## Investiguer
 
-1. Cartographier la chaîne d'exécution de bout en bout : site, étude, financement, construction, exploitation, mesure, optimisation. Repérer où chaque maillon produit une donnée différente.
+1. Cartographier la chaîne d’exécution propre au secteur. Pour des actifs physiques, site, étude, financement, construction et exploitation constituent un exemple conditionnel ; pour les services ou le logiciel, reconstruire les étapes réellement établies. Repérer où chaque maillon produit une donnée différente.
 2. Décrire le flux signal vers décision : signal, détection et confiance, impact estimé, criticité contractuelle, diagnostic distant, décision d'intervention, habilitations, pièces, contrôle de retour à la normale, preuve.
 3. Séparer ressource, équipement, donnée et modèle, exploitation et maintenance, site et réseau, contrat et économie quand on explique une perte de performance (grille générique, pas un incident de la cible).
 4. Demander à chaque outil de supervision ce qu'il prouve : un monitoring observe, il ne supprime pas l'intervention physique ni les contraintes d'accès.
@@ -69,3 +69,8 @@ Descriptif et séquentiel : chaînes causales nommées étape par étape, vocabu
 ## Références d’architecture conditionnelles
 
 Pour une évolution de méthode, lire [ADR-1001](../../../docs/architecture/ADR-1001-routing-capabilities.md) et [ADR-1002](../../../docs/architecture/ADR-1002-evidence-knowledge.md). Le chargement RUN reste limité au contrat et au paquet de l’étape ; les principes communs ne changent pas les capacités locales.
+
+
+## Contre revue par persona
+
+Pour la contre-perspective du mandat, sélectionner les prismes pertinents dans [la revue commune](../../../references/persona-review.md). Effectuer la passe d’objection puis la correction à la première couche fautive ; garder la vérification et les verdicts du workflow propriétaire. Une revue descriptive préserve sa portée ; les personas ne créent ni sources ni validation humaine.

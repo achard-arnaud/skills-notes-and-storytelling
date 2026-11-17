@@ -1,0 +1,167 @@
+{
+  "contract": "references/persona-review.md",
+  "persona": "references/personas/sharp-cto.md",
+  "consumers": [
+    {
+      "path": "SKILL.md",
+      "lenses": [
+        "CEO",
+        "COO business",
+        "VC",
+        "Partner McKinsey",
+        "CPO",
+        "COO produit",
+        "Head of L&D",
+        "sharp CTO",
+        "Data lead",
+        "Head of Risk & Compliance"
+      ]
+    },
+    {
+      "path": "skills/pedagogical-ai-learning/SKILL.md",
+      "lenses": [
+        "Head of L&D"
+      ]
+    },
+    {
+      "path": "skills/regulatory-bootstrap/SKILL.md",
+      "lenses": [
+        "Head of Risk & Compliance"
+      ]
+    },
+    {
+      "path": "diagnostic-complet/skills/analyzing-adoption-and-change/SKILL.md",
+      "lenses": [
+        "COO business",
+        "Head of L&D"
+      ]
+    },
+    {
+      "path": "diagnostic-complet/skills/analyzing-ai-capabilities/SKILL.md",
+      "lenses": [
+        "sharp CTO",
+        "CPO"
+      ]
+    },
+    {
+      "path": "diagnostic-complet/skills/analyzing-corporate-functions/SKILL.md",
+      "lenses": [
+        "CEO",
+        "COO business",
+        "VC",
+        "Partner McKinsey"
+      ]
+    },
+    {
+      "path": "diagnostic-complet/skills/analyzing-data-foundations/SKILL.md",
+      "lenses": [
+        "Data lead",
+        "sharp CTO"
+      ]
+    },
+    {
+      "path": "diagnostic-complet/skills/analyzing-economics-and-financing/SKILL.md",
+      "lenses": [
+        "CEO",
+        "COO business",
+        "VC",
+        "Partner McKinsey"
+      ]
+    },
+    {
+      "path": "diagnostic-complet/skills/analyzing-governance-and-control/SKILL.md",
+      "lenses": [
+        "COO business",
+        "Head of Risk & Compliance"
+      ]
+    },
+    {
+      "path": "diagnostic-complet/skills/analyzing-industry-value-chain/SKILL.md",
+      "lenses": [
+        "CEO",
+        "COO business",
+        "VC",
+        "Partner McKinsey"
+      ]
+    },
+    {
+      "path": "diagnostic-complet/skills/analyzing-market-and-competition/SKILL.md",
+      "lenses": [
+        "CEO",
+        "COO business",
+        "VC",
+        "Partner McKinsey"
+      ]
+    },
+    {
+      "path": "diagnostic-complet/skills/designing-main-story/SKILL.md",
+      "lenses": [
+        "CEO",
+        "COO business",
+        "VC",
+        "Partner McKinsey"
+      ]
+    },
+    {
+      "path": "diagnostic-complet/skills/side-stories-business/SKILL.md",
+      "lenses": [
+        "CEO",
+        "COO business",
+        "VC",
+        "Partner McKinsey"
+      ]
+    }
+  ],
+  "synthetic_cases": [
+    {
+      "persona": "CEO",
+      "input": "Une croissance publiée est traitée comme preuve que la transformation IA en est la cause.",
+      "expected_correction": "Présenter la croissance comme observation ; qualifier séparément la contribution IA et les autres explications."
+    },
+    {
+      "persona": "COO business",
+      "input": "Le gain de temps individuel est intégralement converti en réduction de coûts.",
+      "expected_correction": "Distinguer capacité libérée, capacité réellement réaffectée et dépense effectivement évitée."
+    },
+    {
+      "persona": "VC",
+      "input": "Un prototype et un marché large suffisent à conclure à un avantage défendable.",
+      "expected_correction": "Qualifier le prototype et tester distribution, coûts complets, différenciation et dépendances ; conserver inconnu ce qui manque."
+    },
+    {
+      "persona": "Partner McKinsey",
+      "input": "Une matrice SWOT est présentée comme preuve causale.",
+      "expected_correction": "Utiliser la matrice comme structuration ; rattacher les mécanismes aux sources et conserver les liens causaux non établis comme hypothèses."
+    },
+    {
+      "persona": "CPO",
+      "input": "Une hausse des inscriptions est assimilée à la rétention.",
+      "expected_correction": "Conserver les inscriptions comme acquisition ; demander cohorte, période et définition de rétention avant toute conclusion."
+    },
+    {
+      "persona": "COO produit",
+      "input": "Un pilote réussi sur utilisateurs accompagnés est présenté comme déploiement autonome.",
+      "expected_correction": "Qualifier l’accompagnement et vérifier instrumentation, support, droits, exceptions et dépendances avant d’étendre la conclusion."
+    },
+    {
+      "persona": "Head of L&D",
+      "input": "Une satisfaction élevée après atelier est présentée comme compétence acquise.",
+      "expected_correction": "Présenter la satisfaction comme telle ; utiliser une tâche observable et préciser les limites du transfert sans suivi."
+    },
+    {
+      "persona": "sharp CTO",
+      "input": "Une promesse de coût modèle inférieur est présentée comme réduction du coût du workflow.",
+      "expected_correction": "Inclure orchestration, retrieval, reprises, évaluations et escalades ; tester le workflow et qualifier les gains non mesurés."
+    },
+    {
+      "persona": "Data lead",
+      "input": "Des données présentes dans un catalogue sont supposées utilisables par le modèle.",
+      "expected_correction": "Vérifier accès effectif, licence, qualité, disponibilité et adéquation à la tâche ; distinguer catalogué, accessible et exploitable."
+    },
+    {
+      "persona": "Head of Risk & Compliance",
+      "input": "La présence d’une procédure est présentée comme preuve de conformité.",
+      "expected_correction": "Qualifier la procédure comme dispositif déclaré ; identifier les preuves de fonctionnement et les inconnues sans rendre un avis de conformité global."
+    }
+  ]
+}
