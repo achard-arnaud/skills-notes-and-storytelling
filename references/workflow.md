@@ -160,3 +160,7 @@ A review finding should identify the lens that produced it. This prevents stylis
 15. select dreaming tier using [dreaming-self-healing.md](dreaming-self-healing.md);
 16. mandatory dreaming check;
 17. if reusable delta exists, create candidate patch/fixture proposal for human approval.
+
+## Sélection des personas de contre revue
+
+Utiliser [la référence commune](persona-review.md) dans COUNTER_PERSPECTIVE_QA. Une revue explicitement demandée par plusieurs personas conserve leurs objections distinctes, puis regroupe les corrections compatibles. Conserver une seule réparation et une seule vérification selon la limite existante ; une objection résiduelle matérielle produit REOPEN_TARGETED. Aucune nouvelle phase ou enum. Les reçus de run et corpus privés restent dans leur destination de travail.

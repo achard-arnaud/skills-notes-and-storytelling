@@ -96,3 +96,12 @@ Conserver ou nettoyer les intermédiaires selon les conventions applicables. Con
 
 Pour une fiche Academy, rechercher les contenus proches, résoudre le document et lire sa version courante avant modification. Enrichir la destination thématique autorisée et vérifier l’enregistrement et les liens. Garder faits du cas, exemples et profils dans le corpus du projet; conserver la skill générique.
 </iterative_bootstrapping_workflow>
+
+
+## Contre revue par persona
+
+Pour la contre-perspective du mandat, sélectionner les prismes pertinents dans [la revue commune](../../references/persona-review.md). Effectuer la passe d’objection puis la correction à la première couche fautive ; garder la vérification et les verdicts du workflow propriétaire. Une revue descriptive préserve sa portée ; les personas ne créent ni sources ni validation humaine.
+
+## Contre revue Risk et Compliance
+
+À la relecture, distinguer applicabilité du texte, dispositif déclaré, efficacité testée et risque résiduel. Une procédure documentée établit son existence, sans certifier son fonctionnement. Qualifier les limites de contrôle et responsabilités seulement selon les preuves disponibles. Préserver la portée descriptive et le contrat de recherche spécialisé.

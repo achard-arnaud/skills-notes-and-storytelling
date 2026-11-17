@@ -175,3 +175,12 @@ Lire [l’index des décisions](docs/architecture/README.md), puis seulement l�
 ## Hygiène des artefacts RUN et BUILD
 
 Conserver les livrables de run, corpus privés, exports temporaires et captures dans leur destination de travail ou de livraison. Versionner dans le dépôt les méthodes, contrats, documentation de projet et fixtures de régression explicitement curatées. Un exemple public doit être minimal, attribué et autorisé, ou synthétique ; une sortie de run brute ne devient pas une fixture par simple déplacement. Cette règle encadre les nouveaux apports ; les éventuelles migrations de contenus historiques gardent leurs références et reçus.
+
+
+## Contre revue par persona
+
+Pour la contre-perspective du mandat, sélectionner les prismes pertinents dans [la revue commune](references/persona-review.md). Effectuer la passe d’objection puis la correction à la première couche fautive ; garder la vérification et les verdicts du workflow propriétaire. Une revue descriptive préserve sa portée ; les personas ne créent ni sources ni validation humaine.
+
+## Revue produit CPO et COO
+
+Pour une analyse produit, distinguer utilisateur, acheteur et administrateur ; relier job, alternative actuelle, première valeur, usage répété et résultat. En roadmap, expliciter dépendances, coût de service, support et choix écarté. Une inscription mesure l’acquisition ; la rétention exige cohorte, période et définition. Garder les métriques inconnues comme telles.

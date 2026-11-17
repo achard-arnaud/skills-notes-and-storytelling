@@ -42,3 +42,12 @@ Ne pas inventer de visuel factuel ni de preuve. Un diagramme opérationnel est u
 ## Fermer la boucle
 
 Vérifier : un débutant explique-t-il l’idée, une erreur plausible, un exemple métier et le prochain essai ? Le formateur peut-il reprendre l’animation ? Les quatre histoires ont-elles leurs sources et les cas leurs IDs ? Le rendu est-il paysage et dense sans réduire les polices ? Consigner seulement les améliorations réutilisables avant le tour suivant.
+
+
+## Contre revue par persona
+
+Pour la contre-perspective du mandat, sélectionner les prismes pertinents dans [la revue commune](../../references/persona-review.md). Effectuer la passe d’objection puis la correction à la première couche fautive ; garder la vérification et les verdicts du workflow propriétaire. Une revue descriptive préserve sa portée ; les personas ne créent ni sources ni validation humaine.
+
+## Contrôle Head of L&D
+
+Établir acquis initiaux, objectif observable, exercice avec feedback et conditions de transfert au travail. Adapter langage et accessibilité au public. Distinguer satisfaction, compréhension et compétence démontrée ; le critère de six pages reste un contrat de rendu, sans constituer une preuve d’apprentissage. Conserver les preuves de transfert manquantes comme limites.

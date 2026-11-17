@@ -20,7 +20,7 @@ Un pilier est une vue analytique, pas un chapitre ni un quota : on le mobilise q
 
 1. Associer chaque besoin métier à un mode d'IA (perception, création, prédiction, raisonnement, agentique) plutôt qu'à un produit.
 2. Distinguer trois familles d'usage : productivité et service, opérationnel sur données physiques, multimodal au service des intervenants ; leur preuve de valeur et leur risque diffèrent.
-3. Placer le cas sur son niveau d'intégration et d'automatisation avant de le chiffrer ; commencer par assistants et copilotes pour valider la valeur à faible risque.
+3. Placer le cas sur son niveau d'intégration et d'automatisation avant de le chiffrer ; choisir le degré selon le risque, la valeur et les capacités disponibles ; assistants et copilotes sont des options de validation, sans imposer une progression universelle.
 4. Examiner les postures d'adoption (opportuniste, centre d'expertise, produit, pari) comme un portefeuille hybride, pas comme des étapes obligatoires.
 5. Toute action qui touche sécurité, contrat, paiement ou consigne exige validation et journalisation : l'écrire dans la solution.
 
@@ -69,3 +69,8 @@ Neutre sur la technologie, exigeant sur la décision : une capacité ne s'écrit
 ## Références d’architecture conditionnelles
 
 Pour une évolution de méthode, lire [ADR-1001](../../../docs/architecture/ADR-1001-routing-capabilities.md) et [ADR-1002](../../../docs/architecture/ADR-1002-evidence-knowledge.md). Le chargement RUN reste limité au contrat et au paquet de l’étape ; les principes communs ne changent pas les capacités locales.
+
+
+## Contre revue par persona
+
+Pour la contre-perspective du mandat, sélectionner les prismes pertinents dans [la revue commune](../../../references/persona-review.md). Effectuer la passe d’objection puis la correction à la première couche fautive ; garder la vérification et les verdicts du workflow propriétaire. Une revue descriptive préserve sa portée ; les personas ne créent ni sources ni validation humaine.
