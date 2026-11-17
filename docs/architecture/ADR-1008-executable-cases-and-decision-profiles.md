@@ -26,3 +26,14 @@ Prose seule : coût faible mais aucun consommateur ne refuse les transitions inc
 Si un cas de transfert ne peut finir sans modifier le moteur, revoir la séparation profil/méthode. Si un incident échappe aux contrôles, ajouter d'abord sa reproduction, puis corriger la couche fautive et le contrat si nécessaire. Si une dépendance de rendu n'est pas épinglée ou une preuve ne résout plus son origine, la reprise doit bloquer ; sinon l'hypothèse de traçabilité est réfutée.
 
 Vérifications : tests de chaîne positive, sauts, empreintes périmées, références étrangères, mapping de claims, inconnu numérique et Adopt non mesuré ; validation de release et de profils en CI. Le contrôle structurel n'approuve ni un ADR ni un template. Les inconnues de coûts/temps demeurent explicites.
+
+
+## Renforcement exécutable du 17 novembre 2026
+
+La reproduction d'un renderer.args de type string accepté par check_contracts réfute
+la couverture supposée du manifeste, sans invalider la décision de séparer RUN/BUILD.
+Le schéma case-process.schema.json devient prescriptif et consommé avant init.
+Les liens adapter/payload-schema/refs épinglées sont contrôlés ; les profils sans
+adapter ne créent aucun cas lorsqu'un rendu est demandé. Régressions négatives
+et chaîne valide : tests/test_case_runtime.py. Détails et limites dans
+[le diagnostic](manifest-contract-hardening-2026-11-17.md).
