@@ -1,155 +1,182 @@
 # Decision Notes & Storytelling
 
-Revue documentaire vérifiée : **22 octobre 2026**.
+Evidence-grounded analysis and document composition, from a concise decision note to a detailed business narrative.
 
-> **A governed decision-note skill, not an installed research platform.** This repository owns research methodology, evidence and claim lineage, narrative decisions, versioned templates, counter-perspective QA, bridge proposals and bounded learning. Rendering is downstream. As of 2026-10-22 the workflow is specified/documented; it does **not** ship a React runtime, GitHub webhook service, Obsidian connector, four-format export API, or autonomous agent orchestration.
+The project connects source material, typed claims, analytical methods, narrative structure and document review. It combines reusable skills with Python validation and execution tools so that an analysis can be inspected, revised and resumed across sessions.
 
-## Start here — human or agent (five bounded reads)
+**Repository review · 17 November 2026.** Template lifecycles and executable capabilities are defined by the manifests at the revision used for a run.
 
-1. [AGENTS.md](AGENTS.md) — ownership of evidence, stage boundaries and change policy.
-2. [SKILL.md](SKILL.md) — generation mode, analysis dimension, template, stage rules.
-3. [templates/manifest.json](templates/manifest.json) and [modes/manifest.json](modes/manifest.json) — **canonical machine-readable** status, versions and fixtures. Do not use a prose table as authority over these.
-4. [references/workflow.md](references/workflow.md) — active procedure and red-team/dreaming stop conditions. Open only the current stage.
-5. The chosen `templates/<id>.md` and its declared QA fixture; read [references/bridges-integration-and-run-memory.md](references/bridges-integration-and-run-memory.md) if transferring/reusing prior research.
+## Product value
 
-**Working boundaries**: one problem/subject and decision question per run; no general scan of all examples or archived notes; source claims carry ID, scope, temporal status and locator; a written claim does not become verified simply by being reused. Claims graph light is a method/schema, not an installed multi-user database.
+| User outcome | Product capability | Engineering mechanism |
+| --- | --- | --- |
+| Explain a recommendation and its limits | Trace a conclusion to source material, scope and counter-evidence | Stable source, fragment and claim IDs, locators, typed relations and validation |
+| Reuse research across different outputs | Produce business, product and technical views from an explicit evidence base | Analytical outputs, synthesis, scaffold and format-specific bindings |
+| Revise a long report consistently | Identify what a source correction affects and retain unrelated work | Dependency analysis, invalidation plans and regression coverage |
+| Resume work after a session ends | Reconstruct the next task from stored artifacts | Scoped context packets, checkpoints, hashes and version checks |
+| Extend formats and decision methods | Select a profile and load the required references | Versioned manifests, schemas, fixtures and shared runtime |
+| Improve the system from observed failures | Turn an incident into a bounded, testable correction | Loopback receipts, ADR references, BUILD issues and regression tests |
 
-## What the current repository actually provides
+The design addresses several sources of complexity together — source reliability, evolving knowledge, selective context loading, multi-format composition, long-running studies and human review.
 
-| Component | Authority / implementation status |
-|---|---|
-| Skill instruction and research→claims→note stages | [SKILL.md](SKILL.md), [references/workflow.md](references/workflow.md) — **documented** |
-| Modes & versioned templates | [src/template_types.py](src/template_types.py), [templates/manifest.json](templates/manifest.json), [modes/manifest.json](modes/manifest.json) — **contract/fixtures verified by CI** |
-| Evidence fragments, claims, light graph, composition and output spec | [contracts](contracts) — **schemas**, not an installed retrieval service |
-| Side stories, bridges, red-team and dreaming | [references](references) — **governed methodology**, run loop remains process-driven |
-| DOCX boundary | [contracts/docx-runtime-interface.schema.json](contracts/docx-runtime-interface.schema.json) — **interface to external renderer**, not built-in Word service |
-| Validation | [scripts/validate_contracts.py](scripts/validate_contracts.py), [GitHub QA](.github/workflows/qa.yml) — **contract/manifest checks**, not live web/React/PDF E2E |
-| React, Obsidian, GitHub webhook, run store, export APIs | **not implemented**; see draft [Workbench proposal](https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/design/business-notes-workbench-20261022/docs/workbench-proposal/00-GAP-ANALYSIS.md) |
+## Start with a bounded case
 
-## Select a template (manifest snapshot 2026-10-22)
+1. Read [AGENTS.md](AGENTS.md) for evidence rules, stage boundaries and contribution policy.
+2. Read [SKILL.md](SKILL.md) for generation mode, analytical dimension and routing.
+3. Select the output using [templates/manifest.json](templates/manifest.json), [templates/profiles.json](templates/profiles.json) and the chosen template reference.
+4. Read [case execution and recovery](references/case-process.md) for the executable A0–A4 route.
+5. For detailed studies, read the [long-report workspace guide](diagnostic-complet/README.md) and the [interface contract](diagnostic-complet/docs/INTERFACES.md).
 
-The status here mirrors the manifest; the manifest remains authoritative on future changes.
+The repository carries BUILD assets such as methods, contracts, code and curated fixtures. New case data belongs in the ignored `data/cases/<case-id>/` workspace. Private sources and client deliverables stay in their authorized working destination.
 
-| Template ID | Decision task | Pages | Manifest lifecycle |
-|---|---|---:|---|
-| `architecture-note` | Architecture, system/capability, tradeoffs, risks and economics | 5–10 | **candidate** |
-| `one-pager` | Executive orientation to one decision | 1 | validated |
-| `two-pager` | Business-first company, market, product and strategy analysis; person/fit only when requested | 2 | validated |
-| `benchmarking` | Compare alternatives against common criteria | 2–6 | candidate |
-| `buy-side-gap-analysis` | Adopt / replace / complement / partner | 4–8 | candidate |
-| `diagnostic-reco-sellside` | Positioning and GTM diagnostic | 5–9 | validated |
-| `opportunity-note-icp` | Credibility of an account / opportunity | 4–8 | validated |
-| `integration-note` | Build / buy / partner / coexist / defer | 3–7 | candidate |
-| `strategic-market-note` | Business strategic market view and options | 5–7 | candidate |
-| `ai-enterprise-learning-six-page` | Fiches IA et kit ambassadeur | 6 | candidate |
+## From evidence to a reviewed narrative
 
-### Three primary lenses (not interchangeable tags)
+| Stage | Result | Boundary enforced by the runtime |
+| --- | --- | --- |
+| **A0 — Evidence acquisition** | Source captures, dates, locators and reading coverage | Source references and scoped regions are checked |
+| **A1 — Typed evidence graph** | Sources, fragments, claims and relations | Identity, provenance, graph types and references are validated |
+| **A2 — Narrative scaffold** | Question, decision structure, objections and section-to-claim mapping | Required fields and references are checked against the selected profile |
+| **A3 — Composition** | Section prose, bounded side stories and optional renderer payload | Claim mappings and payload contracts are checked |
+| **A4 — Review** | Evidence, content and delivery reviews, plus render receipts when requested | Required artifacts and their hashes are verified |
 
-- **Business** — strategy, governance, organization, economics, client model, transformation.
-- **Product** — jobs to be done, user journeys, use cases, competitive positioning, adoption and product operating model.
-- **Technical** — architecture, data, APIs, dependency control, security, runtime, observability and cost.
+The agent or operator performs research, analysis and writing. The Python engine validates submitted artifacts and records transitions, attempts and rejections. The source-to-prose meaning and the quality of a recommendation remain explicit review responsibilities.
 
-Select one *primary* lens prior to template composition. Secondary lenses may inform comparisons; they must not override the decision spine. Dimension-specific support is **not uniformly declared for all nine templates** in the current manifest; a future filterable catalog must validate it per template instead of guessing. See [template catalog](references/template-catalog.md).
+The [process manifest](workflow/case-process.json), its [schema](contracts/case-process.schema.json) and [case artifact contracts](contracts/case-artifacts.schema.json) define the current implementation. The [engine release](workflow/engine-release.json) pins shared files by hash.
 
-## Choose one generation mode
+## Skills, analytical methods and templates
 
-| Mode | Current lifecycle | Boundary |
-|---|---|---|
-| `from-scratch` | validated | research → atomic fragments → claims → decision narrative |
-| `iterative` | validated | preserve canonical baseline and claim ledger, selective delta, regression |
-| `feedback-dreaming` | validated | inspect multiple runs and propose candidate improvements, no automatic promotion |
-| `retro-engineering` | **todo** | reverse-engineer a document; no production operation claimed |
+The canonical method favors small, focused skills and selective reference loading. Analytical methods answer bounded questions. Storytelling skills organize their outputs for a reader. Templates determine the delivery structure and its constraints.
 
-## Reasoning and QA pipeline
+Three analytical dimensions are available — **business**, **product** and **technical**. Pedagogical learning sheets and regulatory analysis add specialized content and review contracts. Support is resolved per template and branch.
 
-```text
-Select mode / primary dimension / template
-  → Context and decision question
-  → Research (account truth != product truth)
-  → Source-addressable fragments
-  → Claims / contradictions / unknowns (graph light)
-  → Evidence rerank + hard gates
-  → Dimension-specific scaffold
-  → Draft from evidence + bounded side stories
-  → Source validation + counter-perspective
-  → Content freeze / layout / renderer and visual QA if output needed
-  → Decision & next-step bridge
-  → Lightweight dreaming + candidate change request (if reusable)
+The long-report workspace includes methods for market and competition, industry value chains, corporate functions, data foundations, AI capabilities, economics, governance and adoption. Their findings feed narrative design and typed side stories. The [skills map](diagnostic-complet/docs/SKILLS-MAP.md) and [operational catalog](diagnostic-complet/docs/SKILLS-CATALOG.md) describe entry points and ownership.
+
+### Output families
+
+| Output family | Typical purpose | Canonical reference |
+| --- | --- | --- |
+| One-pager and two-pager | Executive orientation, company analysis and a compact decision | [Template catalog](references/template-catalog.md) |
+| Architecture and integration notes | Alternatives, dependencies, risk, economics and reversibility | [Architecture template](templates/architecture-note.md), [integration template](templates/integration-note.md) |
+| Benchmarks, buy-side and sell-side analyses | Compare options, qualify fit and explain value | [Template manifest](templates/manifest.json) |
+| Strategic market notes | Market mechanisms, positioning and options | [Market template](templates/strategic-market-note.md) |
+| Detailed business narratives | A main argument enriched by sourced side stories | [Narrative contract](diagnostic-complet/docs/NARRATIVE.md) |
+| Pedagogical learning sheets | Structured learning content, use cases and exercises | [Pedagogical skill](skills/pedagogical-ai-learning/SKILL.md) |
+| Regulatory notes — integration candidate on dev | Sector-specific analysis and traceable regulatory implications | [Candidate contract on dev](https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/dev/templates/regulatory-note.md) |
+
+Manifest states distinguish candidate and validated templates. A fixture, a successful test and reader acceptance each provide a different type of evidence. The canonical branch currently declares ten templates. The integration branch also carries the regulatory candidate.
+
+Generation modes are `from-scratch`, `iterative` and `feedback-dreaming`. Their lifecycle is declared in [modes/manifest.json](modes/manifest.json). The reverse-engineering mode remains at `todo`.
+
+## Graph, ontology and knowledge lifecycle
+
+Two related representations serve different tasks.
+
+- The evidence graph connects source fragments, claims, contradictions, hypotheses and the document sections that use them. Unknowns retain their status throughout composition.
+- The documentary knowledge base preserves sources, deduplicated atoms and distinct occurrences with locators. An ontology constrains node and relation types and supports consistency analysis.
+
+The implementation provides ingestion, ontology validation, relation checks, profile-aware classification and a controlled Graph1 projection. Typed interfaces preserve the distinction between an observed statement, an attributed claim, an inference and a hypothesis.
+
+This structure makes evidence reuse and impact analysis possible. For example, an updated source can require review of one finding and its dependent paragraphs while leaving another branch of the study intact. Cross-study reuse requires explicit scope and provenance.
+
+The graph is file-based and the retrieval helpers are local Python tools. Knowledge coverage and correctness are assessed through provenance, tests and review.
+
+Useful entry points include [KB ingestion](diagnostic-complet/kb.py), [ontology](diagnostic-complet/ontology.py), [ontology definitions](diagnostic-complet/ontology/ontology-v1.json), [context protocol](diagnostic-complet/docs/CONTEXT-PROTOCOL.md) and [Graph1 projection](diagnostic-complet/project.py).
+
+## Runtime, context and recovery
+
+The runtime keeps execution state separate from reusable methods.
+
+- **Case isolation** scopes each new run to its declared subject and sources.
+- **Context packets** load the references and artifacts needed for the next stage.
+- **Dependency pins** bind the run to its methods, contracts and input revisions.
+- **Attempts and events** retain failed boundaries and subsequent retries.
+- **Checkpoint validation** rejects missing, modified or incompatible dependencies.
+- **Invalidation** follows declared dependencies and preserves prior attempts.
+- **Atomic writes and local locking** protect case state during concurrent operations.
+
+The canonical engine enforces A0–A4 case boundaries. The detailed-study workspace also contains analytical envelopes, synthesis-to-writing bindings and selective impact logic. The active branch and its contracts determine which path is used.
+
+A fresh-process regression verifies reconstruction from stored artifacts, including partial analysis, changed-source rejection and changed-engine rejection. The [comparison protocol](diagnostic-complet/docs/CONVERGENCE-TRIAL-PROTOCOL.md) extends that mechanical check to the proposed real-study evaluation.
+
+## Loopback and technical decisions
+
+The case loopback records an incident, its evidence, the affected state and the relevant ADR. It routes the diagnosis across architecture, bugfix, CI, runtime and skill concerns. A proposed change carries a falsifiable hypothesis, a test, a stopping condition and a rollback path.
+
+A separate [KB reinforcement operation](diagnostic-complet/operational-skills/reinforce-kb-loopback/SKILL.md) examines a declared knowledge-base update and returns proposals for review.
+
+Seven [technical decision profiles](references/technical-decisions.md) share the runtime — architecture rupture, debt and risk, migration/TCO, ecosystem impact, bootstrap/DX, run readiness and PoC verdict. Their contracts require alternatives, assumptions, evidence or explicit unknowns, and decision-specific checks. Observed measurements resolve to hashed evidence. The `Adopt` verdict requires the declared thresholds to pass on observed values.
+
+The [architecture register](docs/architecture/README.md) explains the rationale for routing, evidence, narrative artifacts, RUN/BUILD separation, learning and governance. [ADR-1008](docs/architecture/ADR-1008-executable-cases-and-decision-profiles.md) connects these principles to the executable case engine and decision profiles.
+
+## TDD, CI and delivery evidence
+
+BUILD corrections use bounded acceptance criteria, a failing regression when applicable, implementation and verification at the resulting commit. Synthetic fixtures exercise both successful paths and adversarial cases such as stale inputs, invalid references, modified evidence and unsupported decisions.
+
+The [skill-qa workflow](.github/workflows/qa.yml) runs on pull requests and pushes to `dev` and `main`.
+
+| CI job | Checks actually defined |
+| --- | --- |
+| `validate` | Install declared dependencies, validate contracts, check the case process and run the root test suite |
+| `runtime-convergence` | Run the `diagnostic-complet` test suite after validation succeeds |
+| [Pedagogical render](.github/workflows/pedagogical-render.yml) | On relevant changes, run specialized tests, render the Perception sheet and verify the generated output |
+
+CI covers contracts, runtime behavior and selected rendering paths. Analytical substance, narrative quality, visual inspection and human acceptance keep their own review results.
+
+SDD prepares implementation-ready units from the current backlog. TDD consumes eligible units, records ownership and attaches tests and CI evidence to exact commits. Repository automation follows the current [shared SDLC contract](https://github.com/achard-arnaud/Skills-SDLC-superpower/blob/main/README.md). The [convergence epic](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/294) tracks the remaining integration and evaluation work.
+
+## Architecture comparisons in progress — main, S2 and S3
+
+The evaluation programme compares how different skill architectures deliver the same analytical task.
+
+| Comparison cohort | Architecture under examination | Evaluation question |
+| --- | --- | --- |
+| **main — canonical reference** | Small focused skills, reusable methods and selectively loaded references | What quality, execution cost and recovery behavior does the canonical approach provide? |
+| **S2 — consolidation variant** | Group related behavior around business, product, technical, pedagogical and regulatory families, with templates carried by manifests and internal references | Does consolidation improve routing and consistency while controlling context and dependency costs? |
+| **S3 — long-workflow convergence variant** | Connect evidence, typed analytical results, synthesis, narrative composition and recovery for a detailed report | Can a richer workflow retain analytical depth and reliable revisions at an acceptable execution cost? |
+
+These labels identify comparison cohorts. The S1/S2/S3 work units in older tickets also identify implementation stages. Each evaluation therefore freezes the actual Git revisions, method versions, source set and renderer before execution.
+
+An [experimental branch](https://github.com/achard-arnaud/skills-notes-and-storytelling/tree/experiment/narrative-procedure-ab-20261113) preserves earlier work. The current target is developed through bounded units on `dev`. The [trial protocol](diagnostic-complet/docs/CONVERGENCE-TRIAL-PROTOCOL.md) defines comparable inputs, fresh-session recovery and separate quality verdicts.
+
+Performance evaluation is intended to record wall-clock duration, stage timings, loaded context, exposed token usage, tool/skill calls, retries and available cost measurements. Missing host metrics remain unknown. Quality evaluation examines mandate fidelity, evidence coverage, analytical contribution, narrative comprehension and delivered output.
+
+The current synthetic recovery tests establish mechanical behavior. Comparative performance and runtime results across the three cohorts are still being organized. A real-study trial and an independent reserve case are part of the remaining evaluation.
+
+## Renderers and delivery
+
+Rendering capabilities are specialized and selected through the declared profile.
+
+- [Two-pager renderer](renderers/two_pager_nice/README.md) provides a dedicated layout and content contract.
+- [Pedagogical renderer](renderers/pedagogical/) provides a six-page landscape path with a specialized content schema and CI.
+- [Detailed-study renderer](diagnostic-complet/render.py) produces reader views from a study.
+- The [DOCX interface](contracts/docx-runtime-interface.schema.json) defines the handoff to a document runtime.
+
+For an A0–A4 run requesting rendering, the profile must declare an available adapter and its pinned dependencies. The runtime records the actual invocation, output hashes and QA receipt. Renderer coverage varies by format.
+
+## Local verification
+
+Python 3.12 is the version used by CI. From the repository root, install the declared dependencies and run the checks.
+
+```bash
+python3 -m pip install -r requirements.txt
+python3 scripts/validate_contracts.py
+python3 scripts/case_runtime.py check
+python3 -m unittest discover -s tests -v
+(cd diagnostic-complet && python3 -m unittest discover -s tests -v)
 ```
 
-A `claim` with a citation is not sufficient if the source is out-of-scope or stale. Side stories cannot manufacture proof. The counter-perspective tests material conclusions; maximum one repair and one verification before reopen targeted. `NO_REUSABLE_DELTA` is a valid learning result.
+For a new case, prepare an intake matching [the intake contract](contracts/case-artifacts.schema.json) and choose a template declared in the active process manifest.
 
-## Working across subjects and templates
-
-Carry a bounded run context — subject identity, cutoff, evidence ledger, claim IDs, unknowns, contradictions, rejected alternatives, hard gates, decision, counter-perspective verdict, output and template versions. Prior evidence remains *prior evidence*, not fresh truth. [Bridges & run memory](references/bridges-integration-and-run-memory.md) explicitly separate seller/product truth from company/account truth.
-
-### Where to store results today
-
-This repo is **public**. It contains authorized methods, fixtures and examples only. Do not add private contacts, client/source raw captures, API tokens or proprietary research documents to this Git history. For a new run, track source and claim IDs as governed artifacts and use a private workspace for sensitive captures. **Obsidian local persistence and graph rebuild are planned, not yet available in this repository.**
-
-## Git contribution protocol
-
-```text
-feature branch from dev → PR to dev → QA GREEN + human review
-→ merge into dev → dev-to-main PR → QA GREEN → promote
-→ resynchronize dev
+```bash
+python3 scripts/case_runtime.py init --case example-study --input intake.json
+python3 scripts/case_runtime.py begin --case example-study --stage A0 --actor manual_agent
+python3 scripts/case_runtime.py status --case example-study
 ```
 
-Changes to template/mode schema require version/fixture updates, runtime and evidence boundaries require negative tests, and promotion remains human approved. See [versioning](references/versioning-and-lifecycle.md), [QA checklist](tests/QA_CHECKLIST.md). The current CI is intentionally narrow; do not infer that a Word/PDF was rendered just because schema tests passed.
+## Contribution and project bootstrap
 
-## Workbench / React cockpit — design branch only
+Start from the current integration branch, read the applicable ADR and reserve a bounded file scope. Reuse the existing source-of-truth manifests and validators. Contract changes include regression fixtures. Template changes update the template manifest. New templates begin as candidates.
 
-**Proposal and change requests; not an operational UI.**
+The delivery path is feature branch → PR to `dev` → review and green CI → integration → reviewed promotion to `main`. A documentation-only forward-port can update the project entry point while functional changes retain their integration status.
 
-- [Gap analysis with Hivest & Candidatures Nice](https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/design/business-notes-workbench-20261022/docs/workbench-proposal/00-GAP-ANALYSIS.md)
-- [Runtime & anti-compaction design](https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/design/business-notes-workbench-20261022/docs/workbench-proposal/01-ARCHITECTURE.md)
-- [React UX and editorial ToC](https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/design/business-notes-workbench-20261022/docs/workbench-proposal/02-REACT-UX.md)
-- [GitHub webhooks, actions and local Obsidian](https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/design/business-notes-workbench-20261022/docs/workbench-proposal/03-GITHUB-WEBHOOKS-OBSIDIAN.md)
-- [Delivery plan BN-00…BN-10](https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/design/business-notes-workbench-20261022/docs/workbench-proposal/04-DELIVERY-PLAN.md)
-- [React source demonstration](https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/design/business-notes-workbench-20261022/prototypes/workbench-react/README.md) — nine illustrative templates, search and three dimension filters, reordering and depth stars, local overlay download. **No source research nor real document export**.
-- [Parent Epic #21](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/21)
-
-**Core design decision**: a React UI may propose a `RunOverlay` (template SHA, sections, ordering, depth), but it cannot override the canonical template/evidence controls. A local service, only with PC permission, will coordinate Obsidian evidence, generated graph-light view, transactional stages, and optional GitHub branches/CI.
-
-## Workbench — cadrage courant, sans développement autorisé
-
-[Branche de design du 22 octobre](https://github.com/achard-arnaud/skills-notes-and-storytelling/tree/design/business-notes-workbench-20261022) · [PR #33 vers dev](https://github.com/achard-arnaud/skills-notes-and-storytelling/pull/33).
-
-- [Spécification consolidée Storyteller](https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/design/business-notes-workbench-20261022/docs/workbench-proposal/05-STORYTELLER-CONSOLIDATED-SPEC.md) : stepper, Analyste, KB/alerte/contexte, one-shot/deep-search, ToC, blind-spot, side stories et multi-container, relecture, Canvas et formats.
-- [Prompt système Superpowers](https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/design/business-notes-workbench-20261022/docs/workbench-proposal/06-SUPERPOWERS-SYSTEM-PROMPT.md) : personnae, entrées/sorties, boucles, revues, checkpoints et coûts.
-- [Lots, plan nocturne et traçabilité](https://github.com/achard-arnaud/skills-notes-and-storytelling/blob/design/business-notes-workbench-20261022/docs/workbench-proposal/07-NIGHT-LOOP-AND-TRACEABILITY.md).
-- [Epic et backlog #21](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/21) : BN-00..10 (#22..32) et BN-11..18 (#34..41), plus #19 tests et #20 contrats.
-
-La cible utilise **une étoile binaire**, « partie d'importance stratégique », remplaçant la proposition 0–3. Le prototype et le schéma v0 préexistants ne sont pas modifiés par cette revue. Coach devient **Analyste**. Open Canvas est une intégration à instruire (#37) avec adaptateur remplaçable ; upstream archivé.
-
-Revue workload 22h Europe/Paris et fenêtres proposées 03h/04h/05h : exécution future seulement après GO_DEV explicite, versionné et borné. Aucun runner ni webhook de développement activé. Aucun merge ou export Workbench réel revendiqué. La revue planifiée à 22h, si créée, prépare seulement une proposition.
-
-
-## Fiches pédagogiques IA en entreprise
-
-La classe `pedagogique` dispose maintenant d’un renderer HTML/PDF/PNG exécutable, adapté du mécanisme Hivest. [Skill](skills/pedagogical-ai-learning/SKILL.md), [six Markdown et registre de sources](learning/enterprise-ai/README.md), [template et contrat](templates/ai-enterprise-learning-six-page.md). Les anciens constats sur l’absence de runtime générique restent valables pour les autres formats; ce renderer spécialisé ne constitue pas le Workbench annoncé.
-
-Commande pilote : `python renderers/pedagogical/render.py learning/enterprise-ai/perception.md --out build/learning`, puis `python renderers/pedagogical/verify.py learning/enterprise-ai/perception.md build/learning/perception`.
-
-La classe de template (`product`, `business`, `tech`, `pedagogique`, `legal-reglementaire`) reste distincte de la dimension d’analyse. Voir [la taxonomie](references/template-taxonomy.md).
-
-## Pilote Perception approfondi — paysage
-
-Le profil pédagogique v0.3 utilise un seul [contrat de contenu](contracts/pedagogical-sheet.schema.json). [Perception](learning/enterprise-ai/perception.sheet.json) est repris en six pages paysage, avec quatre histoires sourcées, un schéma systémique, les quatre configurations du livre et un backlog BAC. [Le catalogue](learning/enterprise-ai/USE_CASE_CATALOG.md) conserve les 70 situations et leurs conditions. Les cinq autres fiches restent candidates dans leur version précédente.
-
-
-## Architecture commune — revue documentaire du 13 novembre 2026
-
-Lire [l’index des décisions](docs/architecture/README.md), puis seulement l’ADR pertinent : routage et méthodes (1001), connaissance (1002), narration et rendu (1003), RUN/BUILD et contexte (1004), loopback et validation (1005), autorités et convergence (1006). Les principes sont approuvés ; les capacités réelles restent définies par les contrats et manifests au SHA du run. Cette publication documentaire ne migre aucun enum ni template. [Couverture des 14 ADR historiques](docs/architecture/ADR-REVIEW-2026-11-13.md).
-
-## Legal & réglementaire
-
-La classe `legal-reglementaire` accueille les notes canoniques sur la portée d’un texte et ses conséquences sectorielles. Le template [regulatory-note](templates/regulatory-note.md), la [skill Regulatory Bootstrap](skills/regulatory-bootstrap/SKILL.md) et la [fixture synthétique](examples/regulatory-note-v0.md) forment la première tranche candidate.
-
-Le protocole combine socle officiel, guides et lectures tier-one, confrontation des versions et huit axes d’impact. Il réserve une cible de 50 % de l’effort documentaire aux sources primaires, avec un plancher de 30 %, et prévoit au moins 100 requêtes complémentaires distinctes pour un run approfondi. Le journal démontre l’effort réellement exécuté. Le livrable développe les mécanismes sectoriels; les bilans de méthode se conservent à part.
-
-Exemple d’usage — « Utilise Regulatory Bootstrap pour analyser ce règlement dans le wealth management, arrêté à cette date, en trois à cinq pages descriptives avec une carte introductive si utile. » Le contrat de contenu et le scaffold restent séparés du rendu. Cette tranche ajoute la méthode et son intégration au catalogue; le renderer se choisit selon le format de sortie.
-
-## Reproducible case execution
-
-New runs use the [versioned A0–A4 I/O process](references/case-process.md). BUILD contracts/methods stay separate from ignored RUN folders under `data/cases/`. `case_runtime.py` enforces dependency/context pins and records attempts/rejections. CI checks the engine release, positive paths and adversarial regressions. Loopback links real incidents to ADRs, measured experiments and BUILD issues; passing checks do not grant business approval.
+For a first contribution, follow one scenario end to end — its input, contract, transformation, output and verification. Keep private case data in its authorized workspace. The [historical Workbench proposal](https://github.com/achard-arnaud/skills-notes-and-storytelling/tree/design/business-notes-workbench-20261022/docs/workbench-proposal) remains a design reference for a future cockpit.
