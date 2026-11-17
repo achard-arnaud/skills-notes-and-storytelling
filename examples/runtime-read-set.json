@@ -1,0 +1,22 @@
+{
+  "reads": [
+    {
+      "path": "SKILL.md"
+    },
+    {
+      "path": "references/runtime.md"
+    },
+    {
+      "path": "references/evidence-retrieval.md"
+    },
+    {
+      "path": "references/narrative-methods.md"
+    },
+    {
+      "path": "references/writing.md"
+    },
+    {
+      "path": "templates/two-pager.md"
+    }
+  ]
+}

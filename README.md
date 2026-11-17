@@ -149,3 +149,7 @@ La classe `legal-reglementaire` accueille les notes canoniques sur la portée d�
 Le protocole combine socle officiel, guides et lectures tier-one, confrontation des versions et huit axes d’impact. Il réserve une cible de 50 % de l’effort documentaire aux sources primaires, avec un plancher de 30 %, et prévoit au moins 100 requêtes complémentaires distinctes pour un run approfondi. Le journal démontre l’effort réellement exécuté. Le livrable développe les mécanismes sectoriels; les bilans de méthode se conservent à part.
 
 Exemple d’usage — « Utilise Regulatory Bootstrap pour analyser ce règlement dans le wealth management, arrêté à cette date, en trois à cinq pages descriptives avec une carte introductive si utile. » Le contrat de contenu et le scaffold restent séparés du rendu. Cette tranche ajoute la méthode et son intégration au catalogue; le renderer se choisit selon le format de sortie.
+
+## Reproducible case execution
+
+New runs use the [versioned A0–A4 I/O process](references/case-process.md). BUILD contracts/methods stay separate from ignored RUN folders under `data/cases/`. `case_runtime.py` enforces dependency/context pins and records attempts/rejections. CI checks the engine release, positive paths and adversarial regressions. Loopback links real incidents to ADRs, measured experiments and BUILD issues; passing checks do not grant business approval.

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "levels": [
+    "low",
+    "medium",
+    "high"
+  ],
+  "note": "Niveaux abstraits, pas de nom de modele. Le runtime hote mappe chaque niveau vers ses propres capacites. Voir references/reasoning-effort.md.",
+  "stages": [
+    {
+      "stage": "research",
+      "effort": "medium"
+    },
+    {
+      "stage": "fragments_extraction",
+      "effort": "low"
+    },
+    {
+      "stage": "fragments_deduplication",
+      "effort": "low"
+    },
+    {
+      "stage": "claims_graph_light",
+      "effort": "medium"
+    },
+    {
+      "stage": "claims_arbitration",
+      "effort": "high"
+    },
+    {
+      "stage": "rerank",
+      "effort": "medium"
+    },
+    {
+      "stage": "scaffold",
+      "effort": "medium"
+    },
+    {
+      "stage": "fill",
+      "effort": "medium"
+    },
+    {
+      "stage": "side_stories_routing",
+      "effort": "medium"
+    },
+    {
+      "stage": "sourcing_factcheck",
+      "effort": "high"
+    },
+    {
+      "stage": "layout",
+      "effort": "low"
+    },
+    {
+      "stage": "docx_qa",
+      "effort": "medium"
+    },
+    {
+      "stage": "executive_synthesis",
+      "effort": "high"
+    },
+    {
+      "stage": "nudging",
+      "effort": "low"
+    },
+    {
+      "stage": "feedback_dreaming",
+      "effort": "high"
+    }
+  ],
+  "host_policy": "Recommandations uniquement. Si le réglage est indisponible, le signaler sans prétendre dégrader automatiquement la fiabilité."
+}
