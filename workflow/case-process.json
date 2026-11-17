@@ -5,7 +5,12 @@
     "SKILL.md",
     "config/technical-decisions.json",
     "contracts/technical-decision.schema.json",
-    "scripts/technical_decision.py"
+    "scripts/technical_decision.py",
+    "scripts/note_runtime.py",
+    "src/runtime.py",
+    "config/retrieval.json",
+    "config/reasoning-effort.json",
+    "contracts/run-bundle.schema.json"
   ],
   "templates": {
     "architecture-note": {
