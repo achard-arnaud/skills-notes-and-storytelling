@@ -4,6 +4,7 @@ on:
     paths:
       - 'renderers/pedagogical/**'
       - 'learning/enterprise-ai/**'
+      - 'templates/ai-enterprise-learning-six-page.md'
       - 'skills/**'
       - 'contracts/pedagogical*.schema.json'
       - 'tests/test_pedagogical*.py'
@@ -13,6 +14,7 @@ on:
     paths:
       - 'renderers/pedagogical/**'
       - 'learning/enterprise-ai/**'
+      - 'templates/ai-enterprise-learning-six-page.md'
       - 'skills/**'
       - 'contracts/pedagogical*.schema.json'
       - 'tests/test_pedagogical*.py'
