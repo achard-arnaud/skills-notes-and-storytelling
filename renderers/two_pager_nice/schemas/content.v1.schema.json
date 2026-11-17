@@ -1,0 +1,274 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "two-pager-render-content.v1.schema.json",
+  "title": "Two-pager renderer content v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "kind", "content_revision", "document", "pages"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "kind": {"const": "two-pager-render-content"},
+    "content_revision": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "document": {"$ref": "#/$defs/document"},
+    "pages": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {"$ref": "#/$defs/page"}
+    }
+  },
+  "$defs": {
+    "nonEmptyString": {"type": "string", "minLength": 1},
+    "document": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "language", "theme"],
+      "properties": {
+        "title": {"$ref": "#/$defs/nonEmptyString"},
+        "language": {"$ref": "#/$defs/nonEmptyString"},
+        "theme": {"$ref": "#/$defs/nonEmptyString"}
+      }
+    },
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "main", "sub"],
+      "properties": {
+        "label": {"$ref": "#/$defs/nonEmptyString"},
+        "main": {"$ref": "#/$defs/nonEmptyString"},
+        "sub": {"$ref": "#/$defs/nonEmptyString"}
+      }
+    },
+    "metric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "meta"],
+      "properties": {
+        "value": {"$ref": "#/$defs/nonEmptyString"},
+        "meta": {"$ref": "#/$defs/nonEmptyString"}
+      }
+    },
+    "pill": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "text"],
+      "properties": {
+        "status": {"enum": ["green", "orange", "red"]},
+        "text": {"$ref": "#/$defs/nonEmptyString"}
+      }
+    },
+    "card": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title"],
+      "properties": {
+        "title": {"$ref": "#/$defs/nonEmptyString"},
+        "metric": {"$ref": "#/$defs/metric"},
+        "pill": {"$ref": "#/$defs/pill"},
+        "body": {"type": "string"},
+        "note": {"type": "string"}
+      }
+    },
+    "flowStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["num", "name", "sub"],
+      "properties": {
+        "num": {"$ref": "#/$defs/nonEmptyString"},
+        "name": {"$ref": "#/$defs/nonEmptyString"},
+        "sub": {"$ref": "#/$defs/nonEmptyString"},
+        "warn": {"type": "boolean"}
+      }
+    },
+    "flow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "note", "columns", "steps"],
+      "properties": {
+        "title": {"$ref": "#/$defs/nonEmptyString"},
+        "note": {"type": "string"},
+        "columns": {"$ref": "#/$defs/nonEmptyString"},
+        "steps": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/flowStep"}
+        }
+      }
+    },
+    "bullet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "text"],
+      "properties": {
+        "status": {"enum": ["green", "orange", "red"]},
+        "text": {"$ref": "#/$defs/nonEmptyString"}
+      }
+    },
+    "fitRow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "label", "text"],
+      "properties": {
+        "level": {"$ref": "#/$defs/nonEmptyString"},
+        "label": {"$ref": "#/$defs/nonEmptyString"},
+        "text": {"$ref": "#/$defs/nonEmptyString"}
+      }
+    },
+    "benchmarkItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "text"],
+      "properties": {
+        "name": {"$ref": "#/$defs/nonEmptyString"},
+        "text": {"$ref": "#/$defs/nonEmptyString"}
+      }
+    },
+    "callout": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "body"],
+      "properties": {
+        "title": {"$ref": "#/$defs/nonEmptyString"},
+        "body": {"$ref": "#/$defs/nonEmptyString"}
+      }
+    },
+    "fitColumn": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "type", "rows"],
+      "properties": {
+        "title": {"$ref": "#/$defs/nonEmptyString"},
+        "type": {"const": "fit"},
+        "rows": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/fitRow"}},
+        "callout": {"$ref": "#/$defs/callout"}
+      }
+    },
+    "bulletColumn": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "type", "items"],
+      "properties": {
+        "title": {"$ref": "#/$defs/nonEmptyString"},
+        "type": {"const": "bullets"},
+        "items": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/bullet"}},
+        "callout": {"$ref": "#/$defs/callout"}
+      }
+    },
+    "benchmarkColumn": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "type", "items"],
+      "properties": {
+        "title": {"$ref": "#/$defs/nonEmptyString"},
+        "type": {"const": "benchmark"},
+        "items": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/benchmarkItem"}},
+        "callout": {"$ref": "#/$defs/callout"}
+      }
+    },
+    "column": {
+      "oneOf": [
+        {"$ref": "#/$defs/fitColumn"},
+        {"$ref": "#/$defs/bulletColumn"},
+        {"$ref": "#/$defs/benchmarkColumn"}
+      ]
+    },
+    "left": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "items"],
+      "properties": {
+        "title": {"$ref": "#/$defs/nonEmptyString"},
+        "items": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/bullet"}}
+      }
+    },
+    "comparisonItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["class", "title", "sub", "body"],
+      "properties": {
+        "class": {"$ref": "#/$defs/nonEmptyString"},
+        "title": {"$ref": "#/$defs/nonEmptyString"},
+        "sub": {"$ref": "#/$defs/nonEmptyString"},
+        "body": {"$ref": "#/$defs/nonEmptyString"}
+      }
+    },
+    "pricingRow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["actor", "metric", "signal"],
+      "properties": {
+        "actor": {"$ref": "#/$defs/nonEmptyString"},
+        "metric": {"$ref": "#/$defs/nonEmptyString"},
+        "signal": {"$ref": "#/$defs/nonEmptyString"}
+      }
+    },
+    "right": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["comparison", "pricing"],
+      "properties": {
+        "comparison": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["title", "items"],
+          "properties": {
+            "title": {"$ref": "#/$defs/nonEmptyString"},
+            "items": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/comparisonItem"}}
+          }
+        },
+        "pricing": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["title", "rows"],
+          "properties": {
+            "title": {"$ref": "#/$defs/nonEmptyString"},
+            "rows": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/pricingRow"}}
+          }
+        }
+      }
+    },
+    "footer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "body"],
+      "properties": {
+        "title": {"$ref": "#/$defs/nonEmptyString"},
+        "body": {"$ref": "#/$defs/nonEmptyString"}
+      }
+    },
+    "page": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kicker", "subtitle", "gate", "top_cards", "flow", "layout", "footer"],
+      "properties": {
+        "kicker": {"$ref": "#/$defs/nonEmptyString"},
+        "subtitle": {"$ref": "#/$defs/nonEmptyString"},
+        "gate": {"$ref": "#/$defs/gate"},
+        "top_cards": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {"$ref": "#/$defs/card"}
+        },
+        "flow": {"$ref": "#/$defs/flow"},
+        "layout": {"enum": ["three_columns", "due_diligence"]},
+        "columns": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {"$ref": "#/$defs/column"}
+        },
+        "left": {"$ref": "#/$defs/left"},
+        "right": {"$ref": "#/$defs/right"},
+        "footer": {"$ref": "#/$defs/footer"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"layout": {"const": "three_columns"}}},
+          "then": {"required": ["columns"]},
+          "else": {"required": ["left", "right"]}
+        }
+      ]
+    }
+  }
+}

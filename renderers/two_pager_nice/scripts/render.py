@@ -1,16 +1,27 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import argparse, asyncio, json, os, shutil
+import argparse, asyncio, json
 from pathlib import Path
-from jinja2 import Environment, FileSystemLoader, StrictUndefined
-from playwright.async_api import async_playwright
+from jsonschema import Draft202012Validator
 
 ROOT = Path(__file__).resolve().parents[1]
+SCHEMA_PATH = ROOT / 'schemas/content.v1.schema.json'
 
 
 def load_json(path: Path):
     with path.open('r', encoding='utf-8') as f:
         return json.load(f)
+
+
+def validate_config(config: dict) -> dict:
+    schema = load_json(SCHEMA_PATH)
+    Draft202012Validator.check_schema(schema)
+    Draft202012Validator(schema).validate(config)
+    return config
+
+
+def load_config(path: Path) -> dict:
+    return validate_config(load_json(path))
 
 
 def resolve_path(base: Path, value: str) -> Path:
@@ -24,7 +35,7 @@ def resolve_path(base: Path, value: str) -> Path:
 
 
 def build_html(config_path: Path, output_html: Path) -> tuple[dict, dict]:
-    config = load_json(config_path)
+    config = load_config(config_path)
     theme_path = resolve_path(config_path.parent, config['document']['theme'])
     theme = load_json(theme_path)
     if theme.get('palette_ref'):
@@ -32,6 +43,7 @@ def build_html(config_path: Path, output_html: Path) -> tuple[dict, dict]:
         palette = load_json(palette_path)
         theme['colors'] = palette['colors']
         theme['palette'] = palette
+    from jinja2 import Environment, FileSystemLoader, StrictUndefined
     env = Environment(loader=FileSystemLoader(str(ROOT)), undefined=StrictUndefined, autoescape=False)
     css_tpl = env.get_template('assets/theme.css.j2')
     css = css_tpl.render(theme=theme)
@@ -43,6 +55,7 @@ def build_html(config_path: Path, output_html: Path) -> tuple[dict, dict]:
 
 
 async def render_browser(html_path: Path, out_dir: Path, stem: str):
+    from playwright.async_api import async_playwright
     out_dir.mkdir(parents=True, exist_ok=True)
     pdf_path = out_dir / f'{stem}.pdf'
     async with async_playwright() as p:

@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "kind": "two-pager-render-content",
+  "content_revision": "0000000000000000000000000000000000000000000000000000000000000000",
+  "document": {
+    "title": "Synthetic business brief",
+    "language": "fr",
+    "theme": "themes/business-corporate.json"
+  },
+  "pages": [
+    {
+      "kicker": "Page one",
+      "subtitle": "Business signals",
+      "gate": {
+        "label": "Decision gate",
+        "main": "Validate the evidence boundary",
+        "sub": "Synthetic fixture"
+      },
+      "top_cards": [
+        {"title": "Signal A", "body": "Observed fact"},
+        {"title": "Signal B", "body": "Attributed claim"},
+        {"title": "Signal C", "body": "Known unknown"}
+      ],
+      "flow": {
+        "title": "Value flow",
+        "note": "Synthetic only",
+        "columns": "cols-3",
+        "steps": [
+          {"num": "1", "name": "Input", "sub": "Evidence"},
+          {"num": "2", "name": "Decision", "sub": "Gate"},
+          {"num": "3", "name": "Outcome", "sub": "Receipt"}
+        ]
+      },
+      "layout": "three_columns",
+      "columns": [
+        {
+          "title": "Facts",
+          "type": "bullets",
+          "items": [{"status": "green", "text": "Verified observation"}]
+        },
+        {
+          "title": "Fit",
+          "type": "fit",
+          "rows": [{"level": "medium", "label": "Fit", "text": "Conditional"}]
+        },
+        {
+          "title": "Peers",
+          "type": "benchmark",
+          "items": [{"name": "Peer", "text": "Comparator"}]
+        }
+      ],
+      "footer": {"title": "Boundary", "body": "No business claim is inferred."}
+    },
+    {
+      "kicker": "Page two",
+      "subtitle": "Execution",
+      "gate": {
+        "label": "Execution gate",
+        "main": "Preserve the frozen revision",
+        "sub": "Synthetic fixture"
+      },
+      "top_cards": [
+        {"title": "Action", "body": "Bounded action"},
+        {"title": "Owner", "body": "Unassigned role"},
+        {"title": "Falsifier", "body": "Explicit condition"}
+      ],
+      "flow": {
+        "title": "Execution flow",
+        "note": "Synthetic only",
+        "columns": "cols-3",
+        "steps": [
+          {"num": "1", "name": "Plan", "sub": "Scope"},
+          {"num": "2", "name": "Test", "sub": "Gate"},
+          {"num": "3", "name": "Review", "sub": "Receipt"}
+        ]
+      },
+      "layout": "due_diligence",
+      "left": {
+        "title": "Evidence",
+        "items": [{"status": "orange", "text": "Attributed signal"}]
+      },
+      "right": {
+        "comparison": {
+          "title": "Options",
+          "items": [
+            {"class": "neutral", "title": "Option A", "sub": "Condition", "body": "Reversible"}
+          ]
+        },
+        "pricing": {
+          "title": "Economics",
+          "rows": [{"actor": "Synthetic actor", "metric": "Unknown", "signal": "Measure later"}]
+        }
+      },
+      "footer": {"title": "Receipt", "body": "Renderer input remains source-addressable."}
+    }
+  ]
+}
