@@ -69,3 +69,8 @@ Macro factuelle : chiffres datés avec année et périmètre, formulations compa
 ## Références d’architecture conditionnelles
 
 Pour une évolution de méthode, lire [ADR-1001](../../../docs/architecture/ADR-1001-routing-capabilities.md) et [ADR-1002](../../../docs/architecture/ADR-1002-evidence-knowledge.md). Le chargement RUN reste limité au contrat et au paquet de l’étape ; les principes communs ne changent pas les capacités locales.
+
+
+## Contre revue par persona
+
+Pour la contre-perspective du mandat, sélectionner les prismes pertinents dans [la revue commune](../../../references/persona-review.md). Effectuer la passe d’objection puis la correction à la première couche fautive ; garder la vérification et les verdicts du workflow propriétaire. Une revue descriptive préserve sa portée ; les personas ne créent ni sources ni validation humaine.

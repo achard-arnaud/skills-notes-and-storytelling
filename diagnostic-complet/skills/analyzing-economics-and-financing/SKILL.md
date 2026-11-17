@@ -19,7 +19,7 @@ Un pilier est une vue analytique, pas un chapitre ni un quota : on le mobilise q
 ## Investiguer
 
 1. Écrire qui finance, qui détient l'actif, qui porte le risque d'exécution et de performance, sur quelle durée contractuelle.
-2. Pour chaque gain annoncé, établir la baseline, le mode d'attribution et la condition de réinvestissement (un temps libéré n'agit sur le compte de résultat que s'il est réinvesti).
+2. Pour chaque gain annoncé, établir la baseline, le mode d'attribution et la condition de réinvestissement (distinguer capacité libérée, réaffectation effective et dépense évitée ; la réaffectation seule ne démontre pas une économie comptable).
 3. Appliquer un filtre de valeur minimale avant de chiffrer un cas, et choisir une métrique propre à chaque cas : production d'un actif et temps gagné sur un assistant n'ont pas le même modèle de preuve.
 4. Séparer délai de première valeur, délai de retour, coût marginal d'un nouveau cas et effet de réutilisation d'une brique.
 5. Ne reprendre aucun montant de concurrent, de ROI ou de taux sans source publique.
@@ -69,3 +69,8 @@ Comptable de forme : unités, périodes et hypothèses toujours écrites ; aucun
 ## Références d’architecture conditionnelles
 
 Pour une évolution de méthode, lire [ADR-1001](../../../docs/architecture/ADR-1001-routing-capabilities.md) et [ADR-1002](../../../docs/architecture/ADR-1002-evidence-knowledge.md). Le chargement RUN reste limité au contrat et au paquet de l’étape ; les principes communs ne changent pas les capacités locales.
+
+
+## Contre revue par persona
+
+Pour la contre-perspective du mandat, sélectionner les prismes pertinents dans [la revue commune](../../../references/persona-review.md). Effectuer la passe d’objection puis la correction à la première couche fautive ; garder la vérification et les verdicts du workflow propriétaire. Une revue descriptive préserve sa portée ; les personas ne créent ni sources ni validation humaine.
