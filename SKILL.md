@@ -5,6 +5,20 @@ description: Create, revise, or industrialize evidence-grounded decision notes, 
 
 # Decision Notes & Storytelling
 
+
+## New-case executable contract
+
+For a new heavy case, the lifecycle authority is `workflow/case-process.json` and
+`scripts/case_runtime.py`. Read [case I/O and recovery](references/case-process.md).
+Call check → init → begin/complete at A0 acquisition, A1 typed evidence graph,
+A2 scaffold, A3 composition, A4 review. The detailed analytical steps below occur
+inside these boundaries. Preserve emitted contexts, pins, attempts and events.
+Legacy bundles retain their route; never manufacture retrospective stage logs.
+For incidents, use loopback with state/evidence hashes and an ADR-linked experiment.
+For technical decisions select a type and criticality separately from the format;
+read [technical decision profiles](references/technical-decisions.md). Seven types
+share the engine; their schema and `technical_decision.py` enforce the I/O.
+
 ## Scope
 
 This skill is a governed decision-note OS. It owns **context reconstruction, research, evidence lineage, claims, decision architecture, narrative composition, template routing, cross-template bridges, counter-perspective QA and learning loops**. Rendering is a downstream concern.

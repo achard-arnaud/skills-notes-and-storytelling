@@ -39,3 +39,13 @@ Lire [l’index des décisions](docs/architecture/README.md), puis seulement l�
 ## Hygiène des artefacts RUN et BUILD
 
 Conserver les livrables de run, corpus privés, exports temporaires et captures dans leur destination de travail ou de livraison. Versionner dans le dépôt les méthodes, contrats, documentation de projet et fixtures de régression explicitement curatées. Un exemple public doit être minimal, attribué et autorisé, ou synthétique ; une sortie de run brute ne devient pas une fixture par simple déplacement. Cette règle encadre les nouveaux apports ; les éventuelles migrations de contenus historiques gardent leurs références et reçus.
+
+
+## New-case executable boundary
+For new independent runs use `python scripts/case_runtime.py check`, then `init --case <id> --input intake.json`.
+The active route is `workflow/case-process.json`; new RUN files live in ignored `data/cases/<id>/`.
+Call begin/complete for A0 evidence, A1 typed graph, A2 scaffold, A3 composition, A4 review.
+Each call consumes the emitted I/O/context packet; preserve pins, attempts and execution events.
+Do not infer an old run completed these stages. Keep legacy programme gates and histories explicit.
+For material incidents call loopback with the hashed proposal; diagnose architecture, bugfix, CI,
+runtime or skill, then apply an authorized BUILD with regression proof and ADR disposition.

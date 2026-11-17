@@ -141,3 +141,8 @@ Le profil pédagogique v0.3 utilise un seul [contrat de contenu](contracts/pedag
 ## Architecture commune — revue documentaire du 13 novembre 2026
 
 Lire [l’index des décisions](docs/architecture/README.md), puis seulement l’ADR pertinent : routage et méthodes (1001), connaissance (1002), narration et rendu (1003), RUN/BUILD et contexte (1004), loopback et validation (1005), autorités et convergence (1006). Les principes sont approuvés ; les capacités réelles restent définies par les contrats et manifests au SHA du run. Cette publication documentaire ne migre aucun enum ni template. [Couverture des 14 ADR historiques](docs/architecture/ADR-REVIEW-2026-11-13.md).
+
+
+## Reproducible case execution
+
+New runs use the [versioned A0–A4 I/O process](references/case-process.md). BUILD contracts/methods stay separate from ignored RUN folders under `data/cases/`. `case_runtime.py` enforces dependency/context pins and records attempts/rejections. CI checks the engine release, positive paths and adversarial regressions. Loopback links real incidents to ADRs, measured experiments and BUILD issues; passing checks do not grant business approval.

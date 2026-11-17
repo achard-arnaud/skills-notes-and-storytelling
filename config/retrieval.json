@@ -1,0 +1,17 @@
+{
+  "claim_weights": {
+    "decision_relevance": 0.3,
+    "evidence_strength": 0.25,
+    "explanatory_power": 0.2,
+    "novelty": 0.15,
+    "audience_fit": 0.1
+  },
+  "fragment_weights": {
+    "specificity": 0.35,
+    "freshness": 0.25,
+    "independence": 0.25,
+    "verification_ease": 0.15
+  },
+  "display_top_k": 3,
+  "calibration": "Défauts non calibrés ; classement éditorial, aucune preuve supplémentaire créée."
+}
