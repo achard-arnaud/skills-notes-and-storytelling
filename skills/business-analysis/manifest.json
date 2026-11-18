@@ -1,0 +1,13 @@
+{
+  "domain": "business",
+  "version": "1.0.0",
+  "methods": {
+    "business.contracts-and-performance": "skills/business-analysis/references/contracts-and-performance.md",
+    "business.industry-and-operations": "diagnostic-complet/skills/analyzing-industry-value-chain/SKILL.md",
+    "business.market-and-competition": "diagnostic-complet/skills/analyzing-market-and-competition/SKILL.md",
+    "business.corporate-functions": "diagnostic-complet/skills/analyzing-corporate-functions/SKILL.md",
+    "business.economics-and-financing": "diagnostic-complet/skills/analyzing-economics-and-financing/SKILL.md",
+    "business.governance-and-control": "diagnostic-complet/skills/analyzing-governance-and-control/SKILL.md",
+    "business.change-and-adoption": "diagnostic-complet/skills/analyzing-adoption-and-change/SKILL.md"
+  }
+}

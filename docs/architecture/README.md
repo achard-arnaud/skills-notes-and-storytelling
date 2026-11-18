@@ -30,3 +30,5 @@ Un ADR porte une décision cohérente : contexte, choix, conséquences et condit
 Lire le [rapport critique](SKILLS-CRITICAL-REVIEW-2026-11-14.md) pour les noms canoniques et les limites des preuves. Le premier lot documentaire de mapping est [#303](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/303), enfant de #295 ; #296/#297/#301 appliquent les mêmes principes selon leur finalité. Consulter le contrat SDLC courant pour les horaires et l’admission, les anciens horaires de cette documentation restent historiques.
 
 - [ADR-1008 — Executable cases and decision profiles](ADR-1008-executable-cases-and-decision-profiles.md): implements bounded parts of ADR-1004/1005 through code and contracts.
+
+- [ADR-1009 — Cinq skills métier et socle commun](ADR-1009-domain-skills.md)

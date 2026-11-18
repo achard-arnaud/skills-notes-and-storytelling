@@ -27,6 +27,24 @@
         "A claim reference does not establish semantic sufficiency or independent measurement.",
         "The question packet does not execute the method or calculate adoption."
       ]
+    },
+    "business.contracts-and-performance": {
+      "id": "business.contracts-and-performance",
+      "method_version": "8daad4b39cc8f42a58e59cdd7298c6b0ede8843abebecc2164ded0eaa8b93749",
+      "intents": [
+        "contract-performance"
+      ],
+      "note": "skills/business-analysis/references/contracts-and-performance.md",
+      "required_evidence": [
+        "contract_rule",
+        "effective_scope",
+        "measurement"
+      ],
+      "state": "candidate",
+      "limitations": [
+        "An alert classification does not establish cause, breach or economic effect.",
+        "The method packet validates input references. The analyst applies the sourced rule."
+      ]
     }
   }
 }

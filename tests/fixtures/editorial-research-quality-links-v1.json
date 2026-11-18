@@ -16,6 +16,10 @@
     "references/style-contract.md",
     "references/versioning-and-lifecycle.md",
     "references/workflow.md",
-    "skills/pedagogical-ai-learning/SKILL.md"
+    "skills/pedagogical-ai-learning/SKILL.md",
+    "skills/business-analysis/SKILL.md",
+    "skills/product-analysis/SKILL.md",
+    "skills/technical-analysis/SKILL.md",
+    "skills/regulatory-bootstrap/SKILL.md"
   ]
 }

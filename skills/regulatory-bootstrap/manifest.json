@@ -1,0 +1,8 @@
+{
+  "domain": "regulatory",
+  "version": "1.0.0",
+  "methods": {
+    "regulatory.applicability-and-sources": "skills/regulatory-bootstrap/references/sources-and-analysis.md",
+    "regulatory.sector-effects": "skills/regulatory-bootstrap/references/regulatory-workflow.md"
+  }
+}

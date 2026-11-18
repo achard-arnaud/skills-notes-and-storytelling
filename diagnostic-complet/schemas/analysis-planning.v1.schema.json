@@ -111,7 +111,8 @@
         "intent": {
           "enum": [
             "traction-commerciale",
-            "clients-360"
+            "clients-360",
+            "contract-performance"
           ]
         },
         "decision_requested": {

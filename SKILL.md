@@ -36,6 +36,10 @@ Select one mode from `GenerationMode` before the output template. Read [referenc
 
 `FEEDBACK_DREAMING` remains an explicit mode for deep improvement work, but a lightweight dreaming check is mandatory at the end of every normal run. The user does not need to request it. `NO_REUSABLE_DELTA` is valid; canonical behavior never changes without human approval.
 
+## S3 domain analysis
+
+For a new S3 study, route the question to one of the five [domain skills](references/domain-analysis.md) before choosing the output template. Open only the applicable skill and method references. Preserve the question, evidence and unknowns in the existing analysis envelope, then bind the same findings to the requested views. Keep RUN material under its own private case directory and use a separate BUILD for method changes. Resume an existing study on its pinned route.
+
 ## Analysis dimension
 
 After generation mode and before template scaffolding, select one primary `analysis_dimension`:

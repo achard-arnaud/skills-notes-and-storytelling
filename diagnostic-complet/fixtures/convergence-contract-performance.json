@@ -1,0 +1,11 @@
+{
+  "id": "synthetic-contract-performance",
+  "contract": "Orme and Pin: daily availability strictly below 98% triggers a contractual alert.",
+  "amendment": "From 2026-10-01 inclusive, Orme alone uses 96%; Pin retains 98%.",
+  "corrected_amendment": "From 2026-10-01 inclusive, Orme alone uses 97.5%; Pin retains 98%.",
+  "measurement": "The 2026-10-02 Orme reading was 97%. The dashboard flagged it using a fixed 98% threshold. Pin was 97% on the same date.",
+  "independent": "Cèdre's temperature sensor was replaced on 2026-10-03, outside the contract scope.",
+  "finding": "On 2 October the Orme dashboard alert is not contractual: 97% is above the applicable 96% threshold.",
+  "corrected_finding": "On 2 October the Orme dashboard alert is contractual: 97% is below the applicable 97.5% threshold.",
+  "unknown": "The cause of the availability reading is unknown."
+}

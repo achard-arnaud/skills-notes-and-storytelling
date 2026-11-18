@@ -1,0 +1,9 @@
+{
+  "domain": "product",
+  "version": "1.0.0",
+  "methods": {
+    "product.usage-and-capabilities": "skills/product-analysis/references/usage-and-capabilities.md",
+    "product.adoption": "diagnostic-complet/workflows/analysis-methods.v1.json",
+    "product.fit": "references/icp-and-fit-contract.md"
+  }
+}

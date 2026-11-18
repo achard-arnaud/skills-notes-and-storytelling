@@ -1,0 +1,7 @@
+{
+  "domain": "pedagogy",
+  "version": "1.0.0",
+  "methods": {
+    "pedagogy.learning-analysis": "skills/pedagogical-ai-learning/references/learning-analysis.md"
+  }
+}

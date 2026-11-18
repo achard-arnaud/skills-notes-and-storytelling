@@ -42,6 +42,10 @@ Lire [l’index des décisions](docs/architecture/README.md), puis seulement l�
 Conserver les livrables de run, corpus privés, exports temporaires et captures dans leur destination de travail ou de livraison. Versionner dans le dépôt les méthodes, contrats, documentation de projet et fixtures de régression explicitement curatées. Un exemple public doit être minimal, attribué et autorisé, ou synthétique ; une sortie de run brute ne devient pas une fixture par simple déplacement. Cette règle encadre les nouveaux apports ; les éventuelles migrations de contenus historiques gardent leurs références et reçus.
 
 
+## S3 domain skills
+
+For new S3 studies, select the domain skill and its method by question, then the template by audience and use. Use the [domain analysis contract](references/domain-analysis.md). RUN pins the published BUILD and writes to the private case boundary. BUILD starts from dev with synthetic fixtures. Resume a legacy case on its recorded route and keep its private storage. Use a separate worktree for each activity when executing both.
+
 ## New-case executable boundary
 For new independent runs use `python scripts/case_runtime.py check`, then `init --case <id> --input intake.json`.
 The active route is `workflow/case-process.json`; new RUN files live in ignored `data/cases/<id>/`.

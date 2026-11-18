@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import hashlib
 import json
 import re
 import sys
@@ -92,8 +93,55 @@ def check_relation_catalog():
         raise SystemExit("relation catalogue fixture mismatch")
 
 
+def check_domain_methods():
+    domains = {
+        "business": "business-analysis",
+        "product": "product-analysis",
+        "technical": "technical-analysis",
+        "pedagogy": "pedagogical-ai-learning",
+        "regulatory": "regulatory-bootstrap",
+    }
+    method_refs = {}
+    for domain, skill in domains.items():
+        directory = ROOT / "skills" / skill
+        entry = directory / "SKILL.md"
+        discovered = ROOT / ".agents" / "skills" / skill / "SKILL.md"
+        frontmatter = parse_frontmatter(entry)
+        if (frontmatter.get("name") != skill or not frontmatter.get("description")
+                or discovered.resolve() != entry.resolve()):
+            raise SystemExit(f"invalid domain skill entry: {skill}")
+
+        manifest = load_json(directory / "manifest.json")
+        if set(manifest) != {"domain", "version", "methods"} or manifest["domain"] != domain:
+            raise SystemExit(f"invalid domain manifest: {skill}")
+        check_semver(manifest["version"], skill)
+        methods = manifest["methods"]
+        if not isinstance(methods, dict) or not methods:
+            raise SystemExit(f"missing domain methods: {skill}")
+        for ident, reference in methods.items():
+            if not isinstance(reference, str):
+                raise SystemExit(f"invalid method reference: {ident}")
+            if not re.fullmatch(re.escape(domain) + r"\.[a-z0-9]+(?:-[a-z0-9]+)*", ident):
+                raise SystemExit(f"invalid method identity: {ident}")
+            target = (ROOT / reference).resolve()
+            if not target.is_relative_to(ROOT) or not target.is_file() or Path(reference).is_absolute():
+                raise SystemExit(f"unresolved method reference: {ident}: {reference}")
+            method_refs[ident] = reference
+
+    catalog = load_json("diagnostic-complet/workflows/analysis-methods.v1.json")
+    for ident, method in catalog["methods"].items():
+        note = method["note"]
+        if note.startswith("https://"):
+            continue
+        if method_refs.get(ident) != note:
+            raise SystemExit(f"planner method differs from domain manifest: {ident}")
+        if hashlib.sha256((ROOT / note).read_bytes()).hexdigest() != method["method_version"]:
+            raise SystemExit(f"stale planner method version: {ident}")
+
+
 def main():
     check_relation_catalog()
+    check_domain_methods()
     manifest = load_json("templates/manifest.json")
     workflow_version = manifest["workflow_version"]
     check_semver(workflow_version, "workflow_version")
