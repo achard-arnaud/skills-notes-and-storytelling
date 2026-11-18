@@ -1,6 +1,16 @@
 # Template — Diagnostic / recommendation sell-side
 
-Version: 1.1.0
+Body revision: 1.1.0
+Catalogue usage version: 1.2.0
+
+## Compatibility
+The body revision records the historical template text. The catalogue usage version
+records the backward-compatible minor capabilities exercised by the linked QA fixture.
+
+- A partnership or co-distribution hypothesis bridges to `integration-note`, with
+  prior evidence preserved.
+- A named-account hypothesis may bridge to `opportunity-note-icp`, without
+  contaminating target research with seller claims.
 
 ## Purpose
 Advise a seller, founder or product team on positioning, ICP, proof, packaging, pricing, competitive response and commercial operating model.
