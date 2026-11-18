@@ -4,6 +4,7 @@
   "template_type": "ai-enterprise-learning-six-page",
   "template_source_repository": "achard-arnaud/skills-notes-and-storytelling",
   "template_source_commit": "8565f785e5a47076a56a5b65fc140d1fbf6168f0",
+  "template_source_commit_role": "historical_candidate_baseline",
   "template_path": "templates/ai-enterprise-learning-six-page.md",
   "skill_path": "skills/pedagogical-ai-learning/SKILL.md",
   "status": "candidate",
@@ -15,18 +16,31 @@
       "id": "prediction",
       "label": "Prédiction",
       "sequence": 1,
+      "content_file": "prediction.md",
+      "content_status": "legacy_candidate",
+      "sheet_file": null,
+      "render_status": "not_certified",
       "loop_status": "closed_candidate"
     },
     {
       "id": "perception",
       "label": "Perception",
       "sequence": 2,
+      "content_file": "perception.md",
+      "content_status": "active_canonical",
+      "sheet_file": "perception.sheet.json",
+      "markdown_role": "canonical_projection",
+      "render_status": "candidate_supported",
       "loop_status": "closed_candidate"
     },
     {
       "id": "creation",
       "label": "Création",
       "sequence": 3,
+      "content_file": "creation.md",
+      "content_status": "legacy_candidate",
+      "sheet_file": null,
+      "render_status": "not_certified",
       "loop_status": "closed_candidate"
     },
     {
@@ -34,12 +48,20 @@
       "label": "Raisonnement",
       "source_label": "Thinking",
       "sequence": 4,
+      "content_file": "reasoning.md",
+      "content_status": "legacy_candidate",
+      "sheet_file": null,
+      "render_status": "not_certified",
       "loop_status": "closed_candidate"
     },
     {
       "id": "agentic",
       "label": "Agentique",
       "sequence": 5,
+      "content_file": "agentic.md",
+      "content_status": "legacy_candidate",
+      "sheet_file": null,
+      "render_status": "not_certified",
       "loop_status": "closed_candidate"
     },
     {
@@ -47,6 +69,10 @@
       "label": "Synthèse multicapacité",
       "sequence": 6,
       "minimum_capabilities": 4,
+      "content_file": "multicapability.md",
+      "content_status": "legacy_candidate",
+      "sheet_file": null,
+      "render_status": "not_certified",
       "loop_status": "closed_candidate"
     }
   ],
