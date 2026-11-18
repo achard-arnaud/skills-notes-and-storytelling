@@ -345,6 +345,8 @@ def semantic(artifact, state, case, root=ROOT):
             if set(scaffold) != {s['id'] for s in artifact['sections']}:
                 raise ValueError('Composition/scaffold section mismatch')
             for section in artifact['sections']:
+                if not section['prose'].strip():
+                    raise ValueError(f"Composition section {section['id']} prose must contain non-whitespace text")
                 if section['claim_ids'] != scaffold[section['id']]['claim_ids']:
                     raise ValueError('Composition changed approved claim mapping; revise scaffold')
                 explicit = {claim for claim in claims if re.search(r'(?<![\w-])' + re.escape(claim) + r'(?![\w-])', section['prose'])}

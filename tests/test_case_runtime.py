@@ -199,6 +199,52 @@ class CaseRuntimeTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'unresolved claim'):
             engine.complete('alpha-run', 'A3', self.root)
 
+    def test_blank_composition_rejected_with_section_locator(self):
+        for prose in ('   ', '\t', '\r\n', '\u00a0'):
+            with self.subTest(prose=repr(prose)):
+                case = CaseRuntimeTests()
+                case.setUp()
+                try:
+                    case.through_scaffold()
+                    case.result('A3', {'sections': [{'id': 'SEC1', 'prose': prose, 'claim_ids': ['C1']}]})
+                    with self.assertRaisesRegex(ValueError, r'SEC1.*prose'):
+                        engine.complete('alpha-run', 'A3', case.root)
+                    state = engine.load(case.case / 'state.json')
+                    self.assertNotEqual(state['stages']['A3']['status'], 'passed')
+                    self.assertEqual(state['events'][-1]['action'], 'stage_rejected')
+                finally:
+                    case.doCleanups()
+
+    def test_valid_composition_preserves_whitespace_claims_and_graph(self):
+        self.through_scaffold()
+        state = engine.load(self.case / 'state.json')
+        graph_before = engine.current_artifact(state, self.case, 'A1')
+        prose = ' \tTrial after measuring (C1).\n '
+        self.result('A3', {'sections': [{'id': 'SEC1', 'prose': prose, 'claim_ids': ['C1']}]})
+        engine.complete('alpha-run', 'A3', self.root)
+        state = engine.load(self.case / 'state.json')
+        self.assertEqual(engine.current_artifact(state, self.case, 'A3')['sections'],
+            [{'id': 'SEC1', 'prose': prose, 'claim_ids': ['C1']}])
+        self.assertEqual(engine.current_artifact(state, self.case, 'A1'), graph_before)
+        self.assertEqual(next(n['status'] for n in graph_before['nodes'] if n['id'] == 'C1'), 'fact')
+
+    def test_release_update_does_not_rewrite_existing_case_pins(self):
+        engine.check_contracts(self.root)
+        before = (self.case / 'state.json').read_bytes()
+        script = self.root / 'scripts/case_runtime.py'
+        script.write_bytes(script.read_bytes() + b'\n# Synthetic engine revision\n')
+        with self.assertRaisesRegex(ValueError, 'Engine release hash mismatch: scripts/case_runtime.py'):
+            engine.check_contracts(self.root)
+        release = engine.load(self.root / 'workflow/engine-release.json')
+        release['files']['scripts/case_runtime.py'] = engine.digest(script)
+        engine.atomic(self.root / 'workflow/engine-release.json', release)
+        engine.check_contracts(self.root)
+        with self.assertRaisesRegex(ValueError, 'Stale context: scripts/case_runtime.py'):
+            engine.inspect('alpha-run', self.root)
+        self.assertEqual((self.case / 'state.json').read_bytes(), before)
+        engine.init('new-release', self.intake, self.root)
+        self.assertEqual(engine.inspect('new-release', self.root)['case_id'], 'new-release')
+
     def test_explicit_prose_citation_cannot_escape_mapping(self):
         self.evidence()
         graph = self.graph()
