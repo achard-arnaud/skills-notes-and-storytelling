@@ -4,8 +4,45 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'renderers/pedagogical'))
 import landscape as renderer
 SOURCE=ROOT/'learning/enterprise-ai/perception.sheet.json'
+MANIFEST=SOURCE.parent/'manifest.json'
+
+def validate_manifest_content_inventory(manifest):
+    modules=manifest['modules'];ids=[item['id'] for item in modules]
+    if len(ids)!=len(set(ids)) or set(manifest['content_files'])!={f'{item}.md' for item in ids}:
+        raise ValueError('module IDs and content files must match')
+    for item in modules:
+        if item.get('content_file')!=f"{item['id']}.md":
+            raise ValueError('module content file must match its ID')
+    active=[item for item in modules if item.get('content_status')=='active_canonical']
+    if len(active)!=1 or active[0]['id']!='perception':
+        raise ValueError('Perception must be the only active canonical module')
+    canonical=active[0]
+    if canonical.get('sheet_file')!=manifest['canonical_perception'] or not (SOURCE.parent/canonical['sheet_file']).is_file():
+        raise ValueError('active canonical sheet is missing or inconsistent')
+    if canonical.get('markdown_role')!='canonical_projection' or canonical.get('render_status')!='candidate_supported':
+        raise ValueError('active canonical projection or render status is inconsistent')
+    candidates=[item for item in modules if item['id']!='perception']
+    if any(item.get('content_status')!='legacy_candidate' or item.get('sheet_file') is not None or item.get('render_status')!='not_certified' for item in candidates):
+        raise ValueError('legacy candidates must not claim an active sheet or render')
+    return {item['id']:item['content_status'] for item in modules}
 
 class LandscapeTests(unittest.TestCase):
+    def test_manifest_identifies_one_active_canonical_module(self):
+        manifest=json.loads(MANIFEST.read_text())
+        statuses=validate_manifest_content_inventory(manifest)
+        self.assertEqual(statuses['perception'],'active_canonical')
+        self.assertEqual(set(statuses.values()),{'active_canonical','legacy_candidate'})
+        self.assertEqual(manifest['template_source_commit_role'],'historical_candidate_baseline')
+
+    def test_manifest_rejects_ambiguous_or_missing_canonical_status(self):
+        manifest=json.loads(MANIFEST.read_text())
+        for kind in ('double_active','missing_sheet','divergent_id'):
+            changed=copy.deepcopy(manifest)
+            if kind=='double_active':changed['modules'][0]['content_status']='active_canonical'
+            if kind=='missing_sheet':changed['modules'][1]['sheet_file']='missing.sheet.json'
+            if kind=='divergent_id':changed['modules'][2]['content_file']='wrong-module.md'
+            with self.assertRaises(ValueError):validate_manifest_content_inventory(changed)
+
     def test_content_separation_and_source_links(self):
         sheet=renderer.load_sheet(SOURCE);scaffold=renderer.scaffold(sheet)
         self.assertNotIn('<style',scaffold)
