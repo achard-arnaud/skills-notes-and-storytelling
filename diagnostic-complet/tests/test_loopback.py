@@ -18,6 +18,60 @@ def proof_graph():
 
 
 class LoopbackTests(unittest.TestCase):
+    def test_compaction_targets_are_complete_beyond_preview_limit(self):
+        nodes = []
+        edges = []
+        for i in range(25):
+            nodes.extend([{"id": f"a{i}", "kind": "atom", "text": f"same {i}"},
+                          {"id": f"b{i}", "kind": "atom", "text": f"same {i}"}])
+            edges.extend([{"id": f"e{i}", "from": f"a{i}", "to": f"b{i}", "kind": "references"},
+                          {"from": f"a{i}", "to": f"b{i}", "kind": "references"}])
+        nodes.extend([{"id": "w1", "kind": "atom", "text": "independent one"},
+                      {"id": "w2", "kind": "atom", "text": "independent two"}])
+        edges.append({"id": "witness", "from": "w1", "to": "w2", "kind": "references"})
+        graph = {"nodes": nodes, "edges": edges}
+        before = deepcopy(graph)
+        report = analyze_graph(graph)
+        candidate = next(c for c in report["review_candidates"] if c["kind"] == "compaction_review")
+        self.assertTrue(report["findings"]["matching_text_groups"]["truncated"])
+        self.assertTrue(report["findings"]["duplicate_edges"]["truncated"])
+        self.assertEqual(len(report["findings"]["matching_text_groups"]["items"]), 20)
+        targets = candidate["targets"]
+        self.assertEqual(targets["node_ids"], sorted(n["id"] for n in nodes[:50]))
+        self.assertEqual(targets["graph_sha256"], report["graph_sha256"])
+        self.assertEqual(targets["edges"], [dict(index=i, **edge) for i, edge in enumerate(edges[:50])])
+        self.assertNotIn("id", targets["edges"][1])
+        self.assertEqual(candidate, next(c for c in analyze_graph(graph)["review_candidates"]
+                                         if c["kind"] == "compaction_review"))
+        self.assertEqual(graph, before)
+        self.assertFalse(candidate["review"]["human_approval"])
+        self.assertFalse(report["automatic_mutations"])
+
+    def test_compaction_edge_targets_include_original_without_text_duplicates(self):
+        graph = proof_graph()
+        graph["edges"].append(dict(graph["edges"][0], id="duplicate"))
+        report = analyze_graph(graph)
+        target = next(c for c in report["review_candidates"] if c["kind"] == "compaction_review")["targets"]
+        self.assertEqual(target["node_ids"], ["f", "s"])
+        self.assertEqual([e["index"] for e in target["edges"]], [0, 2])
+
+    def test_reinforce_preserves_compaction_targets_without_inventing_other_targets(self):
+        from reinforce import reinforce
+        graph = proof_graph()
+        graph["edges"].append(dict(graph["edges"][0], id="duplicate"))
+        expected = next(c for c in analyze_graph(graph)["review_candidates"]
+                        if c["kind"] == "compaction_review")["targets"]
+        receipt = reinforce(graph, recent_ids=["c"])
+        action = next(a for a in receipt["actions"] if a["kind"] == "compaction_review")
+        self.assertEqual(action["targets"], expected)
+        self.assertEqual(action["targets"]["graph_sha256"], receipt["graph_sha256"])
+        self.assertTrue(all("targets" not in a for a in receipt["actions"]
+                            if a["kind"] != "compaction_review"))
+
+    def test_clean_graph_does_not_gain_compaction_candidate(self):
+        report = analyze_graph(proof_graph())
+        self.assertFalse(any(c["kind"] == "compaction_review" for c in report["review_candidates"]))
+
     def test_density_uses_unique_directed_nonself_pairs(self):
         graph = proof_graph()
         graph["edges"] += [dict(graph["edges"][0], id="duplicate"),

@@ -46,4 +46,21 @@ Ces liens identifient les sources documentaires ; ils ne constituent pas un reç
 
 ## Réexamen
 
+### Interface de revue RF-17.A — 18 novembre 2026
+
+Une proposition `compaction_review` expose `targets` en plus des aperçus
+`findings`, qui restent limités à vingt éléments. `targets.graph_sha256` lie
+les cibles au graphe analysé ; `node_ids` contient les identifiants concernés,
+triés et sans doublon. `edges` contient toutes les occurrences d'une signature
+répétée, y compris la première : index dans le tableau d'entrée, `from`, `to`,
+`kind` et `id` lorsqu'il existe. L'index n'est valable que pour cette empreinte ;
+aucun identifiant canonique n'est inventé pour une arête sans ID.
+
+Ces listes ne sont pas tronquées et excluent les témoins indépendants. Elles
+désignent des éléments à examiner, sans établir leur équivalence ni autoriser
+fusion, alias ou suppression. Les autres familles de propositions restent hors
+de cette tranche ; RF-17 n'est pas clos globalement. Les tests de loopback
+couvrent plus de vingt groupes, les arêtes sans ID, la conservation des entrées
+et le cas sans proposition de compaction.
+
 Réexaminer si une métrique devient un critère de promotion, si un plafond masque des constats ou si le budget de traitement ne permet plus de traiter les blocages identifiés. Documenter séparément observation et arbitrage de traitement. Toute évolution de comportement demande un delta BUILD explicite et une validation adaptée ; la normalisation documentaire ne vaut pas approbation de ce delta.

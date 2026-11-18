@@ -100,6 +100,7 @@ def analyze_graph(graph, recent_ids=None, previous=None):
     edge_counts = Counter()
     edge_ids, duplicate_edge_ids, invalid_edges, duplicate_edges = set(), [], [], []
     edge_endpoints = {}
+    records_by_signature = defaultdict(list)
     signatures, pairs, connected, self_loops = set(), set(), set(), []
     type_mismatches = []
     valid_edge_records = 0
@@ -124,6 +125,10 @@ def analyze_graph(graph, recent_ids=None, previous=None):
         if _identifier(eid):
             edge_endpoints[eid] = {source, target}
         signature = (source, target, kind)
+        record = {"index": index, "from": source, "to": target, "kind": kind}
+        if _identifier(eid):
+            record["id"] = eid
+        records_by_signature[signature].append(record)
         if signature in signatures:
             duplicate_edges.append({"from": source, "to": target, "kind": kind, "id": eid})
         signatures.add(signature)
@@ -182,6 +187,7 @@ def analyze_graph(graph, recent_ids=None, previous=None):
                 "unknown_node_types": sorted(set(type_counts) - NODE_TYPES),
                 "unknown_edge_types": sorted(set(edge_counts) - EDGE_TYPES),
                 "unknown_recent_ids": _sample(unknown_recent)}
+    graph_sha256 = hashlib.sha256(json.dumps(graph, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
     alerts, candidates = [], []
     structural = bool(invalid_edges or invalid_pillars or duplicate_nodes or duplicate_edge_ids or malformed_nodes)
     if structural:
@@ -198,6 +204,15 @@ def analyze_graph(graph, recent_ids=None, previous=None):
             "Some records may represent aliases or repetition; identical words alone cannot establish this.",
             "Propose merge/alias/tombstone only after source comparison; preserve all original IDs, locators, lineage, redirects and reversibility. Never delete evidence.",
             "Verify every original ID still resolves and every evidence/claim/reader dependency retains provenance; include a homonym counterexample.", not structural))
+        # Findings remain bounded previews. Review targets retain every implicated
+        # record, including the first occurrence of a repeated edge and edges
+        # without IDs, identified by their position in this exact graph.
+        repeated = sorted((record for records in records_by_signature.values()
+                           if len(records) > 1 for record in records), key=lambda record: record["index"])
+        node_ids = {nid for group in label_groups for nid in group}
+        node_ids.update(nid for record in repeated for nid in (record["from"], record["to"]))
+        candidates[-1]["targets"] = {"graph_sha256": graph_sha256,
+                                     "node_ids": sorted(node_ids), "edges": repeated}
     if recent_nodes:
         alerts.append({"kind": "pillar_review", "severity": "review",
                        "observation": "Explicitly recent material triggers review of affected or missing analytical memberships."})
@@ -247,7 +262,7 @@ def analyze_graph(graph, recent_ids=None, previous=None):
         delta = {key: metrics[key] - old[key] for key in ("nodes", "edge_records", "directed_density")
                  if isinstance(old.get(key), (int, float))}
         delta["meaning"] = "Observed metric changes only; no quality, causality or savings claim."
-    return {"version": 1, "graph_sha256": hashlib.sha256(json.dumps(graph, sort_keys=True, ensure_ascii=False).encode()).hexdigest(),
+    return {"version": 1, "graph_sha256": graph_sha256,
             "source_pattern": {"repository": "achard-arnaud/Candidatures-nice", "commit": SOURCE_COMMIT,
                                "path": "workflow/LOOPBACK.md"},
             "metrics": metrics, "findings": findings, "pillar_coverage": coverage, "delta": delta,

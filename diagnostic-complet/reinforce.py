@@ -21,8 +21,12 @@ def reinforce(graph: dict, recent_ids=None, previous=None) -> dict:
     loop = loopback.analyze_graph(graph, recent_ids=recent_ids, previous=previous)
     onto = loop["ontology"]
     # No cap: a run can produce proposals in several places at once. Each one stays a candidate, never applied.
-    actions = [{key: candidate.get(key) for key in ("kind", "status", "observation", "hypothesis", "proposal", "test")}
-               for candidate in loop["review_candidates"]]
+    actions = []
+    for candidate in loop["review_candidates"]:
+        action = {key: candidate.get(key) for key in ("kind", "status", "observation", "hypothesis", "proposal", "test")}
+        if "targets" in candidate:
+            action["targets"] = candidate["targets"]
+        actions.append(action)
     by_kind = {}
     for action in actions:
         by_kind[action["kind"]] = by_kind.get(action["kind"], 0) + 1
