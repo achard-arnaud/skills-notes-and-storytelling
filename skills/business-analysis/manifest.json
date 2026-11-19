@@ -1,6 +1,6 @@
 {
   "domain": "business",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "methods": {
     "business.contracts-and-performance": "skills/business-analysis/references/contracts-and-performance.md",
     "business.industry-and-operations": "skills/business-analysis/references/industry-and-operations.md",
@@ -8,6 +8,6 @@
     "business.corporate-functions": "skills/business-analysis/references/corporate-functions.md",
     "business.economics-and-financing": "skills/business-analysis/references/economics-and-financing.md",
     "business.governance-and-control": "skills/business-analysis/references/governance-and-control.md",
-    "business.change-and-adoption": "diagnostic-complet/skills/analyzing-adoption-and-change/SKILL.md"
+    "business.change-and-adoption": "skills/business-analysis/references/change-and-adoption.md"
   }
 }
