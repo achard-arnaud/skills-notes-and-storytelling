@@ -1,5 +1,6 @@
 """S3 retirement is an evidence gate, not a consequence of duplicate names."""
 import hashlib
+import copy
 import json
 import re
 import unittest
@@ -79,6 +80,7 @@ def stale_for_switch(data, row):
     """Current drift blocks this switch only; the historical snapshot stays valid."""
     paths = {row['path'], row['source']['path'], row['destination']['path']}
     paths.update(c['path'] for c in row['local_references'])
+    paths.update(pin['path'] for pin in row['known_pins'])
     stale = []
     for path in sorted(paths):
         try:
@@ -87,6 +89,50 @@ def stale_for_switch(data, row):
         except OSError:
             stale.append(path)
     return stale
+
+
+def pointer_value(document, pointer):
+    """Resolve a JSON Pointer, including escaped keys and strict array indexes."""
+    if not isinstance(pointer, str) or (pointer and not pointer.startswith('/')):
+        raise ValueError('invalid JSON pointer')
+    if pointer == '':
+        return document
+    for token in pointer[1:].split('/'):
+        if re.search(r'~(?![01])', token):
+            raise ValueError('invalid JSON pointer escape')
+        token = token.replace('~1', '/').replace('~0', '~')
+        if isinstance(document, list):
+            if not re.fullmatch(r'0|[1-9][0-9]*', token):
+                raise ValueError('invalid array index')
+            document = document[int(token)]
+        elif isinstance(document, dict):
+            document = document[token]
+        else:
+            raise ValueError('pointer traverses scalar')
+    return document
+
+
+def pin_locator_valid(pin, base_files):
+    """Check pinned source text when fresh; drift remains local to the switch."""
+    path = pin.get('path')
+    if path not in base_files or ('line' in pin) == ('json_pointer' in pin):
+        return False
+    if 'line' in pin and (type(pin['line']) is not int or pin['line'] < 1):
+        return False
+    try:
+        if blob_sha(path) != base_files[path]['sha']:
+            return True  # Historical witness; stale_for_switch forbids its reuse.
+        lines = text_lines(path)
+    except (OSError, UnicodeError):
+        return True  # Missing source also blocks stale_for_switch, not unrelated CI.
+    try:
+        if 'line' in pin:
+            return (pin['line'] <= len(lines)
+                    and lines[pin['line'] - 1] == pin['witness']
+                    and pin['value'] in pin['witness'])
+        return pointer_value(json.loads('\n'.join(lines)), pin['json_pointer']) == pin['value'] == pin['witness']
+    except (ValueError, KeyError, IndexError, TypeError):
+        return False
 
 
 def validate_inventory(data):
@@ -141,6 +187,8 @@ def validate_inventory(data):
                 if caller['path'] in fresh_refs and (line > len(text_lines(caller['path'])) or text_lines(caller['path'])[line-1] != witness):
                     errors.append('caller locator: ' + row['id'])
         for pin in row['known_pins']:
+            if not pin_locator_valid(pin, base_files):
+                errors.append('pin locator: ' + row['id'])
             if 'line' in pin:
                 if pin['value'] not in pin['witness']:
                     errors.append('pin locator: ' + row['id'])
@@ -209,6 +257,40 @@ class RetirementInventoryTests(unittest.TestCase):
         pin = next(p for p in row['known_pins'] if 'json_pointer' in p)
         pin['value'] = '0' * 40
         self.assertIn('pin locator: ' + row['id'], validate_inventory(self.data))
+
+    def test_coordinated_pin_and_witness_forgery_is_rejected(self):
+        row = next(r for r in self.data['entries'] if any('json_pointer' in p for p in r['known_pins']))
+        pin = next(p for p in row['known_pins'] if 'json_pointer' in p)
+        pin['value'] = pin['witness'] = '0' * 40
+        self.assertIn('pin locator: ' + row['id'], validate_inventory(self.data))
+
+    def test_pin_locators_are_checked_against_source(self):
+        original = copy.deepcopy(self.data)
+        for kind, value in [('line', 999999), ('line', 0), ('line', True),
+                            ('json_pointer', '/missing'), ('json_pointer', '/source/~2bad')]:
+            with self.subTest(kind=kind, value=value):
+                self.data = copy.deepcopy(original)
+                row = next(r for r in self.data['entries'] if any(kind in p for p in r['known_pins']))
+                pin = next(p for p in row['known_pins'] if kind in p)
+                pin[kind] = value
+                self.assertIn('pin locator: ' + row['id'], validate_inventory(self.data))
+
+    def test_pin_source_drift_blocks_switch_without_global_freeze(self):
+        row = next(r for r in self.data['entries'] if any('json_pointer' in p for p in r['known_pins']))
+        changed = next(p['path'] for p in row['known_pins'] if 'json_pointer' in p)
+        original = blob_sha
+        with patch(__name__ + '.blob_sha', side_effect=lambda p: '0' * 40 if p == changed else original(p)):
+            self.assertIn(changed, stale_for_switch(self.data, row))
+            self.assertEqual(validate_inventory(self.data), [])
+
+    def test_json_pointer_escaping_and_array_bounds(self):
+        source = {'a/b': {'~key': ['actual-pin']}}
+        self.assertEqual(pointer_value(source, '/a~1b/~0key/0'), 'actual-pin')
+        self.assertEqual(pointer_value(source, ''), source)
+        for pointer in ['a/b', '/a~1b/~0key/-1', '/a~1b/~0key/01',
+                        '/a~1b/~0key/1', '/a~1b/~2key', '/missing']:
+            with self.subTest(pointer=pointer), self.assertRaises((ValueError, KeyError, IndexError)):
+                pointer_value(source, pointer)
 
     def test_unknown_or_missing_equivalence_blocks_only_that_candidate(self):
         first, second = self.data['entries'][:2]
