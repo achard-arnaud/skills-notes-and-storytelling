@@ -26,3 +26,7 @@ Les contrôles distinguent conformité, preuve, substance analytique, narration,
 
 ## Vérification et réexamen
 #297 exige un cas complet, un cas de réserve, la reprise après analyse et une correction de source. Réexaminer si le coût de coordination dépasse le gain de reprise, si les résultats analytiques ne modifient pas la compréhension, ou si un profil exige un moteur spécifique. La CI ne remplace pas l’appréciation du lecteur.
+
+## Raccord au PRD #258
+
+Le brief et les étapes approfondies s’appliquent au mode complet. Le mode direct constitue un appel autonome borné. Voir le [PRD canonique](../specifications/PRD-258-selecteur-narratif.md) et [ADR-1010](ADR-1010-narrative-selection.md).

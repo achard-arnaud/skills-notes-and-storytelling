@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "purpose": "Documentation navigation only; no runtime capability declaration",
-  "date": "2026-11-13",
+  "date": "2026-11-20",
   "decisions": [
     {
       "id": "ADR-1001",
@@ -43,6 +43,34 @@
       "path": "ADR-1006-governance-convergence.md",
       "title": "Autorités documentaires et convergence progressive",
       "status": "accepted_documentary_principle",
+      "implementation": "see_existing_contracts"
+    },
+    {
+      "id": "ADR-1007",
+      "path": "ADR-1007-study-workflow.md",
+      "title": "Workflow d’étude et compétences conditionnelles",
+      "status": "documented_workflow",
+      "implementation": "see_existing_contracts"
+    },
+    {
+      "id": "ADR-1008",
+      "path": "ADR-1008-executable-cases-and-decision-profiles.md",
+      "title": "Cas exécutables et profils de décision technique",
+      "status": "implemented_with_bounds",
+      "implementation": "see_existing_contracts"
+    },
+    {
+      "id": "ADR-1009",
+      "path": "ADR-1009-domain-skills.md",
+      "title": "Cinq skills S3 et socle commun",
+      "status": "accepted_domain_structure",
+      "implementation": "see_existing_contracts"
+    },
+    {
+      "id": "ADR-1010",
+      "path": "ADR-1010-narrative-selection.md",
+      "title": "Projection narrative et deux parcours S3",
+      "status": "pilot_editorial_review_open",
       "implementation": "see_existing_contracts"
     }
   ]

@@ -21,3 +21,7 @@ Un graphe documentaire, une preuve qualifiée et un index sont des objets distin
 ## Réexamen
 
 Réviser si un pilote de transfert révèle un couplage ou une perte de valeur ; tracer le changement, les contrats affectés et sa validation. Les autres principes sont accessibles dans [l’index](README.md).
+
+## Raccord au PRD #258
+
+Les piliers du pilote sont une projection des claims et restent distincts de leur statut et de leur provenance. Voir le [PRD canonique](../specifications/PRD-258-selecteur-narratif.md) et [ADR-1010](ADR-1010-narrative-selection.md).

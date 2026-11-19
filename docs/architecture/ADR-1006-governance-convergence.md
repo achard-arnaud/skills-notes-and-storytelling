@@ -21,3 +21,7 @@ Cette livraison publie les principes communs sur main et dev, et la clarificatio
 ## Réexamen
 
 Réviser si un pilote de transfert révèle un couplage ou une perte de valeur ; tracer le changement, les contrats affectés et sa validation. Les autres principes sont accessibles dans [l’index](README.md).
+
+## Raccord au PRD #258
+
+Le PRD approuvé est conservé dans la documentation versionnée ou dans le board. Le ticket maître relie les exigences et les preuves aux décisions. Une source de discussion reste une référence de contexte. Voir le [PRD canonique](../specifications/PRD-258-selecteur-narratif.md) et [ADR-1010](ADR-1010-narrative-selection.md).

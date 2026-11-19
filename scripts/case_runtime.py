@@ -28,6 +28,15 @@ PROCESS = 'workflow/case-process.json'
 PROCESS_SCHEMA = 'contracts/case-process.schema.json'
 SCHEMA = 'contracts/case-artifacts.schema.json'
 ENGINE_VERSION = '1.0.0'
+NARRATIVE_REFS = ('scripts/narrative_selector.py', 'workflow/narrative-profile.json')
+NARRATIVE_GUIDE = 'skills/selecting-narrative-schema/references/narrative-schemas.md'
+
+
+def narrative_module(root):
+    module_spec = importlib.util.spec_from_file_location('case_narrative', local(root, NARRATIVE_REFS[0]))
+    module = importlib.util.module_from_spec(module_spec)
+    module_spec.loader.exec_module(module)
+    return module
 
 
 def now():
@@ -187,6 +196,11 @@ def init(case_id, intake, root=ROOT):
         if intake['decision_type'] not in registry:
             raise ValueError('Unknown technical decision profile')
     refs = [PROCESS, PROCESS_SCHEMA, SCHEMA, 'scripts/case_runtime.py', *spec['stable_refs'], *profile['refs']]
+    if 'narrative_profile' in intake:
+        profile_id = narrative_module(root).load_profile(root)['id']
+        if intake['narrative_profile'] != profile_id:
+            raise ValueError('Unknown narrative profile; no silent fallback')
+        refs.extend((*NARRATIVE_REFS, NARRATIVE_GUIDE))
     pins = {p: digest(local(root, p)) for p in sorted(set(refs))}
     case = case_path(case_id, root)
     case.parent.mkdir(parents=True, exist_ok=True)
@@ -266,6 +280,17 @@ def begin(case_id, stage, actor, root=ROOT):
                   'input_pins': inputs, 'output_schema': SCHEMA + '#/$defs/' + rule['kind'],
                   'output_ref': relative + '/result.json', 'instructions': rule['instructions'],
                   'template_profile': state['profile'], 'usage': {'provider_tokens': None}}
+        if 'narrative_profile' in state['intake']:
+            packet['narrative'] = {'profile': state['intake']['narrative_profile'],
+                                   'guide_ref': NARRATIVE_GUIDE}
+            hints = {
+                'A0': 'Bound macro, meso and micro research. Track loaded and omitted passages.',
+                'A1': 'Atomize claims. Keep statuses, locators, unknowns and critical counterevidence.',
+                'A2': 'Write narrative.json in this attempt. Preview with narrative --stage A2; submit its scaffold.',
+                'A3': 'Call narrative --stage A3 --section ID for each approved scaffold section.',
+                'A4': 'Call narrative --stage A4 --findings REF to route issues. Human editorial approval stays separate.',
+            }
+            packet['narrative']['instruction'] = hints[stage]
         atomic(directory / 'context.json', packet)
         record.update(status='running', directory=relative, actor=actor,
                       context_pins={**inputs, relative + '/context.json': digest(directory / 'context.json')})
@@ -279,6 +304,47 @@ def current_artifact(state, case, stage):
     if record['status'] != 'passed':
         raise ValueError('Unpassed stage: ' + stage)
     return load(local(case, record['directory'] + '/result.json'))
+
+
+def narrative_packet(state, case, request_ref, root):
+    attempt = state['stages']['A2']
+    path = local(case, request_ref)
+    if not path.is_relative_to(local(case, attempt['directory'], exists=False)):
+        raise ValueError('Narrative request must belong to the active A2 attempt')
+    request = load(path)
+    module = narrative_module(root)
+    ledger, ids, relations = module.graph_ledger(current_artifact(state, case, 'A1'),
+                                                 current_artifact(state, case, 'A0'), module.claim_ids(request))
+    return module, module.build(request, ledger, module.load_profile(root), ids, relations)
+
+
+def narrative_review(state, case, findings_ref, root):
+    scaffold = current_artifact(state, case, 'A2')
+    module, packet = narrative_packet(state, case, scaffold['narrative_ref'], root)
+    path = local(case, findings_ref)
+    if not path.is_relative_to(local(case, state['stages']['A4']['directory'], exists=False)):
+        raise ValueError('Review findings must belong to the active A4 attempt')
+    return module.review(packet, load(path), 'workflow', module.load_profile(root))
+
+
+def narrative(case_id, stage, request_ref=None, section=None, findings_ref=None, root=ROOT):
+    case = case_path(case_id, root)
+    with locked(case):
+        state = load(case / 'state.json')
+        verify(state, case, root)
+        if 'narrative_profile' not in state['intake']:
+            raise ValueError('Narrative profile was not selected at intake')
+        if stage not in {'A2', 'A3', 'A4'} or state['stages'][stage]['status'] != 'running':
+            raise ValueError('Narrative call requires a running A2, A3 or A4 stage')
+        if stage == 'A2':
+            module, packet = narrative_packet(state, case, request_ref, root)
+            return {'packet': packet, 'scaffold': module.scaffold(packet)
+                    if packet['status'] == 'candidate' else None}
+        if stage == 'A4':
+            return narrative_review(state, case, findings_ref, root)
+        scaffold = current_artifact(state, case, 'A2')
+        module, packet = narrative_packet(state, case, scaffold['narrative_ref'], root)
+        return module.section_packet(packet, section)
 
 
 def unique(rows):
@@ -364,7 +430,16 @@ def semantic(artifact, state, case, root=ROOT):
                 if payload.get('entity_id') != state['intake']['entity_id']:
                     raise ValueError('Render payload entity does not match intake')
                 return [payload_ref]
-        elif state['intake'].get('decision_type'):
+        refs = []
+        if kind == 'scaffold' and 'narrative_profile' in state['intake']:
+            request_ref = artifact.get('narrative_ref')
+            module, packet = narrative_packet(state, case, request_ref, root)
+            if any(artifact[key] != value for key, value in module.scaffold(packet).items()):
+                raise ValueError('Scaffold differs from its bound narrative packet')
+            refs.append(request_ref)
+        elif kind == 'scaffold' and 'narrative_ref' in artifact:
+            raise ValueError('Narrative profile was not selected at intake')
+        if kind == 'scaffold' and state['intake'].get('decision_type'):
             memo_ref = artifact.get('decision_memo_ref')
             memo = load(local(case, memo_ref))
             if memo['decision_type'] != state['intake']['decision_type']:
@@ -375,13 +450,22 @@ def semantic(artifact, state, case, root=ROOT):
             module.validate(memo, case, root)
             if artifact['decision'] != memo['decision']['verdict']:
                 raise ValueError('Scaffold decision differs from validated technical verdict')
-            return [memo_ref, *[item['ref'] for item in memo['evidence']]]
+            refs.extend([memo_ref, *[item['ref'] for item in memo['evidence']]])
+        return refs
     elif kind == 'review':
         if any(r['verdict'] != 'pass' for r in artifact['reviews']):
             raise ValueError('Review has unresolved findings')
         if {r['lens'] for r in artifact['reviews']} != {'evidence', 'counter-perspective', 'decision'} or len(artifact['reviews']) != 3:
             raise ValueError('Three distinct reviews required')
         refs = [r['evidence_ref'] for r in artifact['reviews']]
+        if 'narrative_profile' in state['intake']:
+            ref = artifact.get('narrative_review_ref')
+            receipt = narrative_review(state, case, ref, root)
+            if receipt['findings']:
+                raise ValueError('Narrative review has unresolved findings; route them before completing A4')
+            refs.append(ref)
+        elif 'narrative_review_ref' in artifact:
+            raise ValueError('Narrative profile was not selected at intake')
         if state['intake']['render_requested']:
             receipt = artifact.get('render')
             if receipt != state['stages']['A4'].get('render_receipt'):
@@ -570,7 +654,7 @@ def loopback(case_id, proposal_ref, root=ROOT):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', choices=['check', 'init', 'begin', 'complete', 'status', 'invalidate', 'loopback', 'render'])
+    parser.add_argument('command', choices=['check', 'init', 'begin', 'complete', 'status', 'invalidate', 'loopback', 'render', 'narrative'])
     parser.add_argument('--case')
     parser.add_argument('--root', type=Path, default=ROOT)
     parser.add_argument('--input', type=Path)
@@ -578,6 +662,9 @@ def main(argv=None):
     parser.add_argument('--actor', default='manual_agent')
     parser.add_argument('--reason', default='')
     parser.add_argument('--proposal')
+    parser.add_argument('--request', help='Case-relative A2 narrative input')
+    parser.add_argument('--section', help='A3 section identifier')
+    parser.add_argument('--findings', help='Case-relative A4 findings JSON')
     args = parser.parse_args(argv)
     try:
         if args.command == 'check': result = check_contracts(args.root)
@@ -587,12 +674,15 @@ def main(argv=None):
         elif args.command == 'invalidate': result = invalidate(args.case, args.stage, args.reason, args.root)
         elif args.command == 'loopback': result = loopback(args.case, args.proposal, args.root)
         elif args.command == 'render': result = render(args.case, args.root)
+        elif args.command == 'narrative':
+            result = narrative(args.case, args.stage, args.request, args.section, args.findings, args.root)
         else: result = inspect(args.case, args.root)
         print(json.dumps(result, ensure_ascii=False, indent=2))
     except Exception as exc:
         print(json.dumps({'status': 'blocked', 'error': str(exc)}))
         return 1
-    return 0
+    return 2 if (isinstance(result.get('packet'), dict)
+                 and result['packet']['status'] == 'needs_input') else 0
 
 
 if __name__ == '__main__':

@@ -1,0 +1,84 @@
+{
+  "request": {
+    "domain": "business",
+    "decision_kind": "diagnose",
+    "conclusion": "Condition the investment on a local pilot",
+    "tension": "Expected returns depend on data readiness",
+    "objection": "The business impact remains uncertain",
+    "falsifier": "A measured pilot clears the investment threshold",
+    "sections": [
+      {
+        "id": "value",
+        "action_title": "Benchmark the local return",
+        "claim_ids": [
+          "C-ROI",
+          "C-DATA"
+        ]
+      }
+    ],
+    "classification": {
+      "C-ROI": {
+        "primary_pillar": "P-ECONOMICS",
+        "secondary_pillars": [
+          "P-TECH-DATA"
+        ],
+        "dimension": "business"
+      },
+      "C-DATA": {
+        "primary_pillar": "P-TECH-DATA",
+        "scale": "site"
+      }
+    },
+    "required_pillars": [
+      "P-ECONOMICS",
+      "P-TECH-DATA",
+      "P-RISK-CONTROL"
+    ],
+    "coverage": {
+      "loaded": [
+        "S1:p.3",
+        "S2:p.4"
+      ],
+      "omitted": [
+        "Group-level data"
+      ],
+      "stop_reason": "Pilot scope reached"
+    },
+    "side_stories": [
+      {
+        "type": "reality_check",
+        "section_id": "value",
+        "anchor_claim_id": "C-DATA",
+        "claim_ids": [
+          "C-DATA"
+        ],
+        "objection": "Can a site run a pilot?",
+        "limitation": "One site is illustrative",
+        "return_hook": "The local pilot measures readiness"
+      }
+    ]
+  },
+  "claims": {
+    "C-ROI": {
+      "statement": "Vendor forecasts a 30% return",
+      "status": "attributed_claim",
+      "evidence": [
+        {
+          "source_id": "S1",
+          "locator": "p.3",
+          "attribution": "Vendor"
+        }
+      ]
+    },
+    "C-DATA": {
+      "statement": "Dataset has a coverage gap",
+      "status": "fact",
+      "evidence": [
+        {
+          "source_id": "S2",
+          "locator": "p.4"
+        }
+      ]
+    }
+  }
+}

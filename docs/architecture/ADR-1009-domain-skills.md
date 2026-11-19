@@ -36,3 +36,7 @@ S2 fournit le bon modèle de chargement ciblé et de méthodes réutilisables. D
 Commencer par une analyse utile à GreenYellow. La même révision alimente un brief et le rapport long. Après correction d’une preuve, vérifier les deux projections, les inconnues, les dépendances et la stabilité d’une branche indépendante. Un recoupement ancien devient une référence, ou sort de la route active après inventaire des appelants, équivalence éprouvée, version restaurable et validation du cas. Réexaminer la séparation si un changement de template oblige à réexécuter le fond ou si la gestion des références coûte davantage que la reprise qu’elle évite.
 
 Voir [le plan d’intégration GreenYellow et la revue du backlog](../planning/S3-GREENYELLOW-INTEGRATION.md).
+
+## Raccord au PRD #258
+
+Les cinq skills gardent la propriété du fond et réemploient un sélecteur commun après le choix de profondeur. Voir le [PRD canonique](../specifications/PRD-258-selecteur-narratif.md) et [ADR-1010](ADR-1010-narrative-selection.md).

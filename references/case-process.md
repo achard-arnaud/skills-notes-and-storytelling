@@ -63,57 +63,29 @@ fautive, exécute la régression et consigne les résultats dans l'issue et le r
 Revoir l'ADR si son hypothèse est invalidée ; renforcer l'implémentation si l'ADR reste
 valide. La qualité d'une analyse n'est pas déduite d'une CI verte.
 
-## Appel effectif du renderer
+## Projection narrative S3
 
-Quand render_requested=true, A3 doit fournir payload_ref vers un payload local à la
-même tentative. Le profil impose son schéma et un adapter épinglé ; un profil sans
-adapter bloque explicitement au lieu de produire un faux succès. Le profil exec
-entreprise pointe le renderer Chromium canonique et ses dépendances locales.
+La note directe peut passer par [le sélecteur](../skills/selecting-narrative-schema/SKILL.md) sans créer de cas. Pour une étude complète, ajouter `"narrative_profile": "s3-narrative-v1"` à l’intake. Le moteur épingle le code, le profil et le guide. A2 réutilise les preuves A0/A1 à partir d’un fichier `request` local à sa tentative. Voir l'[exemple](../examples/narrative-selector-business.json) pour la forme de `request` ; le ledger de preuve vient du cas.
 
-Après begin A4, appeler `python scripts/case_runtime.py render --case <case-id>`.
-Le moteur invoque le renderer par argv, conserve renderer.log, code de retour,
-empreintes du payload/renderer et des fichiers, puis émet un reçu de rendu. Reporter
-ce reçu exact dans le champ render du résultat A4, avec les trois notes de revue.
-Une déclaration manuelle de render non produite par cet appel est refusée.
-Le contrôle des pages physiques et de qa.json reste distinct de la lecture visuelle.
-Le renderer n'est pas automatiquement disponible pour tous les templates de notes.
+```bash
+python scripts/case_runtime.py narrative --case mon-cas --stage A2 --request stages/A2/attempt-1/narrative.json
+python scripts/case_runtime.py narrative --case mon-cas --stage A3 --section valeur
+python scripts/case_runtime.py narrative --case mon-cas --stage A4 --findings stages/A4/attempt-1/findings.json
+```
 
+Exécuter chaque appel pendant sa tentative. À A2, ajouter `case_id`, `kind` et `narrative_ref` aux champs de scaffold retournés. Le résultat A4 référence le fichier des écarts (`narrative_review_ref`), en plus des trois revues. Un écart ouvert bloque A4 et renvoie à l’étape propriétaire. Un reçu mécanique vert ne change pas l’approbation humaine. Les encarts restent candidats. Les limites de couverture et les observations d’un auteur restent déclaratives.
 
-## Appel réel du renderer
+## Rendu et mémo de décision
 
-Si `render_requested=true`, A3 soumet aussi `payload_ref` dans sa tentative. Le moteur
-valide ce payload contre le schéma du profil et vérifie son entity_id. Après `begin A4`,
-exécuter `python scripts/case_runtime.py render --case <case-id>`. Le profil doit
-fournir un adapter et toutes ses références épinglées ; son absence bloque sans fallback.
-Le moteur invoque le renderer par arguments structurés, conserve renderer.log, vérifie
-le PDF physique et qa.json puis émet le reçu réel. Recopier exactement ce reçu dans
-le champ `render` du result.json A4, avec les trois revues et leurs fichiers propres.
-Un reçu déclaré sans cet appel est refusé. Une tentative de rendu échouée reste dans
-le journal ; corriger et relancer sans réécrire ses fichiers.
+Si `render_requested=true`, A3 fournit le `payload_ref` dans sa tentative. Le moteur
+valide le schéma et l'identité. Après `begin A4`, appeler `case_runtime.py render --case ID`.
+Le moteur invoque l'adapter épinglé et contrôle le PDF, ses pages physiques et `qa.json`.
+Recopier le reçu exact dans le résultat A4. Un profil sans adapter déclare le rendu indisponible.
+Le contrôle des octets reste distinct de la revue de fond et de la lecture visuelle.
 
-Le profil three-pager-exec du dépôt d'analyse possède l'adapter Chromium canonique.
-Les formats du dépôt storytelling qui n'ont pas d'adapter déclaré restent bloqués
-pour ce chemin de rendu ; leurs guides historiques ne deviennent pas des adapters
-par simple déclaration. Un cas sans demande de rendu conserve la chaîne rédactionnelle.
-
-
-## Appel du renderer et mémo de décision
-
-Si `render_requested=true`, A3 exige `payload_ref` vers le JSON du renderer dans sa
-propre tentative. Il valide le schéma du profil et l'entity_id. Après `begin A4`,
-appeler `python scripts/case_runtime.py render --case <id>` ; copier le reçu renvoyé
-dans la clé `render` du result.json A4, avec les trois revues. Le moteur enregistre
-commande, log, empreinte d'entrée, renderer et sorties. A4 refuse un reçu fabriqué,
-un PDF dont les pages physiques diffèrent et une QA en échec. Un profil sans adapter
-est bloqué pour le rendu ; aucun fallback implicite. Le binding des paraphrases au
-sens des claims reste l'objet de la revue, même si les références sont valides.
-
-Pour une décision technique, ajouter `decision_type` à l'intake (type du registre).
-A2 exige alors `decision_memo_ref` dans sa tentative. Le moteur appelle le validateur
-technique, vérifie le type choisi et le verdict du scaffold, puis épingle mémo et
-preuves (dans la tentative ou parmi ses entrées déjà épinglées). Le validateur reste
-utilisable seul pour une revue BUILD, sans prétendre qu'un run A0–A4 a été exécuté.
-
+Pour une décision technique, ajouter `decision_type` à l’intake. A2 fournit `decision_memo_ref`
+dans sa tentative. Le moteur valide le type et le verdict du scaffold, puis épingle le mémo et
+ses preuves. Ce contrôle s’ajoute au contrôle narratif si les deux profils sont demandés.
 
 ## Contrat du manifeste lui-même
 

@@ -21,3 +21,7 @@ Les profils métier peuvent enrichir un run sans introduire de vocabulaire d’e
 ## Réexamen
 
 Réviser si un pilote de transfert révèle un couplage ou une perte de valeur ; tracer le changement, les contrats affectés et sa validation. Les autres principes sont accessibles dans [l’index](README.md).
+
+## Raccord au PRD #258
+
+Le raccord pilote conserve les pins et les preuves A0/A1 dans chaque cas. Voir le [PRD canonique](../specifications/PRD-258-selecteur-narratif.md) et [ADR-1010](ADR-1010-narrative-selection.md).

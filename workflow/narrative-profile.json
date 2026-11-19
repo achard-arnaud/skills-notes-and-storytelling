@@ -1,0 +1,41 @@
+{
+  "id": "s3-narrative-v1",
+  "by_decision": {
+    "verdict": "decision-pyramid",
+    "diagnose": "tension-resolution",
+    "compare": "option-comparison",
+    "deploy": "phased-trajectory",
+    "teach": "practice-transfer"
+  },
+  "rationales": {
+    "decision-pyramid": "The mandate asks for a verdict supported by ranked evidence.",
+    "tension-resolution": "The mandate asks which mechanisms explain a business or operational gap.",
+    "option-comparison": "The mandate asks to compare credible options on the same criteria.",
+    "phased-trajectory": "The mandate asks to sequence prerequisites, milestones and controls.",
+    "practice-transfer": "The mandate asks for an observable skill and its transfer to practice."
+  },
+  "domains": {
+    "business": "business-analysis",
+    "product": "product-analysis",
+    "technical": "technical-analysis",
+    "pedagogy": "pedagogical-ai-learning",
+    "regulatory": "regulatory-bootstrap"
+  },
+  "pillars": [
+    "P-STRATEGY", "P-VALUE-ENGINE", "P-ECONOMICS", "P-TECH-DATA", "P-ORG-EXECUTION", "P-RISK-CONTROL"
+  ],
+  "axes": {
+    "scale": ["equipment", "site", "portfolio", "group", "sector"],
+    "domain_layer": ["core", "support"],
+    "dimension": ["business", "product", "technical"]
+  },
+  "side_story_types": ["reality_check", "peer_signal", "scale_shift", "tradeoff_matrix", "deep_mechanism"],
+  "findings": {
+    "missing_source": "A0",
+    "claim": "A1",
+    "pillar_coverage": "A1",
+    "scaffold": "A2",
+    "prose": "A3",
+    "render": "A4"
+  }
+}

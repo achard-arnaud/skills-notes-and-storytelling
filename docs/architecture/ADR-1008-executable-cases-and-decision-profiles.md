@@ -37,3 +37,7 @@ Les liens adapter/payload-schema/refs épinglées sont contrôlés ; les profils
 adapter ne créent aucun cas lorsqu'un rendu est demandé. Régressions négatives
 et chaîne valide : tests/test_case_runtime.py. Détails et limites dans
 [le diagnostic](manifest-contract-hardening-2026-11-17.md).
+
+## Raccord au PRD #258
+
+Le paquet narratif du pilote est optionnel à l’intake et conserve le validateur du mémo technique. Voir le [PRD canonique](../specifications/PRD-258-selecteur-narratif.md) et [ADR-1010](ADR-1010-narrative-selection.md).

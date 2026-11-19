@@ -47,10 +47,16 @@ Conserver les livrables de run, corpus privés, exports temporaires et captures 
 For new S3 studies, select the domain skill and its method by question, then the template by audience and use. Use the [domain analysis contract](references/domain-analysis.md). RUN pins the published BUILD and writes to the private case boundary. BUILD starts from dev with synthetic fixtures. Resume a legacy case on its recorded route and keep its private storage. Use a separate worktree for each activity when executing both.
 
 ## New-case executable boundary
-For new independent runs use `python scripts/case_runtime.py check`, then `init --case <id> --input intake.json`.
+For new independent full-workflow runs use `python scripts/case_runtime.py check`, then `init --case <id> --input intake.json`.
 The active route is `workflow/case-process.json`; new RUN files live in ignored `data/cases/<id>/`.
 Call begin/complete for A0 evidence, A1 typed graph, A2 scaffold, A3 composition, A4 review.
 Each call consumes the emitted I/O/context packet; preserve pins, attempts and execution events.
 Do not infer an old run completed these stages. Keep legacy programme gates and histories explicit.
 For material incidents call loopback with the hashed proposal; diagnose architecture, bugfix, CI,
 runtime or skill, then apply an authorized BUILD with regression proof and ADR disposition.
+
+## Entrées S3 et documents de décision
+
+Choisir dès l’entrée : **skill directe** pour un format court et un périmètre borné ; **brief puis A0–A4** pour une étude approfondie ou une recherche multi-source. La skill de domaine possède les constats et aide à choisir le format par lecteur et usage. Le sélecteur narratif reçoit uniquement les claims utiles, avec leurs preuves. A3 reçoit un paquet par section ; A4 retourne les écarts vers leur propriétaire. Voir [cartographie des skills, agents et statuts](references/s3-operations.md).
+
+Maintenir le PRD canonique dans la [documentation versionnée](docs/specifications/) ou dans le board projet avec une version traçable. Le ticket maître lie cet emplacement et pointe ses dépendances et sa recette. Chaque ADR applicable lie le PRD et le ticket et distingue la décision, la preuve d’implémentation et la validation humaine. Les captures de conversation peuvent éclairer le contexte. Le code, les contrats et la documentation de projet matérialisent les décisions.

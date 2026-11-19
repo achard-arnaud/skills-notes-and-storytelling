@@ -1,23 +1,17 @@
 ---
 name: decision-notes-and-storytelling
-description: Create, revise, or industrialize evidence-grounded decision notes, architecture notes, one-pagers, two-pagers, benchmarks, buy-side gap analyses, sell-side diagnostic/recommendation notes, ICP opportunity notes and integration notes and pedagogical learning sheets and canonical sector-specific regulatory notes. Own research-to-claims-to-storytelling, evidence lineage, template bridges, counter-perspective QA, lock-in mapping, next-step nudging and the governed tiered dreaming loop. Route six-page enterprise AI learning sheets to the pedagogical skill and keep their content binding, semantic HTML scaffold and renderer separate. Pair with the runtime DOCX skill when a Word artifact is requested.
+description: Create or revise evidence-grounded decision notes and long studies. Route short requests to a domain skill and open A0–A4 for a complete research mandate. Use for briefs, benchmarks, architecture decisions, pedagogical or regulatory notes and their reviews. Pair with the relevant rendering contract when a formatted artifact is requested.
 ---
 
 # Decision Notes & Storytelling
 
 
-## New-case executable contract
+## Start by choosing the depth
 
-For a new heavy case, the lifecycle authority is `workflow/case-process.json` and
-`scripts/case_runtime.py`. Read [case I/O and recovery](references/case-process.md).
-Call check → init → begin/complete at A0 acquisition, A1 typed evidence graph,
-A2 scaffold, A3 composition, A4 review. The detailed analytical steps below occur
-inside these boundaries. Preserve emitted contexts, pins, attempts and events.
-Legacy bundles retain their route; never manufacture retrospective stage logs.
-For incidents, use loopback with state/evidence hashes and an ADR-linked experiment.
-For technical decisions select a type and criticality separately from the format;
-read [technical decision profiles](references/technical-decisions.md). Seven types
-share the engine; their schema and `technical_decision.py` enforce the I/O.
+- **Direct / short:** call the [S3 domain skill](references/domain-analysis.md) that owns the question. Select a format with that skill. Reuse the scoped findings through the [narrative selector](skills/selecting-narrative-schema/SKILL.md) when a decision narrative is needed. Review locally and route each finding to its owner. No case initialization.
+- **Complete / long:** capture the mission brief and agree on audience, question, scope, source access, research budget, artifact and stop condition. Use [case I/O and recovery](references/case-process.md) for a new A0–A4 study. Select the narrative profile explicitly to consume A1 claims at A2, request one section at A3, and route findings at A4.
+
+Use the [route and lifecycle map](references/s3-operations.md) for entrypoints, contracts and status ownership. Resume existing work on its pinned route. Separate the technical [decision profile](references/technical-decisions.md) from the format. Human editorial approval follows review.
 
 ## Scope
 
@@ -54,7 +48,7 @@ For `ARCHITECTURE_NOTE`, read the dimension-specific contract in [templates/arch
 
 ## Template enum
 
-Select exactly one primary template:
+When the requested support is governed by the catalogue, select exactly one primary template:
 
 - `REGULATORY_NOTE` (class `legal-reglementaire`; follow `skills/regulatory-bootstrap/SKILL.md` and `templates/regulatory-note.md`)
 - `ARCHITECTURE_NOTE`
@@ -79,9 +73,9 @@ For `AI_ENTERPRISE_LEARNING_SIX_PAGE`, use `template_class=pedagogique`. The spe
 
 For `REGULATORY_NOTE`, select `template_class=legal-reglementaire` and read the specialized skill and template. Retain the shared evidence, claims, scaffold and rendering boundaries. Frame a descriptive sector thesis. Keep recommendations, pilots, decision nudges and next-action containers in explicitly requested variants. The regulatory research protocol governs source budgets, the 100 complementary-query minimum and execution accounting. Use [the prose and visual contract](references/style-contract.md) and the mandatory cross-container repetition review. Keep run-method accounting in its sidecar records.
 
-## Canonical workflow
+## Complete workflow
 
-Follow [references/workflow.md](references/workflow.md). Stage boundaries remain explicit.
+Within a complete mission, follow [references/workflow.md](references/workflow.md). Stage boundaries remain explicit.
 
 1. **Context & decision framing** — reconstruct the actual problem, audience, time horizon and constraints before accepting the supplied framing; select primary analysis dimension.
 2. **Research** — collect evidence; separate account/company reality, product truth, market alternatives and dependencies. Rerank source classes to the selected dimension.
@@ -138,7 +132,7 @@ Apply the shared [editorial and research quality contract](references/editorial-
 
 ## Side stories
 
-Preferred kinds: `dezoom | method | false_lead | comparator | analytical_focus | callback`. Every side story has a stable ID, source claim IDs, purpose, insertion anchor and return-to anchor.
+For the S3 narrative profile use the [five candidate types and bridge contract](skills/selecting-narrative-schema/references/narrative-schemas.md). Legacy kinds remain with their pinned workflow. Every candidate uses claims from its trunk section and carries an objection, a limitation and a return hook.
 
 ## Specialized templates
 

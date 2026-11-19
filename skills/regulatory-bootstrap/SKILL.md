@@ -11,3 +11,7 @@ description: Analyze regulatory applicability, obligations, timelines, sector ef
 4. Read the [deep regulatory workflow](references/regulatory-workflow.md) for the full research and review gates. Apply its research budget only to an in-depth regulatory run within that scope. Use the [shared editorial and research review](../../references/editorial-and-research-quality.md) for every support.
 
 Apply the [persona review](../../references/persona-review.md) with the Risk and Compliance lens.
+
+## Choose the support after analysis
+
+For a short deliverable, stay in the direct path and choose a format for the reader with the [S3 route map](../../references/s3-operations.md). Reuse the [narrative selector](../selecting-narrative-schema/SKILL.md) for decision structure when useful. Supply a scoped findings packet, not the study corpus. A complete study starts from a brief and passes the same findings to A2. In either path, route each material gap to the evidence or method owner with a reference and an exit test. Keep editorial approval with the human.

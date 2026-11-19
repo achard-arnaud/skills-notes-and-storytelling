@@ -31,6 +31,10 @@
         "render_requested": {
           "type": "boolean"
         },
+        "narrative_profile": {
+          "type": "string",
+          "minLength": 1
+        },
         "decision_type": {
           "type": "string",
           "minLength": 1
@@ -328,6 +332,10 @@
           },
           "minItems": 1
         },
+        "narrative_ref": {
+          "type": "string",
+          "minLength": 1
+        },
         "decision_memo_ref": {
           "type": "string",
           "minLength": 1
@@ -443,6 +451,10 @@
             "additionalProperties": false
           },
           "minItems": 3
+        },
+        "narrative_review_ref": {
+          "type": "string",
+          "minLength": 1
         },
         "render": {
           "type": "object",
