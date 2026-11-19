@@ -49,5 +49,7 @@ class MarketRelocationTests(unittest.TestCase):
                 current['methods'].pop('business.market-and-competition')
                 old['methods'].pop('business.industry-and-operations')
                 self.assertEqual(current['methods'].pop('business.industry-and-operations'), 'skills/business-analysis/references/industry-and-operations.md')
+                old['methods'].pop('business.corporate-functions')
+                self.assertEqual(current['methods'].pop('business.corporate-functions'), 'skills/business-analysis/references/corporate-functions.md')
                 old.pop('version'); current.pop('version')
             self.assertEqual(old, current)
