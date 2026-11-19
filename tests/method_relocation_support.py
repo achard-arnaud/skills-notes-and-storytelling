@@ -1,4 +1,4 @@
-"""Shared, explicitly pinned contracts for the six delivered migrations."""
+"""Shared, explicitly pinned contracts for delivered business/technical migrations."""
 import copy
 import hashlib
 import json
@@ -9,6 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = 'skills/business-analysis/manifest.json'
+TECHNICAL_MANIFEST = 'skills/technical-analysis/manifest.json'
 PATH = re.compile(r'(?<![\w/])(?:\.\./)+(?:[\w.-]+/)*[\w.-]+\.md')
 
 # Expectations come from the delivered migrations, never from the current routes.
@@ -45,6 +46,19 @@ METHODS = {
     },
 }
 
+TECHNICAL_METHODS = {
+    'technical.data-foundations': {
+        'old': 'diagnostic-complet/skills/analyzing-data-foundations/SKILL.md',
+        'new': 'skills/technical-analysis/references/data-foundations.md',
+        'blob': '25be5782766fb56b920a02043e2843af144b046d',
+    },
+}
+
+MIGRATIONS_BY_MANIFEST = {
+    MANIFEST: METHODS,
+    TECHNICAL_MANIFEST: TECHNICAL_METHODS,
+}
+
 
 def canonical(text, location):
     def resolve(match):
@@ -67,22 +81,25 @@ def assert_manifest_snapshots(check, manifests):
     for path, current in manifests.items():
         expected = json.loads(snapshot['source_snapshots'][path])
         actual = copy.deepcopy(current)
-        if path == MANIFEST:
-            expected['methods'].update({key: spec['new'] for key, spec in METHODS.items()})
+        if path in MIGRATIONS_BY_MANIFEST:
+            expected['methods'].update({key: spec['new'] for key, spec in MIGRATIONS_BY_MANIFEST[path].items()})
             expected.pop('version')
             actual.pop('version')
         check.assertEqual(expected, actual, path)
 
 
 class RelocationChecks:
-    """Mixin only: unittest discovers the six existing concrete test classes."""
+    """Mixin only: each concrete class declares its owning domain."""
+
+    manifest_path = MANIFEST
+    method_specs = METHODS
 
     @property
     def spec(self):
-        return METHODS[self.method_key]
+        return self.method_specs[self.method_key]
 
     def test_manifest_selects_owned_method(self):
-        data = json.loads((ROOT / MANIFEST).read_text())
+        data = json.loads((ROOT / self.manifest_path).read_text())
         self.assertEqual(data['methods'][self.method_key], self.spec['new'])
         self.assertTrue((ROOT / self.spec['new']).is_file())
 
@@ -112,15 +129,15 @@ class RelocationChecks:
         assert_manifest_snapshots(self, manifests)
         # Exercise the shared assertion against isolated mutations, including a
         # method outside the migrated set and each of the four other domains.
-        non_migrated = sorted(set(manifests[MANIFEST]['methods']) - set(METHODS))
+        non_migrated = sorted(set(manifests[self.manifest_path]['methods']) - set(self.method_specs))
         self.assertTrue(non_migrated)
-        for key in (self.method_key, non_migrated[0]):
+        for key in (self.method_key, *non_migrated):
             with self.subTest(changed_route=key):
                 damaged = copy.deepcopy(manifests)
-                damaged[MANIFEST]['methods'][key] = 'wrong-method.md'
+                damaged[self.manifest_path]['methods'][key] = 'wrong-method.md'
                 with self.assertRaises(AssertionError):
                     assert_manifest_snapshots(self, damaged)
-        for path in sorted(set(manifests) - {MANIFEST}):
+        for path in sorted(set(manifests) - {self.manifest_path}):
             with self.subTest(changed_manifest=path):
                 damaged = copy.deepcopy(manifests)
                 damaged[path]['unexpected_change'] = True

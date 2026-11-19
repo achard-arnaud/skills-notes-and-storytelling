@@ -1,9 +1,9 @@
 {
   "domain": "technical",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "methods": {
     "technical.decision-assessment": "references/technical-decisions.md",
-    "technical.data-foundations": "diagnostic-complet/skills/analyzing-data-foundations/SKILL.md",
+    "technical.data-foundations": "skills/technical-analysis/references/data-foundations.md",
     "technical.ai-capabilities": "diagnostic-complet/skills/analyzing-ai-capabilities/SKILL.md"
   }
 }
