@@ -1,4 +1,4 @@
-"""Shared, explicitly pinned contracts for the four delivered migrations."""
+"""Shared, explicitly pinned contracts for the five delivered migrations."""
 import copy
 import hashlib
 import json
@@ -33,6 +33,11 @@ METHODS = {
         'new': 'skills/business-analysis/references/economics-and-financing.md',
         'blob': '400711e7684b06d1ceceaa0d922a94e88c33ca0f',
     },
+    'business.governance-and-control': {
+        'old': 'diagnostic-complet/skills/analyzing-governance-and-control/SKILL.md',
+        'new': 'skills/business-analysis/references/governance-and-control.md',
+        'blob': 'ec169043a7f5449bde55af5bb8737308869494d1',
+    },
 }
 
 
@@ -65,7 +70,7 @@ def assert_manifest_snapshots(check, manifests):
 
 
 class RelocationChecks:
-    """Mixin only: unittest discovers the four existing concrete test classes."""
+    """Mixin only: unittest discovers the five existing concrete test classes."""
 
     @property
     def spec(self):
