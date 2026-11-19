@@ -13,4 +13,4 @@ class DataRelocationTests(RelocationChecks, unittest.TestCase):
         super().test_manifest_selects_owned_method()
         data = json.loads((ROOT / self.manifest_path).read_text())
         self.assertEqual(data['domain'], 'technical')
-        self.assertEqual(data['version'], '1.0.1')
+        self.assertEqual(data['version'], '1.0.2')

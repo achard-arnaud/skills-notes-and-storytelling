@@ -52,6 +52,11 @@ TECHNICAL_METHODS = {
         'new': 'skills/technical-analysis/references/data-foundations.md',
         'blob': '25be5782766fb56b920a02043e2843af144b046d',
     },
+    'technical.ai-capabilities': {
+        'old': 'diagnostic-complet/skills/analyzing-ai-capabilities/SKILL.md',
+        'new': 'skills/technical-analysis/references/ai-capabilities.md',
+        'blob': 'ccc70115ff83fc0764a386de9fe1ae7152b3af21',
+    },
 }
 
 MIGRATIONS_BY_MANIFEST = {
