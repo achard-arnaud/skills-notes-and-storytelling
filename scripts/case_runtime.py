@@ -338,6 +338,8 @@ def semantic(artifact, state, case, root=ROOT):
         claims = {n['id'] for n in graph['nodes'] if n['type'] == 'claim'}
         unique(artifact['sections'])
         for section in artifact['sections']:
+            if kind == 'scaffold' and not section['action_title'].strip():
+                raise ValueError(f"Scaffold section {section['id']} action_title must contain non-whitespace text")
             if not set(section['claim_ids']) <= claims:
                 raise ValueError('Section references unresolved claim')
         if kind == 'composition':

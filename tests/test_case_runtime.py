@@ -199,6 +199,44 @@ class CaseRuntimeTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'unresolved claim'):
             engine.complete('alpha-run', 'A3', self.root)
 
+    def test_blank_scaffold_title_rejected_with_section_locator(self):
+        for title in ('   ', '\t', '\r\n', '\u00a0'):
+            with self.subTest(title=repr(title)):
+                case = CaseRuntimeTests()
+                case.setUp()
+                try:
+                    case.evidence()
+                    case.result('A1', case.graph())
+                    engine.complete('alpha-run', 'A1', case.root)
+                    before = engine.load(case.case / 'state.json')
+                    graph = engine.current_artifact(before, case.case, 'A1')
+                    case.result('A2', {'decision': 'Trial', 'strongest_objection': 'Unknown value',
+                                      'falsifier': 'No benefit', 'sections': [
+                                          {'id': 'SEC1', 'action_title': title, 'claim_ids': ['C1']}]})
+                    with self.assertRaisesRegex(ValueError, r'SEC1.*action_title'):
+                        engine.complete('alpha-run', 'A2', case.root)
+                    state = engine.load(case.case / 'state.json')
+                    self.assertNotEqual(state['stages']['A2']['status'], 'passed')
+                    self.assertEqual(state['events'][-1]['action'], 'stage_rejected')
+                    self.assertEqual(engine.current_artifact(state, case.case, 'A1'), graph)
+                finally:
+                    case.doCleanups()
+
+    def test_valid_scaffold_title_preserves_whitespace_and_mapping(self):
+        self.evidence()
+        self.result('A1', self.graph())
+        engine.complete('alpha-run', 'A1', self.root)
+        title = ' \tTrial before scale\n '
+        sections = [{'id': 'SEC1', 'action_title': title, 'claim_ids': ['C1']}]
+        self.result('A2', {'decision': 'Trial', 'strongest_objection': 'Unknown value',
+                          'falsifier': 'No benefit', 'sections': sections})
+        engine.complete('alpha-run', 'A2', self.root)
+        state = engine.load(self.case / 'state.json')
+        self.assertEqual(engine.current_artifact(state, self.case, 'A2')['sections'], sections)
+        self.result('A3', {'sections': [{'id': 'SEC1', 'prose': 'Trial after measuring (C1).',
+                                       'claim_ids': ['C1']}]})
+        self.assertEqual(engine.complete('alpha-run', 'A3', self.root)['status'], 'passed')
+
     def test_blank_composition_rejected_with_section_locator(self):
         for prose in ('   ', '\t', '\r\n', '\u00a0'):
             with self.subTest(prose=repr(prose)):
