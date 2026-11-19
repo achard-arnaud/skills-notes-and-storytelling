@@ -4,7 +4,7 @@ import copy
 import json
 import re
 import unittest
-from functools import lru_cache
+from tempfile import TemporaryDirectory
 from unittest.mock import patch
 from pathlib import Path
 
@@ -17,7 +17,6 @@ def object_sha(kind, content):
     return hashlib.sha1(kind.encode() + b' ' + str(len(content)).encode() + b'\0' + content).hexdigest()
 
 
-@lru_cache(maxsize=None)
 def blob_sha(path):
     content = (ROOT / path).read_bytes()
     return hashlib.sha1(b'blob ' + str(len(content)).encode() + b'\0' + content).hexdigest()
@@ -34,7 +33,6 @@ def expected_units(data):
     return units
 
 
-@lru_cache(maxsize=None)
 def text_lines(path):
     return (ROOT / path).read_text().splitlines()
 
@@ -229,6 +227,39 @@ class RetirementInventoryTests(unittest.TestCase):
         with patch(__name__ + '.blob_sha', side_effect=lambda p: '0' * 40 if p == changed else original(p)):
             self.assertIn(changed, stale_for_switch(self.data, row))
             self.assertEqual(validate_inventory(self.data), [])
+
+    def test_real_edit_refreshes_pin_checks_in_the_same_process(self):
+        with TemporaryDirectory() as directory, patch(__name__ + '.ROOT', Path(directory)):
+            # Unique relative paths keep the regression independent of other cases.
+            source = Path(directory).name + '-source.txt'
+            other = Path(directory).name + '-other.txt'
+            (ROOT / source).write_text('pin=old\n')
+            (ROOT / other).write_text('stable\n')
+            data = {'base_files': {path: {'sha': blob_sha(path)} for path in (source, other)}}
+
+            def row(path):
+                return {'path': path, 'source': {'path': path}, 'destination': {'path': path},
+                        'local_references': [], 'known_pins': []}
+
+            old_pin = {'path': source, 'line': 1, 'value': 'old', 'witness': 'pin=old'}
+            self.assertEqual(stale_for_switch(data, row(source)), [])
+            self.assertTrue(pin_locator_valid(old_pin, data['base_files']))
+            (ROOT / source).write_text('pin=new\n')
+            refreshed = {'sha': object_sha('blob', b'pin=new\n')}
+            with self.subTest(check='text freshness'):
+                self.assertEqual(text_lines(source), ['pin=new'])
+            with self.subTest(check='switch freshness'):
+                self.assertEqual(stale_for_switch(data, row(source)), [source])
+            with self.subTest(check='new pin at refreshed base'):
+                self.assertTrue(pin_locator_valid(dict(old_pin, value='new', witness='pin=new'),
+                                                  {source: refreshed}))
+                self.assertFalse(pin_locator_valid(old_pin, {source: refreshed}))
+            self.assertEqual(stale_for_switch(data, row(other)), [])
+            (ROOT / source).unlink()
+            with self.subTest(check='removed file'):
+                self.assertEqual(stale_for_switch(data, row(source)), [source])
+            (ROOT / source).write_text('pin=old\n')
+            self.assertEqual(stale_for_switch(data, row(source)), [])
 
     def test_omitted_unit_is_rejected(self):
         self.data['entries'].pop()
