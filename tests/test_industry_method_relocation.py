@@ -47,5 +47,7 @@ class IndustryRelocationTests(unittest.TestCase):
             if item['path'] == MANIFEST.relative_to(ROOT).as_posix():
                 old['methods'].pop('business.industry-and-operations')
                 current['methods'].pop('business.industry-and-operations')
+                old['methods'].pop('business.market-and-competition')
+                self.assertEqual(current['methods'].pop('business.market-and-competition'), 'skills/business-analysis/references/market-and-competition.md')
                 old.pop('version'); current.pop('version')
             self.assertEqual(old, current)

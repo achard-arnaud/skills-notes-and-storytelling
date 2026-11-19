@@ -1,10 +1,10 @@
 {
   "domain": "business",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "methods": {
     "business.contracts-and-performance": "skills/business-analysis/references/contracts-and-performance.md",
     "business.industry-and-operations": "skills/business-analysis/references/industry-and-operations.md",
-    "business.market-and-competition": "diagnostic-complet/skills/analyzing-market-and-competition/SKILL.md",
+    "business.market-and-competition": "skills/business-analysis/references/market-and-competition.md",
     "business.corporate-functions": "diagnostic-complet/skills/analyzing-corporate-functions/SKILL.md",
     "business.economics-and-financing": "diagnostic-complet/skills/analyzing-economics-and-financing/SKILL.md",
     "business.governance-and-control": "diagnostic-complet/skills/analyzing-governance-and-control/SKILL.md",
