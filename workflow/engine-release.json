@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "source": "skills-notes-and-storytelling; source and installed package share these exact files",
   "files": {
-    "scripts/case_runtime.py": "cba814cdbd003525c05e96bc94ce79bce8a8877c99ead8d755f9126c9138707d",
+    "scripts/case_runtime.py": "f8a85d2b4229d4d06bdaecc60dbbe32c2dc7e6697e521fdc8e2cee647715ea93",
     "scripts/technical_decision.py": "8a01014dcbab5e31f14da4c2bf5dec22d0a1b0ecd7fc149eedbaef35bb7bbab3",
     "contracts/case-artifacts.schema.json": "313962789bd8e254b03ffd525f034fe5cee4999ba01ba0b34dfa7a72852239f7",
     "contracts/case-process.schema.json": "a960e2efe6d7892d2a1c228bde2206e4963862b6e67b3d89c1629d2d37285099",
