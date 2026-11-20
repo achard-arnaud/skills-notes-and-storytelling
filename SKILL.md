@@ -57,6 +57,7 @@ When the requested support is governed by the catalogue, select exactly one prim
 
 For a business-first two-pager, read [the business contract](references/business-two-pager.md) before drafting and [the rendering contract](references/two-pager-rendering.md) when a visual artifact is requested. This template starts with company and business description; target/person fit is opt-in.
 - `BENCHMARKING`
+- `STRATEGIC_MARKET_NOTE` — [business format for a market or transformation decision](templates/strategic-market-note.md); candidate, with human approval required for validation.
 - `BUY_SIDE_GAP_ANALYSIS`
 - `DIAGNOSTIC_RECO_SELL_SIDE`
 - `OPPORTUNITY_NOTE_ICP`
