@@ -64,6 +64,8 @@ Le moteur vérifie les étapes, les références et les empreintes ; l’agent r
 - La réussite mécanique d’A4, la vérification d’un PDF et l’approbation humaine sont trois actes distincts.
 - La [liste des profils exécutables](workflow/case-process.json) fait foi pour le rendu via moteur. Les formats peuvent disposer de renderers séparés, dont le [rendu pédagogique](renderers/pedagogical/). Le contrat [DOCX](contracts/docx-runtime-interface.schema.json) et la [checklist](tests/QA_CHECKLIST.md) s’appliquent aux documents Word.
 
+Le parcours court réutilise directement les skills Produit et Business. Le suivi du hand-off figé et de sa preuve de rendu reste dans [#318](../../issues/318) ; la proposition [#323](../../pull/323) est facultative. Un plan ou un paquet de preuves ne garantit pas à lui seul qu’un PDF a été rendu ni vérifié.
+
 ## Contribuer au produit
 
 Le [PRD #258](docs/specifications/PRD-258-selecteur-narratif.md) est la source des exigences. L’[index d’architecture](docs/architecture/) explique les décisions. Le [mapping opérationnel](references/s3-operations.md) relie skills, agents, artefacts, statuts et boucles ; l’[audit de raccord](docs/planning/AUDIT-258-S3.md) distingue livraison technique, intégration restante et recette humaine.
