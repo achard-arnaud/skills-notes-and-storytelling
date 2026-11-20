@@ -19,7 +19,7 @@ Declare one primary spine before drafting:
 
 Do not infer company truth from a job advertisement, seller truth from a customer case, or business performance from a strategy statement.
 
-## Page 1 - Company, business and strategic signals
+## Page 1 - Business mix, model and strategic signals
 
 Lead with a descriptive thesis, not a recommendation about a candidate or employer. Select applicable modules; omit unavailable or immaterial information and label unknowns instead of filling gaps.
 
@@ -34,11 +34,11 @@ Create a compact signalétique from verifiable sources:
 
 Do not force a metric set that does not fit the company. Do not present estimates as reported data.
 
-### 2. Positioning and value creation
+### 2. Business mix, positioning and value creation
 
-Describe markets served, customer segments and geography; products, services, use cases and revenue logic; distribution, delivery and operating model; value chain, key capabilities, partners and dependencies; and customer, revenue or mission mix where the sources support a meaningful split.
+Describe the company's business mix before interpreting it: markets and geographies; customer segments; product/service lines; commercial and delivery models; customer, revenue or mission mix when the sources support a meaningful split. State the reporting period, denominator and source for every share. Keep company-level totals separate from group figures.
 
-Explain the mechanism: customer need -> offer/capability -> delivery -> value captured. A list of sectors or products is not a business model.
+Then explain the mechanism: customer need -> offer/capability -> delivery -> value captured. Identify two to five business value drivers and their economic mechanism. A list of sectors or products is not a business model. If the mix is not disclosed, say so; do not infer revenue mix from the service catalogue.
 
 ### 3. Organization or product-structure visual
 
@@ -60,13 +60,15 @@ Use evidence-backed SWOT only when it adds explanatory value. Strengths and weak
 
 Then translate the material intersections into TOWS options: SO, ST, WO and WT. Each option is a conditional strategic path or question, not an unsupported recommendation. Rank only where evidence supports the priority; otherwise show the critical trade-off and unknown.
 
-## Page 2 - Strategy, products and execution
+## Page 2 - Execution, value chain and competitive position
 
-### 1. Strategy and execution
+### 1. Strategy, value chain and execution
 
-Show the stated strategic intent, the capabilities and investments required, operating changes, owners/timing where sourced, and observed progress. Separate announced ambition; funded or resourced initiative; execution evidence; measured outcome; and unresolved dependency or execution gap.
+Show stated strategic intent and observed execution separately. Map the material value-chain activities, handoffs, constraints or value transfers that explain how the business works. Connect strategy to capabilities, investment, owners/timing where sourced, operating change and observed progress. Separate announced ambition; funded or resourced initiative; delivered work; measured outcome; and unresolved dependency.
 
-Use one mechanism chain where it clarifies how strategy becomes operating results. The diagram must distinguish current state from target state and hypothesis.
+When the question includes a transformation or initiative backlog, compress it to three to five material initiatives. Each item states the business problem, value mechanism, evidence/status, baseline or KPI, owner/decision right if known, key dependencies and the first proof gate. Do not manufacture an owner, baseline, ROI or delivery status. For a descriptive company overview without a backlog question, do not force an initiative list.
+
+Use one mechanism chain where it clarifies how strategy becomes operating results. Distinguish current state, target state and hypothesis.
 
 ### 2. Products and use cases
 
@@ -78,9 +80,11 @@ Compare only relevant alternatives at a common level: direct competitors, substi
 
 Describe the potential moat as an evidenced mechanism, such as switching costs, proprietary distribution/data, scale economics, regulatory position, network effects, trust, specialized operating know-how or ecosystem control. Separate a claimed moat from demonstrated durability. Note erosion paths and counterevidence. Do not assign a moat score without a defined basis.
 
-### 4. Takeaways
+### 4. Competitive insights and takeaways
 
-End with three to five ranked business takeaways that synthesize the pages. If a decision was requested, state the decision implication, conditions, proof needed and smallest reversible next step. Otherwise end with the central strategic tension and the evidence that would resolve it. Do not append a candidate recommendation by default.
+Compare relevant alternatives at a common level and normalize segment, geography, scope, contract model and evidence. Distinguish observed peers from comparison archetypes; label an archetype-only comparison as a hypothesis, not a benchmark. Describe moat mechanisms and erosion paths without scoring durability absent evidence.
+
+End with three to five ranked business takeaways that synthesize the pages. If a decision was requested, state the implication, conditions, proof needed and smallest reversible next step. Otherwise end with the central strategic tension and the evidence that would resolve it. Candidate fit, recruiting rationale and named-candidate positioning are outside the business-analysis spine; include them only in a separately requested application/fit variant.
 
 ## Business-specific quality gates
 
