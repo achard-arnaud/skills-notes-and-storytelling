@@ -159,6 +159,40 @@ class CaseNarrativeTest(unittest.TestCase):
         self.assertEqual(preview['packet']['claims']['C-DATA']['statement'], 'Dataset now covers two sites')
         self.assertEqual(engine.inspect('separate', self.root), independent)
 
+    def prepare_two_section_composition(self, case='test-case', *, narrative=True):
+        self.through_a1(case)
+        request = sample()
+        request['sections'].append({'id': 'limits', 'action_title': 'Clarify coverage',
+                                    'claim_ids': ['C-DATA']})
+        if narrative:
+            ctx, ref, preview = self.prepare_a2(request, case)
+            scaffold = {**preview['scaffold'], 'narrative_ref': ref}
+        else:
+            ctx = self.begin('A2', case)
+            scaffold = {'decision': request['conclusion'], 'strongest_objection': request['objection'],
+                        'falsifier': request['falsifier'], 'sections': request['sections']}
+        self.submit(ctx, scaffold)
+        self.complete('A2', case)
+        return [{'id': section['id'], 'claim_ids': section['claim_ids'],
+                 'prose': 'Synthetic composition.'} for section in scaffold['sections']]
+
+    def test_narrative_composition_preserves_scaffold_order(self):
+        sections = self.prepare_two_section_composition()
+        ctx = self.begin('A3')
+        self.submit(ctx, {'sections': list(reversed(sections))})
+        with self.assertRaisesRegex(ValueError, r'Composition/scaffold section order mismatch at position 1'):
+            self.complete('A3')
+        self.submit(ctx, {'sections': sections})
+        self.assertEqual(self.complete('A3')['status'], 'passed')
+
+    def test_legacy_composition_still_accepts_reordered_sections(self):
+        intake = {k: v for k, v in self.intake.items() if k != 'narrative_profile'}
+        engine.init('legacy', intake, self.root)
+        sections = self.prepare_two_section_composition('legacy', narrative=False)
+        ctx = self.begin('A3', 'legacy')
+        self.submit(ctx, {'sections': list(reversed(sections))})
+        self.assertEqual(self.complete('A3', 'legacy')['status'], 'passed')
+
     def test_unknown_profile_and_foreign_attempt_ref(self):
         with self.assertRaisesRegex(ValueError, 'Unknown narrative profile'):
             engine.init('bad-case', {**self.intake, 'narrative_profile': 'typo'}, self.root)

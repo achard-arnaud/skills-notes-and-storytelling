@@ -410,8 +410,16 @@ def semantic(artifact, state, case, root=ROOT):
                 raise ValueError('Section references unresolved claim')
         if kind == 'composition':
             scaffold = unique(current_artifact(state, case, 'A2')['sections'])
-            if set(scaffold) != {s['id'] for s in artifact['sections']}:
+            composition_ids = [section['id'] for section in artifact['sections']]
+            if set(scaffold) != set(composition_ids):
                 raise ValueError('Composition/scaffold section mismatch')
+            if 'narrative_profile' in state['intake']:
+                for position, (expected, actual) in enumerate(zip(scaffold, composition_ids), 1):
+                    if expected != actual:
+                        raise ValueError(
+                            f'Composition/scaffold section order mismatch at position {position}: '
+                            f'expected {expected}, got {actual}; revise A2 to change the order'
+                        )
             for section in artifact['sections']:
                 if not section['prose'].strip():
                     raise ValueError(f"Composition section {section['id']} prose must contain non-whitespace text")
