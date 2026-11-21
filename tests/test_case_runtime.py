@@ -80,6 +80,12 @@ class CaseRuntimeTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'dependency'):
             engine.begin('alpha-run', 'A3', 'test', self.root)
 
+    def test_init_refuses_blank_entity_before_creating_case(self):
+        case_id = 'unscoped-case'
+        with self.assertRaisesRegex(ValueError, 'entity_id must contain non-whitespace text'):
+            engine.init(case_id, {**self.intake, 'entity_id': ' \t\u00a0'}, self.root)
+        self.assertFalse(engine.case_path(case_id, self.root).exists())
+
     def configure_adapter(self, args):
         manifest = engine.load(self.root / 'workflow/case-process.json')
         profile = manifest['templates']['synthetic']

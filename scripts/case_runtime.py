@@ -185,6 +185,8 @@ def init(case_id, intake, root=ROOT):
     check_contracts(root)
     spec = process(root)
     schema_check(intake, 'intake', root)
+    if not intake['entity_id'].strip():
+        raise ValueError('Intake entity_id must contain non-whitespace text; case not created')
     template = intake['template_id']
     if template not in spec['templates']:
         raise ValueError('Unknown template; no silent fallback')
