@@ -117,9 +117,11 @@ def make_plan(repo, mandate):
         shape(q, ("id", "domain", "method", "reason"), label="question")
         key, domain, method = (nonblank(q[k], k) for k in ("id", "domain", "method"))
         nonblank(q["reason"], "route reason")
-        if key in owners:
+        # Compare only identities here; keep the raw ID for plans and receipts.
+        identity = key.strip()
+        if identity in owners:
             raise ValueError("duplicate question: " + key)
-        owners.add(key)
+        owners.add(identity)
         if domain not in manifests:
             raise ValueError("unknown domain: " + domain)
         if domain not in domains:

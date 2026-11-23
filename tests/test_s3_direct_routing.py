@@ -96,6 +96,25 @@ class DirectRoutingTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "duplicate question"):
             self.plan()
 
+    def test_rejects_duplicate_question_owners_with_boundary_whitespace(self):
+        owner_id = self.mandate["questions"][0]["id"]
+        for padded in (f" {owner_id} ", owner_id + "\t"):
+            with self.subTest(padded=padded):
+                self.mandate["questions"][1]["id"] = padded
+                with self.assertRaisesRegex(ValueError, "duplicate question"):
+                    self.plan()
+
+    def test_valid_question_ids_are_preserved_in_plan_and_receipt(self):
+        ids = [" offer_and_adoption ", "Offer_and_adoption"]
+        for question, raw_id in zip(self.mandate["questions"], ids):
+            question["id"] = raw_id
+        plan = self.plan()
+        self.assertEqual([route["id"] for route in plan["routes"]], ids)
+        receipt = self.receipt(plan)
+        check = self.routing.verify_receipt(ROOT, plan, receipt)
+        self.assertEqual(check["plan_sha256"], receipt["plan_sha256"])
+        self.assertEqual(check["manual_declarations"], 2)
+
     def test_rejects_other_domain_method_and_context_as_external_evidence(self):
         self.mandate["questions"][0]["method"] = "business.economics-and-financing"
         with self.assertRaisesRegex(ValueError, "method"):
