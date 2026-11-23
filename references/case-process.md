@@ -1,6 +1,8 @@
 # Cas isolés et appels contrôlés
 
-Pour une nouvelle instance, utiliser le moteur du projet :
+Pour une nouvelle instance S3, fixer d’abord le [plan de routage](s3-operations.md#point-de-routage-obligatoire) et le conserver dans le dossier privé du cas. À ce stade, le moteur valide le contrat d’intake existant et les étapes. La validation mécanique du plan de domaine est suivie dans [#378](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/378).
+
+Démarrer le moteur du projet :
 
 ```bash
 python scripts/case_runtime.py check

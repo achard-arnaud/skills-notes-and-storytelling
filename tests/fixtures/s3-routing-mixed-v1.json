@@ -1,0 +1,66 @@
+{
+  "version": "1.0.0",
+  "purpose": "Synthetic input and evaluation oracle for S3 routing and receipt acceptance",
+  "input": {
+    "objective": "Décris l’offre du service fictif Atlas et qualifie sa preuve d’adoption, puis explique le financement de l’organisme fictif Horizon qui le porte.",
+    "audience": "Lecteur découvrant l’offre",
+    "requested_output": "Note courte",
+    "subject": {
+      "product": "Atlas",
+      "organization": "Horizon"
+    },
+    "method_repository": "skills-notes-and-storytelling",
+    "operator_context": {
+      "locator": "synthetic:operator-context",
+      "allowed_role": "Routing and evaluation only"
+    },
+    "sources": [
+      {
+        "locator": "synthetic:landing#capabilities",
+        "excerpt": "Horizon annonce une fonction de recherche dans Atlas."
+      },
+      {
+        "locator": "synthetic:roadmap#adoption",
+        "excerpt": "Horizon vise cinquante organisations actives. Aucune population éligible, période ni définition d’activité n’est donnée."
+      },
+      {
+        "locator": "synthetic:announcement#funding",
+        "excerpt": "Horizon annonce un engagement futur d’un bailleur. Les conditions et le versement restent inconnus."
+      }
+    ]
+  },
+  "oracle": {
+    "mode": "direct",
+    "primary_domain": "product",
+    "secondary_domains": ["business"],
+    "excluded_domains": ["technical", "pedagogy", "regulatory"],
+    "question_owners": {
+      "offer_and_adoption": "product",
+      "organizational_funding": "business"
+    },
+    "claim_expectations": [
+      "The capability remains attributed to Horizon.",
+      "The adoption target is attributed, with measured adoption unknown.",
+      "The funding announcement is attributed, with disbursement unknown.",
+      "Any added inference retains that status and points to its inputs."
+    ],
+    "rejections": [
+      "Treat the method repository as the product.",
+      "Use operator context as evidence about the subject.",
+      "Report automatic dispatch without an attributable event.",
+      "Validate a receipt at a different revision from the plan.",
+      "Report completed A0–A4 stages for this direct input."
+    ]
+  },
+  "variants": [
+    {
+      "objective": "Évalue la viabilité du financement de l’organisme Horizon, puis situe l’adoption du service Atlas.",
+      "expected_primary_domain": "business",
+      "expected_secondary_domains": ["product"]
+    },
+    {
+      "objective": "Prépare une étude approfondie de l’offre Atlas et du financement Horizon, avec lots de collecte, audit des claims et reprise à froid.",
+      "expected_mode": "complete"
+    }
+  ]
+}
