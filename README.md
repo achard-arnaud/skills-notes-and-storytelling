@@ -6,8 +6,8 @@ Transformez une question et des preuves en un support adapté à la décision ou
 
 | Besoin | Point de départ | Résultat |
 | --- | --- | --- |
-| **Format court et ciblé** | Appeler directement une skill S3. Donner la question, le lecteur, les preuves disponibles et l’usage du support. Choisir ensuite le format avec la skill. | Une note, une comparaison, un exercice ou une fiche avec ses sources et ses limites. Aucun dossier A0–A4 à initialiser. |
-| **Histoire, rapport ou mémo approfondi** | Écrire le brief : décision ou objectif, entité, périmètre, lecteur, sources autorisées, date de référence, budget de recherche, format et revue attendue. Puis ouvrir un cas A0–A4. | Une étude multi-échelle, une chaîne de preuves consultable, un récit relu et une reprise après correction. |
+| **Format court et ciblé** | Donner la question, le lecteur, les preuves et l’usage au [point de routage S3](references/s3-operations.md#point-de-routage-obligatoire). Le domaine retenu choisit ensuite la méthode et le format. | Une note, une comparaison, un exercice ou une fiche avec sources, limites et reçu direct. Aucun dossier A0–A4 à initialiser. |
+| **Histoire, rapport ou mémo approfondi** | Écrire le brief : décision ou objectif, entité, périmètre, lecteur, sources autorisées, date de référence, budget de recherche, format et revue attendue. Faire valider le plan de routage, puis ouvrir un cas A0–A4. | Une étude multi-échelle, une chaîne de preuves consultable, un récit relu et une reprise après correction. |
 
 Quand le brief reste flou, résoudre d’abord la question qui change le parcours ou l’analyse. Un support Word ou PDF suit ses propres contrôles. La longueur du support, la profondeur de l’étude et la disponibilité d’un renderer sont trois décisions distinctes.
 
@@ -64,7 +64,7 @@ Le moteur vérifie les étapes, les références et les empreintes ; l’agent r
 - La réussite mécanique d’A4, la vérification d’un PDF et l’approbation humaine sont trois actes distincts.
 - La [liste des profils exécutables](workflow/case-process.json) fait foi pour le rendu via moteur. Les formats peuvent disposer de renderers séparés, dont le [rendu pédagogique](renderers/pedagogical/). Le contrat [DOCX](contracts/docx-runtime-interface.schema.json) et la [checklist](tests/QA_CHECKLIST.md) s’appliquent aux documents Word.
 
-Le parcours court réutilise directement les skills Produit et Business. Le suivi du hand-off figé et de sa preuve de rendu reste dans [#318](../../issues/318) ; la proposition [#323](../../pull/323) est facultative. Un plan ou un paquet de preuves ne garantit pas à lui seul qu’un PDF a été rendu ni vérifié.
+Le reçu direct indique les méthodes effectivement chargées et le mode d’exécution observé. La disponibilité d’une skill et la validation d’une étape A0–A4 sont documentées séparément. Le suivi du hand-off figé et de sa preuve de rendu reste dans [#318](../../issues/318) ; la proposition [#323](../../pull/323) est facultative. Un plan ou un paquet de preuves ne garantit pas à lui seul qu’un PDF a été rendu ni vérifié.
 
 ## Contribuer au produit
 

@@ -12,6 +12,8 @@ Conserver le moteur de cas et les mécanismes d’analyse, d’invalidation, de 
 
 ## Séparation RUN et BUILD
 
+Le [point de routage obligatoire](ADR-1001-routing-capabilities.md) applique ces frontières aux nouvelles entrées S3.
+
 Le RUN de production épingle le BUILD publié, ses méthodes sélectionnées et ses contrats. Il garde ses sources, budgets, états, reçus et livrables dans son dossier privé sous `data/cases/`. GreenYellow R2 continue sur sa route et dans son espace historique jusqu’à une reprise contrôlée. La recette candidate utilise un cas synthétique distinct. Le BUILD part de `dev`, utilise des fixtures synthétiques et versionne seulement les méthodes, contrats, code et validations. Un défaut observé en RUN ouvre un écart BUILD borné, avec preuve expurgée.
 
 Le dépôt Candidatures-nice fournit le précédent utile : un RUN épinglé et un BUILD séparé, la validation des transitions et la capacité de rendu déclarée par template. Le présent moteur et ses artefacts restent l’autorité. [ADR RUN/BUILD de Candidatures-nice au SHA consulté](https://github.com/achard-arnaud/Candidatures-nice/blob/caf129b7c0037bf0a21562585fb5dae290632153/docs/ADR-007-RUN-BUILD.md)

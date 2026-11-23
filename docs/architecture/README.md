@@ -6,7 +6,7 @@ Lire cet index, puis uniquement l’ADR utile à la tâche. Les manifests, sché
 
 | Besoin | Décision |
 |---|---|
-| Routage et capacités d’analyse | [ADR-1001](ADR-1001-routing-capabilities.md) |
+| Route obligatoire S3, rôles et preuve d’exécution | [ADR-1001](ADR-1001-routing-capabilities.md) |
 | Connaissance, provenance et cycle de vie | [ADR-1002](ADR-1002-evidence-knowledge.md) |
 | Narration, contrats de contenu et rendu | [ADR-1003](ADR-1003-narrative-artifacts.md) |
 | Séparation RUN/BUILD et contexte portable | [ADR-1004](ADR-1004-run-build-context.md) |

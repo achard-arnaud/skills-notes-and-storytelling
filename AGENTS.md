@@ -55,8 +55,12 @@ Do not infer an old run completed these stages. Keep legacy programme gates and 
 For material incidents call loopback with the hashed proposal; diagnose architecture, bugfix, CI,
 runtime or skill, then apply an authorized BUILD with regression proof and ADR disposition.
 
-## Entrées S3 et documents de décision
+## Routage obligatoire des nouveaux mandats S3
 
-Choisir dès l’entrée : **skill directe** pour un format court et un périmètre borné ; **brief puis A0–A4** pour une étude approfondie ou une recherche multi-source. La skill de domaine possède les constats et aide à choisir le format par lecteur et usage. Le sélecteur narratif reçoit uniquement les claims utiles, avec leurs preuves. A3 reçoit un paquet par section ; A4 retourne les écarts vers leur propriétaire. Voir [cartographie des skills, agents et statuts](references/s3-operations.md).
+Avant toute sélection de méthode, collecte ou délégation, appliquer le [contrat de routage et de reçu](references/s3-operations.md#point-de-routage-obligatoire). Il couvre les appels directs, y compris les invocations explicites d’une skill, et les nouveaux cas A0–A4. Épingler une révision unique du dépôt et résoudre les autorisations de lecture. En l’absence de routeur exécutable sur la surface, le coordinateur applique le contrat et trace le résultat comme routage manuel.
+
+Chaque question a un domaine responsable. Le plan fixe le périmètre du sujet, la profondeur, les participants, leurs entrées autorisées, la sortie attendue et le contrôle de retour. Le coordinateur vérifie le reçu et décide de l’intégration du handoff. La skill de domaine possède les constats. Le sélecteur reçoit les claims utiles et leurs preuves. A3 reçoit un paquet par section et A4 retourne les écarts à leur responsable. Les reprises conservent leurs procédures et pins de référence.
+
+## Documents de décision
 
 Maintenir le PRD canonique dans la [documentation versionnée](docs/specifications/) ou dans le board projet avec une version traçable. Le ticket maître lie cet emplacement et pointe ses dépendances et sa recette. Chaque ADR applicable lie le PRD et le ticket et distingue la décision, la preuve d’implémentation et la validation humaine. Les captures de conversation peuvent éclairer le contexte. Le code, les contrats et la documentation de projet matérialisent les décisions.

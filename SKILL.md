@@ -6,9 +6,12 @@ description: Create or revise evidence-grounded decision notes and long studies.
 # Decision Notes & Storytelling
 
 
-## Start by choosing the depth
+## Route the mandate before work
 
-- **Direct / short:** call the [S3 domain skill](references/domain-analysis.md) that owns the question. Select a format with that skill. Reuse the scoped findings through the [narrative selector](skills/selecting-narrative-schema/SKILL.md) when a decision narrative is needed. Review locally and route each finding to its owner. No case initialization.
+For a new S3 request, apply the [routing and receipt contract](references/s3-operations.md#point-de-routage-obligatoire) before loading methods, collecting sources or delegating. Pin the repository revision, assign one domain owner per question and record the execution mode. Resume existing cases on their recorded pins.
+
+
+- **Direct / short:** apply the [S3 domain skill](references/domain-analysis.md) selected for the question. Select a format with that skill. Reuse the scoped findings through the [narrative selector](skills/selecting-narrative-schema/SKILL.md) when a decision narrative is needed. Review locally and route each finding to its owner. No case initialization.
 - **Complete / long:** capture the mission brief and agree on audience, question, scope, source access, research budget, artifact and stop condition. Use [case I/O and recovery](references/case-process.md) for a new A0–A4 study. Select the narrative profile explicitly to consume A1 claims at A2, request one section at A3, and route findings at A4.
 
 Use the [route and lifecycle map](references/s3-operations.md) for entrypoints, contracts and status ownership. Resume existing work on its pinned route. Separate the technical [decision profile](references/technical-decisions.md) from the format. Human editorial approval follows review.
