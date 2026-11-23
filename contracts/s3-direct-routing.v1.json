@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "method_repository": "skills-notes-and-storytelling",
+  "manifests": {
+    "business": "skills/business-analysis/manifest.json",
+    "product": "skills/product-analysis/manifest.json",
+    "technical": "skills/technical-analysis/manifest.json",
+    "pedagogy": "skills/pedagogical-ai-learning/manifest.json",
+    "regulatory": "skills/regulatory-bootstrap/manifest.json"
+  }
+}

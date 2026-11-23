@@ -26,7 +26,21 @@ Un contrôle mécanique valide les éléments qu’il peut inspecter. Les lectur
 
 [Le jeu de données et l’oracle synthétiques](../tests/fixtures/s3-routing-mixed-v1.json) préparent la recette sans source privée. Exécuter l’entrée seule, puis comparer avec l’oracle. Le mandat centré sur l’offre attend Produit → Business. Le mandat centré sur la viabilité du financement inverse l’ordre. Une demande d’étude complète oriente vers le brief A0–A4.
 
-[#378](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/378) porte le validateur et les cas négatifs du reçu. [#377](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/377) porte la recette des méthodes. [#297](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/297) porte la recette d’étude complète.
+### Vérification locale des appels directs
+
+Le [contrat v1](../contracts/s3-direct-routing.v1.json) relie les cinq domaines à leurs manifestes. Le [vérificateur](../scripts/s3_direct_routing.py) contrôle les fichiers déjà présents dans Git au commit exact et épingle le manifeste et la référence de méthode de chaque question. Il prend une décision de routage déjà normalisée par le coordinateur ; il ne classe pas le texte libre, n'ouvre pas les sources et n'appelle aucun agent.
+
+```sh
+python scripts/s3_direct_routing.py plan mandate.json > plan.json
+python scripts/s3_direct_routing.py fingerprint plan.json
+python scripts/s3_direct_routing.py verify plan.json receipt.json
+```
+
+- **Mandat** : `revision` (SHA complet connu du Git local), `subject` (au moins un de `product`, `organization` ou `topic`), `mode` (`direct` ou `complete`), `objective`, `audience`, `stop_condition`, `questions` ordonnées (`id`, `domain`, `method`, `reason`), `sources` et `operator_context` (listes de locators disjointes), `availability` par domaine (`manual`, `native`, `unavailable`). Un domaine non renseigné est indisponible. La première question fixe le domaine principal. `clarification` indique l'arbitrage bloquant ; `handoff_complete` transmet au parcours complet sans exécuter A0–A4.
+- **Reçu direct** : `revision`, `plan_sha256`, `interventions` dans l'ordre du plan. Une ligne contient `question`, `method` et `status`. `manual_declared` et `invocation_observed` demandent aussi `actor`, `output` (locator) et `sources` (sous-ensemble des locators autorisés). `planned`, `unavailable` ou `not_executed` demandent une `reason` et n'attestent aucune sortie. L'empreinte du plan est celle de son JSON canonique : clés triées récursivement, sans espaces ajoutés, Unicode UTF-8, SHA-256.
+- Pour `invocation_observed`, fournir `event_id` et charger avec `verify ... --events events.json` des enregistrements **issus de la surface d'exécution**, séparés du reçu, avec `event_id`, `question`, `method`, `actor`, `output`, `revision` et `plan_sha256`. Le vérificateur compare les champs, ne garantit pas l'origine des enregistrements et ne certifie pas le fond des sorties. Sans preuve attribuable, garder le statut manuel ou non exécuté.
+
+[#378](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/378) suit la validation du direct et les tranches d'adoption restantes. [#377](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/377) porte la recette des méthodes. [#297](https://github.com/achard-arnaud/skills-notes-and-storytelling/issues/297) porte la recette d’étude complète.
 
 ## Domaines, profondeur et exécution
 
