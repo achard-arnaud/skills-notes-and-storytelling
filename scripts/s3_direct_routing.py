@@ -10,7 +10,7 @@ from pathlib import Path, PurePosixPath
 
 
 ROOT = Path(__file__).resolve().parents[1]
-REGISTRY = ROOT / "contracts/s3-direct-routing.v1.json"
+REGISTRY_PATH = "contracts/s3-direct-routing.v1.json"
 CAPABILITIES = {"manual", "native", "unavailable"}
 INACTIVE = {"planned", "unavailable", "not_executed"}
 
@@ -62,7 +62,7 @@ def pinned_file(repo, revision, path):
     return data, {"path": path, "sha256": hashlib.sha256(data).hexdigest()}
 
 
-def read_json(path):
+def parse_json(data):
     def no_duplicates(pairs):
         result = {}
         for key, value in pairs:
@@ -71,7 +71,11 @@ def read_json(path):
             result[key] = value
         return result
 
-    return json.loads(Path(path).read_text(encoding="utf-8"), object_pairs_hook=no_duplicates)
+    return json.loads(data, object_pairs_hook=no_duplicates)
+
+
+def read_json(path):
+    return parse_json(Path(path).read_text(encoding="utf-8"))
 
 
 def make_plan(repo, mandate):
@@ -95,7 +99,11 @@ def make_plan(repo, mandate):
     context = unique_texts(mandate["operator_context"], "operator context")
     if sources & context:
         raise ValueError("operator context cannot be an external source")
-    registry = read_json(REGISTRY)
+    try:
+        registry_blob, _ = pinned_file(repo, rev, REGISTRY_PATH)
+    except ValueError as error:
+        raise ValueError("routing registry unavailable at mandate revision") from error
+    registry = parse_json(registry_blob)
     if any(value.strip().casefold() == registry["method_repository"].casefold()
            for value in mandate["subject"].values()):
         raise ValueError("subject must be distinct from the method repository")

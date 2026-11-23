@@ -174,6 +174,64 @@ class DirectRoutingTests(unittest.TestCase):
         self.assertEqual(result["event_records_matched"], 1)
         self.assertEqual(result["manual_declarations"], 1)
 
+    def test_registry_comes_from_the_mandate_revision_not_either_checkout(self):
+        with tempfile.TemporaryDirectory() as directory:
+            repo = Path(directory)
+
+            def git(*args):
+                return subprocess.check_output(
+                    ["git", "-C", str(repo), "-c", "user.name=Fixture",
+                     "-c", "user.email=fixture@example.invalid", *args], text=True
+                ).strip()
+
+            git("init", "-q")
+            paths = ("skills/product-analysis/manifest.json",
+                     "diagnostic-complet/workflows/analysis-methods.v1.json",
+                     "skills/business-analysis/manifest.json",
+                     "skills/business-analysis/references/economics-and-financing.md")
+            for name in paths:
+                dest = repo / name
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                dest.write_bytes((ROOT / name).read_bytes())
+            git("add", ".")
+            git("commit", "-qm", "Methods only")
+            no_registry = git("rev-parse", "HEAD")
+
+            name = "contracts/s3-direct-routing.v1.json"
+            registry = json.loads((ROOT / name).read_bytes())
+            registry["version"] = "1.0.31"
+            path = repo / name
+            path.parent.mkdir()
+            path.write_text(json.dumps(registry), encoding="utf-8")
+            git("add", name)
+            git("commit", "-qm", "Pinned registry")
+            pinned = git("rev-parse", "HEAD")
+
+            # Neither a newer checkout nor an uncommitted file is the mandate's authority.
+            path.write_text(json.dumps({**registry, "version": "1.0.99"}), encoding="utf-8")
+            git("add", name)
+            git("commit", "-qm", "Different registry")
+            path.write_text("{}", encoding="utf-8")
+            self.mandate["revision"] = self.revision = pinned
+            plan = self.routing.make_plan(repo, self.mandate)
+            with self.subTest("pinned version and receipt"):
+                self.assertEqual(plan["version"], "1.0.31")
+                self.assertEqual(plan["registry_sha256"], self.routing.digest(registry))
+                self.assertEqual(self.routing.verify_receipt(repo, plan, self.receipt(plan))["status"],
+                                 "receipt_checked")
+            with self.subTest("missing registry"):
+                self.mandate["revision"] = no_registry
+                with self.assertRaisesRegex(ValueError, "routing registry.*revision"):
+                    self.routing.make_plan(repo, self.mandate)
+
+            with self.subTest("duplicate registry keys"):
+                path.write_text('{"version": "1.0.31", ' + json.dumps(registry)[1:], encoding="utf-8")
+                git("add", name)
+                git("commit", "-qm", "Duplicate registry key")
+                self.mandate["revision"] = git("rev-parse", "HEAD")
+                with self.assertRaisesRegex(ValueError, "duplicate JSON key: version"):
+                    self.routing.make_plan(repo, self.mandate)
+
     def test_cli_builds_plan_and_validates_receipt(self):
         with tempfile.TemporaryDirectory() as directory:
             folder = Path(directory)
