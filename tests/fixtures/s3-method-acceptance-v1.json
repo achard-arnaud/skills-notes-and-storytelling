@@ -1,0 +1,86 @@
+{
+  "version": "1.0.0",
+  "purpose": "Synthetic mixed method acceptance. Capability and funding rows are a review oracle, not an invocation receipt.",
+  "method_repository": "skills-notes-and-storytelling",
+  "subject": {"offer": "Balise de prêt", "operator": "Association Relais du prêt"},
+  "questions": {
+    "product": {
+      "method": "product.adoption",
+      "reference": "diagnostic-complet/workflows/analysis-methods.v1.json",
+      "question": "Quelles capacités et quel usage de Balise de prêt les pièces établissent-elles, pour quelle population et sur quelle période ?"
+    },
+    "business": {
+      "method": "business.economics-and-financing",
+      "reference": "skills/business-analysis/references/economics-and-financing.md",
+      "question": "Qui porte, déploie et finance Balise de prêt, et quels flux sont effectivement documentés ?"
+    }
+  },
+  "sources": {
+    "announcement": {"domain": "product", "subject": "Balise de prêt", "status": "attributed_claim", "excerpt": "La fiche commerciale annonce un tableau public de disponibilité."},
+    "guide": {"domain": "product", "subject": "Balise de prêt", "status": "supplied_claim", "excerpt": "Le guide utilisateur documente l’export des prêts, sans preuve d’utilisation."},
+    "lab": {"domain": "product", "subject": "Balise de prêt", "status": "supplied_claim", "excerpt": "Le procès-verbal d’essai montre un retour d’objet simulé en bac à sable."},
+    "operations": {"domain": "product", "subject": "Balise de prêt", "status": "supplied_claim", "excerpt": "Un registre de permanence documente un rappel réellement envoyé par une équipe, sans dénominateur."},
+    "target": {"domain": "product", "subject": "Balise de prêt", "status": "attributed_claim", "excerpt": "L’association vise cinquante utilisateurs actifs, sans population éligible, fenêtre ou définition d’activité."},
+    "cohort_register": {"domain": "product", "subject": "Balise de prêt", "status": "supplied_claim", "excerpt": "Le registre fictif recense 25 agents habilités de la cohorte des permanences Nord, semaine 2026-W46. Huit agents distincts ont validé au moins un retour réel pendant cette semaine. L’événement utile est la validation d’un retour ; le seuil attendu est une validation par agent et par semaine."},
+    "funding_statement": {"domain": "business", "subject": "Association Relais du prêt", "status": "attributed_claim", "stage": "promised", "channel": "direct", "amount_eur": 10000, "excerpt": "L’association annonce une promesse de 10 000 EUR de la fondation de quartier."},
+    "signed_agreement": {"domain": "business", "subject": "Association Relais du prêt", "status": "supplied_claim", "stage": "signed", "channel": "direct", "amount_eur": 8000, "excerpt": "La convention contresignée porte sur 8 000 EUR réservés aux permanences de prêt."},
+    "bank_credit": {"domain": "business", "subject": "Association Relais du prêt", "status": "supplied_claim", "stage": "received", "channel": "direct", "amount_eur": 5000, "excerpt": "Le relevé fictif, ligne crédit R17, enregistre un virement rapproché de la convention pour 5 000 EUR, le 12 novembre."},
+    "paid_invoice": {"domain": "business", "subject": "Association Relais du prêt", "status": "supplied_claim", "stage": "spent", "channel": "direct", "amount_eur": 1200, "excerpt": "La facture acquittée, rapprochée du débit R21, établit un paiement de 1 200 EUR pour l’équipement des permanences."},
+    "in_kind_statement": {"domain": "business", "subject": "Association Relais du prêt", "status": "attributed_claim", "stage": "promised", "channel": "indirect", "amount_eur": null, "excerpt": "La mairie annonce un prêt de salle. Ni convention signée, ni mise à disposition effective ni valorisation en espèces ne sont établies."}
+  },
+  "capability_review": [
+    {"capability": "Tableau public", "level": "announced", "source": "announcement", "status": "attributed_claim"},
+    {"capability": "Export des prêts", "level": "documented", "source": "guide", "status": "supplied_claim"},
+    {"capability": "Retour simulé", "level": "tested", "source": "lab", "status": "supplied_claim"},
+    {"capability": "Rappels de prêt", "level": "used_in_organization", "source": "operations", "status": "supplied_claim"},
+    {"capability": "Validation d’un retour réel dans la cohorte suivie", "level": "measured", "source": "cohort_register", "status": "supplied_claim"}
+  ],
+  "adoption": {
+    "target_only": {
+      "source": "target",
+      "evidence": {"target": "L’association vise cinquante utilisateurs actifs."},
+      "eligible": null, "active": null,
+      "context": {"cohort": null, "period": null, "frequency": null},
+      "expected_percentage": null, "measurement_status": "unknown"
+    },
+    "observed": {
+      "source": "cohort_register",
+      "evidence": {
+        "eligible_population": "25 agents habilités dans la cohorte.",
+        "useful_event": "8 agents distincts ont validé au moins un retour réel.",
+        "cohort": "Agents habilités des permanences Nord.",
+        "period": "Semaine 2026-W46.",
+        "expected_frequency": "Au moins une validation de retour par agent et par semaine."
+      },
+      "eligible": 25, "active": 8,
+      "context": {"cohort": "Permanences Nord", "period": "2026-W46", "frequency": "Une validation par semaine"},
+      "expected_percentage": "32.00", "measurement_status": "inference"
+    }
+  },
+  "funding_review": [
+    {
+      "channel": "direct", "funder": "Fondation de quartier",
+      "holder": "Association Relais du prêt", "deployer": "Réseau des permanences Nord",
+      "restrictions": "Dépenses des permanences de prêt uniquement.",
+      "continuity_condition": "Les versements restants et le renouvellement après la convention sont inconnus.",
+      "stages": {
+        "promised": {"amount_eur": 10000, "status": "attributed_claim", "source": "funding_statement"},
+        "signed": {"amount_eur": 8000, "status": "supplied_claim", "source": "signed_agreement"},
+        "received": {"amount_eur": 5000, "status": "supplied_claim", "source": "bank_credit"},
+        "spent": {"amount_eur": 1200, "status": "supplied_claim", "source": "paid_invoice"}
+      }
+    },
+    {
+      "channel": "indirect", "funder": "Mairie fictive",
+      "holder": "Association Relais du prêt", "deployer": "Réseau des permanences Nord",
+      "restrictions": "Salle annoncée, sans transfert monétaire ni estimation de valeur.",
+      "continuity_condition": "Le local sera disponible si la mise à disposition est confirmée.",
+      "stages": {
+        "promised": {"amount_eur": null, "status": "attributed_claim", "source": "in_kind_statement"},
+        "signed": {"amount_eur": null, "status": "unknown", "source": null},
+        "received": {"amount_eur": null, "status": "unknown", "source": null},
+        "spent": {"amount_eur": null, "status": "unknown", "source": null}
+      }
+    }
+  ]
+}
