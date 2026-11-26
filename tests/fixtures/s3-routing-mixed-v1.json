@@ -52,6 +52,64 @@
       "Report completed A0–A4 stages for this direct input."
     ]
   },
+  "evidence_cases": {
+    "observed": {
+      "sources": [
+        {
+          "locator": "synthetic:usage#2026-10",
+          "excerpt": "Le journal du pilote d’octobre indique que 18 des 30 organisations éligibles ont terminé une recherche au moins une fois par semaine en octobre 2026."
+        },
+        {
+          "locator": "synthetic:ledger#transfer-7",
+          "excerpt": "Le relevé de Horizon confirme un crédit de 25 000 EUR le 16 octobre 2026 : un versement reçu, sans preuve de dépense."
+        }
+      ],
+      "expectations": {
+        "offer_and_adoption": {
+          "status": "measured",
+          "source": "synthetic:usage#2026-10",
+          "cohort": "October pilot",
+          "period": "2026-10",
+          "frequency": "at least weekly",
+          "event": "completed a search",
+          "active_organizations": 18,
+          "eligible_organizations": 30
+        },
+        "organizational_funding": {
+          "status": "received",
+          "source": "synthetic:ledger#transfer-7",
+          "beneficiary": "Horizon",
+          "amount_eur": 25000,
+          "received_on": "2026-10-16"
+        }
+      }
+    },
+    "announced": {
+      "sources": [
+        {
+          "locator": "synthetic:roadmap#adoption",
+          "excerpt": "Horizon vise cinquante organisations actives. Aucune population éligible, période ni définition d’activité n’est donnée."
+        },
+        {
+          "locator": "synthetic:announcement#funding",
+          "excerpt": "Horizon annonce un engagement futur d’un bailleur. Les conditions et le versement restent inconnus."
+        }
+      ],
+      "expectations": {
+        "offer_and_adoption": {
+          "status": "attributed_target",
+          "source": "synthetic:roadmap#adoption",
+          "target_organizations": 50,
+          "measured_adoption": null
+        },
+        "organizational_funding": {
+          "status": "attributed_pledge",
+          "source": "synthetic:announcement#funding",
+          "received_amount": null
+        }
+      }
+    }
+  },
   "variants": [
     {
       "objective": "Évalue la viabilité du financement de l’organisme Horizon, puis situe l’adoption du service Atlas.",

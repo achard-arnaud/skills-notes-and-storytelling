@@ -75,6 +75,58 @@ class DirectRoutingTests(unittest.TestCase):
         self.mandate["objective"] = self.fixture["variants"][0]["objective"]
         self.assertEqual(self.plan()["primary_domain"], self.fixture["variants"][0]["expected_primary_domain"])
 
+    def check_example_evidence(self, case_name, outputs):
+        """Apply the fixture oracle to synthetic outputs, separately from receipt validation."""
+        case = self.fixture["evidence_cases"][case_name]
+        self.mandate["sources"] = [source["locator"] for source in case["sources"]]
+        plan = self.plan()
+        receipt = self.receipt(plan)
+        self.assertEqual(
+            {route["id"]: route["domain"] for route in plan["routes"]},
+            self.fixture["oracle"]["question_owners"],
+        )
+        self.assertEqual(set(outputs), set(case["expectations"]))
+        for part in receipt["interventions"]:
+            question = part["question"]
+            observed = outputs[question]
+            part["sources"] = [observed["source"]]
+            self.assertEqual(observed, case["expectations"][question], question)
+        checked = self.routing.verify_receipt(ROOT, plan, receipt)
+        self.assertEqual(checked["manual_declarations"], 2)
+        self.assertEqual(checked["event_records_matched"], 0)
+
+    def test_evidence_oracle_distinguishes_observed_results_from_announcements(self):
+        self.check_example_evidence("observed", {
+            "offer_and_adoption": {
+                "status": "measured", "source": "synthetic:usage#2026-10",
+                "cohort": "October pilot", "period": "2026-10", "frequency": "at least weekly",
+                "event": "completed a search", "active_organizations": 18,
+                "eligible_organizations": 30,
+            },
+            "organizational_funding": {
+                "status": "received", "source": "synthetic:ledger#transfer-7",
+                "beneficiary": "Horizon", "amount_eur": 25000, "received_on": "2026-10-16",
+            },
+        })
+        self.check_example_evidence("announced", {
+            "offer_and_adoption": {
+                "status": "attributed_target", "source": "synthetic:roadmap#adoption",
+                "target_organizations": 50, "measured_adoption": None,
+            },
+            "organizational_funding": {
+                "status": "attributed_pledge", "source": "synthetic:announcement#funding",
+                "received_amount": None,
+            },
+        })
+
+    def test_evidence_oracle_rejects_unknown_even_with_positive_sources(self):
+        observed = self.fixture["evidence_cases"]["observed"]["expectations"]
+        for question in observed:
+            with self.subTest(question=question), self.assertRaisesRegex(AssertionError, question):
+                self.check_example_evidence("observed", {
+                    **observed, question: {**observed[question], "status": "unknown"},
+                })
+
     def test_complete_ambiguity_and_unavailable_are_distinct(self):
         self.mandate["mode"] = self.fixture["variants"][1]["expected_mode"]
         self.assertEqual(self.plan()["status"], "handoff_complete")
