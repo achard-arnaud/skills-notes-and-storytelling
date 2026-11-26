@@ -47,6 +47,26 @@ class ReinforceSkillArtifactTests(unittest.TestCase):
         self.assertTrue(scripts)
         self.assertEqual([s for s in scripts if not (REPO / s).exists()], [])
 
+    def test_documented_repository_paths_resolve_or_are_explicitly_unsupported(self):
+        text = (SKILL_DIR / "SKILL.md").read_text(encoding="utf-8")
+        unresolved = []
+        for line in text.splitlines():
+            references = re.findall(
+                r"`((?:diagnostic-complet|\.claude|\.agents|contracts)/[^`]+)`",
+                line,
+            )
+            for reference in references:
+                if _existing(reference.rstrip("/")):
+                    continue
+                explicitly_unsupported = re.search(
+                    rf"`{re.escape(reference)}`[^`]*(?:absent[^`]*non supporté|non supporté[^`]*absent)",
+                    line,
+                )
+                if explicitly_unsupported:
+                    continue
+                unresolved.append(reference)
+        self.assertEqual(unresolved, [])
+
     def test_skill_no_longer_caps_proposals(self):
         text = (SKILL_DIR / "SKILL.md").read_text(encoding="utf-8")
         self.assertNotIn("au plus trois", text)

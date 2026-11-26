@@ -12,7 +12,7 @@ Contrat : `diagnostic-complet/doc/architecture/ADR-0005-contrat-skill-reinforce.
 
 ## Où et comment l'appeler
 
-Cette skill vit dans le dépôt, à `diagnostic-complet/skills/reinforce-kb-loopback/`. Des copies identiques sont chargées par Claude Code (`.claude/skills/`) et par Codex (`.agents/skills/`). Un test vérifie qu'elles restent identiques. Appelle-la **après un run** : une ingestion (`kb.py`) qui produit un `graph.json`, puis un apport identifié.
+Cette skill vit dans le dépôt, à `diagnostic-complet/operational-skills/reinforce-kb-loopback/`. Le chemin historique `diagnostic-complet/skills/reinforce-kb-loopback/` est absent et non supporté ; ne l'utilise pas. Des copies identiques sont chargées par Claude Code (`.claude/skills/`) et par Codex (`.agents/skills/`). Un test vérifie qu'elles restent identiques. Appelle-la **après un run** : une ingestion (`kb.py`) qui produit un `graph.json`, puis un apport identifié.
 
 ## Entrées à réunir avant de commencer
 
